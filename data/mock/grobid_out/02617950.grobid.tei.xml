@@ -1,0 +1,1082 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Establishing a New State-of-the-Art for French Named Entity Recognition</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Pedro</forename><forename type="middle">Javier</forename><surname>Ortiz Suárez</surname></persName>
+							<affiliation key="aff0">
+								<address>
+									<addrLine>21 rue de l&apos;École de médecine</addrLine>
+									<postCode>75006</postCode>
+									<settlement>Paris</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Yoann</forename><surname>Dupont</surname></persName>
+							<email>yoa.dupont@gmail.com</email>
+							<affiliation key="aff0">
+								<address>
+									<addrLine>21 rue de l&apos;École de médecine</addrLine>
+									<postCode>75006</postCode>
+									<settlement>Paris</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Benjamin</forename><surname>Muller</surname></persName>
+							<email>benjamin.muller@inria.fr</email>
+							<affiliation key="aff0">
+								<address>
+									<addrLine>21 rue de l&apos;École de médecine</addrLine>
+									<postCode>75006</postCode>
+									<settlement>Paris</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+							<affiliation key="aff0">
+								<address>
+									<addrLine>21 rue de l&apos;École de médecine</addrLine>
+									<postCode>75006</postCode>
+									<settlement>Paris</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Benoît</forename><surname>Sagot</surname></persName>
+							<email>benoit.sagot@inria.fr</email>
+							<affiliation key="aff0">
+								<address>
+									<addrLine>21 rue de l&apos;École de médecine</addrLine>
+									<postCode>75006</postCode>
+									<settlement>Paris</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Sorbonne</forename><surname>Université</surname></persName>
+							<affiliation key="aff0">
+								<address>
+									<addrLine>21 rue de l&apos;École de médecine</addrLine>
+									<postCode>75006</postCode>
+									<settlement>Paris</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Simone</forename><surname>Iff</surname></persName>
+							<affiliation key="aff0">
+								<address>
+									<addrLine>21 rue de l&apos;École de médecine</addrLine>
+									<postCode>75006</postCode>
+									<settlement>Paris</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Establishing a New State-of-the-Art for French Named Entity Recognition</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">B265B3E2A90B697E37CB93254DAD80D0</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T14:59+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Named Entity Recognition</term>
+					<term>French</term>
+					<term>Language Modeling</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The French TreeBank developed at the University Paris 7 is the main source of morphosyntactic and syntactic annotations for French. However, it does not include explicit information related to named entities, which are among the most useful information for several natural language processing tasks and applications. Moreover, no large-scale French corpus with named entity annotations contain referential information, which complement the type and the span of each mention with an indication of the entity it refers to. We have manually annotated the French TreeBank with such information, after an automatic pre-annotation step. We sketch the underlying annotation guidelines and we provide a few figures about the resulting annotations.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Named entity recognition (NER) is the widely studied task consisting in identifying text spans that denote named entities such as person, location and organization names, to name the most important types. Such text spans are called named entity mentions. In NER, mentions are generally not only identified, but also classified according to a more or less fine-grained ontology, thereby allowing for instance to distinguish between the telecommunication company Orange and the town Orange in southern France (amongst others). Importantly, it has long been recognised that the type of named entities can be defined in two ways, which underlies the notion of metonymy: the intrinsic type (France is always a location) and the contextual type (in la France a signé un traité 'France signed a treaty', France denotes an organization). NER has been an important task in natural language processing for quite some time.</p><p>It was already the focus of the MUC conferences and associated shared tasks <ref type="bibr" target="#b16">(Marsh and Perzanowski, 1998)</ref>, and later that of the CoNLL 2003 and ACE shared tasks <ref type="bibr" target="#b32">(Tjong Kim Sang and De Meulder, 2003;</ref><ref type="bibr" target="#b7">Doddington et al., 2004)</ref>. Traditionally, as for instance was the case for the MUC shared tasks, only person names, location names, organization names, and sometimes "other proper names" are considered. However, the notion of named entity mention is sometimes extended to cover any text span that does not follow the general grammar of the language at hand, but a type-and often culture-specific grammar, thereby including entities ranging from product and brand names to dates and from URLs to monetary amounts and other types of numbers. As for many other tasks, NER was first addressed using rule-based approaches, followed by statistical and now neural machine learning techniques (see Section 3.1. for a brief discussion on NER approaches). Of course, evaluating NER systems as well as training machine-learningbased NER systems, statistical or neural, require named-entity-annotated corpora. Unfortunately, most named entity annotated French corpora are oral transcripts, and they are not always freely available. The ESTER and ESTER2 corpora (60 plus 150 hours of NER-annotated broadcast transcripts) <ref type="bibr" target="#b9">(Galliano et al., 2009)</ref>, as well as the Quaero <ref type="bibr" target="#b10">(Grouin et al., 2011)</ref> corpus are based on oral transcripts (radio broadcasts). Interestingly, the Quaero corpus relies on an original, very rich and structured definition of the notion of named entity <ref type="bibr" target="#b24">(Rosset et al., 2011)</ref>. It contains both the intrinsic and the contextual types of each mention, whereas the ESTER and ESTER2 corpora only provide the contextual type. <ref type="bibr">Sagot et al. (2012)</ref> describe the addition to the French Treebank (FTB) <ref type="bibr" target="#b36">(Abeillé et al., 2003)</ref> in its FTB-UC version <ref type="bibr" target="#b37">(Candito and Crabbé, 2009)</ref> of a new, freely available annotation layer providing named entity information in terms of span and type (NER) as well as reference (NE linking), using the Wikipedia-based Aleda <ref type="bibr">(Sagot and Stern, 2012)</ref> as a reference entity database. This was the first freely available French corpus annotated with referential named entity information and the first freely available such corpus for the written journalistic genre. However, this annotation is provided in the form of an XML-annotated text with sentence boundaries but no tokenization. This corpus will be referred to as FTB-NE in the rest of the article. Since the publication of that named entity FTB annotation layer, the field has evolved in many ways. Firstly, most treebanks are now available as part of the Universal Dependencies (UD)<ref type="foot" target="#foot_0">1</ref> treebank collection. Secondly, neural approaches have considerably improved the state of the art in natural language processing in general and in NER in particular. In this regard, the emergence of contextual language models has played a major role. However, surprisingly few neural French NER systems have been published. <ref type="foot" target="#foot_1">2</ref> This might be because large contextual language models for French have only been made available very recently <ref type="bibr" target="#b17">(Martin et al., 2019)</ref>. But it is also the result of the fact that getting access to the FTB with its named entity layer as well as using this corpus were not straightforward tasks. For a number of technical reasons, re-aligning the XMLformat named entity FTB annotation layer created by <ref type="bibr">Sagot et al. (2012)</ref> with the "official" version of the FTB or, later, with the version of the FTB provided in the Universal Dependency (UD) framework was not a straightforward task. <ref type="foot" target="#foot_2">3</ref> Moreover, due to the intellectual property status of the source text in the FTB, the named entity annotations could only be provided to people having signed the FTB license, which prevented them from being made freely downloadable online. The goal of this paper is to establish a new state of the art for French NER by (i) providing a new, easy-to-use UDaligned version of the named entity annotation layer in the FTB and (ii) using this corpus as a training and evaluation dataset for carrying out NER experiments using state-ofthe-art architectures, thereby improving over the previous state of the art in French NER. In particular, by using both FastText embeddings <ref type="bibr" target="#b4">(Bojanowski et al., 2017)</ref> and one of the versions of the CamemBERT French neural contextual language model <ref type="bibr" target="#b17">(Martin et al., 2019)</ref> within an LSTM-CRF architecture, we can reach an F1-score of 90.25, a 6.5point improvement over the previously state-of-the-art system SEM <ref type="bibr" target="#b8">(Dupont, 2017)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">A named entity annotation layer for the UD version of the French TreeBank</head><p>In this section, we describe the process whereby we re-aligned the named entity FTB annotations by <ref type="bibr">Sagot et al. (2012)</ref> with the UD version of the FTB. This makes it possible to share these annotations in the form of a set of additional columns that can easily be pasted to the UD FTB file. This new version of the named entity FTB layer is much more readily usable than the original XML version, and will serve as a basis for our experiments in the next sections. Yet information about the named entity annotation guidelines, process and results can only be found in <ref type="bibr">Sagot et al. (2012)</ref>, which is written in French. We therefore begin with a brief summary of this publication before describing the alignment process.</p><p>2.1. The original named entity FTB layer <ref type="bibr">Sagot et al. (2012)</ref> annotated the FTB with the span, absolute type<ref type="foot" target="#foot_3">4</ref> , sometimes subtype and Aleda unique identifier of each named entity mention. <ref type="foot" target="#foot_4">5</ref> Annotations are restricted lished system.</p><p>to person, location, organization and company names, as well as a few product names. 6 There are no nested entities. Non capitalized entity mentions (e.g. banque mondiale 'World Bank') are annotated only if they can be disambiguated independently of their context. Entity mentions that require the context to be disambiguated (e.g. Banque centrale) are only annotated if they are capitalized. 7 For person names, grammatical or contextual words around the mention are not included in the mention (e.g. in M. Jacques Chirac or le Président Jacques Chirac, only Jacques Chirac is included in the mention).</p><p>Tags used for the annotation have the following information:</p><p>• the identifier of the NE in the Aleda database (eid attribute); when a named entity is not present in the database, the identifier is null, 8</p><p>• the normalized named of the named entity as given in Aleda; for locations it is their name as given in GeoNames and for the others, it is the title of the corresponding French Wikipedia article,</p><p>• the type and, when relevant, the subtype of the entity.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Here are two annotation examples:</head><p>&lt;ENAMEX type="Organization" eid="1000000000016778" name="Confédération française démocratique du travail"&gt;CFDT&lt;/ENAMEX&gt; &lt;ENAMEX type="Location" sub_type="Country" eid="2000000001861060" name="Japan"&gt;Japon&lt;/ENAMEX&gt; <ref type="bibr">Sagot et al. (2012)</ref> annotated the 2007 version of the FTB treebank (with the exception of sentences that did not receive any functional annotation), i.e. 12,351 sentences comprising 350,931 tokens. The annotation process consisted in a manual correction and validation of the output of a ruleand heuristics-based named entity recognition and linking tool in an XML editor. Only a single person annotated the corpus, despite the limitations of such a protocol, as acknowledged by <ref type="bibr">Sagot et al. (2012)</ref>. In total, 5,890 of the 12,351 sentences contain at least a named entity mention. 11,636 mentions were annotated, which are distributed as follows: 3,761 location names, 3,357 company names, 2,381 organization names, 2,025 person names, 67 product names, 29 fiction character names and 15 points of interest. 6 More precisely, we used a tagset of 7 base NE types:</p><p>Person, Location, Organization, Company, Product, POI (Point of Interest) and FictionChar.</p><p>7 So for instance, in université de Nantes 'Nantes university', only Nantes is annotated, as a city, as université is written in lowercase letters. However, Université de Nantes 'Nantes University' is wholly annotated as an organization. It is non-ambiguous because Université is capitalized. Université de Montpellier 'Montpellier University' being ambiguous when the text of the FTB was written and when the named entity annotations were produced, only Montpellier is annotated, as a city.</p><p>8 Specific conventions for entities that have merged, changed name, ceased to exist as such (e.g. Tchequoslovaquie) or evolved in other ways are described in <ref type="bibr">Sagot et al. (2012)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Alignment to the UD version of the FTB</head><p>The named entity (NE) annotation layer for the FTB was developed using an XML editor on the raw text of the FTB. Annotations are provided as inline XML elements within the sentence-segmented but non tokenized text. For creating our NER models, we first had to align these XML annotations with the already tokenized UD version of FTB. Sentences were provided in the same order for both corpora, so we did not have to align them. For each sentence, we created a mapping M between the raw text of the NEannotated FTB (i.e. after having removed all XML annotations) and tokens in the UD version of the FTB corpus. More precisely, character offsets in the FTB-NE raw text were mapped to token offsets in the tokenized FTB-UD. This alignment was done using case insensitive characterbased comparison and were a mapping of a span in the raw text to a span in the tokenized corpus. We used the inlined XML annotations to create offline, character-level NE annotations for each sentence, and reported the NE annotations at the token level in the FTB-UD using the mapping M obtained. We logged each error (i.e. an unaligned NE or token) and then manually corrected the corpora, as those cases were always errors in either corpora and not alignment errors. We found 70 errors in FTB-NE and 3 errors in FTB-UD. Errors in FTB-NE were mainly XML entity problems (unhandled "&amp;", for instance) or slightly altered text (for example, a missing comma). Errors in FTB-UD were probably some XML artifacts.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Benchmarking NER Models</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Brief state of the art of NER</head><p>As mentioned above, NER was first addressed using rulebased approaches, followed by statistical and now neural machine learning techniques. In addition, many systems use a lexicon of named entity mentions, usually called a "gazetteer" in this context. Most of the advances in NER have been achieved on English, in particular with the CoNLL 2003 <ref type="bibr" target="#b32">(Tjong Kim Sang and De Meulder, 2003)</ref> and Ontonotes v5 <ref type="bibr" target="#b20">(Pradhan et al., 2012;</ref><ref type="bibr" target="#b21">Pradhan et al., 2013)</ref> corpora.</p><p>In recent years, NER was traditionally tackled using Conditional Random Fields (CRF) <ref type="bibr" target="#b12">(Lafferty et al., 2001)</ref> which are quite suited for NER; CRFs were later used as decoding layers for Bi-LSTM architectures <ref type="bibr" target="#b11">(Huang et al., 2015;</ref><ref type="bibr" target="#b13">Lample et al., 2016)</ref> showing considerable improvements over CRFs alone. These Bi-LSTM-CRF architectures were later enhanced with contextualized word embeddings which yet again brought major improvements to the task <ref type="bibr" target="#b19">(Peters et al., 2018;</ref><ref type="bibr" target="#b1">Akbik et al., 2018)</ref>. Finally, large pre-trained architectures settled the current state of the art showing a small yet important improvement over previous NER-specific architectures <ref type="bibr" target="#b6">(Devlin et al., 2019;</ref><ref type="bibr" target="#b2">Baevski et al., 2019)</ref>. For French, rule-based system have been developed until relatively recently, due to the lack of proper training data <ref type="bibr" target="#b27">(Sekine and Nobata, 2004;</ref><ref type="bibr" target="#b23">Rosset et al., 2005;</ref><ref type="bibr" target="#b28">Stern and Sagot, 2010;</ref><ref type="bibr" target="#b17">Nouvel et al., 2011)</ref>. The limited availability of a few annotated corpora (cf. Section 1.) made it possible to apply statistical machine learning techniques <ref type="bibr" target="#b3">(Bechet and Charton, 2010;</ref><ref type="bibr" target="#b7">Dupont and Tellier, 2014;</ref><ref type="bibr" target="#b8">Dupont, 2017)</ref> as well as hybrid techniques combining handcrafted grammars and machine learning <ref type="bibr" target="#b5">(Béchet et al., 2011)</ref>. To the best of our knowledge, the best results previously published on FTB NER are those obtained by <ref type="bibr" target="#b8">Dupont (2017)</ref>, who trained both CRF and BiLSTM-CRF architectures and improved them using heuristics and pre-trained word embeddings. We use this system as our strong baseline. Leaving aside French and English, the CoNLL 2002 shared task included NER corpora for Spanish and Dutch corpora <ref type="bibr" target="#b33">(Tjong Kim Sang, 2002)</ref> while the CoNLL 2003 shared task included a German corpus <ref type="bibr" target="#b32">(Tjong Kim Sang and De Meulder, 2003)</ref>.</p><p>The recent efforts by <ref type="bibr" target="#b31">Straková et al. (2019)</ref> settled the state of the art for Spanish and Dutch, while <ref type="bibr" target="#b1">Akbik et al. (2018)</ref> did so for German.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Experiments</head><p>We used SEM <ref type="bibr" target="#b8">(Dupont, 2017)</ref> as our strong baseline because, to the best of our knowledge, it was the previous state-of-the-art for named entity recognition on the FTB-NE corpus. Other French NER systems are available, such as the one given by SpaCy. However, it was trained on another corpus called WikiNER, making the results non-comparable. We can also cite the system of <ref type="bibr" target="#b29">(Stern et al., 2012)</ref>. This system was trained on another newswire (AFP) using the same annotation guidelines, so the results given in this article are not directly comparable. This model was trained on FTB-NE in Stern (2013) (table C.7, page 303), but the article is written in French. The model yielded an F1-score of 0.7564, which makes it a weaker baseline than SEM. We can cite yet another NER system, namely grobid-ner.<ref type="foot" target="#foot_5">9</ref> It was trained on the FTB-NE and yields an F1-score of 0.8739. Two things are to be taken into consideration: the tagset was slightly modified and scores were averaged over a 10-fold cross validation. To see why this is important for FTB-NE, see section 3.2.4.. In this section, we will compare our strong baseline with a series of neural models. We will use the two current stateof-the-art neural architectures for NER, namely seq2seq and LSTM-CRFs models. We will use various pre-trained embeddings in said architectures: fastText, CamemBERT (a French BERT-like model) and FrELMo (a French ELMo model) embeddings. <ref type="bibr" target="#b8">(Dupont, 2017)</ref> is a tool that relies on linear-chain CRFs <ref type="bibr" target="#b12">(Lafferty et al., 2001)</ref> to perform tagging. SEM uses Wapiti <ref type="bibr" target="#b14">(Lavergne et al., 2010)</ref> v1.5.0 as linear-chain CRFs implementation. SEM uses the following features for NER:</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.1.">SEM SEM</head><p>• token, prefix/suffix from 1 to 5 and a Boolean isDigit features in a [-2, 2] window;</p><p>• previous/next common noun in sentence;</p><p>• 10 gazetteers (including NE lists and trigger words for NEs) applied with some priority rules in a [-2, 2] window; • a "fill-in-the-gaps" gazetteers feature where tokens not found in any gazetteer are replaced by their POS, as described in <ref type="bibr" target="#b22">(Raymond and Fayolle, 2010)</ref>. This features used token unigrams and token bigrams in a [-2, 2] a window.</p><p>• tag unigrams and bigrams.</p><p>We trained our own SEM model by using SEM features on gold tokenization and optimized L1 and L2 penalties on the development set. The metric used to estimate convergence of the model is the error on the development set (1 -accuracy). Our best result on the development set was obtained using the rprop algorithm, a 0.1 L1 penalty and a 0.1 L2 penalty. SEM also uses an NE mention broadcasting post-processing (mentions found at least once are used as a gazetteer to tag unlabeled mentions), but we did not observe any improvement using this post-processing on the best hyperparameters on the development set.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.2.">Neural models</head><p>In order to study the relative impact of different word vector representations and different architectures, we trained a number of NER neural models that differ in multiple ways. They use zero to three of the following vector representations: FastText non-contextual embeddings <ref type="bibr" target="#b4">(Bojanowski et al., 2017)</ref> and one of multiple CamemBERT language models <ref type="bibr" target="#b17">(Martin et al., 2019)</ref>.</p><p>CamemBERT models are transformer-based models based on an architecture similar to that of RoBERTa <ref type="bibr" target="#b15">(Liu et al., 2019)</ref>, an improvement over the widely used and successful BERT model <ref type="bibr" target="#b6">(Devlin et al., 2019)</ref>. The CamemBERT models we use in our experiments differ in multiple ways:</p><p>• Training corpus: OSCAR (cited above) or CCNet, another Common-Crawl-based corpus <ref type="bibr" target="#b34">(Wenzek et al., 2019)</ref> classified by language, of an almost identical size (∼32 billion tokens); although extracted using similar pipelines from Common Crawl, they differ slightly in so far that OSCAR better reflects the variety of genre and style found in Common Crawl, whereas CCNet was designed to better match the style of Wikipedia; moreover, OSCAR is freely available, whereas only the scripts necessary to rebuild CCNet can be downloaded freely. For comparison purposes, we also display the results of an experiment using the mBERT multilingual BERT model trained on the Wikpiedias for over 100 languages.</p><p>• Model size: following <ref type="bibr" target="#b6">Devlin et al. (2019)</ref>, we use both "BASE" and "LARGE" models; these models differ by their number of layers (12 vs. 24), hidden dimensions (768 vs. 1024), attention heads (12 vs. 16) and, as a result, their number of parameters (110M vs. 340M).</p><p>• Masking strategy: the objective function used to train a CamemBERT model is a masked language model objective. However, BERT-like architectures like CamemBERT rely on a fixed vocabulary of explicitly predefined size obtained by an algorithm that splits rarer words into subwords, which are part of the vocabulary together with more frequent words. As a result, it is possible to use a whole-word masked language objective (the model is trained to guess missing words, which might be made of more than one subword) or a subword masked language objective (the model is trained to guess missing subwords). Our models use the acronyms WWM and SWM respectively to indicate the type of masking they used.</p><p>We use these word vector representations in three types of architectures:</p><p>• Fine-tuning architectures: in this case, we add a dedicated linear layer to the first subword token of each word, and the whole architecture is then fine-tuned to the NER task on the training data.</p><p>• Embedding architectures: word vectors produced by language models are used as word embeddings. We use such embeddings in two types of LSTM-based architectures: an LSTM fed to a seq2seq layer and an LSTM fed to a CRF layer. In such configurations, the use of several word representations at the same time is possible, using concatenation as a combination operator. For instance, in Table <ref type="table" target="#tab_0">1</ref>, the model FastText + CamemBERT OSCAR-BASE-WWM under the header "LSTM-CRF + embeddings corresponds to a model using the LSTM-CRF architecture and, as embeddings, the concatenation of FastText embeddings, the output of the CamemBERT "BASE" model trained on OSCAR with a whole-word masking objective, and the output of the FrELMo language model.</p><p>For our neural models, we optimized hyperparameters using F1-score on development set as our convergence metric. We train each model three times with three different seeds, select the best seed on the development set, and report the results of this seed on the test set in Table <ref type="table" target="#tab_0">1</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.3.">Results</head><p>Word Embeddings: Results obtained by SEM and by our neural models are shown in table 1. First important result that should be noted is that LSTM+CRF and LSTM+seq2seq models have similar performances to that of the SEM (CRF) baseline when they are not augmented with any kind of embeddings. Just adding classical fastText word embeddings dramatically increases the performance of the model.</p><p>ELMo Embeddings: Adding contextualized ELMo embeddings increases again the performance for both architectures. However we note that the difference is not as big as in the case of the pair with/without fastText word embeddings for the LSTM-CRF. For the seq2seq model, it is the contrary: adding ELMo gives a good improvement while fastText does not improve the results as much.</p><p>CamemBERT Embeddings: Adding the CamemBERT embeddings always increases the performance of the model LSTM based models. However, as opposed to adding ELMo, the difference with/without CamemBERT is equally considerable for both the LSTM-seq2seq and LSTM-CRF. In fact adding CamemBERT embeddings increases the original scores far more than ELMo embeddings does, so much so that the state-of-the-art model is the LSTM + CRF + FastText + CamemBERT OSCAR-BASE-SWM .</p><p>CamemBERT + FrELMo: Contrary to the results given in <ref type="bibr" target="#b31">Straková et al. (2019)</ref>, adding ELMo to CamemBERT did not have a positive impact on the performances of the models. Our hypothesis for these results is that, contrary to <ref type="bibr" target="#b31">Straková et al. (2019)</ref>, we trained ELMo and CamemBERT on the same corpus. We think that, in our case, ELMo either does not bring any new information or even interfere with CamemBERT.</p><p>Base vs large: an interesting observation is that using large model negatively impacts the performances of the models. One possible reason could be that, because the models are larger, the information is more sparsely distributed and that training on the FTB-NE, a relatively small corpus, is harder.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.4.">Impact of shuffling the data</head><p>One important thing about the FTB is that the underlying text is made of articles from the newspaper Le Monde that are chronologically ordered. Moreover, the standard development and test sets are at the end of the corpus, which means that they are made of articles that are more recent than those found in the training set. This means that a lot of entities in the development and test sets may be new and therefore unseen in the training set. To estimate the impact of this distribution, we shuffled the data, created a new training/development/test split of the same lengths than in the standard split, and retrained and reevaluated our models. We repeated this process 3 times to avoid unexpected biases. The raw results of this experiment are given in table <ref type="table" target="#tab_1">2</ref>. We can see that the shuffled splits result in improvements on all metrics, the improvement in F1-score on the test set ranging from 4.04 to 5.75 (or 25% to 35% error reduction) for our SEM baseline, and from 1.73 to 3.21 (or 18% to 30% error reduction) for our LSTM-CRF architectures, reaching scores comparable to the English state-ofthe-art. This highlights a specific difficulty of the FTB-NE corpus where the development and test sets seem to contain non-negligible amounts of unknown entities. This specificity, however, allows to have a quality estimation which is more in line with real use cases, where unknown NEs are frequent. This is especially the case when processing newly produced texts with models trained on FTB-NE, as the text annotated in the FTB is made of articles around 20 years old.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Conclusion</head><p>In this article, we introduce a new, more usable version of the named entity annotation layer of the French TreeBank. We aligned the named entity annotation to reference segmentation, which will allow to better integrate NER into the UD version of the FTB.</p><p>We establish a new state-of-the-art for French NER using state-of-the-art neural techniques and recently produced neural language models for French. Our best neural model reaches an F1-score which is 6.55 points higher (a 40% error reduction) than the strong baseline provided by the SEM system.</p><p>We also highlight how the FTB-NE is a good approximation of a real use case. Its chronological partition increases the number of unseen entities allows to have a better estimation of the generalisation capacities of machine learning models than if it were randomised. Integration of the NER annotations in the UD version of FTB would allow to train more refined model, either by using more information or through multitask learning by learning POS and NER at the same time. We could also use dependency relationships to provide additional information to a NE linking algorithm. One interesting point to investigate is that using Large embeddings overall has a negative impact on the models performances. It could be because larger models store information relevant to NER more sparingly, making it harder for trained models to capitalize them. We would like to investigate this hypothesis in future research.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 :</head><label>1</label><figDesc>Results on the test set for the best development set scores.</figDesc><table><row><cell>MODEL</cell><cell cols="3">PRECISION RECALL F1-SCORE</cell></row><row><cell>baseline</cell><cell></cell><cell></cell><cell></cell></row><row><cell>SEM (CRF)</cell><cell>87.18</cell><cell>80.48</cell><cell>83.70</cell></row><row><cell>LSTM-seq2seq</cell><cell>85.10</cell><cell>81.87</cell><cell>83.45</cell></row><row><cell>+ FastText</cell><cell>86.98</cell><cell>83.07</cell><cell>84.98</cell></row><row><cell>+ FastText + FrELMo</cell><cell>89.49</cell><cell>87.48</cell><cell>88.47</cell></row><row><cell>+ FastText + CamemBERTOSCAR-BASE-WWM</cell><cell>89.79</cell><cell>88.86</cell><cell>89.32</cell></row><row><cell>+ FastText + CamemBERTOSCAR-BASE-WWM + FrELMo</cell><cell>90.00</cell><cell>88.60</cell><cell>89.30</cell></row><row><cell>+ FastText + CamemBERTCCNET-BASE-WWM</cell><cell>90.31</cell><cell>89.29</cell><cell>89.80</cell></row><row><cell>+ FastText + CamemBERTCCNET-BASE-WWM + FrELMo</cell><cell>90.11</cell><cell>88.86</cell><cell>89.48</cell></row><row><cell>+ FastText + CamemBERTOSCAR-BASE-SWM</cell><cell>90.09</cell><cell>89.46</cell><cell>89.77</cell></row><row><cell>+ FastText + CamemBERTOSCAR-BASE-SWM + FrELMo</cell><cell>90.11</cell><cell>88.95</cell><cell>89.53</cell></row><row><cell>+ FastText + CamemBERTCCNET-BASE-SWM</cell><cell>90.31</cell><cell>89.38</cell><cell>89.84</cell></row><row><cell>+ FastText + CamemBERTCCNET-BASE-SWM + FrELMo</cell><cell>90.64</cell><cell>89.46</cell><cell>90.05</cell></row><row><cell>+ FastText + CamemBERTCCNET-500K-WWM</cell><cell>90.68</cell><cell>89.03</cell><cell>89.85</cell></row><row><cell>+ FastText + CamemBERTCCNET-500K-WWM + FrELMo</cell><cell>90.13</cell><cell>88.34</cell><cell>89.23</cell></row><row><cell>+ FastText + CamemBERTCCNET-LARGE-WWM</cell><cell>90.39</cell><cell>88.51</cell><cell>89.44</cell></row><row><cell>+ FastText + CamemBERTCCNET-LARGE-WWM + FrELMo</cell><cell>89.72</cell><cell>88.17</cell><cell>88.94</cell></row><row><cell cols="2">LSTM-CRF + embeddings</cell><cell></cell><cell></cell></row><row><cell>LSTM-CRF</cell><cell>85.87</cell><cell>81.35</cell><cell>83.55</cell></row><row><cell>+ FastText</cell><cell>88.53</cell><cell>84.63</cell><cell>86.53</cell></row><row><cell>+ FastText + FrELMo</cell><cell>88.89</cell><cell>88.43</cell><cell>88.66</cell></row><row><cell>+ FastText + CamemBERTOSCAR-BASE-WWM</cell><cell>90.47</cell><cell>88.51</cell><cell>89.48</cell></row><row><cell>+ FastText + CamemBERTOSCAR-BASE-WWM + FrELMo</cell><cell>89.70</cell><cell>88.77</cell><cell>89.24</cell></row><row><cell>+ FastText + CamemBERTCCNET-BASE-WWM</cell><cell>90.24</cell><cell>89.46</cell><cell>89.85</cell></row><row><cell>+ FastText + CamemBERTCCNET-BASE-WWM + FrELMo</cell><cell>89.38</cell><cell>88.69</cell><cell>89.03</cell></row><row><cell>+ FastText + CamemBERTOSCAR-BASE-SWM</cell><cell>90.96</cell><cell>89.55</cell><cell>90.25</cell></row><row><cell>+ FastText + CamemBERTOSCAR-BASE-SWM + FrELMo</cell><cell>89.44</cell><cell>88.51</cell><cell>88.98</cell></row><row><cell>+ FastText + CamemBERTCCNET-BASE-SWM</cell><cell>90.09</cell><cell>88.69</cell><cell>89.38</cell></row><row><cell>+ FastText + CamemBERTCCNET-BASE-SWM + FrELMo</cell><cell>88.18</cell><cell>87.65</cell><cell>87.92</cell></row><row><cell>+ FastText + CamemBERTCCNET-500K-WWM</cell><cell>89.46</cell><cell>88.69</cell><cell>89.07</cell></row><row><cell>+ FastText + CamemBERTCCNET-500K-WWM + FrELMo</cell><cell>90.11</cell><cell>88.86</cell><cell>89.48</cell></row><row><cell>+ FastText + CamemBERTCCNET-LARGE-WWM</cell><cell>89.19</cell><cell>88.34</cell><cell>88.76</cell></row><row><cell>+ FastText + CamemBERTCCNET-LARGE-WWM + FrELMo</cell><cell>89.03</cell><cell>88.34</cell><cell>88.69</cell></row><row><cell>fine-tuning</cell><cell></cell><cell></cell><cell></cell></row><row><cell>mBERT</cell><cell>80.35</cell><cell>84.02</cell><cell>82.14</cell></row><row><cell>CamemBERTOSCAR-BASE-WWM</cell><cell>89.36</cell><cell>89.18</cell><cell>89.27</cell></row><row><cell>CamemBERTCCNET-500K-WWM</cell><cell>89.35</cell><cell>88.81</cell><cell>89.08</cell></row><row><cell>CamemBERTCCNET-LARGE-WWM</cell><cell>88.76</cell><cell>89.58</cell><cell>89.39</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2 :</head><label>2</label><figDesc>Results on the test set for the best development set scores.</figDesc><table><row><cell>MODEL</cell><cell cols="3">PRECISION RECALL F1-SCORE</cell></row><row><cell>shuf 1</cell><cell></cell><cell></cell><cell></cell></row><row><cell>SEM(dev)</cell><cell>92.96</cell><cell>87.84</cell><cell>90.33</cell></row><row><cell>LSTM-CRF+CamemBERTOSCAR-BASE-SWM(dev)</cell><cell>93.77</cell><cell>94.00</cell><cell>93.89</cell></row><row><cell>SEM(test)</cell><cell>91.88</cell><cell>87.14</cell><cell>89.45</cell></row><row><cell>LSTM-CRF+CamemBERTOSCAR-BASE-SWM(test)</cell><cell>92.59</cell><cell>93.96</cell><cell>93.27</cell></row><row><cell>shuf 2</cell><cell></cell><cell></cell><cell></cell></row><row><cell>SEM(dev)</cell><cell>91.67</cell><cell>85.96</cell><cell>88.73</cell></row><row><cell>LSTM-CRF+CamemBERTOSCAR-BASE-SWM(dev)</cell><cell>93.15</cell><cell>94.21</cell><cell>93.68</cell></row><row><cell>SEM(test)</cell><cell>90.57</cell><cell>87.76</cell><cell>89.14</cell></row><row><cell>LSTM-CRF+CamemBERTOSCAR-BASE-SWM(test)</cell><cell>92.63</cell><cell>94.31</cell><cell>93.46</cell></row><row><cell>shuf 3</cell><cell></cell><cell></cell><cell></cell></row><row><cell>SEM(dev)</cell><cell>92.53</cell><cell>88.75</cell><cell>90.60</cell></row><row><cell>LSTM-CRF+CamemBERTOSCAR-BASE-SWM(dev)</cell><cell>94.85</cell><cell>95.82</cell><cell>95.34</cell></row><row><cell>SEM(test)</cell><cell>90.68</cell><cell>85.00</cell><cell>87.74</cell></row><row><cell>LSTM-CRF+CamemBERTOSCAR-BASE-SWM(test)</cell><cell>91.30</cell><cell>92.67</cell><cell>91.98</cell></row></table><note><p>, the FrELMo contextual language model obtained by training the ELMo architecture on the OSCAR large-coverage Common-Crawlbased corpus developed by Ortiz Suárez et al. (2019),</p></note></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>https://universaldependencies.org</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>We are only aware of the entity-fishing NER (and NE linking) system developed by Patrice Lopez, a freely available yet unpub-</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>Note that the UD version of the FTB is freely downloadable, but does not include the original tokens or lemmas. Only people with access to the original FTB can restore this information, as required by the intellectual property status of the source text.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>Every mention of France is annotated as a Location with subtype Country, as given in Aleda database, even if in context the mentioned entity is a political organization, the French people, a sports team, etc.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_4"><p>Only proper nouns are considered as named entity mentions, thereby excluding other types of referential expressions.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="9" xml:id="foot_5"><p>https://github.com/kermitt2/grobid-ner#corpus-lemon</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgments</head><p>This work was partly funded by the French national ANR grant BASNUM (ANR-18-CE38-0003), as well as by the last author's chair in the PRAIRIE institute, 10 funded by the French national ANR as part of the "Investissements d'avenir" programme under the reference ANR-19-P3IA-0001. The authors are grateful to Inria Sophia Antipolis -Méditerranée "Nef" 11 computation cluster for providing resources and support.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">Bibliographical References</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Contextual string embeddings for sequence labeling</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Akbik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Blythe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Vollgraf</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 27th International Conference on Computational Linguistics, COLING 2018</title>
+		<meeting>the 27th International Conference on Computational Linguistics, COLING 2018<address><addrLine>Santa Fe, New Mexico, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018-08-20">2018. August 20-26, 2018</date>
+			<biblScope unit="page" from="1638" to="1649" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Cloze-driven pretraining of self-attention networks</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Baevski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Edunov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zettlemoyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Auli</surname></persName>
+		</author>
+		<idno>CoRR, abs/1903.07785</idno>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Unsupervised knowledge acquisition for extracting</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Bechet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Charton</surname></persName>
+		</author>
+		<ptr target="http://prairie-institute.fr/11https://wiki.inria.fr/wikis/ClustersSophiaspeech" />
+	</analytic>
+	<monogr>
+		<title level="m">2010 IEEE International Conference on Acoustics, Speech and Signal Processing</title>
+		<meeting><address><addrLine>Dallas, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Enriching word vectors with subword information</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bojanowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Grave</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Joulin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Mikolov</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Transactions of the Association for Computational Linguistics</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="135" to="146" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Coopération de méthodes statistiques et symboliques pour l&apos;adaptation non-supervisée d&apos;un système d&apos;étiquetage en entités nommées</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Béchet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sagot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Stern</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Actes de la Conférence TALN 2011</title>
+		<meeting>s de la Conférence TALN 2011<address><addrLine>France</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+	<note>Montpellier</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">BERT: pre-training of deep bidirectional transformers for language understanding</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Devlin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Toutanova</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, NAACL-HLT 2019</title>
+		<title level="s">Long and Short Papers</title>
+		<meeting>the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, NAACL-HLT 2019<address><addrLine>Minneapolis, MN, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-06-02">2019. June 2-7, 2019</date>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="4171" to="4186" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">The automatic content extraction (ace) program-tasks, data, and evaluation</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Doddington</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mitchell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Przybocki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Ramshaw</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Strassel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Weischedel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Dupont</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Tellier</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Traitement Automatique des Langues Naturelles</title>
+		<meeting><address><addrLine>Marseille, France; Démonstrations</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2004">2004. 2014. 2014. 1-4 Juillet 2014</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="40" to="41" />
+		</imprint>
+	</monogr>
+	<note>Proceedings of LREC</note>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Exploration de traits pour la reconnaissance d&apos;entités nommées du français par apprentissage automatique</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Dupont</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">24e Conf&apos;erence sur le Traitement Automatique des Langues Naturelles (TALN)</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page">42</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">The Ester 2 Evaluation Campaign for the Rich Transcription of French Radio Broadcasts</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Galliano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Gravier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Chaubard</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2009">2009. 2009</date>
+			<pubPlace>Brighton, UK.</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Proposal for an extension of traditional named entities: From guidelines to evaluation, an overview</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Grouin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rosset</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zweigenbaum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Fort</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Galibert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Quintard</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Fifth Linguistic Annotation Workshop (LAW-V)</title>
+		<meeting>the Fifth Linguistic Annotation Workshop (LAW-V)<address><addrLine>Portland, OR</addrLine></address></meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2011-06">2011. June</date>
+			<biblScope unit="page" from="92" to="100" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Bidirectional LSTM-CRF models for sequence tagging</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Yu</surname></persName>
+		</author>
+		<idno>CoRR, abs/1508.01991</idno>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Conditional random fields: Probabilistic models for segmenting and labeling sequence data</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">D</forename><surname>Lafferty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mccallum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">C</forename><surname>Pereira</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Eighteenth International Conference on Machine Learning</title>
+		<meeting>the Eighteenth International Conference on Machine Learning<address><addrLine>Williams College, Williamstown, MA, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2001-06-28">2001. 2001. June 28 -July 1, 2001</date>
+			<biblScope unit="page" from="282" to="289" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Neural architectures for named entity recognition</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Lample</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ballesteros</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Subramanian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kawakami</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Dyer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">NAACL HLT 2016, The 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies</title>
+		<meeting><address><addrLine>San Diego California, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2016-06-12">2016. June 12-17, 2016</date>
+			<biblScope unit="page" from="260" to="270" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Practical very large scale CRFs</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Lavergne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Cappé</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Yvon</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 48th Annual Meeting of the Association for Computational Linguistics</title>
+		<meeting>the 48th Annual Meeting of the Association for Computational Linguistics</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="page" from="504" to="513" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">Roberta: A robustly optimized BERT pretraining approach</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ott</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Goyal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Du</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Joshi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Levy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lewis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zettlemoyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Stoyanov</surname></persName>
+		</author>
+		<idno>CoRR, abs/1907.11692</idno>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">MUC-7 evaluation of IE technology: Overview of results</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Marsh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Perzanowski</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Seventh Message Understanding Conference</title>
+		<meeting>the Seventh Message Understanding Conference</meeting>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+			<biblScope unit="volume">20</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Pattern mining for named entity recognition</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Martin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Muller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">J</forename><surname>Ortiz Suárez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Dupont</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">É</forename><surname>Villemonte De La Clergerie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Seddah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sagot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Nouvel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Antoine</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Friburger</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1911.03894</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Human Language Technology Challenges for Computer Science and Linguistics -5th Language and Technology Conference</title>
+		<meeting><address><addrLine>Poznań, Poland</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2011-11-25">2019. Nov. 2011. 2011. November 25-27, 2011</date>
+			<biblScope unit="page" from="226" to="237" />
+		</imprint>
+	</monogr>
+	<note>CamemBERT: a Tasty French Language Model. arXiv e-prints. Revised Selected Papers</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">Asynchronous pipeline for processing huge corpora on medium to low resource infrastructures. Challenges in the Management of Large Corpora (CMLC-7) 2019</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">J</forename><surname>Ortiz Suárez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sagot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="page">9</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Deep contextualized word representations</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">E</forename><surname>Peters</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Neumann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Iyyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Gardner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Clark</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zettlemoyer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, NAACL-HLT 2018</title>
+		<meeting>the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, NAACL-HLT 2018<address><addrLine>New Orleans, Louisiana, USA; Long Papers</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018-06-01">2018. June 1-6, 2018</date>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="2227" to="2237" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">CoNLL-2012 shared task: Modeling multilingual unrestricted coreference in ontonotes</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Pradhan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Moschitti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Xue</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Uryupina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning -Proceedings of the Shared Task: Modeling Multilingual Unrestricted Coreference in OntoNotes, EMNLP-CoNLL</title>
+		<meeting><address><addrLine>Jeju Island, Korea</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2012-07-13">2012. 2012. July 13. 2012</date>
+			<biblScope unit="page" from="1" to="40" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Towards robust linguistic analysis using ontonotes</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Pradhan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Moschitti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Xue</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">T</forename><surname>Ng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Björkelund</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Uryupina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Zhong</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Seventeenth Conference on Computational Natural Language Learning</title>
+		<meeting>the Seventeenth Conference on Computational Natural Language Learning<address><addrLine>CoNLL; Sofia, Bulgaria</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2013-08-08">2013. 2013. August 8-9, 2013</date>
+			<biblScope unit="page" from="143" to="152" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title level="m" type="main">Reconnaissance robuste d&apos;entités nommées sur de la parole transcrite automatiquement</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Raymond</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fayolle</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+	<note>In TALN&apos;10</note>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rosset</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Illouz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Max</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Interaction et recherche d&apos;information : le projet Ritel</title>
+		<imprint>
+			<date type="published" when="2005">2005</date>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="page" from="155" to="179" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rosset</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Grouin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zweigenbaum</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Entités nommées structurées : guide d&apos;annotation Quaero. Notes et Documents 2011-04</title>
+		<meeting><address><addrLine>Orsay, France</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Aleda, a free large-scale entity database for French</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sagot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Stern</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of LREC</title>
+		<meeting>LREC</meeting>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+	<note>To appear</note>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Annotation référentielle du Corpus Arboré de Paris 7 en entités nommées</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sagot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Richard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Stern</surname></persName>
+		</author>
+		<idno>TALN- RECITAL 2012</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Traitement Automatique des Langues Naturelles (TALN)</title>
+		<editor>
+			<persName><forename type="first">Georges</forename><surname>Antoniadis</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Grenoble, France</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2012-06">2012. June</date>
+			<biblScope unit="volume">2</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Definition, Dictionaries and Tagger for Extended Named Entity Hierarchy</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sekine</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Nobata</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of LREC 2004</title>
+		<meeting>LREC 2004<address><addrLine>Lisbon, Portugal</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Resources for named entity recognition and resolution in news wires</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Stern</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sagot</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of LREC 2010 Workshop on Resources and Evaluation for Identity Matching, Entity Resolution and Entity Management</title>
+		<meeting>LREC 2010 Workshop on Resources and Evaluation for Identity Matching, Entity Resolution and Entity Management<address><addrLine>La Valette, Malte</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">A joint named entity recognition and entity linking system</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Stern</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sagot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Béchet</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Workshop on Innovative Hybrid Approaches to the Processing of Textual Data</title>
+		<meeting>the Workshop on Innovative Hybrid Approaches to the Processing of Textual Data</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="52" to="60" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<monogr>
+		<title level="m" type="main">Identification automatique d&apos;entités pour l&apos;enrichissement de contenus textuels</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Stern</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+			<publisher>Université Paris 7 Denis Diderot</publisher>
+		</imprint>
+	</monogr>
+	<note type="report_type">Ph.D. thesis</note>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Neural architectures for nested NER through linearization</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Straková</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Straka</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hajic</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 57th Conference of the Association for Computational Linguistics, ACL 2019</title>
+		<meeting>the 57th Conference of the Association for Computational Linguistics, ACL 2019<address><addrLine>Florence, Italy</addrLine></address></meeting>
+		<imprint>
+			<publisher>Long Papers</publisher>
+			<date type="published" when="2019-07-28">2019. July 28-August 2, 2019</date>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="5326" to="5331" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Introduction to the conll-2003 shared task: Languageindependent named entity recognition</title>
+		<author>
+			<persName><forename type="first">Tjong</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sang</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">F</forename><surname>De Meulder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of CoNLL-2003</title>
+		<meeting>CoNLL-2003<address><addrLine>Edmonton, Canada</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+			<biblScope unit="page" from="142" to="147" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Introduction to the CoNLL-2002 shared task: Language-independent named entity recognition</title>
+		<author>
+			<persName><forename type="first">Tjong</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sang</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">F</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 6th Conference on Natural Language Learning, CoNLL 2002, Held in cooperation with COLING 2002</title>
+		<meeting>the 6th Conference on Natural Language Learning, CoNLL 2002, Held in cooperation with COLING 2002<address><addrLine>Taipei, Taiwan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2002">2002. 2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<author>
+			<persName><forename type="first">G</forename><surname>Wenzek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M.-A</forename><surname>Lachaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Conneau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Chaudhary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Guzmán</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Joulin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Grave</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1911.00359</idno>
+		<title level="m">CCNet: Extracting High Quality Monolingual Datasets from Web Crawl Data</title>
+		<imprint>
+			<date type="published" when="2019-11">2019. Nov</date>
+		</imprint>
+	</monogr>
+	<note>arXiv e-prints</note>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<monogr>
+		<title level="m" type="main">Language Resource References</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<author>
+			<persName><forename type="first">Anne</forename><surname>Abeillé</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lionel</forename><surname>Clément</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">François</forename><surname>Toussenel</surname></persName>
+		</author>
+		<title level="m">French TreeBank (FTB)</title>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+		<respStmt>
+			<orgName>Université Paris-Diderot</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<monogr>
+		<author>
+			<persName><forename type="first">Marie</forename><surname>Candito</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benoit</forename><surname>Crabbé</surname></persName>
+		</author>
+		<title level="m">French Tree-Bank with Undone Compounds</title>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+		<respStmt>
+			<orgName>FTB-UC). Université Paris-Diderot</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

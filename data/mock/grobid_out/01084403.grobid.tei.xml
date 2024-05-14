@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main"></title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Sheila</forename><surname>Peter</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Ariane</forename><surname>Sophie</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Heike</forename><surname>Henk</surname></persName>
+						</author>
+						<author>
+							<persName><surname>Conny</surname></persName>
+						</author>
+						<author>
+							<persName><surname>Tobias</surname></persName>
+						</author>
+						<author>
+							<persName><roleName>Maria</roleName><forename type="first">Lorenza</forename><surname>Harry</surname></persName>
+						</author>
+						<author>
+							<persName><surname>Jacques</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Thierry</forename><surname>Pascal</surname></persName>
+						</author>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">FA91CF429A51A004703D43A428C69216</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T14:59+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Understanding ourselves</head><p>The DARIAH space: basic services • Open humanities: a priority for the early period of DARIAH • Combining efforts to improve awareness on the need to make primary and secondary sources (publications) -the means to openly communicate research results; from blogs to repositories the good scholarly practices -comprising licensesrelated to the delivery and re-use of open content</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>•</head><label></label><figDesc>Supporting research into the Holocaust -Improve (online) access to Holocaust material -Initiate new levels of collaborative research -Enable historiographical progress (transnational and comparative research</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head></head><label></label><figDesc>Integration and presentation of multiple descriptions in the EHRI portal</figDesc><table><row><cell>Arts and Humanities research in the digital era Challenges Which infrastructure?</cell></row><row><cell>With thanks to: Reto Speck • A scattered and heterogeneous landscape -Enormous digitization efforts in the public and private sectors • Localization and hosting of digital sources • Documenting and connecting to analog sources Enhance and support digitally-enabled research and teaching across the Arts and Humanities -A long-standing tradition in humanities computing (digital humanities) • Environments for managing, exploring and enriching digital material -Providing technological components to work with digital objects -Some success stories: Text Encoding Initiative, strong communities (Epigraphy, Medieval studies) -Still, a majority of researchers with no real insights about digital -Training researchers and working with communities • Communication of one's own results in the digital world -Providing guidance about standards and best practices sources, methods and publications -General issue of preserving digital results from one research project to another • Ambition: dramatically raising awareness about digital methods in the arts and humanities • Multidisciplinary collaboration with computer science research A connected network of tools, information, people and methodologies • Community acceptance of paradigm changes in a -Pulling together national initiatives transition period -Helping communities to integrate the digital shift</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Archaeologists Medieval and modern historians Holocaust researchers Digital methods Digital textual scholarship</head><label></label><figDesc></figDesc><table><row><cell>Network of affiliated projects Fostering national capacities</cell></row><row><cell>• 15+ countries with heterogeneous developments in</cell></row><row><cell>digital methods in the Arts and Humanities</cell></row><row><cell>The DARIAH space: initiatives • Contributing to the development of national roadmaps Key themes and dreams for digitally enabled research in the humanities</cell></row><row><cell>-Digitization programs</cell></row><row><cell>-National technical infrastructures</cell></row><row><cell>-Multidisciplinary initiatives</cell></row><row><cell>Showcase compiled in NL, implemented in DE -National funding schemes TaDiRAH taxonomy implemented DARIAH Geobrowser implementation and Online -Fostering specific support with EU structural funds</cell></row><row><cell>Guide under construction</cell></row><row><cell>×Sustainability and accuracy of the course data</cell></row><row><cell>×National Moderators to edit/curate national data</cell></row><row><cell>&gt; nomination by National Coordinators</cell></row><row><cell>×Data curation as national In-Kind contribution?</cell></row></table><note><p><p>VCC2 Task 3 (Working Group)</p>Stef Scagliola, Walter Scholger, Zoe Schubert, Manfred Thaller, … Live Version at: https://dariah.uni-koeln.de Based on DE database (Göttingen, Cologne)</p></note></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Reel 263) Transportliste Litzmannstadt Archiwum Paostwowe w Łodzi</title>
+		<idno>RG-15.083</idno>
+		<ptr target="http://statistik-des-holocaust.deListeder" />
+	</analytic>
+	<monogr>
+		<title level="m">Deportationsziel: Litzmannstadt Source</title>
+		<imprint>
+			<publisher>Kopie des USHMM</publisher>
+			<biblScope unit="volume">278</biblScope>
+		</imprint>
+	</monogr>
+	<note>Archiwum Paostwowe w Łodzi. Reel 202</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

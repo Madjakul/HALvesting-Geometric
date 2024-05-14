@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">THE INSTITUTE OF ELECTRONICS, TECHNICAL REPORT OF IEICE INFORMATION AND COMMUNICATION ENGINEERS Pattern Based Term Extraction Using ACABIT System</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Koichi</forename><surname>Takeuchi</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Kyo</forename><surname>Kageura</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Teruo</forename><surname>Koyama</surname></persName>
+							<email>t_koyama@nii.ac.jp</email>
+							<affiliation key="aff1">
+								<orgName type="institution">‡Loria Campus Scientifique</orgName>
+								<address>
+									<addrLine>B.P. 239</addrLine>
+									<postCode>54506</postCode>
+									<settlement>VANDOEUVRE-lès-NANCY CEDEX</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="institution">‡Loria Campus Scientifique</orgName>
+								<address>
+									<addrLine>B.P. 239</addrLine>
+									<postCode>54506</postCode>
+									<settlement>VANDOEUVRE-lès-NANCY CEDEX</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="department">‡R&amp;D Division</orgName>
+								<orgName type="institution">Osaka Corporation</orgName>
+								<address>
+									<addrLine>4-5-6 Kawada, Suita-shi</addrLine>
+									<postCode>565-0456</postCode>
+									<settlement>Osaka</settlement>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Beatrice</forename><surname>Daille</surname></persName>
+							<email>‡beatrice.daille@irin.univ-nantes.fr</email>
+							<affiliation key="aff1">
+								<orgName type="institution">‡Loria Campus Scientifique</orgName>
+								<address>
+									<addrLine>B.P. 239</addrLine>
+									<postCode>54506</postCode>
+									<settlement>VANDOEUVRE-lès-NANCY CEDEX</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="institution">‡Loria Campus Scientifique</orgName>
+								<address>
+									<addrLine>B.P. 239</addrLine>
+									<postCode>54506</postCode>
+									<settlement>VANDOEUVRE-lès-NANCY CEDEX</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="department">‡R&amp;D Division</orgName>
+								<orgName type="institution">Osaka Corporation</orgName>
+								<address>
+									<addrLine>4-5-6 Kawada, Suita-shi</addrLine>
+									<postCode>565-0456</postCode>
+									<settlement>Osaka</settlement>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>‡‡laurent.romary@loria.fr</email>
+							<affiliation key="aff1">
+								<orgName type="institution">‡Loria Campus Scientifique</orgName>
+								<address>
+									<addrLine>B.P. 239</addrLine>
+									<postCode>54506</postCode>
+									<settlement>VANDOEUVRE-lès-NANCY CEDEX</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="institution">‡Loria Campus Scientifique</orgName>
+								<address>
+									<addrLine>B.P. 239</addrLine>
+									<postCode>54506</postCode>
+									<settlement>VANDOEUVRE-lès-NANCY CEDEX</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="department">‡R&amp;D Division</orgName>
+								<orgName type="institution">Osaka Corporation</orgName>
+								<address>
+									<addrLine>4-5-6 Kawada, Suita-shi</addrLine>
+									<postCode>565-0456</postCode>
+									<settlement>Osaka</settlement>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="department">†National Institute of Informatics</orgName>
+								<address>
+									<addrLine>2-1-2 Hitotsubashi, Chiyoda-ku, ‡University of Nantes 1, quai de Tourville BP 13522</addrLine>
+									<postCode>101-8430, 44035</postCode>
+									<settlement>Tokyo, NANTES CEDEX 1</settlement>
+									<country>Japan, France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="institution">‡University of Nantes</orgName>
+								<address>
+									<addrLine>1, quai de Tourville BP 13522</addrLine>
+									<postCode>44035</postCode>
+									<settlement>NANTES CEDEX 1</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">THE INSTITUTE OF ELECTRONICS, TECHNICAL REPORT OF IEICE INFORMATION AND COMMUNICATION ENGINEERS Pattern Based Term Extraction Using ACABIT System</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">EB60ED88221DE25D9C484618EB216B58</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T14:59+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In this paper, we proposed pattern based term extraction model for Japanese applying ACABIT system developed for French. Proposed model evaluates termhood using morphological patterns of basic terms and term variants. After extracting term selections, ACABIT system filters non-terms out from the selections based on simple log likely hood evaluation. This approach would be suitable to Japanese term extraction because most of Japanese terms form compound nouns or simple phrasal patterns. After showing the morphological patterns for terms, we show experimental results. By comparing morphological patterns with foreign languages, we discuss morphological units in Japanese.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>In this article, we proposea pattern based term extraction model and show experimental results that it produces.</p><p>The difficulty of term extraction is how to evaluate "termhood'' for inputted word sequences. Since the role of term is to denote one special concept in some domain, termhood should be evaluated according tothe following two aspects: the first one is the strength of unity for componentwords as a term, and the other one is the domain specialty of the word. Most of the previous (see <ref type="bibr" target="#b2">Kageura et al. (2000)</ref>) approaches take the latter approach and focuse on the development of evaluation methods of domain specialty based on the statistics of words in documents. However, the former evaluation approach, that is, unity as a term is very important because the development of the approach is directly related to the mechanisms of creation of a new concept by composing words.</p><p>Recentl,y some term extraction works have focused on the unity of words. <ref type="bibr" target="#b4">Nakagawa (2000)</ref> proposed a statistical method to evaluate the unity of words based on the strength of the connection between constituent words for Japanese terms. <ref type="bibr" target="#b1">Jacquemin (1996)</ref> introduced the idea of term variants assuming complex terms must be derived from the basic terms because unity of term must be kept between basic term and its variants. He developed a pattern based extraction model for complex terms in English and French. Yoshikane el al. (2003) applied Jacquemin's approach to Japanese terms. Extending this approach, <ref type="bibr">Daille (1996)</ref> proposed morpho-syntactic pattern based model (implemented in a system called ACABIT) to extract basic terms and term variants for French without basic term list.</p><p>In this paper, we propose a pattern based term extraction model for Japanese applying Daille's approach.</p><p>It must be suitable to Japanese term extraction because most of Japanese terms form compound nouns then morpho-syntactic variation of pattern would be limited.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The aim of this research is to identify the difference of mechanisms of creating new concepts as terms between</head><p>French and Japanese by comparing morpho-syntactic patterns.</p><p>In the following sections, after presenting an overview of extraction systems and grammatical patterns for Japanese terms, we show some experimental results.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Approach</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">ACABIT</head><p>In the ACABIT system all complex terms are regarded as derivations from basic two word terms, the system tries to ACABIT is basically designed for the extraction of</p><p>French terms, but it can be applied to other languages by changing the POS-tagger and the morpho-syntactic patterns.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Overview of Japanese ACABIT</head><p>We construct a Japanese term extraction model applying ACABIT. As a POS-tagger, we selected ChaSen <ref type="bibr">(Matsumoto et al. (1996)</ref>) that is a morphological analyzer for Japanese. It has about 100,000 word entries in the dictionary and 40 kinds of shallow syntactic tags as</p><p>POSes. The morpho-syntactic patterns in Japanese ACABIT system are constructed based on the POS set of ChaSen.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.">Morphological patterns</head><p>In our Japanese term extraction model, we also assume that all complex terms would be derived from basic terms that compose compound nouns or noun phrases. In the following, after we show morphological patterns of basic words for Japanese terms, we show the patterns of complex terms derived from them.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.1.">Patterns for basic terms</head><p>In Japanese, a morphological head of intra-compounds or phrase is a final word. We design patterns for basic terms enough to be compound noun or noun phrase according to morphological characteristics.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Noun-Noun:</head><p>This basic combination of compounds is the most popular one, but there is some specialty of Japanese. In this pattern, "Noun" does not mean only nominal noun, but also deverbal noun and deadjectival noun. Deverbal noun<ref type="foot" target="#foot_0">1</ref> acts basically as noun in sentence as itself but it can be a verb followed by the auxiliary verb suru, that is, it has both the characteristics of a noun and a verb. Similarly, a deadjectival noun acts as a noun in a sentence when onits own, but it can be an adjective followed by na inflection. Both deverbal nouns and deadjectival nouns are able to come to head as well as modifier position as nominal noun. Because of the existence of these two special nouns, long complex compounds often appear in Japanese sentence.</p><p>Taking for example, is an adjectival noun followed by adeverbal noun.</p><p>In the following explanation, noun normally means nominal noun, deverbal noun and adjectival noun. Comparing with English, suffix ka corresponds to two suffixes -ize and -ion.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Prefix-Noun</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Noun-SuffixStem-Noun:</head><p>There is a special suffix that is very frequent and derives stem of adjectival noun from modifier noun. The pattern of basic term consists of three words.</p><p>tetsuduki teki chishiki procedure -al knowledge (procedural knowledge)</p><p>Comparing with the translation in English, the function of the suffix teki is to make an adjectival modifier become a noun in the compound.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Vinf-Noun:</head><p>Vinf denotes a verb with inflection except deverbal noun. <ref type="foot" target="#foot_1">2</ref> The inflection type depends on the meaning of the term. The example of passive voice is as follows:</p><p>toji-ta hairetsu The "suffixstem" that derives stem of adjectival noun does not compose this form. As a whole, this multiword forms the middle between compound noun and phrase.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.">AInf-Noun:</head><p>AInf means an adjective with inflection except deadjectival noun. <ref type="foot" target="#foot_2">3</ref> An example is as follows.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>fuka-i chishiki deep-INF knowledge (deep knowledge)</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8.">Adj-SuffixNominalize-Noun:</head><p>There is a suffix that derives noun from adjectives that is the same as previous pattern.</p><p>naga-sa zokusei length attribute (length attribute)</p><p>In patterns 7 and 8, inflection '-i' and suffix '-sa' can connect to all adjectives, for example fuka-i (deep) and fuka-sa (depth). If we now compare with English, the Japanese suffix '-sa' seems to be one inflection type of adjective. This grammar set comes from ChaSen as well as standard school grammar in Japanese, but this kind of gap would be regarded through comparing morphemes with a foreign language.</p><p>The above is the complete set of patterns for basic terms. From a syntactical view of composition, the patterns from 1 to 4 and 8 form compound nouns, while the patterns from 5 is phrase and 6 and 7 are middle. We have to take care of these type differences because there exist some limitations of composing term variants from these basic terms depending on the differences (see the next section).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.2.">Patterns for complex terms</head><p>Complex terms may form a compound noun or a phrase that is derived form basic terms. Because of specialty of Japanese words, composition types of compounds are limited according to the characteristics of word types: the one is "imported word" (IW) that originates in foreign language and the other is "word originating in traditional Japanese" (WJ). In compounding, there is a tendency to connect only the same types of words, especially, words in IW group can make long compound nouns with less difficulty, while WJ does not. We show this phenomenon in the following section. Besides the types of phrasal patterns as terms are also limited because most of terms form compound nouns (see Section 3). This is very different from English or French.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.2.1.">Compound nouns</head><p>Element+: terms form compounds. Theoretically there is no limitation of connection, but practically we set the limitation of maximum length as 9.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Element</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.2.2.">Limited patterns of term variants</head><p>The basic terms that contain WJ also form compound nouns or phrases, however, variation patterns of the basic terms are limited. This limitation comes from termhood because there is a preference to select compounds or some short phrasal expressions much more than syntactic long phrase so that one term expresses one static concept. In Theoretically, all compound nouns and noun phrases can be applied to this phrasal pattern. Besides this A of B phrase can be extended recursively as A of B of C.</p><p>However we only permit the pattern of "A no (of) B" as variants for complex terms because the meaning of relation no is ambiguous and then we hesitate about using long sequence like "A no B no C" as a term.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.">How to apply patterns</head><p>We implement Japanese morphological patterns into ACABIT system. The important point how to apply them is order of patterns. We take the strategy to apply them from longer patterns so that system does not decompose long sequence term into short ones.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Experiment and results</head><p>We have two types of experiments in order to evaluate performance of Japanese ACABIT system. The fist evaluation is about the coverage of morphological patterns we elaborated. We input technical terms to ACABIT and check the rate of acceptability. The second is to evaluate term extraction performance. Since we do not have the all term set to some domain, we can only evaluate precision of our ACABIT. In order to do this experiment, we use the set of abstracts and author's keys that are distributed by NII for term extraction competition <ref type="bibr" target="#b2">(Kageura 2000)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Coverage experiment</head><p>We prepare three kinds of technical terms: 1) technical term dictionary of information processing (ipdic) (Aiiso 1996), 2) term dictionary in computer domain (comdic) (Nichigai 1998) and 3) author's keywords in artificial intelligent domain <ref type="bibr" target="#b2">(Kageura et al. 2000)</ref>.</p><p>All terms are analyzed using ChaSen so that all terms are decomposed into basic word with POS. <ref type="foot" target="#foot_3">4</ref> After this process, we evaluate statistical characteristics of terms about: number of one word terms and number of phrasal terms.  <ref type="table" target="#tab_1">1</ref>, the share of one word term is not a little, that is, over than 10 % for every source. In our approach,</p><p>ACABIT does not extract one word terms because we assume that all terms consist of more than one word. The rates are upper bound of extraction. While phrasal terms are very few for every source, so our morphological patterns would be work well.</p><p>Table <ref type="table" target="#tab_2">2</ref> shows the results of coverage performance of Japanese ACABIT. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Discussion</head><p>From the experimental results of Section 3.1 and 3.2, we found that our morpho-syntactic patterns have good coverage for technical terms. However precision of term extraction is poor because we only apply simple log likely hood evaluation of ACABIT, at the moment. We will be able to improve the precision rates by applying more sophisticated statistical approach to evaluate the unity of intra-term structure as <ref type="bibr" target="#b4">Nakagawa (2000)</ref>.</p><p>Comparing with foreign language such as English and</p><p>French, Japanese terms prefer to form compound noun while English and French prefer to form phrase about complex terms. In Japanese term extraction, we have to discriminate terms from general words on compound nouns while in European language on phrasal expressions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Conclusion</head><p>We proposed pattern based term extraction method and show the experimental results. We try to extract terms using termhood, especially, focusing on the unity of intra-term structure by morpho-syntactic patterns. From the experimental results, our constructed patterns work well for coverage of terms but precision is not so grate.</p><p>That problem is not the issue of this paper because that is a problem how to evaluate specialty of words in some domain. Comparing morphological patterns in English and French, we clarify the difference of composing level for terms: most of Japanese terms form compound noun while English and French terms form phrasal patterns.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>patterns. The grammatical patterns are described based on POSes. The input of ACABIT is a POS-tagged text that is annotated by POS-tagger at the preprocessing stage(see Fig.1). From apractical point of view, the morpho-syntactic patterns should thus be designed according to the POS set of preprocessor. The output of the ACABIT system is a list of basic terms and term variants. Terms extracted by grammatical patterns are evaluated by log likelyhood that denotes the strength of connection between words. The outputs are convenient for the application of a deeper analysis because the relations between derived terms and basic terms are designated in the term lists.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig.</head><label></label><figDesc>Fig. Overview of ACABIT system.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>is made of a nominal noun and a deverbal noun, and anzen taisaku safe(-ty) measure (measure of safety)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>6 .</head><label>6</label><figDesc>close-ed array (closed array).The inflection ta denotes the passive voice of the root verb toji (close). The example of active voice is as follows: VInf-Suffix: Nominal suffix as pattern 3 can also take inflected verb that is except deverbal noun. Example is as follows.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>:</head><label></label><figDesc>Noun-Noun, Prefix-Noun, Noun-Suffix, Number-Suffix, Number and Symbol. Here Number means a character sequence of numbers, and Symbol is that of symbols. The pattern Element+ denotes continuing more than one Element that forms compound nouns. This long compound noun is a special characteristic of basic terms in Element that consists of IWs. Adding basic terms of Noun-Noun, Prefix-Noun and Noun-Suffix, Number-Suffix, Number and Symbol are involved as Element. These tree types usually need another element to be terms, therefore they are Element but not basic term patterns. The example of "Number Suffix Noun" is as follows:</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>"</head><label></label><figDesc>the following, we will show the limited patterns of terms variants for basic terms containing WJ and examples. two cases, nouns at the modifier position of Vinf are argument of the root verb (ex. Kyoshi (Supervisor) is an argument of ar-i (exist).).Next case is complex term variants consists of IWs. Noun*" denotes 0 or more than 1 word of Noun is going to continue. The example is the case of Prefix-Noun-Suffix. Of course Prefix-Noun-Noun-Suffix case has already been taken into account at Element+ pattern.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 1</head><label>1</label><figDesc></figDesc><table><row><cell></cell><cell cols="3">Statistics of input terms</cell></row><row><cell></cell><cell>ipdic (%)</cell><cell>comdic (%)</cell><cell>jsai (%)</cell></row><row><cell>One word</cell><cell>2207/16275</cell><cell>4480/38785</cell><cell>658/4206</cell></row><row><cell>term</cell><cell>(13.6)</cell><cell>(11.6)</cell><cell>(15.6)</cell></row><row><cell>Phrasal</cell><cell>409/16275</cell><cell>2366/38785</cell><cell>231/4206</cell></row><row><cell>term</cell><cell>(2.5)</cell><cell>(6.1)</cell><cell>(5.5)</cell></row><row><cell>From Table</cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 2</head><label>2</label><figDesc></figDesc><table><row><cell cols="3">Coverage of Japanese ACABIT</cell></row><row><cell>ipdic (%)</cell><cell>comdic (%)</cell><cell>jsai (%)</cell></row><row><cell>coverage 4080/16275</cell><cell>10623/38785</cell><cell>3056/4206</cell></row><row><cell>(74.9)</cell><cell>(72.6)</cell><cell>(72.7)</cell></row><row><cell cols="3">Our ACABIT works well although the upper bound of this</cell></row><row><cell cols="3">experiment is about from 86 to 89 % for these terms. The</cell></row><row><cell cols="3">error types are categorized into three: a) variety of term,</cell></row><row><cell cols="3">For example, nyuuton (Newton) in nyutonn hou (Newton</cell></row><row><cell cols="3">method) is annotated proper noun in ChaSen. This is</cell></row><row><cell cols="3">correct analysis for general purpose while proper noun</cell></row><row><cell cols="3">would not be a term. There is a possibility to make some</cell></row><row><cell cols="3">patterns based on suffixes such as "ProperN Suffix</cell></row><row><cell cols="3">(method)", but it cannot cover another variety such as</cell></row><row><cell>"Microsoft network".</cell><cell></cell><cell></cell></row><row><cell cols="3">b) ChaSen makes annotation errors on ambiguous words</cell></row><row><cell cols="3">that are, for example, douki that is deverbal noun is miss</cell></row><row><cell cols="3">annotated as adverbial noun. This problem relates lack of</cell></row><row><cell cols="2">study of Japanese adverbial words.</cell><cell></cell></row><row><cell cols="3">c) ACABIT system makes errors because of lack of</cell></row><row><cell cols="3">patterns. Most of them are phrasal expression but are</cell></row></table><note><p><p>b) error of annotation of ChaSen, and c) lack of pattern of ACABIT. We explain them as follows.</p>a) Most errors occur on terms that contain proper nouns. lexicalized such as 1 no hosuu (one's complement). We cannot make a pattern like Number-of-Noun to accept this</p></note></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>It is the same thing that called sahen-verb in Yoshikane et al. (2003).</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>These kinds of verb originated in traditional Japanese, while deverbal noun in China. They called kango and wago, respectively (see Section 2.3.2)</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>This adjective originated in traditional Japanese words that is called wago (see Section 2.3.2).</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>Basic performance of morphological analyzer Chasen is over than 95%.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_4"><p>This is the rate such as recall but not recall, exactly because we do not know the correct all terms in this domain.</p></note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>because the pattern usually means phrase.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Term extraction</head><p>Japanese ACABIT is applied to abstract texts in artificial intelligence domain in order to show term extraction performance of ACABIT. Assuming atuthor's key words are correct terms for the texts, we evaluate the performance of ACABIT by comparing extracted terms with author's key.</p><p>Table <ref type="table">3</ref> shows the statistics of author's key. According to the table, 68.7% keys are involved in abstract text and 20.1% of them are one-word keys, then 2308 words are the upper bound keys to be extracted. Table <ref type="table">4</ref> shows the results of term extraction comparing with author's key. words. 5 We evaluate precision, correct rate to all author's key and correct rate to upper bound of author's key. </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">Study and Implementation of Combined Techniques for Automatic Extraction of Terminology, The Balancing Act, Combining Symbolic and Statistical Application to Language</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Daille</surname></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page">1996</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">A symbolic and Surgical Acquisition of Terms through Variation</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Jacquemin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Connectionist, Statistical and Symbolic Approaches to Learning for Natural Language Processing</title>
+		<editor>
+			<persName><forename type="first">E</forename><surname>Wermter</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">G</forename><surname>Riloff</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Scheler</surname></persName>
+		</editor>
+		<imprint>
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kageura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Koyama</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Terminology</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2000">2000</date>
+			<publisher>John Benjamins Publishing Company</publisher>
+			<biblScope unit="volume">6</biblScope>
+			<pubPlace>Netherlands</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Japanese Morphological Analysis System ChaSen 2.0 Users Manual</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Matsumoto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kitauchi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Yamashita</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Hirao</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+		</imprint>
+		<respStmt>
+			<orgName>Nara Institute of Science and Technology</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Automatic term recognition based on statistics of compound nouns</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Nakagawa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Terminology</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="195" to="210" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Morpho-syntactic Rules for Detecting Japanese Term Variation</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Yoshikane</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Natural</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

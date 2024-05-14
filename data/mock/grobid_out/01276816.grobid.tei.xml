@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Automatic construction of a TMF Terminological Database using a transducer cascade</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Chihebeddine</forename><surname>Ammar</surname></persName>
+							<email>chihebeddine.ammar@fss.rnu.tn</email>
+							<affiliation key="aff0">
+								<orgName type="institution">MIRACL &amp; Sfax University</orgName>
+								<address>
+									<settlement>Sfax</settlement>
+									<country key="TN">Tunisia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Kais</forename><surname>Haddar</surname></persName>
+							<email>kais.haddar@fss.rnu.tn</email>
+							<affiliation key="aff1">
+								<orgName type="institution">MIRACL &amp; Sfax University</orgName>
+								<address>
+									<settlement>Sfax</settlement>
+									<country key="TN">Tunisia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+							<affiliation key="aff2">
+								<orgName type="institution">INRIA &amp; Humboldt University</orgName>
+								<address>
+									<settlement>Berlin</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Automatic construction of a TMF Terminological Database using a transducer cascade</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">EC2A578D4667C9D67C4B26B24D1E1E8C</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The automatic development of terminological databases, especially in a standardized format, has a crucial aspect for multiple applications related to technical and scientific knowledge that requires semantic and terminological descriptions covering multiple domains. In this context, we have two challenges: the first is the automatic extraction of terms in order to build a terminological database, and the second challenge is their normalization into a standardized format. To deal with these challenges, we propose an approach based on a cascade of transducers performed using CasSys tool of Unitex platform that benefits from both: the success of the rulebased approach for the extraction of terms, and the performance of the TMF standard for the representation of terms. We have tested and evaluated our approach on an Arabic scientific and technical documents for the Elevator domain and the results are very encouraging.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>The automation of terminology will reduce the time and cost that usually takes terminological database construction. It will also help us to construct terminological databases with broad coverage, especially for recent concepts and poor language coverage (Arabic for example). On the other side, the representation of terminological data in a standard format allows the integration and merging of terminological data from multiple source systems, while improving terminological data quality and maintaining maximum interoperability between different applications.</p><p>One of the very rich in terminology working area are the scientific and technical documents.</p><p>They cover several scientific and technical fields. That is why we will need several terminological databases, one for each field. For this reason, we decided to work on a specific domain: the elevators.</p><p>To automate any process, we need a framework. The choice of this framework is not an easy task. In fact, many frameworks exist, based on: formal grammars, logical formalism, discrete mathematics, etc. The rule-based approach requires: a thorough study of the characteristics of terms and construction of necessary resources such as dictionaries, trigger words and extraction rules.</p><p>Finite automata and in particularly transducers are often used in the Natural Language Processing (NLP). The general idea is to replace the rules of formal grammars with representation forms. Transducers offer a particularly nice and simple formulation, and prove their capability of representing complex grammars due to their graphic representation. They have a success for the extraction of named entities (NE) and terms. In fact, precision is more important for rule-based systems.</p><p>Another issue is to decide which standard will we choose to model our terminological databases, which standard will best represent scientific and technical terms and which model to use, onomasiological or semasiological?</p><p>Our main objective is to create a standardized terminological resource form a corpus of Arabic scientific and technical documents (patents, manuals, scientific papers) able to support automatic text processing applications. Our approach is based on a cascade of transducers performed using CasSys tool of Unitex. It aims to extract and annotate under standardized TMF -Terminological Markup Framework form technical terms of a specific field: the case of lifts field. The first step is a pre-treatment consisting on resolving some problems of the Arabic language (e.g. agglutination). The second step is to extract and annotate terms.</p><p>And the final one is a post-treatment consisting of cleaning documents.</p><p>This paper is organized as follows. Section 2 is devoted to the presentation of the previous work. In section 3, the characteristics of Arabic scientific and technical terms. We present, in section 4, we argue the choice of terminology model. In section 5, we present our approach. Section 6 is devoted to experimentation and evaluation and we conclude and enunciate some perspectives in section 7.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Previous work</head><p>Three methods for building a terminological knowledge base exist: manual, semi-automatic and automatic. In the literature, there are some terminological databases for scientific and technical fields, most of them were constructed manually or semi-automatically.</p><p>For instance, the multilingual terminology of the European Union, IATE<ref type="foot" target="#foot_0">1</ref> , contains 8,4 million terms in 23 languages covering EU specific terminology as well as multiple fields such as agriculture or information technology. The multilingual terminology portal of the World Intellectual Property Office, WIPO Pearl<ref type="foot" target="#foot_1">2</ref> , gives access to scientific and technical terms in ten languages, including Arabic, derived from patent documents. It contains 15,000 concepts and 90,000 terms. Since WIPO has not a collection of Arabic patents, Arabic terms are often translations of the WIPO translation service. In <ref type="bibr">(Lopez and Romary, 2010b)</ref>, the authors developed a multilingual terminological database called GRISP covering multiple technical and scientific fields from various open resources.</p><p>Three main approaches are generally followed for extraction: rule-based (or linguistic) approach, training based (or statistic) approach and hybrid approach. What distinguishes the approaches mentioned, is not the type of information considered, but their acquisition and handling. The linguistic approach is based on human intuition, with the manual construction of analysis models, usually in the form of contextual rules. It requires a thorough study of the types of terms, but it has a success for the extraction of NE and terms. In fact, precision is more important for symbolic systems.</p><p>In previous work on non scientific and technical documents, there are those who used linguis-tically methods based on syntactic analysis (see for instance <ref type="bibr" target="#b1">(Bourigault, 1992)</ref> and <ref type="bibr">(Bourigault, 1994)</ref>). But the most used approach is a hybrid approach combining statistical and linguistic techniques <ref type="bibr" target="#b4">(Dagan and Church, 1994)</ref>.</p><p>The most recent work on scientific and technical documents were mainly based on purely statistical approaches. They used standard techniques of information retrieval and data extraction. Some of them use machine learning tools to extract header metadata using support vector machines (SVM) <ref type="bibr" target="#b3">(Do et al., 2013)</ref>, hidden markov models (HMM) <ref type="bibr" target="#b0">(Binge, 2009)</ref>, or conditional random fields (CRF) <ref type="bibr" target="#b7">(Lopez, 2009)</ref>. Others use machine learning tools to extract metadata of citations <ref type="bibr" target="#b2">(Hetzner, 2008)</ref>, tables <ref type="bibr" target="#b11">(Liu et al., 2007)</ref>, figures <ref type="bibr" target="#b10">(Choudhury et al., 2013)</ref> or to identify concepts <ref type="bibr" target="#b9">(Rao et al., 2013)</ref>. All these approaches rely on previous training and natural language processing.</p><p>The need to allow exchanges between reference formats (Geneter, DXLT, etc.) has brought to the birth of the standard ISO 16642, TMF, specifying the minimum structural requirements to be met by every TML (terminological Markup Language).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Characteristics of Arabic scientific and technical terms</head><p>Our study corpus contains 60 Arabic documents: 50 patents, 5 scientific papers and 5 manuals and installation documents of elevators collected from multiple resources: manuals from the websites of elevator manufacturers, patents from multiple Arabic intellectual property offices and scientific papers from some Arabic journals. All of these documents are text files and contain a total number of 619k tokens. This corpus will allow us to construct the necessary resources such as dictionaries, trigger words and extraction rules and to study the characteristics of Arabic terms. Indeed, we noted the existence of some semantic relationships among terms of our collection, such as synonymy.</p><p>In fact, some terms have the same signified and different signifiers. For example, signifies "elevator without counterweight". Here, the two terms have the same part ( "elevator without weight") and two synonymous words ( "equivalent" and "reverse"). Another type of semantic relationships is the hi-erarchical relationship in two ways. Firstly, from the generic term to the specific term(s) (from hyperonym to hyponym). For example, hyperonym: "vehicle", hyponym:</p><p>"elevator", "car". Secondly, from the all to the different parts (from holonym to meronyms). For example, holonym:</p><p>"elevator", meronyms:</p><p>"car", "door", "button", etc.</p><p>In Arabic texts, some factors make there automatic analysis a painful task, such as: the agglutination of Arabic terms. In fact, the Arabic language is a highly agglutinative language from the fact that clitics stick to nouns, verbs, adjectives which they relate. Therefore, we find particles that stick to the radicals, preventing their detection. Indeed, textual forms are made up of the agglutination of prefixes (articles: definite article "the", prepositions: "for", conjunctions: "and"), and suffixes (linked pronouns) to the stems (inflected forms:</p><p>"its doors", "doors" + "its").</p><p>Another problem is the ambiguity which may be caused by several factors. For example, Arabic language is one of the Semitic languages that is defined as a diacritized language. Unfortunately, diacritics are rarely used in current Arabic writing conventions. So two or more words in Arabic can be homographic. such as "return", "prepare", "count".</p><p>Despite documents of our corpus are in Arabic language, some of them have a literal translation of key terms and technical words. These translations can be in English or French and are usually of a very high quality because they are made by professional human translators. They facilitate the task of our terminological database implementation (Language Section and Term Section of the TMF model) and make it multilingual.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">TMF Terminological Model</head><p>The terminology is interested in what the term means: notions, concepts, and words or phrases that they nominate. This is the notional or con-ceptual approach. Motivated from the industrial practice terminology, the Terminological Markup Framework (TMF<ref type="foot" target="#foot_2">3</ref> ) <ref type="bibr" target="#b5">(Romary, 2001)</ref> was developed as a standard for onomasiological (sense to term) resources. In this paper, we need a generic model able to cover a variety of terminological resources. That is why we consider that the standard TMF is the most appropriate for our terminological database. The meta-model of the standard TMF is defined by logical hierarchical levels. It thus represents a structural hierarchy of the relevant nodes in linguistic description. The metamodel describes the main structural elements and their internal connections.</p><p>It is combined with data categories (ISO 12620<ref type="foot" target="#foot_3">4</ref> ) from a data category selection (DCS). Using the data model based on ISO 16642 allows us to fulfill the requirements of standardization and to exploit Data Category Registry (DCR) following the ISO 12620 standard for facilitating the implementation of filters and converters between different terminology instances and to produce a Generic Mapping Tool (GMT) representation, i.e. a canonical XML representation. The main role of our terminological extractor is to automatically generate terms in GMT format and create a normalized terminological database of scientific and technical terms.</p><p>Figure <ref type="figure">1</ref> shows an example of scientific terminological entry (Multi-car elevator) in the form of an XML document conforming GMT in two languages (Arabic and English).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Proposed approach</head><p>The extraction method of Arabic terms that we advocate is rule-based. In fact, the rules that are manually built, express the structure of the information to extract and take the form of transducers. These transducers generally operate morphosyntactic information, as well as those contained in the resources (lexicons or dictionaries). Moreover, they allow the description of possible sequences of constituents of Arabic terms belonging to the field of elevators. The approach that we propose to extract terms for the field of elevators is composed of two steps (Figure . 2): (i) identifying the neces-Figure <ref type="figure">1</ref>: Terminological entry conforming GMT sary resources to identify terms to extract, (ii) the creation of a cascade of transducer each of which has its own role.</p><p>In the following, we detail the different resources and steps of our approach.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">Necessary linguistic resources</head><p>For our approach, we construct linguistic resouces from our study corpus like dictionaries, trigger words and extraction rules (syntactic patterns). In the following, we present these resources.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.1">Dictionaries</head><p>For the domain of elevator, subject of our study, we identified the following dictionaries: a dictionary of inflected nouns and their canonical forms, a dictionary of inflected verbs, a dictionary for adjectives, a dictionary for trigger words of the domain and dictionaries of particles, possessive pronouns, demonstrative pronouns and relative pronouns. The structure of the various dictionary entries is not the same. It can vary from one dictionary to another. It must contain the grammatical category of the entry (noun, adjective), but, according to the dictionary, it may contain also: gender (masculine, feminine or neutral) and number (singular, dual, plural or broken plural), definition </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.2">Trigger words</head><p>The extraction rules generally use morphosyntactic information such as trigger words for the detection of the beginning of a term. We opted for the increased number of rules and triggers in order to have as efficient as possible extraction system. We identified 162 trigger words, some of them can trigger the recognition of up to 5 terms. For this reason we classified them in classes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.3">Extraction rules</head><p>To facilitate identification of the necessary transducers for the extraction of terms, we have built a set of extraction rules. Indeed, they give the arrangement of the various constituents of the terms of a readily transferable linearly as graphs. We identified 12 extraction rules. Table <ref type="table">1</ref> shows some of them. Four grammatical features are attribuated here: gender (masculine (m) or feminine (f)), number (singular (s), dual (d) or plural (p)), definition (defined (r) or undefined (n)) and case (accusative (a), nominative (u) or genitive (i)).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Examples of trigger words are:</head><p>"mobilization" for the rules R1 and R5, "mainte- Table <ref type="table">1</ref>: Some extraction rules of Arabic patent terms nance" for the rule R3 and "lifting" for the rule R4. The Table <ref type="table">2</ref> shows some extracted terms due to the precedent extraction rules (here identified by their number in Table <ref type="table">1</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Rule</head><p>Extracted terms number</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>R1</head><p>"elevator without counterweight"</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>R2</head><p>"elevator with splined roller" R3 "automatic elevator" R4 "elevator car" "contor panel"</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>R5</head><p>"hoisting ropes"</p><p>Table <ref type="table">2</ref>: Terms extracted due to extraction rules</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Implementation of extraction rules</head><p>We created three types of transducers. The first one is the transducer of pre-treatment solving Arabic prefixes and suffixes agglutination. To recognize the agglutinative character, we should enter inside the token. As Unitex works on a tokenized version of the text, it is not possible to make queries entering within the tokens, except with morphological filters or the morphological mode that is more appropriate in our case. To do this, we must define the whole portion of grammar using the symbols &lt; and &gt; as presented in the <ref type="bibr">Figure. 3</ref>). The transducer annotate every part of the agglutinated token with appropriate grammatical category.  The final transducer is a post-treatment transducer consisting on document cleaning: its role is to delete all text remains (which is not XML). <ref type="bibr">Figure. 6</ref> is an overview of this transducer. The subgraph "XML" recognize all the XML element that could be contained by the &lt;struct type="TE"&gt; GMT element. Our test corpus contains 160 Arabic documents from multiple resources: 100 patents, 50 scientific papers and 10 manuals and installation documents of elevators, with a total number of 1665635 tokens. Our transducers are called in a specific order in a transducer cascade that is directly implemented in the linguistic platform Unitex 5 using the CasSys tool <ref type="bibr" target="#b6">(Friburger and Maurel, 2004)</ref>. Each graph adds its own annotations due to the mode "Replace". This mode provides, as output, a recognized term surrounded by a GMT annotation defined in the transducers.</p><p>In order to conduct an evaluation, we applied the cascade implemented on the test corpus. We manually evaluated the quality of our work on the test corpus. The total number of terms is 852. Table <ref type="table">3</ref> gives an overview of the obtained results.</p><p>Terms Extracted terms Erroneous terms 852 827 59</p><p>Table <ref type="table">3</ref>: Overview of the obtained results</p><p>The obtained results are satisfactory, the transducers were able to cover the majority of the terms contained therein with a precision of 0.95 and a recall of 0.97 with a F-score of 0.95. We therefore find that the proposed method is effective.  The noise can be caused by the absence of diacritics in our corpus and dictionaries, which could create ambiguity problem. It may also be caused by the absance of high granularity features of our dictionary entries. For this reason, we will try to add other semantic and grammatical features to our dictionary entries to improve our results. Despite the good results, we were forced to spend our terminological database to a terminologist to correct erroneous terms and their definitions. We believe that the automatic integration and merging of our database with other existing databases can help us to automatically correct errors.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7">Conclusion</head><p>In this paper, we built a set of transducers. Then we generated a cascade allowing extraction of scientific and technical terms. The extracted terms were represented in a standardized format (GMT). The generation of this cascade is performed using the CasSys tool, built-in Unitex linguistic platform. The operation of the transducer cascade required the construction of resources such as dictionaries.</p><p>In the immediate future, we will create a transducer cascade to extract bibliographic data and metadata of citations, tables, formulas and figures from scientific and technical documents and patents. We will also extract terms using a satatistic approach. Finally, we will try to combine the two approaches in a hybrid one.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: Proposed approach</figDesc><graphic coords="4,307.28,62.80,218.26,240.95" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>word&gt; &lt;N:nums&gt;&lt;PREP&gt;(&lt;N:nums&gt;) + R2 &lt;Pattern 2&gt;:=&lt;N:nums&gt; &lt;PREP&gt;&lt;N:nufs&gt;[&lt;Adj:nufs&gt;] R3 &lt;Pattern 3&gt;:=&lt;Trigger word&gt; &lt;N:nums&gt;&lt;Adj:nums&gt; R4 &lt;Pattern 4&gt;:= &lt;Trigger word&gt; &lt;N:nufs&gt;&lt;N:rums&gt; R5 &lt;Pattern 5&gt;:= &lt;Trigger word&gt; &lt;N:nufp&gt;&lt;N:rums&gt;</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 3 :</head><label>3</label><figDesc>Figure 3: Transducer of resolution of agglutination The second transducer, as shown in Figure. 4, includes all subgraphs of term extraction and annotation under the format GMT ("extraction trasducers" box). In order to improve terms extraction, trigger words are regrouped into the "trigger words" box.</figDesc><graphic coords="5,307.28,169.20,218.27,198.42" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: The main extraction transducer</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 5 :</head><label>5</label><figDesc>Figure 5: Example of extraction subgraph</figDesc><graphic coords="6,72.00,62.81,218.26,240.95" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>5</head><label></label><figDesc>Unitex: http://www-igm.univ-mlv.fr/ unitex/</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Figure 6 :</head><label>6</label><figDesc>Figure 6: Post-treatment transducer</figDesc><graphic coords="6,307.28,62.81,218.27,184.25" type="bitmap" /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>http://iate.europa.eu</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>http://www.wipo.int/wipopearl/search/home.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>ISO 16642:2003. Computer Applications in Terminology: Terminological Markup Framework</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>4 ISO 12620:2009. Terminology and Other Language and Content Resources -Specification of Data Categories and Management of a Data Category Registry for Language Resources</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Scientific literature metadata extraction based on HMM</title>
+		<author>
+			<persName><forename type="first">Cui</forename><surname>Binge</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">CDVE</title>
+		<imprint>
+			<biblScope unit="page" from="64" to="68" />
+			<date type="published" when="2009">2009. 2009</date>
+			<pubPlace>Luxembourg, Luxembourg</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Surface Grammatical Analysis for the Extraction of Terminological Noun Phrases</title>
+		<author>
+			<persName><forename type="first">Didier</forename><surname>Bourigault</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 14th International Conference on Computational Linguistics COL-ING&apos;92</title>
+		<meeting>the 14th International Conference on Computational Linguistics COL-ING&apos;92<address><addrLine>Nantes, France</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1992">1992</date>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page" from="977" to="981" />
+		</imprint>
+	</monogr>
+	<note>Didier Bourigault. 1994. LEXTER, Un Logiciel d&apos;Extraction de TERminologie</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">A simple method for citation metadata extraction using hidden markov models</title>
+		<author>
+			<persName><forename type="first">Erik</forename><surname>Hetzner</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2008">2008. 2008</date>
+			<biblScope unit="page" from="280" to="284" />
+			<pubPlace>New York, USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Extracting and Matching Authors and Affiliations in Scholarly Documents</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">N</forename><surname>Huy</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Do</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Muthu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Philip</forename><forename type="middle">S</forename><surname>Chandrasekaran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Min</forename><forename type="middle">Y</forename><surname>Cho</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Kan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">JCDL</title>
+		<imprint>
+			<date type="published" when="2013">2013. 2013</date>
+			<pubPlace>Indianapolis, Indiana, USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Termight: Identifying and Translating Technical Terminology</title>
+		<author>
+			<persName><forename type="first">Ido</forename><surname>Dagan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ken</forename><surname>Church</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 4th Applied Natural Language Processing Conference ANLP&apos;94</title>
+		<meeting>the 4th Applied Natural Language Processing Conference ANLP&apos;94<address><addrLine>Stuttgart, Germany</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1994">1994</date>
+			<biblScope unit="page" from="34" to="40" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">An Abstract Model for the Representation of Multilingual Terminological Data: TMF Terminological Markup Framework</title>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2001">2001. 2001</date>
+			<pubPlace>TAMA; Antwerp, Belgium</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Finitestate transducer cascades to extract named entities in texts</title>
+		<author>
+			<persName><forename type="first">Nathalie</forename><surname>Friburger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Denis</forename><surname>Maurel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Theoretical Computer Science</title>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+			<biblScope unit="volume">313</biblScope>
+			<biblScope unit="page" from="93" to="104" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">GROBID: Combining Automatic Bibliographic Data Recognition and Term Extraction for Scholarship Publications</title>
+		<author>
+			<persName><forename type="first">Patrice</forename><surname>Lopez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ECDL</title>
+		<imprint>
+			<date type="published" when="2009">2009. 2009</date>
+			<pubPlace>Corfu, Greece</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<author>
+			<persName><forename type="first">Patrice</forename><surname>Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<title level="m">GRISP: A Massive Multilingual Terminological Database for Scientific and Technical Domains. LREC 2010</title>
+		<meeting><address><addrLine>La Valette, Malta</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Automatic Identification of Concepts and Conceptual relations from Patents Using Machine Learning Methods</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">K</forename><surname>Pattabhi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sobha</forename><forename type="middle">L</forename><surname>Rao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paolo</forename><surname>Devi</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Rosso</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ICON</title>
+		<imprint>
+			<biblScope unit="page" from="18" to="20" />
+			<date type="published" when="2013">2013. 2013</date>
+			<pubPlace>Noida, India</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sagnik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Prasenjit</forename><surname>Choudhury</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andi</forename><surname>Mitra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Silvia</forename><surname>Kirk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Donald</forename><surname>Szep</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sue</forename><surname>Pellegrino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Jones</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Giles</forename><surname>Lee</surname></persName>
+		</author>
+		<title level="m">Figure Metadata Extraction from Digital Documents. ICDAR 2013</title>
+		<meeting><address><addrLine>Washington, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="page" from="135" to="139" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Tableseer: automatic table metadata extraction and searching in digital libraries</title>
+		<author>
+			<persName><forename type="first">Ying</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kun</forename><surname>Bai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Prasenjit</forename><surname>Mitra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Lee</forename><surname>Giles</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">JCDL</title>
+		<imprint>
+			<biblScope unit="page" from="91" to="100" />
+			<date type="published" when="2007">2007. 2007</date>
+			<pubPlace>Vancouver, Canada</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

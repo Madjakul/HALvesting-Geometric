@@ -1,0 +1,1717 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">New Opportunities for the Culture of Supply and the Nature of Demand</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<title level="a" type="main">New Opportunities for the Culture of Supply and the Nature of Demand</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">E15195D2217B7E829510C51E586A02F5</idno>
+					<idno type="DOI">10.11647/OBP.0192.03.hal-02464616</idno>
+					<note type="submission">Submitted on 3 Feb 2020 Distributed under a Creative Commons Attribution| 4.0 International License</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T14:59+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>The scholarly monograph has been compared to the Hapsburg monarchy in that it seems to have been in decline forever! <ref type="bibr">1</ref> It was in 2002 that Stephen Greenblatt, in his role as president of the US Modern Language Association, urged his membership to recognise what he called a 'crisis in scholarly publication'. It is easy to forget now that this crisis, as he then saw it, had nothing to do with the rise of digital technologies, e-publishing, or open access. Indeed, it puts his words into an instructive context to recall that it was only later in that same year that the Firefox browser saw its initial release. The total number of websites available in the world in that year was only around three million, compared to the nearly two billion available today. <ref type="bibr">2</ref> What Greenblatt was actually concerned about was the precarious economic viability of the scholarly monograph, and the resulting decline in monograph production by traditional presses, combined with an increasing demand for such monographs from individuals and institutional hiring, tenure, and promotion committees as a mark of scholarly achievement. <ref type="bibr">3</ref> Over a dozen years later, not only have the original problems Greenblatt identified not gone away, but a whole raft of further complications have -for scholars, for publishers, and for libraries -also emerged to join them.</p><p>Given the long history of this debate, its current focus on the 'digital turn' in scholarly communication perhaps obscures an additional potential area of focus on what one might call the 'supply side' of the equation. The practices we use to produce, release, and otherwise share scholarship are, of course, of great concern and importance to the system of knowledge circulation. Recent work, like that of the The Academic Book of the Future project, 4 along with others described in the Journal of Scholarly Publishing's 'Special Issue on Digital Publishing for the Humanities and Social Sciences', 5 have illustrated the breadth of systemic change as well as the multiple players involved and affected by it. Such contributions not only highlight the richness of the emerging landscape of knowledge production, but also the many perspectives that contribute to it, including, but by no means limited to, that of the researcher him or herself. But for all of the plurality and depth these innovative discussions bring to our understanding of how scholarship comes to be produced and made available for further use, what happens to this work afterward remains largely taken for granted. Changes in scholarly communication need to be understood as a two-way process, of both production and consumption; but the latter aspect seems to attract far less attention than the former. Paying unequal attention to this aspect of the overall circulation of knowledge raises the risk of perpetuating traditions of communication practice that may not suit the equally transformed set of information retrieval, reuse, interrogation, and application practices. Form, as John 3</p><p>Stephen Greenblatt, 'A Special Letter from Stephen Greenblatt', Modern Language Association (28 May 2002), https://www.mla.org/Resources/Research/Surveys-Reports-and-Other-Documents/Publishing-and-Scholarship/Call-for-Actionon-Problems-in-Scholarly-Book-Publishing/A-Special-Letter-from-Stephen-Greenblatt 4</p><p>The Academic Book of the Future, ed. by Rebecca Lyons and Samantha Rayner (Basingstoke: Palgrave Macmillan, 2016), https://doi.org/10.1057/9781137595775 5 'Special Issue on Digital Publishing for the Humanities and Social Sciences', ed. by Alex Holzman and Robert Brown, Journal of Scholarly Publishing, 48.2 (2017), https:// doi.org/10.3138/jsp. 48.2.73.</p><p>Naughton reminds us, should not be conflated with function, <ref type="bibr">6</ref> and the fact that a certain form has met the requirements of scholars in the past does not mean that a virtual reincarnation of that form will do the same for the scholars of the future. The 'demand side' of the scholarly communication equation must therefore address the changes in the reading habits of consumers of published research. Before we can do so, however, it is worth pausing briefly to consider exactly what it means, in the current day and age, to 'publish' research, rather than to 'communicate' or 'disseminate' it. Although it may seem that any of these could be used to refer to the key process implied in the etymology of the term (that is, to make something public), publishing is generally agreed to be the most restricted of the terms (though there is much overlap in their general use). According to Leah Halliday, 'scholarly publishing is a means of communicating scholarship within a community'; 7 a not very helpful definition in itself, but one that she uses to help tease out the issues of how a work is distributed, its formality, its durability, and in particular its status as validated by the community. These factors lend a particular act of communication (which usually also adheres to certain norms of format and structure, for example, as a monograph or as a journal article) an authority that more informal acts of communication will struggle to establish, but they also imply a set of power relationships that both authors and readers participate in.</p><p>Researchers who are seeking to expand their knowledge are, first and foremost, regarded as comprising the cohort of consumers of scholarship; but only slightly upstream from them are the evaluation and assessment panels controlling how the research may be perceived (as, for example, through publication in a well-regarded journal), or how it may be transformed into capital to access rewards at either the institutional level (as in promotion) or externally (as in funding grants). The goals and needs of these two groups -one seeking knowledge the other seeking to assign value -do not necessarily align with each other however, a fact that has been a source of tension since the 'original' publication crisis. This issue bridges the divide between the nomadic nature of knowledge creation in the humanities and the academic rewards system to which a given producer of scholarship is bound, taking on as a part of this relationship not just the possibilities for reward, but any perverse incentives it may create. 8</p><p>The Place of the Book in Humanities Communication</p><p>This complex relationship between the consumption and production of scholarship can perhaps be nowhere more easily seen than in the status of the book as a specific and privileged instrument for scholarly communication in the humanities. From the perspective of the writer, the reasons for the tenacity of the book are many, and encompass not only the epistemic and intellectual benefits the form provides, but also the more emotional aspects of attachment to the long monograph, to the expansiveness of the prose, the physicality of the book-as-object, and the tangible representation of one's intellectual achievement. Human Computer Interaction (HCI) researchers have explored some of the underlying psychology of this, finding that digital objects are perceived as having a lower value because they are less distinctive and more easily replicated at little cost, as opposed to 'a seashell or crayon drawing [which] is unique in its singular presence'. <ref type="bibr">9</ref> One can, of course, also find justification for this preference in anthropological work that demonstrates a physical object's ability to embody the owner's identity and personal history. <ref type="bibr">10</ref> The drivers behind our attachment to the physical book can be found in the physiological as well as the symbolic. In spite of the continued improvement of computer screens, paper remains a far better carrier of information, holding up to fifty times more information for a given area. Paper also does not suffer from the 'flicker effect', which causes us to lose up to forty percent of the information presented to us on a computer screen. <ref type="bibr">11</ref> In the wider reading market, all of these factors can be seen as contributing to the continued strength of the printed versions of books as opposed to those same books in electronic formats, with the eBook market seeming to plateau at twenty-five to thirty percent of total sales. <ref type="bibr" target="#b1">12</ref> Regardless of the wider trends and the reasons why this is the case, as long as humanities disciplines view themselves, and are viewed by others, as having a 'soul [that] lies between the covers of a scholarly monograph', <ref type="bibr" target="#b3">13</ref> then the prestige in printed books will remain in the perceived exclusivity of the long form and in its physicality, which the age of e-publishing has yet to effectively supplant.</p><p>Recent work on the specific, ideal shape and form of the scholarly book in the digital age has extended our understanding of the unique place it occupies, although the explanations are neither conclusive nor complete. Of particular importance is the 2012 OAPEN survey <ref type="bibr" target="#b4">14</ref> and the analysis of its results, which appeared in the 2015 report Monographs and Open Access. <ref type="bibr" target="#b5">15</ref> In this latter work, the author, Geoffrey Crossick, lays out an excellent case for the reasons why humanists need to write books, which is largely because the ability to create a sustained discourse is formative for good arguments in the humanities disciplines. This argument in favour of the writing of books is not only true for the humanities; interestingly the same basic argument was put forward in a 2010 Nature editorial entitled 'Back to Books', but this time addressing the benefits the writing of books could bring to the hard sciences' community. <ref type="bibr" target="#b6">16</ref> The benefit of writing books seems clear, but the evidence given for Crossick and others' arguments for reuse by readers of this long form is less conclusive: 'nearly two thirds of those responding [to the OAPEN survey] had used a scholarly book for work purposes within the previous week. […] While only a third of respondents reported that they had read the whole book, only 11 per cent of those surveyed had read one chapter or less'. <ref type="bibr" target="#b7">17</ref> Crossick views these numbers optimistically as indicators that readers still engage with books as sustained arguments, not as the sum of a set of disassociated parts. Not everyone shares his optimism. OAPEN's 2010 analysis of users' needs relating to digital monographs in the humanities and social sciences presents a somewhat different (and perhaps more cynical) view: 'People do not read books anymore, they read a chapter or a paragraph […] to read a book from beginning to end is out of fashion. Since you're under pressure to do research, to publish and so on, you don't have time to read anymore. Read or rot doesn't exist, publish or perish does'. <ref type="bibr" target="#b8">18</ref> Whether this has always been the primary mode for reading scholarly books is, the authors state, unclear, but certainly the affordances and habits of the digital do not militate against such a paradigm for reading while clearly facilitating it in many ways.</p><p>Against this backdrop, and in a system and culture where so much of the prestige and traditional shorthand for important work is still tied up with our positive perceptions of traditional books (printed, or digital simulacra of printed), we have to assume that many authors produce books not because this is necessarily the best form of communication for their work, but because they feel this will bring the most benefits, because it is what they have been trained to do, or indeed because they feel they have little choice. Many such externalities seem to influence this choice, as Tim C. E. Engels et al. have shown in terms of funder mandates. <ref type="bibr" target="#b9">19</ref> The experience of the authors of the London Lives study in trying to produce an eBook version of their monograph illustrates how this social force can manifest itself as the authors' desire to publish something different becomes diluted by a lack of imagination on the part of the publisher:</p><p>[the publisher's] idea of an eBook was little more than a photographic edition of the printed text. Like most current eBooks, it would essentially have the appearance of a pdf file, with a limited number of external links to trusted sources. And their production methods prioritised the printed book, with the eBook expected to follow obediently behind. <ref type="bibr">20</ref> Books may be many things, but the fact that a scholar wanting to present his results in an imaginative format is unable to escape the gravity of the proxies and symbolic capital of the traditional book throws open the question of what we, as readers, really need and want books for.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Scholarly Reading and Browsing</head><p>Given our physiological and social attraction to books, the benefits their creation brings in terms of developing the key skills required for scholarship, and the production biases in the system, the evidence that two thirds of books are not consumed in their entirety seems to bear out rather than disprove that the form may no longer be fit for all of the functions it is used for. Authors may bristle at the idea that their publishers are actually willing to sell access to only the introduction and first chapter of their well-crafted monographs; but those same authors are also very likely to consume, as researchers, the work of their peers in exactly the same manner: piecemeal, and only following a path and intensity that suits their own research questions and practices rather than seeking to match that of the author of the work. As John Guillory put the case in his touchstone article on scholars' information consumption practices (and again, even before the digital made such practices so much easier): 'Scholarly books are pulled apart like the Sunday paper'. <ref type="bibr">21</ref> A book is more than an object, it also represents a mode of communication -a format suited to a complex, contextualised, densely evidenced argument. While it is clear we still deeply respect and inherently require this mode of scholarly expression, it is no longer clear that this is our primary mode for consuming scholarship, nor that it will continue to enjoy the primacy that it does.</p><p>There is relatively little evidence to support or refute this claim beyond the OAPEN studies of book readership discussed above. Although it is more focused on researchers' perceptions of the mode of production (of their own work) than of consumption (of the work of others), a 2012 Jisc study showed that when researchers print out electronic resources (primarily book chapters and journal articles, one assumes), they are more likely to do so in part than as a whole.<ref type="foot" target="#foot_2">22</ref> However, even here, we lack evidence for what defines a 'part', or indeed for what is then done with the work that has been printed off, or whether the incentives for printing are directly related to an intention to read, or driven by resource considerations. The challenge of understanding the interaction, or indeed the disconnect, between the needs and choices of the writer of published scholarship and those of the reader remains, despite the fact that most of the people who play one of those roles in the system also plays the other.</p><p>Some relevant research on the general behaviours exhibited by users of virtual libraries does exist, 23 and from this body of work two trends in particular emerge that can be viewed as pertinent for the digital age. The first of these is 'horizontal information seeking', which refers to the habit of looking at only a small percentage of a site's content, then navigating away from it (often not to return again). This behaviour seems to be the norm, not the exception. A CIBER/UCL study found that around sixty percent of e-journal users viewed no more than three pages of the journal, and the majority never returned to that source afterward. The second potentially relevant information-gathering trend is 'squirrelling behaviour', which refers to the habit of amassing a significant amount of downloaded material and saving it for later digestion (or not). These are not merely the habits of the younger, 'Google generation', either, as the same study also found: 'from undergraduates to professors, people behaviour in digital libraries. Power browsing and viewing appear to be the norm for all'.<ref type="foot" target="#foot_4">24</ref> Needless to say, not all reading behaviours overlap with these more superficial information-seeking strategies, but the likelihood of overlap cannot be ignored.</p><p>In some ways, this move from focused consumption to selective browsing seems a natural reaction to the information age. One can imagine that there would have been a time when only privileged access to a great library could have brought a scholar into contact with this many volumes. In this context, a scholarly work of breadth would have represented the consolidation of a field of knowledge, and be of great potential service to readers who might not have the same access to previous work. But the all-encompassing and complete nature that a humanist's knowledge is expected to somehow represent has become enshrined in our modes not just of publishing, but of conceiving our disciplines and our epistemologies. A work of humanistic scholarship is still expected to report a research finding while also deeply contextualising that finding: in essence, it is expected to curate a body of knowledge. This requirement is not based on tradition alone, but on the manner in which humanistic knowledge is created not by experimentation (which is then presented in written form) but, as many argue, in the act of writing itself: 'In the humanities, scholars have tended to be physically alone when at work because their primary epistemic activity is the writing, which by nature tends to be a solitary activity'. <ref type="bibr">25</ref> But information curation as enacted in these epistemological acts of writing has been disintermediated in the information age, hence the widening gap between our informational behaviours as horizontal browsers, and our attachment to the traditional forms of scholarly communication.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Old and New Ways to Share Knowledge</head><p>Whether or not the traditional modes of scholarly production and communication that are currently being reproduced to operate in virtual environments, are outdated is one question -whether or not they have any negative effects on scholarship is quite another. Although he does not directly note any disconnect between writers and readers, Clay Shirky points out the irrelevance of past forms of publication for the future:</p><p>With the old economics destroyed, organizational forms perfected for industrial production have to be replaced with structures optimized for digital data. It makes increasingly less sense even to talk about a publishing industry, because the core problem publishing solves -the incredible difficulty, complexity, and expense of making something available to the public -has stopped being a problem. <ref type="bibr">26</ref> Shirky's paradigm primarily applies to scholarship to the extent that the optimal unit of communication for scholars is perhaps shifting, and the potential for disaggregating processes formerly seen as interlinked (such as editing, peer review, and distribution) has grown. This is true for books but also for articles, and indeed beyond these, as longstanding, verified forms begin to become peaks in an overall scholarly production that has a very long tail. One of the differentiating aspects, introduced above, between publication and other forms of scholarly communication is that of formality versus informality; but formality is a standard based upon conservative norms and it is inclined to shift from one generation to the next. 'The new way of digital scholarship [is] actively sharing thinking, images, films, etc. to provide primary resources for others <ref type="bibr">'. 27</ref> This idea of 'actively sharing' is not necessarily compatible with the certification and production practices of traditional publication, so the informal communications channels multiply and grow in profile.</p><p>How does this proliferation of forms, which also includes shorter textual communication such as blog posts and tweets, aspire to the equivalent of wearing a suit and tie to satisfy not only the reading audience but the norms of quality control? Some of this hybrid sharing is compatible with the sustained argument form, and the delivery and validation norms of the monograph; but in other cases it might be better produced as a digital edition, exhibition, or performance; as a blog or other form of open or closed, full-length or micro-length publication; a collection of curated and/or annotated links or references; a methodological or teaching resource; a dataset or visualisation; or indeed software, tools, and platforms. But, as Robert Brink Shoemaker's experience of creating the eBook for London Lives seems to illustrate, form may not be allowed to follow function, or, at least, it may not be valued by some readers (e.g. evaluators) in the same way as others (e.g. scholars seeking insight). Stated another way, the challenge that faces us is not to do away with long or traditional forms of scholarship, but to supplement them by coming to understand how smaller or different units of scholarly production can accrete to create a sustained argument, or speak with a different language yet still be verifiable; and how the depth of the book can be replicated in some cases and for some topics without simply mimicking, or otherwise creating in another guise, the known form of the monograph.</p><p>In part, these new forms challenge our ability to share knowledge: merely making scholarly output available online brings no guarantee that it will find its specialist audience. Perhaps more critical, however, is the difficulty the wider research ecosystem has with validating such scholarship: 'humanities have little excuse for holding on to archaic forms of evaluation that hold back new forms of scholarship because we lack a roadmap for how to attribute credit for work in digital humanities.' 28 Certainly the dependence on the publication of monographs as a marker for scholarly maturity is still harmful in the way that Greenblatt highlighted more than a decade ago. And yet, pillars of the system cling to the primacy of print. For example, in a controversial policy statement, the American Historical Association (AHA) advocated placing a six-year embargo on making PhD theses digitally available with the following justification: 'History has been and remains a book-based discipline'. <ref type="bibr" target="#b10">29</ref> This statement may or may not tell the whole story; as another historian has commented: 'historians tend to be notoriously covetous about whatever they're doing and they don't want to share even within a collaborative context'. <ref type="bibr" target="#b11">30</ref> This impulse could also be at play here. A further analysis points the finger at a complicity with publishers who are fighting a rear-guard action to defend their business models, leading to what A. Truschke calls: 'this bizarre idea of the unpublished but broadly accessible dissertation'. <ref type="bibr" target="#b12">31</ref> For whatever reasons, however, and, of course, with some exceptions, the AHA's statement on the place of the book seems generally to be all too true, not just for history but for all of the humanities, including, somewhat ironically, the digital humanities. In a 2011 study carried out by the Research Information Network (RIN), a series of six case studies were presented, each profiling work that had a strong digital component. And yet, repeatedly, when discussing the dissemination practices of the scholars in question, the section on dissemination echoed the same incantation: 'All the respondents in this case disseminate their research primarily through traditional means such as peer-reviewed journals, monographs, chapters in edited books, and conference presentations'. <ref type="bibr" target="#b13">32</ref> When encouraged to reflect further, each cohort revealed an awareness of other alternatives, and even, at times, an eagerness to avail themselves of them; but there were barriers as well, which ranged from the feeling that the research was not suited to a broad public audience, through to a strong sense that one had to pick one's venues for publication carefully (and conservatively) for career advancement.</p><p>The following examples provide further evidence for this phenomenon. One faculty member said: 'I still need to improve my publications record. I think once I've managed to get a couple of things in traditional journals I will probably try to move towards the commercial free, open, Internet journals.' Yet many referred to blogs in their descriptions of useful resources. One predicted that in the future blogging would be more acceptable: 'The barrier between real publications as we used to understand them and mere documents on the web is beginning to dissolve […] or is becoming more permeable.' 33 A generational shift seems to be happening, but largely in parallel with the already longstanding formal, verified, and rewarded communication flows. This pattern continues to be perpetuated despite numerous attempts to publish guidelines, such as the 2011 edition of the MLA's journal Profession, with its suite of articles on the evaluation of digital scholarship; and the draft 'Guidelines for the Professional Evaluation of Digital Scholarship in History', <ref type="bibr">34</ref> published in April 2015. It is possible that, in some ways, this conservatism serves scholarship well, and by maintaining its strongest valorisation for the sustained argument, the systems of evaluation and reward may indeed be maintaining a high standard for the depth and formality of argument. However, it is also possible that this conservatism largely serves another purpose. As one scholar quite pointedly states: 'I think that over the last thirty years literature departments learned how to outsource a key component of the tenure granting process to university presses'; 35 and it is these smaller presses that have been hardest hit by the digital transformation of their industry. With this statement, however, we also return to the question of how publication cultures are shaped by the readers and consumers of scholarship who are not seeking knowledge for their own use, but as input for the validation of others. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The Evaluator as an Audience for Scholarship</head><p>The different needs for scholarship of an audience that is comprised more of managers of scientific staff and/or research budgets (in reality the same individual may wear different hats) than of researchers come to the fore in this context. Even in a perfect system there could be no perfect evaluation, unless that evaluation could somehow be decoupled from competition and rewards. In addition, such competitions, be they for a slot in a prestigious journal, grant funding, or for a promotion in a system with quotas in place (tacit or explicit), often require those panels who are charged with making the decisions to take into consideration a large amount of information about disparate projects or individuals.</p><p>It also requires those evaluators to exert great care in managing their potential biases and knowledge gaps in the formulation of their conclusions about what they read, as these conclusions will have a direct impact on a colleague. There is a great temptation to rely on heuristics, proxies, or externalised systems, whether they are impact factors or publisher reputations, to ease and align these processes. Such systems can be robust, albeit usually only within narrow parameters. But they are also open to abuse: the creators of metrics-based approaches and scientific databases very often decry the uses to which they are put, <ref type="bibr" target="#b14">36</ref> and the fact that the big scientific information databases, Scopus and Thomson ISI, have not readily included monographs has not helped in this respect; although alternative approaches enabling a more balanced metrics-based approach to the humanities have been developed in many countries. <ref type="bibr" target="#b15">37</ref> In addition, the question of what science should be evaluated for has become more pressing in recent years. Public pressure to deliver value for money has focused the evaluators' attention on the impact (social, industrial, educational) of a piece of research as well as its perceived excellence. Again, measures have been developed to try and quantify this abstract notion, but the rise of another complicating factor in the system of scientific measurement (regardless of its potential to align with new forms of scholarly communication) has exacerbated the notion that such evaluations have to defend their methods even as they are coming under increased pressure. The institutional and cultural barriers are therefore high, and grounded in the very traditions that make humanities research what it is. Maintaining the model of the lone scholar and the long monograph as primary touchstones for scholarly production also raises significant barriers to meeting some of the emergent expectations for scholarship: the need to engage wider audiences, to create clear and auditable trails of scholarship through analogue and digital resources, to meet the moral and financial demands of the emergent open access publishing system, and to be able to recognise quality scholarship as knowledge creation and communication in itself rather than via its proxies such as a book published by a certain publisher. These humanities' quality marks do, in some cases, have a better basis for their role as proxies for quality than some science equivalents, such as the now widely discredited journal impact factors. But their dominance, justified or not, within the minds of disciplinary communities stymies innovation and prevents the optimisation and customisation of the research communication workflow. The drive toward diversity is not an external pressure being applied to humanists, but the will and desire of the research community itself: the outcry criticising the AHA's proposal for a digital thesis embargo was equally as passionate as the original pronouncement. While it may be that the digital transformation is framing the conversation, scholarship is not changing just because of the digital, but rather due to the changing needs and wants of the scholars themselves as readers and users of scholarship, as well as in their role as its producers.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Barriers to Change, and Opportunities</head><p>The driving principle behind scholarly communication generally (and publication in particular) should be to maximise the reach and resonance of research results. Carrying out a research activity is all about exploring diverse territories, where knowing what others are doing, what their most recent advances are, and what projects are being undertaken, is essential to making sure that one's own research actually goes beyond the state of the art and can be situated within the larger landscape of insight and discovery. Communicating results is an essential activity in academic life, and not only because the assessment of such communication, through peer review mechanisms, impacts on institutional and funder recognition, thereby facilitating the financial means to carry out further research. However, scholarship is also based upon community consensus, and for this reason the validation functions of publication remain highly relevant.</p><p>So, what are the barriers to the widespread uptake of new publishing models that can accelerate the process of scholarship and the sharing of knowledge? In addition to those things discussed above, there are two primary forces that will need to be addressed: protection and authority. The first of these issues is fundamental to the publication and reward system, with the imperative it puts forward that scholars must produce research that is original. In the case of historians, for instance, we can see that they are very protective of their data and their sources, as was found by Diane <ref type="bibr">Harley et al.,</ref><ref type="bibr">38</ref> until such time as they have published their work -and rightly so, given the close linking of originality of research with reputation, publication, and, by direct extension, tenure and promotion. But while the more rapid communication cycle of the science disciplines may, in many ways, be driven by technological change, it is also underpinned by a system for protecting discovery: through patenting, licensing, and other such instruments. It should, theoretically, be equally possible for an historian to discover links between sources, or uncover unknown sources, and to similarly protect and share this discovery. This kind of research output need only be able to provide a traceable link to the author of the idea and his or her evidence base, something that could be included as a reference by other scholars seeking to build upon this work. If such conventions were in place, there would be no reason why a work of any length could not be considered as an independent 'act of scholarship'.</p><p>There is no technical barrier to the rise of such formats: indeed, many platforms and standards for them exist already. Additionally, such micro-publications need never become the whole of a scholar's output, but rather one form of dissemination among a broad range, or a form that becomes significant in its accretion, as a long-tended scholarly blog or Twitter account can do. At certain stages of the research process, it is often not as important to produce an in-depth scholarly summation so much as to provide short snapshots of an experiment's current developments (as in the hard sciences), or an analysis of a source (in the humanities). This is a situation where it may be more appropriate for a scholar to write small reports in the form of blog entries and publicise them on various social networks. Blogs offer a suitable platform for initial scholarly sharing, with both online availability and the possibility for commenting on the actual scholarly content; or, indeed, they can occupy one layer in a wider transmedial scholarly production. It is also a simple way to gain an audience for a specific result, or present observations step-by-step, for instance, during an archaeological campaign. Ideally such blogging occurs within a secure scholarly environment, such as Hypotheses.org, 39 where researchers benefit from editorial support as well as wide visibility. This epitomises the spirit of what one scholar has referred to as 'Open Notebook History' <ref type="bibr" target="#b16">40</ref> and another as 'forking' history. <ref type="bibr" target="#b17">41</ref> New hybrids able to harness such approaches also continue to appear, such as the PARTHENOS Hub <ref type="bibr" target="#b18">42</ref> and the OpenMethods Metablog, 43 including those that offer wholly new forms of argumentation, such as the logicist publication format proposed for archaeology. <ref type="bibr" target="#b20">44</ref> But even if a scholar were able to create and disseminate a trail of micro publications, many of which might be cited by peers as being interesting and useful knowledge, how could this coinage then be exchanged for those most valuable of assets: reputation, recognition, and professional advancement? How, indeed, would the author(s) be able to avoid the fate of the excellent French Book Trade in Enlightenment Europe, released more as a resource than an argument, and subsequently subjected to critique based on its incompleteness and its potential to mislead users (something which analogue primary sources have the capacity to do as well). <ref type="bibr">45</ref> It is in such cases that the effect of the second main issue that hinders the proliferation of new forms of publication can be clearly identified, that is, authority. Peer review has been, and will remain, the gold standard for proving academic quality for the foreseeable future. In fact:</p><p>[c]onventional peer review is so central to scholars' perception of quality that its retention is essentially a sine qua non for any method of archival publication, new or old, to be effective and valued. Peer review is the hallmark of quality that results from external and independent valuation. It also functions as an effective means of winnowing the papers that a researcher needs to examine in the course of his or her research. <ref type="bibr" target="#b22">46</ref> Peer review remains both the essential foundation and a major barrier within the current scholarly communication system. The system is widely viewed as deeply flawed because of the time and expense it requires and its inherent potential for uneven results. In spite of this, it is still viewed as being greatly superior to any alternative; with such approaches as altmetrics <ref type="bibr" target="#b23">47</ref> and bibliometric-driven impact factors coming under particular and sustained critique. <ref type="bibr" target="#b24">48</ref> This does not mean that peer review cannot change, and cannot itself become more efficient and better suited to supporting the various sizes, shapes, and media forms of publication. New models such as open peer review 'manuscript marketplaces', <ref type="bibr" target="#b25">49</ref> and other forms of review associated with overlay and review journals (including some specifically aimed at digital publication such as RIDE) <ref type="bibr" target="#b26">50</ref> are being piloted. However, such new models will require not only technical platforms, but also a new 'social contract' between publishers, institutions, and researchers so as to provide a more democratic, but equally well run, system. The central position of publishers like Elsevier, based in large part on their management of the quality control system across a range of disciplines, is crumbling in the face of their increasing profits, and the increasing budgetary pressures on libraries as countries like Germany and Sweden take strong negotiation stances. <ref type="bibr">51</ref> The fact that a journal like Glossa, 52 a journal of the publisher Open Library of the Humanities, 53 could be founded on the basis of the protest resignation of the entire editorial board of an Elsevier journal, also evidences the level of frustration on the production side of publication culture. Consumptionside negotiations grab fewer headlines as they tend to be individual rather than institutional, but certainly the gaining in popularity of open science (to be discussed in greater detail below), with its focus on publications as well as data, rewards, training, and ethics, indicates the form this new contract may take. The culture change that stands before the scholarly community to enable the acceptance of new publication modes must also include a negotiation of the meaning and value of the metrics and review mechanisms, and enable a re-evaluation of the many proxies upon which we still rely: from publishers to citations to alternative metrics. Some aspects of this new review model may themselves occur by proxy: citations may not carry the same weight in humanities disciplines that they do in the sciences, but certainly a protected idea that is referenced widely will have proven its impact if not its quality. The challenge is not to divest ourselves of all that is a part of the tradition or all that is emerging in other disciplines, but to understand what it means for the humanities and to apply it appropriately. Plenty of electronic platforms and publishers have demonstrated viable and reliable practices for managing quality assessments that are overt as well as covert, though relatively few of them (only ten percent by one reckoning) <ref type="bibr" target="#b28">54</ref> specifically target humanities and social sciences. The use of a platform like CommentPress 55 harnesses this impetus. However, impetus -along with the cost in time and effort in seeking reviews in multiple journals -may, at some point, make independent review options, like Publons, <ref type="bibr" target="#b29">56</ref> more attractive, more utilised, and ultimately a viable and accepted pathway to validation. In such a system, user registration information might indicate academic expertise, as might community self-regulation, although the threat of incivility on such platforms must also be managed. The binary simplicity of Facebook 'friending' and 'liking' may therefore not be fit for this purpose. If a young scholar is able to document the positive responses to his or her work over a period of months or years from known, senior scholars in their field, then this should be captured and considered, as many of the 'next generation' metrics platforms and approaches now do (e.g. altmetrics). <ref type="bibr">57</ref> If nothing else, it could be controlled by interest and active understanding, rather than by a formal loop regulated by a publisher who may reject good work, not on the basis of its quality, but rather because of externalities related to the focus of the press or the nature of their publications, such as a work's length, language, or format.</p><p>By transferring the editorial and curatorial functions to the researcher-users, some unique and useful formats for scholarship can arise within the humanities and its peripheries. At the most basic level, there is a wide but uneven provision of independent national and institutional research repositories that provide the most basic infrastructure for making research accessible without necessarily promoting its visibility or authority. In certain cases, this model can work well: the arXiv preprint repository, 58 for example, is now a cornerstone of physics research. More elaborate cognates also exist, such as the CARMEN Virtual Laboratory (VL) a 'cloud-based platform which allows neuroscientists to store, share, develop, execute, reproduce and publicise their work [… including] an interactive publications repository. This new facility allows users to link data and software to publications.' <ref type="bibr" target="#b30">59</ref> More at the margins of traditional forms, perhaps, are publication outlets like JoVE <ref type="bibr" target="#b31">60</ref> (which publishes research results in the form of short video clips), and conceptual approaches like 'explorable explanations', <ref type="bibr" target="#b32">61</ref> which resist not only the traditional formats of the monograph, but also the tradition of the authorial voice, and presents instead the data underlying the author's conclusions and lets the readers develop their own interpretations. Projects like THOR are establishing interdisciplinary and inter-sectoral collaborations to create a 'seamless integration between articles, data, and researchers across the research lifecycle'. <ref type="bibr" target="#b33">62</ref> Traditional publishers are entering the space as well, with new entrants such as Open Book Publishers experimenting with hybrid publications using Wikimedia Commons; established players opening up new platforms, such as Palgrave's open format Pivot platform; <ref type="bibr" target="#b34">63</ref> and new, collaborative, funder-driven platforms for publication, such as the Wellcome/F1000 cooperative venture Wellcome Open Research. <ref type="bibr" target="#b35">64</ref> These platforms bring us back to the reception and adoption of open science principles, and the mixed reception the concept of open access has had in the humanities. Given the long publication cycles, the lack of reuse of results by industry, and the mix of books and articles found on the traditional humanist's publication record, the average humanistic researcher has perhaps felt at a distance from the push to ensure public access to research, viewing it as 'good citizenship' <ref type="bibr" target="#b36">65</ref> rather than a professional imperative. In addition, the fact that a majority of humanities research is developed without external research funding makes the discussion of the 'gold' access route ring particularly hollow: an average article processing charge (APC) in the sciences could well absorb a humanist's only access to a research budget and institutional contributions to research travel, for several years. Even the wide availability of 'green' deposit options does not resonate as it perhaps should, with the greater concern being the fate of research released as a digital edition or other free-standing form of scholarship without the benefit of oversight by a publisher. Anecdotally, one also hears of editorial boards giving preference to pieces not already in preprint, and of tenure committees expecting a book from the highest impact publisher, regardless of their publication policies. As the attention of funding agencies and national research agencies begins to focus on ensuring open access, however, one can expect the awareness and emphasis of openness to increase in the humanities. One has to expect that some aspects of this shift will require the 'stick' of possible sanctions to be applied in the cases of non-compliant researchers, but also that it will take advantage of the 'carrots' -personal, professional and informational -that wider dissemination can bring. This will be of particular importance in the digital humanities, where the traditional measured pace in humanities scholarship meets the rapid changes of technology head on: 'without free and open access to these materials, the majority of the innovations of the Digital Humanities will remain […] a tremendously fascinating instrumentarium but the internet's genuinely transformational promise will have been missed, largely as a result of our failure to understand the full implications of the digital medium itself.' <ref type="bibr" target="#b37">66</ref> Even within traditional length formats of scholarly communication, if we are still attached to traditional forms of journal editing, we can observe that its core services, namely, identification, certification, dissemination, and long-term availability, can be implemented on the basis of an existing publication repository. Indeed, such a repository can provide a submission environment that identifies authors and time-stamps the document, and offers a perfect online dissemination platform with the necessary long-term archiving facility of the hosting institution. In such a context, designing a certification environment mechanism whereby a paper deposited by an author is forwarded to an editorial committee for peer review is quite a straightforward endeavour. This is exactly what is now being experimented with by the Episciences.org 67 project on top of the French Hyper Articles en Ligne (HAL) open repository platform. <ref type="bibr">68</ref> This platform is further interesting in that it offers new possibilities for changing our perspective on the certification process: open submission, open peer review, 69 updated versions of articles, and community feedback are features that may dramatically change our views of scholarly publishing. authors to use their text to justify a place in the state of the art or make general conclusions about a field of study (something not every reader may want or need). In addition, such a publication -which could in theory have a much more open format and a more variable length than a book or even a traditional journal article -could accelerate the capacity for the humanistic knowledge ecosystem to share and exchange information, thus reducing the likelihood of competing work being developed in parallel and increasing the potential for the identification of shared interests and fostering of collaboration. Again, models exist in the sciences and at the edges of the humanities, where in archaeology or, indeed, the biosciences, a discovery may be recorded and made public with only a short observation or note to contextualise it. This should be possible in disciplines such as literature and history as well, not to mention formats such as those developed by the Centre Virtuel de la Connaissance sur l'Europe, 71 or the CENDARI project's Archival Research Guide's 72 gesture toward how this sort of exchange might occur. This kind of 'light-touch' format is valuable not only for its flexibility and potential technical integration (for example, via services to uplift and expose significant named entities within and across works, thereby enhancing visibility in a targeted way for research), but also for the visibility it can bring to less-established scholars, or para-academics in 'alt-ac' (alternative-academic) style roles, or to work that is not best presented in one of the traditional formats.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conclusions</head><p>The CIBER study cited above also asked the question: what will the information environment be like in 2017? Having now passed that landmark, it is uncanny how much of the report's speculation still seems germane: for example, the suspicion that research processes and publications would need to change drastically to take advantage of the opportunities and respond to the current inequities in the scholarly publishing environment. However, it is not the technology at hand 71 'ePublications', CVCE, http://www.cvce.eu/en/epublications 72 'Intro to Thematic Research Guides', Cendari, http://www.cendari.eu/thematicresearch-guides/intro-thematic-research-guides. CENDARI is a hybrid publication of undetermined length bringing together analysis, links to data sources, and semantic linking to related resources.</p><p>that needs to change for such a system of alternatives to conventional publishing to emerge, become normalised, and be accepted as works of scholarship. The book and the monograph will not disappear, nor should they; but the primacy of the book as the privileged format of humanities scholarship will need to cede some room to outputs that are more processand sharing-oriented, or less prone to claims of representing the authority of the 'final word' merely because of their length or adherence to the expected proxies of look, feel, or publisher's branding. Scholarship will also benefit from recognising deep and sustained engagement with ideas across many publications and publication outlets: as Christine Borgman asserts, we must create an information infrastructure that supports scholarship in all its multiple forms of communication. <ref type="bibr">73</ref> The potential basic unit of scholarship must be expanded to include not just the book, chapter, and article; but the scholar, the project, the team, and the career. Indeed, the growth in acceptance of the ORCID system 74 for identifying scholars may indicate a shift in this direction. The idea is also not to perpetuate a system in which word counts are arbitrarily constrained in order to achieve the smallest publishable unit (Science and Nature being the extreme examples), a practice that scholars have rightly criticised. <ref type="bibr">75</ref> Instead, the 'science telescope', as it were, needs to be fitted with an adjustable magnification, which scholars may use as befits their findings and research process, if we are to accommodate the needs of those whose work may be interdisciplinary, transnational, and experimental. This question of the functional aspects of the new scholarly communication is further supported by a second major requirement related to the forms these new publication models might take, which call for '[s]upport for managing and preserving new research methods and products, including components of natural-language processing, visualization, complex distributed databases, GIS, among many others'. <ref type="bibr">77</ref> It is the culture of the institutions and the disciplines that need to stretch to accommodate these possibilities, to allow them to find a 'voice' that can support their transmission and validate their results. The developments in research infrastructure, like the platforms mentioned above, are ready to create such safe places for scholarship to extend its reach. However, for their impact to be felt, they must be met at institutional levels with enthusiasm and understanding rather than suspicion.</p><p>The various possibilities outlined so far only make sense if research institutions invest time, political capital, and budget to implement such models, and make them part of the daily life of their researchers. A typical example of best practice can be taken from the recently published open access policy by the INRIA 78 research institute, which combines the elements of a mandate to deposit all publications on the HAL archive, a cautious assessment of any new models provided by the private publishing sector, and the funding of the Episciences.org platform.</p><p>Adopting a less conservative vision of scholarly communication opens up a whole range of possibilities for improving the way scientific ideas can be seamlessly transmitted to a wide audience. We can see that a new landscape can be outlined where the management of virtual research environments, comprising research data, various types of notes and commentaries, as well as draft documents that link these objects together; could dramatically change the way scholarship is carried out in the future. The Dutch national data service Data Archiving and Networked Services (DANS) (in cooperation with Brill) is already harnessing this potential with their online journal for research data, 79 while DARIAH's ERIC is promoting a culture of greater sharing among researchers as well as between researchers and cultural heritage 77 Ibid, p. 20.  78 'Inria Champions Open Access', Inria (6 November 2015), https://www.inria.fr/en/ news/news-from-inria/inria-champions-open-access 79 'DANS and Brill Publishers Launch Online Journal on Research Data', DANS (20  October 2015), https://dans.knaw.nl/en/current/news/dans-and-brill-publisherslaunch-online-journal-on-research-data institutions. <ref type="bibr" target="#b45">80</ref> In such environments, various levels of peer review are possible, from simple feedback by known colleagues, to the possibility for any member of a research community to comment at length. Traditional peer review is just one possible implementation of such a model where the main objective should be, as it has always been, to improve quality and widen accessibility for new ideas and the output of research, and to rebalance the values we communicate through the way we use scholarship with those expressed by our dissemination and communication infrastructures.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head></head><label></label><figDesc>33Bulger et al., Reinventing Research, p. 45.  34 Seth Denbo, 'Draft Guidelines on the Evaluation of Digital Scholarship',</figDesc><table /><note><p>American Historical Association (21 April 2015), http://blog.historians.org/2015/04/ draft-guidelines-evaluation-digital-scholarship/ 35 Lindsay Waters, 'A Modest Proposal for Preventing the Books of the Members of the MLA from Being a Burden to their Authors, Publishers, or Audiences', PMLA, 115.3 (2000), 315-17 (p. 316), https://doi.org/10.2307/463452.</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head></head><label></label><figDesc>Harley  et al's extensive study on scholarly communication bears this out as being one of their five primary recommendations and findings: it calls for '[n]ew models of publication that can accommodate arguments of varied length, rich media, and embedded links to data; plus institutional assistance to manage permissions of copyrighted material'. This would address the problem identified by that team: 'One of the biggest problems[…] is that there is no clear understanding about what a digital or electronic equivalent of a book could be.' 76 73 Christine Borgman, Scholarship in the Digital Age: Information, Infrastructure and the Internet (Cambridge, MA: MIT, 2007). 74 ORCID: Connecting Research and Researchers, https://orcid.org/ 75 Diane Harley et al., Assessing the Future Landscape, p. 442. 76 Ibid.</figDesc><table /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="20" xml:id="foot_0"><p>Bob Shoemaker, 'The Future of the (e)Book', History Matters (1 December 2015), http://www.historymatters.group.shef.ac.uk/future-ebook/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="21" xml:id="foot_1"><p>John Guillory, 'How Scholars Read', ADE Bulletin, 146 (2008), 8-17 (p. 14), https:// doi.org/10.1632/ade.146.8</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="22" xml:id="foot_2"><p>Caren Millen, 'Exploring  Open Access to Save Monographs, the Question Is -How?', Jisc, https://www.jisc.ac.uk/blog/exploring-open-access-to-savemonographs-the-question-is-how-24-oct-2012</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="23" xml:id="foot_3"><p>23 Ian Rowlands et al., 'Information Behaviour of the Researcher of the Future', CIBER Briefing Papers (2008), https://www2.warwick.ac.uk/study/cll/courses/ professionaldevelopment/wmcett/researchprojects/dialogue/the_google_ generation.pdf</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="24" xml:id="foot_4"><p>Ian Rowlands, 'Information Behaviour', p. 19.   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="25" xml:id="foot_5"><p>Willard McCarty, Humanities Computing (Basingstoke: Palgrave Macmillan, 2005), p. 12.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="26" xml:id="foot_6"><p>Clay Shirky, 'Newspapers and Thinking the Unthinkable', Clay Shirky (13 March 2009), http://www.shirky.com/weblog/2009/03/newspapers-and-thinking-theunthinkable/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="27" xml:id="foot_7"><p>27 Joan Cheverie, Jennifer Boettcher, and John Buschman, 'Digital Scholarship in the University Tenure and Promotion Process: A Report on the Sixth Scholarly Communication Symposium at Georgetown University Library', Journal of Scholarly Publishing,40.3 (2009), 219-30 (p. 225), https://doi.org/10.3138/jsp.40.3.219.   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="28" xml:id="foot_8"><p>Cheverie, Boettcher, and Buschman, 'Digital Scholarship', p. 226.   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="38" xml:id="foot_9"><p>Diane Harley et al., Assessing the Future Landscape of Scholarly Communication: An Exploration of Faculty Values and Needs in Seven Disciplines (Berkeley, CA: Center for Studies in Higher Education, 2010), https://escholarship.org/uc/cshe_fsc</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="45" xml:id="foot_10"><p>The original resource can be found here: http://fbtee.uws.edu.au/main/, the critical review (by Robert Darnton) here: http://www.history.ac.uk/reviews/review/1355,</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_11"><p>The unstated implication of many of these innovations is not only that the publication should appear in a range of places and a range of formats to meet both the needs of authors and readers, but also that the publication should make research data and the research process explicit, not only the research results. Seen from this perspective, a platform such as CommentPress,<ref type="bibr" target="#b39">70</ref> which exposes the formation of peer opinion around a work of scholarship in real time, should also inhabit a place along this continuum. If this perspective were to be advanced toward its natural conclusion, a number of interesting avenues for sharing scholarship could be opened up. Developing objects of scholarship that are able to expose a full epistemological process, rather than a summation of its conclusions, would enable scholars to access the output of others in a more holistic, organic fashion, and reduce some of the requirements for</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">Waiting for Thomas Kuhn: First Monday and the Evolution of Electronic Journals</title>
+		<author>
+			<persName><forename type="first">Edward</forename><forename type="middle">J</forename><surname>Valauskas</surname></persName>
+		</author>
+		<ptr target="http://firstmonday.org/ojs/index.php/fm/article/view/567" />
+		<imprint>
+			<date type="published" when="1997">1997</date>
+			<pubPlace>First Monday, 2</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Paper is Back: Why &quot;Real&quot; Books Are on the Rebound</title>
+		<author>
+			<persName><forename type="first">Frank</forename><surname>Catalano</surname></persName>
+		</author>
+		<ptr target="http://www.geekwire.com/2015/paper-back-real-books-rebound/" />
+	</analytic>
+	<monogr>
+		<title level="j">GeekWire</title>
+		<imprint>
+			<date type="published" when="2015-01-18">18 January 2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">For Books, Print Is Back</title>
+		<author>
+			<persName><forename type="first">Jim</forename><surname>Milliot</surname></persName>
+		</author>
+		<ptr target="https://www.publishersweekly.com/pw/by-topic/industry-news/bookselling/article/65172-print-is-back.html" />
+	</analytic>
+	<monogr>
+		<title level="j">PublishersWeekly.com</title>
+		<imprint>
+			<date type="published" when="2015-01-02">2 January 2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">The Death of the Scholarly Monograph in the Humanities? Citation Patterns in Literary Scholarship</title>
+		<author>
+			<persName><forename type="first">Jennifer</forename><forename type="middle">Wolfe</forename><surname>Thompson</surname></persName>
+		</author>
+		<idno type="DOI">10.1515/LIBR.2002.121</idno>
+		<ptr target="https://doi.org/10.1515/LIBR.2002.121" />
+	</analytic>
+	<monogr>
+		<title level="j">Libri</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="page" from="121" to="136" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Survey of Use of Monographs by Academics -as Authors and Readers</title>
+		<ptr target="http://oapen-uk.jiscebooks.org/files/2012/02/OAPEN-UK-researcher-survey-final.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">The acronym OAPEN stands for: Open Access Publishing in European Networks</title>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<author>
+			<persName><forename type="first">Geoffrey</forename><surname>Crossick</surname></persName>
+		</author>
+		<ptr target="https://dera.ioe.ac.uk/21921/1/2014_monographs.pdf" />
+		<title level="m">Monographs and Open Access: A Report to HEFCE</title>
+		<meeting><address><addrLine>London</addrLine></address></meeting>
+		<imprint>
+			<publisher>HEFCE</publisher>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Back to Books</title>
+		<idno type="DOI">10.1038/463588a</idno>
+		<ptr target="https://doi.org/10.1038/463588a" />
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">463</biblScope>
+			<biblScope unit="page" from="588" to="588" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Monographs and Open Access</title>
+		<author>
+			<persName><surname>Crossick</surname></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page">22</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">Janneke</forename><surname>Adema</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Rutten</surname></persName>
+		</author>
+		<ptr target="https://openreflections.files.wordpress.com/2008/10/d315-user-needs-report.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">Digital Monographs in the Humanities and Social Sciences: Report on User Needs, OAPEN Deliverable</title>
+		<imprint>
+			<biblScope unit="page">62</biblScope>
+			<date type="published" when="2010-05">3.1.5 (2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Are Book Publications Disappearing from Scholarly Communication in the Social Sciences and Humanities?</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Tim</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Engels</surname></persName>
+		</author>
+		<idno type="DOI">10.1108/AJIM-05-2018-0127</idno>
+		<ptr target="https://doi.org/10.1108/AJIM-05-2018-0127" />
+	</analytic>
+	<monogr>
+		<title level="j">Aslib Journal of Information Management</title>
+		<imprint>
+			<biblScope unit="volume">70</biblScope>
+			<biblScope unit="page" from="592" to="607" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">AHA Statement on Policies Regarding the Embargoing of Completed History PhD Dissertations</title>
+		<author>
+			<persName><forename type="first">Jacqueline</forename><surname>Jones</surname></persName>
+		</author>
+		<ptr target="http://blog.historians.org/2013/07/american-historical-association-statement-on-policies-regarding-the-embargoing-of-completed-history-phd-dissertations/" />
+	</analytic>
+	<monogr>
+		<title level="s">American Historical Association</title>
+		<imprint>
+			<date type="published" when="2013-07-22">22 July 2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">What Researchers Told Us about their Experiences and Expectations of Scholarly Communications Ecosystems</title>
+		<author>
+			<persName><forename type="first">Lorraine</forename><surname>Estelle</surname></persName>
+		</author>
+		<idno type="DOI">10.1629/uksg.349</idno>
+		<ptr target="https://doi.org/10.1629/uksg.349" />
+	</analytic>
+	<monogr>
+		<title level="j">Insights</title>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="71" to="75" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Dissertation Embargoes and Publishing Fears</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Truschke</surname></persName>
+		</author>
+		<ptr target="http://dissertationreviews.org/archives/11842" />
+	</analytic>
+	<monogr>
+		<title level="j">Dissertation Reviews</title>
+		<imprint>
+			<date type="published" when="2015-04-01">1 April 2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<author>
+			<persName><forename type="first">Monica</forename><surname>Bulger</surname></persName>
+		</author>
+		<title level="m">Reinventing Research? Information Practices in the Humanities, Research Information Network Report</title>
+		<meeting><address><addrLine>London</addrLine></address></meeting>
+		<imprint>
+			<publisher>The Research Information Network</publisher>
+			<date type="published" when="2011">2011</date>
+			<biblScope unit="page">26</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">ERIH&apos;s Role in the Evaluation of Research Achievements in the Humanities</title>
+		<author>
+			<persName><forename type="first">Ferenc</forename><surname>Kiefer</surname></persName>
+		</author>
+		<ptr target="http://www.oapen.org/search?identifier=515678" />
+	</analytic>
+	<monogr>
+		<title level="m">New Publication Cultures in the Humanities Exploring the Paradigm Shift</title>
+		<meeting><address><addrLine>Amsterdam</addrLine></address></meeting>
+		<imprint>
+			<publisher>Amsterdam University Press</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="173" to="182" />
+		</imprint>
+	</monogr>
+	<note>Péter Dávidházi</note>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">The Evaluation of Scholarly Books as Research Output: Current Developments in Europe</title>
+		<author>
+			<persName><forename type="first">Elea</forename><surname>Giminez-Toledo</surname></persName>
+		</author>
+		<ptr target="http://hypotheses.org/" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 15th International Society for Scientometrics and Informetrics Conference</title>
+		<meeting>the 15th International Society for Scientometrics and Informetrics Conference<address><addrLine>Istanbul, Turkey</addrLine></address></meeting>
+		<imprint>
+			<publisher>Academic Blogs</publisher>
+			<date type="published" when="2015-07">June-4 July 2015</date>
+			<biblScope unit="volume">29</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Open Notebook History</title>
+		<author>
+			<persName><forename type="first">W</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Caleb</forename><surname>Mcdaniel</surname></persName>
+		</author>
+		<ptr target="http://wcm1.web.rice.edu/open-notebook-history.html" />
+		<imprint>
+			<date type="published" when="2013-05-22">22 May 2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Fork the Academy&apos;, ProfHacker, The Chronicle of Higher Education</title>
+		<author>
+			<persName><forename type="first">Konrad</forename><forename type="middle">M</forename><surname>Lawson</surname></persName>
+		</author>
+		<ptr target="http://www.chronicle.com/blogs/profhacker/fork-the-academy/48935" />
+		<imprint>
+			<date type="published" when="2013-04-30">30 April 2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">'parthenos</forename><surname>Hub</surname></persName>
+		</author>
+		<ptr target="http://www.parthenos-project.eu/portal/the-hub43" />
+	</analytic>
+	<monogr>
+		<title level="j">PARTHENOS</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Openmethods</surname></persName>
+		</author>
+		<ptr target="https://openmethods.dariah.eu" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">The Archaeological Excavation Report of Rigny: An Example of an Interoperable Logicist Publication</title>
+		<author>
+			<persName><forename type="first">Pierre-Yves</forename><surname>Buard</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">CIDOC</title>
+		<imprint>
+			<biblScope unit="page">1892412</biblScope>
+			<date type="published" when="2018">2018</date>
+			<pubPlace>Heraklion, Greece</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title level="m" type="main">and the &apos;critique of the critique</title>
+		<ptr target="https://doi.org/10.1017/s" />
+		<imprint>
+			<date>0018246x12000556</date>
+		</imprint>
+	</monogr>
+	<note>by Mark Curran) here</note>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">The Influence of Academic Values on Scholarly Publication and Communication Practices</title>
+		<author>
+			<persName><forename type="first">Diane</forename><surname>Harley</surname></persName>
+		</author>
+		<ptr target="http://hdl.handle.net/2027/spo.3336451.0010.204" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Electronic Publishing</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Next-generation Metrics: Responsible Metrics and Evaluation for Open Science</title>
+		<author>
+			<persName><forename type="first">James</forename><surname>Wilsdon</surname></persName>
+		</author>
+		<ptr target="https://ec.europa.eu/research/openscience/pdf/report.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">Report of the European Commission Expert Group on Altmetrics</title>
+		<meeting><address><addrLine>Luxembourg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Publications Office of the European Union</publisher>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Assessing the Future Landscape</title>
+		<author>
+			<persName><forename type="first">Diane</forename><surname>Harley</surname></persName>
+		</author>
+		<idno type="DOI">10.13140/RG.2.1.4929.1363</idno>
+		<ptr target="https://doi.org/10.13140/RG.2.1.4929.1363" />
+	</analytic>
+	<monogr>
+		<title level="m">The Metric Tide: Report of the Independent Review of the Role of Metrics in Research Assessment and Management</title>
+		<imprint>
+			<publisher>HEFCE: London</publisher>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Peer-Review 2.0: Welcome to JMIR Preprints, an Open Peer-Review Marketplace for Scholarly Manuscripts</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Eysenbach</surname></persName>
+		</author>
+		<idno type="DOI">10.2196/preprints.5337</idno>
+		<ptr target="https://doi.org/10.2196/preprints.5337" />
+	</analytic>
+	<monogr>
+		<title level="j">JMIR Preprints</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Dutch Publishing Giant Cuts off Researchers in Germany and Sweden</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ride</surname></persName>
+		</author>
+		<ptr target="https://www.nature.com/articles/d41586-018-05754-1" />
+	</analytic>
+	<monogr>
+		<title level="m">Review Journal for Digital Editions and Resources (IDE)</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="volume">559</biblScope>
+			<biblScope unit="page" from="454" to="455" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<ptr target="https://www.openlibhums.org/" />
+	</analytic>
+	<monogr>
+		<title level="m">53 Open Library of the Humanities</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">What is Open Peer Review? A Systematic Review</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ross-Hellauer</surname></persName>
+		</author>
+		<idno type="DOI">10.12688/f1000research.11369.2</idno>
+		<ptr target="http://futureofthebook.org/commentpress/" />
+	</analytic>
+	<monogr>
+		<title level="m">F1000 Science Policy Research Gateway</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="volume">6</biblScope>
+		</imprint>
+	</monogr>
+	<note>Welcome to CommentPress</note>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">home/) show promise in this field, although, one must be wary of editing services companies offering fee-based, non-specific peer review of scientific manuscripts as well. 57 Altmetrics: Who&apos;s talking about your research</title>
+		<ptr target="https://arxiv.org/" />
+	</analytic>
+	<monogr>
+		<title level="m">particular, community-based models like Publons</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">A Digital Repository and Execution Platform for Interactive Scholarly Publications in Neuroscience</title>
+		<author>
+			<persName><forename type="first">Jane</forename><surname>Victoria</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Hodge</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s12021-015-9276-3</idno>
+		<ptr target="https://doi.org/10.1007/s12021-015-9276-3" />
+	</analytic>
+	<monogr>
+		<title level="j">Neuroinformatics</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="23" to="40" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title/>
+		<ptr target="https://www.jove.com" />
+	</analytic>
+	<monogr>
+		<title level="j">JoVE | Peer Reviewed Scientific Video Journal: Accelerating Scientific Research &amp; Education</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">The Rise of Explorable Explanations</title>
+		<author>
+			<persName><forename type="first">Maarten</forename><surname>Lambrechts</surname></persName>
+		</author>
+		<ptr target="http://www.maartenlambrechts.com/2015/03/04/the-rise-of-explorable-explanations.html" />
+	</analytic>
+	<monogr>
+		<title level="j">Maarten Lambrechts</title>
+		<imprint>
+			<date type="published" when="2015-03-04">4 March 2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title/>
+		<ptr target="https://project-thor.eu/" />
+	</analytic>
+	<monogr>
+		<title level="j">Project THOR</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Breaking Boundaries in Academic Publishing: Launching a New Format for Scholarly Research</title>
+		<author>
+			<persName><forename type="first">Hazel</forename><surname>Newton</surname></persName>
+		</author>
+		<idno type="DOI">10.1629/2048-7754.26.1.70</idno>
+		<ptr target="https://doi.org/10.1629/2048-7754.26.1.70" />
+	</analytic>
+	<monogr>
+		<title level="j">Insights</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="page" from="70" to="76" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Why We&apos;re Launching a New Publishing Platform</title>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Kiley</surname></persName>
+		</author>
+		<ptr target="https://wellcome.ac.uk/news/why-were-launching-new-publishing-platform" />
+	</analytic>
+	<monogr>
+		<title level="j">Wellcome</title>
+		<imprint>
+			<date type="published" when="2016-07-07">7 July 2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">What are Research Infrastructures</title>
+		<author>
+			<persName><forename type="first">Sheila</forename><surname>Anderson</surname></persName>
+		</author>
+		<idno type="DOI">10.3366/ijhac.2013.0078</idno>
+		<ptr target="https://doi.org/10.3366/ijhac.2013.0078" />
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Humanities and Arts Computing</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="4" to="23" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Sigi</forename><surname>Jöttkandt</surname></persName>
+		</author>
+		<ptr target="https://hal.archives-ouvertes.fr" />
+		<imprint>
+			<date type="published" when="2008-04-03">3 April 2008</date>
+			<publisher>UC Irvine</publisher>
+			<biblScope unit="page">6</biblScope>
+		</imprint>
+	</monogr>
+	<note>unpublished Conference Paper at HumaniTech</note>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">The Pros and Cons of Open Peer Review</title>
+		<author>
+			<persName><forename type="first">Tom</forename><surname>Decoursey</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/nature04991</idno>
+		<ptr target="https://doi.org/10.1038/nature04991" />
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Welcome to CommentPress</title>
+		<ptr target="https://openmethods.dariah.eu/about/" />
+	</analytic>
+	<monogr>
+		<title level="j">Future of the Book</title>
+		<imprint/>
+		<respStmt>
+			<orgName>The Institute for the Future of the Book</orgName>
+		</respStmt>
+	</monogr>
+	<note>Open Methods</note>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">What are Research Infrastructures</title>
+		<author>
+			<persName><forename type="first">Janneke</forename><surname>Adema</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Rutten</surname></persName>
+		</author>
+		<idno type="DOI">10.3366/ijhac.2013.0078arXiv.org</idno>
+		<ptr target="https://doi.org/10.1038/463588a" />
+	</analytic>
+	<monogr>
+		<title level="m">Digital Monographs in the Humanities and Social Sciences: Report on User Needs</title>
+		<imprint>
+			<date type="published" when="2010">3.1.5 (2010. 2013. 2010</date>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="588" to="588" />
+		</imprint>
+	</monogr>
+	<note>Nature</note>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<monogr>
+		<author>
+			<persName><forename type="first">Christine</forename><surname>Borgman</surname></persName>
+		</author>
+		<title level="m">Scholarship in the Digital Age: Information, Infrastructure and the Internet</title>
+		<meeting><address><addrLine>Cambridge MA</addrLine></address></meeting>
+		<imprint>
+			<publisher>MIT Press</publisher>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<monogr>
+		<title level="m" type="main">The Archaeological Excavation Report of Rigny: An Example of an Interoperable Logicist Publication</title>
+		<author>
+			<persName><forename type="first">Pierre-Yves</forename><surname>Buard</surname></persName>
+		</author>
+		<ptr target="https://hal.archives-ouvertes.fr/hal-01892412/document" />
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<pubPlace>Heraklion, Greece</pubPlace>
+		</imprint>
+	</monogr>
+	<note>unpublished conference paper at CIDOC</note>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<monogr>
+		<author>
+			<persName><forename type="first">Monica</forename><surname>Bulger</surname></persName>
+		</author>
+		<title level="m">Reinventing Research? Information Practices in the Humanities, Research Information Network Report</title>
+		<meeting><address><addrLine>London</addrLine></address></meeting>
+		<imprint>
+			<publisher>The Research Information Network</publisher>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Paper is Back: Why &quot;Real&quot; Books Are on the Rebound</title>
+		<author>
+			<persName><forename type="first">Frank</forename><surname>Catalano</surname></persName>
+		</author>
+		<ptr target="http://www.geekwire.com/2015/paper-back-real-books-rebound/" />
+	</analytic>
+	<monogr>
+		<title level="j">GeekWire</title>
+		<imprint>
+			<date type="published" when="2015-01-18">18 January 2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Data Fluidity in DARIAH: Pushing the Agenda Forward</title>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<idno type="DOI">10.1515/bfp-2016-0039</idno>
+		<ptr target="https://hal.inria.fr/hal-01285917v2" />
+	</analytic>
+	<monogr>
+		<title level="j">BIBLIOTHEK Forschung und Praxis</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="350" to="357" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Digital Scholarship in the University Tenure and Promotion Process: A Report on the Sixth Scholarly Communication Symposium at Georgetown University Library</title>
+		<author>
+			<persName><forename type="first">Joan</forename><surname>Cheverie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jennifer</forename><surname>Boettcher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Buschman</surname></persName>
+		</author>
+		<idno type="DOI">10.3138/jsp.40.3.219</idno>
+		<ptr target="https://doi.org/10.3138/jsp.40.3.219" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Scholarly Publishing</title>
+		<imprint>
+			<biblScope unit="volume">40</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="219" to="230" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<monogr>
+		<author>
+			<persName><forename type="first">Geoffrey</forename><surname>Crossick</surname></persName>
+		</author>
+		<ptr target="https://dera.ioe.ac.uk/21921/1/2014_monographs.pdf" />
+		<title level="m">Monographs and Open Access: A Report to HEFCE</title>
+		<meeting><address><addrLine>London</addrLine></address></meeting>
+		<imprint>
+			<publisher>HEFCE</publisher>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Beyond the Forbidden Best-Sellers of Pre-Revolutionary France</title>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Curran</surname></persName>
+		</author>
+		<ptr target="https://doi.org/10.1017/s" />
+	</analytic>
+	<monogr>
+		<title level="j">The Historical Journal</title>
+		<imprint>
+			<biblScope unit="volume">56</biblScope>
+			<biblScope unit="page" from="89" to="112" />
+			<date type="published" when="2013">2013. 0018246x12000556</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">'</forename><surname>Dans</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<ptr target="https://dans.knaw.nl/en/current/news/dans-and-brill-publishers-launch-online-journal-on-research-data" />
+	</analytic>
+	<monogr>
+		<title level="j">Publishers Launch Online Journal on Research Data</title>
+		<imprint>
+			<date type="published" when="2015-10-20">20 October 2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Review of The French Book Trade in Enlightenment Europe</title>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Darnton</surname></persName>
+		</author>
+		<ptr target="http://www.history.ac.uk/reviews/review/1355" />
+	</analytic>
+	<monogr>
+		<title level="j">Reviews in History</title>
+		<imprint>
+			<biblScope unit="page" from="1769" to="1794" />
+			<date type="published" when="2012-12">December 2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">The Pros and Cons of Open Peer Review</title>
+		<author>
+			<persName><forename type="first">Tom</forename><surname>Decoursey</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/nature04991</idno>
+		<ptr target="https://doi.org/10.1038/nature04991" />
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<monogr>
+		<title level="m" type="main">Draft Guidelines on the Evaluation of Digital Scholarship</title>
+		<author>
+			<persName><forename type="first">Seth</forename><surname>Denbo</surname></persName>
+		</author>
+		<ptr target="http://blog.historians.org/2015/04/draft-guidelines-evaluation-digital-scholarship/" />
+		<imprint>
+			<date type="published" when="2015-04-21">21 April 2015</date>
+			<publisher>American Historical Association</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Dutch Publishing Giant Cuts off Researchers in Germany and Sweden</title>
+		<author>
+			<persName><forename type="first">Holly</forename><surname>Else</surname></persName>
+		</author>
+		<idno>41586-018-05754-1</idno>
+		<ptr target="https://www.nature.com/articles/d" />
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">559</biblScope>
+			<biblScope unit="page" from="454" to="455" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">Are Book Publications Disappearing from Scholarly Communication in the Social Sciences and Humanities?</title>
+		<author>
+			<persName><forename type="first">Tim</forename><forename type="middle">C E</forename><surname>Engels</surname></persName>
+		</author>
+		<idno type="DOI">10.1108/AJIM-05-2018-0127</idno>
+		<ptr target="https://doi.org/10.1108/AJIM-05-2018-0127" />
+	</analytic>
+	<monogr>
+		<title level="j">Aslib Journal of Information Management</title>
+		<imprint>
+			<biblScope unit="volume">70</biblScope>
+			<biblScope unit="page" from="592" to="607" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title/>
+		<author>
+			<persName><surname>Episciences</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Org</surname></persName>
+		</author>
+		<ptr target="http://www.cvce.eu/en/epublications" />
+	</analytic>
+	<monogr>
+		<title level="j">CVCE</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">What Researchers Told Us about their Experiences and Expectations of Scholarly Communications Ecosystems</title>
+		<author>
+			<persName><forename type="first">Lorraine</forename><surname>Estelle</surname></persName>
+		</author>
+		<idno type="DOI">10.1629/uksg.349</idno>
+		<ptr target="https://doi.org/10.1629/uksg.349" />
+	</analytic>
+	<monogr>
+		<title level="j">Insights</title>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="71" to="75" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Peer-Review 2.0: Welcome to JMIR Preprints, an Open Peer-Review Marketplace for Scholarly Manuscripts</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Eysenbach</surname></persName>
+		</author>
+		<idno type="DOI">10.2196/preprints.5337</idno>
+		<ptr target="https://doi.org/10.2196/preprints.5337" />
+	</analytic>
+	<monogr>
+		<title level="j">JMIR Preprints</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="1" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<monogr>
+		<title level="m" type="main">The French Book Trade in Enlightenment Europe | Mapping the Trade of the Société Typographique de Neuchâtel</title>
+		<author>
+			<persName><surname>Fbtee</surname></persName>
+		</author>
+		<ptr target="http://fbtee.uws.edu.au/main/" />
+		<imprint>
+			<biblScope unit="page" from="1769" to="1794" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">Beyond Digital and Physical Objects: The Intellectual Work as a Concept of Interest for HCI</title>
+		<author>
+			<persName><forename type="first">Melanie</forename><surname>Feinberg</surname></persName>
+		</author>
+		<ptr target="https://doi.org/0.1145/2470654.2466453" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</title>
+		<meeting>the SIGCHI Conference on Human Factors in Computing Systems<address><addrLine>Paris, France</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2013-05-02">April 27-May 02, 2013</date>
+			<biblScope unit="page" from="3317" to="3326" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<analytic>
+		<title level="a" type="main">The Evaluation of Scholarly Books as Research Output: Current Developments in Europe</title>
+		<author>
+			<persName><surname>Giminez-Toledo</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Elea</surname></persName>
+		</author>
+		<ptr target="http://curis.ku.dk/ws/files/141056396/Giminez_Toledo_etal.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">15th International Society for Scientometrics and Informetrics Conference</title>
+		<meeting><address><addrLine>Istanbul, Turkey</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2015-07-04">29th June-4th July 2015</date>
+		</imprint>
+	</monogr>
+	<note>unpublished conference paper at the</note>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title level="a" type="main">A Special Letter from Stephen Greenblatt</title>
+		<ptr target="https://www.mla.org/Resources/Research/" />
+	</analytic>
+	<monogr>
+		<title level="m">Modern Language Association</title>
+		<title level="s">Surveys-Reports-and-Other-Documents/Publishing-and-Scholarship/Callfor-Action-on-Problems-in-Scholarly-Book-Publishing/A-Special-Letterfrom</title>
+		<meeting><address><addrLine>Stephen; Stephen-Greenblatt</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2002-05-28">28 May 2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<analytic>
+		<title level="a" type="main">How Scholars Read</title>
+		<author>
+			<persName><forename type="first">John</forename><surname>Guillory</surname></persName>
+		</author>
+		<idno type="DOI">10.1632/ade.146.8</idno>
+		<ptr target="https://doi.org/10.1632/ade.146.8" />
+	</analytic>
+	<monogr>
+		<title level="j">ADE Bulletin</title>
+		<imprint>
+			<biblScope unit="volume">146</biblScope>
+			<biblScope unit="page" from="8" to="17" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<analytic>
+		<title level="a" type="main">Scholarly Communication, Scholarly Publication and the Status of Emerging Formats</title>
+		<ptr target="http://www.informationr.net/ir/6-4/paper111.html" />
+	</analytic>
+	<monogr>
+		<title level="m">HAL Open Repository Platform</title>
+		<meeting><address><addrLine>Leah</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+			<biblScope unit="volume">6</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<monogr>
+		<title level="m" type="main">Assessing the Future Landscape of Scholarly Communication: An Exploration of Faculty Values and Needs in Seven Disciplines</title>
+		<author>
+			<persName><forename type="first">Diane</forename><surname>Harley</surname></persName>
+		</author>
+		<ptr target="https://escholarship.org/uc/cshe_fsc" />
+		<imprint>
+			<date type="published" when="2010">2010</date>
+			<publisher>Center for Studies in Higher Education</publisher>
+			<pubPlace>Berkeley, CA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<analytic>
+		<title level="a" type="main">The Influence of Academic Values on Scholarly Publication and Communication Practices</title>
+		<author>
+			<persName><forename type="first">Diane</forename><surname>Harley</surname></persName>
+		</author>
+		<idno type="DOI">10.3998/3336451.0010.204</idno>
+		<ptr target="http://hdl.handle.net/2027/spo.3336451.0010.204" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Electronic Publishing</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title level="a" type="main">A Digital Repository and Execution Platform for Interactive Scholarly Publications in Neuroscience</title>
+		<author>
+			<persName><forename type="first">Victoria</forename><surname>Hodge</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Jane</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s12021-015-9276-3</idno>
+		<ptr target="https://doi.org/10.1007/s12021-015-9276-3" />
+	</analytic>
+	<monogr>
+		<title level="j">Neuroinformatics</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="23" to="40" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<analytic>
+		<title level="a" type="main">Special Issue on Digital Publishing for the Humanities and Social Sciences</title>
+		<idno type="DOI">10.3138/jsp.48.2.73</idno>
+		<ptr target="https://doi.org/10.3138/jsp.48.2.73" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Scholarly Publishing</title>
+		<editor>
+			<persName><forename type="first">Alex</forename><surname>Holzman</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Robert</forename><surname>Brown</surname></persName>
+		</editor>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title level="a" type="main">inria-champions-open-access &apos;Intro to Thematic Research Guides</title>
+		<ptr target="http://www.cendari.eu/thematic-research-guides/intro-thematic-research-guides" />
+	</analytic>
+	<monogr>
+		<title level="m">Blogs</title>
+		<imprint>
+			<date type="published" when="2015-11-06">6 November 2015</date>
+		</imprint>
+	</monogr>
+	<note>Inria</note>
+</biblStruct>
+
+<biblStruct xml:id="b69">
+	<analytic>
+		<title level="a" type="main">AHA Statement on Policies Regarding the Embargoing of Completed History PhD Dissertations</title>
+		<author>
+			<persName><forename type="first">Jacqueline</forename><surname>Jones</surname></persName>
+		</author>
+		<ptr target="http://blog.historians.org/2013/07/american-historical-association-statement-on-policies-regarding-the-embargoing-of-completed-history-phd-dissertations/" />
+	</analytic>
+	<monogr>
+		<title level="s">American Historical Association</title>
+		<imprint>
+			<date type="published" when="2013-07-22">22 July 2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b70">
+	<monogr>
+		<title level="m" type="main">Free/Libre Scholarship</title>
+		<author>
+			<persName><forename type="first">Sigi</forename><surname>Jöttkandt</surname></persName>
+		</author>
+		<ptr target="http://eprints.rclis.org/3824/1/Jottkandt-03-april-08-Irvine-talk.pdf" />
+		<imprint>
+			<date type="published" when="2008-04-03">3 April 2008</date>
+			<publisher>UC Irvine</publisher>
+		</imprint>
+	</monogr>
+	<note>unpublished Conference Paper at HumaniTech</note>
+</biblStruct>
+
+<biblStruct xml:id="b71">
+	<analytic>
+		<title/>
+		<ptr target="https://www.jove.com" />
+	</analytic>
+	<monogr>
+		<title level="j">JoVE | Peer Reviewed Scientific Video Journal: Accelerating Scientific Research &amp; Education</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b72">
+	<analytic>
+		<title level="a" type="main">ERIH&apos;s Role in the Evaluation of Research Achievements in the Humanities</title>
+		<author>
+			<persName><forename type="first">Ferenc</forename><surname>Kiefer</surname></persName>
+		</author>
+		<ptr target="http://www.oapen.org/search?identifier=515678" />
+	</analytic>
+	<monogr>
+		<title level="m">New Publication Cultures in the Humanities Exploring the Paradigm Shift</title>
+		<meeting><address><addrLine>Amsterdam</addrLine></address></meeting>
+		<imprint>
+			<publisher>Amsterdam University Press</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="173" to="182" />
+		</imprint>
+	</monogr>
+	<note>Péter Dávidházi</note>
+</biblStruct>
+
+<biblStruct xml:id="b73">
+	<analytic>
+		<title level="a" type="main">Why We&apos;re Launching a New Publishing Platform</title>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Kiley</surname></persName>
+		</author>
+		<ptr target="https://wellcome.ac.uk/news/why-were-launching-new-publishing-platform" />
+	</analytic>
+	<monogr>
+		<title level="j">Wellcome</title>
+		<imprint>
+			<date type="published" when="2016-07-07">7 July 2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b74">
+	<analytic>
+		<title level="a" type="main">The Rise of Explorable Explanations</title>
+		<author>
+			<persName><forename type="first">Maarten</forename><surname>Lambrechts</surname></persName>
+		</author>
+		<ptr target="http://www.maartenlambrechts.com/2015/03/04/the-rise-of-explorable-explanations.html" />
+	</analytic>
+	<monogr>
+		<title level="j">Maarten Lambrechts</title>
+		<imprint>
+			<date type="published" when="2015-03-04">4 March 2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b75">
+	<analytic>
+		<title level="a" type="main">Fork the Academy</title>
+		<author>
+			<persName><forename type="first">Konrad</forename><forename type="middle">M</forename><surname>Lawson</surname></persName>
+		</author>
+		<ptr target="http://www.chronicle.com/blogs/profhacker/fork-the-academy/48935" />
+	</analytic>
+	<monogr>
+		<title level="m">ProfHacker, The Chronicle of Higher Education</title>
+		<imprint>
+			<date type="published" when="2013-04-30">30 April 2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b76">
+	<analytic>
+		<title level="a" type="main">Perverse Incentives Mean the REF Encourages Mediocrity rather than Excellence</title>
+		<author>
+			<persName><forename type="first">Dennis</forename><surname>Leech</surname></persName>
+		</author>
+		<ptr target="http://ref.web.ucu.org.uk/2013/12/10/perverse-incentives-mean-the-ref-encourages-mediocrity-rather-than-excellence/" />
+	</analytic>
+	<monogr>
+		<title level="j">REF Watch</title>
+		<imprint>
+			<date type="published" when="2013-12-10">10 December 2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b77">
+	<monogr>
+		<idno type="DOI">10.1057/9781137595775</idno>
+		<ptr target="https://doi.org/10.1057/9781137595775" />
+		<title level="m">The Academic Book of the Future</title>
+		<editor>
+			<persName><forename type="first">Rebecca</forename><surname>Lyons</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Samantha</forename><surname>Rayner</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Basingstoke</addrLine></address></meeting>
+		<imprint>
+			<publisher>Palgrave Macmillan</publisher>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b78">
+	<monogr>
+		<author>
+			<persName><forename type="first">Willard</forename><surname>Mccarty</surname></persName>
+		</author>
+		<title level="m">Humanities Computing</title>
+		<meeting><address><addrLine>Basingstoke</addrLine></address></meeting>
+		<imprint>
+			<publisher>Palgrave Macmillan</publisher>
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b79">
+	<monogr>
+		<title level="m" type="main">Open Notebook History</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Mcdaniel</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Caleb</surname></persName>
+		</author>
+		<ptr target="http://wcm1.web.rice.edu/open-notebook-history.html" />
+		<imprint>
+			<date type="published" when="2013-05-22">22 May 2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b80">
+	<analytic>
+		<title level="a" type="main">Exploring Open Access to Save Monographs, the Question Is -How?</title>
+		<author>
+			<persName><forename type="first">Caren</forename><surname>Millen</surname></persName>
+		</author>
+		<ptr target="https://www.jisc.ac.uk/blog/exploring-open-access-to-save-monographs-the-question-is-how-24-oct-2012" />
+	</analytic>
+	<monogr>
+		<title level="j">Jisc</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b81">
+	<monogr>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Miller</surname></persName>
+		</author>
+		<title level="m">The Comfort of Things</title>
+		<meeting><address><addrLine>Malden, MA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Polity</publisher>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b82">
+	<analytic>
+		<title level="a" type="main">For Books, Print Is Back</title>
+		<author>
+			<persName><forename type="first">Jim</forename><surname>Milliot</surname></persName>
+		</author>
+		<ptr target="https://www.publishersweekly.com/pw/by-topic/industry-news/bookselling/article/65172-print-is-back.html" />
+	</analytic>
+	<monogr>
+		<title level="j">PublishersWeekly.com</title>
+		<imprint>
+			<date type="published" when="2015-01-02">2 January 2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b83">
+	<monogr>
+		<title level="m" type="main">The Future of News (and of Lots More Besides</title>
+		<author>
+			<persName><forename type="first">John</forename><surname>Naughton</surname></persName>
+		</author>
+		<ptr target="http://memex.naughtons.org/archives/2009/03/17/6998" />
+		<imprint>
+			<date type="published" when="2009-03-17">17 March 2009</date>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b84">
+	<analytic>
+		<title level="a" type="main">Breaking Boundaries in Academic Publishing: Launching a New Format for Scholarly Research</title>
+		<author>
+			<persName><forename type="first">Hazel</forename><surname>Newton</surname></persName>
+		</author>
+		<idno type="DOI">10.1629/2048-7754.26.1.70</idno>
+		<ptr target="https://doi.org/10.1629/2048-7754.26.1.70" />
+	</analytic>
+	<monogr>
+		<title level="j">Insights</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="page" from="70" to="76" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b85">
+	<analytic>
+		<title level="a" type="main">Data Fluidity in DARIAH -Pushing the Agenda Forward</title>
+		<author>
+			<persName><surname>Laurent</surname></persName>
+		</author>
+		<idno type="DOI">10.1515/bfp-2016-0039</idno>
+		<ptr target="https://hal.inria.fr/hal-01285917v2" />
+	</analytic>
+	<monogr>
+		<title level="m">Connecting Research and Researchers</title>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="page" from="350" to="357" />
+		</imprint>
+	</monogr>
+	<note>BIBLIOTHEK Forschung und Praxis</note>
+</biblStruct>
+
+<biblStruct xml:id="b86">
+	<analytic>
+		<title level="a" type="main">What is Open Peer Review? A Systematic Review</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ross-Hellauer</surname></persName>
+		</author>
+		<idno type="DOI">10.12688/f1000research.11369.2</idno>
+		<ptr target="https://doi.org/10.12688/f1000research.11369.2" />
+	</analytic>
+	<monogr>
+		<title level="m">F1000 Science Policy Research Gateway</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="volume">6</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b87">
+	<analytic>
+		<title level="a" type="main">Information Behaviour of the Researcher of the Future</title>
+		<author>
+			<persName><forename type="first">Ian</forename><surname>Rowlands</surname></persName>
+		</author>
+		<ptr target="https://www2.warwick.ac.uk/study/cll/courses/professionaldevelopment/wmcett/researchprojects/dialogue/the_google_generation.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">CIBER Briefing Papers</title>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b88">
+	<analytic>
+		<title level="a" type="main">Newspapers and Thinking the Unthinkable</title>
+		<author>
+			<persName><forename type="first">Clay</forename><surname>Shirky</surname></persName>
+		</author>
+		<ptr target="http://www.shirky.com/weblog/2009/03/newspapers-and-thinking-the-unthinkable/" />
+	</analytic>
+	<monogr>
+		<title level="m">Clay Shirky</title>
+		<imprint>
+			<date type="published" when="2009-03-13">13 March 2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b89">
+	<analytic>
+		<title level="a" type="main">The Future of the (e)Book</title>
+		<author>
+			<persName><forename type="first">Bob</forename><surname>Shoemaker</surname></persName>
+		</author>
+		<ptr target="http://www.historymatters.group.shef.ac.uk/future-ebook/" />
+	</analytic>
+	<monogr>
+		<title level="j">History Matters</title>
+		<imprint>
+			<date type="published" when="2015-12-01">1 December 2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b90">
+	<analytic>
+		<title level="a" type="main">Scholarly Monograph Publishing in the 21st Century: The Future More Than Ever Should Be an Open Book</title>
+		<author>
+			<persName><forename type="first">Colin</forename><surname>Steele</surname></persName>
+		</author>
+		<idno type="DOI">10.3998/3336451.0011.201</idno>
+		<ptr target="https://doi.org/10.3998/3336451.0011.201" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Electronic Publishing</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b91">
+	<analytic>
+		<title level="a" type="main">researcher-survey-final.pdf The Institute for the Future of the Book</title>
+		<ptr target="http://www.internetlivestats.com/total-number-of-websites/" />
+	</analytic>
+	<monogr>
+		<title level="j">Total Number of Websites: Internet Live Stats</title>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+	<note>Internet Live Stats</note>
+</biblStruct>
+
+<biblStruct xml:id="b92">
+	<analytic>
+		<title level="a" type="main">Dissertation Embargoes and Publishing Fears</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Truschke</surname></persName>
+		</author>
+		<ptr target="http://dissertationreviews.org/archives/11842" />
+	</analytic>
+	<monogr>
+		<title level="j">Dissertation Reviews</title>
+		<imprint>
+			<date type="published" when="2015-04-01">1 April 2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b93">
+	<monogr>
+		<title level="m" type="main">Waiting for Thomas Kuhn: First Monday and the Evolution of Electronic Journals</title>
+		<author>
+			<persName><forename type="first">Edward</forename><forename type="middle">J</forename><surname>Valauskas</surname></persName>
+		</author>
+		<ptr target="http://firstmonday.org/ojs/index.php/fm/article/view/567" />
+		<imprint>
+			<date type="published" when="1997">1997</date>
+			<pubPlace>First Monday, 2</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b94">
+	<analytic>
+		<title level="a" type="main">A Modest Proposal for Preventing the Books of the Members of the MLA from Being a Burden to their Authors, Publishers, or Audiences</title>
+		<author>
+			<persName><forename type="first">Lindsay</forename><surname>Waters</surname></persName>
+		</author>
+		<idno type="DOI">10.2307/463452</idno>
+		<ptr target="https://doi.org/10.2307/463452" />
+	</analytic>
+	<monogr>
+		<title level="j">PMLA</title>
+		<imprint>
+			<biblScope unit="volume">115</biblScope>
+			<biblScope unit="page" from="315" to="317" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b95">
+	<analytic>
+		<title level="a" type="main">Next-generation Metrics: Responsible Metrics and Evaluation for Open Science</title>
+		<author>
+			<persName><forename type="first">James</forename><surname>Wilsdon</surname></persName>
+		</author>
+		<ptr target="https://ec.europa.eu/research/openscience/pdf/report.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">Report of the European Commission Expert Group on Altmetrics</title>
+		<meeting><address><addrLine>Luxembourg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Publications Office of the European Union</publisher>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b96">
+	<monogr>
+		<author>
+			<persName><forename type="first">James</forename><surname>Wilsdon</surname></persName>
+		</author>
+		<idno type="DOI">10.13140/RG.2.1.4929.1363</idno>
+		<ptr target="https://doi.org/10.13140/RG.2.1.4929.1363" />
+		<title level="m">The Metric Tide: Report of the Independent Review of the Role of Metrics in Research Assessment and Management</title>
+		<imprint>
+			<publisher>HEFCE: London</publisher>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b97">
+	<analytic>
+		<title level="a" type="main">The Death of the Scholarly Monograph in the Humanities? Citation Patterns in Literary Scholarship</title>
+		<author>
+			<persName><forename type="first">Wolfe</forename><surname>Thompson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jennifer</forename></persName>
+		</author>
+		<idno type="DOI">10.1515/LIBR.2002.121</idno>
+		<ptr target="https://doi.org/10.1515/LIBR.2002.121" />
+	</analytic>
+	<monogr>
+		<title level="j">Libri</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="121" to="136" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

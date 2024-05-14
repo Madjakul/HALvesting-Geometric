@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Entity-fishing: a DARIAH entity recognition and disambiguation service</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Luca</forename><surname>Foppiano</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="laboratory">ALMAnaCH</orgName>
+								<address>
+									<settlement>Inria Paris</settlement>
+									<region>Inria</region>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="laboratory">ALMAnaCH</orgName>
+								<address>
+									<settlement>Inria Paris</settlement>
+									<region>Inria</region>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="laboratory">ALMAnaCH</orgName>
+								<address>
+									<settlement>Inria Paris</settlement>
+									<region>Inria</region>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="laboratory">ALMAnaCH</orgName>
+								<address>
+									<settlement>Inria Paris</settlement>
+									<region>Inria</region>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Disambiguation</forename><surname>Service</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="laboratory">ALMAnaCH</orgName>
+								<address>
+									<settlement>Inria Paris</settlement>
+									<region>Inria</region>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Entity-fishing: a DARIAH entity recognition and disambiguation service</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">1129AB6DEBB2AD3312B882878F7C2EAB</idno>
+					<idno type="DOI">10.17928/jjadh.5.1_22</idno>
+					<note type="submission">Submitted on 21 Nov 2020 Distributed under a Creative Commons Attribution| 4.0 International License</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>named entity recognition and disambiguation</term>
+					<term>infrastructure</term>
+					<term>conditional random fields</term>
+					<term>service</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>This paper describes an attempt to provide a generic named-entity recognition and disambiguation module (NERD) called entity-fishing as a stable online service. The work intends to demonstrate the possible delivery of sustainable technical services as part of the development of research infrastructures for the humanities in Europe. In particular, the developments described here contribute not only to DARIAH, the European Digital Research Infrastructure for the Arts and Humanities 3, but also to OPERAS, the European research infrastructure for the development of open scholarly communication in the social sciences and humanities4. Deployed as part of the French national infrastructure Huma-Num5, the service provides an efficient state-of-the-art implementation coupled with standardized interfaces allowing easy deployment in a variety of potential digital humanities contexts. In this paper we focus on the integration of entity-fishing within the European HIRMEOS project 6, where several open-access publishers have integrated the service into their collections of published monographs as a means to enhance retrieval and access. In the following sections, we give a quick overview of the accessibility and sustainability issues we want to address through our experiment, explain the general context of the HIRMEOS project, and then provide a comprehensive description of various facets of entity-fishing: its architecture, interfaces, and deployment.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Providing Access in Service of Sustainability</head><p>As already alluded to by <ref type="bibr" target="#b15">Romary and Edmond (2017)</ref>, the sustainability of digital services is strongly related to reusability, in that the actual deployment of tools and services in workable research scenarios and environments is key to ensuring their further maintenance, updating, and long-term availability. This relation to users is also tied to the capacity of the service to facilitate the research activity without putting constraints on the way the research itself shall be carried out, following the analysis by <ref type="bibr" target="#b6">Edwards (2003)</ref> in the specific context of research infrastructures.</p><p>In the context of online services such as entity-fishing, which aims at enriching digital documents by means of stand-off annotations, we have listened to the users' needs and therefore have driven our contribution to sustainability along the following axes:</p><p>The definition of an open and flexible architecture based upon open-source components, so that the software maintenance can be partially or totally transferred to a third party at any time The provision of standardized interfaces which cover various use cases ranging from the direct provision of standardized annotations (e.g., compliant with the TEI Guidelines: see TEI Consortium 2020) to the integration of the service in more complex technical environments</p><p>The deployment of the service as a dedicated professional environment within the public sphere, ensuring a reliable and scalable usage right from the beginning of the integration phase in concrete use cases Finally, and most importantly, the anchorage on real use cases reflecting situations where the service provides a distinct added value to the existing digital resources made available to humanities scholars In this paper, we show how we have addressed these different aspects, but we would first like to provide some background on the genesis of the entity-fishing project and how it has reached the stage of becoming a generic online service for DARIAH and OPERAS.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">From Cendari-NERD to entity-fishing in HIRMEOS</head><p>The development of entity-fishing began in the context of the EU FP7 Cendari project from 2013 to 2016 <ref type="bibr" target="#b9">(Lopez, Meyer, and Romary 2014)</ref>, which aimed at setting up a digital research environment for historians specializing in the medieval and First World War periods that would facilitate their access to archival content <ref type="bibr" target="#b20">(Vanden Daelen et al. 2015)</ref> and enable them to acquire information about the various assets, or entities, involved in their research scenarios. At an early stage in the project, it was determined that the provision of automatically extracted entities from the various sources (primary or secondary) that the historians are working with would boost the selection of appropriate material for the research at hand. Initially deployed in the technical framework of Inria<ref type="foot" target="#foot_7">7</ref> , the entity-fishing service gained considerable interest from a variety of users, not just historians, who continued to use it on a regular basis long after the project had ended, which in turn put pressure on us to further maintain and enhance it.</p><p>We thus took the opportunity of the EU Horizon 2020 (H2020) HIRMEOS 8 project to further consolidate and expand the service. Indeed, HIRMEOS addresses the peculiarities of academic monographs as a specific support for scientific communication in the social sciences and humanities. It aims to prototype innovative services for monographs by providing additional data, links to, and interactions with the documents, at the same time paving the way to new potential tools for research assessment, which is still a major challenge in the humanities and social sciences. The introduction of entity-fishing has undergone different levels of integration. The majority of the participating publishers provided additional features in their user interface, using the data generated by entity-fishing, for example, as search facets for persons and locations to help users narrow down their searches and obtain more precise results.</p><p>8 High Integration of Research Monographs in the European Open Science infrastructure, accessed July 24, 2020, http://www.hirmeos.eu. 9 Accessed July 10, 2020, https://books.openedition.org/.</p><p>10 OAPEN (Open Access Publishing in European Networks), accessed July 10, 2020, http://www.oapen.org/.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Entity Extraction</head><p>Identifying entities is a central task in the analysis of secondary scholarly literature <ref type="bibr" target="#b3">(Brando, Frontini, and Ganascia 2016)</ref>. Such entities may range from simple key terms to very specific scientific, nomenclature-based expressions (chemical formulas, astronomical objects, expressions of quantities, etc.). It also covers regular named entities such as person-names or locations, which correspond to core tasks in the social sciences and humanities <ref type="bibr" target="#b17">(Smith and Crane 2001)</ref>.</p><p>From the applicability point of view, entity extraction is a task that is also suitable for small quantities of data at document level: for instance, in the case of the Amazon X-Ray functionality of the Kindle <ref type="bibr" target="#b24">(Wright 2012)</ref>, proposing a list of people appearing in a book. Extracting varieties of data allows the system to answer questions related to the document itself before it has been read.</p><p>On a larger scale, with an increasing number of documents, the resulting graph of interlinked connections allows the computing of aggregated information such as trends, semantic search, or document similarity.</p><p>Authors making the choice of open-access publishing may also have a particular interest in having their work more frequently discovered, read, used, and reused to get credit and recognition. Therefore, it is the duty of the corresponding infrastructure to provide the means to accomplish these objectives. HIRMEOS is a great opportunity to improve the current open access technical infrastructure at the European scale.</p><p>In following subsections we describe the entity-fishing service. Sections 4.1 and 4.2 provide background information; then we describe the architecture and data flow in section 4.3. Section 4.4 presents details on the standard interfaces, and sections 4.4 and 4.5 conclude with the knowledge base (KB) organization and the external data source.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Disambiguation: From Mentions to Entities</head><p>In this paper, we define mention as a textual segment, one or a combination of words, that can be identified in the text. Mentions usually are strongly dependent on the domain: for example, analyzing the same text from biology and chemistry perspectives would output different mentions. We define entity (following Wikipedia) as "something that exists as itself, as a subject or as an object, actually or potentially, concretely or abstractly, physically or not." 13 Therefore, linking is the task of finding a KB reference that a particular mention may refer to within the current context. Finally, a mention linked to a concept in the KB is an entity.</p><p>We have defined entities and mentions separately because their identification is decoupled in two different subsequent processes. The mention extraction is performed by means of generic parsers (known as NER, Named Entity Recognition) or by plugging in specialized parsers when dealing, for instance, with dates, ancient names, or chemical formulas.</p><p>The entity disambiguation task (also called entity linking, named entity disambiguation, named entity recognition and disambiguation) consists of determining the actual identity of the entity which is referred to by expressions appearing in a document. There is a long-standing body of research that aims to improve efficiency and completeness of the extraction of relevant information and senses depending on the context provided by the text, as well as the reference background provided by largescale entity databases such as Wikipedia <ref type="bibr" target="#b5">(Cucerzan 2007)</ref>.</p><p>In fact, entity disambiguation requires a knowledge base that contains all the entities to which each mention may be linked. With its open license, Wikipedia has become the reference knowledge base <ref type="bibr" target="#b10">(Milne, Witten, and Nichols 2007)</ref> for such a task. <ref type="bibr" target="#b14">Ratinov et al. (2011)</ref> formally define Wikification as the task of identifying and linking expressions in text to their referent Wikipedia pages. In order to be more generic, mentions can be recognized using several techniques (based on Machine Learning [ML], lexicons, or rules), extended to any kind of expression beyond the narrow notion of "named entities." However, since Wikipedia-although comprehensive-has some sort of physical limitations, it could happen that certain entities identified in a text are not found at all in the knowledge base. More details about Wikipedia and Wikidata will be discussed in section 4.5.</p><p>To illustrate this phenomenon, we can take the following text as an example:</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>President Obama is living in Washington</head><p>There are two mentions, President Obama and Washington, in the sentence. If we consider our approach based on Wikipedia, the entity-fishing knowledge base terms lookup will say that there are respectively 10 possible candidates for Obama and 715 for Washington. A 13 DBpedia page, accessed July 24, 2020, http://dbpedia.org/page/Entity. correct disambiguation will be the link of the mention Washington to the entity titled Washington D.C., described as "Washington, D.C., formally the District of Columbia and commonly referred to as Washington or D.C., is the capital of the United States of America" 14 . and identified by Wikipedia page ID 108956 and Wikidata ID Q61. Moreover, the mention Obama should be correctly disambiguated to Barack Obama with Wikipedia page ID 534366 and Wikidata ID Q76.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Entity-fishing</head><p>Entity-fishing is a service implementing the task of entity recognition and disambiguation using both Wikipedia and Wikidata. It is designed to be domain agnostic, thus giving the flexibility to be upgraded to support disambiguation of specialized entities with minimal effort. It currently supports five languages: English, French, German, Italian, and Spanish.</p><p>Entity-fishing can process raw text with optional pre-identified mentions or entities which are used to help resolve ambiguities. It supports search queries-short text with very minimal context-and PDFs. PDF support is provided by the GROBID library <ref type="bibr" target="#b7">(Lopez 2009)</ref>.</p><p>The service provides a web interface (fig. <ref type="figure" target="#fig_1">1</ref>) and a REST API (4.4) for third-party service integration. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3">Architecture</head><p>In this section we describe the system architecture from two orthogonal viewpoints: first, we show how the system works from a data-flow perspective, to understand the functional aspects of the system from input to output. Second, we focus on nonfunctional requirements in order to identify bottlenecks and critical components, thus allowing a correct definition of requirements.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.1">Data-driven Architecture</head><p>We describe here in detail the main steps occurring between input and output as outlined in figure <ref type="figure">2</ref>, ignoring how input and output are actually represented (sec. 4.4.1).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Figure 2. The data-driven architecture of entity-fishing</head><p>The service can be divided into three steps: language identification, mention recognition, and entity resolution.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.1.1">Language Identification</head><p>Language is an important variable in the entity-fishing process: it is used to select the appropriate utilities for processing text, such as the tokenizer and the sentence segmenter, and, most importantly, to select the specific Wikipedia (as of July 2020 there are 300 active Wikipedias 15 ) from the knowledge base (sec. 4.5). This step is ignored when the information is provided by the user.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.1.2">Mention Recognition</head><p>This component is responsible for extracting mentions (4.1) from the input. The idea is to have a generic set of recognizers bundled with the system and offer users the option to extend to specific domains by plugging in additional ones.</p><p>Entity-fishing ships three traditional mention extractors:</p><p>• Named Entity Recognition</p><p>The term Named Entity was coined during the MUC-6 evaluation campaign <ref type="bibr" target="#b11">(Nadeau and Sekine 2007)</ref> and was specifically referring to entity name expressions (e.g., persons, locations, and organizations) and numerical expressions (e.g., measures). The Named Entity Recognition in entity-fishing uses GROBID-NER 16 (initially written by Patrice Lopez; we have contributed to improving it), a library for processing text and extracting Named Entities classified into 27 classes 17 using a Conditional Random Field (CRF) statistical model. The extracted mentions are not limited to those observed in the training data thanks to the generalization properties of the ML processes; however, they are not guaranteed to be systematically resolved in Wikipedia/Wikidata.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Wikipedia lookup</head><p>This method is complementary to the ML NER approach. It offers more stable results, which are constrained by Wikipedia coverage: entities that are not in Wikipedia cannot be found. The lookup attempts to find all mentions that correspond to either a title or an anchor (and variants thereof) in Wikipedia using an n-gram-based matching approach (with n = 6).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Acronyms extraction</head><p>15 List of Wikipedias, accessed July 24, 2020, https://en.wikipedia.org/wiki/List_of_Wikipedias. 16 GitHub repository, accessed July 8, 2020, http://github.com/kermitt2/grobid-ner. 17 "Classes and Senses," GROBID NER User Manual, accessed July 8, 2020, http://grobidner.readthedocs.io/en/latest/class-and-senses/.</p><p>An acronym is a word (usually a name) composed as an abbreviation from the initial components in a phrase, usually from individual letters (as in NATO or laser) but sometimes also from syllables (as in Benelux). Acronyms and initialisms (abbreviations formed like acronyms but pronounced letter-by-letter) are widely used in research articles in order to optimize space and to communicate concepts and methods more effectively (e.g., humoristic acronyms are usually easier to remember). The lexical structure of an acronym or initialism can be approximated as a mapping pair (acronym/initialism, base). For example, DIY can be represented as (DIY, Do It Yourself). In scientific articles such mappings are presented once at the beginning of the paper or in the abstract. Entity-fishing treats the acronyms and initialisms as mentions and uses their base for disambiguation label. The resolved entity is then further propagated in the text for each occurrence of the acronym.</p><p>The result from this step is a list of Mention objects, containing raw value from the original text, positions (offsets or coordinates), and NER type (within the 27 classes extracted from GROBID-NER (4.3.1.2)).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.1.3">Entity Resolution</head><p>Entity resolution is the process of linking each mention to the authority records in Wikipedia and Wikidata through their identifiers.</p><p>The resolution process consists of three further phases (fig. <ref type="figure">2</ref>):</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Candidate generation</head><p>In this phase, each mention is linked to a list of concepts (possible candidates for the disambiguation) matching-entirely or with some variation-the original raw name.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Candidate ranking</head><p>Each candidate is assigned a confidence score calculated as regression probability from an ML model based on gradient tree boosting using features from local (related to the concept itself) and remote (related to the concept and its relationship with other concepts) information. The features used in our candidate ranking process are: given global Wikipedia frequencies used to capture lexical cohesion</p><p>The final output consists of a list of entities. In some cases is possible that no entry in the knowledge base is retrieved: for example, a PERSON mentioned in the text only by first name. Similarly, named entities of class MEASURE are not disambiguated at all.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.2">Service Component Architecture</head><p>Most of the work carried out in the HIRMEOS project aims to measure and improve the robustness and scalability of the service. In particular we envisioned, right from the onset, that the service would reach out to a large group of potential users.</p><p>We present three layers into which the service can be decomposed, each of them being characterized by different requirements and constraints: the web interface, the engine, and the data storage (fig. <ref type="figure" target="#fig_3">3</ref>). </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.2.1">Web Interface</head><p>The web interface provides a REST API presenting services as HTTP entry points (sec.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>4.4.1)</head><p>. The main responsibility of the service is to understand, validate, and process requests (e.g., avoiding malformed or incomplete queries and verifying the correctness</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Entity-fishing: A DARIAH Entity Recognition and Disambiguation Service</head><p>Journal of the Japanese Association for Digital Humanities, vol. 5, No. 1, p. 36 of the input data) and to yield, when applicable, the right error code and message (e.g., returning 406 when the language is not provided, 400 if the query is malformed). This component does not pose any performance threat.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.2.2">Data Storage</head><p>The data storage layer is responsible for maintaining the large amount of data which cannot be kept in memory. The service is handling the entire contents of the Wikipedias (see sec. 4.6) for our different languages (each consisting of several gigabytes of raw data) and precomputed data (such as the number of links per article source and destination, or the number of documents).</p><p>During normal service operations, entity-fishing reads only from data storage, which "simplifies" the requirements (e.g., no risk of dirty reads and/or performance issues). We evaluated different storage technologies: NOSQL Databases such as MongoDB were discarded because of their complexity. We selected a light key-value database with memory-mapped files: Lightning Memory-Mapped Database (LMDB).</p><p>Developed by Symas<ref type="foot" target="#foot_18">18</ref> , it is fast storage for the OpenLDAP project that fully supports ACID semantics, concurrent multithread read/write access, transactions, and zero-copy lookup and interaction, and is available with bindings for several languages (Java, Python, etc.). Entity-fishing uses a Java library called lmdbjndi 19 to implement it. The data storage layer currently consists of one database with the language-independent information (Wikidata metamodel) and five language-specific databases containing Wikipedia information, each of which holds 23 collections, for a total of about 80 GB of required disk space. This is indeed the most critical part of the system.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.2.3">Engine</head><p>The engine is the main component of the application, as it orchestrates the various steps (mention recognition, entity resolution, etc.) originating from a query (and possibly a file) provided as input. The engine interacts heavily with the data storage layer to compute the features and retrieve all the information.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4">Standard Interface</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4.1">REST API</head><p>The REST API provides a standard entry point interface. The REST protocol is the standard means of communication for service and microservice integration. The API has three main access points: the disambiguation process, the KB access, and a set of secondary utilities. The disambiguation entry point takes as input a JSON query like:</p><p>{ "text": "The text to be processed.", "shortText": "term1 term2 ...", "language": { "lang": "en" }, "entities": [],</p><p>"mentions": ["ner","wikipedia"],</p><p>"nbest": 0, "sentence": false, "customisation": "generic", "processSentence": [] } Note that the first two elements in the input are mandatory and mutually exclusive. While text is used for long text (paragraphs), short text is used for search query disambiguation (fewer than 5 words), which requires a different approach because of the small amount of information available in a query.</p><p>Everything else is optional:</p><p>• "language": the language provided by the user, which otherwise will be automatically recognized</p><p>• "mentions": indicates the modules to be applied to the text, as described in section 4.3.1. The value "ner" corresponds to the Named Entities Recognition module, while "Wikipedia" indicates the lookup on the wikipedia knowledge base. Acronyms are always applied.</p><p>• "nbest": return the n best disambiguated results (by default only the first one)</p><p>• "entities": represents a list of entities already known by the user</p><p>• "sentence": a Boolean value which, when set, results in segmenting the text in sentences (value true here will return an additional property called "sentences" containing a list of offsets identifying each sentence)</p><p>• "processSentence": a list index (referring to the "sentences" properties: see above) of sentences to be processed (for long texts, it is good practice to proceed paragraph by paragraph)</p><p>The service returns a structure based on the query, with the output results. See example (the listing has been simplified): This approach simplifies iterative processing workflows, which are required for processing long texts over several queries.</p><p>The KB REST interface allows full access to:</p><p>• concepts, to fetch a single concept using their Wikidata or Wikipedia identifier</p><p>• term lookup, verifying whether a label can be found in the knowledge base and how ambiguous it is</p><p>The secondary utilities are:</p><p>• text segmentation</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• language recognition</head><p>A detailed description of these functionalities, which is beyond the scope of this paper, can be found in the official entity-fishing documentation<ref type="foot" target="#foot_21">20</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4.2">TEI Representation</head><p>The work carried out in the HIRMEOS project also provided the opportunity to specify a TEI-compliant output for the entity-fishing service that would be easy to integrate within the ongoing stand-off proposal under discussion within the TEI Council <ref type="bibr" target="#b0">(Banski et al. 2016</ref>).</p><p>This proposal is based upon the concept of embedded stand-off annotation, where a &lt;standOff&gt; element gathers all the annotations related to the corresponding &lt;text&gt; element of a TEI document and is positioned between the &lt;teiHeader&gt; and the &lt;text&gt; elements, as illustrated below. We can see how it is possible, for instance, to organize annotations in various groups: in our case, we have gathered entities by types.</p><p>In this framework, elementary annotations are structured as &lt;annotationBlock&gt;s containing three components:</p><p>• a &lt;span&gt; element that introduces a character interval within a numbered component in the text (mainly &lt;p&gt; elements)</p><p>• a specific element describing the entity (e.g., &lt;person&gt;) that has been recognized</p><p>• an &lt;interp&gt; element that links the interval with the entity This representation is intended to be compliant with the target/body/annotation triptych of the Web Annotation Data Model 21 . It is illustrated below for the annotation of a person entity. The difficulty associated with the generation of TEI-based stand-off annotations is twofold: a) the risk of a deviation between the textual content and the character offsets which have been computed and b) the necessity to number the various elements that serve as anchors for the annotations (paragraphs, etc.). This difficulty is exactly what is behind the notion of embedded stand-off, which relies on the assumption that annotations and the corresponding reference version of the textual content represented in TEI are delivered together as one single coherent document instance. This is the way our service has been implemented, so that the output will be the one and only version of record for any further processing within the client that called the entity-fishing service.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.5">External Data Sources</head><p>In this section we set out to provide a definition of our concept of knowledge base and then discuss in greater depth the origin of the various data sources we used. A knowledge base is defined as the set of information describing a certain domain of interest. It usually covers a specific area of knowledge (e.g., chemistry, biology, or astronomy). On the other hand, there are also generic knowledge bases such as Wikidata, DBPedia, or Freebase which are not bound to any specific domain. Entity-fishing, being a generic tool, essentially anchors its knowledge base upon Wikipedia and Wikidata. It is constructed by an offline process taking the dumps from Wikipedia and Wikidata as input, and aggregating the data in an appropriate structure and format which can be used efficiently by the service.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.5.1">Wikipedia</head><p>Wikipedia is a multilingual, web-based, free-content encyclopedia, and is currently the </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.5.2">Wikidata</head><p>As stated on its web site, "Wikidata is a free, collaborative, multilingual, secondary database, collecting structured data to provide support for Wikipedia, Wikimedia Commons, the other wikis of the Wikimedia movement, and to anyone in the world." <ref type="foot" target="#foot_27">25</ref>Wikidata is a collaboratively edited knowledge base hosted by the Wikimedia Foundation <ref type="bibr" target="#b21">(Vrandečić 2012)</ref>. It is intended to provide a common source of data which can be used by Wikimedia projects such as Wikipedia, and by anyone else, under a public domain license (CC-0). Wikidata has become widely used: for example, Google decided to migrate its knowledge base Freebase into Wikipedia <ref type="bibr" target="#b12">(Pellissier Tanon et al. 2016)</ref>. Wikidata is the largest collaborative database in the world, administered by only six staff members with more than 18,000 human collaborators and several (semi-)automatic bots <ref type="bibr" target="#b18">(Steiner 2014)</ref>. In addition, it has increasingly become a reference knowledge base for many scientific disciplines: in 2014 Wikimedia announced the storage of the whole human genome<ref type="foot" target="#foot_28">26</ref> .</p><p>22 https://en.wikipedia.org/wiki/Wikipedia:About 23 Wikipedia language index, https://en.wikipedia.org/wiki/Special:SiteMatrix Wikidata's motto is "verifiability, not truth," which means that each statement is supported by optional "references" providing verifiable sources of information. For example, the population of Berlin can be different depending on the source and other variables (such as the date of the measurement) (fig. <ref type="figure" target="#fig_9">5</ref>). This approach is different from the Semantic Web, which assumes there is no contradictory information (axiomatic logic), and is actually much more powerful and appropriate given the way knowledge and science is produced. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.5.3">Motivation and Rationale</head><p>The decision to use Wikipedia and Wikidata as data sources is justified by the fact that both are generic and provide a basic, stable, and fairly complete knowledge set that can be systematically enriched by specialist domain data. Compared with other sources of information, they are the most complete available to use, reuse, and redistribute. Wikipedia is released under a CC-BY (attribution) license while Wikidata has chosen CC-0 (full copyright waiver). We would like to stress here the importance of the licensing choice in the long term, particularly when dealing with scientific knowledge.</p><p>Many people have shown concern about the fact that Wikipedia, being a collaborative source of information, could be biased by the contributors' opinions. This concern has a real foundation, without any relevant impact on the results from the entity-fishing process. The way entity-fishing exploits Wikipedia relies on the graph network of concepts rather than the deep meanings of the articles themselves.</p><p>Finally, the use of externally managed data sources is strongly motivated and well advocated in software engineering best practices: maintainability and independent management, respectively. First, the amount of information managed is too big to be handled internally by the entity-fishing project itself. Second, having an independent body (the Wikimedia Foundation) administering the sources assures the relevant competences will be available for management, engineering, and content.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.5.3.1">Multi-language Support</head><p>As of July 2020, the system supports English, Italian, French, German, and Spanish. The ability to support a language is strictly related to the number of articles available in the localized Wikipedia 28 . Languages with less than one million Wikipedia articles are not guaranteed provide consistent results.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.6">Knowledge Base Organization and Access</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.6.1">Basic Organization</head><p>In this section, we examine how the data have been organized and integrated into the knowledge base.</p><p>Earlier in this paper (sec. 4.3.2 and fig. <ref type="figure" target="#fig_3">3</ref>) we mentioned that the knowledge base is divided into two main areas corresponding to language dependent and language independent information, respectively. The language independent part, corresponding to the generic data provided by Wikidata, contains metadata across all languages and is accessed through the UpperKnowledgeBase object. Language dependent information, representing a Wikipedia in a specific language, is offered via the LowerKnowledgeBase object (fig. <ref type="figure" target="#fig_10">6</ref>).</p><p>The data are accessed by means of the language-independent component (UpperKnowledgeBase) to get the general concept and further drawing on available specific language resources through the LowerKnowledgeBase. This component provides convenient access to all of the Wikipedia content through the programmatic API. Technically, the infrastructure itself is hosted in a large computing centre in Lyon 30 .</p><p>A long-term preservation facility hosted at the CINES data centre 31 based in Montpellier is also used. In addition, a group of correspondents in the MSH 32 (Maison des Sciences de l'Homme) network all over France is in charge of relaying information about Huma-Num's services and tools.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Technical Requirements</head><p>Moving from a working prototype that demonstrates an idea to an engineered service is a complex process. We refer to engineering as implementing best practices to make the software ready to use without any previous knowledge. This implies tackling the following tasks:</p><p>• license checking (for open-source projects)</p><p>• consolidation of the project life cycle (build, testing, and deployment)</p><p>• publication of the documentation (for users, developers, and maintainers)</p><p>• definition and measurement of nonfunctional requirements, performances, scalability</p><p>• publication of metrics evaluating the ML-based system, using known corpora in order to provide measures comparable to the state of the art </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3">Deployment</head><p>The Huma-Num infrastructure's services and utilities 35 cover various sets of needs: storage, dissemination, processing, and archiving. As part of the hosting and dissemination services, they provide two types of solutions: the shared web cluster and virtual machine environments. 36 The web cluster is a shared solution hosting pre-configured CMSs (Omeka, Wordpress, Drupal, etc.), websites, and java web applications (running with tomcat, Jetty, BaseX, etc.).</p><p>Users requesting a service obtain a ready-to-use application. The virtual machines (VMs), on the other hand, are intended for a more technical audience seeking greater flexibility or</p><p>35 "Services et outils," Huma-Num, accessed July 9, 2020, https://www.huma-num.fr/services-et-outils. The service was officially deployed in September 2017 after two months of tests. The initial configuration was set up with a virtual machine having 8 cores, 32 GB of RAM, and 100 GB of fast hard drive.</p><p>The service is accessible through an HTTP Apache 2 reverse proxy allowing long requests up to a maximum timeout of 30 minutes. Asynchronous requests would streamline the process (for more details, see sec. 6).</p><p>The infrastructure is monitored via an external service (on Uptime Robot 38 ), which provides a monitoring dashboard 39 (fig. <ref type="figure" target="#fig_13">9</ref>) and an email notification system for downtime.</p><p>38 Accessed July 10, 2020, https://uptimerobot.com/.</p><p>39 VM-huma-num status page for entity-fishing@huma-num, accessed July 10, 2020, https://stats.uptimerobot.com/nRyO1tpDV/779345024.  </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>In particular, HIRMEOS sets up a common layer of services on top of several existing epublishing platforms for open access monographs. The goal of the entity extraction task was to deploy the service and process open access monographs provided by the HIRMEOS partners. The documents available were the following: 4,000 books in English and French from Open Edition Books 9 2,000 titles in English and German from OAPEN 10 162 books in English from Ubiquity Press 11 765 books (606 in German, 159 in English) from the University of Göttingen Press 12</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 1 .</head><label>1</label><figDesc>Figure 1. Example of text about World War I as analyzed in the entity-fishing web interface</figDesc><graphic coords="10,85.05,106.65,415.50,206.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>-</head><label></label><figDesc>Milne &amp; Witten relatedness measure<ref type="bibr" target="#b23">(Witten and Milne 2008)</ref> between the candidate and the context (list of mentions appearing in the text) -Entity centroid score calculated using entity and word embedding, combining the entity representation and the context within which the entity occurs (using a window of 10 words) -Prior probability, or commonness: the probability that mentions in Wikipedia correspond to an effective link to the candidate. Lower scores are assigned to more ambiguous concepts -Context quality: an evaluation of how the concepts composing the context are related to each other, with higher scores assigned for a larger number of related concepts. • Candidate selector The candidate list is pruned comparing a calculated selection score, with minimal values selected manually, for each language. The selection score is calculated as the output of an ML regression model computing the following features: -Ranker score, the score calculated by the candidate ranker -Link probability, which returns the probability that the label associated with the candidate is used as a link in Wikipedia (calculated as the number of articles that contain links with this label used as an anchor, divided by the number of articles that mention this label) -Prior probability or commonness: the probability that mentions in Wikipedia correspond to an effective link to the candidate -Milne &amp; Witten relatedness measure (Witten and Milne 2008) -TF-IDF, Term Frequency-Inverse Document Frequency (Salton and Michael 1983), which reflects how important a term (here, the mention) is to a document in a collection or corpus -Named entity, a Boolean value set to true if the mention to be disambiguated is also a named entity (meaning that it has been classified as such in the mention recognition process) -Generalized Sørensen-Dice coefficient of a term (candidate normalized name)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 3 .</head><label>3</label><figDesc>Figure 3. Architecture of entity-fishing architecture</figDesc><graphic coords="15,85.05,262.65,415.50,280.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head></head><label></label><figDesc>largest and most popular general reference work on the internet. Owned and supported by the Wikimedia Foundation, a non-profit organization supported by donations, it was launched on January 15, 2001, by Jimmy Wales and Larry Sanger and initially only supported the English language 22 . Other languages were quickly developed in the months following the launch. With over 6 million articles as of this writing, the English Wikipedia is the largest of the Wikipedia encyclopedias 23 . Wikipedia has reached a high level of completeness and popularity, with more than 50 million articles in over 300 different languages. Statistics 24 from the Wikimedia Foundation show popularity in the order of billion page-view and million of unique visitors each month. Its level of coverage and reliability has made Wikipedia a reference database for many information extraction processes.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Figure 4 .</head><label>4</label><figDesc>Figure 4. Data model in Wikidata</figDesc><graphic coords="23,85.05,106.65,415.50,298.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Figure 5 .</head><label>5</label><figDesc>Figure 5. Example of how the references provide sources to support the statement</figDesc><graphic coords="24,85.05,99.35,415.50,239.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 6 .</head><label>6</label><figDesc>Figure 6. Schema of the knowledge base</figDesc><graphic coords="26,85.05,246.07,415.50,312.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>•</head><label></label><figDesc>definition and measurement of functional requirements, such as expected behaviors and API responses via unit and integration tests 30 Centre de Calcul de l'IN2P3 (CC-IN2P3), accessed July 9, 2020, https://cc.in2p3.fr/. 31 C.I.N.E.S. (Centre Informatique National de l'Enseignement Supérieur), accessed July 9, 2020, https://www.cines.fr/.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>Figure 7 .</head><label>7</label><figDesc>Figure 7. Virtual machine configuration</figDesc><graphic coords="30,132.20,234.22,347.55,207.65" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Figure 9 .</head><label>9</label><figDesc>Figure 9. Monitoring page We record usage statistics using AWStats 40 (fig.,10). By the end of 2018 more than 7 million documents were processed by entity-fishing.</figDesc><graphic coords="33,98.25,103.75,415.50,359.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>Figure 11 .</head><label>11</label><figDesc>Figure 11. Use case implementation by Open Edition. Locations and Places automatically</figDesc><graphic coords="35,98.25,104.55,415.50,523.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="11,85.05,103.35,463.86,414.95" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="31,98.25,213.85,415.50,322.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="34,85.05,106.85,415.50,224.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="36,127.13,102.22,357.73,233.21" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 2 .</head><label>2</label><figDesc>36 See Joel Marchand, "Huma-NUM la TGIR des humanités numériques," presentation at les Assises du (five users). We then recorded performances by measuring the server computation time and the throughput for each request, as illustrated in table 2. Runtime performances and throughput measured through sequential (single-user) or parallel requests (multiusers)</figDesc><table><row><cell>CSIESR</cell><cell>2017</cell><cell>(the</cell><cell>CSIESR</cell><cell>Conference</cell><cell>2017),</cell><cell>accessed</cell><cell>July</cell><cell>17,</cell><cell>2020,</cell></row></table><note><p>http://assises2017.csiesr.eu/programme-1. user</p></note></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_0"><p>Accessed July 7, 2020, https://www.dariah.eu/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_1"><p>Accessed July 7, 2020, https://operas.hypotheses.org/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_2"><p>Accessed July 7, 2020, https://www.huma-num.fr/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_3"><p>Journal of the Japanese Association for Digital Humanities, vol. 5, No. 1, p. 24</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_4"><p>High Integration of Research Monographs in the European Open Science infrastructure, accessed July</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_5"><p>7, 2020, https://www.hirmeos.eu.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_6"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 25   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_7"><p>Institut national de recherche en sciences et technologies du numérique, accessed July 24, 2020, https://www.inria.fr/en.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_8"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 26   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="11" xml:id="foot_9"><p>Accessed July 10, 2020, https://www.ubiquitypress.com/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_10"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 27   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_11"><p>Journal of the Japanese Association for Digital Humanities, vol. 5, No. 1, p. 28</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_12"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 29   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_13"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 30   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_14"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 32   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_15"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 33   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_16"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 34   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_17"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 35   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="18" xml:id="foot_18"><p>Accessed July 8, 2020, https://symas.com/lmdb/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_19"><p>Journal of the Japanese Association for Digital Humanities, vol. 5, No. 1, p. 37</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_20"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 38   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="20" xml:id="foot_21"><p>"entity-fishing -Entity Recognition and Disambiguation," accessed July 10, 2020, http://nerd.readthedocs.io/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_22"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 40   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_23"><p>February 2017, accessed July 8, 2020, https://www.w3.org/TR/annotation-model/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_24"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 41   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_25"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 42   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="24" xml:id="foot_26"><p>https://stats.wikimedia.org</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="25" xml:id="foot_27"><p>Wikidata:Introduction, accessed July 9, 2020, https://www.wikidata.org/wiki/Wikidata:Introduction.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="26" xml:id="foot_28"><p>Jens Ohlig,"Establishing Wikidata as the Central Hub for Linked Open Life Science Data" (blog post), October 22, 2014, https://blog.wikimedia.de/2014/10/22/establishing-wikidata-as-the-central-hubfor-linked-open-life-science-data/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_29"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 43   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_30"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 44   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="27" xml:id="foot_31"><p>"Wikidata:Introduction," accessed July 10, 2020, https://www.wikidata.org/wiki/Wikidata:Introduction.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_32"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 45   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_33"><p>"List of Wikipedias," subsection "1 000 000+ articles," accessed July 9, 2020,</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_34"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 46   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_35"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 48   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_36"><p>January 2004, accessed July 9, 2020, https://www.apache.org/licenses/LICENSE-2.0.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_37"><p>Journal of the Japanese Association for Digital Humanities, vol. 5, No. 1, p. 50</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_38"><p>Journal of the Japanese Association for Digital Humanities, vol. 5, No. 1, p. 51</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_39"><p>Journal of the Japanese Association for Digital Humanities, vol. 5, No. 1, p. 52</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_40"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 53   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_41"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 54   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_42"><p>Journal of the Japanese Association for Digital Humanities, vol. 5, No. 1, p. 55</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_43"><p>Journal of the Japanese Association for DigitalHumanities, vol. 5, No. 1, p. 56   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_44"><p>Journal of the Japanese Association for Digital Humanities, vol. 5, No. 1, p. 60</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7">Acknowledgments</head><p>We would like to address our warmest thanks to Patrice Lopez, who designed, demonstrated, and implemented the first version of entity-fishing during the CENDARI H2020 project.</p><p>Patrice is also the author of GROBID <ref type="bibr" target="#b2">44</ref> (GeneRation Of BIbliographic Data) <ref type="bibr" target="#b7">(Lopez 2009</ref>), a machine-learning library for extracting, parsing, and restructuring raw documents such as PDF into structured TEI-encoded documents. We would like to thank our colleagues within the HIRMEOS project, especially Open Edition and the University of Göttingen State Library, for the particular support they provided in testing and disseminating entity-fishing.</p><p>Finally, we would like to thank Huma-Num for hosting the service within their infrastructure.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Journal of the Japanese Association for Digital <ref type="bibr">Humanities,</ref><ref type="bibr">vol. 5,</ref><ref type="bibr">No. 1,</ref><ref type="bibr">p. 47</ref> The REST API can be used to fetch the JSON representation of a concept, when provided with either a Wikipedia page ID, Wikidata item (Q123), or Wikidata property (P356, doi). The Java API provides direct access to the Java data model, which is not limited to concept retrieval but also covers precalculated information such as the number of entities, lookups, anchors, or disambiguation pages.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Entity-fishing as a Service</head><p>In this section we describe the process and the outcome of providing entity-fishing as a standalone service within the DARIAH infrastructure, from the technical requirements to the implemented solution. The main challenge here was twofold: a) providing a resilient service across the whole DARIAH infrastructure and b) selecting a sustainable solution with the available resources provided by the service provider, Huma-Num.  <ref type="table">1</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">Huma-Num</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Huma</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Table 1. Accuracy measures</head><p>The objective, however, is to provide a generic service that has a steady throughput of 500-1,000 words per second or one PDF page of a scientific article in 1-2 seconds on a mid-range (4 cores, 3 GB RAM) Linux server.</p><p>In section 4.3 we analyzed the application extensively, identifying the more critical parts. The engine contains two machine learning models (for ranking and selection) that are implemented through Smile 34 (Statistical Machine Intelligence and Learning Engine), a library written in Java/Scala providing an implementation of each Machine Learning algorithm (Random Forest, Classification, etc.). The storage is handled using a key-value database with memory-mapped files, Lightning Memory-Mapped Database (LMDB), which is available as a Java library called lmdbjndi (see sec. 4.3.2.2).  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.4">Entity-fishing Integrations</head><p>We have deployed entity-fishing for several use cases in collaboration with the HIRMEOS project partners OAPEN, OpenEdition, EKT, Göttingen University Press, and Ubiquity Press. Questions, considerations, and problems emerged when external partners started to use the resulting annotations according to their own needs and practices.</p><p>The two main implementations were the faceting and the entity visualization, integrated into the partners' already existing search interfaces as a facet search (fig. <ref type="figure">11</ref>) or a word cloud over the whole collection (fig. <ref type="figure">12</ref>). The entity-fishing service has become an essential asset for the online delivery of the corpus of scholarly monographs. This will be particularly important when the OPERAS research infrastructure is set up to make more and more collections available to the research community. In terms of the technical deployment itself, we have provided all the necessary components of a sustainable service:</p><p>• release and publication of entity-fishing as open-source software 41</p><p>• deployment of the service in the DARIAH infrastructure through Huma-Num 42</p><p>• publication of evaluation data and metrics for content validation</p><p>• integration of the service with third-party platforms We still have work ahead of us to improve the accuracy of the disambiguation scores, which is currently floating just below the level of state-of-the-art performance. In fact, entity-fishing could easily be extended to support more languages.</p><p>Removing or deprecating the relatedness in favor of alternative, less computing-intensive techniques could reduce the impact of the storage on performance. On the subject of disambiguation, there has already been some interesting work on alternative Named Entity Recognition (NER) recognizer models using deep learning techniques 43 . Finally, the API could implement an asynchronous mechanism that handles large-scale computing more effectively.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<author>
+			<persName><forename type="first">Piotr</forename><surname>Banski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bertrand</forename><surname>Gaiffe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Patrice</forename><surname>Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Simon</forename><surname>Meoni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Schmidt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Stadler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Witt</surname></persName>
+		</author>
+		<ptr target="https://hal.inria.fr/hal-01374102" />
+		<title level="m">Wake Up, StandOff! Paper presented at the TEI Conference and Members&apos; Meeting</title>
+		<meeting><address><addrLine>Vienna, Austria</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2016-09">2016. 2016. September</date>
+			<biblScope unit="page" from="26" to="30" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Deep Learning Framework for Text) GitHub repository</title>
+		<author>
+			<persName><surname>Delft</surname></persName>
+		</author>
+		<ptr target="https://github.com/kermitt2/delft" />
+		<imprint>
+			<date type="published" when="2020-07-10">July 10, 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title/>
+		<author>
+			<persName><surname>Grobid Github Repository</surname></persName>
+		</author>
+		<ptr target="https://github.com/kermitt2/grobid" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the Japanese Association for Digital Humanities</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">58</biblScope>
+			<date type="published" when="2020-07-17">July 17, 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">REDEN: Named Entity Linking in Digital Literary Editions Using Linked Data Sets</title>
+		<author>
+			<persName><forename type="first">Carmen</forename><surname>Brando</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Francesca</forename><surname>Frontini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jean-Gabriel</forename><surname>Ganascia</surname></persName>
+		</author>
+		<idno type="DOI">10.7250/csimq.2016-7.04</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Complex Systems Informatics and Modeling Quarterly</title>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="page" from="60" to="80" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">D 4.1 -Gap Analysis of DARIAH Research Infrastructure</title>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Buddenbohm</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Raisa</forename><surname>Barthauer</surname></persName>
+		</author>
+		<ptr target="https://hal.archives-ouvertes.fr/hal-01663594" />
+	</analytic>
+	<monogr>
+		<title level="m">DARIAH research report</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Large-Scale Named Entity Disambiguation Based on Wikipedia Data</title>
+		<author>
+			<persName><forename type="first">Silviu</forename><surname>Cucerzan</surname></persName>
+		</author>
+		<ptr target="https://www.aclweb.org/anthology/volumes/D07-1/" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2007 Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning (EMNLP-CoNLL)</title>
+		<meeting>the 2007 Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning (EMNLP-CoNLL)<address><addrLine>Stroudsburg, PA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2007">2007</date>
+			<biblScope unit="page" from="708" to="716" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Infrastructure and Modernity: Force, Time, and Social Organization in the History of Sociotechnical Systems</title>
+		<author>
+			<persName><forename type="first">Paul</forename><forename type="middle">N</forename><surname>Edwards</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Modernity and Technology</title>
+		<editor>
+			<persName><forename type="first">Thomas</forename><forename type="middle">J</forename><surname>Misa</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Philip</forename><surname>Brey</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Andrew</forename><surname>Feenberg</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cambridge, MA</addrLine></address></meeting>
+		<imprint>
+			<publisher>MIT Press</publisher>
+			<date type="published" when="2003">2003</date>
+			<biblScope unit="page" from="185" to="225" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">GROBID: Combining Automatic Bibliographic Data Recognition and Term Extraction for Scholarship Publications</title>
+		<author>
+			<persName><forename type="first">Patrice</forename><surname>Lopez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Research and Advanced Technology for Digital Libraries: 13th European Conference</title>
+		<title level="s">Lecture Notes in Computer Science</title>
+		<editor>
+			<persName><forename type="first">Maristella</forename><surname>Agosti</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">José</forename><surname>Borbinha</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Sarantos</forename><surname>Kapidakis</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Christos</forename><surname>Papatheodorou</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Giannis</forename><surname>Tsakonas</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Berlin, Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="volume">5714</biblScope>
+			<biblScope unit="page" from="473" to="474" />
+		</imprint>
+	</monogr>
+	<note>ECDL 2009…: Proceedings</note>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Slides presented at WikiDataCon</title>
+		<author>
+			<persName><forename type="first">Patrice</forename><surname>Lopez</surname></persName>
+		</author>
+		<ptr target="https://www.wikidata.org/wiki/Wikidata:WikidataCon_2017/Documentation" />
+		<imprint>
+			<date type="published" when="2017-10-28">2017. 2017. October 28-29. Last revised 8 February 2018</date>
+			<pubPlace>Berlin, Germany</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Entity-Fishing</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Poster presented at the conference Grenzen überschreiten -Digitale Geisteswissenschaft heute und morgen</title>
+		<author>
+			<persName><forename type="first">Patrice</forename><surname>Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Meyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="https://hal.inria.fr/hal-01577975" />
+	</analytic>
+	<monogr>
+		<title level="m">Einstein-Zirkel Digital Humanities</title>
+		<meeting><address><addrLine>Berlin, Germany</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2014-02-28">2014. February 28, 2014</date>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page">59</biblScope>
+		</imprint>
+	</monogr>
+	<note>CENDARI Virtual Research Environment &amp; Named Entity Recognition Techniques</note>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Extracting Corpus Specific Knowledge Bases from Wikipedia</title>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">N</forename><surname>Milne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Ian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">M</forename><surname>Witten</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Nichols</surname></persName>
+		</author>
+		<ptr target="https://hdl.handle.net/10289/69" />
+	</analytic>
+	<monogr>
+		<title level="j">Working paper series</title>
+		<imprint>
+			<biblScope unit="issue">03</biblScope>
+			<date type="published" when="2007">2007. 2007</date>
+			<pubPlace>Hamilton, New Zealand</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Department of Computer Science, University of Waikato</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">A Survey of Named Entity Recognition and Classification</title>
+		<author>
+			<persName><forename type="first">David</forename><surname>Nadeau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Satoshi</forename><surname>Sekine</surname></persName>
+		</author>
+		<idno type="DOI">10.1075/li.30.1.03nad</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Named Entities: Recognition, Classification and Use</title>
+		<editor>
+			<persName><forename type="first">Satoshi</forename><surname>Sekine</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Elisabete</forename><surname>Ranchhod</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>John Benjamins</publisher>
+			<date type="published" when="2007">2007</date>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="page" from="3" to="26" />
+		</imprint>
+	</monogr>
+	<note>Amsterdam and Philadelphia</note>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">From Freebase to Wikidata: The Great Migration</title>
+		<author>
+			<persName><surname>Pellissier Tanon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Denny</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sebastian</forename><surname>Vrandečić</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Schaffert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lydia</forename><surname>Steiner</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Pintscher</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">WWW &apos;16: Proceedings of the 25th International Conference on World Wide Web</title>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="page" from="1419" to="1428" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<author>
+			<persName><forename type="first">Switzerland</forename><surname>Geneva</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2872427.2874809</idno>
+		<title level="m">International World Wide Web Conferences Steering Committee</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Local and Global Algorithms for Disambiguation to Wikipedia</title>
+		<author>
+			<persName><forename type="first">Lev</forename><surname>Ratinov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dan</forename><surname>Roth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Doug</forename><surname>Downey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mike</forename><surname>Anderson</surname></persName>
+		</author>
+		<ptr target="https://www.aclweb.org/anthology/P11-1138/" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics: Human Language Technologies</title>
+		<meeting>the 49th Annual Meeting of the Association for Computational Linguistics: Human Language Technologies<address><addrLine>Stroudsburg, PA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2011">2011</date>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="1375" to="1384" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Sustainability in DARIAH</title>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jennifer</forename><surname>Edmond</surname></persName>
+		</author>
+		<ptr target="https://hal.inria.fr/hal-01516487" />
+	</analytic>
+	<monogr>
+		<title level="m">Presentation at Sustainability of Digital Research Infrastructures for the Arts and Humanities (Workshop at the DARIAH Annual Event)</title>
+		<meeting><address><addrLine>Berlin, Germany</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2017-04-27">2017. April 27</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Introduction to Modern Information Retrieval</title>
+		<author>
+			<persName><forename type="first">Gerard</forename><surname>Salton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><forename type="middle">J</forename><surname>Mcgill</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1983">1983</date>
+			<publisher>McGraw-Hill</publisher>
+			<pubPlace>New York</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Disambiguating Geographic Names in a Historical Digital Library</title>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">A</forename><surname>Smith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gregory</forename><surname>Crane</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Research and Advanced Technology for Digital Libraries: 5th European conference</title>
+		<title level="s">Lecture Notes in Computer Science</title>
+		<editor>
+			<persName><forename type="first">Panos</forename><surname>Constantopoulos</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Ingeborg</forename><forename type="middle">T</forename><surname>Sølvberg</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Berlin</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2001">2001. 2163</date>
+			<biblScope unit="page" from="127" to="136" />
+		</imprint>
+	</monogr>
+	<note>ECDL 2001…: Proceedings</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Logged-Ins (Redux): A Global Study of Edit Activity on Wikipedia and Wikidata</title>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Steiner</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2641580.2641613</idno>
+	</analytic>
+	<monogr>
+		<title level="m">OpenSym &apos;14: Proceedings of the International Symposium on Open Collaboration</title>
+		<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="page" from="1" to="25" />
+		</imprint>
+	</monogr>
+	<note>Bots vs. Wikipedians, Anons vs</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">TEI P5: Guidelines for Electronic Text Encoding and Interchange. Version 4.0.0. Last updated February 13</title>
+		<author>
+			<persName><surname>Tei Consortium</surname></persName>
+		</author>
+		<ptr target="https://tei-c.org/Vault/P5/4.0.0/doc/tei-p5-doc/en/html/" />
+	</analytic>
+	<monogr>
+		<title level="m">TEI Consortium</title>
+		<imprint>
+			<date type="published" when="2020">2020. 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">Paper presented at the conference Open History: Sustainable Digital Publishing of Archival Catalogues of Twentieth-Century History Archives</title>
+		<author>
+			<persName><surname>Vanden Daelen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jennifer</forename><surname>Veerle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Petra</forename><surname>Edmond</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mike</forename><surname>Links</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Linda</forename><surname>Priddy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Václav</forename><surname>Reijnhoudt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Annelies</forename><surname>Tollar</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Van Nispen</surname></persName>
+		</author>
+		<ptr target="https://hal.inria.fr/hal-01281442" />
+		<imprint>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="9" to="12" />
+			<pubPlace>Brussels, Belgium</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Sustainable Digital Publishing of Archival Catalogues of Twentieth-Century History Archives</note>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Wikidata: A New Platform for Collaborative Data Collection</title>
+		<author>
+			<persName><forename type="first">Denny</forename><surname>Vrandečić</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 21st International Conference on World Wide Web</title>
+		<meeting>the 21st International Conference on World Wide Web</meeting>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="1063" to="1064" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title/>
+		<idno type="DOI">10.1145/2187980.2188242</idno>
+		<imprint>
+			<publisher>ACM</publisher>
+			<pubPlace>New York</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">An Effective, Low-Cost Measure of Semantic Relatedness Obtained from Wikipedia Links</title>
+		<author>
+			<persName><forename type="first">Ian</forename><forename type="middle">H</forename><surname>Witten</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>David</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Milne</surname></persName>
+		</author>
+		<idno>WS-08-15</idno>
+		<ptr target="https://hdl.handle.net/10289/1777" />
+	</analytic>
+	<monogr>
+		<title level="m">Wikipedia and Artificial Intelligence: An Evolving Synergy. Papers from the AAAI Workshop</title>
+		<meeting><address><addrLine>Palo Alto, CA</addrLine></address></meeting>
+		<imprint>
+			<publisher>AAAI Press</publisher>
+			<date type="published" when="2008">2008</date>
+			<biblScope unit="page" from="25" to="30" />
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+	<note>author&apos;s version</note>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">The Devil Is in the Details: Indexes versus Amazon&apos;s X-Ray</title>
+		<author>
+			<persName><surname>Wright</surname></persName>
+		</author>
+		<idno type="DOI">10.3828/indexer.2012.4</idno>
+	</analytic>
+	<monogr>
+		<title level="j">The Indexer</title>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="11" to="16" />
+			<date type="published" when="2012-01">Jan. 2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

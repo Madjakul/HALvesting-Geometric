@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">LREP: A Language Repository Exchange Protocol</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Daan</forename><surname>Broeder</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">MPI for Psycholinguistics</orgName>
+								<address>
+									<addrLine>The Netherlands. -DFKI</addrLine>
+									<settlement>Nijmegen, Saarbruecken, Germany. -LORIA</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author role="corresp">
+							<persName><forename type="first">Peter</forename><surname>Wittenburg</surname></persName>
+							<email>peter.wittenburg@mpi.nl</email>
+							<affiliation key="aff0">
+								<orgName type="institution">MPI for Psycholinguistics</orgName>
+								<address>
+									<addrLine>The Netherlands. -DFKI</addrLine>
+									<settlement>Nijmegen, Saarbruecken, Germany. -LORIA</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Thierry</forename><surname>Declerck</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">MPI for Psycholinguistics</orgName>
+								<address>
+									<addrLine>The Netherlands. -DFKI</addrLine>
+									<settlement>Nijmegen, Saarbruecken, Germany. -LORIA</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">MPI for Psycholinguistics</orgName>
+								<address>
+									<addrLine>The Netherlands. -DFKI</addrLine>
+									<settlement>Nijmegen, Saarbruecken, Germany. -LORIA</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">LREP: A Language Repository Exchange Protocol</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">350000D8401B53738A51CBC785F6A8F9</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T14:59+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The recent increase in the number and complexity of the language resources available on the Internet is followed by a similar increase of available tools for linguistic analysis. Ideally the user does not need to be confronted with the question in how to match tools with resources. If resource repositories and tool repositories offer adequate metadata information and a suitable exchange protocol is developed this matching process could be performed (semi-) automatically.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>The domain of linguistics is faced with an enormous increase of available language resources and an increasing amount and diversity of available tools that operate on these resources. Also the improved computational facilities have made it possible that many tools and resources do no longer depend on storage with one of the large resource distribution agencies as ELRA and LDC but are stored at the many individual research institutes. Add to this the increasing reliability and bandwidth of the Internet and the availability of high quality Internet connections for even home PC's. There we have a situation that demands the development of an organisational plan together with exploitation tools that offer the user one integrated view of these two complementary domains of tools and resources.</p><p>A recent [ACL/EACL] workshop <ref type="bibr" target="#b1">[1]</ref> clearly indicated the needs of the community and the potential present in the current registries waiting to be unlocked by appropriate mechanisms and protocols. This work does not appear out of the void; in place already are the DFKI/ACL tool descriptions <ref type="bibr" target="#b2">[2]</ref> and the IMDI <ref type="bibr" target="#b3">[3]</ref> and OLAC <ref type="bibr" target="#b4">[4]</ref> language resource description environments.</p><p>The purpose of this paper is to show the advantages that an integrated approach would offer and the required mechanisms and protocols for this that are needed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Required Functionality</head><p>From the view point of the typical user a desirable scenario would be:</p><p>1. Locate suitable resources using metadata either by browsing or searching. 2. Find out what kind of suitable tools are available for these particular resources. 3. The user makes a selection of one of these tools.</p><p>Perhaps after making further inquiries. 4. Start up the selected tool with the resources already specified.</p><p>Another less typical scenario would be that of a tool builder who would like to find resources that fit with the particular tool he is testing or developing.</p><p>In any case both scenarios require the location of resources using metadata either on the basis of linguistic requirements or requirements concerning the data-type or format.</p><p>Once resources have been identified the next step would be to look what kind of tools are available and see if they would fit the particular type of the resources and needs of the users. That last requirement is something only the user can answer. For the moment we assume he will make a choice from a selection offered by a tool. Preferably this would be the same tool he used to locate the language resources in the first place. Note that the located resources are often not locally available and are identified by an URL. From that point on a number of options and possible complications exist that will need to be addressed by a protocol that regulates the proper exchange of relevant information. Just to give an impression here is a (by no means exhaustive) list: a) There can be locally installed tools that might be suitable. b) A tools repository might advertise suitable tools. c) The tool can be present on the tool repository itself. d) The repository might just have a link to its actual (remote) home. e) The site where the resource resides does not allow copying of the resource from the site but has itself a suitable tool available. (Statistics) f) The tool is not available for download.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Current State of Affairs</head><p>We will now make a small inventory of the current state of affairs with respect to required technology and start with the available standards that describe (metadata) language resources and linguistic tools. Then we look at possible mechanisms of communications between tool and language resource consumers and providers.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Language resource descriptions</head><p>First we will investigate what the current situation is with respect to language resource storage and description. The for our purposes, that is resource location and access, relevant way of describing language resources is by using metadata that is made available on the Internet.</p><p>At the moment there are two initiatives that claim to provide a relevant metadata set for the linguistic domain. First there is the ISLE Metadata Initiative (IMDI) started in 2000 that has tried to develop a metadata vocabulary from the bottom up starting with the requirements of the researcher and finally arrived at a complex set that can be considered the beginning of an ontology for the domain.</p><p>IMDI does not claim to describe more than the language resources only, but does offer a complete metadata environment that has handles to organise resources in browsable structures and bundle related resources in administrative units. Tools to create manipulate and exploit IMDI tagged resources are also provided. The IMDI project is also relevant because one of the tools developed shows tight functional integration of available linguistic tools and resources. The IMDI-BCBrowser, a tool to navigate the universe of IMDI tagged resources allows a user to map available local linguistic tools on resource types. Whenever a suitable resource comes in focus the applicable tools are available directly from this browser tool. See <ref type="bibr" target="#b5">[5]</ref> for more details. This is a local variant of what we would like to achieve with a Language Repository Exchange Protocol (LREP).</p><p>The second relevant initiative is the Open Language Archive (OLAC). OLAC has created a specialisation of the well-known Dublin Core (DC) <ref type="bibr" target="#b6">[6]</ref> set for use in the linguistic domain. The specialisation involves the introduction of one new element in addition to the existing 15 of DC and the further adjustment of the other 15 by means of specialised qualifiers. OLAC claims not only to describe language resources but also wants to describe linguistic tools and "best practice" recommendations.</p><p>Currently there is an experiment transforming IMDI records to OLAC format in order to allow, although with considerable information loss, OLAC users to locate IMDI tagged resources.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Linguistic tool descriptions</head><p>With respect to tool repositories we refer mainly to the DFKI ACL Natural Language Software registry that maintains an exhaustive list of tools and offers it in a human readable form on the web but also allows export to DC records in an XML format so that its data can be harvested by protocols such as suggested by OAI <ref type="bibr">[7]</ref>. It uses a well-described taxonomy <ref type="bibr" target="#b8">[8]</ref> that for our purposes will need to be further specialised.</p><p>The OLAC proposal uses DC elements to describe tools and although they have made the step to machine readable metadata what we require for our purposes, it remains to be seen if their set can describe these tools in sufficient detail.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">Suitable exchange protocols.</head><p>Defining an exchange protocol can capitalize on the experience of other earlier initiatives. There is GATE [9,10] that is presented as a software architecture for NLP components. It enables experienced users to easily configure NLP systems. Although this tightly integrated system is a local one i.e. the software modules exchange information locally, it shows that some experience exists about the nature of the information to be exchanged.</p><p>Another example is the Browser tool <ref type="bibr" target="#b10">[11]</ref> developed within the IMDI project mentioned before. The Browser facilitates an information exchange between the two domains of "Language Resources" and "Linguistic Tools" by examining a configuration file that maps tools to resource types/formats and offering the user a choice of tools for a specific set of resources. This is limited to locally installed tools only although it allows specification of tools that work on remote resources.</p><p>Evidently we need to generalise the described exchange mechanisms to more flexible exchange mechanisms that support distributed systems by nature. These requirements seem to be full-filled by emerging standards such as SOAP <ref type="bibr" target="#b11">[12]</ref> but could just as well be supported by exchanging specific XML formatted messages via an existing network protocols as HTTP.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Functionality to add</head><p>The exact nature of the underlying protocol for communication between users, Resources Repositories and Tool Repositories either is not important. More important is to establish the information content that is to be exchanged. Following the typical usage scenario described above, we summarise the information sent by the Browser or Search tool to the Tool Repository in the form of a Tool Request Packet (TRP) as:</p><p>i.</p><p>Administrative information ii.</p><p>Function specification (what is the tool needed for) iii.</p><p>A resource type selection (The user might only be interested in audio while there are also annotations available) iv.</p><p>Operating environment for the tool (OS, available execution environment such as Java, Perl, available fonts etc.)</p><p>This information is received and validated by a tool repository that will try to match the received information with the tools it describes in its database. After processing it will return a response package with the following information:</p><p> </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Description of resources</head><p>The description of the resources needed by a tool repository to determine if a tool is suitable has until now been indicated by "resource type". This will obviously need to be more complex than just a single type specification element. The IMDI project has experimented with mime-types following the convention used on the Internet where resources are characterized by a type and sub-type (see Multipurpose Internet Mail Extensions as described in RFC 2046 <ref type="bibr" target="#b12">[13]</ref>). In this way an annotation file in CHAT format would be described as "text/x-chat". This scheme is however not sufficient to express all necessary information as there is in some cases also need to describe different encoding types. IMDI did recognise this and later added special fields as "content-encoding" as the name of the encoding scheme used for annotation purposes and "character-encoding" to specify the character set used. A CHAT annotation file with morphosyntax information would be described as: o Type: annotation-unit/morpho-syntax o Format: text/chat o Content-encoding: eurotyp o Character-encoding: ISO-Latin1</p><p>As yet it is uncertain if this is a sufficient set for all the tools we need to administrate with LREP, the elements of the IMDI set for resource file typing are not altogether othogonal and any new extension will only complicate this further.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">Groups of Coupled</head><p>Often it will be the case that the user wants to operate on a group of linked resources. Think of the example that a multimedia/multi-modal resource has tightly coupled files for two video cameras, an internal and an external microphone, a track for laryngoscopic data and various annotations in separate files (see Figure <ref type="figure">1</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Figure 1 Coupled MM resources</head><p>In the IMDI project this situation was understood from the beginning and the term "session" was introduced <ref type="bibr" target="#b13">[14]</ref>. A session bundles various related data files and the corresponding metadata description contains links to all of them.</p><p>It is the task of the tool to use this information appropriately. When using the resource repository browser the user will select the session and not a particular file. When connecting to the tool repository he could want to operate on all or on a selection of them.</p><p>The resource type list field in the Tool Request Package (TRP) specifies if a subset of the included resources was selected, i.e. the user has to have the possibility to not only specify the function of the operation (in the shown example a wish to start an image processing tool would automatically imply that only the mpg files are relevant), but also the resource type to specify whether for example video or audio should be used 1 . Of course, there is a link between applications and resource types. However, it is expected that for example including all resource types of a metadata description as indicated above would result in offering almost all tools that are in the repository. Therefore, the user should be able to define a function -it should be an optional parameter -that indicates an analysis or display function beforehand. This information is present in the TRP. Questions whether for example video1 or video2 or both should be included in an operation have to be answered by the browser who will offer a list of all resources selected. The user should be able to tune his list.</p><p>All information is sent to the Tool Repository which will check on which formats the available tools can operate and will calculate a rating and generate warnings. The ratings will specify the degree of match and the warnings will say which types and formats cannot be included when using a certain tool. When a user selects one of the tools only those files that are compatible will be included in the start script. For the moment we assume a framework of separately executable tools that can be called from a script. More advanced schemes such as remotely executable tools are conceivable and need to be provided for. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Group of Unrelated Resources</head><p>The user may have selected various resources, which for example can be various text files only taken from various subjects, but it also could be that various sessions with mixed file types were selected. Operations like this could be wanted for example to train speech recognizers on a whole set of speech files together with their annotation files or a search on textual data which could be in various formats such as a certain XML format or an older legacy format such as CHAT. 1 Another option would be to present both filenames to the tool such that the tool will ask the user which one to select. But this will require more intelligence at the side of the tools. It cannot be assumed that builders of already existing tools want to modify their code extensively. We will discuss the most general case first. In the case of unrelated resources the user can only execute mass operations such as search, statistics, speech recognizer training etc. on them. Currently, there are already tools, which operate on different input formats, which means that a variety of formats is not problematic and the tool repository can match tools for them. In the future we can expect cases where search operations can be executed on texts as well as on sound or video files, i.e. there also a variety of file types does not have to be excluded. The user though, should have the possibility to make selections to decrease the complexity of the task.</p><p>It is therefore suggested that the Resource Repository Browser determines a list of file types and formats by reading all metadata descriptions of the selected resources and by interacting with the user.</p><p>All other configurations are specializations of this general one and can be handled in the same way.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Tool Execution</head><p>The usual working environment will need to have the standard tools already present on the local machine and the Resource Browser aware of this. Preferably these local tools are obtained from tool repositories during a previous work session. That way their configuration and start-up information can be in the same format as used for remote tools. Only if the user requires functionality not available from the locally configured tools or enters an explicit command, remote tool repositories will be contacted and queried.</p><p>We can distinguish between a number of cases with respect to the place where the tool and resources remain.</p><p>Local tool &amp; local resources. The tool may have been downloaded first or have been present at the local site before. Important is that the Resource Browsing Tool has knowledge how to startup the tool and how to specify the resources the tool works on when executing the tool.</p><p>Local tool &amp; remote resources. As above the Browse Tool knows how to start the tool. The tool itself must be able to handle remote resources (specified as an URL). Since not many tools are able to deal with remote resources the Browser can implement a mechanism to automatically download the resources to the local machine. This reduces to case 1. In case of multi-media resources this can be a slow affair.</p><p>Remote tool &amp; remote resources at same site. Some sites offer resources as well as the tools that work on them. These sites have already integrated their resources localisation service with tools that work on these resources. It should be considered for each such a site what added value could be generated by opening up their resources to be used with other tools. As an example of an integrated service look at LACITO <ref type="bibr" target="#b14">[15]</ref>.</p><p>Remote Tool (not downloadable) &amp; resources at different site. The only way to exploit such a tool would be if the tool in question would be remote executable and would work on remote resources or the site would allow the download of resources. This is certainly an interesting possibility when a site has a great quantity of statistic and search engines that depend on optimised machine configurations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Future Developments</head><p>The development of the LREP protocol and working environment are part of the INTERA project that seems to start later this year.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 2 .</head><label>2</label><figDesc>Figure 2. The session bundling resources</figDesc></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>References</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<author>
+			<persName><forename type="first">Steven</forename><surname>Thierry Declerck</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mike</forename><surname>Krauwer</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Rosner</surname></persName>
+		</author>
+		<title level="m">Proceedings of the ACL/EACL Workshop Sharing tools and Resources</title>
+		<meeting>the ACL/EACL Workshop Sharing tools and Resources<address><addrLine>Toulouse</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<ptr target="http://registry.dfki.de" />
+		<title level="m">The ACL Natural Language Software Registry</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Isle</forename><surname>Imdi</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Metadata Initiative</surname></persName>
+		</author>
+		<ptr target="http://www.mpi.nl/ISLE" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Open Language Archive Community</title>
+		<author>
+			<persName><surname>Olac</surname></persName>
+		</author>
+		<ptr target="http://www.language-archives.org" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m">The IMDI Metadata Set, it&apos;s Tools and accessible Linguistic Databases. Daan Broeder, Freddy Offenga</title>
+		<meeting><address><addrLine>Don Willems, Peter Wittenburg; Philadelphia</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+	<note>Proceedings of the IRCS Workshop on Linguistic Databases</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<ptr target="http://dublincore.org/documents/dces/" />
+		<title level="m">DC or DCMES Dublin Core Metadata Element Set</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Open Archives Initiative</title>
+		<author>
+			<persName><surname>Oai</surname></persName>
+		</author>
+		<ptr target="http://www.openarchives.org/" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Survey of the State of the Art in the Human Language Technology edited By</title>
+		<editor>G.B. Varile and A. Zampolli, Linguistica Coputazionale</editor>
+		<imprint>
+			<biblScope unit="volume">XII -XIII</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Software Infrastructure for Natural Language Processing</title>
+		<author>
+			<persName><forename type="first">Hamish</forename><surname>Cunningham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kevin</forename><surname>Humphreys</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Gaizauskas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yorick</forename><surname>Wilks</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 5 th conference on Applied Natural Language Processing</title>
+		<meeting>the 5 th conference on Applied Natural Language Processing<address><addrLine>Washington D.C.</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Interaction of Tools and Metadata-Descriptions for Multimedia Language Resources</title>
+		<author>
+			<persName><forename type="first">Daan</forename><surname>Broeder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Wittenburg</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the ACL/EACL Workshop Sharing tools and Resources</title>
+		<meeting>the ACL/EACL Workshop Sharing tools and Resources<address><addrLine>Toulouse</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Soap -A</forename><surname>Simple</surname></persName>
+		</author>
+		<ptr target="http://www.w3.org/TR/SOAP/" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<ptr target="http://www.ietf.org/rfc/rfc2046.txt" />
+		<title level="m">RFC2046] Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">A browsable Corpus: accessing linguistic resources the easy way</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">G</forename><surname>Broeder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Brugman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Russel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Wittenburg</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings LREC 2000 Workshop Athens</title>
+		<meeting>LREC 2000 Workshop Athens</meeting>
+		<imprint>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<ptr target="http://lacito.archivage.vjf.cnrs.fr/" />
+		<title level="m">Linguistic Data Archiving Project (LACITO)</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

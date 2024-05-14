@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">D.2.3 First edition of the web directory of IPERION CH instruments and databases</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2016-04-30">April 30, 2016</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Loïc</forename><surname>Bertrand</surname></persName>
+							<email>loic.bertrand@synchrotron-soleil.fr</email>
+						</author>
+						<author>
+							<persName><forename type="first">Sophie</forename><surname>David</surname></persName>
+							<email>sophie.david@synchrotron-soleil.fr</email>
+						</author>
+						<author>
+							<persName><forename type="first">Serge</forename><surname>Cohen</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Susanna</forename><surname>Holowati</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Marie</forename><surname>Puren</surname></persName>
+						</author>
+						<author>
+							<persName><roleName>Mathieu</roleName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="laboratory">CNRS-IPANEMA Responsible Author Name Loïc Bertrand</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="laboratory">Partner CNRS-IPANEMA</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<address>
+									<postCode>+33 1 69 35 97 80</postCode>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff3">
+								<orgName type="laboratory">Partner CNRS-IPANEMA</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff4">
+								<address>
+									<postCode>+33 1 69 35 99 34</postCode>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">D.2.3 First edition of the web directory of IPERION CH instruments and databases</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2016-04-30">April 30, 2016</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">6C2F34D32D550D437973144B588A17F3</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>web directory Version Log Issue Date Rev</term>
+					<term>no</term>
+					<term>Author Change</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The web directory of IPERION CH instruments and databases aims at providing researchers with information related to resources (instruments, databases and datasets) available within IPERION CH through a package of categories/metadata that help categorising them according to their different dimensions. A database model has been created.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>This report aims at presenting the approach and the work done related to the IPERION CH web directory, which is described in the Technical Annex (p. 29) as follows: "preparing and maintaining a web directory of IPERION CH instruments/databases, which could also function as an extension of the MERIL portal of European RIs". The creation of the web directory is one of the tasks of the Access Board, which is also described under WP2-Task 2.1 (cf. Technical Annex p. 29). The WP2 deliverable "First edition of the web directory of IPERION CH instruments and databases [M12]" (Technical Annex, p. 72) has to be submitted by April 30 th . The work has been coordinated by CNRS-IPANEMA.</p><p>First, we will give an overview about the context to explain more precisely our approach (instruments and databases, links to activities of other WPs, intended users, definitions, aim). Then, we will present the database model, based on an Entity Relationship model ( § 2. and Annexes 3 and 4), and in particular the categories that will be integrated and that are based on:</p><p> The questionnaires collected in the frame of the Data Management Plan (DMP) (called hereafter the "Questionnaire" cf. Annex 1).  Our analysis of existing portals describing or allowing access to shared infrastructures, such as MERIL (portal.meril.eu), Wayforlight (www.wayforlight.eu) and CERIC (www.ceric-eric.eu).  The re3data project (www.re3data.org), which is a directory of research data repositories (currently more than 1.500, consulted on 21.04.2016). This project presents very clearly and well referenced the metadata and values it uses.  Existing lists (they will be introduced in the sections where they are relevant).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Context</head><p>A web directory is a catalogue of web sites. As it will be clarified through the upcoming pages, our efforts have shown the interest to extend the work, in the frame of IPERION CH, to datasets, and more generally, in the future, to all types of resources of IPERION CH.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.1.">Instruments</head><p>Concerning the instruments, certain of them are described on the respective web sites of the responsible institution. E.g. the BNC web site: www.bnc.hu, or more precisely: www.bnc.hu/?q=node/7. Those instruments can also be described within a specific project as, for example, on the Wayforlight web site that is linked to the European CALIPSO project: www.wayforlight.eu. Another example is the CERIC ERIC web page that lists all instruments available within the consortium: www.cericeric.eu/index.php?n=Users.Facilities.</p><p>It is important to note that, in the cases of Wayforlight or CERIC, the described instruments are mostly of the same kind:</p><p> On the Wayforlight web site, information about the beamlines of synchrotrons and European Electrons Lasers participating in CALIPSO are available.  On the CERIC ERIC web site, the first set of categories is related to their transnational access (TNA) procedure: the procedure is based on the opposition between "Facilities providing access only to multiple instrument proposals" and "Facilities providing access to multiple and also to single instrument proposals".</p><p>The second categorisation is made by geographical information (according to the beamline locations). The last list consists of the facilities' beamlines.</p><p>An interesting fact is that, in both cases, categorisations/descriptions are firstly devoted to beamlines and not to facilities.</p><p>Analysing those web sites is useful to easily gather certain types of information; anyhow, it is also important to be able to establish a link between the instruments and their associated technique(s). Furthermore, it is crucial to keep in mind that many other instruments than synchrotrons and lasers are used in the field of Heritage Science. Therefore, the web directory has to integrate a diversity of instruments that does not yet exist on any other web site.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.2.">Databases</head><p>As for the databases, the results of the Questionnaire show that in fact very few databases exist. Focusing only on the databases would have provided too little content.</p><p>That is why we have preferred to take into account information about the datasets and databases, that we received from the data providers. Once the quantitative question solved (we have information about 88 datasets and databases), another series of problems comes up:  few datasets or databases are available online;</p><p> not all data are digitised;  for a large number of datasets or databases, several difficulties linked to the format, storage, availability, access, etc. have still to be solved. As a consequence, the web directory cannot only be a catalogue of web links to databases or datasets. On another hand, we can transform the information collected through the Questionnaire into categories/metadata that will afterwards be organized in a database making it possible to classify, find and identify the databases and datasets of IPERION CH.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.3.">Link to the activities of WP12 and the future E-RIHS infrastructure</head><p>WP12 has to produce a "Database on CH conservation and research institutions and stakeholders (M18)" (cf. Technical Annex of IPERION CH p. 70). a) This deliverable is expected to be implemented by autumn 2016. Hence, in common agreement with WP12, the extended implementation of the web directory will be done in the context of WP12. Consequently, this step focuses on the conceptual design of the web directory. b) A clear link between data of the web directory and those of the database provided by WP12 has to be established from now on.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.4.">Link to the activities of WP8</head><p>WP8 is expected to realise activities, such as "Organisation/presentation/sharing of analytical scientific data (raw spectra, chemical maps/images etc.)" from case studies (cf. Technical Annex of IPERION CH p. 55). The web directory concept that we are presenting could be a first tentative in this frame, and results from WP8 activities could later on be added.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.5.">The intended users</head><p>At this stage, the main target group for the use of the web directory are researchers. Those might be researchers participating in the IPERION CH project as well as external researchers.</p><p>The type of information is useful within the IPERION CH project, and also outside. It will help researchers to:</p><p> Get a better overview about the partners' resources, to get inspired by best practices, etc.  Provide more thorough information to the communities about available resources and to help researchers accessing those, especially through the TNA procedure.</p><p>Once all information about CH conservation and research institutions and stakeholders collected, the second target group using the database could be research institutions, funding agencies and cultural institutions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.6.">Definitions and distinctions</head><p>The following terms are important for the overall understanding of this report; therefore, we have provided specific explanations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Database</head><p>We use this term in its strictest sense. A database is a collection of items: raw and analysed data, publications, reports, etc. They are organised through a specific model (hierarchical model, relationship model).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Dataset</head><p>A dataset is a collection of raw or analysed data.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data provider</head><p>The data provider is an instrument (which includes the team that helps to operate instrument) and/or a laboratory group and/or museum department, and/or a cultural institution group, etc. that produces data. These data can be put together into one/several datasets or databases. The data provider is also the responsible entity to give access to a dataset/database. In certain cases, access to the datasets or databases can be subject to specific constraints and restrictions (intellectual property, embargo, etc.).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Access provider</head><p>Access providers are infrastructures that offer a wide range of services that provide access to one/several instruments and/or integrate one/several data providers. In IPERION CH, an access provider may be a cultural institution, a museum, a laboratory, a technical platform, a facility<ref type="foot" target="#foot_0">1</ref> , etc. The term of access provider identifies precisely the role of IPERION CH partners.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Hosting organisation</head><p>The access providers are hosted by hosting organisations, which host the infrastructure or its coordination centre. Hosting organisation is also used in MERIL. Keeping this entity will allow to link our work with the future database of WP12.</p><p>It is crucial to make the below listed distinctions. 1/ Distinction between access providers and data providers:</p><p>1. The data providers produce data, but they do not systematically provide access to them within the community. 2. Certain access providers do not offer instruments (museums, institutions), but give access to their data (through their data providers).</p><p>2/ Access providers and the IPERION CH partners As the IPERION CH partners are diverse (different kinds of instruments, different kinds of institutions, etc.), it is important to have a "body" which allows us to deal with them in a unified way. The notion of access provider plays this role.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>3/ People and competences</head><p>When we speak about instruments, we first consider an object that has been designed to accomplish a certain task, operation, etc. We barely consider the teams or the groups that make this instrument work. Once again, it is important to associate people (and their competences) to be able to deal with the diversity of IPERION CH partners. So, data providers are first considered as groups of people, linked to instruments (beamlines, lasers, neutron instruments) or institutions (museums, cultural institutions, etc.).</p><p>The IPERION CH project counts 19 access providers that are listed in Annex 2.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.7.">Rephrasing the extension of the web directory</head><p>According to this context, it is important to rephrase the extension of the web directory. a) A database of instruments, databases and datasets made available by data providers of the IPERION CH project has to be conceived.</p><p>b) The problems outlined through the Questionnaire (digitisation, storage, access format, etc.) lead to the need of creating a package of metadata that will help to categorise the datasets/databases. c) Once created, this database has to be compatible with the database that will be produced within WP12. That means that a clear connection between instruments and datasets/databases and the CH conservation and research institutions and stakeholders has to be established.</p><p>Taking all that into account, we have chosen a bottom-up approach starting from the resources provided by the IPERION CH partners. Therefore, a wide range of data received through the Questionnaire will be reused.</p><p>The main objective of the web directory can be summarised as follows:</p><p>Provide researchers with information related to resources (instruments, databases and datasets) available within IPERION CH through a package of categories/metadata that help categorising them according to their different dimensions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Model</head><p>We have used the Entity Relationship model to model our database 2 . The result is illustrated through a scheme in Annex 3, § 3.2. The entities and attribute values are specified in Annex 4.</p><p>Given the purpose of our work, and for the sake of simplification, as the descriptions of databases and datasets will be the same (in terms of metadata), we will identify a unique entity dataset/database.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">Three main entities</head><p>The following section gives an overview about the three main entities we have chosen, explaining briefly their relation with the other entities 3 .</p><p>1) A dataset/database is produced / made available by a data provider; it can be related to one or several specific materials; data grouped into one set can consist of one or several types of data of one or several formats; these data can be produced with one or several techniques via one or several instruments; the data is of interest for one or several communities, they are located, and they are accessible according to several conditions. One or several publications can be associated to the data.</p><p>2) The data provider has an operational status. He produces data of one or several types of one or several formats. He is responsible to provide access to the community to one or several datasets/databases. He depends upon an access provider. He has expertise in one or several fields and can offer services. He might have national or international collaborations. One or several publications can be associated to the data provider.</p><p>3) Being a facility, the access provider is of a specific type (virtual, distributed, singlesited). Its activities are related to one or several scientific fields. Its users might come from the private and/or scientific sector. An access provider is hosted by a hosting organisation.</p><p>2 We express our gratitude to Luis Arean (IPANEMA) who contributed with fruitful discussions.</p><p>-An entity [in the Entity Relationship model] is a concrete or abstract thing from the perceived reality, for which we want to keep information. An entity exists autonomously. Each entity has specific properties, which are called attributes.</p><p>-A relation is a connection between two or more entity occurrences, for which we want to keep information.</p><p>-An attribute is a characteristic or a quality of an entity or of a relation. It can take one or several values.</p><p>-A value is a symbol, which represents an elementary fact.</p><p>In the scheme (Annex 3, § 3.2.), we have not indicated the primary keys. And only essential attributes have been indicated. These 4 definitions have been adapted from M. Boughanem, http://www.httr.upstlse.fr/pedagogie/cours/bd/ea.pdf.</p><p>3 These three main entities are marked in blue in Annex 3, § 3.2.</p><p>The scheme below illustrates these levels of organisation:</p><p>To identify our entities, attributes and their values, we were departing from the categories or metadata proposed by the MERIL portal, the Wayforlight web site, the project re3data, several lists established in the frame of the LABS-TECH and EU-ARTECH projects, several lists which have been established within CNRS-IPANEMA, descriptors of two journals, and lastly the responses to the Questionnaire. Each entity will be described in the following sections.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">The entities: Access Provider and Data Provider</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.1.">Categories in MERIL</head><p>The MERIL portal is an inventory of openly accessible Research infrastructures (RIs) in Europe from diverse scientific domains such as archives, statistical offices, biobanks, satellites and particle accelerators. According to MERIL, a Research infrastructure can be defined as follows:</p><p>"A European Research Infrastructure is a facility or (virtual) platform that provides the scientific community with resources and services to conduct research in their respective fields. These research infrastructures can be single-sited or distributed or an einfrastructure, and can be part of a national or international network of facilities, or of interconnected scientific instrument networks."<ref type="foot" target="#foot_1">4</ref> </p><p>This description is mainly adapted to IPERION CH's access providers. But our objective being to indicate the production and access level, as well as to provide resources instead of general infrastructure descriptions:  The MERIL categories we have chosen (actually, most of them) will be distributed between the three entities: Hosting Organisation<ref type="foot" target="#foot_2">5</ref> , Access Provider and Data</p><p>Provider. One category is linked to the three entities ("contact person"). Others can be linked to several entities (e.g. "scientific domain" is appropriate for hosting organisations and access providers). Finally, certain categories are rather linked to the hosting organisation characterisation (e.g. "funding source"), the access provider characterisation (e.g. its type), whilst others relate to the Data Provider entity (e.g. "(operational) status").  It will be necessary to add other entities/attributes helping to describe the techniques, formats, policies, access, type of materials, etc. "Funding source", as mentioned above, will be linked to the Hosting Organisation entity.</p><p>Following elements from the MERIL portal have not been integrated: A/ "Keywords" -"RI Categories" -"Grand societal challenges":</p><p> Collecting at this stage (free) keywords is not a priority.  The category does not target the field of Heritage Science (cf. the 71 RI categories in MERIL, cf. portal.meril.eu).  The proposed values are not relevant to the field (cf. values for the category "Grand societal challenges"). B/ Equipment As mentioned above, "equipment" covers parts of what we call Data Provider.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.2.">Other entities and attributes</head><p>It has seemed appropriate to us to add other entities or attributes that are more specifically linked to the IPERION CH project and/or the future infrastructure E-RIHS.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A/ The Access Provider entity</head><p>Concerning the Access Provider entity, it is important to specify to which platform(s) it belongs. The attribute PlatformName will have the following values: ARCHLAB, FIXLAB, MOLAB, to which could in the frame of E-RIHS be added DIGILAB and EXPERTLAB.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B/ The Data Provider entity</head><p>As mentioned above, we want to highlight the people that operate the instruments and/or that generally produce data, and their competences.</p><p>That is why: a/ The DataProviderType attribute mentions groups of people, possibly related to an instrument or an institutional entity (beamline group, laboratory group, museum group, etc.). b/ It is relevant to relate the Data Provider entity to different entities representing the Data Provider competences:</p><p> The Expertise entity: a Data Provider always has an expertise but not always it is offered as a service; this information should be accessible.  The Publication entity (which is also related to the Dataset/Database entity). This is another way of representing the expertise of the Data Provider.</p><p>As it produces data, the Data Provider entity must be related to the Data Type entity, which indicates the type of data that the Data Provider is supposed to produce. The Data Type entity will also be related to the Dataset/Database entity. And the data formats will be linked to the data types.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.">The Dataset/Database entity</head><p>Following entities are linked to the Dataset/Database entity:</p><formula xml:id="formula_0"> Meta-material  Meta-technique  Data Type =&gt; Format  Policy  Access  Location  Target Community  Publication</formula><p>In the next parts, our choices in relation to particular entities with specificities will be explained.</p><p>One of the important elements to take into account is the number of items among the existing controlled vocabulary. Indeed, too many items can harm the project's operational capability, "losing" the Access Provider/Data Provider or users.</p><p>The attributes of the Dataset/Database entity will be presented in Annex 4, § 4.4.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.1.">The Meta-material entity</head><p>For this entity, we have analysed two sources:</p><p>-the CAMEO database; -the list of materials which has been set up in the framework of the LABS-TECH and EU-ARTECH projects, which has been refined within CNRS-IPANEMA.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CAMEO</head><p>The CAMEO project -The Conservation and Art Materials Encyclopedia Online (cameo.mfa.org/wiki/Main_Page), led by the Museum of Fine Arts Boston, gives access to several databases and collections. One of these deals with materials, and we will describe it briefly. At stake of this collaboration was, amongst others, the development of the international perimeter of CAMEO, with the translations of material names. As IPERION CH is in line with both projects, and due to the fact that linguistic aspects are relevant dimensions in the European Union, we considered it to be interesting to further explore the content of the database and to analyse to which extent this information would be (easily) reusable.</p><p>The database of materials gathers various information on ancient and contemporary materials, which can be found in artistic or archaeological objects, in objects relevant for anthropological analysis, or in architectural complexes.</p><p>It gives access to more than 10.000 terms (exactly 10.373, consultation on 07.04.2016), for which we have a description/definition, terminological information (synonym, equivalent), translations of each term (in languages including French, Spanish, Italian, Portuguese, German, Dutch, Greek, Polish, Hungarian), and a list of bibliographical references. In some articles, additional information can be provided (for example, the article "Lead": Other properties / Hazards and Safety / Additional information; the article "Acajou": Additional images, etc.).</p><p>It is worth repeating that we have first to categorise 88 datasets/databases (even if this number will increase in the future). In this context, the number of terms in CAMEO is a major obstacle for its reuse in the framework of the web directory: The dimension of precise and granular distinctions is too small.</p><p>That is why we have chosen to retain a list of meta-materials instead of materials. Hence, we analysed the list of materials provided within the project LABS-TECH.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Projects LABS-TECH and EU-ARTECH -Update</head><p>The projects LABS-TECH and EU-ARTECH (the list has been established by Jean-Louis Boutaine) have provided a list of 19 meta-materials names, plus the value Other.</p><p>The number of names has an order of magnitude so that data providers and users can look at or use them easily.</p><p>After 2009 (at the end of the project EU-ARTECH), and until 2014, Loïc Bertrand and Marie-Angélique Languille have refined the list. In 2011, it has been published in Bertrand et al., 2011. From 2014 until now, it has been continuously updated, integrating systematic analysis of the publications. This work allows to refine some names, and also to add new names, which are of particular interest for E-RIHS, that includes palaeontology. Ultimately, we have decided to keep this last list<ref type="foot" target="#foot_3">6</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.2.">The Meta-technique entity</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Wayforlight</head><p>Regarding the entity Meta-technique, we have first inspected the Wayforlight web site (www.wayforlight.eu), which has been set up in the framework of the CALIPSO project.</p><p>The techniques are gathered in a list of meta-techniques, what make the use and access easier. In the end, we have 8 names of meta-techniques, covering 45 technique names. Yet, we cannot reach a consensus with this classification<ref type="foot" target="#foot_4">7</ref> .</p><p>In any case, it lacks other techniques, which are displayed by the access providers of IPERION CH, and which are not related to synchrotrons or lasers.</p><p>However, we will get back to this in the next section, as a query by technique seems to be very interesting.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Projects LABS-TECH and EU-ARTECH</head><p>The second list that we have analysed has been set up in the framework of the projects LABS-TECH and EU-ARTECH (the list has been established by Jean-Louis Boutaine). It gathers 66 terms<ref type="foot" target="#foot_5">8</ref> .</p><p>This list covers the whole field of Heritage Science. Nevertheless, it has not been updated since 2009: a certain amount of techniques, such as OCT, NMR, STXM, etc., are lacking. Besides, in the framework of our project, the number of items is too high and in consequence not easy to use.</p><p>A categorisation of the techniques has also been suggested, but once again, it is difficult to reach a consensus. The generic terms do not refer to the same type of properties.</p><p>For instance, the following different elements are on the same level: the aim of the technique: "Dating", the interaction mode with the material: "Ion beam analysis", the property of non-destructiveness, what we analyse: "Surface techniques analysis", etc.</p><p>We have also looked at other lists and classification (classification proposed by Régert  et al., 2006; descriptors used by the Journal Analytical Chemistry or by the Journal of Archaeological Science). Anyhow, due to a lack of time, we are not able to suggest a finalised categorisation of these terms. We have started to figure out ways, which could be fruitful: in terms of "type of information associated to the materials", "approach with/without contact", "invasive/non-invasive approach", etc. This work will be continued, in order to be finalised by the phase of implementation of the web directory.</p><p>In the scheme of the database (cf. Annex 3, § 3.2.), we have kept the term Metatechnique, because it is our objective. However, in the Annex 4, § 4.4.3., we present a list of techniques (and not meta-techniques), i.e. the list established by Jean-Louis Boutaine, though it is incomplete.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.3.">The entities: Data Type, Format, Policy, Access, Location, Target Community and Publication</head><p>All following attribute values of the entities stated below have been obtained from the Questionnaire, possibly merged with other lists, and from the re3data project; some of them have been rephrased in order to have a more generic and operational character.</p><p>A/ The Data Type entity More than 30 names have been collected from the Questionnaire's analysis. We have chosen more generic terms, which cover all cases, and which are used in the Digital Humanities (text, sound, image, etc.), or suggested in the re3data project (structured graphics). The value Other allows to cover unexpected cases 9 .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B/ The Format entity</head><p>The potential values of the attribute FormatName come from the Questionnaire and analyses of Marie Puren. The values we kept are indicated by type of data <ref type="bibr" target="#b0">10</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C/ The Policy entity</head><p>The potential values of the attribute Dataset/DatabasePolicyType have been adapted from the re3data categories. The value Other allows to cover unexpected cases <ref type="bibr" target="#b1">11</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D/ The Access entity</head><p>The potential values of the attributes Dataset/DatabaseAccessType and DataAccessRestriction come from the re3data project. The value Other allows to cover unexpected cases 12 .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>E/ The Location entity</head><p>The Location entity refers to the "place" where we can access data. The potential values of the attribute LocationName come from the Questionnaire <ref type="bibr" target="#b2">13</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>F/ The Target Community entity</head><p>The potential values of the attribute TargetCommunityName result from analyses of Marie Puren 14 , which have been merged with a list established by Loïc Bertrand (2015).</p><p>The value Other allows to cover unexpected cases.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>G/ The Publication entity</head><p>We have added the Publication entity, an issue which has not be addressed within the Questionnaire. The potential values of the attribute PublicationReference are bibliographical references 15 .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Browsing in the database</head><p>Keeping in mind the aim of this project, namely having access to the resources which are made available by IPERION CH partners, and considering our scientific field, it seems totally appropriate to enter in the database by the name of a meta-material or a metatechnique (when the list will be available).</p><p>The result of this first query would be a list of datasets/databases (names of dataset or database), corresponding to the proposed research criteria: all datasets and databases that deal with Textile for instance. The data provider of each dataset or database could be associated at this stage already.</p><p>A browsing system using filters would allow limiting the search, through entities such as Access, Data Type, Format.</p><p>The dataset or database could be represented in the form of a sheet with different tabs, which would present the associated information. This sheet model could also be used to organise the presentation of data providers and access providers.</p><p>This browsing system is briefly described. It is broadly based on the Wayforlight web site, which displays very clearly and effectively lots of information. In order to have more concrete ideas, see Annex 5.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Conclusion and next steps</head><p>On the basis of the definitions and distinctions we established basically about dataset, database, data provider, access provider, we have indicated the aim of our project: providing researchers with information related to resources (instruments, databases and datasets) available within IPERION CH through a package of categories/metadata that help categorising them according to their different dimensions.</p><p>To do so, we have analysed different portals/web sites, the documentation of the re3data project, several lists (established within the LABS-TECH project, the EU-ARTECH project, the CAMEO project, CNRS-IPANEMA; as well as descriptors of journals), and we have reused the results from the Questionnaire. The result is a database model, based on an Entity Relationship model. This model will be implemented in a few months.</p><p>We will use the upcoming months to:  Create a list with meta-techniques departing from the list of techniques we already have at our disposal.  Adopt the attribute values amongst all IPERION CH partners.  Reflect upon possible ways to integrate other resources such as project proposals submitted by scientists applying to use the facilities in the frame of TNA. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Scheme</head><p>Note: when we connect the database above to the database on "CH conservation and research institutions and stakeholders" (WP12), the cardinalities of some of the relations between the entities might be reviewed, as well as the relations between some of the entities.</p><p>Annex 4 -Description of entities and attributes</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Conventions</head><p>In line with the notation system proposed by the re3data project, we adopt following conventions for the attributes:  </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>4.2. The Access Provider entity .....................................................................23 4.2.1. Attributes .......................................................................................23 4.2.2. The Hosting Organisation entity ........................................................24 4.2.3. The Funding Source entity................................................................24 4.2.4. The Type of Use entity .....................................................................24 4.2.5. The Scientific Domain entity .............................................................24 4.2.6. The Type of Access Provider entity ....................................................25 4.3. The Data Provider entity ........................................................................25 4.3.1. Attributes .......................................................................................25 4.3.2. The Research Institution entity .........................................................25 4.3.3. The Status entity ............................................................................26 4.3.4. The Expertise entity ........................................................................26 4.3.5. The Publication entity ......................................................................26 4.3.6. The Research Service entity .............................................................26 4.3.7. The Data Type entity .......................................................................26 4.3.8. The Format entity ...........................................................................27 4.4. The Dataset/Database entity ..................................................................27 4.4.1. Attributes .......................................................................................27 4.4.2. The Meta-material entity ..................................................................27 4.4.3. The (Meta-)technique entity .............................................................28 4.4.4. The Target Community entity ...........................................................30 4.4.5. The Policy entity .............................................................................30 4.4.6. The Access entity ............................................................................30 4.4.7. The Location entity..........................................................................31 4.4.8. The Publication entity ......................................................................31 Annex 5 -The Wayforlight web site .................................................................32</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>First, one has to keep in mind that CAMEO has had closed links with some European projects in Heritage Science: in 2006, the Museum of Fine Arts in Boston developed a collaboration with EU-ARTECH (Access, Research and Technology for the conservation of European Cultural Heritage), a collaboration which had been renewed in 2010, when the project CHARISMA (Cultural Heritage Advanced Research Infrastructures) was launched.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>list of beamlines, gathered under each facility. Beamlines and facilities are linked to more detailed information. 2) Further browsing and filtering, on the left: a) Number of beamlines providing XPS and other techniques b) Access to other meta-techniques (and techniques) 3) Further browsing, in the centre: c) Access to the description of a beamline d) Access to the description of a facility</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="12,84.96,103.92,439.44,241.20" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="23,70.80,145.44,700.32,272.88" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="33,84.96,128.16,439.44,216.96" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="33,91.61,455.04,192.62,286.32" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="33,310.22,455.04,192.68,286.80" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="34,120.96,213.36,367.20,390.48" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="35,118.08,128.16,373.44,396.72" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="36,121.68,128.16,365.52,432.72" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Entity: Data Provider Name of the Attribute Name in MERIL In relation with (entities)</head><label></label><figDesc>The list below shows the categories we have chosen from the MERIL portal (www.esf.org/fileadmin/Public_documents/MERIL/MERIL_Portal_Principles_v.04.03.14 .pdf). They are separated according to whether they will constitute entities or attributes in the web directory database (cf. Annex 3, § 3.2. and Annex 4):</figDesc><table><row><cell cols="2">Entity: Access Provider</cell><cell></cell><cell></cell></row><row><cell>Name</cell><cell>Name</cell><cell cols="2">In relation</cell><cell>Name</cell></row><row><cell>of the Attribute</cell><cell>in MERIL</cell><cell cols="2">with (entities)</cell><cell>in MERIL</cell></row><row><cell>AccessProviderName</cell><cell>Full Name</cell><cell cols="2">Type of Access Provider</cell><cell>Type of RI</cell></row><row><cell>AccessProviderAcronym</cell><cell>Acronym</cell><cell cols="2">Scientific Domain</cell><cell>Scientific Domain</cell></row><row><cell>AccessProviderContactPerson</cell><cell>Contact person</cell><cell>Type of Use</cell><cell></cell><cell>Type of Use</cell></row><row><cell>AccessProviderLocation</cell><cell>Location</cell><cell cols="2">Hosting Organisation</cell><cell>Hosting Organisation</cell></row><row><cell>AccessProviderCountry</cell><cell>Location</cell><cell></cell><cell></cell></row><row><cell>AcessProviderWebsite</cell><cell>Website</cell><cell></cell><cell></cell></row><row><cell>AccessProviderDescription</cell><cell>Description</cell><cell></cell><cell></cell></row><row><cell>AccessProviderPicture</cell><cell>Picture</cell><cell></cell><cell></cell></row><row><cell>AccessProviderNationalUsers</cell><cell>National Users</cell><cell></cell><cell></cell></row><row><cell>AccessProviderEuropeanUsers</cell><cell>European Users</cell><cell></cell><cell></cell></row><row><cell>AccessProviderExtra-</cell><cell>Extra-European</cell><cell></cell><cell></cell></row><row><cell>EuropeanUsers</cell><cell>Users</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell>Name</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell>in MERIL</cell></row><row><cell>DataProviderName</cell><cell>Full Name</cell><cell>Scientific</cell><cell cols="2">Scientific domain</cell></row><row><cell></cell><cell></cell><cell>domain</cell><cell></cell></row><row><cell>DataProviderAcronym</cell><cell>Acronym</cell><cell>Research</cell><cell cols="2">-Networks and International RI</cell></row><row><cell></cell><cell></cell><cell>Institution</cell><cell cols="2">Memberships</cell></row><row><cell></cell><cell></cell><cell></cell><cell>-Cluster</cell></row><row><cell>DataProviderContactPerson</cell><cell>Contact person</cell><cell>Status</cell><cell>Status</cell></row><row><cell>DataProviderWebsite</cell><cell>Website</cell><cell></cell><cell></cell></row><row><cell>DataProviderDescription</cell><cell>Description</cell><cell></cell><cell></cell></row><row><cell>DataProviderPicture</cell><cell>Picture</cell><cell></cell><cell></cell></row><row><cell>DataProviderNationalUsers</cell><cell>National Users</cell><cell></cell><cell></cell></row><row><cell cols="2">DataProviderEuropeanUsers European Users</cell><cell></cell><cell></cell></row><row><cell>DataProviderExtra-</cell><cell>Extra-European</cell><cell></cell><cell></cell></row><row><cell>EuropeanUsers</cell><cell>Users</cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Annex 2 -List of the Access Providers of IPERION CH</head><label></label><figDesc></figDesc><table><row><cell>1 BM</cell><cell>The British Museum</cell><cell>UK</cell><cell>ARCHLAB</cell></row><row><cell>2 BNC-WIGNER</cell><cell>Magyar Tudomanyos Akadémia Wigner Fizikai Kutatóközpont</cell><cell>HU</cell><cell>FIXLAB</cell></row><row><cell>3 C2RMF</cell><cell>Centre de recherche et de restauration des musées de France</cell><cell>FR</cell><cell>ARCHLAB</cell></row><row><cell>4 C2RMF</cell><cell>Centre de recherche et de restauration des musées de France</cell><cell>FR</cell><cell>FIXLAB</cell></row><row><cell>5 FORTH</cell><cell>Foundation for Research and Technology Hellas</cell><cell>GR</cell><cell>MOLAB</cell></row><row><cell>6 CNR</cell><cell>Consiglio Nazionale delle Ricerche</cell><cell>IT</cell><cell>MOLAB</cell></row><row><cell>7 IPCE</cell><cell>Instituto del Patrimonio Cultural de España</cell><cell>ES</cell><cell>ARCHLAB</cell></row><row><cell>8 KIK-IRPA</cell><cell>Koninklijk Instituut voor het Kunstpatrimonium</cell><cell>BE</cell><cell>ARCHLAB</cell></row><row><cell>9 LRMH</cell><cell>Laboratoire de recherche des monuments historiques</cell><cell>FR</cell><cell>MOLAB</cell></row><row><cell>10 MTA Atomki</cell><cell>Magyar Tudomanyos Akadémia Atommagkutató Intézet</cell><cell>HU</cell><cell>FIXLAB</cell></row><row><cell>11 NCU</cell><cell>Uniwersytet Mikołaja Kopernika Toruń</cell><cell>PL</cell><cell>MOLAB</cell></row><row><cell>12 NG</cell><cell>The National Gallery</cell><cell>UK</cell><cell>ARCHLAB</cell></row><row><cell>13 OPD</cell><cell>Opificio delle Pietre Dure</cell><cell>IT</cell><cell>ARCHLAB</cell></row><row><cell>14 PRADO</cell><cell>Museo Nacional del Prado</cell><cell>ES</cell><cell>ARCHLAB</cell></row><row><cell>15 RCE</cell><cell>Ministerie van Onderwijs, Cultuur en Wetenschap -Rijksdienst voor het Cultureel Erfgoed</cell><cell>NL</cell><cell>ARCHLAB</cell></row><row><cell>16 RWTH</cell><cell>Rheinisch-Westphälische Technische Hochschule Aachen</cell><cell>DE</cell><cell>MOLAB</cell></row><row><cell>17 SMK-CATS</cell><cell>Statens Museum for Kunst -Centre for Art -Technological Studies and Conservation</cell><cell>DK</cell><cell>ARCHLAB</cell></row><row><cell>18 SOLEIL</cell><cell>Synchrotron SOLEIL</cell><cell>FR</cell><cell>FIXLAB</cell></row><row><cell>19 SPK</cell><cell>Stiftung Preußischer Kulturbesitz-Staatliche Museen zu Berlin-Rathgen Forschungslabor</cell><cell>DE</cell><cell>ARCHLAB</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>. The Access Provider entity 4.2.1. Attributes Name of the Attribute</head><label></label><figDesc></figDesc><table><row><cell>4.2</cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="5">1/ Notation of minimum and maximum instance number of the attribute</cell></row><row><cell>0-1</cell><cell cols="3">no instance or one instance maximum</cell></row><row><cell>0-n</cell><cell cols="3">no instance or multiple instances</cell></row><row><cell>1</cell><cell>one single instance</cell><cell></cell><cell></cell></row><row><cell>1-n</cell><cell cols="3">at least one instance or multiple instances</cell></row><row><cell cols="2">2/ Controlled vocabularies</cell><cell></cell><cell></cell></row><row><cell>1*</cell><cell cols="4">if an attribute value is linked to a controlled vocabulary from the MERIL</cell></row><row><cell></cell><cell>portal</cell><cell></cell><cell></cell></row><row><cell>1</cell><cell cols="4">if an attribute value is linked to a controlled vocabulary</cell></row><row><cell cols="2">3/ Other constraints</cell><cell></cell><cell></cell></row><row><cell cols="3">4.2Instance</cell><cell>Type</cell><cell>Controlled</cell><cell>Other</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell>vocabulary</cell><cell>constraints</cell></row><row><cell cols="2">AccessProviderName</cell><cell>1</cell><cell>String</cell></row><row><cell cols="2">AccessProviderAcronym</cell><cell>0-1</cell><cell>String</cell></row><row><cell cols="2">AccessProviderContactPerson</cell><cell>1</cell><cell>Contact</cell></row><row><cell cols="2">AccessProviderLocation</cell><cell>1</cell><cell>String</cell></row><row><cell cols="2">AccessProviderCountry</cell><cell>1</cell><cell>Enum</cell><cell>1</cell></row><row><cell cols="2">AccessProviderWebsite</cell><cell>1</cell><cell>URL</cell></row><row><cell cols="2">AccessProviderDescription</cell><cell>1</cell><cell>Free text</cell><cell>max. 200 words</cell></row><row><cell cols="2">AccessProviderPicture</cell><cell>0-n</cell><cell>Picture</cell><cell>max. 3</cell></row><row><cell>PlatformName</cell><cell></cell><cell>1-n</cell><cell>Enum</cell><cell>1</cell></row><row><cell cols="2">AccessProviderNationalUsers</cell><cell>0-1</cell><cell>Integer</cell></row><row><cell cols="2">AccessProviderEuropeanUsers</cell><cell>0-1</cell><cell>Integer</cell></row><row><cell cols="2">AccessProviderExtraEuropeanUsers</cell><cell>0-1</cell><cell>Integer</cell></row><row><cell cols="4">Controlled vocabulary for AccessProviderCountry</cell></row><row><cell cols="2">See ISO 3166-1 alpha-2</cell><cell></cell><cell></cell></row><row><cell cols="3">Controlled vocabulary for PlatformName</cell><cell></cell></row><row><cell>ARCHLAB</cell><cell></cell><cell></cell><cell></cell></row><row><cell>DIGILAB</cell><cell></cell><cell></cell><cell></cell></row><row><cell>EXPERTLAB</cell><cell></cell><cell></cell><cell></cell></row><row><cell>FIXLAB</cell><cell></cell><cell></cell><cell></cell></row><row><cell>MOLAB</cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>.2. The Hosting Organisation entity Name of the Attribute Instance Type Controlled vocabulary</head><label></label><figDesc></figDesc><table><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>Other</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>constraints</cell></row><row><cell>HostingOrganisationName</cell><cell></cell><cell>1</cell><cell>String</cell><cell></cell></row><row><cell>HostingOrganisationAcronym</cell><cell></cell><cell>1</cell><cell>String</cell><cell></cell></row><row><cell cols="2">HostingOrganisationContactPerson</cell><cell>1</cell><cell>Contact</cell><cell></cell></row><row><cell>HostingOrganisationLocation</cell><cell></cell><cell>1</cell><cell>String</cell><cell></cell></row><row><cell>HostingOrganisationCountry</cell><cell></cell><cell>1</cell><cell>Enum</cell><cell>1</cell></row><row><cell>HostingOrganisationWebsite</cell><cell></cell><cell>1</cell><cell>URL</cell><cell></cell></row><row><cell>HostingOrganisationDescription</cell><cell></cell><cell>1</cell><cell>Free text</cell><cell></cell><cell>max 200 words</cell></row><row><cell>HostingOrganisationPicture</cell><cell></cell><cell>0-n</cell><cell>Picture</cell><cell></cell><cell>max. 3</cell></row><row><cell cols="4">Controlled vocabulary for HostingOrganisationCountry</cell><cell></cell></row><row><cell>See ISO 3166-1 alpha-2</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="2">4.2.3. The Funding Source entity</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Name</cell><cell cols="2">Instance</cell><cell>Type</cell><cell>Controlled</cell><cell>Other</cell></row><row><cell>of the Attribute</cell><cell></cell><cell></cell><cell></cell><cell>vocabulary</cell><cell>constraints</cell></row><row><cell>FundingSourceName</cell><cell>1-n</cell><cell></cell><cell>String</cell><cell></cell></row><row><cell>4.2.4.</cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>The Type of Use entity Name of the Attribute</head><label></label><figDesc></figDesc><table><row><cell></cell><cell>Instance</cell><cell>Type</cell><cell>Controlled</cell><cell>Other</cell></row><row><cell></cell><cell></cell><cell></cell><cell>vocabulary</cell><cell>constraints</cell></row><row><cell>TypeOfUseName</cell><cell>1-n</cell><cell>Enum</cell><cell>1*</cell></row><row><cell cols="3">Controlled vocabulary for TypeOfUseName</cell><cell></cell></row><row><cell>Research/Science</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Private/Industrial</cell><cell></cell><cell></cell><cell></cell></row><row><cell>4.2</cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>.5. The Scientific Domain entity</head><label></label><figDesc>Also related to the Hosting Organisation entity and to the Data Provider entity.</figDesc><table><row><cell>4.3</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Name</cell><cell>Instance</cell><cell>Type</cell><cell>Controlled</cell><cell>Other</cell></row><row><cell>of the Attribute</cell><cell></cell><cell></cell><cell>vocabulary</cell><cell>constraints</cell></row><row><cell>ScientificDomainName</cell><cell>1-n</cell><cell>Enum</cell><cell>1*</cell><cell></cell></row><row><cell cols="3">Controlled vocabulary for ScientificDomainName</cell><cell></cell><cell></cell></row><row><cell cols="2">Information Science and Technology</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Biological and Medical Sciences</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Earth and Environmental Sciences</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="3">Physics, Astronomy, Astrophysics and Mathematics</cell><cell></cell><cell></cell></row><row><cell>Chemistry and Material Sciences</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Engineering and Energy</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Social Sciences</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Humanities and Arts</cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6"><head>.3. The Status entity Name of the Attribute Instance Type Controlled vocabulary</head><label></label><figDesc></figDesc><table><row><cell cols="2">Structured graphics</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Text</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Other</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>Other constraints</cell></row><row><cell cols="2">StatusName</cell><cell></cell><cell>1</cell><cell>Enum</cell><cell>1*</cell></row><row><cell cols="3">StartDate 4.3.8. The Format entity</cell><cell>1</cell><cell>Date</cell></row><row><cell cols="4">Controlled vocabulary for StatusName Name Instance</cell><cell>Type</cell><cell>Controlled</cell><cell>Other</cell></row><row><cell cols="2">of the Attribute Operational Being upgraded FormatName</cell><cell cols="2">1-n</cell><cell>Enum</cell><cell>vocabulary 1</cell><cell>constraints</cell></row><row><cell cols="4">Controlled vocabulary for DataTypeName</cell><cell></cell></row><row><cell cols="5">4.3.4. The Expertise entity Data Type FormatName : values</cell></row><row><cell>Database</cell><cell></cell><cell cols="3">Oracle format -SQL -XML -Other</cell></row><row><cell>Image</cell><cell>Name</cell><cell cols="4">Instance BMP -ENVI -IRS -JPEG -PNG -RAW -TIFF -WMF -Other Type Controlled Other</cell></row><row><cell cols="2">of the Attribute Raw Data</cell><cell cols="4">vocabulary D -DAD -JCAMP-DX -LIS -NetCDF -NEXUS -NGS -ProcSpec -constraints</cell></row><row><cell cols="2">ExpertiseDescription</cell><cell cols="4">1 SEQ -SP -SPC -WFM -WXD -ZVI -Other Free text</cell><cell>max. 200 words</cell></row><row><cell>Sound</cell><cell></cell><cell cols="2">OPUS -SPX -Other</cell><cell></cell></row><row><cell cols="4">Structured graphics IPJ -SPA -Other</cell><cell></cell></row><row><cell cols="6">4.3.5. The Publication entity Text ASCII/TXT -CSV -DOC -DOCX -JAVA -MS -RTF -RTX -Other</cell></row><row><cell>Other</cell><cell></cell><cell>Other</cell><cell></cell><cell></cell></row><row><cell cols="4">Also related to the Dataset/Database entity.</cell><cell></cell></row><row><cell cols="4">Name 4.4. The Dataset/Database entity Instance</cell><cell>Type</cell><cell>Controlled</cell><cell>Other</cell></row><row><cell cols="2">of the Attribute</cell><cell></cell><cell></cell><cell></cell><cell>vocabulary</cell><cell>constraints</cell></row><row><cell cols="2">PublicationReference</cell><cell>0-n</cell><cell cols="3">Bibliographical Reference</cell><cell>max. 5</cell></row><row><cell cols="2">4.4.1. Attributes</cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="4">4.3.6. The Research Service entity Name Instance</cell><cell>Type</cell><cell>Controlled</cell><cell>Other</cell></row><row><cell cols="3">of the Attribute</cell><cell></cell><cell></cell><cell>vocabulary</cell><cell>constraints</cell></row><row><cell cols="3">Name Dataset/DatabaseName</cell><cell>Instance 1</cell><cell>Type String</cell><cell>Controlled</cell><cell>Other</cell></row><row><cell cols="3">of the Attribute Dataset/DatabaseResponsible</cell><cell>1</cell><cell>Name</cell><cell>vocabulary</cell><cell>constraints</cell></row><row><cell cols="3">ResearchServiceName Dataset/DatabaseContactPerson</cell><cell>0-n 1</cell><cell cols="2">Enum Contact</cell><cell>1*</cell></row><row><cell cols="3">Dataset/DatabaseDescription</cell><cell>1</cell><cell cols="2">Free text</cell><cell>max. 200</cell></row><row><cell cols="5">Controlled vocabulary for ResearchServiceName</cell><cell>words</cell></row><row><cell cols="2">Dataset/DatabaseURL</cell><cell></cell><cell>0-1</cell><cell>URL</cell></row><row><cell cols="3">Access to a technology Dataset/DatabaseIdentifier</cell><cell>0-1</cell><cell cols="2">Identifier</cell></row><row><cell cols="3">StartDate Access to a laboratory Dataset/DatabaseSize User support Dataset/DatabaseSizeLastUpdate Training CitationName</cell><cell>1 1 0-1 1</cell><cell cols="2">Date Integer Date Bibliographical</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="2">Reference</cell></row><row><cell cols="2">LicenceName</cell><cell></cell><cell>0-1</cell><cell>String</cell></row><row><cell cols="3">4.3.7. The Data Type entity LicenceURL</cell><cell>0-1</cell><cell>URL</cell></row><row><cell cols="2">Name</cell><cell cols="2">Instance</cell><cell>Type</cell><cell>Controlled</cell><cell>Other</cell></row><row><cell cols="2">of the Attribute</cell><cell></cell><cell></cell><cell></cell><cell>vocabulary</cell><cell>constraints</cell></row><row><cell cols="2">DataTypeName</cell><cell cols="2">1-n</cell><cell>Enum</cell><cell>1</cell></row><row><cell cols="4">Controlled vocabulary for DataTypeName</cell><cell></cell></row><row><cell>Database</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Image</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Raw data</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Sample</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Sound</cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>Onwards, access providers and facilities are used as synonyms.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_1"><p>http://portal.meril.eu/converis-esf/static/about#More. Consulted 07.04.2016.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_2"><p>Henceforth we use capital letters when we make reference to the entities of the database.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_3"><p>Cf. Annex 4,  § 4.4.2.   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_4"><p>Besides, the proposed classification is certainly not always coherent, as we find IR Microscopy at the same level as Medical Application.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_5"><p>Cf. Annex 4,  § 4.4.3.   </p></note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Annexes Annex 1 -The Questionnaire</head><p>The Data Management Plan (DMP) of IPERION CH (DMP, Romary et al. 2015) was one of the project's first deliverables provided to the European Commission. It has been submitted on December 30 th 2015.</p><p>We sent two questionnaires to all partners of IPERION CH to conceive the DMP:</p><p> "One survey about general data management practices in each facility (12 questions) about: number of data sets, reference contact person, data property and access, cost estimation for data management, volume and lifetime of the data.  A more detailed survey for each homogeneous data set within each facility (30 questions) about: data set description, standards used, metadata information, access, sharing, archiving, security and protection, references" (DMP, p. 8) Additional results have been received throughout the beginning of 2016, leading to the fact that we dispose today of all the needed information about the Data Providers and 88 datasets/databases. The Questionnaire's results were analysed by Laurent Romary and Marie Puren. This information is very relevant for the categorisation of instruments, databases and datasets accessible in the frame of IPERION CH. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Cardinalities</head><p> The cardinalities are specified at the extremities of each relation.</p><p> For the sake of clarity, we have kept those relations where one of the cardinalities is either (0,1) or (1,1) if the minimum of the smallest pair and the maximum of the other pair is not (0,1) or (1,1).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Types of the attributes</head><p> String, Free text, Enum(eration), Integer, Picture (for images), URL, Address, Name, Contact, Bibliographical Reference, Date, Identifier.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Colours</head><p> Our three main entities are marked in blue (cf. above).</p><p> Yellow entities refer to categories that exist also in the MERIL portal. Some of the MERIL entities have been transformed into attribute and in consequence not marked in yellow.  Green entities are those through which a query in the data base will be made.</p><p>The scheme has been created with the software ArgoUML (v0.34).  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.6.">The Type of Access Provider entity</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Result</head><p>The beamline is described through a sheet (possibly with tabs).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Result</head><p>Information about the facility (access provider).</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">Cf. Annex</title>
+		<imprint>
+			<date type="published" when="2008-03-04">4, § 4.3.8</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">Cf. Annex</title>
+		<imprint>
+			<date type="published" when="2006-04-04">4, § 4.4.5. 12 Cf. Annex 4, § 4.4.6</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">Cf. Annex</title>
+		<imprint>
+			<date type="published" when="2007-04-04">4, § 4.4.7</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">Cf. Annex</title>
+		<imprint>
+			<date type="published" when="2008-04-04">4, § 4.4.4. 15 Cf. Annex 4, § 4.4.8</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>References</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Cultural heritage and archaeology materials studied by synchrotron spectroscopy and imaging</title>
+		<author>
+			<persName><forename type="first">Loïc</forename><surname>Bertrand</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurianne</forename><surname>Robinet</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Thoury</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Mathieu</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Janssens</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Koen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Serge</forename><forename type="middle">X</forename><surname>Cohen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sebastian</forename><surname>Schöder</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00339-011-6686-4</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Applied Physics A</title>
+		<imprint>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">List of meta-materials, Working document</title>
+		<author>
+			<persName><forename type="first">Loïc</forename><surname>Bertrand</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marie-Angélique</forename><surname>Languille</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2009">2009-2014</date>
+			<biblScope unit="volume">IPANEMA</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">List of domains, Working document</title>
+		<author>
+			<persName><forename type="first">Loïc</forename><surname>Bertrand</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IPANEMA</title>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">List of meta-materials, Working document, IPANEMA, 2016. Boutaine, Jean-Louis, List of materials</title>
+		<author>
+			<persName><forename type="first">Loïc</forename><surname>Bertrand</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+			<publisher>EU-ARTECH project</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<author>
+			<persName><forename type="first">Jean-Louis</forename><surname>Boutaine</surname></persName>
+		</author>
+		<title level="m">List of techniques, EU-ARTECH project</title>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">Eric</forename><surname>Ceric</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">www.ceric-eric.eu. Meril database, www.portal.meril.eu</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Physico-chimie des matériaux du patrimoine culturel -Partie 1</title>
+		<author>
+			<persName><forename type="first">Martine</forename><surname>Régert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Maria-Filomena</forename><surname>Guerra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ina</forename><surname>Reiche</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Techniques de l&apos;Ingenieur</title>
+		<imprint>
+			<biblScope unit="volume">3780</biblScope>
+			<biblScope unit="page">470092</biblScope>
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m" type="main">Data Management Plan, Deliverable 2.1, IPERION CH Project</title>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Bertrand</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Loïc</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Holowati</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Susanna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sophie</forename><surname>David</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Esfri</forename><surname>Roadmap</surname></persName>
+		</author>
+		<ptr target="http://www.esfri.eu/roadmap-2016" />
+		<imprint>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Wayforlight</surname></persName>
+		</author>
+		<ptr target="www.wayforlight.eu" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

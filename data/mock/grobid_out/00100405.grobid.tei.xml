@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">An abstract model for the representation of multilingual terminological data: TMF -Terminological Markup Framework</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@loria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Laboratoire LORIA Campus Scientifique</orgName>
+								<address>
+									<addrLine>BP 239</addrLine>
+									<postCode>F-54506</postCode>
+									<settlement>Vandoeuvre-lès-Nancy</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">An abstract model for the representation of multilingual terminological data: TMF -Terminological Markup Framework</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">2AFE78CD685612BC28A495E8B38645A4</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Nous présentons un modèle abstrait de représentation de terminologies multilingues informatisées en XML défini dans le cadre du comité technique 37 de l'ISO. Il repose sur une méthodologie qui distingue d'une part la structure générale d'une base terminologique, et d'autre part les informations (catégories de donnée) qui servent à décrire les différents niveaux de cette structure.</p><p>Summary. We are introducing an abstract model that has been developed by Technical Committee 37 of ISO for representing computerized multilingual terminologies. . It relies on a methodology that makes an essential distinction between the general structure of a terminological database and the elementary information units (data categories) that are used to describe this structure.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction 1</head><p>This paper intends to show how to describe the structure of a terminological database independently of its implementation, which would involve, for instance, a pre-defined XML format expressed as a DTD or XML Schema, or a database structure expressed as an entityrelationship model. This work has two aims. Firstly, it corresponds to the need to describe and compare existing terminological interchange formats such as <ref type="bibr">MARTIF [iso12200]</ref> or Geneter <ref type="bibr" target="#b5">[Le Meur, 1998]</ref>, in terms of their informational coverage and the conditions of interoperability between these formats and hence the source data generated in them. Such an attempt should lead to more general principles and methods for analyzing existing terminological databases and mapping them onto any chosen terminological interchange format. One of the issues here is to provide a uniform way of documenting such databases considering the heterogeneity of both their formats and their descriptors. Secondly, we seek to answer the demand for more flexibility in the definition of interchange formats so that any new project may define its own data organization without losing interoperability with existing standards or practices. There should be nothing to prevent a terminological project from designing a very simplified format that would only allow a terminologist to describe five types of information units expressed as XML elements and attributes (&lt;id&gt;, &lt;générique&gt;, &lt;terme&gt;, &lt;catégorie&gt;, and 'langue'), as in the following XML excerpt 2 , and still be able to compare or complement them with information coming from a wider terminological database such as Eurodicautom<ref type="foot" target="#foot_2">3</ref> (available in MARTIF for instance). This work is also motivated by the need to provide more connections between, on the one hand, terminological databases as handled in translation companies, major organizations like the EU or the localization industry, and on the other hand, other lexical resources dedicated, for instance, to machine translation or natural language processing, which are expressed along different modes of representation than those known in the terminological field (e.g. OLIF<ref type="foot" target="#foot_3">4</ref> for MT or Genelex for NLP <ref type="bibr">[Antoni-Lay et alii, 1994]</ref>). We will show in this paper that such an ambitious objective is achieved by decomposing information structures into the macrostructure of the terminological database (what we will call the structural skeleton), and the elementary units of information (i.e. data categories) that can be attached to the structural skeleton. In doing so, we somehow project, in the terminological domain, a whole stream of recent works <ref type="bibr" target="#b7">[Wright &amp; Melby, 1999;</ref><ref type="bibr">Budin &amp; Melby, 2000;</ref><ref type="bibr">Ide et al, 2000</ref><ref type="bibr" target="#b3">, Ide &amp; Romary, 2001]</ref> attempting to devise a conceptual framework for the description of lexical resources and, more globally, linguistic structures, expressed as databases or annotations added to other resources.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">General principles</head><p>A consequence of the above is that there is no need to propose yet another format for terminological data. Existing practices can be built on to cover a whole range (or family) of formats, which, as soon as they are shown to be compatible with the framework, become automatically comparable. Indeed, one important result of such work is the possibility to formalize the various components of a terminological database and derive, with as little human intervention as possible, model checkers for a given format, or filters from one format to another. In this section, we describe the Terminological Markup Framework (TMF)<ref type="foot" target="#foot_4">5</ref> , which, as a possible future ISO 16642 standard, allows one to describe a potentially infinite set of Terminological Markup Languages (TML), that can be expressed for the interchange of computerized terminological data using, for example, XML. TMF does not describe one specific format, but acts as a kind of meta-model based on the following elementary notions:</p><p> The meta-model: a unique information structure shared by all TMLs and which decomposes the organization of a terminological database into basic components as shown in figure <ref type="figure" target="#fig_0">1</ref>. This model is in keeping with the traditional concept-oriented view of a terminological entry dating back to Wüster's early works <ref type="bibr">[Picht &amp; Schmitz, 2001]</ref> and widely adopted in the community;  Information units (which we refer to as data categories): derived as a subset of a Data Category Registry (DCR, see below) as needed for a given format. This may also contain additional data categories specifically defined for the current application, which may hinder interoperability with other formats;  Methods and representations: the means to actually implement the TML by instantiating the structural skeleton in combination with the chosen data categories, for instance by automatically generating an XML schema for the TML. This comprises the mappings between data categories and the vocabularies used to express them (e.g. as an XML element or a database field).</p><p>Ter The final component of TMF is the definition of a simplified XML application that can be used to map any given format, or TML, onto the abstract components of TMF. This format, also known as GMT (Generic Mapping Tool), is based on a reduced set of XML elements and attributes, which, as we shall see, serve as containers for nodes of the structural skeleton (identified by &lt;struct&gt; tags) and data categories (identified by &lt;feat&gt; tags). As shown in figure <ref type="figure" target="#fig_1">2</ref> below, any mapping between two TMLs can be implemented as the composition of two elementary mappings through GMT. In the same way, our experience within the SALT project has shown that GMT is an ideal tool to map a traditional relational terminological database onto a given TML.</p><p>TMF </p><formula xml:id="formula_0">TML 1 TML 2 TML 3 TML i … (MSC) (Geneter) GMT</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Going through an example</head><p>To illustrate the principles of TMF, we apply its methodology to the decomposition of a typical terminological entry as expressed in MSC, a variant of ISO 12200 (MARTIF): In the preceding excerpt, one can distinguish two different types of informational objects. On the one hand, we can identify (by means of an underlined bold script) three structural elements (&lt;termEntry&gt;, &lt;langSet&gt;, &lt;tig&gt;) which do not provide any specific information from a terminological perspective, but rather contribute to the organization of the terminological entry. The corresponding XML information structure, called XML outline, can easily be mapped onto the three corresponding levels of the meta-model shown above, namely: Terminological Entry (TE), Language Section (LS) and Term Section (TS).</p><p>The remaining information units, whether expressed as XML 'elements'(&lt;term&gt;), 'typed elements' (&lt;descrip&gt;, &lt;termNote&gt;) or as XML 'attributes' (id, lang), directly contribute to the description of the current entry and can be associated with, for instance, data categories described in ISO 12620 as shown in table 1 below. One possible representation of this decomposition is shown using the GMT format, as follows:</p><p>&lt;struct type="TE"&gt; &lt;feat type="id"&gt;ID67&lt;/feat&gt; &lt;feat type="subjectField"&gt;manufacturing&lt;/feat&gt; &lt;feat type="definition"&gt;A value between 0 and 1 used in ...&lt;/feat&gt; &lt;struct type="LS"&gt; &lt;feat type="lang"&gt;en&lt;/feat&gt; &lt;struct type="TS"&gt; &lt;feat type="term"&gt;alpha smoothing factor&lt;/feat&gt; &lt;feat type="termType"&gt;fullForm&lt;/feat&gt; &lt;/struct&gt; &lt;/struct&gt; &lt;struct type="LS"&gt; &lt;feat type="lang"&gt;hu&lt;/feat&gt; &lt;struct type="TS"&gt; &lt;feat type="term"&gt;Alfa simitisi tenyezo&lt;/feat&gt; &lt;/struct&gt; &lt;/struct&gt; &lt;/struct&gt;</p><p>In GMT, each node of the structural skeleton is expressed as an instantiation of the sole element &lt;struct&gt; with the type identifier used to signify the level in the meta-model, and each information unit is expressed by means of the &lt;feat&gt; element where the type signifies the data category name taken from ISO 12620. (see below DCName in the formal description of data categories)<ref type="foot" target="#foot_5">6</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Interoperability between two terminological formats</head><p>Given two TMLs defined in accordance with TMF, eliciting their conditions of interoperability reduces to a comparison of their respective use of data categories since they share exactly the same meta-model<ref type="foot" target="#foot_6">7</ref> . Indeed, TMF can be used to make a precise diagnosis of the amount of data that will be preserved or lost when going from one TML to another, what we could call the bandwidth of interoperability.</p><p>To illustrate this we can compare the simple example presented in the introduction, corresponding to a first TML (TML 1 ), and the MARTIF excerpt in the preceding section (TML 2 ). We will make the assumption that TML 1 and TML 2 are defined as being the smallest formats encompassing the examples given in this paper, in terms of the data categories being used.</p><p>As a first step, we map the XML objects of TML 1 onto data categories of ISO 12620, just as we did for the MARTIF example. Table <ref type="table">2</ref> Mapping XML objects from the example in section 1 (TML 1 ) to ISO 12620 data categories</p><p>We then align the two sets of data categories from TML 1 and TML 2 to identify the actual bandwidth of interoperability which, in this case, is limited to three types of information units.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Styles and vocabularies</head><p>The evaluation of the bandwidth of interoperability between two TMLs is based on the data categories themselves and is completely independent of their implementation as XML objects.</p><p>For instance, the data category /Entry identifier/ is instantiated as an attribute in TML 1 and as an element in TML 2 , without preventing the corresponding information from being transferred between the TMLs. For this reason, TMF has a separate, complementary, mechanism to describe how a TML is concretely realized as an XML document, once the set of data categories it contains has been described. The realization of an XML version of a TML is achieved by associating a style to each data category -selecting one possible form of XML realization -and by associating vocabularies to this style -selecting the names needed to realize this style.</p><p>For instance TML 1 implements the data category /Broader concept generic/ as follows:</p><p>which allows one to use the &lt;générique&gt; element to express the corresponding information unit.</p><p>TMF contains five styles <ref type="bibr">(Attribute, Element, Typed Element, Valued Element, Typed Valued Element)</ref>, to cover the various possibilities of realising a data category in XML.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Style Element Vocabulary</head><p>"générique"</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">A formal model for the representation of data categories</head><p>The comparison between two TMLs is only possible if there is a central repository of data categories, associated with a consistent model for these, which can act as a broker between any two formats. Such a Data Category Registry can be based upon a unified representation which will also serve for a given project to refine the characteristics of the data category it actually uses or even define its own additional data categories. In this respect, the representation of elementary features in TMF is associated to the definition of a formal description<ref type="foot" target="#foot_7">8</ref> of data categories that a TML will make reference to. Each data category is described by a set of properties expressed in RDF (Resource Description Framework, see <ref type="bibr">[RDF, 1999]</ref>) as proposed by the WWW consortium. Figure <ref type="figure" target="#fig_2">3</ref> shows the elementary properties that are used to uniquely define a data category, for example, a unique identifier (DCName), a name (DCName, which can be prefixed by a name space, in the case of multiple registries), a definition (DCDefinition) etc. as well as more complex properties determining the levels (in a structural model) at which it can be used (Level), its content type (Content), or its connection with other data categories (DCParent).</p><p>The full version of this descriptive framework allows one to assign the styles and vocabularies to each data category to describe its realization as an XML object in TMF. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>DCDefinition</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.">Data categories as meta-data objects</head><p>In the context of TMF, Data Category Specifications are used to specify constraints on the implementation of a TML and to provide the necessary information for the (possibly automatic) design of filters that convert from one TML to another (cf. Figure <ref type="figure" target="#fig_3">4</ref>). From a wider perspective, it is interesting to consider data categories as abstract objects that may be used to communicate meta-data information concerning a particular (terminology) database. Indeed, any transfer of terminological data expressed in a given TML can be accompanied by an explicit reference to the DCS file that characterizes this TML, allowing the target (terminology) database to foresee the expected content of the data from an informational point of view and possibly make an a priori diagnosis of the compatibility of the data with its own internal format. In this respect, DCS descriptions become an essential part of the meta-data associated with a terminological data interchange, complementary to other more traditional information such as "author", "title" or "responsibility" for instance. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8.">Perspectives</head><p>The work conducted within the SALT project and Technical Committee 37 of ISO can be seen as a first step towards more fundamental research in the domain of implicit datamodeling. It shows how it may be possible to control classes of semi-structured documents (possibly expressed as XML applications) by means of external constraints on both their structure and content. Such an approach is particularly important in the domain of linguistic resources where a rapid consensus may not be achievable on the standardization of specific data structures, whereas it seems possible to define areas for which, for instance, it would be easy to implement data category registries. One can think in particular areas that use wellestablished techniques such as Part of Speech tagging, or annotation repositories (such as syntactic treebanks) for which interchange protocols are essential.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: The meta-model of a terminological database.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: Mapping in the family of TML formats</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 3 :</head><label>3</label><figDesc>Figure 3: Core data category model expressed as RDF properties.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: the various roles of data category specifications</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 1 :</head><label>1</label><figDesc>Mapping MARTIF XML objects onto ISO 12620 data categories</figDesc><table><row><cell>Martif object</cell><cell>Style</cell><cell cols="2">ISO 12620 Identifier ISO 12620 Name</cell></row><row><cell>&lt;term&gt;</cell><cell>Element</cell><cell>ISO12620-A01</cell><cell>Term</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head></head><label></label><figDesc>The result is shown in table 2.</figDesc><table><row><cell>XML object</cell><cell>Style</cell><cell>ISO 12620 Identifier</cell><cell>ISO 12620 Name</cell></row><row><cell>&lt;terme&gt;</cell><cell>Element</cell><cell>ISO12620-A01</cell><cell>Term</cell></row><row><cell>&lt;générique&gt;</cell><cell>Element</cell><cell>ISO12620-A070201</cell><cell>Broader concept generic</cell></row><row><cell>&lt;catégorie&gt;</cell><cell>Element</cell><cell>ISO12620-A020201</cell><cell>Part of speech</cell></row><row><cell>&lt;id&gt;</cell><cell>Element</cell><cell>ISO12620-A1015</cell><cell>Entry identifier</cell></row><row><cell>'lang'</cell><cell>Attribute</cell><cell>ISO 12620A100701</cell><cell>Language Identifier</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>Table 3 :</head><label>3</label><figDesc>identifying the bandwidth of interoperability between TML 1 and TML 2 .</figDesc><table /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>This work is conducted under the auspices of Technical Committee 37 of ISO and with the support of the European Union, through the co-funded HLT-Salt project (http://www.loria.fr/projets/SALT).</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>We have limited our database to one single entry (or 'notion'). This entry does, however, make reference to the one which would express the broader concept, by means of an XPointer (see http://www.w3.org/XML/Linking) expression ("#notion[id='2']", i.e. the 'notion' element having a child element 'id' whose content is the string "2").</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>See http://eurodic.ip.lu</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>See http://www.olif.net</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_4"><p>See http://www.loria.fr/projets/TMF/ for further documents, samples and software.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_5"><p>In order to account for all the descriptive power of TMF, the GMT DTD actually comprises two other elements, namely &lt;brack&gt; to group co-occurring &lt;feat&gt;'s, and &lt;annot&gt;, to annotate textual content of a &lt;feat&gt;. It also contains additional attributes for language identification (xml:lang) and linking mechanisms('source' and 'target')   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_6"><p>ISO/CD 16642 actually identifies more precise conditions related to data category values, data category anchoring on the levels in the meta-model etc. For instance, a definition used at the Terminological Entry level in one TML will not be received by a TML which expects definitions only at the Language Section level.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_7"><p>This model will be a component of part I of the proposed revision of ISO 12620.</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>References</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Accessibility of Multilingual Terminological Resources -Current Problems and Prospects for the Future, LREC&apos;2000, Athens. Iso12200 : Applications informatiques en terminologie -format de transfert de données terminologiques exploitables par la machine (MARTIF)</title>
+		<author>
+			<persName><forename type="first">M.-H</forename><surname>Antoni-Lay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Francopoulo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zaysser ; Budin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gerhard</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alan</forename><forename type="middle">K</forename><surname>Melby</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Literary and Linguistic Computing</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="47" to="54" />
+			<date type="published" when="1994">1994. 1999</date>
+			<pubPlace>Genève</pubPlace>
+		</imprint>
+	</monogr>
+	<note>A generic model for reusable lexicons: The GENELEX project. Transfert négocié. Organisation internationale de normalisation</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">A Formal Model of Dictionary Structure and Content</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kilgarriff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of Euralex 2000</title>
+		<meeting>Euralex 2000<address><addrLine>Stuttgart</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2000">2000</date>
+			<biblScope unit="page" from="113" to="126" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">A Common Framework for Syntactic Annotation</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Iso12620 : Aides informatiques en terminologie -catégories de données</title>
+		<meeting><address><addrLine>Toulouse; Genève</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1999">2001. 2001. 1999</date>
+			<biblScope unit="page" from="298" to="305" />
+		</imprint>
+	</monogr>
+	<note>Proceedings of ACL. Organisation internationale de normalisation</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">A formal model of dictionary structure and content</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kilgarriff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of EURALEX 2000</title>
+		<meeting>EURALEX 2000<address><addrLine>Stuttgart</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2000">2000</date>
+			<biblScope unit="page" from="113" to="126" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">GENETER: a generic format for the distribution and reuse of heterogeneous multilingual data</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Le Meur</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. LREC</title>
+		<meeting>LREC<address><addrLine>Grenada</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Terminologie und Wissensordnung, Ausgewählte Schriften aus dem Gesamtwerk von Eugen Wüster, TermNet Publisher. RDF</title>
+		<ptr target="http://www.w3.org/TR/REC-rdf-syntax/)" />
+		<editor>Picht H. and K.-D. Schmitz</editor>
+		<imprint>
+			<date type="published" when="1999-02-22">2001. 1999. 22 February 1999</date>
+		</imprint>
+	</monogr>
+	<note>Resource Description Framework (RDF) Model and Syntax Specification, W3C Recommendation</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Leveraging Terminological data for Use in Conjunction with Lexicographical Resources</title>
+		<author>
+			<persName><forename type="first">Sue</forename><surname>Wright</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alan</forename><forename type="middle">K</forename><surname>Ellen</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Melby</surname></persName>
+		</author>
+		<idno>TKE&apos;1999</idno>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

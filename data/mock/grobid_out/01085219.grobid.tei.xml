@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">From &lt;tiger2/&gt; to ISOTiger -Community Driven Developments for Syntax Annotation in SynAF</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Sonja</forename><surname>Bosch</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Humboldt-Universität</forename><surname>Zu</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Berlin -Andreas</forename><surname>Witt</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="institution">University of South Africa (UNISA) -Kerstin Eckart</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="institution" key="instit1">University of Stuttgart -Gertrud Faaß</orgName>
+								<orgName type="institution" key="instit2">University of Hildesheim -Ulrich Heid</orgName>
+								<orgName type="institution" key="instit3">University of Hildesheim -Kiyong Lee</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="institution" key="instit1">Korea University -Antonio Pareja-Lora</orgName>
+								<orgName type="institution" key="instit2">Universidad Complutense de Madrid -Laurette Pretorius</orgName>
+								<orgName type="institution" key="instit3">University of South Africa (UNISA)</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff3">
+								<orgName type="department">Institut für Deutsche Sprache -Amir Zeldes</orgName>
+								<orgName type="institution" key="instit1">Georgetown University -Florian Zipser</orgName>
+								<orgName type="institution" key="instit2">Humboldt-Universität zu Berlin</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">From &lt;tiger2/&gt; to ISOTiger -Community Driven Developments for Syntax Annotation in SynAF</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">104D20621AF12EF0E28959B2FD3C5F36</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In 2010, ISO published a standard for syntactic annotation, ISO 24615:2010 (SynAF). Back then, the document specified a comprehensive reference model for the representation of syntactic annotations, but no accompanying XML serialisation. ISO's subcommittee on language resource management (ISO TC 37/SC 4) is working on making the SynAF serialisation ISOTiger an additional part of the standard. This contribution addresses the current state of development of ISOTiger, along with a number of open issues on which we are seeking community feedback in order to ensure that ISOTiger becomes a useful extension to the SynAF reference model.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>In 2010 an ISO<ref type="foot" target="#foot_0">1</ref> standard on the syntactic annotation framework SynAF was published, ISO 24615:2010. Even though this ISO standard specified a comprehensive reference model for the representation of syntactic annotations, it did not provide an accompanying XML serialisation for this type of annotations <ref type="bibr" target="#b0">[1]</ref>.</p><p>[1] thus presented &lt;tiger2/&gt;, an XML serialisation for SynAF, enhancing the existing TIGER-XML format <ref type="bibr" target="#b7">[8]</ref> from the TIGER treebank <ref type="bibr" target="#b1">[2]</ref> to meet the specifications of the SynAF model, such as being able to handle not only constituencybased representations but also dependency analyses and others which make use of extensible types of nodes and edges. <ref type="bibr" target="#b0">[1]</ref> described the &lt;tiger2/&gt; format and presented examples of its use in the modelling of linguistic constructions, including e.g. contractions, elliptic subjects or compound sentences as they appear in Zulu.</p><p>In the meantime, ISO's subcommittee on language resource management (ISO TC 37/SC 4) is working on making the serialisation an additional part of the standard. For this reason, it was agreed in 2014 to rename the standard to ISO 24615-1 Language resource management -Syntactic annotation framework (SynAF) -Part 1: Syntactic model and start a new standard project for Part 2: XML serialization (ISOTiger) <ref type="foot" target="#foot_1">2</ref> .</p><p>The SynAF serialisation ISOTiger is the continuation of &lt;tiger2/&gt;, pursuing two objectives: i) including feedback from the community, cf. <ref type="bibr" target="#b0">[1]</ref>, and ii) aligning SynAF even more closely with other existing standards such as the Linguistic annotation framework (LAF) <ref type="bibr" target="#b6">[7]</ref>, the Morpho-syntactic annotation framework (MAF) <ref type="bibr" target="#b5">[6]</ref> and the combined ISO and TEI standards on feature structures (FSR, FSD) <ref type="bibr" target="#b3">[4,</ref><ref type="bibr" target="#b4">5]</ref>.</p><p>The main purpose of this contribution is to explore how the two objectives of ISOTiger are met in a consistent, non-contradicting way. Section 2 briefly describes the SynAF reference model, Section 3 addresses the current state of development of ISOTiger and Section 4 discusses some open issues on which we are seeking community feedback, in order to ensure that ISOTiger becomes a useful extension to the SynAF reference model.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">SynAF components</head><p>The SynAF -Part 1 metamodel specifies syntactic annotations as consisting of SyntacticNodes, SyntacticEdges and their corresponding Annotations. The model distinguishes between terminal nodes (T_node) for morpho-syntactically annotated word forms (or empty elements when appropriate) and non-terminal nodes (NT_node), which can be annotated with syntactic categories from the phrasal, clausal and sentential level. Edges can be established between (both terminal and non-terminal) nodes and can also be annotated. While this metamodel can be implemented on its own, it is recommended to express morpho-syntactically annotated terminal nodes following the MAF standard <ref type="bibr" target="#b5">[6]</ref> and to apply a data category registry <ref type="bibr" target="#b2">[3]</ref> to specify the syntactic categories that are part of the annotation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">XML serialisation</head><p>Figure <ref type="figure" target="#fig_0">1</ref> shows an excerpt of an XML-encoded syntactic annotation example 3 . The &lt;annotation&gt; element of the header makes reference to an external annotation declaration, cf. Figure <ref type="figure" target="#fig_1">2</ref>. Furthermore, the example utilizes a standoff notation where the terminals refer to wordForms from a MAF document, cf. Figure <ref type="figure">3</ref>. &lt;head&gt; &lt;!--... --&gt; &lt;annotation&gt; &lt; external corresp ="annot_decl.xml" &lt;/ annotation &gt; &lt;/head&gt; &lt;body&gt; &lt;s xml:id = "s1"&gt; &lt;graph xml:id="s1_g1"&gt; &lt; terminals &gt; &lt;t xml:id="s1_t1" tiger2:corresp ="m1.maf#wf1"/&gt; &lt;!-we --&gt; &lt;t xml:id="s1_t2" tiger2:corresp ="m1.maf#wf2"/&gt; &lt;!-can --&gt; &lt;t xml:id="s1_t3" tiger2:corresp ="m1.maf#wf3"&gt; &lt;!-see --&gt; &lt;edge tiger2:type ="dep" label="nsubj" tiger2:target ="#s1_t1"/&gt; &lt;edge tiger2:type ="dep" label="aux" tiger2:target ="#s1_t2"/&gt; &lt;/ t&gt; &lt;/ terminals &gt; &lt;nonterminals&gt; &lt;nt xml:id="s1_nt1" cat="NP"&gt; &lt;edge tiger2:type ="prim" label="HD" tiger2:target ="#s1_t1"/&gt; &lt;/nt&gt; &lt;nt xml:id="s1_nt2" cat="VP"&gt; &lt;edge tiger2:type ="prim" label="HD" tiger2:target ="#s1_t3"/&gt; &lt;/nt&gt; &lt;nt xml:id="s1_nt3" cat="VP"&gt; &lt;edge tiger2:type ="prim" label="--" tiger2:target ="#s1_nt2"/&gt; &lt;edge tiger2:type ="prim" label="HD" tiger2:target ="#s1_t2"/&gt; &lt;/nt&gt; &lt;nt xml:id="s1_nt4" cat="S"&gt; &lt;edge tiger2:type ="prim" label="SBJ" tiger2:target ="#s1_nt1"/&gt; &lt;edge tiger2:type ="prim" label="--" tiger2:target ="#s1_nt3"/&gt; &lt;/nt&gt; &lt;/ nonterminals&gt; &lt;/graph&gt; &lt;/s&gt; &lt;/body&gt; While there will be changes on the transition from &lt;tiger2/&gt; to ISOTiger, it is planned to still allow for inline notation in terminal nodes.</p><p>The example shows some main characteristics of the current format. <ref type="foot" target="#foot_2">4</ref> This format includes both a header (to describe the tags utilized in the annotations) and a body. In the body, the &lt;s&gt; element denotes a segment of the primary data, which is a more generic version of the respective TIGER-XML element denoting a sentence. A segment can contain several &lt;graph&gt; elements for syntactic graph structures, and a graph may include terminal nodes (&lt;t&gt;), non-terminal nodes (&lt;nt&gt;) and edges (&lt;edge&gt;). Nodes and edges can be typed and can be annotated by generic attribute-value-pairs defined in the &lt;annotation&gt; element of the header. Terminal nodes refer to a textual segment or to a word form in a morpho-syntactically annotated corpus (the latter is shown in the example), thus implementing T_Node from the SynAF reference model. Non-terminal nodes implement SynAF's NT_node and help represent hierarchical structures. &lt;edge&gt; elements are embedded in the element that denotes their start node, and they specify their target node by means of the @target attribute. The start node of an edge may not only be a non-terminal node, as stipulated in TIGER-XML, but also a terminal node, thus implementing the SyntacticEdge from the SynAF reference model. This allows representing e.g. constituency trees as well as dependency relations such as in Figure <ref type="figure" target="#fig_0">1</ref>. The @type attribute distinguishes between different kinds of nodes and edges, e.g. dep vs. prim for dependency and constituency edges respectively in Figure <ref type="figure" target="#fig_0">1</ref>.</p><p>Typing nodes and edges also allows to define specific attribute-value-pairs for the different node and edge types. The attributes @domain and @type of the feature element in the annotation declaration specify if the respective annotation can be applied to a terminal node, a non-terminal node or an edge (@domain), and, if applicable, to which user defined type of these (@type). Hence, the feature name label in the above &lt;tiger2/&gt; example can have different value sets for dependency and constituency edges, cf. Figure <ref type="figure" target="#fig_1">2</ref>.</p><p>Since annotations are user-defined attribute-value pairs, there are also no restrictions with respect to specific linguistic theories; however, the semantics of the annotations needs to be specified. Accordingly, every feature and feature value can be linked to a specific data category, which in the ISO setup should come from a data category registry compliant to ISO 12620:2009 <ref type="bibr" target="#b2">[3]</ref>, e.g. ISOcat 5 (see the feature value definition for NP in Figure <ref type="figure" target="#fig_1">2</ref>).</p><p>To inspect more &lt;tiger2/&gt; examples one can also make use of a web service client 6 described by <ref type="bibr" target="#b8">[9]</ref> that generates MAF and &lt;tiger2/&gt; encoded analyses for Spanish sentences. 7   </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Open issues</head><p>The current state of the SynAF XML serialisation is still closely related to the original TIGER-XML format. This closeness was a main concern in the development of &lt;tiger2/&gt;. In this way, an already utilized and accepted treebank format was taken into account and enhanced, instead of inventing a completely new format.</p><p>However, considering the new flexibility of treebank annotation possibilities that is offered by the current format, the annotation declarations, such as shown in Figure <ref type="figure" target="#fig_1">2</ref> 8 , fall short in two respects: the generic attribute-value-pairs neither offer the full descriptive power of feature structures as defined in standards from ISO 5 www.isocat.org 6 http://quijote.fdi.ucm.es:8084/ClienteFreeLing/ 7 The annotations themselves are generated by means of FreeLing (http://nlp.lsi.upc.edu/ freeling/demo/demo.php), a multilingual part-of-speech tagger and a parser for both phrase structure and dependency analyses. 8 This example is based on &lt;tiger2/&gt;, but already includes the dcr namespace. &lt;annotation&gt; &lt; feature name="cat" domain="nt" dcr:datcat ="http://www.isocat.org/datcat/DC-1506"&gt; &lt;value name="NP" dcr:datcat="http://www.isocat.org/datcat/DC-2256"/&gt; &lt;value name="S" dcr:datcat="http://www.isocat.org/datcat/DC-2295"/&gt; &lt;value name="VP" dcr:datcat="http://www.isocat.org/datcat/DC-2255"/&gt; &lt;/ feature &gt; &lt; feature name="label" domain="edge" type="prim" dcr:datcat ="http://www.isocat.org/datcat/DC-5596"&gt; &lt;value name="HD" dcr:datcat="http://www.isocat.org/datcat/DC-2306"/&gt; &lt;value name="SBJ" dcr:datcat="http://www.isocat.org/datcat/DC-2261"/&gt; &lt;value name="--"/&gt; &lt;/ feature &gt; &lt; feature name="label" domain="edge" type="dep" dcr:datcat ="http://www.isocat.org/datcat/DC-2304"&gt; &lt;value name="nsubj"&gt;nominal subject&lt;/value&gt; &lt;value name="aux" dcr:datcat="http://www.isocat.org/datcat/DC-2262"/&gt; &lt;/ feature &gt; &lt;/ annotation &gt; &lt;wordForm xml:id="wf1" lemma="we" tokens="#t1"/&gt; &lt;wordForm xml:id="wf2" lemma="can" tokens="#t2"/&gt; &lt;wordForm xml:id="wf3" lemma="see" tokens="#t3"/&gt; Figure <ref type="figure">3</ref>: Excerpt from a MAF document (m1.maf).</p><p>and TEI <ref type="bibr" target="#b3">[4,</ref><ref type="bibr" target="#b4">5]</ref>, nor do they match the standard representation. Utilizing the FSR and FSD standards as in MAF (ISO 24611 -sections 7.2 and 7.4) <ref type="foot" target="#foot_3">9</ref> would however go far beyond the original TIGER-XML format.</p><p>Figure <ref type="figure" target="#fig_2">4</ref> shows the NP node and an outgoing edge, where the annotations are encoded as feature structures. On the one hand, we would no longer have to deal with generic XML attributes for nodes and edges, and the &lt;tiger2/&gt; elements &lt;feature&gt; and &lt;value&gt; would no longer be needed. On the other hand, we would (i) introduce structured annotations, which might not be completely mappable onto formats with non-structured annotations and (ii) introduce a slightly more verbose representation. However, utilizing FSR would of course also allow for the use of libraries, which could be declared centrally (or externally) and be referred to by a new ISOTiger attribute of nodes and edges. Furthermore, applying the ISO and TEI standards on feature structures fosters an integration of the different standardization approaches.</p><p>A standoff notation making reference to external feature structure declarations could also allow for structured annotations as an option, while still keeping the possibility of specifying simple attribute-value-pairs.</p><p>The second aspect under discussion is a reference mechanism to primary data, &lt;nt xml:id="s1_nt1"&gt; &lt;fs&gt; &lt;f name="cat" dcr:datcat="http://www.isocat.org/datcat/DC-1506"&gt; &lt;symbol value="NP" dcr:datcat ="http://www.isocat.org/datcat/DC-2256"/&gt; &lt;/f&gt; &lt;/ fs&gt; &lt;edge xml:id="s1_e3" type="prim" target="#s1_t1"&gt; &lt;fs&gt; &lt;f name="label" dcr:datcat="http://www.isocat.org/datcat/DC-5596"&gt; &lt;symbol value="HD" dcr:datcat ="http://www.isocat.org/datcat/DC-2306"/&gt; &lt;/f&gt; &lt;/ fs&gt; &lt;/edge&gt; &lt;/nt&gt; &lt; terminals &gt; &lt;t xml:id="s1_t1" from="0" to="2"/&gt; &lt;!-we --&gt; &lt;t xml:id="s1_t2" from="3" to="6"/&gt; &lt;!-can --&gt; &lt;t xml:id="s1_t3" from="7" to="10"/&gt; &lt;!-see --&gt; &lt;/ terminals &gt; Figure <ref type="figure">5</ref>: Open issue: reference mechanism to primary data in ISOTiger for cases where there is no morpho-syntactic annotation, yet SynAF terminals are required to be represented in a standoff way. Therefore, for such cases, ISOTiger could refer to LAF <ref type="bibr" target="#b6">[7]</ref>, where the generic reference mechanism introduces virtual anchors in between base units of the primary data representation (e.g. characters), which can be referenced to select a region from the primary data. Figure <ref type="figure">5</ref> includes an example utilizing possible new ISOTiger attributes @from and @to, together with the idea of the virtual anchors. A related representation has been proposed in MAF <ref type="bibr" target="#b5">[6]</ref>. However according to the SynAF -Part 1 metamodel, terminals in SynAF are equivalent to word forms, and can thus for example also be defined over multiple spans. Furthermore, pointing directly from a terminal node to the primary data might hide the essential distinction between tokens and word forms. Therefore a direct reference from terminals to primary data would only be allowed in exceptional cases.</p><p>It should be noted that the two ISOTiger examples in Figure <ref type="figure" target="#fig_2">4</ref> and Figure <ref type="figure">5</ref> only provide suggestions for further developments to transform &lt;tiger2/&gt; into the ISOTiger standard, and are likely to undergo changes before the standardization process is complete. A discussion in the community on these open issues, as well as on the current state of ISOTiger, would help to meet the requirements of the users in this ongoing standardisation work.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: Excerpt from an example encoded in &lt;tiger2/&gt; (version V2.0.5).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: Document annot_decl.xml containing external annotation declarations.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: Open issue: feature structures in ISOTiger</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>International Organization for Standardization, http://www.iso.org</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>SynAF -Part 2 is currently at the stage of a committee draft (ISO/CD 24615-2). For an overview of the stages in the development of ISO standards see: http://www.iso.org/iso/home/standards_development/resources-for-technical-work/ support-for-developing-standards.htm</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_2"><p>There are also additional features, such as corpus structuring and corpus metadata elements.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="9" xml:id="foot_3"><p>Section 7.4  in MAF states how to declare and reuse FSR libraries and Section 7.2 defines how to actually annotate word forms with feature structures.</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">&lt;tiger2/&gt; as a standardised serialisation for ISO 24615 -SynAF</title>
+		<author>
+			<persName><forename type="first">Sonja</forename><surname>Bosch</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Key-Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Éric</forename><surname>Choi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alex</forename><forename type="middle">Chengyu</forename><surname>La De Clergerie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gertrud</forename><surname>Fang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kiyong</forename><surname>Faaß</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Pareja-Lora</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amir</forename><surname>Witt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Florian</forename><surname>Zeldes</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Zipser</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Eleventh International Workshop on Treebanks and Linguistic Theories (TLT11)</title>
+		<editor>
+			<persName><forename type="first">Iris</forename><surname>Hendrickx</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Sandra</forename><surname>Kübler</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Kiril</forename><surname>Simov</surname></persName>
+		</editor>
+		<meeting>the Eleventh International Workshop on Treebanks and Linguistic Theories (TLT11)<address><addrLine>Lisbon, Portugal</addrLine></address></meeting>
+		<imprint>
+			<publisher>Lisboa</publisher>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="37" to="60" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">TIGER: Linguistic Interpretation of a German Corpus</title>
+		<author>
+			<persName><forename type="first">Sabine</forename><surname>Brants</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stefanie</forename><surname>Dipper</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Eisenberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Silvia</forename><surname>Hansen-Schirra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Esther</forename><surname>König</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wolfgang</forename><surname>Lezius</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Rohrer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">George</forename><surname>Smith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hans</forename><surname>Uszkoreit</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Research on Language and Computation</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="597" to="620" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Terminology and other language and content resources -Specification of data categories and management of a Data Category Registry for language resources</title>
+		<idno>ISO 12620:2009</idno>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m">ISO 24610-1:2006 Language resource management -Feature structures -Part 1: Feature structure representation</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<idno>ISO 24610-2:2011</idno>
+		<title level="m">Language resource management -Feature structures -Part 2: Feature system declaration</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Language resource management -Morpho-syntactic annotation framework (MAF)</title>
+		<idno>ISO 24611:2012</idno>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m">ISO 24612:2012 Language resource management -Linguistic annotation framework (LAF)</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">TIGERSearch 2.1 User&apos;s Manual. Chapter V -The TIGER-XML treebank encoding format</title>
+		<author>
+			<persName><forename type="first">Esther</forename><surname>König</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wolfgang</forename><surname>Lezius</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Holger</forename><surname>Voormann</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+			<pubPlace>Stuttgart</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>IMS, Universität</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Standardisation and interoperation of morphosyntactic and syntactic annotation tools for spanish and their annotations</title>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Pareja-Lora</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guillermo</forename><surname>Cárcamo-Escorza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alicia</forename><surname>Ballesteros-Calvo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Ninth International Conference on Language Resources and Evaluation (LREC&apos;14)</title>
+		<meeting>the Ninth International Conference on Language Resources and Evaluation (LREC&apos;14)<address><addrLine>Joseph Mariani, Asuncion Moreno; Reykjavik, Iceland</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+	<note>Nicoletta Calzolari (Conference Chair). European Language Resources Association (ELRA</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">ALIF editor for generating Arabic normalized lexicons</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Samia</forename><forename type="middle">Ben</forename><surname>Ismail</surname></persName>
+							<email>samia_benismail@yahoo.fr</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Laurent Romary. ALIF editor for generating Arabic normalized lexicons . The International Conference on Information and Communication Systems</orgName>
+								<orgName type="institution">IEEE Jordan Section</orgName>
+								<address>
+									<country key="JO">Jordan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Science and Technology</orgName>
+								<address>
+									<addrLine>Apr 2017</addrLine>
+									<postCode>01469966</postCode>
+									<settlement>Irbid</settlement>
+									<country>Jordan. hal</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Hajer</forename><surname>Maraoui</surname></persName>
+							<email>hajer.maraoui@gmail.com</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Laurent Romary. ALIF editor for generating Arabic normalized lexicons . The International Conference on Information and Communication Systems</orgName>
+								<orgName type="institution">IEEE Jordan Section</orgName>
+								<address>
+									<country key="JO">Jordan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Science and Technology</orgName>
+								<address>
+									<addrLine>Apr 2017</addrLine>
+									<postCode>01469966</postCode>
+									<settlement>Irbid</settlement>
+									<country>Jordan. hal</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="laboratory">ISITCom Hammam Sousse MIRACL Laboratory Sfax</orgName>
+								<address>
+									<country key="TN">Tunisia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Kais</forename><surname>Haddar</surname></persName>
+							<email>kais.haddar@yahoo.fr</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Laurent Romary. ALIF editor for generating Arabic normalized lexicons . The International Conference on Information and Communication Systems</orgName>
+								<orgName type="institution">IEEE Jordan Section</orgName>
+								<address>
+									<country key="JO">Jordan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Science and Technology</orgName>
+								<address>
+									<addrLine>Apr 2017</addrLine>
+									<postCode>01469966</postCode>
+									<settlement>Irbid</settlement>
+									<country>Jordan. hal</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="department">Faculty of Science of Sfax MIRACL Laboratory Sfax</orgName>
+								<address>
+									<country key="TN">Tunisia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Laurent Romary. ALIF editor for generating Arabic normalized lexicons . The International Conference on Information and Communication Systems</orgName>
+								<orgName type="institution">IEEE Jordan Section</orgName>
+								<address>
+									<country key="JO">Jordan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="department">Faculty of Science of Sfax MIRACL Laboratory Sfax</orgName>
+								<address>
+									<country key="TN">Tunisia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Samia</forename><surname>Ben</surname></persName>
+							<affiliation key="aff2">
+								<orgName type="laboratory">ISITCom Hammam Sousse MIRACL Laboratory Sfax</orgName>
+								<address>
+									<country key="TN">Tunisia</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">ALIF editor for generating Arabic normalized lexicons</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">6B9006327AE44FD3D031F0BA68B2F977</idno>
+					<note type="submission">Submitted on 16 Feb 2017</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>LMF</term>
+					<term>TEI</term>
+					<term>Lexicon Editor</term>
+					<term>Interoperable formats</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>The standardization of lexical information becomes an obvious necessity, especially for linguistic communities to cover the compatibility and the interchangeability between NLP applications. In fact, the Arabic-speaking community that deals with lexica adapts this idea to create standardized lexical databases favouring the integration, the evaluation and the interoperability of lexical resources. However, creating such lexical databases is not an easy task for a linguist user. In fact, a linguist has no computing development knowledge to create standardized lexical resources based on existing norms. Moreover, even if he/she is familiar with the standards structures, the creation of lexica can only be processed manually and this task takes a long time. Therefore, the existence of a lexicon editor based on standards models and formats can simplify the description of the lexical databases and comply with certain constraints especially when it endowed with a constraints checker. Besides, the lexical editor can be the basis for computer based training activities and support non-expert users. The realisation of such an editor raises a number of serious problems. The first major difficulty was encountered in the preparatory phase. in fact, it relates with the selection and identification of data categories from standards registers used by the processing levels (i.e., morphological, syntactical, etc.) and the language specification. The second difficulty occurs when looking for a generic approach to generate a variety of types of normalized lexicons such as LMF (Lexical Mark-up Framework) and TEI (Text Encoding Initiative) simultaneously. Another serious problem lies in the identification of lexical constraints (for example inflectional ambiguity may appear in several conjugation rules for verbs with the same scheme).</p><p>Our main objective is to create an LMF/TEI editor dedicated to the generation of Arabic lexica covered from the morphological, syntactic and semantic levels. To realise this objective, we made an in-depth study of Arabic words (verbs, nouns and particles) on two levels: lexical and syntactic.</p><p>Besides, to reach lexical standardization, we based our work on the ISO standard 24613 LMF and the TEI guidelines (http://www.tei-c.org/). We have worked with LMF for the following reasons: First, LMF allows the specification of monolingual and multilingual lexica. In addition, it insures a stretchable and modular modelling covering all the levels of linguistic description (morphological, syntactic and semantic). Furthermore, its flexibility of modelling favours the representation of the characteristics of Arabic language in particular the derivational and inflectional aspects. We also choose to work with TEI because it has clear, simple and concrete structure. Further, the encoding of textual and lexical content with TEI is based upon a well-maintained schema and offers a large spectrum of possible elements. Moreover, it is easy to identify a subset of the TEI which is compatible with LMF <ref type="bibr" target="#b0">[1]</ref>.</p><p>In the present paper, we begin with an overview of the LMF and TEI standards. These two standards are necessary for the encoding of the Arabic lexica for Modern Standard Arabic (MSA). Then, we present the specificities of the MSA in the perspective of the modelling of a lexicon. After that, we present the experiment of the approach by a prototype and its evaluation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. OVERVIEW ON LMF</head><p>ISO 24613 LMF <ref type="bibr" target="#b1">[2]</ref> is a standard whose scope is the standardization and the representation of monolingual, bilingual and multilingual lexical databases. The LMF standard allows the management of the data exchange between these resources. It also allows the merging of a large number of lexical resources.</p><p>LMF conforms to the specifications and main modelling of UML defined by OMG. In fact, it is a meta-model represented by UML classes and the associations between them.</p><p>According to ISO 42613, LMF is decorated by data categories selected from a register (DCR). It consists of a core and eight extensions. Meta-model core (see Figure <ref type="figure" target="#fig_1">1</ref>) is a lexical entry backbone. It specifies the notions of lexicon, word, form and sense. It admits extensions describing the various descriptions levels of the monolingual and multilingual lexical resources. All these extensions cannot be represented independently of the core.</p><p>In the NLP domain, several works have focussed on the lexicon standardization. Among the works dealing with Arabic lexica on the basis of the LMF standard, we can mention for example the development of ArabicLDB <ref type="bibr" target="#b2">[3]</ref>. The ArabicLDB aims at the construction of a conjugation system of the Arabic verbs and nouns. The problem of this system is that it is not endowed with a constraints checker and it does not handle all the descriptions levels such as syntactic level.</p><p>We can also point to an approach for projecting one or more syntactic lexicons existing HPSG to LMF <ref type="bibr" target="#b3">[4]</ref>. This prototype can produce either lexica corresponding to LMF without any loss of information, or lexica corresponding to LMF with loss of information and also can produce lexicons not corresponding to LMF with loss of information. Also, there exists another approach for projecting LMF lexicon of Arabic verbs to TDL lexicon <ref type="bibr" target="#b4">[5]</ref>. This prototype can add as much transformation rules in the rule file as necessary, without changing the code. But the major complexity lies in the number of rules used and the size of the XML file given as input.</p><p>After our study of the existing systems, we find that these systems are complicated to use and also are not free. Besides, they do not take the specificities of Arabic language such as LEXUS <ref type="bibr" target="#b5">[6]</ref> and Marphalou <ref type="bibr" target="#b6">[7]</ref>. Furthermore, they work only with LMF norm. However, these inconveniences did not prevent that these works are the source of inspiration to realise our prototype.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. OVERVIEW ON TEI</head><p>The TEI is an international consortium whose goals are the development of a set of standards for the preparation and the exchange of electronic texts. This initiative was established in 1987 by a set of researchers working on archiving, structuring and of analysis of the electronic texts <ref type="bibr" target="#b7">[8]</ref>.</p><p>The publication of the works of the various committees' research was in the form of "Guidelines" <ref type="bibr" target="#b8">[9]</ref>. Indeed, the TEI recommendations present conventions of usable coding in several domains. They can be applied as well to create new information that to exchange existing information. A TEI document has to comply with XML coding rules. The fundamental structure of a TEI document bases itself on a structure which can be, according to the project BVH, a printed text or another a manuscript <ref type="bibr" target="#b9">[10]</ref>. This structure describes the textual part of the document. The notion of structure is essential to edit exchange and analyze texts thanks to the TEI guidelines. In what follows, we give overviews onto the structure and documents in TEI representations.</p><p>Several works are made throughout the process of development and improvement of the TEI from its first recommendations until the last publications. However, these works have not dealt strictly the lexica. Besides, there is an absence of Arabic language treatment although the TEI has been the basis for many projects on documents with various natural languages. One of the TEI projects works on dictionary structures. Dictionaries appear among the complex document types the most handled by the TEI. The workgroup of the TEI on dictionaries had occupied the production of a set of conventions at the level of dictionary entries. Every entry of a dictionary is a strongly structured object, in which the numerous mechanisms of abbreviation and typographic organization allow a presentation condensed by the information <ref type="bibr" target="#b10">[11]</ref>  <ref type="bibr" target="#b0">[1]</ref>.</p><p>Dictionary entries contain several clearly recognizable types of information: information on the form of the word (spelling, pronunciation, caesura, etc.), grammatical information (word class, morphology, etc.), definitions or translations, etc. To normalize lexica with TEI, we started from the idea of considering lexica as a dictionary with a high level of details where each entry can get morphological, syntactical and semantic descriptions. We inspired from the TEI dictionary structure to customize a lexicon structure dedicate for Arabic lexicons <ref type="bibr" target="#b11">[12]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. PROPOSED METHOD FOR LEXICAL ENCODING</head><p>In this section, we explain the various operations for the word transformation in the inflected forms. These operations can be an addition of a letter, a deletion or a replacement of consonant or brief vowel. The employment of these operations defers according to schema and category <ref type="bibr" target="#b12">[13]</ref>. Fig. <ref type="figure" target="#fig_1">1</ref>   Fig. <ref type="figure" target="#fig_1">1</ref> explains the operations to generate an inflected form for the sound hamzated verb ‫)أمر(‬ (to order) of schema [</p><formula xml:id="formula_0">َ ‫َل‬ ‫َع‬ ‫ف‬ - ُ ‫َفع‬ ‫ي‬ ُ ‫ل‬ ].</formula><p>The extraction of the inflected forms for nouns (as the dual and plural forms) is made by the same operations of the inflection paradigms for verbs <ref type="bibr" target="#b13">[14]</ref>.  Inflection paradigms are the necessary operations to generate the inflected / derived forms and to introduce the conjugation paradigms <ref type="bibr" target="#b14">[15]</ref>. To reach the determination of the inflected/derived forms for a verb, it is necessary to pass by a process of operations. The appearance of these operations depends on the category of the handled word. The structure of the rule files used by this prototype postponed from a standard to another one. Files appropriate to LMF standard are built by an XML model however files appropriate to TEI standard are built by TEI model.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. IMPLEMENTATION</head><p>To implement our prototype, we used some tools. First, we designed our system with UML. Then, we used Oxygen XML Editor to create the rule files and to propose a TEI structure to describe Arabic lexicons. After that, we developed the editor interfaces using JAVA language and the API JDOM Library.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Lexicon creation</head><p>The module of lexicon creation consists of two sub-modules: one is to describe generally the lexicon and the other one is for adding lexical entries. In the following part, we are going to explain the mechanism of this module.</p><p>The first stage of creation of new lexicon is the choice of the lexicon entry type (verbs, nouns or particles) and the lexicon output file type (TEI, LMF or both of them). In the second stage, the user is going to select the properties of his lexicon. These properties are the authentication properties (workspace and password) and lexicon properties (lexicon name and corresponding package). The second sub-module is for the adding of the lexical entry description in the lexicon file. In this part, ALIF editor connects to the rules and constraints files to generate a morphological description (derived and inflected forms) for each entry given by the user and according to its properties (scheme and category). Besides, ALIF editor offers the choice for the user to create lexicon by adding the canonical entries one by one or all of them in an external text file. For the example of a verb lexicon, Fig. <ref type="figure" target="#fig_4">3</ref> illustrates the interface to create new verb lexicon. To generate derived and inflected forms for each verb, ALIF editor selects the specific rules matches with the verb properties from the rule files. Then, the system applies the derivational and inflectional rules one by one on the canonical form of the verb.</p><p>ALIF editor generates a list of TEI/LMF output files for the created lexicon and save them in the user workspace. The number of the output files depends on the number of canonical forms given by the user. ALIF editor starts with creating an output LMF/TEI file containing the first morphological description for all the canonical forms (category of the word, schema, root, pronunciation, etc.). For each canonical form, the editor creates another LMF/TEI file containing all the derived and inflected forms. Every canonical form gets an attribute to mention the reference of the correspondent inflectional and derivational file. For example, for 500 verbs the ALIF editor generates 1002 output files for each lexicon type. All these files are saved in one package in the user workspace.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Lexicon management</head><p>In this module, the user can update his lexicons. This module includes an authentication step. After choosing the lexicon and entry type, the system passes to the authentication step to verify the properties of the user. After that, the system launches an interface named "Open Lexicon" which permits three services. The first one allows consulting the created lexicon. The second permits to look for a lexical entry in the chosen lexicon. The third allows adapting the selected lexicon. The first service allows the consultation of the selected lexicon file. That will be by opening one of the created TEI or LMF lexicon files. Fig. <ref type="figure" target="#fig_5">4</ref> presents a fragment from TEI lexicon for the derived and inflected forms of the verb [ َ ‫م‬ ‫ﱠ‬ ‫َل‬ ‫]ع‬ / ʕˤallama / (to teach).   &lt;LexicalEntry name=" َ ‫م‬ ‫ﱠ‬ ‫َل‬ ‫"ع‬ morphologiquePatterns=" ‫تام‬ ‫فعل‬ ‫بمفعولين‬ ‫ّي‬ ‫"متعد‬ id="‫م‬ ّ ‫&gt;"عل‬ &lt;Stem&gt; &lt;feat att="writtenForm" val=" َ ‫م‬ ‫ﱠ‬ ‫َل‬ ‫&gt;/"ع‬ &lt;formRepresentation&gt; &lt;feat att="writtenForm" val="ʕˤallama" /&gt; &lt;feat att="writtenForm" val="latn" /&gt; &lt;/formRepresentation&gt; … &lt;/Stem&gt; &lt;syntacticBehaviour&gt; &lt;subcategorizationFrame&gt; &lt;feat att="description" ‫أداة"=‪val‬‬ ‫بدون‬ ‫&gt;/"فعل+اسم+مفعولين‬ &lt;/syntacticBehaviour&gt; &lt;feat att="partOfSpeech" val="verb" /&gt; &lt;feat att="root" val="‫"ع_ل_م‬ /&gt; &lt;feat att="scheme" val=" ‫ﱠلَ‬ ‫َع‬ ‫"ف‬ /&gt;…. &lt;Relatedform&gt; &lt;feat att="writtenForm" val=" ٌ ‫م‬ ‫ﱠ‬ ‫َل‬ ‫ُع‬ ‫"م‬ /&gt; &lt;feat att="catGram" ‫مفعول"=‪val‬‬ ‫"اسم‬ /&gt; &lt;feat att="sheme" val=" ُ ‫م‬ ٌ ‫ﱠل‬ ‫َع‬ ‫ف‬ " /&gt; … &lt;/Relatedform&gt; … &lt;/LexicalEntry&gt; &lt;morphologicalPatterns ‫بمفعولين"=‪target‬‬ ‫ّي‬ ‫متعد‬ ‫تام‬ ‫"فعل‬ id="‫م‬ ّ ‫&gt;"عل‬ &lt;feat att="patternType" val="flexionnalPattern" /&gt; &lt;feat att="example" val=" َ ‫م‬ ‫ﱠ‬ ‫َل‬ ‫"ع‬ /&gt; &lt;feat att="partOfSpeech" val="verb" /&gt; … &lt;TransformSet val=" ‫تُ‬ ْ ‫م‬ ‫ﱠ‬ ‫َل‬ ‫&gt;"ع‬ &lt;feat att="comment" ‫الماضي"=‪val‬‬ ‫في‬ ‫أنا‬ ‫مع‬ ‫الفعل‬ ‫&gt;/"تصريف‬ &lt;grammaticalFeatures val="‫&gt;"أنا‬ &lt;feat att="grammaticalTense" ‫&gt;/"ماضي"=‪val‬‬ &lt;feat att="grammaticalGender" val="neutral"/&gt; &lt;feat att="person" val="1"/&gt; &lt;feat att="grammaticalNumber" val="singular"/&gt; &lt;feat att="grammaticalVoice" ‫"معلوم"=‪val‬‬ /&gt; &lt;/grammaticalFeatures&gt; &lt;/TransformSet&gt; … &lt;/morphologicalPatterns&gt;  &lt;LexicalEntry name="ٌ ‫د‬ َ ‫ل‬ َ ‫"و‬ ‫&gt;"ولد"=‪id‬‬ … &lt;feat att="partOfSpeech" val="noun" /&gt; &lt;feat att="scheme" val=" ٌ ‫َل‬ ‫َع‬ ‫"ف‬ /&gt; &lt;Lemma&gt; &lt;feat att="type" ‫سالم"=‪val‬‬ ‫صحيح‬ ‫ھو‬ ‫و‬ ‫مجرد‬ ‫ثالثي‬ ‫"إسم‬ /&gt; … &lt;/Lemma&gt; &lt;/LexicalEntry&gt; &lt;morphologicalPatterns ‫&gt;"ولد"=‪id‬‬ &lt;feat att="patternType" val="flexionnalPattern" /&gt; &lt;feat att="example" val=" ٌ ‫د‬ َ ‫ل‬ َ ‫"و‬ /&gt; &lt;feat att="partOfSpeech" ‫مشترك"=‪val‬‬ ‫"اسم‬ /&gt; … &lt;TransformSet val=" ٌ ‫د‬ َ ‫ال‬ ‫وْ‬ َ ‫&gt;"أ‬ &lt;feat att="comment" val=" ‫ج‬ ‫تكسير‬ ‫مع‬ " /&gt; &lt;grammaticalFeatures&gt; &lt;feat att="grammaticalGender" ‫"مذكر"=‪val‬‬ /&gt; &lt;feat att="grammaticalNumber" val="‫"جمع‬ /&gt; &lt;/grammaticalFeatures&gt; &lt;/TransformSet&gt; &lt;/morphologicalPatterns&gt; Fig. <ref type="figure" target="#fig_8">6</ref>. Fragment from the LMF noun lexicon.</p><p>From the lexicons generated by the editor, the user has the option of exposing the inflected forms of the lexicon in table form or in normalized XML file with TEI or LMF like the examples of the figures 5 and 6. The second step allows the user to look for a lexical entry in the selected lexicon. The editor extracts the selected entry descriptions from the lexicon and shows them to the user.</p><p>In this section, we present the main interfaces of ALIF editor. These interfaces are shared between the creation of a lexicon or lexical entries and the management of the existing lexicons. In the following part, we are going to evaluate our ALIF system.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. EVALUATION AND DISCUSSION</head><p>To evaluate our editor prototype, we created and tested a normalized syntactical lexicon containing 10000 Arabic verbs and 500 nouns. Consequently, for the verb lexicon, the prototype generates respectively 20002 TEI and LMF files representing the 10000 canonical forms. From these canonical forms ALIF editor's system generates 1 130 000 inflected and derived forms (113 forms per verb). Table <ref type="table">1</ref> illustrates the obtained results. For the nouns lexicon, ALIF creates 1002 TEI and LMF files representing 4500 inflected forms for the 500 nouns (9 forms per noun). For the noun lexicon, the total number of the obtained forms is 4500. The editor succeeded to create 4350 correct forms and 150 erroneous. Failure cases are (in most of the cases) due to the non-detection of the inflectional rules for plural nouns of some nouns that are irregular in inflection. For example, the nouns (</p><formula xml:id="formula_1">) ‫ِبٌ‬ ‫َات‬ ‫ك‬ - ‫ابٌ‬ ‫ﱠ‬ ‫ت‬ ُ ‫ك‬ and ( ٌ ‫ِر‬ ‫َاع‬ ‫ش‬ - ٌ ‫َاء‬ ‫َر‬ ‫ع‬ ُ ‫ش‬</formula><p>) are in the same category and have the same scheme but they did not have same inflectional rule for plural. Indeed, we estimate the quality of our work manually. Table <ref type="table">2</ref> illustrates the obtained values of precision, recall and F-score. According to the value of precision, we conclude that the value of precision for the verb lexicon is worth 0.99. For the noun lexicon, the precision is equal to 0.96. Also, the recall value for the verb lexicon is 0.99 and for the noun lexicon 0.96. These values provide an F-measure equal to 0.49 for verb lexicon and 0.48 for noun lexicon. Consequently, we conclude that the obtained results are encouraging. Besides, we can say that this prototype is flexible and easy to maintain because it is based on an object-oriented programming language. However, we handled some problems. Some of them are related with the irregular verbs and nouns which need to integrate heuristics solving this kind of problems.</p><p>Other kind of problems was related with the optimization of response time. We experience the creation of a verb lexicon by adding entries one by one. Then we found that the execution time augmented with the number of entries and it takes much time to create a lexicon with more than 500 entries. So, we tried to run the system with other method and start with a text file contains the entries. This solution makes the execution faster and much easier for the user.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VII. CONCLUSION</head><p>In this paper, we have elaborated a lexicon editor supporting two standards: LMF and TEI. We have also integrated a module for constraint checker. In this editor, we have proposed a type hierarchy for Arabic words according to a done study on Arabic word specificities. As mentioned, the elaborated editor allowed us to generate two normalized lexicons with large coverage for Arabic words: one for LMF and the other for TEI. This editor can be considered also as a good tool for linguists dealing with normalization. The obtained values of measures show that the results obtained from our editor are encouraging. These results can be used in others levels of analyses. Moreover, the execution time is correct. Indeed, the lexicon files need only few minutes to be generated.</p><p>As perspectives, we want to improve the proposed models. This improvement consists on incorporating new elements describing more deeply the various levels of description. Besides, we want to develop more our TEI model to incorporate a syntactical description and to get to a deep morphological level. Moreover, we want elaborate a tool allowing the transformation from LMF lexicons to TEI ones and vice versa. To increase the visibility of our lexicon editor, we want to post it open source.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>specifies the operations for the conjugation of a sound hamzated [ ‫صحيح‬ ‫]مھموز‬ verb with the singular third person [ ‫ھ‬ ‫و‬ ] (he) in the inaccomplished aspect with the passive voice.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Generation of inflectional form ( ُ ‫ر‬ َ ‫م‬ ‫ُؤْ‬ ‫)ي‬ /yɁmaru/.</figDesc><graphic coords="3,315.48,550.32,259.92,95.64" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 2</head><label>2</label><figDesc>Fig. 2 illustrates the essential operations to produce the broken plural of the singular noun ( ٌ ‫م‬ َ ‫َل‬ ‫)ق‬ (pencil).</figDesc><graphic coords="4,48.12,157.32,238.86,111.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Calculation of inflected form ( ٌ ‫م‬ َ ‫ال‬ ْ ‫ق‬ َ ‫)أ‬ /Ɂqlamun/.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. New verb lexicon interface.</figDesc><graphic coords="4,324.78,178.86,240.90,138.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. Fragment from the TEI verb lexicon.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 5</head><label>5</label><figDesc>Fig.5presents a fragment from LMF lexicon for morphological and syntactic level of the verb [ َ ‫م‬ ‫ﱠ‬ ‫َل‬ ‫]ع‬ /ʕˤallama/ (to teach).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. Fragment from the LMF verb lexicon.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Fig. 6</head><label>6</label><figDesc>Fig. 6 presents a fragment from the LMF noun lexicon of the noun [ ٌ ‫د‬ َ ‫ل‬ َ ‫]و‬ /waladun/ (a boy).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>TABLE I .</head><label>I</label><figDesc>SUMMARYTABLE OF THE SYSTEM RESULTS.</figDesc><table><row><cell cols="2">examples (1) and (2) illustrate a case of irregularity of verb</cell></row><row><cell>conjugation.</cell><cell></cell></row><row><cell>َ ‫ذ‬ ‫خَ‬ َ ‫أ‬ ْ ‫ذ‬ ُ ‫خ‬ (1)</cell><cell>َ ‫جَر‬ َ ‫أ‬  ‫ُرْ‬ ‫وج‬ ُ ‫ا‬ (2)</cell></row><row><cell>/Ɂa/xa/δa/  /xu/δ/</cell><cell>/Ɂa/dᵹ/ra/  /Ɂu/Ɂ/dᵹ/r/</cell></row><row><cell cols="2">The verb [ َ ‫ذ‬ ‫خَ‬ َ ‫]أ‬ (to take) how has the schema [ irregular verb in the imperative with the personal pronoun [ ‫]أنتَ‬ َ ‫َل‬ ‫َع‬ ‫ف‬ -‫ُل‬ ‫ع‬ ْ ‫َف‬ ‫ي‬ ] is an ُ</cell></row><row><cell>(you).</cell><cell></cell></row><row><cell>Table 1 shows that sometimes for irregular verbs, we can obtain</cell><cell></cell></row><row><cell>erroneous generated forms. For the verbs lexicon, the total</cell><cell></cell></row><row><cell>number of obtained forms is 1 130 000. The program succeeded</cell><cell></cell></row><row><cell>to produce 1 129 700 correct forms. However, we found 300</cell><cell></cell></row><row><cell>erroneous forms requiring rectification. This problem of</cell><cell></cell></row><row><cell>erroneous forms is related with some irregular verbs. The</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>TABLE II .</head><label>II</label><figDesc>SUMMARY TABLE OF THE PRECISION, RECALL AND F-</figDesc><table /><note><p>SCORE.</p></note></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">TEI and LMF crosswalks</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">INRIA &amp; HUB-IDSL, hal-00762664</title>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">LMF Lexical Markup Framework</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Francopoulo</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2013">1st ed, 2013</date>
+			<publisher>Wiley</publisher>
+			<pubPlace>New York</pubPlace>
+		</imprint>
+	</monogr>
+	<note>ISTE LTD</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">ISO Standard Modeling of a large Arabic Dictionary</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Gargouri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ben</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hamadou</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Francopoulo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Natural Language Engineering</title>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+			<publisher>Cambridge University Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">A prototype for projecting HPSG syntactic lexica towards LMF</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Haddar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Fehri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Laurent</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Journal of Language Technology and Computational Linguistics Gesellschaft für Sprachtechnologie und Computerlinguistike.V, (GSCL)</title>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="volume">27</biblScope>
+			<biblScope unit="page" from="21" to="46" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">A Syntactic Lexicon for Arabic Verbs</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Loukil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Haddar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Benhmadou</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">proceedings of Seventh International Conference on Language Resources and Evaluation LREC</title>
+		<meeting>Seventh International Conference on Language Resources and Evaluation LREC<address><addrLine>Malta</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="page" from="269" to="272" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">LEXUS, a webbased tool for manipulating lexical resources</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kemps-Snijders</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M.-J</forename><surname>Nederhof</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Wittenburg</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 5th International Conference on Language Resources and Evaluation (LREC 2006)</title>
+		<meeting>the 5th International Conference on Language Resources and Evaluation (LREC 2006)</meeting>
+		<imprint>
+			<date type="published" when="2006">2006</date>
+			<biblScope unit="page" from="1862" to="1865" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Standards going concrete: from LMF to Morphalou</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Salmon-Alt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Francopoulo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">COLING, Proceedings of the Workshop on Enhancing and Using Electronic Dictionaries, the 20th International Conference on Computational Linguistics</title>
+		<meeting><address><addrLine>Switzerland</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+			<biblScope unit="page" from="22" to="28" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">TEI P5: Guidelines for Electronic Text Encoding and Interchange</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Burnard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Sperberg-Mcqee</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+	<note>Text Encoding Initiative Consortium. Version 3.0.0. revision 89ba24e</note>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Une application de la TEI aux industries de la langue: le Corpus Encoding Standard</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Veronis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Cahiers GUT enberg, n°24</title>
+		<imprint>
+			<date type="published" when="1996">1996</date>
+			<biblScope unit="page" from="166" to="169" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Manuel d&apos;encodage XML-TEI Renaissance et temps modernes Imprimés-manuscrits</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Dufournau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M-L</forename><surname>Demonet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Uetani</surname></persName>
+		</author>
+		<idno>UMR 6576</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Version Beta</title>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Consistent modeling of heterogeneous lexical structures</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Wegstein</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Text Encoding Initiative</title>
+		<imprint>
+			<biblScope unit="issue">3</biblScope>
+			<date type="published" when="2012">2012</date>
+			<publisher>TEI and linguistics</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Automatisation de l&apos;encodage des lexiques arabes en TEI</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Maraoui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Haddar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2nd conference on CEC-TAL</title>
+		<meeting><address><addrLine>Sousse, Tunisia</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">‫األفعال&quot;‬ ‫تصريف‬ ‫في‬ ‫الوسيط‬ ‫</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Dahdeh</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">المعجم‬ Lebanon Librerie</title>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+			<pubPlace>Lebanon</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">‬ ‫و‬ ‫جداول‬ ‫في‬ ‫ّة‬ ‫العربي‬ ‫اللغة‬ ‫قواعد‬ ‫</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Dahdeh</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">معجم‬ LibrerieNachirun. Lebanon, 5</title>
+		<imprint>
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+	<note>‫لوحات. th ed</note>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">‫ّة&quot;‬ ‫العربي‬ ‫األفعال‬ ‫تصريف‬ ‫في‬ ‫</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ammar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Dichi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">الشامل‬ Bescherelle collection. Hatier</title>
+		<idno type="ISSN">0990 3771</idno>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+			<pubPlace>Paris</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

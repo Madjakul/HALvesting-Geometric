@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Ongoing maintenance and customization of archival standards using ODD (EAC-CPF revision proposal)</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Charles</forename><surname>Riondet</surname></persName>
+						</author>
+						<title level="a" type="main">Ongoing maintenance and customization of archival standards using ODD (EAC-CPF revision proposal)</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">B0B23BC13B802884554223DD124F5F41</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Ongoing maintenance and customization of archival standards using ODD Laurent Romary 12 , Charles Riondet 2 Dariah (1), Inria (2)</p><p>The EAC-CPF tag library is natively expressed using the TEI (Text Encoding Initiative) guidelines and maintained collaboratively on GitHub. This solution has already proven to offer some flexibility. Starting from this, we propose to go one step further and create a complete maintenance framework of EAC-CPF based on the technical means provided by the TEI guidelines .</p><p>A well-documented framework</p><p>The Text Encoding Initiative (TEI) is broadly recognized as the de facto standard for the representation of a variety of textual content expressed in digital form, but the TEI can be used to represent a wider range of digital resources. For instance, the TEI XML schema and the associated guidelines are maintained with the TEI format, more precisely, with a subset called "One Document Does it all" (ODD) which, as the name indicates, is a description language that "includes the schema fragments, prose documentation, and reference documentation [...] in a single document" , based on the principles of literate programming.</p><p>1</p><p>Literate programming is a programming and documentation methodology whose "central tenet is that documentation is more important than source code and should be the focus of a programmer's activity" . With ODD, semantic and structural consistency is ensured as we 2 encode and document best practices in both machine and human-readable format. ODD was created at first to give TEI users a straightforward way to customize the TEI schema according to their own practices and document this customization.</p><p>It is possible to describe a schema and the associated documentation of any XML format. In the context of the EHRI project (ehri-project.eu), ODD was used to encode completely the EAD standard, as well as the guidelines provided by the Library of Congress. The maintenance on a GitHub repository also offers great possibilities to collectively discuss potential issues, enhancements, etc.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Flexibility</head><p>We propose that the EAC-CPF specification is maintained via an ODD document on a GitHub repository. Such way have demonstrated both its robustness and flexibility, for the reasons explained above. Furthermore, it can offer real benefits to the users community.</p><p>Applied to EAC-CPF, this framework would also meet the need for more specified subsets of EAC-CPF by implementing the refinement of element content, currently covered by &lt;localTypeDeclaration&gt; and @localType.</p><p>As ODD allows anyone to derive a specific schema from the standard one, the compliance towards local conventions or controlled vocabularies can be integrated into the standard validation process.</p><p>Let's consider the current example for &lt;localTypeDeclaration&gt; in the Tag Library : 3 &lt;localTypeDeclaration &gt; &lt;abbreviation&gt; Categorycodes &lt;/abbreviation&gt; &lt;citation xlink:href = " http://nad.ra.se/static/termlistor/Kategorikoder.htm " xlink:type = "simple"&gt; The categorycodes used in Swedish NAD (http://nad.ra.se).To be used in element function.</p><p>&lt;/citation&gt; &lt;descriptiveNote&gt; &lt;p&gt; Codes for categorizing different types of authority records through organizational form, operation, function, archival organization et cetera. &lt;/p&gt; &lt;/descriptiveNote&gt; &lt;/localTypeDeclaration&gt; With ODD, it would be possible for the National Archives of Sweden to create an institutional flavour of EAC-CPF, adding a constraint to the element &lt;function&gt; that limits the possible values to its specific category codes. The flavour would take the form of a new ODD specification that inherits the characteristics of the "Master" EAC-CPF, but would declare (and document) specific constraints (directly using the ODD declaration mechanisms or via the Schematron standard).</p><p>The benefit is that the technical validation of the schema (via a saxon processor for example), would automatically check this semantic constraint.</p><p>Another added value is the generation of the associated documentation for this constraint, that can allow a CHI to share its practices more easily. Then, we could also imagine that such mechanism would facilitate the identification of widely shared "local" practices.</p><p>An additional usage of a ODD specification of EAC-CPF could be a simplified management of successive versions, where each new version could be derived from the previous specification document.</p></div>			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>TEI consortium,  </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_1"><p>2013, TEI: Getting Started with ODDs. http://www.tei-c.org/Guidelines/Customization/odds.xml , accessed May 24, 2017. 2 Walsh, Norman, 2002, Literate Programming in XML. http://nwalsh.com/docs/articles/xml2002/lp/paper.html , accessed November 29, 2017.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>http://eac.staatsbibliothek-berlin.de/schema/taglibrary/cpfTagLibrary_EN.html#localTypeDeclaration</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>http://parthenos-project.eu</p></note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Summary</head><p>• ODD can be processed to generate an actual schema (a DTD, a RelaxNG XML or compact schema or an XML schema), as well as the corresponding documentation in various formats (XHTML, PDF, EPUB, docx, odt). • ODD also allows for chaining and derivation, i.e. it would be possible to create a new version of the EAC-CPF schema by inheriting the core of the previous one and just update, add or remove new elements, or by over specifying the behaviour of them (see above). </p></div>			</div>
+			<div type="references">
+
+				<listBibl/>
+			</div>
+		</back>
+	</text>
+</TEI>

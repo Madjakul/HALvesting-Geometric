@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">East meets West: Producing Multilingual Resources in a European Context</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Tomaž</forename><surname>Erjavec</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Ann</forename><surname>Lawson</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="department">Dept. for Intelligent Systems</orgName>
+								<orgName type="institution">Institute Jozef Stefan</orgName>
+								<address>
+									<settlement>Ljubljana</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="department">Institut für deutsche Sprache Mannheim</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="institution">Loria -CNRS</orgName>
+								<address>
+									<settlement>Nancy</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">East meets West: Producing Multilingual Resources in a European Context</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">5CA70B38828D4ADFF60C24A4806EDB70</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The EU concerted action TELRI has released a two-volume CD-ROM, which contains multilingual language resources, namely corpora, lexica, and tools for language engineering. This CD-ROM provides harmonised resources for unprecedented numbers and kinds of languages, mainly from non-EU countries, for which such resources still tend to be scarce. The first volume of the CD includes the aligned text of Plato's Republic in twenty one languages, while the second volume contains extended results of the EU MULTEXT-East project, including the aligned and tagged novel '1984' by Goerge Orwell and accompanying lexica in seven languages. The paper presents the CD-ROM, the methods employed in its creation and its prospective uses.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Overview</head><p>The EU Concerted Action TELRI (Trans-European Language Resources Infrastructure) has released a CD-ROM containing multilingual language resources, namely corpora, lexica and tools for language engineering. This product represents the concrete results of the joint research aspect of the project, which brought together partners across Europe to work together on a close and practical level. The CD-ROM provides standardised resources for a large number of languages, mainly from non-EU countries, for which such resources still tend to be scarce. The making of these resources served to foster the use of existing conventions and recommendations such as TEI <ref type="bibr">(Sperberg-McQueen &amp; Burnard, 1994)</ref>, EAGLES and MULTEXT <ref type="bibr">(Ide &amp; Veronis, 1994)</ref> in Central and Eastern European countries.</p><p>The CD-ROM consists of two volumes. The contents of the first volume arose entirely within the TELRI action, and were produced in a process of dissemination of expertise through the work on a common corpus. The second volume contains the results of the EU MULTEXT-East (Multilingual Text Tools and Corpora for Central and Eastern European Languages) project <ref type="bibr" target="#b3">(Erjavec et al., 1996)</ref>, which collected and applied standards to a large variety of resource types: corpora, lexica and tools. This project finished in 1997 and its results have been enhanced and prepared for CD distribution in the scope of TELRI.</p><p>For more information on TELRI see URL http://www.idsmannheim.de/telri/.</p><p>For more information on MULTEXT-East see also http://nl.ijs.si/ME.</p><p>The two volumes are in broad agreement as to the kind of resources they offer, and the type of encoding they use, but they reflect the different organisational structures from which they grew. TELRI was a concerted action acting on a broad front, with no funds devoted to labour. Most members also had no a priori experience of SGML/TEI and had no dedicated tools available to annotate their texts. So, for example, the TELRI corpus was encoded directly in generic TEI and TEI Lite, rather than trying to emulate more specific schemes, such as the PAROLE specification <ref type="bibr" target="#b7">(Ridings, 1996)</ref>.</p><p>MULTEXT-East, on the other hand, was a Joint Project with dedicated funds and so could be more focused on the kinds of resources it produced. Here the partners shared platforms and tools, could adopt a more unified encoding practice and were involved in the definition of conventions which would be more applicable in a linguistic engineering context. So, for example, the MULTEXT-East corpus was prepared using MULTEXT tools and is encoded in accordance with the Corpus Encoding Specification, CES <ref type="bibr">(Ide et al., 1996)</ref>, both developed for such a context. MULTEXT-East also had a clearly defined set of languages that it aimed to produce resources for, namely Bulgarian, Czech, Estonian, Hungarian, Romanian, and Slovene, with English serving as the 'hub' of the parallel corpus and as the metalanguage of the project.</p><p>The production of the two volumes was enhanced by the two teams working in cooperation, as they had to solve similar difficulties (scanning, copyright, etc.) and could share know-how through workshops and exchange various software tools. The concrete result of this cooperation is a double CD, "East meets West: A Compendium of Multilingual Language Resources". In the next sections we give a overview of its contents, concentrating on corpora, lexica, and tools. The paper finishes with a discussion of the CD-ROM's prospective uses.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">The Corpora</head><p>Each volume of the CD-ROM contains an annotated multilingual corpus. The two corpora differ in composition and encoding, reflecting the different practices adopted in their creation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">The Plato Corpus</head><p>The first volume contains a parallel corpus, comprising Plato's "Republic" in twenty one languages. This corpus grew out of the work within the TELRI Working Groups WG7 "Joint Research", WG5 "TELRI Service Pool", and WG4 "Lingware Availability". The "Joint Research" WG was formed with the aim of encouraging collaboration between as many of the TELRI partners as possible. For this reason, it was decided to focus on building a sample parallel corpus of translations of one text. Such corpora are able to furnish researchers with considerable information about language patterning in general, for instance on translational equivalents, collocations and phraseological units. At least initially, the size of this corpus was of less import than the coverage across the languages represented in TELRI, and the active involvement of as many partners as possible.</p><p>Plato's "Republic" was chosen as the main text for developing the parallel corpus. As explained above, a single text was chosen for reasons of practicability. A well-known classical text was chosen on the grounds that translations in most, if not all, of the TELRI project languages would be likely to exist. In addition, since none of the TELRI project members is a native speaker of Ancient Greek, no language would be privileged by having the original version in their own language. All the texts produced and examined in the parallel corpus are "target texts", since only the Greek is the "source". Furthermore, the age of the text and hence also many of the translation would, it was hoped, eliminate many troublesome copyright issues.</p><p>Each TELRI member sought out suitable translations of the "Republic" in their own language. Translations could be found in almost all the project languages, with the exception of Estonian and Albanian. In several languages, more than one translation was available, such as for English and Czech. Partners tried to find versions of the texts already in electronic form, whenever possible. These could be downloaded from the Internet, bought on CD-ROM or acquired direct from the publishers. If no electronic version was available, partners scanned the texts using OCR scanners. In exceptional cases, when the quality of the type was too poor to be recognised by the scanner, the text was typed in by hand. TELRI was able to offer financial assistance for such technical matters.</p><p>The conditions varied greatly from country to country, as was expected. The extremes were on the one hand the English texts, with an abundance of websites and downloadable texts (although also with their own problems) and on the other the situation in, for instance, Latvia. In Latvian, no full translation could be found, so the edited partial translation was encoded and used. In some cases, not only was there no electronic version available, but indeed the translation was out of print and the only copies to be found in libraries or in private ownership. Since scanning requires a flat page and libraries object to their books being torn apart, in these cases the texts were painstakingly keyed in.</p><p>Another important issue was that of copyright. Copyright holders were approached for permission to use their texts in academic research work. A letter was prepared by the Group for partners to use when writing to copyright holders to ask permission to use their text in project work. When texts were not or no longer in copyright, because of their age for instance, no permission was sought but the publisher or source of the text was always acknowleged. The situation differed in each country and various individual solutions were worked out.</p><p>The choice of text made for some interesting problems. Recognised as a fundamental philosphical text, "The Republic" has been published in different forms over many centuries. Some of the editions published are treated as "standards". However, for the purposes of the project, they proved not to be very standard. Most version contained markings or annotations of various kinds, but there was little consistency. Initially, we hoped to be able to use these markings to assist the alignment process and encouraged sites scanning or typing in the texts to retain them. It was then decided to use a particular set of markings, and they were manually inserted into those texts which did not already have them.</p><p>We then set about encoding the data. While all partners retained a plain-text version of the "Republic", which is also included on the CD-ROM, it was also encoded according to a widely-accepted convention, namely the TEI P3 guidelines <ref type="bibr">(Sperberg-McQueen &amp; Burnard, 1994)</ref>. These are based upon SGML, a meta-language for encoding electronic texts with information about the structural layout and content of the document, which is of use when analysing the structure of the document, automatically aligning and manipulating it. Most project partners had little or no experience of this particular encoding method at the start of the project.</p><p>The texts were encoded according to the TEI guidelines using the following conventions: two levels of embedded &lt;div&gt;'s have been used to mark-up the structure of the text in books (these were originally scrolls in the Greek text) and subsections (main divisions in the original text). For some of the versions, the second level had to be inferred in comparison with another translation because they had been dropped by the translator. Paragraphs were either marked as &lt;p&gt; for "paragraph" or &lt;lg&gt; for "line group", depending on whether these were running text or poems. Dialogues have been considered as running text in this corpus; lower level structural mark-up was limited to &lt;q&gt;s to account for the quotations which are quite numerous in the Republic and &lt;seg&gt;s for what could roughly be seen as an orthographic sentence. We dealt with the classical problem of overlapping structures between quotes and sentences by a) allowing the two to be embedded in one another in both directions (hence the use of &lt;seg&gt; instead of &lt;s&gt;, which does not bear this property in TEI P3), and b) by splitting sentences, when necessary, at points where a quote would start or end in the middle of them. In the perspective of aligning the various translation with one another, such an operation presents the advantage of yielding a more fine grained representation; we used several other elements to cope with different phenomena observed in the various versions of the text, in particular &lt;milestone&gt; to indicate the folio marks derived from an old translation and classically used to refer to the text by philologists.</p><p>On the basis of this encoding, the corpus has been automatically aligned up to the level of sentences using the hierarchical aligner devised by <ref type="bibr" target="#b1">Bonhomme et al. (1995)</ref> and compiled into a series of HTML files of intertwined texts by pairs of languages. Plain ASCII and HTML versions of each text have also been included in the CD-ROM.</p><p>All the texts were then uploaded to the Mannheim TELRI ftp site, along with a brief information file detailing the source, status of encoding and person responsible for the version. In this way, all TELRI partners could download the texts for their own use and, if necessary, further encode or alter the text in collaboration with the partner originally responsible. There was thus an interchange between partners, while the integrity of each version was retained.</p><p>The Working Group used the texts to test corpus alignment software. The aligning of texts enables the user to compare the translations of particular words or phrases. This is of use for investigating language, training and improving computer-aided translation tools and also for CALL (Computer Assisted Language Learning). For alignment, some segmentation of the texts had to be undertaken. This commonly involved inserting codes to specify where sentence or paragraph boundaries occur. These could then be recognised by the alignment program, along with the markers described above. Many partners have used the parallel texts to examine specific linguistic features of a chosen language pair. This can reflect on the peculiarities of the languages involved and on the nature of translation generally. Much of this research work can also be found on the CD-ROM, with general information about the project.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">The MULTEXT-East Corpus</head><p>The second volume of the CD-ROM contains the corpus of the MULTEXT-East project, with further additions due to TELRI. As the corpus is detailed in <ref type="bibr">Erjavec &amp; Ide, (1998)</ref>, we here only briefly present its composition and encoding.</p><p>The corpus is composed of three parts, namely of a multilingual parallel corpus, similar to the "Republic" one, a multilingual comparable corpus and a small multilingual speech corpus. The complete corpus has been marked up with header and structural information (&lt;div&gt;, &lt;p&gt;, etc.) and is encoded in the Corpus Encoding Specification, CES <ref type="bibr" target="#b5">(Ide et al., 1996)</ref>, a TEI-like encoding scheme.</p><p>The parallel corpus contains the novel '1984' by George Orwell in the original, and translations into the six MULTEXT-East languages. In the scope of TELRI, the corpus was extended by four new translations, namely the Lithuanian, Latvian, Serbian, and Russian ones. The par-Unfortunatelly, copyright restrictions have prevented us from allel corpus has been marked and validated for sentence boundaries (&lt;s&gt;) and alignment. Alignment is between the each of the ten languages and the English version, thus giving ten pair-wise alignments. The alignments themselves are not included in the primary data, but are expressed in separate documents, which contain only ID references to the sentences aligned. The alignments are thus 'flat', i.e. they do not attempt to model the hierarchical structure of the documents. Furthermore, the MULTEXT-East sevenlanguage parallel corpus has been tokenised, and each word token assigned its part-of-speech, or, more accurately, its morphosyntactic description. To arrive at such an annotated corpus involved first developing a harmonised set of lexical specification, as discussed below. It should be noted that this corpus represents the first such effort for most of the languages involved.</p><p>The MULTEXT-East corpus further contains a million word multilingual comparable corpus in the six languages of the project. The comparable corpus consist of two parts, the first being 'fiction', comprising either a single novel or excerpts from several novels, and the second the 'news' part, comprising articles from daily newspapers.</p><p>Finally, a small parallel speech corpus is also included: it comprises six translations of forty English passages from EUROM/SAM project, and has been recorded and digitised for four of the languages, namely Estonian, Hungarian, Romanian, and Slovene.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Lexical Resources</head><p>The second volume of the CD includes substantial harmonised lexical resources for the six languages of the MULTEXT-East project. Again, these resources are detailed in Tufis et al. ( <ref type="formula">1998</ref>), so we here give only a brief overview. The MULTEXT-East lexical resources comprise morphosyntactic descriptions, lexica, and, as mentioned above, the Orwell corpus annotated with this information.</p><p>The specification for morphosyntactic descriptions follow the Eagles <ref type="bibr" target="#b6">(Monachini &amp; Calzolari, 1995)</ref> and MUL-TEXT <ref type="bibr">(Bel, Calzolari &amp; Monachini eds., 1995)</ref> specifications and define 14 grammatical categories (POS), each of them with a number of specific attributes and attributevalues. The tables thus provide a word-level morphosyntactic 'grammar' for the six languages. The morphosyntactic descriptions themselves are written in a compact string notation, with the first character giving the POS and defining the meaning of the remaining characters. With these characters, the position in the string gives the attribute, and a one letter code its value. Furthermore, the special character '-' is used when a certain attribute is not applicable, either for the language or for the particular combination of features. So, for example, the string 'Vmip1d--y' denotes POS:Verb, Type:main, VForm:indicative, Tense:present, Person:first, Number:dual, Gender:not applicable, Voice:not applicable, Negative:yes.</p><p>In the lexica of the project, each entry consists of three fields: the word-form, its lemma and its morphosyntactic including the Latvian translation on the CD-ROM.</p><p>description. The lexica provide at least 15.000 lemmas for each language, and cover the corpus of the MULTEXT-East project. Except for Estonian and Hungarian, where this is not possible due to the nature of the languages, all the possible word-forms of the lemmas, i.e. full inflectional paradigms, are included in the lexica.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Corpus Tools</head><p>Both volumes of the CD-ROM also contain a variety of software tools. These are either in the public domain, or have been produced by the project partners.</p><p>Of particular importance for both Telri and Multext-East projects was the provision of the proper software pieces for editing, testing and aligning the SGML documents to be produced at the different sites. This has been released along two main packages, namely: an SGML editing environment based upon emacs, using the PSGML mode and the James Clark's nsgmls parser. Indeed, we made the choice to base all our SGML work upon a freely available software which could be largely distributed, rather than some more ellaborate software like Softquad's Author/Editor which, despite its intrinsic qualities, would have been more difficult to implement. In particular, tyhe flexibility of the emacs editing environment has allowed us to deliver it with the various DTDs that have been adopted within the two project, namely the full TEI, TEI Lite and the CES DTDs. the XCorpus environment developped at Nancy (http://www.loria.fr/projets/XCorpus/) and which comprises several SGML aware tools for testing, enhancing (e.g. through sentence slicing) and aligning multilingual documents. In particular, the aligning program is based upon a hierarchical mechanism which iteratively uses the SGML structure in DIVs (possibly embedded), Ps and SEGs (or Ss), to compute the final correspondances at the sentence level.</p><p>Both these environments, together with some more experimental tools (concordancers, lexical statistics, dictionary look-up etc.) are provided for various platforms such as Solaris, Windows or Macintosh.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Perspectives</head><p>Although the nature of the TELRI and MULTEXT-East resources are clearly specific, the work has more wideranging consequences. The CD-ROM provides standardised resources for over 20 languages, and tools to produce further, compatible resources, or exploit the ones already provided. Its possible applications are thus numerous. It could provide data for lexical studies, in particular those of translation equivalents; for teaching language or translators; or serve as learning data for taggers, aligners, tokenisers, and similar trainable programs. Aligned language pairings are provided which would otherwise be virtually impossible to find.</p><p>The CD-ROM uses HTML to structure its contents and provide documentation on the resources. These HTML pages include external HTTP links, pointing to useful environments and documentation. The CD-ROM can thus also serve as a 'primer' for language engineering applications, being especially useful for sites with poor Internet connections.</p><p>Another important result, though less tangible, lies in the sharing of knowledge and expertise throughout the work. Institutes, indeed countries, with little or no experience in the Language Engineering field have gained expertise in corpus selection, collection, encoding and manipulation. This expertise is now being used to produce new corpora and to encode existing corpus material.</p></div>		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Common Specifications and Notation for Lexicon Encoding and Preliminary Proposal for the Tagsets</title>
+	</analytic>
+	<monogr>
+		<title level="j">MULTEXT Deliverable D</title>
+		<editor>
+			<persName><forename type="first">N</forename><surname>Bel</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">N</forename><surname>Calzolari</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Monachini</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Eds</surname></persName>
+		</editor>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<date type="published" when="1995">1995</date>
+			<pubPlace>B, Pisa</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Projet de Concordances Parallèles Lingua : gestion de textes multilingues pour l&apos;apprentissage des langues</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bonhomme</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Actes Génie Linguistique</title>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+			<pubPlace>Montpellier</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">T</forename><surname>Erjavec</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">The MULTEXT-East Corpus. This</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Multext-East: Multilingual Text Tools and Corpora for Central and Eastern European Languages</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Erjavec</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Petkevič</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Veronis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the First European TELRI Seminar: Language Resources for Language Technology</title>
+		<meeting>the First European TELRI Seminar: Language Resources for Language Technology</meeting>
+		<imprint>
+			<date type="published" when="1996">1996</date>
+			<biblScope unit="page" from="87" to="98" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">MULTEXT (Multilingual Tools and Corpora)</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Veronis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 14th International Conference on Computational Linguistics, COLING&apos;94</title>
+		<meeting>the 14th International Conference on Computational Linguistics, COLING&apos;94<address><addrLine>Kyoto, Japan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1994">1994</date>
+			<biblScope unit="page" from="90" to="96" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Priest-Dorman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Veronis</surname></persName>
+		</author>
+		<ptr target="http://www.cs.vassar.edu/CES/" />
+		<title level="m">Corpus Encoding Standard</title>
+		<imprint>
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Synopsis and Comparison of Morphosyntactic Phenomena Encoded in Lexicons and in Corpora and Application to European Languages</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Monachini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Calzolari</surname></persName>
+		</author>
+		<idno>EAG-LSG-T4.6/CSG-T3.2</idno>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+			<pubPlace>Pisa</pubPlace>
+		</imprint>
+	</monogr>
+	<note type="report_type">EAGLES document</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Text representation in PAROLE. Parole MLAP 63-386</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Ridings</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+	<note>Work package 4.1.3</note>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Guidelines for Electronic Text Encoding and Interchange</title>
+		<author>
+			<persName><surname>Sperberg-Mcqueen</surname></persName>
+		</author>
+		<editor>C.M. &amp; Burnard,L.</editor>
+		<imprint>
+			<date type="published" when="1994">1994</date>
+			<publisher>Chicago and Oxford</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">Standardised Specifications, Development and Assessment of Large Morpho-Lexical Resources for Six Central and Eastern European Languages</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Tufi S</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Erjavec</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

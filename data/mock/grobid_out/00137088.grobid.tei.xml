@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Multimodal Meaning Representation for Generic Dialogue Systems Architectures</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Frédéric</forename><surname>Landragin</surname></persName>
+							<email>landragi@loria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">UMR 7503 Campus scientifique</orgName>
+								<orgName type="institution">LORIA</orgName>
+								<address>
+									<postBox>B.P. 239</postBox>
+									<postCode>F-54506</postCode>
+									<settlement>Vandoeuvre-lès-Nancy Cedex</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Alexandre</forename><surname>Denis</surname></persName>
+							<email>denis@loria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">UMR 7503 Campus scientifique</orgName>
+								<orgName type="institution">LORIA</orgName>
+								<address>
+									<postBox>B.P. 239</postBox>
+									<postCode>F-54506</postCode>
+									<settlement>Vandoeuvre-lès-Nancy Cedex</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Annalisa</forename><surname>Ricci</surname></persName>
+							<email>ricci@loria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">UMR 7503 Campus scientifique</orgName>
+								<orgName type="institution">LORIA</orgName>
+								<address>
+									<postBox>B.P. 239</postBox>
+									<postCode>F-54506</postCode>
+									<settlement>Vandoeuvre-lès-Nancy Cedex</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>romary@loria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">UMR 7503 Campus scientifique</orgName>
+								<orgName type="institution">LORIA</orgName>
+								<address>
+									<postBox>B.P. 239</postBox>
+									<postCode>F-54506</postCode>
+									<settlement>Vandoeuvre-lès-Nancy Cedex</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Multimodal Meaning Representation for Generic Dialogue Systems Architectures</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">B14610CBD9D05E38442DF79FD257295C</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>An unified language for the communicative acts between agents is essential for the design of multi-agents architectures. Whatever the type of interaction (linguistic, multimodal, including particular aspects such as force feedback), whatever the type of application (command dialogue, request dialogue, database querying), the concepts are common and we need a generic meta-model. In order to tend towards task-independent systems, we need to clarify the modules parameterization procedures. In this paper, we focus on the characteristics of a meta-model designed to represent meaning in linguistic and multimodal applications. This meta-model is called MMIL for MultiModal Interface Language, and has first been specified in the framework of the IST MIAMM European project. What we want to test here is how relevant is MMIL for a completely different context (a different task, a different interaction type, a different linguistic domain). We detail the exploitation of MMIL in the framework of the IST OZONE European project, and we draw the conclusions on the role of MMIL in the parameterization of task-independent dialogue managers.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>The specification of a language that represents both the form and the content of linguistic resources is an important task in the design of dialogue systems architectures. The more spontaneous and constraints-free is the natural language dialogue, the more complex are the form and the content of resources. When the dialogue is multimodal, so when a gesture capture device is associated to the microphone with which the user interacts with the system, the language shall combine the capability of handling complex structures in the language resources with the generality and the flexibility required for operating as communication interface between the various modules. In a multimodal system, the main and classical modules are the following: speech recognizer, gesture recognizer, semantic analyzer, multimodal fusion, action planner, multimodal fission, speech synthesizer, visual feedback producer. The use of a representation language common for all communicative acts offers several advantages in terms of generality and parameterization. For instance, exchanges between all the previously mentioned modules will be represented using the same format and the same content description, and the particular application for which the system is instanced will parameterize the action planner using the same type of resource. In this paper, we present our experience in designing the MMIL (MultiModal Interface Language) language in the framework of the IST MIAMM European project (see also <ref type="bibr" target="#b7">Kumar &amp; Romary, 2002)</ref>, and we describe the procedure while re-using it for the IST OZONE European project. In particular, we describe the MMIL specifications for the two demonstrators that were implemented during these projects, and the adaptations required for the management of new features. Among this new features: the management of salience, the status of secondary events in an user utterance, and the status of speech acts. On the basis of this experience, we draw some conclusions on the design of application-independent dialogue systems, and we discuss how MMIL is the object of a possible future standardization for the representation of multimodal semantic content.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>MMIL specifications in MIAMM</head><p>The specification of MMIL in MIAMM copes the definition of a language able to uniformly represent semantic content in a multimodal context, so to capture: ß linguistic, gestural, and graphical events, ß both dialogue acts and dialogue act's contents. Past or existing initiatives are often limited to specific modalities, while the aim of MMIL is to provide a metamodel for semantic representation free from any modality constraint.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>MMIL compared to other languages</head><p>M3L (Multimodal Markup Language) was specified for the SmartKom project for the representation of information that flows between the various processing components (speech recognition, gesture recognition, face interpretation, media fusion, presentation planning, etc.). In particular, M3L represents all information about segmentation, synchronization and confidences in processing results. Its main strong point is in its large coverage. But, contrary to MMIL, there is no meta-model behind M3L, and its XML syntax is not so flexible. EMMA (Extensible MultiModal Annotation Markup Language) aims to represent information automatically extracted from a user's input by an interpretation component. It's a technical report from the W3C Multimodal Interaction working group, which main purpose is to develop specifications to enable access to the Web using multimodal interaction. This orientation makes this language very engineering-oriented. MPML (Multimodal Presentation Markup Language) was and is still designed for multimodal presentation using interactive life-like agents. Its purpose is to provide a means to write attractive presentations easily <ref type="bibr" target="#b16">(Tsutsui et al., 2000)</ref>. It illustrates the interest of description language for multimodal generation and not only interpretation. But it's very procedural. MURML (Multimodal Utterance Representation Markup Language) bridges between the planning and the animation tasks in the production of multimodal utterances of an anthropomorphic agent <ref type="bibr" target="#b8">(Kranstedt et al., 2002)</ref>. Its main strong points are in the description of gestural behaviors and in the will of merging representations from interpretation and generation. ULF <ref type="bibr" target="#b0">(Ahn et al., 1995)</ref> and UMRS <ref type="bibr" target="#b2">(Copestake, 1995;</ref><ref type="bibr" target="#b3">Egg, 1998)</ref> are examples of interesting approaches that focus on linguistic meaning representation using logical forms. But they have not yet been extended to multimodality.</p><p>To summarize, we can identify three main approaches when specifying a multimodal content description language. First, the formalism-oriented approaches that focus on formal properties. ULF and UMRS belong to them, with an integration of complex logical forms. Second, the engineering-oriented approaches, that, face to the complexity of particular systems, focus on their particular needs. This is typically the case of M3L and MPML. The problem with such approaches is in their poor reusability. Third, the ontology-oriented approaches that constitute a compromise solution. Focusing on the concepts and on the management of under-specification, MMIL is an example of such an approach. When designing MMIL and for its future improvements, we aim to include the maximum of categories, and to tend to a format that covers the maximum of phenomena, from purely lexical aspects to pragmatic speech acts in dialogue.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A short description of MMIL</head><p>The MMIL meta-model abstracts different levels of dialogue information (phone, word, phrase, utterance) by means of a flat ontology which identifies shared concepts and constraints. The definition layer of the ontology includes two kinds of entities: events and participants. Events are objects associated to the temporal level, while participants are static entities acting upon or being affected by the events. Dependencies between entities are represented as typed relations linking structural nodes. Contrary to other semantic information models, the MMIL meta-model does not include relations, which are perceived as qualifying descriptors defining anchors among entities. As the other information units of the MMIL model (e.g., morpho-syntactic, domain, annotation descriptors), relations act in the information architecture as a set of descriptors (data categories) that formally describe the specification constraints. The data categories, expressed in an RDF format compatible with ISO 11179-3, give the necessary openness to the design of the semantic structures, so to cope with the potential flexibility of the model.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Testing MMIL for OZONE</head><p>To test the language's application-independence and the generality of its meta-model, we migrated MMIL from MIAMM to the OZONE project. OZONE differs from MIAMM in the following respects:</p><p>ß the interaction mode (tactile vs. haptic gesture), ß the application domain (train vs. music), ß the task type (requests vs. database querying).</p><p>The context is then very different and some problems arise. After a short presentation of the architecture, we discuss here three issues: (a) the distinction between attention and salience for graphical and gestural events; (b) the status of secondary events; (c) the status of speech acts.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Architecture and use of MMIL in OZONE</head><p>MMIL is used for the representation of all information communicated between the various agents of the architecture. These agents are the following ones: ß tactile gesture interpretation, ß speech interpretation, that is based on a speech recognition module and whose role is to parse the utterance, ß multimodal fusion, that integrates the results of the two previous modules with the dialogue history, ß action planner, where the system decides how to react to an utterance, ß modality adviser, that (a) tests the usability of speech and visual modalities for the feedback of information, and (b) chooses the most relevant one considering the context, ß application(s), each ones including a client and a server, ß response generation, including the following modules: multimodal fission, speech synthesizer, visual feedback producer.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The management of salience</head><p>From a theoretical point of view <ref type="bibr" target="#b11">(Rousselet et al., 2003)</ref>, attention and salience differ on how they influence perception. Attention originates in the user (top-down), whereas salience originates in the context (bottom-up). In dialogue systems, attention can be identified when objects are selected or mentioned by the user (low-term memory). MIAMM manages such a principle, but it does not address the issue of salience scores, introduced in MMIL to handle the representations of OZONE's complex visual scenes.</p><p>Figure <ref type="figure">1</ref> shows such a scene, including some train stations and some ways to reach them by train. A gesture is circling the station of Meudon (with the highest salience) and four ways to reach Meudon (with lower saliences).</p><p>The MMIL corresponding file is shown in Figure <ref type="figure" target="#fig_0">2</ref>.  This example illustrates the representation and the exploitation of salience scores when interpreting an ambiguous gesture. The complete disambiguation will be possible when confronting the result of the gesture interpretation to the result of the linguistic interpretation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The status of secondary events</head><p>Complex sentences need MMIL to cope with improved mechanisms for representing the status of secondary events. In the management of linguistic events, the MIAMM's basic assumption is to systematically attach the propositional content's event to the sole verb of the sentence (e.g., "I want pop or rock"). In OZONE a sentence can involve more than one verb and, depending on the case, more than one event. The role of each event within the semantic structure (main event or secondary event) is often related to the syntactic approach. For instance, we can compare the following sentences:</p><p>1. "I want to go to Paris" 2. "I must go to Paris" It is easy to see the different relevance of the "go" event: secondary event in (1), main event in (2). The MMIL representation that is obtained for (1) is given in Figure <ref type="figure" target="#fig_1">3</ref>.</p><p>&lt;mmil:mmilComponent xmlns:laf="http://www.tc37sc4.org/laf" xmlns:mmil="http://www.miamm.org/mmil"&gt; &lt;mmil:event id="e0"&gt; &lt;mmil:speaker&gt;user&lt;/mmil:speaker&gt; &lt;mmil:evtType&gt;speak&lt;/mmil:evtType&gt; &lt;mmil:addressee&gt;system&lt;/mmil:addressee&gt; &lt;mmil:dialogueAct&gt;request&lt;/mmil:dialogueAct&gt; &lt;mmil:spokenLanguage&gt;en&lt;/mmil:spokenLanguage&gt; &lt;/mmil:event&gt; &lt;mmil:event id="e1"&gt; &lt;mmil:evtType&gt;want&lt;/mmil:evtType&gt; &lt;mmil:mode&gt;indicative&lt;/mmil:mode&gt; &lt;mmil:tense&gt;present&lt;/mmil:tense&gt; &lt;/mmil:event&gt; &lt;mmil:event id="e2"&gt; &lt;mmil:evtType&gt;go&lt;/mmil:evtType&gt; &lt;mmil:mode&gt;indicative&lt;/mmil:mode&gt; &lt;mmil:tense&gt;present&lt;/mmil:tense&gt; &lt;/mmil:event&gt; &lt;mmil:participant id="p0"&gt; &lt;mmil:lex&gt;i&lt;/mmil:lex&gt; &lt;mmil:objType&gt;PERSON&lt;/mmil:objType&gt; &lt;mmil:refType&gt;1PPDeixis&lt;/mmil:refType&gt; &lt;/mmil:participant&gt; &lt;mmil:participant id="p1"&gt; &lt;mmil:lex&gt;paris&lt;/mmil:lex&gt; &lt;mmil:objType&gt;PLACE&lt;/mmil:objType&gt; &lt;/mmil:participant&gt; &lt;mmil:relation laf:source="e1" laf:target="e0"type="propContent"/&gt; &lt;mmil:relation laf:source="p0" laf:target="e1" type="subject"/&gt; &lt;mmil:relation laf:source="e2" laf:target="e1"type="object"/&gt; &lt;mmil:relation laf:source="p1" laf:target="e2" type="destination"/&gt; &lt;/mmil:mmilComponent&gt; </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The status of speech acts</head><p>The speech act of an utterance reflects the way the user wants the system to react. Speech acts are linked to pragmatics of dialogue and MMIL shall represent them, since the language is intended to cover the different levels of dialogue information. Following Relevance Theory <ref type="bibr" target="#b14">(Sperber &amp; Wilson, 1995)</ref>, we consider as the three fundamental speech acts saying, telling and asking. With P the propositional form of the utterance, we have: ß saying that P, ß telling the hearer to P, ß asking Wh-P (what, who, where, why, etc.). MIAMM involves the representation of the following speech acts: open, close, inform, request, accept, and reject. But the MIAMM application is only working with orders, and the resultant dialogue act is always a request (for instance, "play rap from the 90's"), whatever the form of the utterance, saying ("I want rap from the 90's"), telling ("Please play rap from the 90's") or asking ("Can you play rap from the 90's?"). OZONE differentiates the three forms. Saying and asking share in MMIL the same structure, but different polarities affect the entities. For instance, the sentence "How can I go to Paris?" is represented the same as "I can go to Paris by X", where an interrogative polarity is put on the entity representing X (see Figure <ref type="figure" target="#fig_2">4</ref>). Concerning indirect speech acts, e.g., an assertion that hides an order, they do not address MMIL and have to be resolved in the dialogue modules.</p><p>&lt;mmil:mmilComponent xmlns:laf="http://www.tc37sc4.org/laf" xmlns:mmil="http://www.miamm.org/mmil"&gt; &lt;mmil:participant id="0"&gt; &lt;mmil:lex&gt;i&lt;/mmil:lex&gt; &lt;mmil:objType&gt;PERSON&lt;/mmil:objType&gt; &lt;mmil:refType&gt;1PPDeixis&lt;/mmil:refType&gt; &lt;/mmil:participant&gt; &lt;mmil:participant id="1"&gt; &lt;mmil:lex&gt;paris&lt;/mmil:lex&gt; &lt;mmil:objType&gt;PLACE&lt;/mmil:objType&gt; &lt;mmil:mmilId&gt;Paris&lt;/mmil:mmilId&gt; &lt;/mmil:participant&gt; &lt;mmil:participant id="2"&gt; &lt;mmil:question&gt;how&lt;/mmil:question&gt; &lt;/mmil:participant&gt; &lt;mmil:event id="3"&gt; &lt;mmil:evtType&gt;go&lt;/mmil:evtType&gt; &lt;mmil:mode&gt;indicative&lt;/mmil:mode&gt; &lt;mmil:tense&gt;present&lt;/mmil:tense&gt; &lt;mmil:modal&gt;can&lt;/mmil:modal&gt; &lt;/mmil:event&gt; &lt;mmil:event id="4"&gt; &lt;mmil:speaker&gt;user&lt;/mmil:speaker&gt; &lt;mmil:evtType&gt;speak&lt;/mmil:evtType&gt;&lt;mmil:addressee&gt; system&lt;/mmil:addressee&gt; &lt;mmil:dialogueAct&gt;request&lt;/mmil:dialogueAct&gt; &lt;mmil:spokenLanguage&gt;en&lt;/mmil:spokenLanguage&gt; &lt;/mmil:event&gt; &lt;mmil:relation laf:source="3" laf:target="4" type="propContent"/&gt; &lt;mmil:relation laf:source="0" laf:target="3" type="subject"/&gt; &lt;mmil:relation laf:source="1" laf:target="3" type="destination"/&gt; &lt;mmil:relation laf:source="2" laf:target="3" type="mean"/&gt; &lt;/mmil:mmilComponent&gt; </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conclusion</head><p>The work we have conducted on the definition and tuning of the MMIL language in the two European projects described in this paper can be seen as a kind of experiment to identify precise requirements on what a general framework for multimodal content representation. Those requirements should obviously go beyond what has been described in <ref type="bibr" target="#b1">(Bunt &amp; Romary, 2002)</ref>, in order to identify classes of applications which bear enough features to be covered by one single model (or at least meta-model in the sense of <ref type="bibr" target="#b4">Ide &amp; Romary, 2002)</ref>. Indeed, it may not be likely that the kind of representations needed for such applications as information extraction, named entity recognition, reference annotation (see <ref type="bibr" target="#b12">Salmon-Alt &amp; Romary, 2004)</ref>, or the annotation of temporal structure will be based on exactly the same underlying structures. Still, it seems necessary that those various types of models do share a common semantics for any sub-structure they would share and even more for any elementary descriptor they would use (e.g., a certain dialogue act /inform/, or discourse relation /elaboration/, a temporal relation /overlap/, or an elementary role in relation to an event /agent/). Such a goal obviously requires that there is some kind of consensus on providing some shared definition of such concepts, as well as an international infrastructure to submit, select and disseminate those descriptors. The first aspect is one of the topics which has been considered as underlying the activity of the ACL/SIGSEM working group on multimodal semantic content representation and is being pursued through a series of meetings that have taken place since November 2002. The second aspect is the core of a standardizing effort in ISO committee TC 37 to deploy an on-line data category registry intended to cover a wide variety of descriptors (also known as data categories in the TC 37 terminology) identified in existing representation or annotation practices. In this context, we would like to see MMIL as one instance of such a descriptive and modelling activity which would nicely fit the needs of multimodal dialogue system when conveying meaning from one component to another. If it is the case, we could also contemplate using MMIL -or a dialect thereof -for such tasks as the evaluation of dialogue systems. This is what we currently explore in the context of the French project Media dedicated to the contextual evaluation of dialogue manager modules.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: MMIL file for the interpretation of a gesture</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 3 :</head><label>3</label><figDesc>Figure 3: MMIL file for a linguistic representation</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: MMIL file for a question</figDesc></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>This work was supported by the IST-2000-29487 MIAMM EC project and the IST-2000-30026 OZONE EC project (see References).</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Two Levels of Semantic Representation in DenK</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Ahn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Kievit</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Rentier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Verlinden</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Papers from the Fifth CLIN Meeting</title>
+		<editor>
+			<persName><forename type="first">T</forename><surname>Andernach</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Moll</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Nijholt</surname></persName>
+		</editor>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+		</imprint>
+		<respStmt>
+			<orgName>Universiteit Twente</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Towards Multimodal Content Representation</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Bunt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of LREC 2002 Workshop on International Standards of Terminology and Linguistic Resources Management</title>
+		<editor>
+			<persName><forename type="first">K</forename><surname>Lee</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">K</forename><surname>Choi</surname></persName>
+		</editor>
+		<meeting>LREC 2002 Workshop on International Standards of Terminology and Linguistic Resources Management</meeting>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+			<biblScope unit="page" from="54" to="60" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Semantic Transfer in Verbmobil</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Copestake</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Verbmobil report</title>
+		<imprint>
+			<biblScope unit="volume">93</biblScope>
+			<date type="published" when="1995">1995</date>
+			<pubPlace>Stuttgart, Germany and CSLI, Stanford</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>IMS, Universität</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Wh-Questions in Underspecified Minimal Recursion Semantics</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Egg</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Semantics</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="37" to="82" />
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Standards for Language Resources</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Third Language Resources and Evaluation Conference</title>
+		<meeting>the Third Language Resources and Evaluation Conference<address><addrLine>Las Palmas, Spain</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+			<biblScope unit="page" from="839" to="844" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<idno>ISO/IEC 11179-3</idno>
+		<ptr target="http://www.iso.ch" />
+		<title level="m">Metadata Registry Meta-model</title>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Language Resources Management&quot; Sub-Committee of the International Organization for Standardization</title>
+		<idno>ISO/TC37/SC4</idno>
+		<ptr target="http://www.tc37sc4.org" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">A Comprehensive Framework for Multimodal Meaning Representation</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the International Workshop on Computational Semantics (IWCS-5)</title>
+		<meeting>the International Workshop on Computational Semantics (IWCS-5)<address><addrLine>Tilburg, Netherlands</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">MURML: A Multimodal Utterance Representation Markup Language for Conversational Agents</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kranstedt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kopp</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Wachsmuth</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Workshop Embodied Conversational Agents, Autonomous Agents and Multi-Agent Systems (AAMAS&apos;02)</title>
+		<meeting>the Workshop Embodied Conversational Agents, Autonomous Agents and Multi-Agent Systems (AAMAS&apos;02)<address><addrLine>Bologna, Italy</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<author>
+			<persName><forename type="first">Multidimensional</forename><surname>Miamm</surname></persName>
+		</author>
+		<ptr target="http://www.miamm.org" />
+		<title level="m">Information Access using Multiple Modalities, IST-2000-29487 European Project</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">Offering an Open and Optimal roadmap towards consumer oriented ambient intelligence</title>
+		<author>
+			<persName><surname>Ozone</surname></persName>
+		</author>
+		<idno>IST- 2000-30026 European Project</idno>
+		<ptr target="http://www.extra.res-earch.philips.com/euprojects/ozone" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Les mécanismes de l&apos;attention visuelle</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">A</forename><surname>Rousselet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fabre-Thorpe</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Psychologie Française</title>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="29" to="44" />
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Towards a Reference Mark-up Framework</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Salmon-Alt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Fourth International Conference on Language Resources and Evaluation</title>
+		<meeting>the Fourth International Conference on Language Resources and Evaluation<address><addrLine>Lisbon, Portugal</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<author>
+			<persName><surname>Sigsem</surname></persName>
+		</author>
+		<ptr target="http://www.sigsem.org" />
+		<title level="m">Special Interest Group on Computational Semantics of the Association for Computational Linguistics</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><surname>Sperber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Wilson</surname></persName>
+		</author>
+		<title level="m">Relevance. Communication and Cognition</title>
+		<meeting><address><addrLine>Oxford, UK &amp; Cambridge, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Blackwell</publisher>
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+	<note>nd edition</note>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<author>
+			<persName><surname>Tei</surname></persName>
+		</author>
+		<ptr target="http://www.tei-c.org" />
+		<title level="m">Text Encoding Initiative</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">MPML: A Multimodal Presentation Markup Language with Character Agent Control Functions</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tsutsui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Saeyor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ishizuka</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the World Conference on the WWW and Internet</title>
+		<meeting>the World Conference on the WWW and Internet<address><addrLine>San Antonio</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2000">2000. WebNet 2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Extensible MultiModal Annotation markup language. Multimodal Interaction working group</title>
+		<author>
+			<persName><forename type="first">Emma</forename><surname>W3c</surname></persName>
+		</author>
+		<ptr target="http://www.w3.org/TR/emma" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

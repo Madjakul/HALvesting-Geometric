@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Stabilizing knowledge through standards a perspective for the humanities</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2009-04-12">12/4/2009</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">INRIA Gemo &amp; Humboldt Univ. Berlin IDSL</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Stabilizing knowledge through standards a perspective for the humanities</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2009-04-12">12/4/2009</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">5CB07A867F7DEEC60AF67C9CF9F83318</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>From scientific data to lexical databases</term>
+					<term>Standardization -TEI, ISO, etc.</term>
+					<term>Masculine, feminine, etc</term>
+				</keywords>
+			</textClass>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Why standardizing all this?</p><p>• Defining methods or models to facilitate -Exchange of data -Pooling data from various origins -Interoperability between software components -Comparability of results</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Involves</head><p>-From a scientific and technological point of view</p><p>• Stabilizing/documenting existing practices, knowledge • Looking ahead for potential roadblocks (generalizations)</p><p>-From an organizational point of view</p><p>• International consensus, long term availability and maintenance</p><p>Standards: a complex picture    How to answer reluctance?</p><p>• Main issues -Managing the trade-off between interoperability and variability of linguistic representation -Documenting and maintaining document formats -Unifying the management, query and presentation of li i ti linguistic resources</p><p>• A possible answer -Standards as specification platforms Intermezzo -an XML tutorial </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>TEI example</head><p>&lt;stage&gt;Enter Barnardo and Francisco, two Sentinels,at several doors&lt;/stage&gt; &lt;sp who="Barnardo"&gt; &lt;l part="f"&gt;Who's there?&lt;/l&gt; &lt;/sp&gt; &lt;sp who="Francisco"&gt; &lt;l&gt;Nay, answer me. Stand and unfold yourself.&lt;/l&gt; &lt;/sp&gt; &lt;sp who="Barnardo"&gt; &lt;l part="i"&gt;Long live the king!&lt;/l&gt; &lt;/sp&gt; &lt;sp who="Francisco"&gt; &lt;l part="m"&gt;Barnardo?&lt;/l&gt; &lt;/sp&gt; &lt;sp who="Barnardo"&gt; &lt;l part="f"&gt;He. &lt;/l&gt; &lt;/sp&gt; <ref type="bibr">04.12.2009</ref> Seite 20</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Following the TEI spirit</head><p>Conformance to the TEI means:</p><p>• Sharing a common text encoding culture</p><p>• Sharing the same vocabulary (when applicable)</p><p>• Allowing user autonomy in defining modifications (extensions, customization), but sharing the mechanisms to do so </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Before we go any further…</head><p>• Which normative reference for the values of element like &lt;gen&gt; (grammatical gender)?</p><p>-Not an issue specific to dictionary design • Cf. linguistic annotation at large (e.g. POS tagging)</p><p>-Not an issue specific to the TEI community</p><p>• Such values and their semantics should be defined independantly of any specific tagset</p><p>• Is &lt;gen&gt; a self-standing notion?</p><p>Modeling Lexical Resources within ISO/TC 37/SC 4 ISO in short • Providing definitions and principles  • A reference space for schema designers -Towards an international registry for language resources </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Some deeper thoughts on gender</head><p>• A central category in linguistic and computational linguistic -Lexica, morpho-syntactic tagging, agreement in syntax, etc.</p><p>• Can we standardize "gender" -Interoperability vs. language variety</p><p>• By the way, gender is not exactly "sex"</p><p>-ISO 5218, Information technology -Codes for the representation of human sexes</p><p>• 0 = not known; 1 = male; 2 = female; 9 = not applicable</p><p>The linguistic view</p><p>• What is gender:</p><p>-"a classification of nominals, as shown by agreement"</p><p>• E.g. die Katze -der Hund E.g. die Katze der Hund -Determiners, adjectives, numerals, verbs </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Full</head><label></label><figDesc></figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>TEI's literate programming with ODD (One Document Does it all) provides: schema specification (DTD, RelaxNG, W3C), user oriented documentation, modularity, classes, extensibility.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>-•</head><label></label><figDesc>Character encoding • ISO 636, ISO 8859-x, ISO 10646/Unicode • Standard as an evolving material ISO process CD = Committee Draft DIS = Draft International Standard DPAS = Draft Publicly Available Specification DTR = Draft Technical Report DTS = Draft Technical Specification FDIS = Final Draft International Standard IS = International Standard NP = New Work Item Proposal PAS = Publicly Available Specification TR = Technical Report TS = Technical Specification WD = Working Draft ISO/TC 37/SC 4 projects ISO 24610-1:2006 Feature structures --Part 1Summer 2003: new work item proposal (US) delegation • Fall 2003: technical proposal (FR) for a data model dedicated to</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>Modeling Lexical Structures with the TEI How it all started</head><label></label><figDesc></figDesc><table><row><cell>Lou Burnard</cell><cell></cell></row><row><cell></cell><cell>1. Novembre 1987:</cell></row><row><cell></cell><cell>Vassar College,</cell></row><row><cell></cell><cell>Poughkeepsie</cell></row><row><cell>04.12.2009</cell><cell>Seite 19</cell></row><row><cell cols="2">• XML is about awful angle brackets</cell></row><row><cell>&lt;gramGrp&gt;</cell><cell></cell></row><row><cell>&lt;gen&gt;f&lt;/gen&gt;</cell><cell></cell></row><row><cell>&lt;num&gt;p&lt;/num&gt;</cell><cell></cell></row><row><cell>&lt;/gramGrp&gt; &lt;/gramGrp&gt;</cell><cell></cell></row><row><cell>• XML is about trees</cell><cell></cell></row><row><cell>• Issues</cell><cell></cell></row><row><cell cols="2">-Specifying structures</cell></row><row><cell>-Providing semantics</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_9"><head></head><label></label><figDesc>Libraries and archives are the traditional "laboratories" for the humanities • In the digital age, essential for innovative humanities research is:-Access to digitised heritage data (data bases, text corpora, speech, image collections, etc.) -Tools to process this information Should we/you be afraid of standards? &lt;cit&gt; &lt;quote&gt;Yes you should be afraid, but you should be more afraid of not having them&lt;/quote&gt; &lt;author&gt;Wendell Piez&lt;/author&gt; &lt;/cit&gt;</figDesc><table><row><cell></cell><cell></cell><cell></cell><cell cols="2">Research Infrastructures</cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="2">• In general: permanent and physical</cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="2">• Natural sciences: ice breakers for polar research, satellites,</cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="2">telescopes, particle accelerators, laboratories</cell></row><row><cell></cell><cell></cell><cell></cell><cell>1sg • RIs for the humanities?</cell><cell>nəš</cell><cell>1 p l</cell><cell>n əšnin</cell></row><row><cell cols="3">RESEARCH INFRASTRUCTURES IN THE HUMANITIES Epilogue</cell><cell cols="2">2sg.m -Cultural heritage in all forms is the main source of humanities š ə k 2 p l . m k ə niw • Gender Disctinctions in Independent Personal Pronouns, Source: Anna Siewierska (cf. wals.info) 2sg.f šəm 2 p l . f h research k ənint 3sg.m nətta 3pl.m nitnin 3sg.f nəttaeθ 3pl.f nitənti -04.12.2009 Seite 50</cell></row><row><cell cols="3">The TC 37 model -ISO 12620 Core activities</cell><cell cols="2">Petit Larousse 1905 by Métadif (source H. Manuélian)  goes TEI Convergence? (conclusive) priorities</cell></row><row><cell cols="3">Entry Identifier: grammatical gender Profile: morpho-syntax Definition (fr): Catégorie grammaticale reposant, selon les langues et les systèmes sur la distinction naturelle entre les sexes ou systèmes, sur la distinction naturelle entre les sexes ou sur des critères formels (Source: TLFi) Definition (en): Grammatical category… (Source: TLFi (Trad.)) Conceptual Domain: {/feminine/, /masculine/, /neuter/} Object Language: fr Name: genre Conceptual Domain: {/feminine/, /masculine/} Object Language: en Name: gender Name: grammatical gender Object Language: de Name: Geschlecht Name: Genus Conceptual Domain: {/feminine/, -Tools and registries /masculine/, /neuter/} -Authentication and authorisation, -Harvesting, aggregating, hosting -User-friendly discovery, delivery and use • Connect -Collaborate -Use -Supporting communities of practice -Facilitating new research practice</cell><cell cols="2">&lt;/lexicalEntry&gt; Campe by Uni. Würzburg (W. Wegstein)  goes TEI &lt;orth&gt;AZYGOS&lt;/orth&gt; &lt;entry&gt; &lt;form&gt; &lt;pron&gt;(ghoss)&lt;/pron&gt; &lt;/form&gt; &lt;sense&gt; &lt;gramGrp&gt; &lt;pos&gt;n.&lt;/pos&gt; &lt;gen&gt;f.&lt;/gen&gt; &lt;/gramGrp&gt; &lt;sense&gt; Morphalou 2005 by ATILF (S. Alt)  goes LMF &lt;def type="paraphrase"&gt;die alte&lt;lb/&gt; Benennung aller großer Raubvögel, besonders aber des Adlers, die&lt;lb/&gt; noch in &lt;usg type="geo"&gt;N. D.&lt;/usg&gt; üblich ist und &lt;usg type="domain"&gt;bei Dichtern&lt;/usg&gt; vorkömmt.&lt;lb/&gt;&lt;/def&gt; &lt;cit type="example"&gt; &lt;lexicalEntry&gt; • Transparency &lt;lemma&gt;cheikh&lt;/lemma&gt; &lt;spellingVariant&gt;cheik&lt;/spellingVariant&gt; &lt;grammaticalCategor&gt;common noun&lt;/grammaticalCategory&gt; &lt;/gramGrp&gt; &lt;def&gt;Veine qui établit la communication entre les deux veines caves.&lt;/def&gt; &lt;/sense&gt; &lt;sense&gt; &lt;gramGrp&gt; &lt;pos&gt;Adj.&lt;/pos&gt; &lt;/gramGrp&gt; &lt;cit type="collocation"&gt; &lt;quote&gt;veine azygos&lt;/quote&gt; &lt;/cit&gt; &lt;/sense&gt; &lt;/entry&gt; • Answering priority needs &lt;grammaticalCategor&gt;common noun&lt;/grammaticalCategory&gt; &lt;quote&gt;Ein kühner Aar theilt mit gewalt'gen Schwingen&lt;lb/&gt; Die Lüfte, -----&lt;/quote&gt; &lt;bibl&gt;&lt;author n="#Schreiber"&gt;Schreiber.&lt;/author&gt;&lt;lb/&gt;&lt;/bibl&gt; &lt;/cit&gt; &lt;cit&gt; &lt;quote&gt;Bald werdet ihr im Meer der Haien,am Gestade&lt;lb/&gt; Der Aaren Beute sein. -&lt;/quote&gt; &lt;bibl&gt;&lt;author n="#Ramler"&gt;Ramler.&lt;/author&gt;&lt;lb/&gt;&lt;/bibl&gt; &lt;/cit&gt; &lt;/dicteg&gt; &lt;/sense&gt; &lt;grammaticalGender&gt;masculine&lt;/grammaticalGender&gt; -Strong request to provide infrastructures for simple types &lt;morphology&gt; &lt;inflexion&gt; of data &lt;wordForm&gt;cheikh&lt;/wordForm&gt; &lt;grammaticalNumber&gt;singular&lt;/grammaticalNumber&gt; &lt;/inflexion&gt; &lt;inflexion&gt; • Pragmatic sense • Preserving scientific patrimony &lt;wordForm&gt;cheikhs&lt;/wordForm&gt; &lt;grammaticalNumber&gt;plural&lt;/grammaticalNumber&gt; -High amounts of research data is continuously lost &lt;/inflexion&gt; &lt;/morphology&gt; • Identification, preservation</cell></row><row><cell>04.12.2009 04.12.2009</cell><cell>Seite 45 Seite 51</cell><cell></cell><cell>04.12.2009</cell><cell>Seite 52</cell></row><row><cell></cell><cell>Convergence?</cell><cell></cell><cell cols="2">Standards as an emanation from scientific knowledge</cell></row><row><cell></cell><cell>ISO 639, ISO 3166, etc.</cell><cell></cell><cell></cell></row><row><cell>ISO</cell><cell>ODD for ISO back office, FSR</cell><cell>TEI</cell><cell></cell><cell>development</cell></row><row><cell></cell><cell></cell><cell></cell><cell>Stable knowledge</cell><cell>Appropriation</cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="2">Category</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell>Registry</cell></row><row><cell></cell><cell>W3C</cell><cell></cell><cell>Scientific knowledge</cell><cell>Implementation</cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="2">New communities</cell></row><row><cell></cell><cell></cell><cell></cell><cell>04.12.2009</cell><cell>Seite 48</cell></row></table><note><p>• E.g. Control by anaphoric pronouns (cf. en) -Die Katze… sie… -Not present in all languages • Number of genders (Greville G. Corbett) Application: Independent personal pronouns • Example: Rif Berber (McClelland 2000: 27) • Digitise -Curate -Preserve -Standards development and promotion -Curation, preservation and digitisation services -Technology platforms -Legal services and advice • Discover -Access -Deliver • Mastering the technology -Not all scientist are technological geeks</p></note></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl/>
+			</div>
+		</back>
+	</text>
+</TEI>

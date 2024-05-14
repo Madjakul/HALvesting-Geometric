@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Episciences IAM : un projet éditorial entre rupture et continuité</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Gaëlle</forename><surname>Rivérieux</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Pascal</forename><surname>Guitton</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Claude</forename><surname>Kirchner</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Maud</forename><surname>Medves</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Millet</forename><surname>Jacques</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Alain</forename><surname>Monteil</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<title level="a" type="main">Episciences IAM : un projet éditorial entre rupture et continuité</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">B997008C8597BBE17AE3F1C3FF808462</idno>
+					<note type="submission">Submitted on 6 Jun 2014</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Proposition de Communication Episciences IAM (Informatics and Applied Mathematics) aux Journées Medici 2014</head><p>Episciences IAM : Pascal Guitton 1 , Claude Kirchner 1 , Maud Medves 1 2 , Jacques Millet 1 , Alain Monteil 1, Laurent Romary 1 2 , Gaëlle Rivérieux Soutenant une politique volontariste de « Green Open Access », ce projet ambitionne d'offrir une alternative crédible et durable à la « serial crisis » qui paralyse les bibliothèques académiques et de recherche depuis plus d'une dizaine d'années.</p><p>Le principe de ce projet est de répondre au besoin d'offrir un moyen de communication rapide des résultats scientifiques, validés et labellisés par des revues du meilleur niveau dans le domaine de l'informatique et des mathématiques appliquées. Par ailleurs, ce projet contribue à libérer les revues des contraintes commerciales généralement imposées par les éditeurs dès qu'il s'agit d'offrir un accès définitif, libre et immédiat aux résultats scientifiques, sans embargo ni contrepartie financière. Concrètement, il s'agit de proposer via une plateforme technique, la soumission de contributions scientifiques, déjà librement accessibles sur une archive ouverte comme HAL ou ArXiv, à un processus d'évaluation et de validation scientifique. Le processus éditorial se décline alors selon les principes traditionnels tels que : soumission, évaluation et révision par les pairs, puis acceptation par un comité éditorial de manière similaire à une soumission classique actuelle d'un article scientifique. L'écologie d'un tel projet, rompant avec l'édition commerciale traditionnelle, repose sur la prise en main des meilleures revues du domaine par les communautés scientifiques, organisées en epicomités thématiques, regroupant les experts internationaux les plus renommés. Ce projet s'adresse autant à des revues existantes, souhaitant s'affranchir d'un environnement éditorial commercial, qu'à des revues émergentes.</p><p>Parmi les nouveaux enjeux qui se présenteront, nous poserons la question de la réception de ces revues au sein de la communauté scientifique, lorsqu'il s'agira d'apprécier leur facteur d'impact lors des évaluations et des recrutements des scientifiques. Enfin, nous ferons le lien avec l'émergence de nouveaux types de revues en libre accès, associant les codes, programmes et jeux de données rapportés à la publication.</p><p>Conçu à terme comme une infrastructure de recherche inter-établissements, le projet Episciences IAM s'appuie sur la plateforme Episciences, développée et hébergée par le CCSD qui offre un environnement de soumission et d'examen par les pairs.</p></div>		</body>
+		<back>
+			<div type="references">
+
+				<listBibl/>
+			</div>
+		</back>
+	</text>
+</TEI>

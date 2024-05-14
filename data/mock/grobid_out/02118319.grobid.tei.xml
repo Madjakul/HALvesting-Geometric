@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">LMF Reloaded</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Inria-ALMAnaCH -Automatic Language Modelling and ANAlysis &amp; Computational Humanities</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Inria-ALMAnaCH -Automatic Language Modelling and ANAlysis &amp; Computational Humanities</orgName>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">Université Paris Diderot -Paris</orgName>
+								<address>
+									<addrLine>7 3, CMB -Centre Marc Bloch 4</addrLine>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">BBAW -Berlin-Brandenburg Academy of Sciences and Humanities 5</orgName>
+								<orgName type="institution">ANSI-American National Standards Institute</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Fahad</forename><surname>Khan</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Jack</forename><surname>Bowers</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Inria-ALMAnaCH -Automatic Language Modelling and ANAlysis &amp; Computational Humanities</orgName>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="department">EPHE -École Pratique des Hautes Études 7. ÖAW -Austrian Academy of Sciences 8</orgName>
+								<orgName type="institution">CNR-ILC -Istituto di Linguistica Computazionale &quot;Antonio Zampolli&quot;</orgName>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="department">IDS -Institut für Deutsche Sprache</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Nicoletta</forename><surname>Calzolari</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Monte</forename><surname>George</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Mandy</forename><surname>Pet</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Piotr</forename><surname>Bański</surname></persName>
+						</author>
+						<title level="a" type="main">LMF Reloaded</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">8AA9FFB34B38AAF99DB07697987D99D6</idno>
+					<note type="submission">Submitted on 23 May 2019</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>ISO 24613</term>
+					<term>LMF</term>
+					<term>Lexical resources</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>The previous version of LMF, published by ISO in 2008 <ref type="bibr" target="#b0">[1]</ref> offered a framework for modelling, publishing and sharing lexical resources with a special focus on requirements arising from the domain of Natural Language Processing (NLP). Due to the potential richness and the multi-layered nature of linguistic descriptions in lexical resources the LMF meta-model ended up taking on a great deal of complexity in its attempt to reflect these various different linguistic facets. At the same time key areas of linguistics such as etymology (and diachronic lexical information in general) were not covered at all. Finally, the recommended serialisation for LMF was not clearly compatible with other leading markup standards, namely the TEI <ref type="bibr" target="#b2">[3]</ref>.</p><p>For these, and other reasons it was decided that the standardisation sub-committee, ISO-TC37/SC4/WG4 should review the LMF meta-model in order to create a new version of the standard which would address all of these issues. This new version of LMF will constitute a multi-part standard consisting of seven modules with the possibility of further extensions. Importantly the new version of LMF will be backwards compatible with the 2008 version. In the following section we will describe each package of the revised standard.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Abstract Modelling</head><p>In keeping with the fundamental conceptual modelling principles which have been decided on by ISO-TC37/SC4/WG4, the proposed model has been decoupled from any single serialisation format, although two potential serialisations of the meta-model constitute parts iv and v of the standard (TEI and LBX respectively). As a result, three major improvements have been carried out: restructuring; enrichment and simplification. Each are discussed below.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>a. Restructuring</head><p>Although the previous version of the standard reflected some separation among packages touching on different linguistic levels of description, the differentiation lacked a sufficient level of modularity. A user of the standard had to get the standard as a whole package where he could be interested in just specific parts of it. The current version of the standard is much more modular and has been split into the following seven parts: ISO 24613-5 -LBX serialisation : a second serialisation is formalised here using Language Base Exchange (LBX) vi.</p><p>ISO 24613-6 -Syntax and Semantics : semantic and syntactic components are gathered in this extension to be revised and integrated with the first three parts of the standard vii.</p><p>ISO 24613-7 -Morphology: morphology package will be defined in a separate part of the standard and will also be interconnected with the first three parts of the standard</p><p>The restructuring comes along with a revision of class membership; for example, the Lemma class, which was previously based in the MRD part is now part of the Core Module as it is a fundamentally essential part of a lexicon. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>c. Simplification</head><p>The emphasis on abstraction and modularisation has also led to a series of major simplifications affecting nearly every class of the meta-model. One key feature which is been newly introduced is the CrossREF class which is a pointing/mapping mechanism that can be used to model a wide array of lexical features and relationships such as semantic relations, cross references, related entries and others within the meta-model. As a result some classes (e.g. List of Components and Component) whose features have been taken on, in part, by CrossREF have been removed altogether. Figure <ref type="figure" target="#fig_0">1</ref> illustrates the simplicity of the new mechanism used to model Multi Word Expressions (MWE) previously represented by classes which are now obsolete.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">More Coverage</head><p>One of the main intentions behind the new version of the standard is to provide increased coverage of the type of information that can be encoded by the model. To this end a completely new meta-model covering etymological and diachronic information is proposed in (ISO 24613-3). This new module extends the core LMF and MRD metamodels adding the following key classes (among others):</p><p>-Etymon and Cognate : subclasses of the core class Lexical Entry which are used in describing the diachrony of other lexical entries. Etymons are lexical entries from which another lexical entry is derived (a historical form or sense), and Cognates are lexical entries in related languages which share a common ancestor with a given aspect of a lexical entry. -EtyLink : subclass of CrossREF which is used to link one or more temporal stages of one or more aspects of a lexical entry (i.e. sense, phonetic properties, etc.) -Etymology : describes the history of a lexical entry or other element by being associated with an ordered series of EtyLink instances. An Etymology instance can be recursive and typed to define the changes undergone according to any number of linguistic processes (e.g. borrowing, inheritance, metaphor, metonymy, etc.) -Date : defines specific or relative temporal information associated with some aspect of an etymology or its components</p><p>We illustrate the new etymology module with an example, an etymology for the word center which we have taken from <ref type="bibr">Klein [4]</ref>: In Figure <ref type="figure" target="#fig_2">2</ref> we present an LMF model of a part of the Klein entry, namely, the portion that describes the borrowing of the word center from French, and its history prior to that.</p><p>Note that for reasons of space we haven't shown the ordering of the Etylinks in the diagram nor specified the types of link (specifying for instance if an etymological link between two elements represents an etymological borrowing or inheritance). This is however an important aspect of etymological encoding and should be included in LMF resources describing the etymologies of lexical entries.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Connection with Leading Standards</head><p>The Text Encoding Initiative (TEI) is a standard which is widely adopted among lexicographers. The new version of LMF contains a TEI serialisation which aims to make both standards fully compatible following the vision presented by Romary in <ref type="bibr" target="#b2">[3]</ref>. This serialization has the benefit of being able to leverage the knowledge and make use of the established practices of the TEI community in dealing with the representation of a wide array of lexicographic issues with which LMF is also concerned. The TEI guidelines offer a great degree of freedom for encoding lexical information. However in some cases, such freedom comes at the cost of an excess of variability in how users choose to represent certain features. Therefore in this serialization, we have sought to constrain that flexibility in line with similar initiatives, namely TEI Lex-0 <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b5">6,</ref><ref type="bibr" target="#b6">7]</ref>. In Figure <ref type="figure" target="#fig_3">3</ref> we show how the components in Figure <ref type="figure" target="#fig_0">1</ref>  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Conclusion</head><p>In this work we have presented the measures we followed to remedy the deficiencies noted in LMF after years of release. The changes, being in some cases important, will bring more flexibility and interoperability to the standard. The in-depth structure review along with the enriching new modules will be great assets for the current users of the standards and hesitant lexicographers to adopt the standard as they could benefit not only from the advantages of a de jure standard like ISO 24613 but also to have efficient modelling and serialisation alternatives.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>1 -</head><label>1</label><figDesc>Core model : defines basic classes required to model a baseline lexicon ii. ISO 24613-2 -Machine Readable Dictionaries (MRD) model : contains components providing deeper specification of lexical description encapsulated within the core model. Form is for instance differentiated into Related Form , Word Form, Stem and Word Part iii. ISO 24613-3 -Diachrony-Etymology : categories related to word and meaning origin and change are defined iv. ISO 24613-4 -TEI serialisation : represents a first serialisation of the first three parts based on a restricted version of the Text Encoding Initiative (TEI) guidelines [2] v.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: Example of the lexical entry "Center" encoded using the core (ISO 24613-1) and MRD (ISO 24613-2) metamodels</figDesc><graphic coords="4,74.25,145.50,468.00,303.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: Example of modelling Etymological information following ISO 24613-3 meta-model, together with the entry being modelled from [4]</figDesc><graphic coords="6,125.25,269.25,361.50,331.50" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 3 :</head><label>3</label><figDesc>Figure 3: Encoding example following LMF's TEI serialisation (ISO 24613-4)</figDesc><graphic coords="8,117.75,74.25,375.75,566.25" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>can be serialised using TEI elements. The development of a list , gathering serialisation examples provided by the 1 community and checked by the ISO experts, along with a schema specification is 2 underway.</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>https://github.com/DARIAH-ERIC/lexicalresources/blob/master/Schemas/LMFinTEI%20Specification/exa mplesLMFinTEI.xml</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>https://github.com/DARIAH-ERIC/lexicalresources/blob/master/Schemas/LMFinTEI%20Specification/LM FinTEIspec.html</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Multilingual resources for NLP in the lexical markup framework (LMF)</title>
+		<author>
+			<persName><forename type="first">Gil</forename><surname>Francopoulo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nuria</forename><surname>Bel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Monte</forename><surname>George</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nicoletta</forename><surname>Calzolari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Monica</forename><surname>Monachini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mandy</forename><surname>Pet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Claudia</forename><surname>Soria</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Language Resources and Evaluation</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="57" to="70" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Guidelines for Electronic Text Encoding and Interchange</title>
+		<author>
+			<persName><surname>Tei Consortium</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Eds</surname></persName>
+		</author>
+		<idno>15.03</idno>
+		<ptr target="http://www.tei-c.org/P5/" />
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">TEI and LMF crosswalks</title>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">JLCL -Journal for Language Technology and Computational Linguistics</title>
+		<imprint>
+			<biblScope unit="page">30</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">A Comprehensive Etymological Dictionary of the English Language</title>
+		<author>
+			<persName><forename type="first">Ernest</forename><surname>Klein</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1966">1966</date>
+			<publisher>Elsevier</publisher>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">TEI Lex-0: A Target Format for TEI-Encoded Dictionaries and Lexical Resources</title>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Toma</forename><surname>Tasovac</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2009">2018. 2018. 2018 Sep 9</date>
+			<publisher>JADH</publisher>
+			<biblScope unit="page">274</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">TEI-Lex0 guidelines for the encoding of dictionary information on written and spoken forms</title>
+		<author>
+			<persName><forename type="first">Piotr</forename><surname>Bański</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jack</forename><surname>Bowers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tomaz</forename><surname>Erjavec</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Electronic Lexicography in the 21st Century: Proceedings of ELex 2017 Conference</title>
+		<meeting><address><addrLine>Leiden, Netherlands</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2017-09">Sep 2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<author>
+			<persName><forename type="first">Jack</forename><surname>Bowers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<title level="m">Encoding Mixtepec-Mixtec Etymology in TEI. TEI Conference and Members&apos; Meeting</title>
+		<meeting><address><addrLine>Tokyo , Japan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018-09">Sep 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

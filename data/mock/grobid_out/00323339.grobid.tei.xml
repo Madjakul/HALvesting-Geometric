@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Generating Referring Expressions in Multimodal Contexts</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Susanne</forename><surname>Salmon-Alt</surname></persName>
+							<email>susanne.alt@loria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">UMR 7503 Campus Scientifique</orgName>
+								<orgName type="institution">Loria</orgName>
+								<address>
+									<postBox>B.P.239</postBox>
+									<postCode>54506</postCode>
+									<settlement>Vandoeuvre-lès-Nancy</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@loria.fr</email>
+							<affiliation key="aff1">
+								<orgName type="laboratory">Loria -UMR 7503 Campus Scientifique</orgName>
+								<address>
+									<postBox>B.P.239</postBox>
+									<postCode>54506</postCode>
+									<settlement>Vandoeuvre-lès-Nancy</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Generating Referring Expressions in Multimodal Contexts</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">C1C90C35FB80C4AB72E3097EBB1ECA96</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T14:59+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>This paper adresses the need of structuring the global context set into subsets or domains in order to explain adequately the use of referring expressions in a multimodal corpus. We underline, in particular, the importance of taking into account not only the discourse, but also perception and gestures for the construction of these domains. We propose a unified context model where the context is built up dynamically from different information sources and show that this way of context modelling predicts correctly the use of referring expressions in a corpus of instructional dialogues.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Need of a multimodal context model</head><p>This paper presents on-going work with the aim to design a tool for the interpretation and generation of referring expressions in multimodal instructional human-machine dialogues. We are considering a context model which has to integrate not only information conveyed by natural language, but also by the perceptual environment and by gestures. Evidence for this requirement can be found by studying corpora like the "Ozkan" corpus <ref type="bibr" target="#b8">(Ozkan, 1994)</ref>. Even within a very limited task universe -two persons, A and B, have to reconstruct together simple pictures (like pyramids in the desert…) composed of geometrical figures (triangles, lines,…) -not only do we find all types of referring expressions, but also many examples of interaction between perception, language and gestures: A first case frequently observed concerns perceptual antecedents for referring expressions. The objects referred to are visible on the screen or manipulated before, but not mentioned before in the discourse. Exemple (1) shows one of theses cases: en (them) in B2 refers to the three triangles on the screen (Fig. <ref type="figure" target="#fig_0">1</ref>), but only the first two were introduced in the discourse (A1, A3), whereas the third one was introduced by the gesture in A5.</p><p>(1) A1 pyramides dans le désert … alors une grosse pyramide pyramids in the desert… so, a big pyramid A2 [gesture : A takes a first big triangle and put it on the screen] A3 alors tu mets un grand triangle sur la droite de l'autre et un petit peu au dessus now you put a big triangle on the right of the other one and a little bit higher B1 [gesture : B takes a second big triangle and put it on the screen] A4 ouais okay A5 [gesture : A takes a third small triangle and put it on the screen] B2 tu veux pas que j'en enlève un do you want to delete one of them</p><p>A second observation leads to the hypothesis that perceptual groups function not only as antecedents for pronouns, but also as domains of quantifiying or interpretation for definite noun phrases. In example (2), la pyramide de droite (the pyramide on the right) in A3 has to be interpreted within the perceptual context of the two big triangles, rather than within the group of the three visible triangles (Fig. <ref type="figure" target="#fig_0">1</ref>). Otherwise, it would designate the small triangle on the right, contrary to what the speaker intended, and indeed the hearer understood.</p><p>(2) A1 il faut prendre une grande horizontale et la placer à la pointe des deux grands triangles take a big horizontal line and put it on the top of the two big triangles A2 … et tu en prends une deuxième petite … et tu la places à gauche de la pyramide de gauche … and take a second, small one… and put it on the left of the pyramid on the left A3 voilà comme ça… et t'en prends une autre petite et tu la places à droite de la pyramide de droite yes, like this … and take another small one and put it on the right of the pyramid on the right A4 … et tu prends une autre petite horizontale et puis tu la places à droite de la petite pyramide … and take another small horizontal line and put it on the right of the small pyramid A third group of examples shows that certain referring expressions cannot be interpreted without taking into account gestures. This is often the case for demonstrative pronouns, but also for still more interesting configurations like in example 3: here, the use of the contextdependent expression l'autre (the other one) in A2 has to be understood within a domain of two objects introduced in A1 and structured only by a gesture in B1.</p><p>(3) A1 alors il va falloir que tu prennes deux grandes barres now, you have to take two big lines B1 [gesture : B takes a line and put it on the screen] A2 bon voilà…et l'autre tu vas la mettre parallèle à la première okay… and put the other one parallel to the first one</p><p>All theses cases may be problematic for purely discursive approaches like Centering <ref type="bibr">(Grosz et.al, 1995)</ref> or DRT <ref type="bibr" target="#b6">(Kamp et Reyle, 1993)</ref>. What we need here is a mechanism able to integrate discursive, perceptual and gestural information into a same context model.</p><p>2 Context modelling and the Incremental Algorithm (Dale &amp; Reiter, 1995) <ref type="bibr" target="#b2">Dale &amp; Reiter (1995)</ref> proposed their Incremental Algorithm with the aim to generate distinguishing descriptions. A distinguishing description has to characterize an entity R being referred to, but not any other entity -or distractor -in a current context set C (for a linguistic approach of the problem, see also <ref type="bibr" target="#b0">Corblin, 1987)</ref>. Given such a context set C, the algorithm goes through an ordered list of attributes characterizing the entities in C and retains the value of an attribute as a descriptor for R if it rules out at least one of the distractors.</p><p>A problem not adressed by the authors is the construction and updating mechanism of the context set. Even if they compare the context set to the focus spaces introduced by <ref type="bibr" target="#b3">Grosz &amp; Sidner (1986)</ref>, it seems to be in practice "the global working set" <ref type="bibr" target="#b1">(Dale, 1992)</ref>. But our example (2), turn A3 -la pyramide de droite (the pyramid on the right) -shows that setting the context set to the global working set does not always work. It rather suggests that the appropriateness of an attribute as a descriptor can change dynamically during the dialogue processing, depending on the currently activated context set. What we would like to show here is that we need a context dynamically structured into more local context sets (domains) with different activation weights. We assume that the dynamic context construction has to be multimodal, since the use of a referring expression depends not only on previous mentions in discourse, but also on the perceptual environment and on previous gestures, as shown in ( <ref type="formula">1</ref>), ( <ref type="formula">2</ref>) or (3).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">A unified context model for generating referring expressions</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Discourse, perception and gestures for dynamic context construction</head><p>Following <ref type="bibr" target="#b10">Sanford &amp; Garrod (1982)</ref> and <ref type="bibr" target="#b9">Reboul (1998)</ref>, the basic elements entering into our global context set are mental representations (MRs) for available entities of the application. They are introduced dynamically on the base of perceptual (e.g. visibility on the screen), gestural (introduction of a new entity) or discursive (mention of a new entity) criteria. An MR is modelled by an uniquely identified object (@MR), with at least a type (@MR.type). Type information is derived from a set of "generic" MRs, organized as a type hierarchy, which include general encyclopedic knowledge or knowledge specific to the application and is assumed to exist prior to discourse processing. Other information (@MR.property) provided via the discourse and via perception (size, color, position,…) may be added as necessary.</p><p>But as indicated before, human speakers do not seem to use always the entire context set when they are generating distinguishing descriptions. Thus, what we need is to construct and to represent subsets of the global context set, which can work as local domains of reference or DRs. Therefore, we consider that each MR may function as a DR. This is for example the case in (2), turn A1, where the MR introduced by les deux grands triangles (the two big triangles) becomes the DR for the interpretation of la pyramide de gauche (the pyramid on the left) in A2.</p><p>It is also possible to create dynamically new DRs (Fig. <ref type="figure">2</ref>) by a grouping operation. Depending on discursive criteria like coordination (Maintenant il faut faire des maisons et une route. / Now, you have to make houses and a road.) or on perceptual criteria like similarity or proximity (see the algorithms for perceptual grouping in <ref type="bibr">Thorisson, 1994)</ref>, two or more existing or newly created MRs will be grouped into a new MR, which can then function as a DR.</p><p>Within this newly created DR, the grouped entities have first to be characterized by a common type. This could be the type of the entities, if they are of the same type or the first common super type with respect to the type hierarchy, if they are different. Second, the entities have to be distinguished each from another with respect to a common // discursive coordination If ("NP 1 and NP 2 ") @MR 1 (NP 1 ) @MR 2 (NP 2 ) @MR 3 &lt;= grouping (@MR 1 , @MR 2 ) EndIf // perceptual group</p><formula xml:id="formula_0">If(percept_group(Fig 1 ,Fig 2 ))</formula><p>@MR 1 (Figure <ref type="figure" target="#fig_0">1</ref> ) @MR 2 (Figure <ref type="figure">2</ref> ) @MR 3 &lt;= grouping (@MR 1 , @MR 2 ) EndIf Fig. <ref type="figure">2</ref> -Algorithm for triggering groupings property like type, size, position,…. This property is the so-called the differenciation criterion (DC) -@MR.dc -and takes different values for different entities, like big or small for the DC size. The value of the DC for an item 1 in a DR MR 1 is referred to by @MR 1 .dc.item1.dc_value.</p><p>Third, based on discursive, perceptual, gestural or task-related information, one of the elements of the DR may be focussed (see for example <ref type="bibr" target="#b5">Hajicová, 1993;</ref><ref type="bibr" target="#b3">Grosz &amp; Sidner, 1986;</ref><ref type="bibr" target="#b4">Grosz &amp; al., 1995)</ref>. This leads to the availability of the entity for pronominalization. The algorithm for theses operations is given in Fig. <ref type="figure">3</ref>.</p><p>To sum up, our global context is composed of MRs, grouped into different DRs composing the global context are ordered according to their activation. An DR is activated when it is created or used for isolating a referent. In the following, we assume that this kind of context structure allows more precise predictions about the use of referring expressions in the "Ozkan" corpus.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Generating referring expressions : Type and distinguishing attributes</head><p>Given, on the one hand, the context including an active domain DR A (a MR A grouping elements of type N distinguished by a differenciation criterion DC A ) and, on the other hand, an entity R being referred to, we have to generate a distinguishing description for R. Our basic hypothesis is that the choice of the type of the expression (pronoun, definite,…) and of the distinguishing attributes for R depends on the relation between R and DR A and, if R ∈ DR A , on the existence or not of a focussed element in DR A . Fig. <ref type="figure">4</ref> gives an outline of the algorithm. @MR 3 &lt;= grouping (@MR 1 , @MR 2 ) // common type calculus @MR 3 .type &lt;= common_type(@MR 1 , @MR 2 ) // calculus of the differenciation criterion and values If (@MR 3 .type = super_type(@MR 1 , @MR 2 )) @MR 3 .dc &lt;= "type" @MR 3 .dc.item1.dc_value &lt;= @MR 1 .type @MR 3 .dc.item2.dc_value &lt;= @MR 2 .type Else If(@MR 3 .type = @MR 1 .type) @MR 3 .dc &lt;= {"size"|"horizontal position"|…} @MR 3 .dc.item1.dc_value &lt;= @MR 1 .{"size"|"horizontal position"|…}.value @MR 3 .dc.item2.dc_value &lt;= @MR 2 .{"size" | "horizontal position"|…}.value EndIf …// other cases… End If // focus calculus If(salient(@MR 1 )) @MR 3 .dc.item1.focus = 1 Else If(salient(@MR 2 )) @MR 3 .dc.item2.focus = 1 EndIf EndIf</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Fig. 3 -Algorithm for the grouping of two MRs</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Treatment of the examples</head><p>Example (1) shows the need of creating complex antecedents for pronominal expressions : In A1, a new MR @T 1 is introduced for une grosse pyramide (a big pyramid). Similarly, we create an MR @T 2 for un grand triangle (a big triangle) in A3. After B1, the two triangles form, based on the principles of similarity and proximity, a perceptual group on the screen. The grouping algorithm triggers the grouping of @T 1 and @T 2 into a new MR, let us say @2BT, with the structure in Fig. <ref type="figure">5</ref>. @T 2 keeps the focus, because it is the last manipulated figure. In A4, a new small triangle @T 3 is introduced by a gesture. This small triangle forms, together with the two big triangles, a new perceptual group, represented by the MR @3T in Fig. <ref type="figure">6</ref>, with a focussed element @T 3 . In B2, the speaker uses a pronoun for referring to @3T. Following our algorithm for the generation of referring expressions, a pronoun can be used only if the referent is in the focus. This is not the case here, but the example shows that this constraint has to be to relaxed under certain conditions : in particular, the corpus shows that plural pronouns can be used to refer to the entire active domain, if there is an incompatibility between a plural pronoun and a single object in the focus. This is what happens in B2.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>// R is within the active DR (@MR</head><formula xml:id="formula_1">A ) If (R = (@MR A .dc.item1 ∨ … ∨ @MR A .dc.item n ))</formula><p>// Domain contains a focussed element If( (@MR A .dc.item1.focus ∨ … ∨ @MR A .dc.item n .focus) = 1 ) // the focussed element is R If(@MR A .dc.item R .focus = 1) Pronominalization // the focussed element is not R Else // R is the entire rest of the domain If(@MR A .dc.item R = (@MR A .dc.item1 + … + @MR A .dc.item n ) -focussed_element) Definite description : the other one ∨ the other @MR A .type ∨ the @MR A .dc.item R .dc_value @MR A .type // R is not the entire rest of the domain Else Definite description : the @MR A .dc.item R .dc_value @MR A .type EndIf EndIf // Domain does not contain a focussed element Else Definite description : the @MR A .dc.item R .dc_value @MR A .type EndIf // R is not within the active DR : changing the active DR implies changing the DC… Else…</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Fig.4 -Algorithm for generating</head><p>Example (2) stresses the role of perception for establishing differenciation criteria, and thus, for finding distinguishing attributes of an entity. It illustrates also our hypothesis that running through the active DR goes preferentially with keeping the same differenciation criterion, whereas a change of the active DR will be expressed preferentially by using a new differenciation criterion : A1 introduces in the context a MR for the group of les deux grands triangles (the two big triangles), let us say, @2BT. Within this group, the two triangles, @T 1 and @T 2 , are distinghuished each from the other by a perceptual differenciation criterion horizontal_position. The context structure before generating A2 is given in Fig. <ref type="figure">7</ref>. Based on this context structure and following the algorithm, referring to @T 1 will be realized by la pyramide de gauche (the pyramid on the left) and leads, after the focalization of @T 1 , to the context structure in Fig 8 . 
+
+In A3, the algorithm is applied to this context structure in order to refer to @T 2 . It generates l'autre (the other one) or la pyramide de droite (the pyramid on the right) -the second solution being realized in our corpus. In A4, things become yet more interesting: here, the speaker has to refer to the third -small -pyramid on the screen, but this pyramid, let us say @T 3 , is not included in the active domain of reference, @2BT. Rather, it is a member of a domain @3T including @2BT and @T 3 . This domain could be partitioned by two perceptual differenciation criteria: a first one distinguishes @2BT from @T3 by a criterion size (big vs. small), a second one by horizontal_position (left vs. right). This context structure is showed in Fig. <ref type="figure">9</ref>. What we suppose then is that the change of the active domain (from @2BT to @T 3 ) is expressed preferentially by a change of the active differenciation criterion. This leads to the choice of the differenciation criterion size and produces the expression la petite pyramide (the small pyramid), like in the corpus example. Example (3), and more precisely the use of l'autre (the other one) in A2, shows the importance of taking into account gestures for the context construction during processing A1 and B1: In A1, deux grandes barres (two big lines) introduces a new referent and, consequently, a new MR @2BL in the context set. In the next turn B1, B manipulates a first line @L 1 . This line is an element of @2BL, which is considered as the active DR, even if in this case the verbal reference act is substituted by a gestural one right @T 1 @T 2 left <ref type="bibr" target="#b11">(Siroux et al., 1995)</ref>. The extraction of @L 1 partitions the DR @2BL into two lines, on the base of a differenciation criterion manipulated vs. ¬manipulated. Since @L 1 is the last element having been manipulated, it will be the focussed element of @2BL. The context structure at this stage is schematized in Fig. <ref type="figure" target="#fig_0">10</ref>. Now, in A2, A has to generate a referring expression for @L 2 . Following the algorithm presented in the previous section, one solution will be l'autre (the other one).</p><p>This fits to what happens in our corpus example.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Discussion and further work</head><p>In this paper, we adressed the need of structuring the entire context set into subsets or domains in order to explain adequately the use of referring expressions in a multimodal corpus. We underlined in particular the importance of taking into account not only the discourse, but also perception and gestures for the construction of these domains. Therefore, we proposed a context model where the context is built up dynamically from different information sources. This manner of context modelling predicts correctly the use of referring expressions, which are "problematic" for other approaches. Further work consists of extending our theoretical framework to other kinds of referring expressions (demonstratives) and of exploring the hypotheses by testing our algorithms over the entire corpus. This includes, among other things, the adaptation of existing coreferential coding schemes (like <ref type="bibr" target="#b7">Poesio, 2000)</ref> to multimedia corpora. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 -</head><label>1</label><figDesc>Fig. 1 -Visual context for (1) and (2)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>Fig. 5Fig.6</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>Fig. 9 Fig. 10</figDesc></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">F</forename><surname>Corblin</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Indéfini</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Défini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Droz</forename><surname>Démonstratif</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1987">1987</date>
+			<pubPlace>Genève</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Generating Referring Expressions</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Dale</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Constructing Descriptions in a Domain of Objects and Processes</title>
+		<meeting><address><addrLine>Cambridge, London</addrLine></address></meeting>
+		<imprint>
+			<publisher>The MIT Press</publisher>
+			<date type="published" when="1992">1992</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Computational Interpretations of the Gricean Maxims in Generating Referring Expressions</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Dale</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Reiter</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Cognitive Science</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="page" from="233" to="263" />
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Attention, Intention and the Structure of Discourse</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">J</forename><surname>Grosz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Sidner</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computational Linguistics</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="175" to="204" />
+			<date type="published" when="1986">1986</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Centering: A framework for modeling the local coherence of discourse</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">J</forename><surname>Grosz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Joshi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Weinstein</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computational Linguistics</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="203" to="225" />
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Issues of Sentence Structure and Discourse Patterns</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Hajicová</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Theoretical and Computational Linguistics</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<date type="published" when="1993">1993</date>
+			<pubPlace>Prague</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Charles University</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">From Discourse to Logic</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kamp</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Reyle</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1993">1993</date>
+			<publisher>Kluwer Academic Publishers</publisher>
+			<pubPlace>Dordrecht, Boston, London</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poesio</surname></persName>
+		</author>
+		<ptr target="http://www.ims.uni-stuttgart.de/projekte/mate/mdag/" />
+		<title level="m">Coreference. MATE Dialogue Annotation Guidelines-Deliverable D2.1</title>
+		<imprint>
+			<date type="published" when="2000-01">2000. January 2000</date>
+			<biblScope unit="page" from="126" to="182" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ozkan</surname></persName>
+		</author>
+		<title level="m">Vers un modèle dynamique du dialogue : analyse de dialogues finalisés dans une perspective communicationnelle</title>
+		<imprint>
+			<date type="published" when="1994">1994</date>
+		</imprint>
+		<respStmt>
+			<orgName>Cognitive Science, INP Grenoble</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Ph.D.Thesis</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A relevance theoretic approach to reference</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Reboul</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Relevance Theory Workshop</title>
+		<meeting><address><addrLine>Luton (UK), Sept</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+			<biblScope unit="page" from="8" to="10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">The mental representation of discourse in a focussed memory system : implication for the interpretation of anaphoric noun phrases</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">C</forename><surname>Sanford</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">J</forename><surname>Garrod</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Semantics</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="21" to="41" />
+			<date type="published" when="1982">1982</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Oral and gestural activities of the users</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Siroux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Guyomard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Multon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Remondeau</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

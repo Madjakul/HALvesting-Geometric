@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Modelling usage information in a legacy dictionary: from TEI Lex-0 to Ontolex-Lemon</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Bruno</forename><surname>Almeida</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Rute</forename><surname>Costa</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Ana</forename><surname>Salgado</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Margarida</forename><surname>Ramos</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Fahad</forename><surname>Khan</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Sara</forename><surname>Carvalho</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Raquel</forename><surname>Silva</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Toma</forename><surname>Tasovac</surname></persName>
+						</author>
+						<title level="a" type="main">Modelling usage information in a legacy dictionary: from TEI Lex-0 to Ontolex-Lemon</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">8CFA34586847532D4E15CA45EC63D9AE</idno>
+					<note type="submission">Submitted on 25 Jul 2023 Distributed under a Creative Commons Attribution| 4.0 International License</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"> <ref type="bibr" target="#b10">(Romary, 2015)</ref><p>. Furthermore, the TEI Lex-0 en-54 coding of the Morais dictionary will be trans- From TEI Lex-0 to Ontolex-Lemon        These labels associate a lexical unit with 118 a period in the history of language (e.g.,</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>119</head><p>Ant., for dated words).    a related project <ref type="bibr" target="#b4">(Costa et al., 2020)</ref>. This approach 139 should be reusable in other projects going forward 140 <ref type="bibr" target="#b5">(Costa et al., 2021)</ref>.      </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>17</head><label></label><figDesc>The publication of Diccionario da Lingua Portu-18 gueza in 1789, authored by António de Morais 19 Silva, marks the beginning of contemporary Portu-20 guese lexicography, following the model set by 21 several modern language dictionaries published in 22 Europe in the 17th and 18th centuries (Silvestre, 23 2009; Verdelho, 2003). As the first Portuguese 24 monolingual dictionary, it had a fundamental role 25 in the normalisation of this language, and consti-26 tutes a reference for studying the evolution of the 27 Portuguese lexicon (Correia, 2009). The first edi-28 tion of the dictionary had two volumes (Vol. 1, 752 29 p. and Vol. 2, 541 p.). Morais directly oversaw the 30 2nd and 3rd editions (published, respectively, in 31 1813 and 1823). This work was greatly revised and 32 1 https://github.com/elexis-eu/tei2ontolex updated over the years, culminating in the 10th edi-33 tion, which was published in 12 volumes from 34 1949 to 1959. 35 The MORDigital project aims at digitising and 36 publishing in open access the structured data of the 37 first three editions of the dictionary by Morais 38 (Costa et al., 2021). Our methodology involves the 39 reuse of digitised versions of the dictionary, avail-40 able in the public domain as PDF files with OCR 41 data. The digitised versions will be structured by 42 means of several open standards for encoding and 43 modelling lexical and dictionary data, which will 44 facilitate interoperability with existing systems and 45 datasets. The encoding of the dictionary's editions 46 will be carried out in TEI Lex-0 (Tasovac et al., 47 2018), a baseline XML encoding for machine-read-48 able dictionaries based on the guidelines of the Text 49 Encoding Initiative (TEI). This encoding will be 50 the basis for a LMF (Lexical Markup Framework) 51 version, which should be facilitated by the present 52 convergence between TEI and the LMF standard53</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>55</head><label></label><figDesc>formed to RDF based on Ontolex-Lemon (Cimiano 56 et al., 2016), a model originally developed for en-57 riching ontologies with lexical information, which 58 has become a de facto standard for publishing lex-59 ical resources as linked data (Cimiano et al., 2020). 60 The recently developed lexicography module, or 61 lexicog (Bosque-Gil et al., 2019), facilitates the 62 application of Ontolex to dictionary information. 63 tei2ontolex 1 will be used for converting 64 from TEI to Ontolex. Examples such as the one 65 Modelling Usage Information in a Legacy Dictionary:</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>672•</head><label></label><figDesc>Figure1shows an entry with domain labels</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>93•</head><label></label><figDesc>Diatextual information (textType). These 94 labels identify the text or discourse types 95 in which the lexical units are used (e.g.,96Poet., for poetic words).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>97•</head><label></label><figDesc>Diaevaluative information (attitude). 98 These labels associate a lexical unit with 99 a specific attitude on the speaker's part 100 (e.g., t. Chulo, for ironic or malicious us-101 ages).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>102•</head><label></label><figDesc>Diastratic information (socioCultural).103 These labels associate a lexical unit with 104 a particular social group (e.g., Vulg., for 105 words associated with the common peo-106 ple).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>107••</head><label></label><figDesc>Diaphasic information (socioCultural). 108 These labels associate a lexical unit with 109 a register (e.g., Fam., for words used in an 110 informal register). 111 Diatopic information (geographic). These 112 labels associate a lexical unit with a re-113 gional variety of a language (e.g., Asiat., 114 for words used in the former Portuguese 115 colonies in India).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>116•</head><label></label><figDesc>Diachronic information (temporal).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head></head><label></label><figDesc>117</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>120•</head><label></label><figDesc>Diaintegrative information (hint). These 121 labels indicate that a lexical unit is a loan-122 word (e.g., Lat., for Latin words inte-123 grated in Portuguese).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>124•</head><label></label><figDesc>Diafrequential information (frequency). 125 These labels indicate the frequency of oc-126 currence of a lexical unit (e.g., P. us., for 127 rarely used words).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Figure 2 Figure 1 :</head><label>21</label><figDesc>Figure 2 shows the encoding in TEI Lex-0 of the 130</figDesc><graphic coords="3,306.00,460.30,218.15,266.85" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head></head><label></label><figDesc>138</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head></head><label></label><figDesc>already provides most of the nec-143 essary elements for modelling information associ-144 ated with lexical entries. The lexicographic mod-145 ule, lexicog, provides additional elements for 146 dictionary data. This allows, e.g., to distinguish be-147 tween lexical entries (which must belong to the 148 same part of speech, such as noun or adjective) and 149 dictionaries entries (which often aggregate differ-150 ent parts of speech). The LexInfo ontology 2 pro-151 vides data categories for Ontolex, including several 152 usage sub-properties aligned with TEI Lex-0 (e.g. 153 domain, socioCultural). Finally, SKOS (Sim-154 ple Knowledge Organization System) (Miles &amp; 155 Bechhofer, 2009) allows to organise the subject 156 fields corresponding to the domain labels, and align 157 them with external resources and knowledge or-158 ganisation systems (KOS).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>1592</head><label></label><figDesc>https://lexinfo.net/ 3 The representation of grammatical and semantic information was omitted to simplify the diagram.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>Figure 3</head><label>3</label><figDesc>Figure3shows the metástase entry modelled in</figDesc><graphic coords="4,75.63,77.40,443.05,217.80" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_16"><head>164</head><label></label><figDesc>The noun's senses are constrained to different do-165 mains (medicine and rhetoric), which are 166 aligned with DBPedia and the Universal Decimal 167 Classification for interoperability as linked data.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_17"><head></head><label></label><figDesc>4   </figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_18"><head></head><label></label><figDesc>168</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Laurent Romary 3 , Fahad Khan 4 , Sara Carvalho 1 5 , Mohamed Khemakhem 6 , Raquel Silva 1 , Toma Tasovac</head><label></label><figDesc>7 1 NOVA CLUNL -Centro de Linguística da Universidade Nova de Lisboa 2 ACL -Academia das Ciências de Lisboa 3 Inria -Institut national de recherche en sciences et technologies du numérique 4 ILC-CNR -Istituto di Linguistica Computazionale "Antonio Zampolli" 5 CLLC -Centro de Línguas, Literaturas e Culturas UA 6 ArcaScience 7 BCDH -Belgrade Center for Digital Humanities mordigital@fcsh.unl.pt presented in this abstract will be the basis for a</figDesc><table /><note><p>Bruno Almeida 1 , Rute Costa 1 , Ana Salgado 1 2 , Margarida Ramos 1 , 66 wider coverage of features of this converter.</p></note></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgments 169</head><p>This paper is supported by (1) the MORDigital -</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0" />			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m">Lexicography Module: Final community report. 188 W3C Ontology-Lexicon Community Group</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Linguistic Linked Data: Representation, 192 Generation and Applications</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Cimiano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Chiarcos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Mccrae</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gracia</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<publisher>Springer</publisher>
+			<biblScope unit="page">191</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<author>
+			<persName><forename type="first">P</forename><surname>Cimiano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Mccrae</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Buitelaar</surname></persName>
+		</author>
+		<ptr target="https://www.w3.org/2016/05/ontolex/" />
+		<title level="m">Lex-194 icon Model for Ontologies: Community Report. 195 W3C Ontology-Lexicon Community Group</title>
+		<imprint>
+			<date type="published" when="0196">2016. 196</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Os dicionários portugueses. Cami-198 nho</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Correia</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Ontologie des marques de do-201 maines appliquée aux dictionnaires de langue gé-202 nérale. Langue(s) &amp; Parole</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Costa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Carvalho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Salgado</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Simões</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tasovac</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="201" to="230" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><surname>Costa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Salgado</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Carvalho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Ro-204 Mary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Almeida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ramos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<title level="m">MORDigital: The 206 advent of a new lexicographical Portuguese project</title>
+		<editor>
+			<persName><forename type="first">T</forename><surname>Tasovac</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">R</forename><surname>Silva</surname></persName>
+		</editor>
+		<imprint>
+			<date type="published" when="2021">205. 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">In</forename><forename type="middle">I</forename><surname>Kosem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Cukr</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Jakubíček</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kallas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename></persName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Electronic lexicography 209 in the 21st century: Post-editing lexicography. Pro-210 ceedings of eLex 2021</title>
+	</analytic>
+	<monogr>
+		<title level="m">Lexical Com-211 puting</title>
+		<editor>
+			<persName><forename type="first">&amp;</forename><forename type="middle">C</forename><surname>Krek</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Tiberius</surname></persName>
+		</editor>
+		<imprint>
+			<biblScope unit="page" from="312" to="324" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<author>
+			<persName><forename type="first">S</forename><surname>Landau</surname></persName>
+		</author>
+		<title level="m">Dictionaries: The art and craft of 213 lexicography</title>
+		<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+	<note>nd ed</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><surname>Miles</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bechhofer</surname></persName>
+		</author>
+		<ptr target="http://www.w3.org/TR/skos-reference" />
+		<title level="m">SKOS 215 Simple Knowledge Organization System Reference. 216</title>
+		<imprint>
+			<date type="published" when="2009-08-18">2009. August 18</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">Journal 218 for Language Technology and Computational Lin-219 guistics</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="page" from="47" to="70" />
+		</imprint>
+	</monogr>
+	<note>TEI and LMF crosswalks</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Improv-221 ing the Consistency of Usage Labelling in Diction-222 aries with TEI Lex-0. Lexicography</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Salgado</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Costa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tasovac</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="133" to="156" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title/>
+		<idno type="DOI">10.1007/s40607-019-00061-x</idno>
+		<ptr target="https://doi.org/10.1007/s40607-019-00061-x" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Silva</surname></persName>
+		</author>
+		<title level="m">Diccionario da lingua portugueza 225 composto pelo padre D. Rafael Bluteau, reformado, 226 e accrescentado por Antonio de Moraes Silva, natu-227 ral do Rio de Janeiro</title>
+		<imprint>
+			<date type="published" when="1789">1789</date>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+	<note>Officina de Simão 228 Thaddeo Ferreira</note>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title level="m">Bluteau e as origens da lexico-230 grafia moderna</title>
+		<editor>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Silvestre</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>INCM</publisher>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">A handbook of lexicography: The 232 theory and practice of dictionary-making</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Svensén</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+			<publisher>Cam-233 bridge University Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tasovac</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Banski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bowers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Does</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Depuydt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Erjavec</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Geyken</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Herold</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">TEI Lex-238 0: A baseline encoding for lexicographic data</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Hildenbrandt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Lehečka</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Salgado</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Witt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename></persName>
+		</author>
+		<ptr target="https://dariah-eric.github.io/lexicalre" />
+	</analytic>
+	<monogr>
+		<title level="m">Ver-239 sion 0.9.0. DARIAH Working Group on Lexical Re-240 sources</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+	<note>Pe-237 trović,</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

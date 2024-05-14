@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Nénufar: Modelling a Diachronic Collection of Dictionary Editions as a Computational Lexical Resource</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Hervé</forename><surname>Bohbot</surname></persName>
+							<email>herve.bohbot@cnrs.fr</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">UMR 5267</orgName>
+								<orgName type="institution">CNRS</orgName>
+								<address>
+									<settlement>Praxiling</settlement>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">Université Paul-Valéry Montpellier</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Francesca</forename><surname>Frontini</surname></persName>
+							<email>francesca.frontini@univ-montp3.fr</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">UMR 5267</orgName>
+								<orgName type="institution">CNRS</orgName>
+								<address>
+									<settlement>Praxiling</settlement>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">Université Paul-Valéry Montpellier</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Fahad</forename><surname>Khan</surname></persName>
+							<email>fahad.khan@ilc.cnr.it</email>
+							<affiliation key="aff2">
+								<orgName type="institution" key="instit1">Istituto di Linguistica Computazionale &quot;Antonio Zampolli&quot;</orgName>
+								<orgName type="institution" key="instit2">CNR</orgName>
+								<address>
+									<settlement>Pisa</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+							<email>mohamed.khemakhem@inria.fr</email>
+							<affiliation key="aff3">
+								<orgName type="department">ALMAnaCH -INRIA</orgName>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">CMB -Centre Marc Bloch</orgName>
+								<address>
+									<settlement>Berlin</settlement>
+								</address>
+							</affiliation>
+							<affiliation key="aff5">
+								<orgName type="institution">Université Paris Diderot</orgName>
+								<address>
+									<addrLine>Paris 7 6 BBAW -Berlin-Brandenburgische Akademie</addrLine>
+									<postCode>UPD7</postCode>
+									<settlement>Wissenschaften, Berlin</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+							<affiliation key="aff3">
+								<orgName type="department">ALMAnaCH -INRIA</orgName>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">CMB -Centre Marc Bloch</orgName>
+								<address>
+									<settlement>Berlin</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Nénufar: Modelling a Diachronic Collection of Dictionary Editions as a Computational Lexical Resource</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">DFF5BA0EE606B6C29CE1312C12DD4625</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The Petit Larousse Illustré (PLI) is a monolingual French dictionary which has been published every year since the 1906 edition 1 and WHICH is therefore a fundamental testimony of the evolution of the French language. As a consequence of the pre-1948 editions of the PLI entering the public domain in 2018 the Nénufar ("Nouvelle édition numérique de fac-similés de reference") project was launched at the Praxiling laboratory in Montpellier with the aim of digitising and make these editions available electronically. The project is still ongoing; various selected editions per decade are going to be fully digitised (so far the 1906, 1924 and 1925 editions have been completed), and changes backtracked and dated per specific year.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Nénufar's primary aim is to make the editions available and searchable via an advanced search interface which will not only enable the selective querying of text by lemma and type of content <ref type="bibr">(definitions, examples, ...)</ref>, but crucially also detect and study changes by comparing different editions. In order to do so, a specific web interface has been put in place (see Figure <ref type="figure">1</ref> and the project's website 2 ). Alongside the digitised text, the Nénufar web site 3 contains high quality scans for each page. In 1 Published in 1905 but dated 1906.</p><p>2 http://nenufar.huma-num.fr/?article=3807 3 A similar project, which presents data and scans from subsequent editions of the same legacy dictionary has been carried out by the team behind the Swedish Academy's Wordlist (see <ref type="bibr" target="#b3">Holmer, Malmgren &amp; Martens, 2016</ref> and http://spraakdata.gu.se/saolhist/).</p><p>compliance with current open data best practices <ref type="bibr" target="#b9">(Wilkinson et al., 2016)</ref>, the project also aims to make the source data available separately from the querying interface both for research and for long term preservation. The primary encoding format is TEI-XML; however in our case the TEI encoding is closely inspired from the latest version of the TEI-Lex0 <ref type="bibr" target="#b0">(Bański et al., 2017</ref><ref type="bibr" target="#b8">, Romary &amp; Tasovac, 2018)</ref> guidelines for encoding lexicographic resources 4 , which are based upon TEI. The choice of a TEI 5 based approach allows the Nénufar project to align itself to other pre-existing initiatives and tools. By aligning ourselves to TEI-Lex0 we will be able to make use of digitisation tools such as Grobid <ref type="bibr" target="#b6">(Khemakhem et al., 2017)</ref> which have TEI-Lex0 as their native format and which have already been tested and used within the Nénufar project to speed up the digitisation of new editions. In addition we will be able to make use of ongoing initiatives to convert TEI-Lex0 datasets to RDF using the W3C recommendation for publishing lexicons as Linked Data, namely Ontolex Lemon <ref type="bibr" target="#b7">(McCrae et al., 2017;</ref><ref type="bibr" target="#b2">Bosque-Gil et al., 2016)</ref> which will allow for the publication of the Nénufar dataset as a LOD graph. The LOD version of the Nénufar dataset, now currently being developed, will be queryable from the available SPARQL endpoint and contain all available editions as one single graph allowing for expert users to perform complex queries that could detect systematic changes in the dataset. The LOD version is particularly adapted to be linked to other datasets; more recent editions, once added, could also be of interest for NLP applications.</p><p>The presentation will illustrate the state of the art of the project, showcase the web site, outline the principles guiding the TEI encoding with examples, and discuss the issues concerning the conversion from TEI-Lex0 to Ontolex Lemon.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="4,74.72,329.63,442.66,220.62" type="bitmap" /></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">TEI-Lex0 Guidelines for the Encoding of Dictionary Information on Written and Spoken Forms</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bański</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bowers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Erjavec</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017. 2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Presenting the Nénufar Project: a Diachronic Digital Edition of the Petit Larousse Illustré. GLOBALEX 2018 -Globalex Workshop at LREC2018</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Bohbot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Frontini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Luxardo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<pubPlace>Miyazaki, Japan</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Modelling Multilingual Lexicographic Resources for the Web of Data: the K Dictionaries case. GLOBALEX 2018 -Globalex Workshop at LREC2018</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bosque-Gil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gracia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Montiel-Ponsoda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Aguado-De-Cea</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<pubPlace>Miyazaki, Japan</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Louise</forename><surname>Holmer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sven-Göran</forename><surname>Malmgren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Monica Von</forename><surname>Martens</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">We chose not to encode the dataset directly into TEI-Lex0 since the guidelines are still incomplete</title>
+		<imprint/>
+	</monogr>
+	<note>But our dataset is as closely aligned as possible to the current version of the TEI-Lex0 guidelines in order to make any future conversion as straightforward as possible</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">On the Nénufar website select an entry and then &quot;Ressources&quot; to inspect the xml encoding</title>
+	</analytic>
+	<monogr>
+		<title level="j">Nordiske Studier i Leksikografi</title>
+		<imprint>
+			<biblScope unit="issue">13</biblScope>
+			<biblScope unit="page" from="349" to="358" />
+		</imprint>
+	</monogr>
+	<note>SAOLhist.se -för allmänt och vetenskapligt bruk</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Automatic Extraction of TEI Structures in Digitized Lexical Resources using Conditional Random Fields</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Foppiano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017. 2017</date>
+			<pubPlace>Leiden, Netherlands</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Mccrae</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bosque-Gil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gracia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Buitelaar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Cimiano</surname></persName>
+		</author>
+		<title level="m">The OntoLex-Lemon Model: Development and Applications</title>
+		<imprint>
+			<date type="published" when="2017">2017. 2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">TEI Lex-0: A Target Format for TEI-Encoded Dictionaries and Lexical Resources&apos; (presented at the TEI Conference</title>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Toma</forename><surname>Tasovac</surname></persName>
+		</author>
+		<ptr target="&lt;https://hal.inria.fr/hal-02265312&gt;" />
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<pubPlace>Tokyo</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Figure 1: Comparing the differences in the definition of &quot;aviation&quot; (aviation) between 1906 and 1912 edition. In the first one air navigation is still a possibility</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Wilkinson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dumontier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ij</forename><forename type="middle">J</forename><surname>Aalbersberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Appleton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Axton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Baak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Blomberg</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/sdata.2016.18</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Scientific Data</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">160018</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+	<note>The FAIR Guiding Principles for scientific data management and stewardship. whereas in the second one it is a reality</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

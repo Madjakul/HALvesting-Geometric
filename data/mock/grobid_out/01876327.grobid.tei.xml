@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A stand-off XML-TEI representation of reference annotation</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Aria</forename><surname>Adli</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Eric</forename><surname>Engel</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Fahime</forename><surname>Same</surname></persName>
+						</author>
+						<title level="a" type="main">A stand-off XML-TEI representation of reference annotation</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">54D17E8AA96ED6E964BBC2FA03C4B16A</idno>
+					<note type="submission">Submitted on 18 Sep 2018 Distributed under a Creative Commons Attribution| 4.0 International License</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A stand-off XML-TEI representation of reference annotation</head><p>Aria Adli 1 , Eric Engel 1 , Laurent Romary 2 , Fahime Same 1 1 University of Cologne, 2 INRIA {aria.adli, eric.engel, f.same}@uni-koeln.de, laurent.romary@inria.fr What's new?</p><p>.</p><p>. § Separation of primary data (transcription) and secondary data (annotations) § Incremental build-up of annotation layers § Three-way distinction of reference-related features § Local grammatical features (grammatical gender, number, person) and sentence-bound discourse features (information status) apply to referring expressions. § Inherent semantic features of referents (animacy, cardinality, specificity, concreteness/abstractness) apply to the referents.</p><p>Their values are constant over the entire discourse. § Relations between referents (subset, partOf) are recognized as permanent, allowing for a better representation of so-called bridging phenomena in discourse.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Model features</head><p>Background and previous work § User-friendly visualization and query interface (in ANNIS) § Integration of different levels of information structure analysis § [±topical] as feature of a referring expression? § Markup of focus domains directly on syntactic phrases? § Further expansion of the multilayer architecture to the analysis of other cross-sentential phenomena, e.g., rhetorical structure, dialogue analysis </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>[1] ISO 24611:2012 Language resource management -Morpho-syntactic annotation framework (MAF). [2] ISO 24615-1:2014 Language resource management -Syntactic annotation framework (SynAF) -Part 1: Syntactic model. [3] ISO/AWI 24617-9 [Under development] Language resource management -Semantic annotation framework -Part 9: Reference Annotation Framework. [4] Poesio, M., 2004. The MATE/GNOME proposals for anaphoric annotation, revisited. In Proceedings of the 5th SIGdial Workshop on Discourse and Dialogue at HLT-NAACL 2004, 154-162. [5] Riester, A. and Baumann, S., 2017. The RefLex scheme -Annotation guidelines. SinSpeC 14. 1-31. [6] Salmon-Alt, S. and Romary, L. 2005. The Reference Annotation Framework: A case for semantic content representation. In H. Bunt (ed.), IWCS-6, Tilburg, Netherlands: ACL SIGSEM. References § Reference annotation is an essential element in corpus-linguistic research at the interface of syntax and discourse structure. § We propose a representation based on a semantically plausible model distinguishing referring expressions, discourse referents, and links. § Neater representation of grammatical vs. semantic features and of phenomena of indirect reference ("bridging") § More efficient annotation of longer stretches of natural discourse § Integrated in a multilayer stand-off annotation in compliance with TEI-ISO standards: MAF [1], SynAF [2], RAF [3]</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>Multilingual corpus project on French, Spanish, Persian, and Catalan § Spontaneous speech data elicited in a game task § More info: www.sgscorpus.com § Building on extensive work on (stand-off) representation of referring expressions and referential links [4,6] and types of links [5] § So far, no existing models making a clean distinction between expression-related and entity-related features and links Example</figDesc></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl/>
+			</div>
+		</back>
+	</text>
+</TEI>

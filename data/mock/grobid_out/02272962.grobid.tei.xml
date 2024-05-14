@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Scaling up Automatic Structuring of Manuscript Sales Catalogues</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Lucie</forename><surname>Rondeau</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Du</forename><surname>Noyer</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Simon</forename><surname>Gabay</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Lucie</forename><surname>Rondeau Du Noyer</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="department">Ecole des Chartes</orgName>
+								<address>
+									<settlement>Paris</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="institution">Université de Neuchâtel</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="department">Inria, team ALMAnaCH</orgName>
+								<orgName type="institution">Université Paris Diderot</orgName>
+								<address>
+									<addrLine>Paris Centre Marc Bloch</addrLine>
+									<settlement>Berlin, Paris</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Scaling up Automatic Structuring of Manuscript Sales Catalogues</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">B114BF1DADCDC75071570D9F8C4F367D</idno>
+					<note type="submission">Submitted on 28 Aug 2019 Distributed under a Creative Commons Attribution| 4.0 International License</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Machine learning</term>
+					<term>manuscript sales catalogues</term>
+					<term>19th c. France</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Manuscript Sales Catalogues (MSC) are highly important for authenticating documents and studying the reception of authors. Their regular publication throughout Europe since the beginning of the 19th c. has consequently raised the interest around scaling up the means for automatically structuring their contents. Following successful first encoding tests with GROBID-Dictionaries <ref type="bibr" target="#b0">[1,</ref><ref type="bibr" target="#b1">2]</ref> on a single MSC collection <ref type="bibr" target="#b2">[3]</ref>, we aim in this paper to present the results of more advanced tests of the system's capacity to handle a larger corpus with MSC of different dealers, and therefore multiple layouts.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Corpus</head><p>Four different types of catalogues published between the middle of the 19th c. and the beginning of the 20th c. have been tested. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Experiment</head><p>To parse the presented MSC corpus we followed the same encoding presented in earlier experiments <ref type="bibr" target="#b2">[3]</ref>. We tried then to focus our experiments on two aspects: feature engineering and cumulative samples training.</p><p>For the former we tested tuning the GROBID models at three levels of segmentation following two variations: unigram and bigram features. The difference between the two categories is that a label predicted by a trained model is based only on the features of the input token -case of unigram -where a bigram feature template takes also the label of the previous token into consideration.</p><p>For the second experimenting aspect we tested the performance of the system on models trained separately for each layout and a general model with all the data.</p><p>To that end we used 10 annotated pages for training and 5 others for evaluation, chosen to be representative of each series of catalogues. <ref type="bibr" target="#b3">[4]</ref>  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>GROBID Models</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>MSC</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conclusion</head><p>Two important conclusions can be drawn from this test. First, bigram feature templates are more efficient than unigram templates. Second, a general model potentially increases scores for certain levels (form and sense) but not all of them (lexical entry), which raises the question of the pertinence of a hybrid model, choosing the best solution for each level.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 -Figure 2 -Type 2 :Figure 3 -Type 3 :Figure 4 -Type 4 :</head><label>1223344</label><figDesc>Figure 1 -Type 1: Revue des autographes, Gabriel Charavay. (Première série N°42, Decembre 1874)</figDesc><graphic coords="2,73.00,576.74,451.50,101.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="3,73.00,360.26,451.50,158.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 :</head><label>1</label><figDesc>All fields F1-score of Unigram Feature Templates</figDesc><table><row><cell></cell><cell>Lexical Entry</cell><cell>Form</cell><cell>Sense</cell></row><row><cell>Type 1</cell><cell>72.49</cell><cell>93.72</cell><cell>73.62</cell></row><row><cell>Type 2</cell><cell>57.07</cell><cell>84.42</cell><cell>60.5</cell></row><row><cell>Type 3</cell><cell>60.07</cell><cell>74.71</cell><cell>48.07</cell></row><row><cell>Type 4</cell><cell>60.58</cell><cell>92.03</cell><cell>40.91</cell></row><row><cell>All types mixed</cell><cell>63.99</cell><cell>86.42</cell><cell>54.81</cell></row><row><cell></cell><cell></cell><cell>GROBID Models</cell><cell></cell></row><row><cell>MSC</cell><cell>Lexical Entry</cell><cell>Form</cell><cell>Sense</cell></row><row><cell>Type 1</cell><cell>98.05</cell><cell>100</cell><cell>98.71</cell></row><row><cell>Type 2</cell><cell>99.16</cell><cell>95.02</cell><cell>90.78</cell></row><row><cell>Type 3</cell><cell>96.01</cell><cell>92.89</cell><cell>88.1</cell></row><row><cell>Type 4</cell><cell>92.78</cell><cell>96.83</cell><cell>86.64</cell></row><row><cell>All types mixed</cell><cell>95.43</cell><cell>97.44</cell><cell>92.77</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2 :</head><label>2</label><figDesc>All fields F1-score of Bigram Feature Templates</figDesc><table /></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Automatically Encoding Encyclopedic-like Resources in TEI</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Simon</forename><surname>Gabay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hervé</forename><surname>Bohbot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Francesca</forename><surname>Frontini</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The annual TEI Conference and Members Meeting</title>
+		<meeting><address><addrLine>Tokyo, Japan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018-09">Sep 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Automatic Extraction of TEI Structures in Digitized Lexical Resources using Conditional Random Fields</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luca</forename><surname>Foppiano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017-09">2017. Sep 2017</date>
+			<pubPlace>Leiden, Netherlands</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Enhancing Usability for Automatically Structuring Digitised Dictionaries. GLOBALEX workshop at LREC 2018</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Axel</forename><surname>Herold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018-05">May 2018. 2018</date>
+			<pubPlace>Miyazaki, Japan</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Training and evaluation data for encoding Manuscript Sales Catalogues with GROBID dictionaries</title>
+		<author>
+			<persName><forename type="first">Lucie</forename><surname>Rondeau Du Noyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Simon</forename><surname>Gabay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="https://github.com/lairaines/grobid_TEI_2019" />
+	</analytic>
+	<monogr>
+		<title level="m">École nationale des chartes (PSL)/Neuchâtel: université de Neuchâtel</title>
+		<meeting><address><addrLine>Paris</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">His research is focused on parsing lexical and encyclopedic legacy resources using standard-based machine learning models. Laurent Romary is senior researcher at Inria, team ALMAnaCH and works on data modelling and standards in humanities computing</title>
+		<author>
+			<persName><forename type="first">Lucie</forename><surname>Biographies</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Rondeau Du Noyer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Paris 7 University and Centre Marc Bloch (Berlin)</title>
+		<meeting><address><addrLine>Paris</addrLine></address></meeting>
+		<imprint>
+			<publisher>ALMAnaCH</publisher>
+		</imprint>
+	</monogr>
+	<note>Simon Gabay is post-doc at the University of Neuchâtel (Switzerland), where he teaches DH and carries research on 17th c. French literature and modern manuscripts</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main"></title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">09EF6713C7A05668C2211BE49A5B07DC</idno>
+					<idno type="DOI">10.6092/issn.2532-8816/9045</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Towards multiscale archival digital data 1</head><p>Laurent <ref type="bibr">Romary (Inria &amp; DARIAH)</ref>, Charles Riondet (Inria)</p><p>In this paper, we would like to present some ideas on the use of the archival standards in various contexts that exemplify the complexity of such standards and provide users with innovative ways to handle EAD content. Our main idea is that researchers, Cultural heritage institutions, archival portals and standards maintenance bodies could greatly benefit from a multiscale modelling of archival data, but also from multiscale representations and documentations. A first step is on the way to being cleared in the domain of the management of heterogeneous archival sources in one single environment, namely a federated portal, like in EHRI. We built a methodology based on a specification and customisation method inspired from the long lasting experience of the Text Encoding Initiative (TEI) community. In the TEI framework, one has the possibility of defining project-specific subsets or extensions of the TEI guidelines while maintaining both the technical (XML schemas) and editorial (documentation) specification within a single framework. Using the same framework for EAD data allows us to express precise content-oriented rules combined with some interesting possibilities of integrating the human readable documentation in the validation process.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>EAD, What's wrong with it</head><p>The development of EAD was initiated in 1993 at the Library of Berkeley, with the idea of building a non proprietary format for finding aids, reflecting the hierarchical structuration of archival fonds. If preliminary attempts were expressed in SGML, the first version of EAD used XML, and was released in 1998. A second version was released soon after in 2002, EAD2002, which is still the most widely used version. It is maintained by the Library of Congress and the Society of American Archivists. In 2010, a global revision process was initiated, in order to make EAD more connected to Linked Data technologies, and to reach a better integration with the others XML archival formats: EAC-CPF and EAG and in 2015, EAD3 was officially released. However, in the world of cultural heritage institutions and research, archival description is often considered as a pending issue, a hindrance to data exchange and accuracy. Since its creation, EAD faces criticism, as many observers are pointing to its permissiveness as a problem. Yet in 2001, Shaw asks for a "more prescriptive descriptive standard" <ref type="bibr" target="#b3">[Shaw, 2001]</ref>.</p><p>Still today, and even if EAD3<ref type="foot" target="#foot_1">2</ref> is globally seen as a step in the right direction, EAD is generally seen as a poorly structured and interoperable standard, not very suitable for data exchange, and is paradoxically considered by some information specialists, not a "standard for archival description" <ref type="bibr" target="#b0">[Bunn, 2013]</ref>. We will not go any further in this controversy, but point the fact that the archival community, though aware of these weaknesses, still broadly works with EAD and is still willing to improve the quality of digital archival descriptions.</p><p>There is room to improve EAD in two main aspects: 1) handle its flexibility and 2) preserve all the complexity of the content when exchanging archival description. Of course, the new Records in Context content mode <ref type="bibr">[EGAD 2106]</ref> proposes a nice way to handle these issues, with an ontology meant to bring together all the pieces of archival information (authorities, institutions, functions and records), natively compliant with semantic web technologies. But, before this solution is adopted and implemented, EAD still is and will be the archival community standard. The framework we propose will allow for better exchange and dialog between archival data and together with others resources available online.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The EHRI use case</head><p>The EHRI environment is a perfect use case to apply our method, because of the heterogeneity of the corpus, characterized by a great diversity of languages, description levels, and archival practices, and the goal to ingest all these archival descriptions in one single environment. These various sources need therefore to be compared, checked in quality, and processed before being integrated in the repository. To do so, the pivot format is naturally EAD <ref type="bibr">(version 2002)</ref>, used for automatic ingestion in EHRI database and also for exports. Like for all the archival portals, the two crucial questions are how to deal with so many differents ways of encoding EAD, and how to guarantee that the descriptions are compliant with EHRI requirements. To handle this situation, we propose a method to create customizations for EAD in order to refine archival descriptions both in the structure and in the content, and of course respect entirely the EAD syntax.</p><p>This method is developed in the context of the umbrella project Parthenos<ref type="foot" target="#foot_2">3</ref> which aims, among other things, at disseminating information and resources about methodological and technical standards in the humanities. One of the main objectives of Parthenos is to create a Standardization survival Kit (SSK) <ref type="bibr">[Romary et al., 2016]</ref>, whose main features are to:</p><p>-Propose generic research scenarios to scholars where the use of standards play a key role -Communicate around community initiatives -Support standardization activities in domains where it is needed.</p><p>Within Parthenos, one of the scenarios we will provide in the SSK is precisely a scenario guiding scholars and cultural heritage information specialists in the creation of projectspecific EAD schemas.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The TEI-ODD specification framework</head><p>In this project, we are inspired by another very strong community standard : the Text Encoding initiative. This format facilitate the representation of any textual resource in XML. It was built for digital editions of historical texts, but can be used in many other situations. For instance, what we are interested in is a subset of the TEI meant to create XML formats specification (the TEI itself is described with this subset of TEI). This is called "One document does it all" and it allows us to model specific subsets, extensions or profiles of the described format. ODD can be used to refine the behaviour of elements and attributes, for any XML format, contains all the human readable documentation and can be processed to generate various resources: a validation schema (in many formats) and some documentation (in many formats).</p><p>ODD is based on the principles of literate programming, which means that this language combines formal (specifications) and informal declarations (descriptive prose and examples) <ref type="bibr">[Knuth 1983</ref>]. It combines in the same environment the technical specifications and the user guidelines for the key components of the TEI Abstract Model, primarily elements and attributes, but also modules, classes and macros <ref type="bibr" target="#b1">[Burnard &amp; Rahtz 2004]</ref>. For example, to write the specification of an element, the tag used is &lt;tei:elementSpec&gt;. It contains elements for documentation, like the &lt;tei:gloss&gt; (a phrase or word used to provide a gloss or definition) or &lt;tei:desc&gt; (a brief description of the object documented by its parent element, typically a documentation element or an entity). The &lt;tei:classes&gt; element is used here to link elements with their attributes, and the &lt;tei:content&gt; contains the relaxNG specification, i.e. what elements can be children of the described element. The official EAD schema and the official EAD tag library were encoded in an ODD document (Agreement of the Library of Congress and the Society of American Archivists), in the context of the Parthenos project<ref type="foot" target="#foot_3">4</ref> . This EAD ODD is a starting point for EHRI, used to create an EHRI-specific EAD profile with very precise content oriented rules based on EHRI requirements and on the CHI data models and some qualitative documentation to be served to the user of conversion and validations services provided by the EHRI project.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>EHRI specific rules</head><p>EHRI has its own ODD, project specific, that inherits everything from the generic EAD ODD, except the elements and attributes that have a different behaviour in EHRI. The philosophy is to keep the EAD schema as it is, i.e. not modify directly the RelaxNG specifications. Instead, we use another validation language: ISO Schematron<ref type="foot" target="#foot_4">5</ref> . EHRI already used schematron rules to control the input descriptions. We completed them, respecting the same organisation. Schematron validation serves diagnostics to the content providers, by emphasizing:</p><p>-technical errors and proposes a solution, as EHRI conceive it -EHRI descriptions guidelines requirements -EHRI descriptions guidelines proposals, or "nice to have" points Some rules reflects the requirements of EHRI database content model. For instance, it asks that the &lt;date&gt; elements contains a @normal attribute whose content respect the ISO8601 standard on representation of dates and time. This constraint is expressed in the ODD file with embedded schematron in the following way:</p><p>&lt;elementSpec ident="date" module="EAD" mode="change"&gt; &lt;constraintSpec ident="dateNormal" scheme="isoschematron" type="EHRI" mode="add"&gt; &lt;desc&gt;All the &lt;gi&gt;date&lt;/gi&gt; elements MUST have a &lt;att&gt;normal&lt;/att&gt; attribute whose pattern respects the ISO8601 standard and take the following form: YYYY-MM-DD&lt;/desc&gt; &lt;constraint&gt; &lt;sch:rule context="date"&gt; &lt;sch:assert role="MUST" test="matches(@normal,'^(</p><formula xml:id="formula_0">([0-9]|[1-9][0-9]|[1-9][0-9]{2}|[1-9][0-9]{3}))-(0[1-9]|1[012])- (0[1-9]|[12][0-9]|3[01])$')"&gt;@normal attribute MUST respect ISO8601 pattern = YYYY-MM- DD&lt;/sch:assert&gt; &lt;/sch:rule&gt; &lt;/constraint&gt; &lt;/constraintSpec&gt; &lt;/elementSpec&gt;</formula><p>This second rule is also a requirement, but for different reasons. For the sake of comprehension of the archival description, EHRI requires that a &lt;scopecontent&gt; element should be present somewhere. the choice is let to the provider to write on general paragraph and put it at the highest level (&lt;archdesc&gt;) or add a more precise &lt;scopecontent&gt; for each subcomponents, from &lt;c01&gt; to &lt;c06&gt;. Here, the rule is called at the &lt;archdesc&gt; level, because it is more likely that the CHI provides a global &lt;scopecontent&gt; if it didn't exist before.</p><p>&lt;elementSpec ident="archdesc" mode="change"&gt; &lt;!--… --&gt; &lt;constraintSpec ident="scopecontentInArchdescOrC" scheme="isoschematron" type="EHRI"&gt; &lt;desc&gt;A &lt;gi&gt;scopecontent&lt;/gi&gt; element SHOULD be present in the description at least in &lt;gi&gt;archdesc&lt;/gi&gt;, if not in the &lt;gi&gt;c&lt;/gi&gt; elements.&lt;/desc&gt; &lt;constraint&gt; &lt;sch:rule context="archdesc" role="SHOULD"&gt; &lt;sch:assert test="scopecontent or dsc/c01/descendant-orself::scopecontent"&gt;a "scopecontent" element SHOULD be present at least in "archdesc" if not in the "c" elements&lt;/sch:assert&gt; &lt;/sch:rule&gt; &lt;/constraint&gt; &lt;/constraintSpec&gt; &lt;/elementSpec&gt;</p><p>The last rule showed is the lowest level of constraint. It presents some possibilities to make the description more complete. In particular, these rules focuses on the content related elements of &lt;archdesc&gt;. Therefore, these messages are not considered as real errors, but as pieces of advice that the providers can follow or not.</p><p>&lt;elementSpec ident="archdesc" mode="change"&gt; &lt;!--… --&gt; &lt;constraintSpec ident="bibliographyPossible" scheme="isoschematron" type="EHRI"&gt; &lt;desc&gt;The &lt;gi&gt;archdesc&lt;/gi&gt; element COULD contain a &lt;gi&gt;bibliography&lt;/gi&gt; element.&lt;/desc&gt; &lt;constraint&gt; &lt;sch:rule context="archdesc"&gt; &lt;sch:assert role="COULD" test="bibliography"&gt;archdesc COULD have a bibliography&lt;/sch:assert&gt;&lt;/sch:rule&gt; &lt;/constraint&gt; &lt;/constraintSpec&gt;</p><p>The rules added to the EAD schema in EHRI specify all the different parts of the archival description : the administrative metadata (the &lt;eadheader&gt;, in particular the history of the modification of the EAD), the description itself (&lt;archdesc&gt;, &lt;c&gt; and &lt;did&gt;), and the content elements (the access points, i.e. the named entities, persons, places, organisations, …, but also the dates). Another type of specific rules is related to all the standardized codes used to identify some pieces of information, like the languages used (ISO639), the archives (ISO15511), etc.</p><p>Overview of EHRI schematron rules: The &lt;processinfo&gt; element should contain a &lt;date&gt; element as descendant. SHOULD</p><p>A &lt;scopecontent&gt; element should be present in the description at least in &lt;archdesc&gt;, if not in the sub components elements.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>SHOULD</head><p>The sub components elements should be numbered components between &lt;c01&gt; and &lt;c06&gt;</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>SHOULD</head><p>The &lt;archdesc&gt; element could contain these content related elements:</p><formula xml:id="formula_1">-&lt;langmaterial&gt; -&lt;custodhist&gt; -&lt;otherfindaid&gt; -&lt;originalsloc&gt; -&lt;altformavail&gt; -&lt;bibliography&gt; -&lt;odd&gt; -&lt;note&gt; -&lt;controlaccess&gt; COULD &lt;langmaterial&gt; could contain a &lt;language&gt; element. COULD</formula><p>If the element &lt;altformavail&gt; is not empty, you could try to identify if the originals are present in the EHRI portal and make a link between the two descriptions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COULD</head><p>If the element &lt;originalsloc&gt; is not empty, you could try to identify if copies are present in the EHRI portal and make a link between the two descriptions. COULD 3. Entities a. Access points</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>EHRI Rules Role</head><p>In &lt;controlaccess&gt;, EHRI welcomes any access points types : &lt;subject&gt;, &lt;geogname&gt;, &lt;persname&gt;, &lt;orgname&gt;.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COULD</head><p>Access points could be chosen in authority lists. The list is declared with a @source attribute. The related identifier of this authority should be declared in an @authfilenumber attribute. Note that EHRI provides URLs for vocabularies and authorities.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>COULD</head><p>In the access points, person names should be structured like this : Family name, given name SHOULD b. &lt;unitdate&gt; and &lt;date&gt;</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>EHRI Rules Role</head><p>&lt;unitdate&gt; should have a non-empty @normal attribute SHOULD</p><p>The @normal attribute of &lt;unitdate&gt; must respect the ISO8601 pattern: YYYY-MM-DD MUST &lt;unitdates&gt; could have a @label attribute or an @encodinganalog attribute, describing the type of date COULD All the &lt;date&gt; elements must have a @normal attribute whose pattern respects the ISO8601 standard and take the following form: YYYY-MM-DD MUST 4. Languages and other coded values</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>EHRI Rules Role</head><p>&lt;language&gt; must have a @langcode attribute, taken from the list given by the ISO639 standard.</p><p>MUST &lt;language&gt; must have a @scriptcode attribute, taken from the list given by the SHOULD ISO15924 standard.</p><p>If the language of the description is not English, a parallel form of the title in English should be added. For instance, using another &lt;unittitle&gt; element with a @type attribute SHOULD &lt;eadid&gt; should contain a @mainagencycode attribute, which provides (if applicable) the ISO15511 code for the institution that maintains the finding aid.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>SHOULD</head><p>If the @repositoryencoding is set to iso15511, the format of the value of the @repositorycode attribute is constrained according to the International Standard Identifier for Libraries and Related Organizations (ISIL: ISO 15511): a prefix, a dash, and an identifier.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>SHOULD</head><p>In the EHRI mapping and validation workflow, the EHRI-EAD schema is used to test the archival descriptions before they are ingested in the portal. The result is of this validation is a list of messages (presented above) linked to precise fragments of the tested description. Therefore, the archive that ingests its descriptions in EHRI portal is informed of the changes it has to make to be sure its data could be integrated in the portal harmlessly. In the future, it is also planned that some uncritical modifications could be automatically made inside the validation framework (base on the Schematron Quickfix extension<ref type="foot" target="#foot_6">7</ref> ).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conclusion</head><p>Offering a standard-based method to gain interoperability between heterogeneous data allows users, above all researchers, to access high quality standardized data. On the other hand, a small CHI sharing easily its data via the EHRI portal gains visibility, by showing easily underexposed data, and creates data enrichments opportunities.</p><p>This method may be of a wider interest within similar environments (i.e. archives portals). As it is one of the components of the Parthenos Standardization Survival Kit -a solution that offers researchers needing standardized methods and resources complete frameworks to carry out their project, in Arts and Humanities and Heritage science, it can be used freely by any interested project. Parthenos is also willing to give support and maintain the EAD ODD for a substantial period. More, this solution can be seen as a possible bridge between EAD2002 and EAD3, and more broadly could be considered as a tool for the future maintenance of the EAD standard, in order to, like for the TEI, oriente this maintenance towards a (wise) ever ongoing revision methodology.</p><p>It could also be an opportunity to bring together EAD and TEI and propose on the fly generation of skeletal TEI documents based on EAD descriptions.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 :</head><label>1</label><figDesc>Fig. 1: Example of the ODD specification for an EAD element</figDesc><graphic coords="4,70.74,303.30,379.50,192.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>&lt;eadheader&gt; must contain a &lt;profiledesc&gt; element MUST the &lt;eadid&gt; element must contain text. Most of the time, it is automatically generated by the archival tool. MUST &lt;eadheader&gt; must contain information on the language used in the EAD document with a &lt;langusage&gt; element containing a &lt;language&gt; element MUST &lt;eadheader&gt; should contain a &lt;creation&gt; element SHOULD &lt;eadheader&gt; should specify a &lt;publisher&gt; SHOULD The &lt;titlestmt&gt; element should contain a &lt;author&gt; element SHOULD A date of creation for the finding aid is welcome. The relevant element is &lt;date&gt;, child of &lt;creation&gt; COULD &lt;descrules&gt; has a default value added automatically by EHRI. Therefore, the content of &lt;descrules&gt; will be overwritten In &lt;revisiondesc&gt;, each &lt;change&gt; element should contain a &lt;date&gt; element and a &lt;item&gt; element. [This rule has been taken from Library of Harvard Archivesspace Checker 6 ] SHOULD The &lt;date&gt; element for each &lt;change&gt; in &lt;revisiondesc&gt; should not be empty SHOULD 2. Archival description (&lt;archdesc&gt;, &lt;did&gt;, &lt;c&gt;)EHRI Rules Role&lt;archdesc&gt; must have a level attribute. MUSTThe value of the &lt;archdesc&gt; @level attribute should be limited to four values: must have a @type attribute MUST if &lt;dsc&gt;'s @type attribute has "othertype" for value, &lt;dsc&gt; must have a not empty @othertype attributeMUSTThe sub components elements (&lt;c01&gt; to &lt;c06&gt;) must have a @level attribute. MUSTIf the @level attribute of &lt;c01&gt;, &lt;c02&gt;, … has the value 'otherlevel', an attribute @otherlevel MUST be added MUST &lt;did&gt; elements must contain: -a &lt;unitid&gt; -at least on non-empty &lt;unittitle&gt; MUST Each unit of description should have an identifier in the element &lt;unitid&gt;. SHOULD In a given EAD document, all the &lt;unitid&gt; elements must be unique MUST In the &lt;did&gt; element, &lt;physdesc&gt; should come with a non-empty &lt;extent&gt; element SHOULD &lt;archdesc&gt; should contain a non-empty &lt;origination&gt; element. SHOULD &lt;archdesc&gt; should contain a non-empty &lt;processinfo&gt; element. SHOULD</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="5,70.74,72.24,433.50,287.25" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="10,70.74,430.56,400.50,241.50" type="bitmap" /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>This work is developed in the context of the H2020 projects EHRI and PARTHENOS</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>https://www.loc.gov/ead/EAD3taglib/index.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>http://parthenos-project.eu</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>http://github.com/ParthenosWP4/standardsLibrary/blob/master/archivalDescription/EAD/odd/EADSpe c.xml</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_4"><p>http://schematron.com/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_5"><p>https://github.com/harvard-library/archivesspacechecker/blob/master/schematron/archivesspace_checker_sch.xml</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_6"><p>http://schematron-quickfix.github.io/sqf/publishing-snapshots/April2015Draft/spec/SQFSpec.html</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Developing Descriptive Standards: A Renewed Call to Action</title>
+		<author>
+			<persName><forename type="first">Jennifer</forename><surname>Bunn</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/23257962.2013.830066</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Archives and Records</title>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="235" to="247" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Records in Contexts, a Conceptual Model for Archival Description. Consultation Draft v0.1</title>
+		<author>
+			<persName><forename type="first">Burnard</forename><surname>Lou</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">ICA</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">Rahtz</forename><surname>Sebastian</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">ICA</orgName>
+			</affiliation>
+		</author>
+		<ptr target="http://www.ica.org/sites/default/files/RiC-CM-0.1.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of Extreme Markup Languages</title>
+		<meeting>Extreme Markup Languages</meeting>
+		<imprint>
+			<date type="published" when="2004">2004. 2004. 2004Burnard01. 2016</date>
+		</imprint>
+	</monogr>
+	<note>Conseil international des Archives</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Literate Programming</title>
+		<author>
+			<persName><forename type="first">Donald</forename><forename type="middle">E</forename><surname>Knuth</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/comjnl/27.2.97</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. J</title>
+		<imprint>
+			<biblScope unit="volume">27</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="97" to="111" />
+			<date type="published" when="1984">1984</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Rethinking Balancing Flexibility and Interoperability</title>
+		<author>
+			<persName><forename type="first">Elizabeth</forename><forename type="middle">J</forename><surname>Shaw</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/13614570109516972</idno>
+	</analytic>
+	<monogr>
+		<title level="j">New Review of Information Networking</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="117" to="131" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Deliverable 4.1, written by members of PARTHENOS</title>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Degl'innocenti</forename><surname>Emiliano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Illmayer</forename><surname>Klaus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joffres</forename><surname>Adeline</surname></persName>
+		</author>
+		<idno>WP4. 2016. &lt;hal-01513531</idno>
+		<imprint/>
+	</monogr>
+	<note>Standardization survival kit (Draft)</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Patrimoines matériels -innovation, expérimentation et résilience Politique de science ouverte</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Caroline</forename><surname>Corbières</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Loïc</forename><surname>Bertrand</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Serge</forename><surname>Cohen</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Sophie</forename><surname>David</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<title level="a" type="main">Patrimoines matériels -innovation, expérimentation et résilience Politique de science ouverte</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">5F02E543A3101032A6E6BA9C9B7B0959</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T14:59+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>Les problématiques associées à ce qu'on appelle désormais la science ouverte ne sont pas nouvelles (cf. l'initiative de Budapest pour l'accès ouvert de 2001 et la déclaration de Berlin de 2003). Cependant « la diffusion sans entrave des publications et des données de la recherche » (https://www.ouvrirlascience.fr/plan-national-pour-la-science-ouverte/) a varié selon les disciplines<ref type="foot" target="#foot_0">1</ref> . Plus récemment, ces problématiques ont trouvé un ancrage législatif en France avec la loi pour une République numérique (2016), puis la mise en place du Comité pour la science ouverte (https://www.ouvrirlascience.fr), qui a notamment produit les premier et deuxième plan national pour la science ouverte (2021-2024) (https://www.ouvrirlascience.fr/deuxieme-plan-national-pour-la-science-ouverte-pnso/), et avec l'inauguration prochaine de Recherche Data Gouv (plateforme nationale fédérée pour les données de la recherche disponible fin 2022). En parallèle, ont émané au niveau européen des recommandations et obligations sur la production de plan de gestion de données, le dépôt des données de la recherche dans des entrepôts ouverts, le respect des principes FAIR (findable, accessible, interoperable, reusable, https://www.ccsd.cnrs.fr/principes-fair/), etc. Si les contextes nationaux et internationaux sont désormais alignés, le chemin à faire est important, et… long, car il implique avant tout un changement dans les pratiques de recherche. En outre, les principes, par définition exprimés à des hauts niveaux de généralité, doivent être déclinés en actions concrètes, qui doivent partir des pratiques existantes, pour que justement les changements attendus puissent opérer. C'est encore plus une nécessité dans un champ aussi radicalement pluri-et interdisciplinaire que celui des matériaux anciens, où les SHS, la paléontologie, les sciences expérimentales, les mathématiques, les statistiques, etc., doivent dialoguer, et que toutes ces disciplines n'en sont pas au même point sur ces questions d'ouverture.</p><p>C'est cette approche (bottom-up) que défend le DIM PAMIR, en faisant de la question de la documentation de donnée une question centrale : quelles sont les métadonnées qui comptent ? Et dans quels contextes ? Pour apporter quels types d'arguments ? Pour répondre à quelles hypothèses ? Ces questions, sans réponse jusqu'à maintenant -mais on peut, comme on l'a dit plus haut, observer les pratiques -ouvrent de nouvelles perspectives de recherche, dans lesquelles, en termes de science ouverte, il apparaît que la « preuve », en SHS comme dans les sciences des matériaux appliquées au passé, repose moins sur la question de la reproduction de l'expérience que sur la cohérence interne des éléments individuels du processus scientifique.</p><p>Dans ce cadre, la documentation des données revêt toute son importance : pour assurer la traçabilité des données, fouiller les données, stocker de façon accessible et/ou pérenne données et logiciels, et intégrer la réflexion sur les formats et les standards pouvant contribuer à générer un véritable patrimoine numérique dans le domaine des systèmes anciens.  </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Publications-</head><label></label><figDesc>Alimenter la collection HAL du DIM : les publications issues des projets financés par le DIM PAMIR sont mises en accès ouvert et déposées dans la collection HAL du DIM ; le modèle de citation de HAL sera utilisé quand cela est possible -Constituer un corpus de travaux scientifiques en sciences du patrimoine : développer des outils et indicateurs bibliométriques pour automatiser le repérage des publications en sciences du patrimoine ; analyser ce corpus -Participer au référencement des financements franciliens pour la recherche pour relier projets et publications à ces financements Données Par données, on entend ici des données de recherche, résultant notamment des projets financés, et les données structurantes du réseau, notamment celles ayant un caractère statistique. -Développer une culture de la gestion et du partage des données chez tous les scientifiques du réseau : (a) produire une documentation telle que le plan de gestion de données et une politique de réutilisation des données, à l'échelle du DIM entier et des projets financés ; déposer cette documentation dans la collection HAL du DIM ; (b) organiser des ateliers / formations sur ces thèmes -Inciter les scientifiques à déposer leurs données et à les lier aux publications : ils peuvent notamment déposer leurs jeux de données dans un entrepôt (par ex. Zenodo, Nakala), rédiger des data papers, associer des données en annexe de leurs publications -Rassembler des jeux de données identifiés comme outils de référence en sciences du patrimoine destinés à alimenter le Référentiel francilien qui associe données et échantillons standards de référence -Rendre accessible les données structurantes du réseau du DIM en les publiant sous forme de jeux de données et de cartographies ; mettre en place un glossaire / vocabulaire contrôlé (FR + EN) associé Logiciels et équipements scientifiques -Archiver le code source des logiciels : les logiciels développés dans le cadre d'un projet financé par le DIM PAMIR seront déposés dans Software Heritage et leur référence sera déposée dans la collection HAL du DIM -Proposer un modèle de citation pour les équipements (y compris les bases de données) -Rendre visible et accessible la politique d'accès aux équipements (y compris les bases de données) : les politiques d'accès des équipements financés seront déposées dans la collection HAL du DIM ; mettre en place un glossaire / vocabulaire contrôlé (FR + EN) décrivant les typologies d'accès Documents associés -Glossaire du DIM PAMIR (version 22 juin 2021) -Modèle de la Charte de réutilisation des données du DIM PAMIR (version du 21 juin 2021) -Modèle de la Politique d'accès à un équipement du DIM PAMIR (version du 21 juin 2021)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>Cette transition du DIM Matériaux anciens et patrimoniaux vers le DIM Patrimoines matériels -innovation, expérimentation et résilience s'incarne dans plusieurs dimensions du DIM : ̶ l'un des axes méthodologiques du DIM est intitulé « Données et méthodes numériques ». Il a pour but de soutenir l'étude des patrimoines matériels par le développement de méthodes originales, tant en mathématiques qu'en sciences de l'information. //datacharter.hypotheses.org/) élaborée dans le cadre de DARIAH) soient explicités quelques mois après le début du projet et déposés dans HAL ̶ les appels à projet Equipement demandent à ce qu'une politique d'accès à l'équipement soit proposée dès le dépôt du projet Ce document décline les différents objectifs que se donne le DIM PAMIR sur les trois piliers de la science ouverte : publications, données et logiciels. Il explicite ainsi la politique de science ouverte qui va être menée pour la période 2022-2026. La déclinaison de ces objectifs en actions, de même que leur pilotage feront l'objet d'un 2 e document.</figDesc><table><row><cell cols="9">̶ les appels à projet Doctorat et Post-doctorat demandent qu'un plan de gestion de données et qu'une</cell></row><row><cell>politique</cell><cell>de</cell><cell>réutilisation des</cell><cell>données</cell><cell>(inspirée</cell><cell>de</cell><cell>la Data</cell><cell>Reuse</cell><cell>Charter</cell></row><row><cell>(https:</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table><note><p>̶ les porteurs de projet doivent autoriser la coordination du DIM à analyser l'ensemble des éléments des dossiers scientifiques après anonymisation, de manière à produire des analyses statistiques et des cartographies du réseau et des projets ̶ les Projets structurants proposés, notamment les projets « Référentiel francilien » (production d'une infrastructure portant sur les collections de référence (matériauthèques, ossothèques, etc.) et « Cartable numérique » (valorisation des résultats de la recherche auprès des lycéens), seront basés sur des pratiques de science ouverte ̶ pour assurer une réflexion continue sur ces questions, un groupe de travail émanant du Comité de pilotage du DIM s'est constitué ̶ la coordination du DIM, notamment Caroline Corbières, chargée de mission « Traitements de données scientifiques -science ouverte », et Laurent Romary, co-porteur du DIM, mettra en place les actions de formation nécessaires, sur le modèle des journées DOPAMINE du DIM Matériaux anciens et patrimoniaux (https://www.dim-map.fr/projets-soutenus/dopamine/)</p></note></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>Il faut ici saluer le rôle pionnier des SHS, avec la mise en place des infrastructures Huma-Num et Progedo au niveau national et la création au niveau européen de l'infrastructure DARIAH -Digital Research Infrastructure for Arts and Humanities (https://www.dariah.eu/), en</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2014" xml:id="foot_1"><p></p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl/>
+			</div>
+		</back>
+	</text>
+</TEI>

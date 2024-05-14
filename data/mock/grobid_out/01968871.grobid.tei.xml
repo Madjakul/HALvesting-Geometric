@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Bridging the Gaps between Digital Humanities, Lexicography, and Linguistics: A TEI Dictionary for the Documentation of Mixtepec-Mixtec</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Jack</forename><surname>Bowers</surname></persName>
+							<email>jack.bowers@oeaw.ac.at</email>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+						</author>
+						<title level="a" type="main">Bridging the Gaps between Digital Humanities, Lexicography, and Linguistics: A TEI Dictionary for the Documentation of Mixtepec-Mixtec</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">0F5A734229CE8A5A60B67A6FE5C66AEF</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>language documentation</term>
+					<term>digital humanities</term>
+					<term>Mixtec</term>
+					<term>TEI</term>
+					<term>dictionary encoding</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>This paper discusses the digital dictionary component in an ongoing language documentation project for the Mixtepec-Mixtec language (iso 639-3: mix). Mixtepec-Mixtec (Sa'an Savi 'rain language') is an Otomonguean language spoken by roughly 9,000-10,000 people in the Juxtlahuaca district of Oaxaca and in parts of the Guerrero and Puebla states of Mexico. Creating a digital dictionary for an under-resourced language entails a number of challenges that require unique and nuanced encoding solutions in which a delicate balance between the linguistic content, data structure, potential linked resources, and editorial metadata must be found. Herein we demonstrate how we use TEI to create a reusable, extensible, and machine readable language resource with an emphasis on how our solutions using a combination of novel and established TEI dictionary structures enable us to address our specific needs for Mixtepec-Mixtec and also provide a relevant roadmap for similar under-resourced language projects.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>INTRODUCTION</head><p>This paper discusses the dictionary component of a larger documentation project of the Mixtepec-Mixtec language (MIX) 1 using the Text Encoding Initiative, or TEI (www.tei-c.org). In addition to the creation of a TEI dictionary, the primary output of the project is an open source body of reusable and extensible multimedia language resources including a text corpus of spoken and written language encoded and annotated in TEI. The language resources created are in turn being used to further knowledge of all aspects of the language itself within the fields of linguistics and lexicography by producing empirical corpus-based descriptions and analyses of aspects of the language's features.</p><p>In the process of data collection, annotation, and encoding, we seek to capture content relevant to every linguistic level from phonetic to semantic and etymological, as well as potential sub-dialectal variation. In conjunction with the complexity of the data, given the maximally broad scope of linguistic and lexicographic research being pursued, it is essential to have a means of organizing all the various components of the languages resources (LR) within a dynamic and flexible system. Also, given the lack of any other dictionary resources for the language, it is especially important that what we create is reusable and extensible so that it may continue to evolve, with the possibility of being easily exported or converted to other formats.</p><p>In pursuit of these goals, TEI essentially meets all the needs as the primary format for encoding and annotating our corpus, our born-digital dictionary, and our metadata. TEI is widely accepted in the digital lexicographic community as the de facto standard for the encoding of both retro-digitized and born-digital dictionaries and is being increasingly used for annotated lexical text corpora.</p><p>While TEI is well established and increasingly more widely adopted for projects and resources dealing with major world languages, <ref type="bibr">1</ref> Most of the spoken data collected in this project originate from consultation sessions with two native speakers from Yucunani (17.30083, -97.89389), a town that is part of the municipality of San Juan de Mixtepec (http://www.geonames. org/3518634/san-juan-mixtepec.html).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>AUTHOR COPY</head><p>A TEI Dictionary for the Documentation of Mixtepec-Mixtec 81 particularly those of Europe and North America, it is far less adopted in projects dealing with indigenous languages. Aside from publications related to the current project, Czaykowska-Higgins et al. (2014), describing an application of TEI to the indigenous language Moses-Columbia Salish "Nxaʔamxcín", is a noteworthy example.</p><p>Our use of TEI for documentation work requires us to make use of the vocabulary for new or less common applications in order to accommodate the particular nuances of our data. Doing this benefits not only our project: in mapping out how to accommodate new unique combinations of features for a non-Indo-European indigenous language, it also increases the usability of TEI for potential future users and projects seeking to do similar things.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>General issues in dealing with an under-resourced language.</head><p>While, according to Ethnologue (Simons and Fennig 2018), the status of MIX is "vigorous," it is an under-resourced language, and that gives rise to several significant challenges in our work, including these:</p><p>1. MIX lacks established linguistic descriptions beyond those of phonology and morphology upon which to build;</p><p>2. given the limited sample size of our data, and the disproportionate amount of data from two primary consultants from a small village outside the main town of San Juan Mixtepec, it is unclear whether certain observations of variation are due to sub-dialectal differences or speaker demographic-specific factors;</p><p>3. because speakers attempting to write in MIX are often not aware of phonological minimal distinctions, further consultation is almost always needed when interpreting and annotate such written materials; 4. because the orthography is still under development<ref type="foot" target="#foot_0">2</ref> , the work done in creating and editing orthographic data in the project remains subject to revision;</p><p>5. the combination of the issues above and the fact that the output of this data will be the first (at least publicly available) set of MIX annotated data means there will be no way to train a learning model<ref type="foot" target="#foot_1">3</ref> to automate the corpus annotation work.<ref type="foot" target="#foot_2">4</ref> </p><p>Data: sources, formatting, tools, and markup. Most of the MIX language resources have been collected from recordings of consultation sessions with native speakers<ref type="foot" target="#foot_3">5</ref> and a collection of children's text booklets published by the Summer Institute of Linguistics (SIL) Mexico. <ref type="bibr">6</ref> Other primary sources of data are written material created by native speakers as part of this project; documents about Mixtec that contain examples from others researchers;<ref type="foot" target="#foot_5">7</ref> a set of public safety documents published by the Mexican government; excerpts from written personal communication with speakers; a small number of previous academic publications on the language (e.g., Pike and Ibach 1978; Paster and  Beam de Azcona 2004a, 2004b; Paster 2005, 2010),<ref type="foot" target="#foot_6">8</ref> as well as recordings and videos found online. For our editing and management of the text data we use Oxygen XML editor, and we backup and store our files (excluding soundfiles) o n G itHub.<ref type="foot" target="#foot_7">9</ref> A ll o f t he p roject fi les (i ncluding sound and video) are archived in the Harvard Dataverse repository<ref type="foot" target="#foot_8">10</ref> and will be registered with the Open Language Archives (OLAC).</p><p>Fitting in with the standards. In addition to using TEI for an indigenous language dictionary, Czaykowska-Higgins et al. (2014) cover many other issues relevant to the current project: in particular, questions of standardized lexical terminology, and compatibility with other formats and standards.</p><p>In the current project, the issue of deciding upon a theoretically sound fixed lexical terminology is challenging because, given the lack of published linguistic descriptions, there is very little to compare it to, and (as with much else in linguistics) there are multiple overlapping terms to describe the same phenomena.<ref type="foot" target="#foot_9">11</ref> On the technical/standards side, these issues are further complicated by the in-flux state of the standardized repositories created to deal with this very question, namely ISOcat and the CLARIN Concept Registry.<ref type="foot" target="#foot_10">12</ref> Additionally, there are still numerous linguistic concepts that are a significant part of our description (in both the corpus and the dictionary) for which there is no entry in any of the registries;<ref type="foot" target="#foot_11">13</ref> thus, when the given registries are finally stable, as part of this project, we are tasked with submitting the necessary proposals to add entries for certain needed linguistic features.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>TEI DICTIONARY</head><p>In this section we give an overview of the components of our dictionary and explain the lexicographic, functional, and-in certain cases-theoretical basis of their use.</p><p>Aside from the media files and annotated corpus, the main output of the project will be a trilingual TEI dictionary (Mixtepec-Mixtec, English, and Spanish) containing entries for all glossed lexical items observed in our corpus. Entries may contain the orthographic word forms, phonetic forms (and variants), grammar, usage, sense, etymological information, links to relevant external lexical and knowledge resources, and related entries, as well as examples from the corpus. Additionally, a separate inflections d ictionary d ocument s tores v erbal p aradigms.<ref type="foot" target="#foot_12">14</ref> I n t he f ollowing sections, we describe these features in more detail and demonstrate their encoding in TEI. <ref type="bibr">15</ref> The work is still ongoing and the 567 entries in our dictionary (as of October 2018) represent only a small fraction of the total vocabulary in our corpus.</p><p>Metadata and linking. In addition to the typical features inherent in dictionaries listed above, through links declared in the header section (TEI Guidelines, The TEI Header) the TEI dictionary acts as a nexus of the linguistic (lexical feature inventories) and other referenced resources (e.g., personographic, bibliographic).</p><p>TEI allows numerous ways of linking to important information that may need to be referenced throughout a dictionary, and we make use of several approaches based on the type of reference and the data itself. In the following section we describe several such aspects of the dictionary and how they are relevant within the context of the language documentation. Figure <ref type="figure" target="#fig_0">1</ref> provides an overview of the linked and embedded resources in the Mixtepec-Mixtec dictionary at the heart of this project. Lexical features and terminology inventory. As mentioned above, the project adheres to standards as much as possible in all aspects of the work. Our inventory of lexical terminology is kept in a separate document containing TEI feature structures<ref type="foot" target="#foot_14">16</ref> that are used to tag the corpus. Figure <ref type="figure" target="#fig_1">2</ref> shows the declaration of the link to the document contained in the &lt;sourceDesc&gt; of the header in the dictionary (left) and a sample of two particular sets of features (trajector and landmark)<ref type="foot" target="#foot_15">17</ref> from the document it links to.  External data such as documents by SIL make up a significant portion of our data. Within our dictionary we often need to point to these sources to attribute provenance of an example. To enable this we again declare these sources in the &lt;sourceDesc&gt; of the header. The pathway to the TEI file is declared in @xml:base as shown in Figure <ref type="figure" target="#fig_2">3</ref>. Personography. Additionally, as shown in Figure <ref type="figure" target="#fig_3">4</ref>, in the header (within &lt;particDesc&gt; embedded in &lt;profileDesc&gt;), we list each person (speakers, editors, and researchers) who may be referred to directly in the dictionary. This list also links to the external TEI personography document "MIX-People.xml" containing detailed information about the participants, the path to which is declared in @xml:base on the element &lt;listPerson&gt;. Linking to related documents in dictionary. In certain entries we link to an external supplementary inflections dictionary containing inflectional paradigms. Within the TEI data structure shown in Figure <ref type="figure" target="#fig_4">5</ref>, this is enabled by using the &lt;prefixDef&gt;<ref type="foot" target="#foot_16">18</ref> element in the header in which a prefix is declared and serves as a shortcut for a specific path within the inflections dictionary. This enables us to point to entries for a particular paradigm entry in the inflections dictionary, thus linking a lemma with its infections. In Figure <ref type="figure" target="#fig_4">5</ref>, the value of @matchPattern is a template for such pointers with the regular expression ([a-zA-Z0-9]+), which is replaced by the specific text of an entry. At the end of the value of @ replacementPattern, #$1 means that any pointer with the prefix "paradigm" should point to the document "../MIX-Paradigms.xml" with the value of the first regular expression: ([a-zA-Z0-9]+). Thus, within the dictionary, the inflections dictionary can be referenced by prefixing "paradigm:" within the string of pointer value. The pointer in Figure <ref type="figure" target="#fig_5">6</ref> links to the entry containing paradigms for the verb kusu 'sleep' (see Figures <ref type="figure" target="#fig_10">12</ref> and<ref type="figure" target="#fig_2">13</ref> for the context in which it is used). Other types of links. Additionally, we have other resources such as sound files and some videos for which records, URLs, and metadata are stored in external files in a separate directory. Because of their large and ever-growing numbers, these are not declared in the header but can nonetheless be referenced and linked to within the dictionary using the @source attribute which can be placed in a number of different TEI elements.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>STRUCTURE AND CONTENT OF ENTRIES</head><p>Forms and grammar. The lemma of a MIX form is given in the orthographic form and, if attested to a high enough degree of certainty, in the phonetic form (IPA) as well. Each entry has a &lt;gramGrp&gt;, with the minimal information of part of speech and other features where applicable. The element containing the form always includes the @ xml:lang attribute, the value of which is the ISO 639 language tag. <ref type="bibr">19</ref> If an abbreviated value is used, a @norm attribute with the full form of the feature is given in order to align with terminological standards. A typical example is shown in Figure <ref type="figure" target="#fig_6">7</ref>. Variation, uncertain, and conflicting forms. As this is a language documentation project, and the language is under-resourced both in its use as a literary language and its linguistic description, we are interested in recording variation and areas of uncertainty of all kinds.</p><p>Orthographic variation. Given that the MIX orthography is still under development and significant changes have been made over the last ten years, there are many lexical items in earlier documents with spellings that have since been changed. In these cases, both the old and up-todate forms are represented. In the earlier publications (encoded herein as the variant form), lexical tone was not represented in the orthography; however, this created a large number of homographs (which in some cases were of the same part of speech or even within the same domain). These needed to be distinguished.</p><p>The example in Figure <ref type="figure" target="#fig_7">8</ref> shows the updated chuún and antiquated chuun forms of the word meaning 'chicken' [ʧũṹ], which is a tonebased minimal pair with the word meaning 'money' [ʧũũ], the latter retaining the original spelling while the former adds the accent above the second vowel. The old form is labeled with &lt;form type="variant"&gt; and the element &lt;orth&gt; with attribute-value pair of @notation="plain" to indicate that the orthography does not represent tone. Additionally, given that the orthographic standard being developed has not been published, 20 those who write in the language often do not use the working spelling conventions, and thus we are faced with inte-grating all variants into our common system. The example in Figure <ref type="figure" target="#fig_8">9</ref> shows the encoding of a variant spelling of the lexical item meaning 'water' which was observed in a public service publication by the Mexican government. In this orthography, the voiceless alveopalatal affricate is rep-resented as ty instead of the standard ch, and the long word-final vowel is represented only as a single i. The document that is the source of the spelling variant is provided as the value of the @source attribute, which is declared in the bibliography within &lt;listBibl&gt; in the header (see "Linking to related documents" under "Metadata and linking" in TEI DICTIONARY section).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>20</head><p>The latest known update to the orthography was obtained via personal communication with Mille Nieves of SIL Mexico in June 2017; it is upon this version that all editorial practice is based with regard to spelling normalization. Phonetic variation. In our data there are certain lexical items for which pronunciation variants are observed frequently enough that alternate pronunciations are included in the dictionary entry. In the example shown in Figure <ref type="figure" target="#fig_0">10</ref>, the primary pronunciation<ref type="foot" target="#foot_18">21</ref> (with the onset voiceless alveo-palatal fricative) is placed as a direct child of &lt;form&gt;, and the variant (with the onset voiced alveo-palatal fricative) is embedded within a separate &lt;form&gt;, also labeled @type= "variant".</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Figure 10 Encoding of Phonetic Variants</head><p>Integrating data from external sources. Despite there being only a small body of linguistic literature about the language, there are cases where examples of transcribed vocabulary found in such sources are of interest and are thus integrated into the dictionary. Some instances may be the first or only attestation of the word or may diverge in some way from our own characterizations of the item. Additionally, there may be divergence in the transcription conventions used to represent the content.</p><p>One such example involves the tone of iin 'nine', where data from our project differs from that of two previous papers. In twenty-four of the twenty-five tokens in our data (from three speakers), the F0 (pitch) analysis shows that the tonal contour is falling, while the twenty-fifth, from a fourth speaker, is ambiguous. Thus, based on our own observations, we characterize the tone as falling. However, both Pike and Ibach (1978) and Paster and Beam de Azcona (2004a) 22 characterize the tone simply as low. <ref type="bibr">23</ref> Figure <ref type="figure" target="#fig_9">11</ref> shows the encoding of this in the dictionary. Since the statistics support our description we use the certainty attribute with the value "high" on this form. Another noteworthy observation in this example is the treatment of transcription notation. Unfortunately, nearly none of the past studies of MIX phonology used IPA notation in their transcriptions. Fortunately, TEI has the ability both to keep the original forms from the sources in <ref type="bibr">22</ref> The speaker consultant for the Paster and Beam de Azcona studies is the same individual as the current project's primary speaker (Juan "Tisu'ma" Salazar); we are thus confident that this is an issue of diverging phonological descriptions rather than a difference in pronunciation. Given the extensive body of work we have carried out and the fact that our transcriptions are based on recordings, we can dispute this question with confidence. <ref type="bibr">23</ref> There are still questions as to the degree of tonal contrasts that remain to be answered via further systematic study of the phonology. In particular it is not yet fully clear whether there are minimal phonological distinctions based on each degree of tonal contour; that is, mid-low vs high-low, or even whether there is a contrast between falling and low tones. For this reason in our IPA transcription of what we characterize as phonologically falling, we currently use the global fall arrow  as a temporary placeholder instead of the combining diacritic iː or the combined tone letters ˥˩ or ˧˩.</p><p>@orig and to normalize the notation to IPA in the element values for compatibility.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Inflection and paradigms.</head><p>As mentioned above, a separate inflections dictionary contains full inflectional paradigms to which entries can link using the TEI &lt;prefixDef&gt; strategy described earlier. This is done in the primary dictionary<ref type="foot" target="#foot_19">24</ref> with the &lt;ptr&gt; element as shown in Figure <ref type="figure" target="#fig_10">12</ref>. The pattern of @xml:id values in the paradigm entries is (verb name)-V-paradigm-MIX (e.g., sleep-V-paradigm-MIX). Thus, the pointer in Figure <ref type="figure" target="#fig_2">13</ref> identifies a specific entry in the MIX-Paradigms.xml.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Figure 13 Example of Paradigm Entry Target Referred to in Primary Dictionary</head><p>In MIX, inflections can occur on verbs, nouns (for possession), and adverbs (in certain phrasal contexts). <ref type="bibr">25</ref> Within the form section, full paradigms are represented as embedded blocks of inflected forms in accordance with the recommendations of TEI Lex0 (Bański et al.  2017). Each paradigm is encoded as a sibling of the lemma in &lt;form type="paradigm"&gt; and the primary common feature (tense or mood) is labeled as the value of @subtype, and tense/aspect/voice are encoded in &lt;gramGrp&gt;. In Figure <ref type="figure" target="#fig_11">14</ref>, the first two forms of the paradigm for the present/incompletive forms of the verb kusu 'sleep' are shown. Note that there is a &lt;gramGrp&gt; as a direct child of &lt;form type="paradigm"&gt;, and this contains the grammatical information common to all the inflected forms in the paradigm and inherited via the inheritance principle (Ide et al. 2000).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>SENSE</head><p>The &lt;sense&gt; section contains information pertaining to meaning, including definitions, translations, examples of usage in context, domain classification, and a number of other data fields pertaining to semantic relations. An entry can have any number of senses.</p><p>Links to external knowledge sources: dbpedia. In order to enrich the content of our dictionary, for each concept (where available) we insert a link to an entry in dbpedia (Auer et al. 2007) or other open knowledge resources in the @corresp within the sense element, as shown in Figure <ref type="figure" target="#fig_12">15</ref>. This is done with several benefits in mind. One is that they provide a link between a structured body of human knowledge and the Mixtepec-Mixtec language. Currently there are no Mixtec language wiki resources, and these links to dbpedia could provide a template upon which a MIX version of wiki-type entries could be based. Additionally, the multilingual definitions of the concepts found in the entries could serve as a systematic reference point upon which to base MIX definitions of the senses, which (as discussed below) are currently available for a small number of entries. Finally (with the inclusion of @xml:id) they enable the compatibility of the data to linked data formats such as OntoLex-Lemon (McCrae et al. 2017).</p><p>Translations. The most basic facet of the sense section is the multilingual translations into English and Spanish. Translations of lemmas are placed &lt;cit type="translation"&gt; within the &lt;form&gt;&lt;orth&gt; element block. If in the translation language the Mixtec item has more than one specific translation, the others are listed in separate &lt;cit&gt; elements. Where possible we may also include links to digital dictionary-external resources for the given translation target languages, as in Figure <ref type="figure" target="#fig_5">16</ref>.<ref type="foot" target="#foot_21">26</ref>  Images. In certain entries (often ones that correspond with certain theoretical interests pertaining to metaphor-driven and metonymy-driven sense change), we may include images showing the concept denoted in the sense. In TEI this is done with &lt;graphic @url&gt;, within which the &lt;desc&gt; element describes the content of the image. As in &lt;def&gt;, we include English and Spanish along with an empty tag for a future Mixtec description to be added. These images could be used for a pictographic or multimedia learning resource (e.g., a children's dictionary) or as examples for our own presentations. Figure <ref type="figure" target="#fig_14">19</ref> shows a visualization of the given sense of the word for 'face' , which in this sense means 'front of' something. Semantics and cultural issues in language documentation. Especially in a language documentation project, it is important and necessary to include other notes on various specifics of an entry. An example is the lexical item sa'an ntavi, one of two terms referring to the Mixtepec-Mixtec language itself and whose components translate literally as 'poor language' . Our project's native speaker consultant (understandably) finds this term offensive and derogatory and wanted it marked as dispreferred in the dictionary and the issue to be recorded in prose. This</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>AUTHOR COPY</head><p>A TEI Dictionary for the Documentation of Mixtepec-Mixtec 97 is achieved with a combination of the TEI &lt;note&gt; and &lt;usg&gt; elements, with the @type value of "attitude" and the @resp specifying the initials of those responsible for recording this information, as shown in Figure 20. The initials are the @xml:id value of the individuals and are declared in the header (as discussed in "Personography" under "Metadata and linking" in TEI DICTIONARY section). Semantic relations and domain. In addition to sense, translations, and definitions, our dictionary includes information on semantic relations and domain. While the former is commonly made use of in structuralist linguistic approaches and computational linguistics such as WordNet (Miller 1995; Fellbaum 2005, 2010), the latter is typical of theoretical approaches based in cognitive linguistics (Langacker  1987; Clausner and Croft 1999).</p><p>While within theoretically these features are a mixture of structuralist and encyclopedic models of semantics (Geerarts 2010), for the purposes of the project, including these features in the annotation brings significant benefits. From the point view of potential Mixtec users of this resource, these features can be harnessed to facilitate collection and generation of focused sets of vocabulary to be used for the creation of further, more focused resources such as children's books and thesauri. Below we describe the content and implementation of these features in our dataset.</p><p>Semantic relations in the dictionary are encoded within specific senses of an entry within the external relation element &lt;xr&gt;. The given type is encoded in @type with an embedded &lt;ref&gt; that takes the @xml:lang (as we are generally providing both Mixtec and English versions, with English being the metalanguage for computational purposes). Where they point to other entries within the dictionary the @target attribute is used on &lt;ref&gt;. In the dictionary we tag only the members/subclasses but not the top nodes; thus, in the entry for 'fruit' we do not have the semantic relation 'hypernym' for every specific fruit species. Instead, this collection can be inferred and built up from the body of items tagged "hyponym" of 'fruit'.</p><p>Hyponymy is realized as &lt;xr type="hyponymOf"&gt;. This category is extremely useful for generating taxonomical vocabulary lists. For the semantic relations hyponymy and meronymy, an additional &lt;ref type="sense"&gt; is included with the @corresp, the value of which is the same as occurs on that item's sense element. Thus, for the entry for 'peach' or other type of fruit, the &lt;ref type="sense"&gt; contains the same dbpedia URL as does the &lt;sense @corresp&gt; entry for kui'i 'fruit' itself, as shown in Figure <ref type="figure" target="#fig_16">21</ref>. Meronymy is realized as &lt;xr type="meronymOf"&gt;<ref type="foot" target="#foot_23">28</ref> . As discussed by Geeraerts (2010), meronymy and hypernymy are central to the realiza-tion and analysis of metonymy. Synonymy and antonymy are encoded as &lt;xr type="synonymOf"&gt; and &lt;xr type="antonymOf"&gt;. There are limits, however, to semantic relations both functionally and theoretically, as not all relevant semantic correlations in vocabulary or (more importantly) human knowledge can be defined or linked together in terms of hierarchical or pure opposition or identical senses. In order to fill some of that gap, we also use the concept of semantic domain.</p><p>In addition to semantic relations, which in lexicography are more immediately useful in computational applications, where applicable we assign semantic domain (Langacker 1987; Clausner and Croft  1999) to the sense of certain entries, a fairly common practice in compiling dictionaries. In lexicographic practice, however, the use of domains in a dictionary is often limited to technical subject classes (e.g., medicine, zoology, literature). Domains are fundamental cognitive concepts according to which humans organize, understand, and represent experience and knowledge of the world (Langacker 1987;  Clausner and Croft 1999), and this is a particularly enriching perspective in approaching language documentation.</p><p>In cases of polysemy, semantic domain is often a key distinction between the various senses. In Figure <ref type="figure" target="#fig_17">22</ref> we show the senses in the entry for kani 'long' (domain of SPACE), which can be used in the sense of the domain TIME. In TEI, domain is encoded as &lt;usg type="domain"&gt;.<ref type="foot" target="#foot_24">29</ref>  The inclusion of semantic domain potentially enables an alternate system of organization of a dictionary from the typical alphabetical ordering, or a derived domain-specific dictionary, and it can provide assistance with both manual and automatic word sense disambiguation (WSD). <ref type="bibr">30</ref> Finally, domains enable us to encode and provide more dynamic analyses of sense-based etymological processes in keeping with cognitive linguistic theory. This latter is particularly important to the description of Mixtecan languages, as discussed in the following section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ETYMOLOGY</head><p>In addition to the general documentation of the language, this project's dictionary is being created as a structured database of etymological information. In our data we have observed and encoded the full array of etymological processes, including borrowing (mostly from Spanish, some from Nahuatl), inheritance (from a posited Proto-Mixtecan language inferred by comparing cognates), and form changes: compounding, derivation, phonological change; various types of sense change such as metaphor, metonymy, and grammaticalization, as well as numerous instances of combinations of these processes. Bowers and  Romary (2018) discuss such phenomena and their encoding in TEI.</p><p>Sense-related etymologies. As mentioned, a major point of emphasis in this project is the semantics, specifically the strategies of lexical innovation, particularly from the perspective of cognitive linguistics. There exists a significant body of literature discussing the evidence of metaphor and metonymy in lexical innovation in related varieties of Mixtecan (Hollenbach 1995; Brugman and Macaulay 1986; Langacker  2002); the dataset for MIX provides ample content that enriches such linguistic discussions (Bowers 2016 and forthcoming).</p><p>Figure <ref type="figure" target="#fig_2">23</ref> shows the etymology for MIX kani 'long' in the sense of the domain of TIME (discussed in the previous section). The conventions shown in the encoding of such phenomena in TEI have been derived from the recommendations set forth in Bowers and Romary (2016) and derived from another. When there is one or more embedded &lt;sense&gt; elements, the respective etymologies within should be considered sequential, stemming from the highest sense. In our example, they are also numbered using @n. On the etymology element &lt;etym&gt;, we use the @type to classify the etymological processes. If there is more than one sub-process involved, we can use embedded &lt;etym&gt; element structures to represent them.</p><p>We provide a prose description of our analysis of the given process in the &lt;seg type="desc"&gt; element. Given that it is a polysemy and is the same form as the source sense, the etymon &lt;cit type="etymon"&gt; does not have a form in this case. The @corresp attribute points to the source of the sense change that is the first sense. In addition to the @ type="metaphor", the data structure contains the key information for that process in the &lt;usg type="domain"&gt;, which are in both senses, and copied within the &lt;cit type="etymon"&gt;. Together with the embedding of senses and etymology, the contrast in the domain values from the first sense to the second provides a set of structured data that can be computationally searched and summarized.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FUTURE ENDEAVORS</head><p>This project is the subject of an ongoing PhD thesis by the first author, and, moving forward, funding will be sought to further work towards several major goals, including:</p><p>■ seeking partnerships to bring in long-term Mixtec contributors and editors, with the goals of expanding the size of the vocabulary and adding MIX iterations of key core contents of the dictionary (particularly the definitions and descriptions of the etymology);</p><p>■ inviting additional linguists to make use of the extensive data collected from specific linguistics subfields;</p><p>■ integrating other relevant Mixtecan resources into the dictionary and corpus using OCR with GROBID dictionaries (Khemakhem et  al. 2017), namely the Colonial Mixtec vocabulary collection by fray Francisco de Alvarado from 1593 (Jansen and Perez 2009).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>AUTHOR COPY</head><p>A TEI Dictionary for the Documentation of Mixtepec-Mixtec 103</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CONCLUSION</head><p>In this paper we have described the structure and contents of a multilingual TEI dictionary, which is part of an ongoing language documentation project for the Mixtepec-Mixtec language, an indigenous language of Mexico. We have shown how we are using the TEI dictionary to accommodate a number of key linguistic and metadata-related needs with a particular focus on issues associated with the documentation of an under-resourced language. In addition, we have described how we are integrating the MIX lexical resources with structured external knowledge sources such as dbpedia, and how within this digital dictionary we are working towards building a database of semantic and lexical relations, as well as etymological data. Finally, in using TEI for a language documentation project, we hope that our work may provide a useful reference for prospective projects whose researchers might be seeking guidance for other language and project-specific issues.</p><p>As a final note, Figure <ref type="figure" target="#fig_18">24</ref> shows a relatively complete dictionary entry in the print view for antivi 'sky', with various elements present in the entry. The print rendition is done using CSS (Cascading Style Sheets). Note that not all of the contents present in TEI are rendered in the print view: certain features such as the semantic relations are intended for computational purposes and are not necessarily relevant to the dictionary's primary target audience for the print view, principally members of the Mixtec community. The underlined contents signify they are linked to external or internal locations that may be source files or a URL. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1</head><label>1</label><figDesc>Figure 1 Diagram of Linked and Embedded Resources</figDesc><graphic coords="8,54.25,58.98,345.00,198.25" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2</head><label>2</label><figDesc>Figure2Feature Structures Declared in TEI Header and Their Content in Separate Document Bibliographic sources. External data such as documents by SIL make up a significant portion of our data. Within our dictionary we often need to point to these sources to attribute provenance of an example. To enable this we again declare these sources in the &lt;sourceDesc&gt; of the header. The pathway to the TEI file is declared in @xml:base as shown in Figure3.</figDesc><graphic coords="8,54.25,310.01,345.00,155.19" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 3</head><label>3</label><figDesc>Figure 3 &lt;sourceDesc&gt; and &lt;listBibl&gt;</figDesc><graphic coords="9,60.25,59.56,345.00,196.89" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 4</head><label>4</label><figDesc>Figure 4 &lt;particDesc&gt; and &lt;listPerson&gt; for Persons</figDesc><graphic coords="9,60.25,404.75,345.00,177.24" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 5</head><label>5</label><figDesc>Figure 5 Declaration of the &lt;prefixDef&gt; Pattern for Linking between Documents</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 6</head><label>6</label><figDesc>Figure 6 Using Prefix Definition to Reference Verbal Paradigm Entry in Inflections Dictionary</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Figure 7</head><label>7</label><figDesc>Figure 7 Typical &lt;form&gt; and &lt;gramGrp&gt; Section of an Entry</figDesc><graphic coords="11,84.07,279.57,297.36,108.24" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 8</head><label>8</label><figDesc>Figure 8 Entry with Alternative Spelling without Tonal Diacritics</figDesc><graphic coords="12,93.19,238.86,267.12,88.08" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Figure 9</head><label>9</label><figDesc>Figure 9 Variant Orthography from MIX Language Publication</figDesc><graphic coords="13,67.03,61.94,330.94,76.86" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Figure 11</head><label>11</label><figDesc>Figure 11 Entry with Conflicting Phonological Descriptions in External Sources</figDesc><graphic coords="14,59.45,222.78,334.60,72.24" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 12</head><label>12</label><figDesc>Figure 12 Verbal Lemma Entry with Link Using &lt;prefixDef&gt; Pattern to Link to Paradigms</figDesc><graphic coords="15,66.63,172.32,332.24,81.72" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Figure 14</head><label>14</label><figDesc>Figure 14 Partial Verbal Paradigm for MIX Verb kusu</figDesc><graphic coords="16,83.46,113.62,286.08,298.56" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>Figure 15</head><label>15</label><figDesc>Figure 15 Linking Sense to dbpedia</figDesc><graphic coords="17,65.25,142.45,335.00,109.94" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Figure 18</head><label>18</label><figDesc>Figure 18 Multilingual Definitions with Empty Element for Mixtec to be Added</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>Figure 19</head><label>19</label><figDesc>Figure 19 FIGURE 19 Image Modified to Illustrate an Extended Sense of the Word for 'face'</figDesc><graphic coords="19,63.76,338.87,337.99,102.24" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>Figure 20</head><label>20</label><figDesc>Figure 20 Components of Entry Detailing Dispreferred Status of Lemma with Pointer to Synonym 27</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_16"><head>Figure 21</head><label>21</label><figDesc>Figure 21 &lt;xr&gt; for Hyponym Relations as in Entries for Types of Fruit</figDesc><graphic coords="21,74.83,303.32,315.84,61.92" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_17"><head>Figure 22</head><label>22</label><figDesc>Figure 22 Two Senses in the Entry for kani 'long'</figDesc><graphic coords="22,57.85,298.51,336.60,227.34" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_18"><head>Figure 24</head><label>24</label><figDesc>Figure 24 Example of Print View of Entry antivi as Rendered Using CSS</figDesc><graphic coords="26,156.66,440.73,140.17,153.87" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="18,59.05,62.71,335.40,197.74" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="24,58.02,104.18,337.46,292.62" type="bitmap" /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_0"><p>The MIX orthography is under development by Mille Nieves and Gisela Beckmann of SIL Mexico in consultation with native speakers.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_1"><p>An exception to this might be in automatic annotation of phonetic units, but this would not apply to tones because in the data contained so far there is a large degree of ambiguity in tonal classification, owing in part to a lack of diversity in speakers and, in some cases, poor recording quality.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_2"><p>This issue is significant because MIX is tonal and the orthography in previous SIL Mexico publications in the language (which make up most of the text data sources of this project) did not represent tone, resulting in a large number of homographs.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_3"><p>Recorded speech data are transcribed using Praat(Boersma and Weenik 2017)   and then converted to TEI-XML using XSLT, where the text transcription output is integrated into the corpus. In accordance with the recommendations of<ref type="bibr" target="#b1">Austin (2006)</ref>, original recordings are stored in uncompressed 44kHz wav files.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_4"><p>http://www.mexico.sil.org/es/lengua_cultura/mixteca/mixteco-mixtepec-mix</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_5"><p>Such sources are unpublished notes, obtained from personal communication with Mille Nieves of SIL Mexico.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_6"><p>The primary speaker consultant for the Pastor and Beam de Azcona papers was Juan "Tisu'ma" Salazar, the same primary speaker consultant for the current project.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="9" xml:id="foot_7"><p>https://github.com/iljackb/Mixtepec_Mixtec</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="10" xml:id="foot_8"><p>As of the time of submission, the repository is still in preparation. When published it will be available at https://doi.org/10.7910/DVN/BF2VNK</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="11" xml:id="foot_9"><p>The SIL-Mexico researchers in Oaxaca have provided a partial inventory of their working terminology; other than that, the only available publications are linguistic descriptions of related Mixtec varieties, which is limited in its utility in certain cases owing to theoretical differences.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="12" xml:id="foot_10"><p>12 See<ref type="bibr" target="#b19">Ide and Romary (2004)</ref> for an initial discussion of this that has led to the (now stalled) ISOcat registry. The data corresponding to the latest active state of ISOcat are still statically available from https://old.datahub.io/dataset/isocat in various formats. The CLARIN Concept Registry (see https://www.clarin.eu/ccr) has taken up some of these to provide them as linked open data, but the status of many of these concepts is not yet</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="13" xml:id="foot_11"><p>finalized.  13  This is also an issue with GOLD (General Ontology for Linguistic Description<ref type="bibr" target="#b12">[Farrar and Langendoen 2003]</ref>), a high quality and dynamic vocabulary that is no longer under development. Consequently, where there are missing concepts needed for our work, there is no way to add them, thus necessitating the usage of other vocabularies as well.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="14" xml:id="foot_12"><p>MIX nouns and, in particular phrasal contexts, certain adverbs may be inflected for possession or other morpho-semantic features, and thus noun paradigms may also appear in the separate document.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="15" xml:id="foot_13"><p>Note that the dictionary is still undergoing editing and at the time of submission the formatting discussed herein is not yet universally applied.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="16" xml:id="foot_14"><p>http://www.tei-c.org/release/doc/tei-p5-doc/en/html/FS.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="17" xml:id="foot_15"><p>Currently there exist no registered entries for these concepts in any public terminological repository, and they are among the list of proposals to be submitted for inclusion in the future.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="18" xml:id="foot_16"><p>http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-prefixDef.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="19" xml:id="foot_17"><p>The values of English and Spanish used are ISO 639-2; that of Mixtepec-Mixtec is from ISO 639-3 as that is the only option.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="21" xml:id="foot_18"><p>The primary pronunciation, where present, is determined by weighing the factors of observation frequency and knowledge of the language's phonology.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="24" xml:id="foot_19"><p>"Primary dictionary" refers to the main Mixtepec-Mixtec dictionary as distinct from the inflections dictionary.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="25" xml:id="foot_20"><p>To our current knowledge, only the adverb ncho'a can be inflected (for person) and only in certain lexicalized phases in which it occurs with a copular adjective or verb phrase.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="26" xml:id="foot_21"><p>The use of Wiktionary as a source of enhanced translations is a work in progress and is not yet systematically applied to each instance. In the future we may seek an automated means of gathering and adding this data.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="27" xml:id="foot_22"><p>See following section (Semantic relations) for explanation of the use of &lt;xr type="synomymOf"&gt;.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="28" xml:id="foot_23"><p>While meronymy can be and in a number of theoretical sources is subtyped according to different conceptual paradigms, there are theoretical conflicts<ref type="bibr" target="#b15">(Geeraerts 2010)</ref> as to the soundness of these distinctions; until further research and evaluation of this question can be carried out, then, we will not assign such sub-typologies.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="29" xml:id="foot_24"><p>Where available, like &lt;sense&gt; and &lt;xr&gt;, domain may also include URLs from external ontologies or sources such as dbpedia.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="30" xml:id="foot_25"><p>Word sense disambiguation is particularly important given that the MIX orthography represents tone only on a small percentage of words.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="31" xml:id="foot_26"><p>The TEI-Lex0 project is taking place within the DARIAH lexical data working group.</p></note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>AUTHOR COPY AUTHOR COPY</head><p>A TEI Dictionary for the Documentation of Mixtepec-Mixtec 95 Examples. Any number of examples of the usage of an item in the context of the source data can be included within sense; these are also encoded as &lt;cit&gt; with the @type="example" and the wrapper &lt;quote&gt;. The form in question is wrapped within an orthographic reference element &lt;oRef&gt;. A pointer to the source of the example is included as the value of @target in the pointer &lt;ptr/&gt; element, as in Figure <ref type="figure">17</ref>. Definitions. Entries can include definitions in Mixtec, Spanish, and English. A major goal is to have definitions for senses in all three languages to allow for the creation of monolingual, bilingual, and trilingual dictionaries. At the present stage, however, most entries do not have a Mixtec-language definition. In such cases we create a simple Spanish or English definition that can be used as a template for a future Mixtec one. In those cases we include separate &lt;def&gt; elements for each language. Figure <ref type="figure">18</ref> shows a sub-sense of nuu 'face' , which is used to express the sense 'front of (something)' .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>AUTHOR COPY</head><p>A TEI Dictionary for the Documentation of Mixtepec-Mixtec 101 are in accordance with those in the etymology section of TEI-Lex0 31 (Bowers and al. 2018). Despite having no written evidence of this lexical item in earlier stages of the language, we are able confidently to assert the directionality of this relationship between these senses, as the metaphorical process of SPACE &gt; TIME is a predictable mapping that follows the general pattern of utilizing concrete conceptual structures to describe and understand abstract concepts (Kövecses 2010; Gentner et al. 2002; Boroditsky  2000).</p><p>Herein the sense of 'long' (TIME) is embedded within the first-spatial-sense, which in this dictionary is done where one sense is clearly AUTHOR COPY</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Dbpedia: A nucleus for a web of open data</title>
+		<author>
+			<persName><forename type="first">Sören</forename><surname>Auer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Bizer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Georgi</forename><surname>Kobilarov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jens</forename><surname>Lehmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richard</forename><surname>Cyganiak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zachary</forename><surname>Ives</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-540-76298-0_52</idno>
+		<ptr target="http://link.springer.com/chapter/10.1007/978-3-540-76298-0_52" />
+	</analytic>
+	<monogr>
+		<title level="m">The Semantic Web</title>
+		<title level="s">Lecture Notes in Computer Science</title>
+		<editor>
+			<persName><forename type="first">Karl</forename><surname>Aberer</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2007">2007</date>
+			<biblScope unit="volume">4825</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Data and language documentation</title>
+		<author>
+			<persName><forename type="first">Peter</forename><forename type="middle">K</forename><surname>Austin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Essentials of Language Documentation</title>
+		<editor>
+			<persName><forename type="first">Jost</forename><surname>Gippert</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">P</forename><surname>Nikolaus</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Ulrike</forename><surname>Himmelmann</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Mosel</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Berlin</addrLine></address></meeting>
+		<imprint>
+			<publisher>Mouton de Gruyter</publisher>
+			<date type="published" when="2006">2006</date>
+			<biblScope unit="page" from="87" to="112" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">TEI-Lex0 guidelines for the encoding of dictionary information on written and spoken forms</title>
+		<author>
+			<persName><forename type="first">Piotr</forename><surname>Bański</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jack</forename><surname>Bowers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tomaž</forename><surname>Erjavec</surname></persName>
+		</author>
+		<ptr target="https://elex.link/elex2017/proceedings-download/" />
+	</analytic>
+	<monogr>
+		<title level="m">Electronic Lexicography in the 21st Century: Proceedings of eLex 2017 Conference</title>
+		<editor>
+			<persName><forename type="first">Iztok</forename><surname>Kosem</surname></persName>
+		</editor>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="485" to="494" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Metaphoric structuring: Understanding time through spatial metaphors</title>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Boersma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><surname>Weenink</surname></persName>
+		</author>
+		<ptr target="http://www.praat.org/Boroditsky,Lera.2000" />
+	</analytic>
+	<monogr>
+		<title level="j">Cognition</title>
+		<imprint>
+			<biblScope unit="volume">75</biblScope>
+			<biblScope unit="page" from="1" to="28" />
+			<date type="published" when="2017">2017. Version 6.0.28</date>
+		</imprint>
+	</monogr>
+	<note>Praat, a system for doing phonetics by computer</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">A cognitive analysis of Mixtepec-Mixtec body part terms</title>
+		<author>
+			<persName><forename type="first">Jack</forename><surname>Bowers</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">La grammatical de las expressiones de partes del cuerpo</title>
+		<meeting><address><addrLine>Lima, Peru</addrLine></address></meeting>
+		<imprint>
+			<publisher>PUCP</publisher>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m">Forthcoming. Pathways and patterns of metaphor, metonymy in Mixtepec-Mixtec body-part terms</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">TEI-Lex0 Etymtowards terse recommendations for the encoding of etymological information</title>
+		<author>
+			<persName><forename type="first">Jack</forename><surname>Bowers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Axel</forename><surname>Harold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">TEI Conference and Members&apos; Meeting</title>
+		<meeting><address><addrLine>Tokyo, Japan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Deep encoding of etymological information in TEI</title>
+		<author>
+			<persName><forename type="first">Jack</forename><surname>Bowers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<idno type="DOI">10.4000/jtei.1643</idno>
+		<ptr target="https://doi.org/10.4000/jtei.1643" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the Text Encoding Initiative</title>
+		<imprint>
+			<biblScope unit="issue">10</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m">Encoding Mixtepec-Mixtec etymology in TEI. Presented at the TEI Conference and Members&apos; Meeting</title>
+		<meeting><address><addrLine>Tokyo, Japan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Interacting semantic systems: Mixtec expressions of location</title>
+		<author>
+			<persName><forename type="first">Claudia</forename><surname>Brugman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Monica</forename><surname>Macaulay</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Annual Meeting of the Berkeley Linguistics Society</title>
+		<imprint>
+			<date type="published" when="1986">1986</date>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="315" to="327" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Domains and image schemas</title>
+		<author>
+			<persName><forename type="first">Timothy</forename><forename type="middle">C</forename><surname>Clausner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><surname>Croft</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Cognitive Linguistics</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page" from="1" to="32" />
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Using TEI for an endangered language lexical resource: The Nxaʔamxcín Database-Dictionary Project</title>
+		<author>
+			<persName><surname>Czaykowska-Higgins</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Martin</forename><forename type="middle">D</forename><surname>Ewa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sarah</forename><forename type="middle">M</forename><surname>Holmes</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Kell</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Language Documentation &amp; Conservation</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="1" to="37" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">A linguistic ontology for the semantic web</title>
+		<author>
+			<persName><forename type="first">Scott</forename><surname>Farrar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Terry</forename><surname>Langendoen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Glot International</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="97" to="100" />
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">WordNet and wordnets</title>
+		<author>
+			<persName><forename type="first">Christiane</forename><surname>Fellbaum</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Encyclopedia of Language and Linguistics, 2nd edn</title>
+		<editor>
+			<persName><forename type="first">K</forename><surname>Brown</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Elsevier</publisher>
+			<date type="published" when="2005">2005</date>
+			<biblScope unit="page" from="665" to="670" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">WordNet</title>
+	</analytic>
+	<monogr>
+		<title level="m">Theory and Applications of Ontology: Computer Applications</title>
+		<editor>
+			<persName><forename type="first">Roberto</forename><surname>Poli</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Michael</forename><surname>Healy</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Achilles</forename><surname>Kameas</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Dordrecht</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="page" from="231" to="243" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">Theories of Lexical Semantics</title>
+		<author>
+			<persName><forename type="first">Dirk</forename><surname>Geeraerts</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+			<publisher>Oxford University Press</publisher>
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">As time goes by: Evidence for two systems in processing space → time metaphors</title>
+		<author>
+			<persName><forename type="first">Dedre</forename><surname>Gentner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mutsumi</forename><surname>Imai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lera</forename><surname>Boroditsky</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Language and Cognitive Processes</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="page" from="537" to="565" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Semantic and syntactic extensions of body-part terms in Mextecan: The case of &apos;face&apos; and &apos;foot</title>
+		<author>
+			<persName><forename type="first">Barbara</forename><forename type="middle">E</forename><surname>Hollenbach</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of American Linguistics</title>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="page" from="168" to="190" />
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">A formal model of dictionary structure and content</title>
+		<author>
+			<persName><forename type="first">Nancy</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adam</forename><surname>Kilgarriff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="http://arxiv.org/abs/0707.3270" />
+	</analytic>
+	<monogr>
+		<title level="m">Euralex 2000</title>
+		<meeting><address><addrLine>Stuttgart, Germany</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2000">2000</date>
+			<biblScope unit="page" from="113" to="126" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">A registry of standard data categories for linguistic annotation</title>
+		<author>
+			<persName><forename type="first">Nancy</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="http://hal.archives-ou-vertes.fr/inria-00099858/" />
+	</analytic>
+	<monogr>
+		<title level="m">4th International Conference on Language Resources and Evaluation-LREC&apos;04</title>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+			<biblScope unit="page" from="135" to="138" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Automatic extraction of TEI structures in digitized lexical resources using conditional random fields</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luca</forename><surname>Foppiano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="https://hal.archives-ouvertes.fr/hal-01508868v2" />
+	</analytic>
+	<monogr>
+		<title level="m">Electronic Lexicography in the 21st Century: Proceedings of eLex 2017 Conference</title>
+		<editor>
+			<persName><forename type="first">Iztok</forename><surname>Kosem</surname></persName>
+		</editor>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title level="m" type="main">Metaphor: A Practical Introduction, 2nd edn</title>
+		<author>
+			<persName><forename type="first">Zoltán</forename><surname>Kövecses</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+			<publisher>Oxford University Press</publisher>
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title level="m" type="main">Foundations of Cognitive Grammar: Theoretical Prerequisites</title>
+		<author>
+			<persName><forename type="first">Ronald</forename><forename type="middle">W</forename><surname>Langacker</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1987">1987</date>
+			<publisher>Stanford University Press</publisher>
+			<biblScope unit="volume">1</biblScope>
+			<pubPlace>Stanford, CA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<title level="m">A study in unified diversity: English and Mixtec locatives</title>
+		<editor>
+			<persName><forename type="first">N</forename><forename type="middle">J</forename><surname>Enfield</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Oxford University Press</publisher>
+			<date type="published" when="2002">2002</date>
+			<biblScope unit="page" from="138" to="161" />
+		</imprint>
+	</monogr>
+	<note>Ethnosyntax: Explorations in Grammar and Culture</note>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<title level="m" type="main">The OntoLex-Lemon Model: Development and applications</title>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">P</forename><surname>Mccrae</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Julia</forename><surname>Bosque-Gil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jorge</forename><surname>Gracia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Buitelaar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Philipp</forename><surname>Cimiano</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017. 2017</date>
+		</imprint>
+	</monogr>
+	<note>In Electronic Lexicography in the 21st Century: Proceedings of eLex</note>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Conference</surname></persName>
+		</author>
+		<ptr target="https://elex.link/elex2017/wp-content/uploads/2017/09/paper36.pdf" />
+		<editor>Iztok Kosem et al.</editor>
+		<imprint>
+			<date>19-21 September</date>
+			<biblScope unit="page" from="587" to="597" />
+			<pubPlace>Leiden, the Netherlands</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">WordNet: A lexical database for English</title>
+		<author>
+			<persName><forename type="first">George</forename><forename type="middle">A</forename><surname>Miller</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Communications of the ACM</title>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="page" from="39" to="41" />
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<author>
+			<persName><forename type="first">Mary</forename><surname>Paster</surname></persName>
+		</author>
+		<ptr target="http://pages.pomona.edu/~mp034747/SSILA2005.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">The role of homophony avoidance in morphology: A case study from Mixtec. Proceedings from the 13th Annual Workshop on American Indigenous Languages</title>
+		<meeting><address><addrLine>Oakland, CA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2005">2005. 2010</date>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="page" from="29" to="39" />
+		</imprint>
+	</monogr>
+	<note>Tone rules in Yucanani Mixtepec Mixtec. Presented at the SSILA meeting</note>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">A phonological sketch of the Yucunany dialect of Mixtepec Mixtec. Proceedings from the Seventh Workshop on American Indigenous Languages</title>
+		<author>
+			<persName><forename type="first">Mary</forename><surname>Paster</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rosemary</forename><surname>Beam De Azcona</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Santa Barbara Papers in Linguistics</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="61" to="76" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<title level="m" type="main">Aspects of tone in Yucunany Mixtepec Mixtec. Presented at the Conference on Otomanguean and Oaxacan Languages, 19-21 March</title>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+		<respStmt>
+			<orgName>University of California at Berkeley</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">The phonology of the Mixtepec dialect of Mixtec</title>
+		<author>
+			<persName><forename type="first">Eunice</forename><forename type="middle">V</forename><surname>Pike</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Ibach</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Linguistic and Literary Studies in Honor of Archibald A. Hill</title>
+		<editor>
+			<persName><forename type="first">Mohammed</forename><forename type="middle">A</forename><surname>Jazayery</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Edgar</forename><forename type="middle">C</forename><surname>Polomé</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Werner</forename><surname>Winter</surname></persName>
+		</editor>
+		<meeting><address><addrLine>The Hague</addrLine></address></meeting>
+		<imprint>
+			<publisher>Mouton</publisher>
+			<date type="published" when="1978">1978</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="271" to="285" />
+		</imprint>
+	</monogr>
+	<note>Descriptive Linguistics</note>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">TEI P5: Guidelines for Electronic Text Encoding and Interchange. Version 3.4.0</title>
+		<author>
+			<persName><forename type="first">Gary</forename><forename type="middle">F</forename><surname>Simons</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">TEI Consortium</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">Charles</forename><forename type="middle">D</forename><surname>Fennig</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">TEI Consortium</orgName>
+			</affiliation>
+		</author>
+		<ptr target="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/HD.html" />
+	</analytic>
+	<monogr>
+		<title level="m">Ethnologue: Languages of the World, 21st edn. Dallas, Texas: SIL International</title>
+		<imprint>
+			<date type="published" when="2018-07">2018. July 2018. July 2018</date>
+		</imprint>
+	</monogr>
+	<note>TEI Consor-tium</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

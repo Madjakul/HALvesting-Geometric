@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main"></title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">64FEC197067177EACD4CB5CE0AF9EBFC</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Lothar Lemnitzer, Laurent Romary, Andreas Witt</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Representing human and machine dictionaries in Markup languages (SGML, XML) 1 Introduction</head><p>Mankind has been using, in a long history of preserving and storing knowledge, a wide range of media for this purpose.</p><p>Over the centuries, clay tablets, papyri, parchment, paper and, most recently, all kinds of discs have been used to store and therefore preserve information that was, in its time, considered worthy of preservation. Reference works have always been an integral part of this development <ref type="bibr">(cf. McArthur, 1988)</ref>.</p><p>Today we are facing another media revolution, with a period of synchronous use of so called "analog" media -e.g. paper and print -and "digital media" -e.g. hard discs, CD-ROMs and other storage media for digital data.</p><p>Producers and publishers of reference works such as dictionaries must cope with this situation. Economic as well as other reasons demand that a) existing "paper and print" dictionaries be digitized for use on a desktop or over the internet -the so-called (retro-)digitization of existing print dictionaries -and b) new dictionaries be produced in a way that anticipates their use in all kinds of (old and new) devices.</p><p>Dictionaries can be seen, in a somewhat simplified view -as collections of entries. These entries are highly structured objects where the various text components bear neither the same semantic nor the same internal organization. In paper and print dictionaries, typographic (e.g. font weight) as well as non-typographic means (e.g. bracketing) are used to convey this structural information to the user. With the advent of new media and the digitization of dictionaries, a tendency to separate the logical structure and the layout characteristics of dictionary entries has taken place. One advantage of such a separation is that information traditionally expressed by typographic conventions becomes explicit both for humans and for computer programs. The common way of doing this is to markup the various parts of texts, i.e. to insert additional information in order to signify the semantics of these parts.</p><p>The media specific layout of the articles and their parts is added by means of style-sheets (see sect. 5.1).</p><p>In the following section, we will describe typical entry structures found in traditional paper and print dictionaries. This structure will be illustrated by means of two examples of traditional dictionaries that have recently been digitized.</p><p>In section 3, we will briefly introduce markup languages which are suitable for modelling the tree-like structure of dictionary entries and for describing the semantics of the individual components. Document grammars, also called schemata, i.e. specialized mechanisms to constraint the structure of annotations, will be introduced as well.</p><p>Two document models for dictionary articles are currently in use and can be seen as (quasi-)standards for the modeling of print articles: a) the Guidelines of the Text Encoding Initiative (TEI, Sperberg-McQueen, C.M./Burnard L. 2004), in particular chapter 12, and b) the ISO 1951 standard for printed dictionaries.</p><p>While the TEI Guidelines have a long tradition, enjoy a high reputation in the field of academic dictionary projects and are supported by a large community with examples of good practice, schemas, tools etc., this is not the case with ISO 1951. As we will explain in section 5, this standard still suffers from conceptual shortcomings. It might, however, play more of a role in dictionary publishing in the future if the conceptual shortcomings are amended.</p><p>The respective standards are described in section 4. Most recently, another ISO standard, called "Lexical Markup Framework", was released. While this framework is clearly oriented towards the presentation of dictionaries for natural language processing, it can and should also be related to the TEI and ISO 1951 standards. Therefore, LMF is briefly described in section 4 as well.</p><p>Section 5 is devoted to transformation tools and scenarios. Once a dictionary article is modeled as a tree-like-structure, and the individual elements are given an explicit semantics, these articles can be transformed in various ways to either a) transform them into other trees by re-arranging the parts or deleting some elements or b) derive a media-specific representation format from the source. We will describe XSLT as one special purpose programming language to specify and perform such transformations. Furthermore, we will use a simple mapping from TEI encoding to ISO 1951 encoding as one example.</p><p>Markup languages and schemata in particular can also be used to control the dictionary compilation process. The use of a) well defined article structures and b) pre-defined vocabularies can be enforced by the use of customised schemata. We will explain how this works, using again the examples introduced in section 2. This article closes with some concluding remarks and a bibliography.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">The tree-like structure of dictionaries and dictionary entries</head><p>At first sight, dictionary entries appear to the reader's eye as a sequence of words and symbols. This holds for most printed as well as electronic dictionaries (see the examples in figure <ref type="figure">1</ref> and 2, excerpted from printed dictionaries).</p><p>At second sight, one might detect a non-linear structure underlying this sequence. This structure resembles the mathematical model of a tree, i.e. an ordered, directed, and acyclic graph.</p><p>There are typographical as well as non-typographical signals that indicate where a segment of a dictionary article starts and where it ends. Indeed, it is essential to understand this underlying hierarchical structure in order to use a dictionary article efficiently. Learned users of dictionary articles, such as given in example 1 and 2, can easily find their way to the information that they need in a certain situation.</p><p>More formally, the typical dictionary article consists of a fixed order sequence of segments, where each segment conveys a unique piece of information about the object that is described in an article -typically a lexical entity of some kind (morpheme, word, phrase etc.).</p><p>Another feature of the dictionary entry structure is not so obvious to the user. Most dictionary articles are organized hierarchically. An entry may consist of several sub-parts, each of which conveys information about different homographs of a headword (alternatively, homographs could be represented as two or more independent entries). It may consist of a description of the form, function and grammatical features of the linguistic sign as well as of numerous senses, each of which may in turn be composed of some sub-senses etc.</p><p>On this more abstract level, we can model a dictionary entry as a tree with a root (which represents the full entry), intermediate levels (e.g. forms section, semantic section) and the individual segments at the leaves.</p><p>In the following we introduce (fragments of) two sample entries that will be referred to in the remainder of this article. The print dictionaries from which these articles are excerpted have been digitized, encoded and annotated using XML in conformance with the TEI Guidelines (see below  While digitizing these articles, as well as the rest of both dictionaries, a XML encoded version of these entries has been produced. The markup used to annotate these dictionaries is an adaptation of the TEI guidelines for printed dictionaries. The results are shown in fig. <ref type="figure" target="#fig_3">5</ref> and<ref type="figure" target="#fig_4">6</ref>. The abstract entry structure has been specified by a RELAX NG schema (see section 6 below).</p><p>The entries consist of different parts. Both entries have a form section and a sense section. The form section contains information about the spelling of the headword (i.e. Bahnhof, Ski), including variants (e.g. Schi), its part of speech as well as gender (e.g. 'm.') and additional grammatical information. The sense section groups all readings of the headword in a hierarchical manner i.e. there are main senses and sub-senses. The meaning description of ex. 1 makes use of a definition (e.g. 'Gebäude am Halteplatz von Eisenbahnzügen', tr. building located at regular stop points of railway trains), usage examples (e.g. vom Bahnhof abholen, tr. to fetch from the railway station) and citations.</p><p>In the second example, the entry also contains an etymology section which informs the reader, in textual style, about the history of the described lexical unit, e.g. Norwegian and Old-Nordic.</p><p>The description above makes the tree-like structure of the dictionary entries obvious. However, at one point the article deviates from the strict hierarchical and acyclic model: there is a cross-reference in the etymology section of the second example (i.e. 's. das im Dt. etymologisch entsprechende Scheit', tr. see the etymologically related German word Scheit), which points to another article in the same dictionary. Standards for dictionary (article) encoding take care of the so called "meso-structure" or "cross-reference structure" features of dictionaries by providing reference mechanisms to uniquely identifiable elements (i.e. articles or even particular parts of articles).</p><p>As we have seen, dictionary entries are highly structured objects where the various text components bear neither the same semantic nor the same internal organization. This holds true both within individual dictionaries and across categories of dictionaries. At the same time, representing a dictionary in digital format should preserve the linearity of its content, which is essential for human legibility. We thus need a markup language that copes with both aspects, while enabling adequate processability by machines.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">SGML and XML</head><p>The eXtensible Markup Language (XML) was designed by the World Wide Web Consortium (W3C) at the end of the 1990ies to fulfill exactly the abovementioned needs in the context of web-based applications. It was elaborated as a simplification of the older Standard Generalized Markup Language (SGML), an ISO standard for structured documents published in 1988 (ISO 8879), as well as a generalization of mechanisms already present in the HTML language for presentation of online information.</p><p>XML basically introduces a syntax for marking up sections of a document by means of opening and closing tags, which form, together with the enclosed content what is called an element.</p><p>For instance, if one wants to markup in a dictionary entry that the string "f" should be tagged as belonging to the category "gen" (for gender), the following example is a socalled well-formed XML fragment: &lt;gen&gt;f&lt;/gen&gt; In this example, "&lt;gen&gt;" is the opening tag, "&lt;/gen&gt;" the closing tag and "f" the actual (here textual) content of the element. Note that there can also be empty elements, for instance "&lt;pb/&gt;" for indicating page breaks within a document, and elements with mixed contents, i.e. elements which contain child elements as well as textual content on the same level.</p><p>Furthermore, XML allows such bracketed information to be hierarchically nested in order to form complex, marked up structures. For instance, a structure grouping information about a meaning (&lt;sense&gt;) in a dictionary entry, based on a definition (&lt;def&gt;), and a cited example (&lt;cit&gt;, together with &lt;q&gt; for the cited text and &lt;bibl&gt; for the corresponding bibliographical source) may be sketched as follows (for reasons of simplicity, the content of the elements is represented by placeholders, see fig. <ref type="figure" target="#fig_3">5</ref> for a full-fledged example): &lt;sense&gt; &lt;def&gt;...&lt;/def&gt; &lt;cit&gt; &lt;q&gt;...&lt;/q&gt; &lt;bibl&gt;...&lt;/bibl&gt; &lt;/cit&gt; &lt;/sense&gt; Finally, the XML syntax allows one to add further information to a tagged section by means of attributes, which appear within the opening tag of an XML element. Such attributes may either be specific to the encoding scheme, for instance to number the meanings in a dictionary entry as in: &lt;sense n="1"&gt;...&lt;/sense&gt; When defined directly by the W3C consortium generic to all XML applications (indicated by means of a prefix to the element and attribute names; in the case described here, the prefix 'xml:' is used conventionally), as is the case for the indication of the working language as follows: &lt;q xml:lang="fr"&gt; Le langage des fleurs et des choses muettes!&lt;/q&gt; To provide unique identifier for any XML element (for instance entries in a dictionary) within a document, as follows:</p><p>&lt;entry xml:id="ent2352"&gt; ...&lt;/entry&gt; If "xml:id" is of the data type "identifier" (ID), the software which processes the document has to ensure that the same value is assigned to this attribute but once in a document. In other words: the value of "id" has to be unique.</p><p>The important underlying characteristic of XML is that all marked up content forms a strict hierarchy, which in turn, from a computational point of view may be represented as a tree structure. For instance, the &lt;sense&gt; example above may be outlined as in figure <ref type="figure" target="#fig_1">3</ref>, to delineate its underlying tree structure.</p><p>As is the case in the dictionary example 'ski', which contains a link to another dictionary entry, it is also possible to deviate from the strict tree-like structure in XML documents. The attributes "id" and "idref" (i.e. reference to an id) are a way to handle this issue of cross-references. Contrary to the situation in relational databases, the actual possible structures for such documents are not strictly limited to one single tree, but may vary according to design choices, for instance when one wants to iterate over senses in a dictionary, or make senses occur recursively within other senses. This is why the corresponding documents are often referred to as semi-structured in the literature (cf. <ref type="bibr">Buneman, 1997)</ref>.</p><p>In order to control which structures are allowed in the context of a given application, it is necessary to design a document grammar or schema, which will state which elements may occur under which conditions in a document. Indeed, there are several technologies to do so which have been either defined specifically by the W3C consortium (DTD or W3C XML schemas) or within other standardization bodies such as ISO (e.g. Relax NG schemas). Such schema (or document grammar) languages are based on the same principles, which can be summarized as follows:</p><p>• They restrict the number of so-called valid documents by stating explicitly which elements, attributes and data types are allowed; • They define the content model of each element by indicating which element and text nodes are allowed as its children and in which order and how many times they may appear;</p><p>• For attributes, as well as for leaf elements (i.e.</p><p>elements not containing further elements), they provide mechanisms to constrain content to specific data types (e.g. number, date, URI) or lists of possible values.</p><p>Different schema languages allow different types of constraints to be expressed. In the above examples, e.g. 'Ski' and 'Bahnhof', it would be desirable to express the following constraint: 'a gender element is allowed only if the value of the part of speech element or attribute equals "noun"'. However, in most schema languages it is not possible to model interactions between parts of a document when the value of one element or attribute puts constraints on the structure or the values of other elements. Nevertheless, there are schema languages which can impose such constraints and therefore restrict the set of well-formed (entry) structures, e.g. Schematron <ref type="bibr">(ISO 19757-3)</ref> The main issue at hand when designing an XML schema is to identify which information is relevant for, on the one hand, a proper identification of the content to be represented, and, on the other hand, to match the usage that one wants to achieve with the information. For instance, if one wants to present information as web pages only, with no intention whatsoever to provide a stable and reusable representation, it may be tempting to just adopt the basic HTML syntax. For instance, one would thus indicate that part of speech information is to be presented in bold face by using the following HTML representation: &lt;b&gt;noun&lt;/b&gt; On the contrary, if more than one possible usage is anticipated for dictionary content, and one is determined to give, above all, a dedicated semantic to tags to be used, a more explicit syntax (like the one of the TEI, see below) is to be adopted. This would make the previous example look like: &lt;pos&gt;noun&lt;/pos&gt; where "&lt;pos&gt;" refers to the well-known linguistic concept of "part of speech".</p><p>The idea here is to abstract away from visual representations of dictionary entries, given that XML has available to it specific technical environments (CSS or XSLT and XSL-FO) dedicated to the actual presentation or transformation of semi-structured documents.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Standardized approaches for XML-based representations of dictionary-entries</head><p>The most relevant document model for the digital representation of dictionary articles is currently the dictionary component of the modular annotation scheme defined by the Text Encoding Initiative (TEI, Sperberg-McQueen, C.M./Burnard 2004). As an alternative, another standard dealing with the representation format for printed dictionaries, ISO standard 1951, has emerged. Moreover, in 2008 ISO published the Lexical Markup Framework (LMF) as "a common model for the creation and use of electronic lexical resources" (ISO 24613). While LMF in general is described elsewhere in this volume (ch. 99) this section begins with a short presentation of LMF's Machine readable dictionary extension.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Lexical Markup Framework (LMF)</head><p>The ISO-standard LMF defines a meta-format for lexical data. LMS's core package explains the basic hierarchy of information in a lexical entry. Additionally, LMF defines, inter alia, an extension for the representation of machine readable dictionaries.</p><p>Since LMF defines a meta-model for lexical entries, it provides an abstract representation format for lexical information. LMF's main application area is NLP dictionaries but the ISO standard also defines an extension for machine readable dictionaries. Fig. <ref type="figure" target="#fig_2">4</ref> shows an LMF representation of the example entry "Ski" that makes use of the MDR extension.  The given XML representation is a linearization of a more general model, in LMF normally visualized as a diagram in the Unified Modeling Language (UML) format. The lemma 'Ski' is given with its two alternative spellings and with the 'equivalent' lemma that is included in the original dictionary entry. Moreover, the example provides ample etymological information. The treatment of the latter within LMF is described in more detail by Susanne <ref type="bibr" target="#b1">Alt (2006)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">TEI specification for printed dictionaries</head><p>The Text Encoding Initiative (TEI; www.tei-c.org) is the most prominent international endeavour in the humanities, and probably beyond, to provide a set of reference guidelines for the representation of digital textual information. Initiated in 1987 as a forum of major text archives worldwide, it has been an early adopter of SGML, and in turn XML, and has issued five editions of its guidelines so far, providing more than 500 elements for representing prose, poetry, drama, manuscript and of course, dictionary content. The TEI has evolved step by step to become a real infrastructure for specifying and customizing textual formats, while allowing a quick entry into its technology (Romary 2009). It is based on a specification language (ODD -One Document Does it all), from which is generated, on the one hand, the full textual documentation, and on the other hand, the actual formal specification in several schema languages (DTD, Relax NG, W3C).</p><p>One important mechanism available in the TEI infrastructure is a class management system allowing elements to be grouped together when they bear either a joint semantics or when they occur in similar structural contexts. Classes are essential for providing an abstract entry point (e.g. all elements providing grammatical information in a dictionary entry) for the specification of a given construct, onto which one can easily customize a specialist profile (e.g. for my own dictionary, I just need part of speech and gender).</p><p>The "print dictionary" chapter of the TEI guidelines has been designed, right from the beginning <ref type="bibr">(Ide &amp; Véronis, 1995)</ref> as a generic model that could, in turn, be customized to deal with the variety of form and structure that print dictionaries or born digital machine readable dictionaries may take. It has also been a compromise between providing a highly structured format for controlling dictionary content, and accounting for the many and varied permutations and combinations that surface forms can take, especially in older dictionaries. This is why all elements belonging to the TEI dictionary chapter may occur within two main constructs:</p><p>• An &lt;entryFree&gt; element, where each component is tagged independently from one another in the order they appear in the printed text; • An &lt;entry&gt; element, which provides a highly structured organisation of content, somehow closer to a databaselike organisation.</p><p>As an example, the freely organised representation of the beginning of our "Bahnhof" example would appear as follows:  One of the advantages of having these two possibilities at hand is that it is possible to use these in a row, in the context of a dictionary encoding workflow. Thus, it is possible to see &lt;entryFree&gt; as an element that will allow an initial surface markup of content preceding a second more elaborate encoding, which will carve out the underlying structure from the same content.</p><p>We can now present the major characteristics of the TEI dictionary principles in more detail. As mentioned in chapter 93, the TEI is conformant to the semasiological view of lexical structures and actually maps rather precisely onto the LMF model, which has been introduced in the preceding section. This view is reflected in the TEI model through the provision of two main constructs:</p><p>• A &lt;form&gt; element, grouping together all descriptive elements (phonetic, orthographic, grammatical) of a surface realisation of the dictionary entry; • A &lt;sense&gt; element, which organises, both sequentially and hierarchically, the various meanings associated to the entry This high-level distinction between information about the formal aspects of the described linguistic sign and the content or meaning aspects nicely reflects usual practice when producing lexical descriptions in the form of a dictionary entry. A typical entry in a semasiological dictionary starts with an account of the formal features of the lexical sign, which are shared by all its senses.</p><p>In the case that the formal and / or etymological features of a linguistic sign vary even if the headword is the same, the TEI provides the &lt;hom&gt;-element to split an entry into two or more homographs.</p><p>The description of the individual senses or readings follows.</p><p>Within a sense description, of course a part of the form description can be further specified or constrained. For example, a lexical unit which can in general be used in the plural form might not be used in a particular sense as such.</p><p>The &lt;form&gt;-element can be used to group the following types of information: spelling of a word, including alternative spellings (&lt;orth&gt;-element, see Ski/Schi in the entry example in fig. <ref type="figure">1</ref> and<ref type="figure" target="#fig_4">6</ref>), other information related to the use of the word in written discourse, e.g, syllabification; pronunciation(s) of a word (&lt;pron&gt;-element) and other information related to the use of the word in spoken discourse, e.g. word stress; grammatical information, e.g. part of speech, gender, inflection, to mention only a few prominent examples. Each piece of information can be further qualified with a "usage"-marker (the &lt;usg&gt;-element). The scope of a description can thus be constrained to a certain regional variety or a certain diachronic stage of the described language. Grammatical features of the described linguistic sign, e.g. part of speech, inflections, subcategorization, can be grouped into a grammatical-group structure (the &lt;gramGrp&gt;element). Iteration as well as nesting of the &lt;gramGrp&gt;elements allow the dictionary writer to group features which are functionally related so that the change of one feature implies the change of the other feature. For example, take a look at the gender and inflection of the German lexical unit "Gischt" (engl. "spin drift"). The gender varies without a corresponding change in the meaning of the word. The inflection of the word depends on the gender, and it changes accordingly. For both inflectional paradigms there is a restriction on the use of the plural. This can be modelled, using the TEI specification, as follows: &lt;form type="headword"&gt; &lt;orth extent="full"&gt;Gischt&lt;/orth&gt; &lt;gramGrp&gt; &lt;pos value="N"/&gt; &lt;gramGrp&gt; &lt;gram type="determiner"&gt;der&lt;/gram&gt; &lt;gram type="genitive"&gt;-es&lt;/gram&gt; &lt;gram type="plural"&gt;-e&lt;/gram&gt; &lt;/gramGrp&gt; &lt;usg type="plev"&gt;auch&lt;/usg&gt; &lt;gramGrp&gt; &lt;gram type="determiner"&gt;die&lt;/gram&gt; &lt;gram type="genitive"&gt;-&lt;/gram&gt; &lt;gram type="plural"&gt;-e&lt;/gram&gt; &lt;/gramGrp&gt; &lt;gram type="singular-preferred"&gt;Pl. ungebräuchl.&lt;/gram&gt; &lt;/gramGrp&gt; &lt;/form&gt;</p><p>The &lt;sense&gt;-element assumes a similar function, i.e. grouping of elements that are related and together describe a particular sense (or reading) of the lexical unit. Prominent information types are definitions (&lt;def&gt;-element), citations (&lt;cit&gt;-elements&gt; and usage examples, often taken from corpora (&lt;example&gt;-element).</p><p>In fig. <ref type="figure" target="#fig_3">5</ref> we see an entry with one sense and one sub-sense.</p><p>The sub-sense is embedded in the main sense. The sub-sense is further qualified by a usage-marker indicating the register of the phrase ("salopp" ~ "colloquial). Definitions as well as examples are given. Note that the example which is used to illustrate the subsense is itself accompanied by a paraphrase.</p><p>The latter explains the meaning of the phrase.</p><p>In fig. <ref type="figure" target="#fig_4">6</ref>, a TEI-encoding of the second dictionary introduced in section 2 is presented. &lt;entry xml:id="E_S_646"&gt; &lt;form type="headword"&gt; &lt;orth extent="full" rend="sep:comma"&gt;Ski&lt;/orth&gt; &lt;usg type="time"&gt;seit Anfang 20. Jh. meist&lt;/usg&gt; &lt;orth extent="full"&gt;Schi&lt;/orth&gt; &lt;gramGrp&gt; &lt;pos value="N"/&gt; &lt;gen value="masculine"&gt;m.&lt;/gen&gt; &lt;/gramGrp&gt; &lt;/form&gt; &lt;sense xml:id="S_S_646" level="0"&gt; &lt;def&gt;Schneeschuh&lt;/def&gt; &lt;/sense&gt; &lt;etym xml:id="W_S_646"&gt; Übernahme (Anfang 19. Jh.) von gleichbed. norw. ski, aus anord. skīð &lt;def&gt;Scheit, Schneeschuh&lt;/def&gt; s. das im Dt. etymologisch entsprechende &lt;ref type="dict" target="E_S_165"&gt;Scheit&lt;/ref&gt; &lt;/etym&gt; &lt;/entry&gt; </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">ISO 1951</head><p>ISO standard 1951 was initially designed in the seventies 1 to cope with the variety of codes used in printed dictionaries. It evolved in the nineties 2 to deal with layout aspects of 1 ISO 1951:1973 Lexicographical symbols particularly for use in classified defining vocabularies 2 ISO 1951:1997 Lexicographical symbols and typographical conventions for use in terminography dictionaries more widely. Following the natural trend to address the electronic encoding of print dictionaries, in the latest release (in 2007), an attempt was made to put a more comprehensive model for these together. Introducing explicitly in its scope the notion of representation of information, ISO 1951:2007 states: "it specifies a formal generic structure independent of the publishing media". Even if ISO 1951 does not actually provide a useful encoding scheme for the representation of print dictionaries, its underlying kinship with the TEI makes it an interesting example to explore, both in order to identify its weaknesses in providing a real generic model for dictionary representation and also to observe some of its design choices at meso-and microstructural levels. ISO 1951 is also a good reference point for eliciting transformation mechanisms, as we will see in section 5.2.</p><p>Figures <ref type="figure">7</ref> and<ref type="figure" target="#fig_5">8</ref> present an encoding of the entry for 'Bahnhof' and 'Ski' ( introduced previously in this chapter), which is based on an inferred XML representation made by the authors of this chapter<ref type="foot" target="#foot_0">3</ref> . The actual data categories exemplified here represent only a small fraction of the actual set described in ISO 1951, which covers all major information units needed for dictionary encoding. The examples provided here also allow one to perceive the general principles underlying the organisation of dictionary entries according to ISO 1951 principles.  The ISO 1951 model is indeed based upon three generic mechanisms (called "compositional elements") to organise information within dictionary entries. These are:</p><p>• Containers, which allow one to refine a given data category (e.g. example) with complementary information (e.g. register, grammatical constraint) to contextualise the intended representation. In the example provided in figure <ref type="figure">7</ref>, gloss information is given for the sentence "Ich verstehe immer nur B."; • Blocks, which provide a means to further decompose a given representational structure (e.g. a sense) into more precise sub-components (e.g. sense variations according to register information); • Groups, which correspond to information compounds within a dictionary entry. There are indeed only two groups in the actual ISO 1951 specification, namely, SenseGroup and HomographGroup.</p><p>Containers are actually an essential mechanism for information modelling in general. Indeed, this mechanism allows one to consider in a uniform manner all constructs related to a specific data category, allowing the occurrence of the category itself (Example) or its corresponding container (ExampleCtn) in exactly the same contexts.</p><p>On the contrary, blocks and groups (to a lesser extent) are of less utility in the context of semi-structural information design because they artificially prevent the actual recursivity of the corresponding construct. For instance, it is important in a dictionary structure, as elicited in the LMF, to account for the recursive nature of senses. In this respect, elements in ISO 1951 such as TranslationBlock or HomographGroup seem to be superfluous with regards to SenseGroup, which could indeed be used as the unique (and recursive) structuring element for senses. This is in particular demonstrated by the fact that many occurrences of TranslationBlock in ISO 1951 appear as a unique child of a SenseGroup.</p><p>As a whole, ISO 1951 suffers from an incomplete design which makes it hardly usable in concrete applications. Moreover, the need for such a standard is not obvious considering that the TEI has, for some twenty years, provided a well-maintained framework for representing print dictionaries that many electronic dictionary projects have actually implemented. We argue that the next revision of the standard should integrate the TEI tagset as the reference for implementing the proposed model.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Processing XML-annotated dictionaries 5.1. XSLT Style-sheets</head><p>The World Wide Web Consortium has provided an XML-based "Stylesheet and Transformation Language" (cf. <ref type="bibr">Kay, 2007)</ref>. XSLT is a declarative language, which is used to transform XML data into other (semi-structured) documents. According to the W3C recommendation, "a transformation expressed in XSLT describes rules for transforming zero or more source trees into one or more result trees". A transformation is achieved by a set of template rules. These rules associate a pattern, which matches nodes in the source tree (i.e. elements, attributes, textual nodes etc.) with a "sequence constructor". In other words, XSLT relies on a formalism which addresses elements in a tree by the path which leads from the rule of the tree (or any other node in that tree) to this node. For this purpose XSLT builds on XPath, a formal language which has also been provided by W3C (cf. <ref type="bibr" target="#b2">Berglund et al., 2007)</ref>. Nodes and sets of nodes are manipulated by sequence constructors. With such constructors, nodes can be, amongst other things: a) moved from one place in the source tree to another place in the target tree; b) deleted from the target tree. Additionally, new nodes can be inserted into the target tree.</p><p>Thus, XSLT transformations can be used to a)convert information in a lexical database to media-specific representation formats. To give a real-world example of this, let us consider mobile devices for which the transfer of data is expensive or the display screen small. A publisher could decide to reduce an article to some essential pieces of information, e.g. grammar and definition(s). Other information of a more illustrative kind such as citations could be deleted from the target tree.</p><p>On web pages, complex articles could be presented in a compressed version and unfolded by the user who wants to see and consult more comprehensive articles. This has indeed been done on the website which features the "Wörterbuch der deutschen Gegenwartssprache" (www.dwds.de); b) apply text compression techniques used in paper and print dictionaries, where space is an expensive asset, but not in digital media, where nearly infinite storage space is available. For example, in a printed dictionary, inflectional information for nouns might be presented by the inflectional suffixes for the genitive singular and nominative plural. This has been done for decades now in paper dictionaries of the German language (e.g. Bahnhof &lt;-es, -höfe&gt;). In an electronic version of the dictionary the whole paradigm, comprising of eight paradigmatic forms, could be presented in tabular form; c) filter certain parts of an article, e.g to provide data in response to a user request; d) convert information between encoding standards. A case of this kind is presented in the following section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2.">XSLT Style-sheets for converting TEI to ISO 1951</head><p>This section focuses on illustrating the transformation possibilities offered by XSLT in the specific case of transforming TEI encoding structures into ISO 1951 representations. Although not exhaustive, the transformation examples presented here cover most of the situations that can be encountered when doing similar processing on, say TEI based structures, either for filtering (as result to a query), transformation (to any other format), or presentation (e.g. in XHTML) purposes.</p><p>The rules (or templates in XSLT words) presented here are intended to be used within an XSLT stylesheet canvas for taking TEI compliant entries as input and generating ISO 1951 as output. To this end, the root element of the stylesheet will appear as follows:</p><p>&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" version="1.0"&gt; &lt;xsl:output encoding="UTF-8" method="xml"/&gt; … &lt;/xsl:stylesheet&gt; where, beside the namespace declaration needed for the XSLT instructions proper, the TEI namespace is declared (prefix: tei) to map onto all encountered TEI elements. We can also note that the first child element of &lt;xsl:stylesheet&gt; (xsl:output) states that the output result will be XML data with characters encoded in the UTF-8 (8-bit framed Unicode encoding).</p><p>In the simplest case, an XSLT transformation will take a simple element, usually corresponding to an elementary data category, and isomorphically bring its content into the equivalent (in our ISO 1951 transformation use case) or associated (when presenting the content in XHTML for instance) construct. For example: &lt;xsl:template match="tei:gen"&gt; &lt;GrammaticalGender&gt; &lt;xsl:apply-templates/&gt; &lt;/GrammaticalGender&gt; &lt;/xsl:template&gt; transforms the &lt;gen&gt; element from the TEI namespace into an ISO 1951 &lt;GrammaticalGender&gt; element.</p><p>The same type of transformations not only apply at the level of elementary data categories, but also, in a very simple manner, for mesoscopic objects as in the following example transforming the generic (and recursive) &lt;sense&gt; element in the TEI into the group &lt;SenseGrp&gt;: &lt;xsl:template match="tei:sense"&gt; &lt;SenseGrp&gt; &lt;xsl:apply-templates/&gt; &lt;/SenseGrp&gt; &lt;/xsl:template&gt; As is the case in any recursive transformation, and can already be anticipated here, such rules presuppose that all transformations occurring before or after the actual firing of the rule are adequately described. Some slightly more elaborated rules may be needed when data categories between the two models to be mapped do not exactly match, i.e. the underlying representation models do not have the same level of granularity. In such cases, specific tests (respectively, constraint generations) have to be implemented in the corresponding templates.</p><p>These two cases actually occur in our TEI to ISO 1951 example. Typically, both models do not account for the indication of headword in a dictionary in the same manner. The TEI introduces a generic &lt;form&gt; element that can, through the appropriate use of the 'type' attribute, be further constrained to indicate whether the actual object being represented is the headword or an inflected form. On the contrary, ISO 1951 has a specific element (or rather container &lt;HeadwordCtn&gt;) for this purpose. The corresponding rule, with a test on the 'type' attribute thus appears as follows:</p><p>&lt;xsl:template match="tei:form[@type='headword']"&gt; &lt;HeadwordCtn&gt; &lt;xsl:apply-templates/&gt; &lt;/HeadwordCtn&gt; &lt;/xsl:template&gt; We also observe this case for the generic TEI element providing usage constraints, which, depending on its type attribute (e.g. 'time', 'reg') would map to specific <ref type="bibr">ISO 1951 elements (resp. &lt;TemporalUsage&gt;, &lt;Register&gt;)</ref>.</p><p>Conversely, whereas the TEI has a generic &lt;gram&gt; element for supplementary grammatical features (in our "Bahnhof" example, the provision of the appropriate determiner), ISO 1951 relies on a general purpose &lt;Note&gt; element to encompass such cases.</p><p>The transformation rule appears in such cases as follows:</p><p>&lt;xsl:template match="tei:gram"&gt; &lt;Note type="linguisticNote"&gt; &lt;xsl:apply-templates/&gt; &lt;/Note&gt; &lt;/xsl:template&gt;</p><p>The type of situations presented so far actually cover nine out of ten templates in a full TEI to ISO 1951 stylesheet. This shows how uncomplicated it is for lexicographers to derive such stylesheets, as opposed to the computational overhead that would result from the use of a more traditional programming framework. Still, there are cases where additional types of transformations are needed to cope with more in-depth discrepancies between the two models.</p><p>Just to illustrate this with one specific case, let us consider the generation of container constructs in ISO 1951 out of the generic citation objet (&lt;cit&gt;) in TEI. This combines two specific aspects. On the one hand, &lt;cit&gt; is typed when used to represent examples proper (as opposed to, for instance, translations). On the other hand, &lt;cit&gt; systematically contains a generic &lt;quote&gt; element for the embedded portion of exemplifying text, which may, or not, be accompanied by additional refinements. The mapping onto an example container (&lt;ExampleCtn&gt;) or a simple example element (&lt;Example&gt;) will depend on a specific test on the number of children that the &lt;cit&gt; element contains. The corresponding rules are as follows:</p><p>&lt;xsl:template match="tei:cit[@type='example']"&gt; &lt;xsl:choose&gt; &lt;xsl:when test="child::*[2]"&gt; &lt;ExampleCtn&gt; &lt;xsl:apply-templates/&gt; &lt;/ExampleCtn&gt; &lt;/xsl:when&gt; &lt;xsl:otherwise&gt; &lt;xsl:apply-templates/&gt; &lt;/xsl:otherwise&gt; &lt;/xsl:choose&gt; &lt;/xsl:template&gt; Furthermore, the embedded &lt;quote&gt; element, since it is indeed a generic quotation object in the TEI framework, has to be further tested, to ensure that it actually maps onto an &lt;Example&gt; element. The corresponding rule would thus look like: &lt;xsl:template match="tei:cit[@type='example']/tei:quote"&gt; &lt;Example&gt; &lt;xsl:apply-templates/&gt; &lt;/Example&gt; &lt;/xsl:template&gt; As a whole, one can see that beyond the technicalities of XSLT, the drafting of a mapping stylesheet proves to be the best tool for the precise comparison of two models having similar scopes, as is the case for the TEI and ISO 1951. Moreover, it produces an actual tangible result that can be used in several interoperability scenarios when the interface between the two models is actually at stake.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">The use of schemata for consistency control (2 pp]</head><p>We have seen so far that markup languages are an excellent tool to separate the layout features of a text, e.g. a dictionary article, from its logical structures. Furthermore, with well-chosen names for elements and attributes, it is possible to make the meaning of the respective element and attribute values explicit to a human. With the mechanism of assigning namespaces to elements and attributes, it is even possible to provide, e.g. separate web pages with explicit definitions for the elements and attributes, an additional information source to which other developers and users can refer. We have uses examples of namespaces in the XSLT examples provided in section 5.2. The label "tei:", which prefixes elements and attributes, is linked to an explanatory document about the element and attribute examples (xmlns:tei="http://www.tei-c.org/ns/1.0" in the example above).</p><p>In this context it is worth mentioning an initiative of ISO to provide a "Data Category Registry" (cf. ISO12620:2009) through which it is intended to provide canonical definitions for the most widely used linguistic categories (e.g. parts of speech, semantic cases, lexicographic field labels). In the future, it will be possible to refer to a certain category in this registry by prefixing an element name (e.g. "pos") with a namespace signifier for the DCR. Everyone reading the document can thus look up the canonical definition of the signified concept.</p><p>Document grammars like XML schemata or Relax NG schemata can also be used to control consistency during the compilation of dictionary articles. We will illustrate this with the example of the (Relax NG) schema (cf. ISO/IEC 19757-2) which is being used in the (retro-)digitization and revision of the "Wörterbuch der deutschen Gegenwartssprache". It is well known that the grammatical gender of nouns can be expressed in various ways. One can use (at least in German dictionaries) the determiner which precedes the noun in the nominative singular <ref type="bibr">('der', 'die' and 'das', respectively)</ref> or the Latin names of the genders ('Maskulinum', 'Femininum', 'Neutrum'). The latter can be abbreviated in several ways (e.g. 'f.', 'fem.' 'femin.' for the feminine gender), and this is done frequently in paper and print dictionaries, mainly to save space.</p><p>In the following, we present the content model of the "gramGrp" (= grammar group) element, specified in the Relax NG schema. Let us have a closer look at the "grammatical-atom-gender" item, which is highlighted in the above extract.</p><p>The abstract label "grammatical-atom-gender" is mapped to an element name "gen" which contains the gender values on an abstract as well as surface level The attribute values ('masculine' etc.) can later be matched to the corresponding categories of the "Data Category Registry" (see above). The schema, on the other hand, restricts the set of possible surface values to exactly one per category. Thus, the fragment presented below is valid, &lt;gramGrp&gt; &lt;pos value="N"/&gt; &lt;gen value="masculine"&gt;m.&lt;/gen&gt; &lt;/gramGrp&gt; while the following, slightly revised fragment is not valid. Of course, it is the responsibility of the dictionary producer to ensure that data is validated and unwanted abbreviations (as in the second example) are detected and corrected. Such a validator<ref type="foot" target="#foot_1">4</ref> can and should of course be a component of a lexicographer's workbench. The schema is only a means to enforce a consistent encoding. It is most efficient in situations where closed vocabularies -as values of attributes or as textual content of elements -can be predefined.</p><p>When it comes to deriving a representation of the data for a particular medium, either the long form, i.e. the value of the attribute ('masculine'), or the abbreviated textual content of the element ('m') could be selected. Schemata therefore offer a powerful tool that enables consistency to be maintained over what are usually very large collections of text, thereby supporting the very process of producing lexical entries.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.">Conclusion</head><p>We have seen that SGML and, more importantly, XML are adequate means for encoding the digitized versions of paper and print dictionaries. Entries in such dictionaries can be modelled as trees, i.e. as a hierarchically ordered set of functional text segments. In doing this, the sequential order of the segments must be preserved. With XML, tree-like structures can be modelled. Document grammars or schemata are used to constrain the number of valid document instances. Transformation languages like XSLT are a powerful and easy to handle means to serialize the functional text segments in various ways, depending on the type of media that the data should be presented to the user in.</p><p>Furthermore, transformations can be defined to convert data between different encoding standards.</p><p>While the TEI specification is well-known and widely used to encode academic dictionaries, ISO 1951 might, despite its conceptual shortcomings, gain some influence in the world of commercial dictionary publishing.</p><p>With the tools and formalisms we have described here, it is possible to store lexical information in such a way that the same data can be distributed in many ways. Moreover, the lexical data can be visualized in many ways over a large variety of media on many kinds of devices without ever changing the underlying xml master data.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8.">Acknowledgements</head><p>We would like to thank Julianne Nyhan for her useful comments on earlier versions of this article.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig 2 :</head><label>2</label><figDesc>Fig 2: an entry from: Wolfgang Pfeifer: Etymologisches Wörterbuch des Deutschen. 2. Aufl. Akademie Verlag 1993. Online available at: www.dwds.de)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 3 :</head><label>3</label><figDesc>Figure 3: tree representation of the above XML fragment</figDesc><graphic coords="8,85.08,142.80,83.64,71.64" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: The dictionary entry presented in fig. 2 encoded using the LMF</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 5 :</head><label>5</label><figDesc>Figure 5: The dictionary entry presented in fig. 1 encoded using TEI</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 6 :</head><label>6</label><figDesc>Figure 6: The dictionary entry presented in fig. 1 encoded using the TEI</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 8 :</head><label>8</label><figDesc>Figure 8: The dictionary entry presented in fig. 2 encoded using the ISO 1951</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>Neupräg. großer B. festlicher Empfang: der berühmte Gast wurde mit großem B. empfangen; von einem großen B. absehen Figure 1: Entry for the headword Bahnhof ('railway station') excerpted from the Wörterbuch der deutschen Gegenwartssprache (=WDG), 6. Vol., ed. by Ruth Klappenbach und Wolfgang Steinitz, Berlin 1962-1977, online at: www.dwds.de. The entry is slightly abridged to make it easier to read. Ski m., seit Anfang 20 Jh. meist Schi, ‚Scheeschuh', Übernahme (Anfang 19. Jh.) von gleichbed. norw. ski, aus anord. sk.. ‚Scheit, Schneeschuh'; s. das im Dt. etymologisch entsprechende Scheit.</figDesc><table /><note><p>). Bahn-...-hof, der, Halle, Gebäude am Halteplatz von Eisenbahnzügen: am B. sein; jmdn. Am B. erwarten, vom B. abholen, zum B. bringen; auf welchem B. kommt er an?; wie weit ist es bis zum B.?; der Zug rollte aus dem B.; im Gedränge des Bahnhofes; Neupräg. salopp ich verstehe immer nur B. (ich verstehe gar nichts);</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head></head><label></label><figDesc>&lt;entryFree&gt;&lt;orth&gt;Bahn-...-hof&lt;/orth&gt;, &lt;gen&gt;der&lt;/gen&gt;, &lt;def&gt;Halle, Gebäude am Halteplatz von Eisenbahnzügen&lt;/def&gt;: &lt;q&gt;am B. sein&lt;/q&gt;; &lt;q&gt;jmdn. Am B. erwarten&lt;/q&gt;...&lt;/entryFree&gt;The fully structured representation is depicted in figure5.</figDesc><table><row><cell>&lt;entry xml:id="E_b_437"&gt;</cell></row><row><cell>&lt;form type="headword"&gt;</cell></row><row><cell>&lt;orth extent="suffix"&gt;-hof&lt;/orth&gt;</cell></row><row><cell>&lt;gramGrp&gt;</cell></row><row><cell>&lt;pos value="N"/&gt;</cell></row><row><cell>&lt;gram type="determiner"&gt;der&lt;/gram&gt;</cell></row><row><cell>&lt;/gramGrp&gt;</cell></row><row><cell>&lt;/form&gt;</cell></row><row><cell>&lt;sense xml:id="S_b_234" level="0"&gt;</cell></row><row><cell>&lt;def xml:id="N_b_140"&gt;Halle, Gebäude am Halteplatz von</cell></row><row><cell>Eisenbahnzügen&lt;/def&gt;</cell></row><row><cell>&lt;cit type="example"&gt;</cell></row><row><cell>&lt;quote&gt;am B. sein&lt;/quote&gt;</cell></row><row><cell>&lt;/cit&gt;</cell></row><row><cell>&lt;cit type="example"&gt;</cell></row><row><cell>&lt;quote&gt;jmdn. am B. erwarten, vom B. abholen, zum B. bringen&lt;/quote&gt;</cell></row><row><cell>&lt;/cit&gt;</cell></row><row><cell>&lt;cit type="example"&gt;</cell></row><row><cell>&lt;quote&gt;auf welchem B. kommt er an?&lt;/quote&gt;</cell></row><row><cell>&lt;/cit&gt;</cell></row><row><cell>&lt;cit type="example"&gt;</cell></row><row><cell>&lt;quote&gt;wie weit ist es bis zum B.?&lt;/quote&gt;</cell></row><row><cell>&lt;/cit&gt;</cell></row><row><cell>&lt;cit type="example"&gt;</cell></row><row><cell>&lt;quote&gt;der Zug rollte aus dem B.&lt;/quote&gt;</cell></row><row><cell>&lt;/cit&gt;</cell></row><row><cell>&lt;cit type="example"&gt;</cell></row><row><cell>&lt;quote&gt;im Gedränge des Bahnhofes&lt;/quote&gt;</cell></row><row><cell>&lt;/cit&gt;</cell></row><row><cell>&lt;cit type="example"&gt;</cell></row><row><cell>&lt;usg type="reg"&gt;salopp&lt;/usg&gt;</cell></row><row><cell>&lt;quote&gt;ich verstehe immer nur B.&lt;/quote&gt;</cell></row><row><cell>&lt;quote type="paraphrase"&gt;ich verstehe gar nichts&lt;/quote&gt;</cell></row><row><cell>&lt;/cit&gt;</cell></row><row><cell>&lt;/sense&gt;</cell></row><row><cell>&lt;/entry&gt;</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_0"><p>ISO 1951  actually provides no full XML schema corresponding to the examples provided in the text, nor does it point to a maintained respository where such information could be found.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_1"><p>An example of a command based RELAG NG validator which can also be embedded in other software is jing, cf. jing:2008</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Literature</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Data structures for etymology: towards an etymological lexical network</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Alt</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Bulag</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<date type="published" when="2006">2006. 2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><surname>Berglund</surname></persName>
+		</author>
+		<ptr target="http://www.w3.org/TR/2004/REC-xml-20040204/.PeterBuneman" />
+		<title level="m">Semistructured data, Symposium on Principles of Database Systems archive, Proceedings of the sixteenth ACM SIGACT-SIGMOD-SIGART symposium on Principles of database systems</title>
+		<meeting><address><addrLine>Tucson, Arizona, United States</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1997">2007. 2004. 1997</date>
+			<biblScope unit="page" from="117" to="121" />
+		</imprint>
+	</monogr>
+	<note>XPath Language 2</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m">XSL Transformations (XSLT)</title>
+		<editor>
+			<persName><forename type="first">J</forename><surname>Clark</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Version</publisher>
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">MAF: A morphosyntactic annotation framework</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">/</forename><surname>Clément</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">É</forename><surname>De La Clergerie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<ptr target="http://dublincore.org/Ejarvec" />
+	</analytic>
+	<monogr>
+		<title level="m">Papers in Computational Lexicography COMPLEX&apos;99 Linguistics Institute</title>
+		<editor>
+			<persName><forename type="first">F</forename><surname>Kiefer</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">G</forename><surname>Kiss</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J</forename><surname>Pajzs</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Poznan; Budapest</addrLine></address></meeting>
+		<imprint>
+			<publisher>W3C Recommendation</publisher>
+			<date type="published" when="1999">2005. 2006. 1999</date>
+			<biblScope unit="page" from="211" to="217" />
+		</imprint>
+	</monogr>
+	<note>Markup Enhancement: Converting CEE dictionaries into TEI, and beyond</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<author>
+			<persName><forename type="first">C</forename><surname>Goldfarb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Rubinsky</surname></persName>
+		</author>
+		<title level="m">The SGML Handbook</title>
+		<meeting><address><addrLine>Oxord</addrLine></address></meeting>
+		<imprint>
+			<publisher>OUP</publisher>
+			<date type="published" when="1991">1991</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">A Formal Model of Dictionary Structure and Content</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kilgarriff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. Euralex</title>
+		<meeting>Euralex</meeting>
+		<imprint>
+			<date type="published" when="2000">2000. 2000</date>
+			<biblScope unit="page" from="113" to="126" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Encoding dictionaries</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Véronis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Computing and the Humanities</title>
+		<imprint>
+			<date type="published" when="1995">1995. 1995</date>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="page" from="1" to="25" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Encoding dictionaries</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Véronis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Text Encoding Initiative: Background and Context. Kluwer Academic Pulishers:Dordrecht</title>
+		<editor>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J</forename><surname>Véronis</surname></persName>
+		</editor>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+			<biblScope unit="page" from="167" to="180" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">Principles for encoding machine-readable dictionaries</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">/</forename><surname>Véronis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Armstrong-Warwick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Calzolari</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1992">1992</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m">Proc</title>
+		<editor>
+			<persName><forename type="first">K</forename><surname>Tommola</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">T</forename><surname>Varantola</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Y</forename><surname>Salmi-Tolonen</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Schopp</surname></persName>
+		</editor>
+		<meeting>null</meeting>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Information technology --Document Schema Definition Languages (DSDL) -Part 3: Rule-based validation --Schematron ISO 24613:2006. Language resource management-Lexical markup framework (LMF</title>
+		<author>
+			<persName><forename type="first">Finland</forename><surname>Tampere</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Studia</forename><surname>Translatologica</surname></persName>
+		</author>
+		<ptr target="http://www.tc37sc4.org/new_doc/ISO_TC37-4_N" />
+	</analytic>
+	<monogr>
+		<title level="m">th Euralex International Conference</title>
+		<imprint>
+			<date type="published" when="1986">2009. 2006. March2006. 1986</date>
+			<biblScope unit="volume">12620</biblScope>
+			<biblScope unit="page" from="239" to="246" />
+		</imprint>
+	</monogr>
+	<note>ISO TC 37 Terminology and Other Language and Content Resources: Data Category Registry. Standard Generalized Markup Language (SGML) ISO/IEC 1951, ..</note>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Worlds of Reference. Lexicography, Learning and Language from the Clay Tablet to the Computer</title>
+		<author>
+			<persName><surname>Iso/Iec</surname></persName>
+		</author>
+		<ptr target="http://quod.lib.umich.edu/cgi/t/tei/tei-idx?type=HTML&amp;rgn=DIV" />
+	</analytic>
+	<monogr>
+		<title level="m">TEI P4 guidelines for electronic text encoding and interchange -XML-compatible edition</title>
+		<editor>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Burnard</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">L</forename></persName>
+		</editor>
+		<meeting><address><addrLine>Tom</addrLine></address></meeting>
+		<imprint>
+			<publisher>Mentis Verlag</publisher>
+			<date type="published" when="1988">19757. 2008. 2007. 1988. 2009. 2004. 1999</date>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page">71769</biblScope>
+		</imprint>
+	</monogr>
+	<note>A Gentle Introduction to SGML</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Electronic Dictionary Encoding: Customizing the TEI Guidelines</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tutin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Véronis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. Euralex</title>
+		<meeting>Euralex</meeting>
+		<imprint>
+			<date type="published" when="1998">1998. 1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

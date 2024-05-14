@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A Generic Formalism for Encoding Stand-off annotations in TEI</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Javier</forename><surname>Pose</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">INRIA Saclay</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Patrice</forename><surname>Lopez</surname></persName>
+							<email>patrice.lopez@inria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="institution">INRIA Saclay</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="institution">INRIA Saclay</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="institution">INRIA Saclay</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="institution">INRIA Saclay</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Javier</forename><surname>Pose Rodriguez</surname></persName>
+							<email>jposerodriguez@epo.org</email>
+							<affiliation key="aff0">
+								<orgName type="institution">INRIA Saclay</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">A Generic Formalism for Encoding Stand-off annotations in TEI</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">629987E72A6C61B329D785CFABD40EBA</idno>
+					<note type="submission">Preprint submitted on 8 Sep 2014</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>textual resources</term>
+					<term>TEI</term>
+					<term>annotations</term>
+					<term>stand-off annotations</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Motivation and Background</head><p>The Text Encoding Initiative (TEI) is the de facto standard for the representation of texts in digital form. It is maintained and developed by a consortium that is a non-profit membership organization composed of academic institutions, research projects, and individual scholars (http://www.teic.org/). The TEI Guidelines define encoding methods for machine-readable texts and provide an encoding scheme rendered in a formal markup language.</p><p>One field that has been very active in the last years and has gained the attention of many researchers deals with the encoding of annotations in XML. Corpus annotation is the practice of adding interpretative information to a text corpus, by coding added to the electronic representation of the text itself. The nature of the information can vary from simple notes or comments regarding certain parts of the text, to deep linguistic analysis, like morphologic, syntactic, semantic, discourse or lemma annotations. Thus, the annotations are basically metadata added post hoc that provide information about the different elements comprised in a document.</p><p>When encoding the annotations, two different approaches can be considered: inline annotations, where the markup elements of the annotations are directly added into the annotated data, and standoff annotations, where the markup elements of the annotations reside in a location different from the location of the data being described by it. Whereas the inline annotation has as main advantage its simplicity and easy maintenance due to the fact that the annotated elements are directly associated to the annotations, it also presents numerous drawbacks when implementing multiple types of annotations on the same source text. In such cases, the stand-off annotation mechanism has shown to be a better option <ref type="bibr" target="#b0">(Dipper 2005)</ref>. The stand-off annotation mechanism is very flexible and allows the definition of new layers of information on the top of the source textual data without disturbing existing ones. Therefore, it seems to be the most obvious option for encoding multiple concurrent annotations on a source text.</p><p>Different text encoding standards have been proposed that allow the encoding of textual annotations: the standards developed in the frame of ISO TC37 / SC4 <ref type="bibr">(Ide and</ref><ref type="bibr">Romary 2006, Declerck 2008)</ref>, XCES <ref type="bibr" target="#b2">(Ide, Bonhomme and Romary 2000)</ref>, TIGER-XML <ref type="bibr" target="#b3">(Mengel and Lezius, 2000)</ref>, PAULA <ref type="bibr" target="#b0">(Dipper 2005)</ref>, XStand-off <ref type="bibr" target="#b4">(Stührenberg and Jettka 2009)</ref> or TEI <ref type="bibr" target="#b0">(Burnard and Bauman 2008)</ref>.</p><p>The Text Encoding Initiative (TEI) is a de facto, constantly maintained XML standard for encoding and documenting primary data. It has a very large base of users and for primary data and metadata levels there is no real alternative to TEI <ref type="bibr">(Przepiórkowski and Banski, 2009)</ref>. There have been different attempts to encode annotations, and in particular stand-off annotations, within the TEI <ref type="bibr">(Boot 2009</ref><ref type="bibr">, Przepiórkowski 2009</ref><ref type="bibr">, Banski and Przepiórkowski 2009</ref><ref type="bibr">, Banski and Przepiórkowski 2010)</ref> but none of them offers a general framework for encoding such annotations. One detailed TEI implementation of a stand-off annotation can be also found in the TEIWiki page for "Stand-off use cases" (http://wiki.tei-c.org/index.php/Stand-off_use_cases). These attempts only disclose specific combinations of already existing TEI elements that allow encoding the annotations implemented in the corresponding projects.</p><p>Even if the TEI Guidelines [1] provides different elements for encoding stand-off annotations, it does not disclose any methodology for consistently encoding the stand-off annotations. Basically, the guidelines disclose the basic referencing mechanisms for linking pieces of the source document with the annotations (see the TEI Guidelines: Chapter 16.9, 17.4 and 20.4), but they do not provide any information or general guidance for encoding in a consistent manner the stand-off annotations, i.e. the linking information together with the annotation's content. Furthermore, it is also not clear in the TEI Guidelines where, in the whole TEI structure, the data corresponding to the stand-off annotations should be encoded.</p><p>Therefore, two basic problems arise when encoding stand-off annotations in TEI: where to encode the information of the annotation, i.e. the contents of the annotation and the linking information, and how to encode said information.</p><p>Since this type of annotations have become a very powerful tool for analysing and exploiting the encoded text, it seems to exist an urgent need of defining such type of general structure in the TEI schema for encoding stand-off annotations in a more comprehensive and coherent manner.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">General encoding principles</head><p>The following requirements must be fulfilled when defining the general framework for encoding stand-off annotations in TEI:</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>•</head><p>Expressiveness: the framework must be able to encode the heterogeneous types of stand-off annotation models. Thus, it should have enough flexibility to allow the encoding of multiple annotation layers, as well as the different content structures, references and segmentations that can be defined in the stand-off annotation models.</p><p>• Extensibility: the framework must be defined such that it can be used not only to encode stand-off annotations of textual information, but also of any type of source data, including audio, video, image, etc., providing a common formalism independently of the type of data.</p><p>• Uniformity: the framework must provide a general mechanism that, even allowing different ways of encoding the annotation information, provides a generic structure that embraces all these possible encodings.</p><p>• Predictability: it should offer a general encoding frame such that any person not directly involved in the encoding of a specific type of annotation could understand the encoding structure and expect to have certain information at specific levels of the annotation's structure</p><p>• Clarity: the proposed framework should be clear and readable</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>•</head><p>Flexibility: the encoding model should offer a high degree of freedom such that any type of stand-off annotation model can be encoded under the same and unique structure without the need of implementing big customizations</p><p>• Simplicity: the proposed frame must be simple to understand and to implement, not only for the human encoding the information, but also for the automatic tools creating and exploiting the annotations</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">The basic stand-off data structure</head><p>In order to identify what type of information should be considered when encoding the stand-off annotations in TEI, it is useful to analyse what is the nature of the data that can appear in a stand-off annotation. When analysing the contents of these annotations, the data can be grouped as follows:</p><p>• Stand-off metadata: comprises the data providing information about one or more aspects of the annotation. It should be stressed that this data do not provide information about the source text, but about the annotation itself, like for example author of the annotation, method of generation (manual/automatic), external ontology used, etc...</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>•</head><p>Referencing data: comprises the data providing references to parts of the source text.</p><p>Typically, references to the source text are implemented by referencing the id's of anchors or other elements of a basic segmentation inserted in the source text, or directly referencing parts of the text by making use of some offset mechanism, for example using character offsets. The referencing data can also be grouped to form groups of references.</p><p>• Annotation contents: comprises the data describing the information attached to the referenced source data. It should be noted that this classification of the stand-off data does not imply that the different types of data are always presented separated. For example, an annotation of a name in the source text could be encoded in different forms:</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Encoding the basic stand-off data structure in TEI</head><p>In order to encode the information comprised in a stand-off annotation, it is proposed to extend the current TEI schema by adding a new element that can contain the data of a stand-off annotation.</p><p>In the present proposal, it is suggested to call this element &lt;stf&gt;, as an abbreviation of the world stand-off.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Encoding the stand-off metadata</head><p>Two are the main issues to consider when dealing with the encoding of the stand-off metadata:</p><p>what to encode as metadata: in the present proposal, only a limited amount of information is suggested to be encoded as stand-off metadata:</p><p> id: indicating a unique identifier for the annotation  type: indicating the type of annotation, for example Part Of Speech (POS) annotations  category identifier: indicating the category associated to the type of annotation in a externally defined ontology, for example in ISOCat  author: indicating the person or software application responsible for the creation of the annotation  creation date: indicating the date when the annotation was generated or last modified where to encode the metadata: all these four basic pieces of information can be encoded as attributes in TEI using already existing attributes, so it sounds reasonable to encode this information as attributes of the element &lt;stf&gt;.</p><p>Therefore, the new element &lt;stf&gt; should have at least the following TEI attributes:</p><p>att.global (@xml:id): for encoding the unique id att.typed (@type):</p><p>for encoding the type of stand-off annotation att.datcat (@datcat):</p><p>for encoding the data category registry att.ascribed (@who):</p><p>for encoding the author of the stand-off annotation att.datable.w3c (@when): for encoding the creation date of the stand-off annotation </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">Encoding the stand-off referencing data</head><p>As it was already indicated above, the referencing data comprises the data providing references to parts of the source text. When encoding the referencing data in the different stand-off annotation models, there are two different approaches that can be followed:</p><p> grouping of stand-off references: in this encoding approach, all the references to the source text are grouped and kept independent of the rest of the stand-off data. Therefore, in this case, specific elements are used for referencing the source text. The referencing data can also be further grouped to form subgroups of references inside the main grouping. The annotation contents make use of the defined stand-off references by referring to their id's. This approach is followed, for example, by the PAULA and XStand-off encodings.</p><p>In the PAULA encoding ((Sonderforschungsbereich632 2008), all the references to the source text are encoded in the &lt;mark&gt; elements that are grouped with &lt;markList&gt; elements. The other elements use these references by using references to these elements.  In the XStand-off encoding (Stührenberg and Jettka 2009) all the references to the source text are encoded in the &lt;segment&gt; elements that are grouped using &lt;segmentation&gt; elements. All the other elements make use of these references by using references to these elements.</p><p>&lt;?xml version="1.0" standalone="no"?&gt; &lt;!DOCTYPE paula SYSTEM "paula_mark.dtd"&gt; &lt;paula version="1.1"&gt; &lt;header paula_id="mycorpus.doc2_tok"/&gt; &lt;/paula&gt; Fig. <ref type="figure">5</ref>   unconstrained use of stand-off references: in this encoding approach, the references to the source text are not necessarily grouped into a common place, but they can be used in different places depending on the encoding model. This approach is followed, for example, by the XCES encoding where no constraints are established regarding the location of the alignment information. For example, the following code shows multiple references associated with the annotation contents in the according to the xcesAna schema: &lt;xsf:segment xml:id="seg1" type="char" start="0" end="24"/&gt; &lt;xsf:segment xml:id="seg2" type="char" start="0" end="3"/&gt; &lt;xsf:segment xml:id="seg3" type="char" start="4" end="7"/&gt; &lt;/xsf:segmentation&gt; Fig. <ref type="figure">7</ref>: Identification of standoff alignments in a exemplary XStandoff encoding Also with a XCES encoding, the following example, from the The Open American National Corpus, follows the same approach:</p><p>Another example can be found in a TEI exemplary encoding of stand-off annotations disclosed in the TEI Wiki page related to the Stand-off use cases (http://wiki.teic.org/index.php/Stand-off_use_cases).</p><p>Therefore, the proposed TEI encoding should be able to manage both approaches.</p><p>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;cesAna xmlns="http://www.xces.org/schema/2003" version="1.0.4"&gt; &lt;feat name="xmlns" value="http://www.xces.org/schema/2003"/&gt; &lt;feat name="version" value="1.0.4"/&gt; &lt;feat name="type" value="article"/&gt; &lt;feat name="xml:lang" value="en-US"/&gt; &lt;feat name="id" value="p1"/&gt; ... &lt;/cesAna&gt; Fig. <ref type="figure">9</ref>: Identification of standoff alignments in a exemplary XCES encoding from the ANC &lt;struct type="cesDoc" from="0" to="65865"&gt; &lt;struct type="text" from="1" to="65864"/&gt; &lt;struct type="body" from="2" to="65863"/&gt; &lt;struct type="div" from="3" to="65862"&gt; &lt;struct type="p" from="4" to="719"&gt; &lt;/struct&gt; &lt;/struct&gt; &lt;/struct&gt; &lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;TEI xmlns="http://www.tei-c.org/ns/1.0"&gt; &lt;teiHeader&gt;...&lt;/teiHeader&gt; &lt;text&gt; &lt;body&gt;...&lt;/body&gt; &lt;back&gt; &lt;div type="persons"&gt; &lt;listPerson&gt; &lt;person xml:id="tm_person_195364"&gt; &lt;persName ref="http://www.trismegistos.org/name/3756"&gt;Κράτης&lt;/persName&gt; &lt;/person&gt; &lt;person xml:id="tm_person_195365"&gt; &lt;persName ref="http://www.trismegistos.org/name/2811"&gt;Διονύσιος&lt;/persName&gt; &lt;/person&gt; &lt;/listPerson&gt; &lt;/div&gt; &lt;/back&gt; &lt;/text&gt; &lt;/TEI&gt; corresp="#string-range(//lb[@n='1'],3,6)" corresp="#string-range(//lb[@n='2'],0,9)" Fig. <ref type="figure">10</ref>: Identification of standoff references in a exemplary TEI encoding It should be noted that the attribute @corresp forms part of att.global.linking which is common to all the TEI elements through att.global. Therefore, independently of the exact encoding of the annotation content, the second approach could always be achieved by referencing the source data using the attribute @corresp of the specific annotation content element. In order to provide a common place for encoding source references according to first approach, it is suggested to add the elements &lt;linkGrp&gt; and &lt;ptr&gt; as childs of &lt;stf&gt;. The element &lt;linkGrp&gt; can contain the following elements:</p><p>-&lt;ptr&gt;: that allows to encode references to the source text -&lt;link&gt;: that allows to combine groups of references to the source text Thus, a partial (only the minimum set of attributes and a child element for encoding stand-off references) declaration of the &lt;std&gt; element is disclosed in the following figure:</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Encoding the stand-off annotation contents</head><p>In this case, the possibilities of possible encodings are as big as all the possible annotations, not only the linguistic ones that can be implemented on a text. Therefore, it is not reasonable to propose a general framework that would cover all the possibilities. Nevertheless, to begin with, two are the possible TEI elements that are candidates to be child of the new element &lt;stf&gt;:</p><p> &lt;label&gt;: this element contains any label or heading used to identify part of a text. It can be used for encoding very simple annotations on specific parts of the source text  &lt;fs&gt;: (feature structure) represents a feature structure, that is, a collection of feature-value pairs organized as a structural unit. It can be used for encoding more complex annotations. The reasons for considering the feature structure as basis for encoding complex annotations are the following:</p><p>the TEI tag set for feature structures can be adopted to represent a heterogeneous set of linguistic corpora <ref type="bibr">(Witt,</ref>   the feature structure has been already successfully used for encoding syntactic information in a way that maximizes the compatibility with other standards <ref type="bibr">(Przepiórkowski 2009)</ref> the feature structure in TEI provides a mechanism for defining constraints on the structure and further information about the structure through the Feature System Declaration. This gives also the opportunity of further providing information about the annotation, additional to the information provided in the annotation metadata (see TEI Guidelines: 18. Feature Structures)</p><p>the Feature System Declaration can be implemented in a stand-alone container &lt;stdDecl&gt;, independent of the &lt;teiHeader&gt; and the &lt;text&gt;. this would allow to clearly differentiate the annotation information from the information directly related to the source text, i.e. the header and the source text.</p><p>the TEI feature structure allows to align both feature names and their values with standardized external data category repositories such as ISOcat (see TEI Guidelines: 18. Feature Structures)</p><p>the TEI recommendations for feature structures have been adopted as ISO Standard 24610-1 Language Resource Management -Feature Structures -Part One: Feature Structure Representation Therefore, it is suggested to add the elements &lt;fs&gt; and &lt;label&gt; as childs of &lt;stf&gt; for encoding the annotation contents.</p><p>A final declaration of the &lt;std&gt; element which would allow to encode all the basic information of the stand-off annotations as disclosed above would be: <ref type="bibr">global.attributes,</ref><ref type="bibr">att.typed.attributes,</ref><ref type="bibr">att.datcat.attributes,</ref><ref type="bibr">att.ascribed. attributes,</ref><ref type="bibr">att.datable.w3c.attributes,</ref><ref type="bibr">((linkGrp ¦ ptr)</ref>, label, fs)* } </p><formula xml:id="formula_0">element stf { att.</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Grouping the stand-off annotations: encoding the annotation's hierarchy</head><p>When dealing with the encoding of annotations, there is often a need of grouping the different annotations carried out on the source text. According to <ref type="bibr" target="#b1">(Goecke, Lüngen, Metzing and Stührenberg 2010)</ref>, a distinction should be made between two principally different ways of grouping units of information related to the annotations:</p><p>-Annotation level: refers to the conceptual level of information represented in markup, i.e.</p><p>refers to a model involving theoretical concepts. Example of annotation level is, for example, the level of syntax, that analyses the source text according to different syntactic theories (e.g. Lexical Functional Grammar, Tree Adjoining Grammar, Categorical Grammar) -Annotation layer: referring to the technical realisation of markup In many other projects, the annotations are grouped in different levels. For example in (Banski and Przepiórkowski 2010), it is stated that:</p><p>"The following levels of linguistic annotation are distinguished in the project: 1) segmentation into sentences, 2) segmentation into fine-grained word-level tokens, 3) morphosyntactic analysis, 4) coarse-grained syntactic words (e.g., analytical forms, constructions involving bound words, etc.), 5) named entities, 6) syntactic groups, 7) word senses (for a limited number of ambiguous lexemes). "</p><p>In other cases, it would be useful to group the annotations, not based on their conceptual meaning and the corresponding realization but based on other project specific requirements, like for example grouping the manually created annotations or the automatically created annotations.</p><p>Therefore, it seems clear that it would be useful to establish an encoding framework that would allow to group different sets of related annotations when encoding them under the TEI.</p><p>In order to accomplish this requirement, two further TEI elements are proposed:</p><p> &lt;stand-off&gt;: parent element that works as a general container for all the stand-off annotation. The element &lt;stand-off&gt; should, at least, have the following attribute:</p><p>att.global (@xml:id): for encoding the unique id  &lt;stfGrp&gt;: element for grouping a set of &lt;stf&gt; elements The element &lt;stfGrp&gt; should, at least, have the following attributes:</p><p>att.global (@xml:id): for encoding the unique id att.typed (@type): for encoding the type of stand-off annotations encoded under the element, for example morphosyntactic, semantic, structural, relational att.datcat (@datcat): for encoding the data category registry associated to the type of annotation specified in @type att.ascribed (@who): for encoding the author of the group of stand-off annotations att.datable.w3c (@when): for encoding the creation date of the group of stand-off annotations</p><p>The element &lt;stand-off&gt; works as a general container for the stand-off annotations that are encoded under the child elements &lt;stf&gt;. The element &lt;stfGrp&gt;, also a child of &lt;stand-off&gt;, allows to group a set of stand-off annotations encoded under &lt;stf&gt;.</p><p>In order to provide maximum flexibility, similar to other TEI grouping elements, &lt;stfGrp&gt; is also a child of &lt;stf&gt;, allowing to create multiple hierarchies of stand-off annotations.</p><p>Therefore, the declaration of the newly proposed TEI elements is:</p><p>The definition of these three elements allows to freely define any hierarchy of annotations when encoding them in the TEI: </p><formula xml:id="formula_1">element standoff { att.</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.">Practical application of annotation hierarchies</head><p>In order to illustrate the flexibility of the proposed annotation framework, we will apply it to one specific case. In <ref type="bibr" target="#b0">(Bański 2010)</ref>, there are three different stand-off systems disclosed. In all of them, multiple layers of annotations are implemented on the source text. For simplicity, we will select the one used by the Open-Content Text Corpus (OCTC).</p><p>Using the proposed encoding framework, there are different approaches that can be followed for encoding the stand-off annotations. We will disclose three of them for illustrative porpoises:</p><p> "Dependency" hierarchy: in this case, the annotations are grouped based on their dependencies  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Using non-TEI schemas for encoding stand-off annotations</head><p>There are, in addition to the TEI, other text encoding standards, most of them providing already mechanisms for encoding annotations, like the standards developed within ISO TC 37 / SC4 -LAF, MAF, SynAF- <ref type="bibr">(Ide and</ref><ref type="bibr">Romary 2006, Declerck 2008)</ref>, GrAF <ref type="bibr" target="#b3">(Ide and Suderman 2007)</ref>, XCES <ref type="bibr" target="#b2">(Ide, Bonhomme and Romary 2000)</ref>, <ref type="bibr">TIGER-XML (Mengel and Lezius, 2000)</ref>, <ref type="bibr">XStand-off (Stührenberg and Jettka 2009)</ref> or PAULA <ref type="bibr" target="#b0">(Dipper 2005)</ref>.</p><p>All these standards already provide a very well defined framework for encoding stand-off annotations. Therefore, one possible way of encoding stand-off annotations in TEI would be simply using the desired schemas inside the &lt;stf&gt; element making use of the corresponding namespaces.</p><p>The ODD customization mechanism could be used for importing the corresponding non-TEI schema into a customized TEI schema.</p><p>The following figure discloses one case where the TIGER-XML standard has been used for encoding stand-off annotations on the source text:</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.">Location of stand-off annotations in the TEI structure</head><p>Once the general framework for encoding stand-off annotations has been defined, it needs to be established where in the whole TEI structure said annotations (i.e. &lt;stand-off&gt;) must should be encoded. This issue has been discussed and is still open in the TEI community (see http://sourceforge.net/p/tei/feature-requests/378/).</p><p>There are basically three alternatives:</p><p> In the &lt;teiHeader&gt;: in this case the stand-off annotations would be encoded in the header of the TEI document  In the &lt;text&gt;: in this case the stand-off annotations would be encoded in a specific container in the &lt;text&gt;, probably a &lt;div&gt; element or in the &lt;back&gt; element. This last encoding approach was followed by the TEI exemplary encoding of stand-off annotations disclosed in the TEIWiki page related to the Stand-off use cases (http://wiki.tei-c.org/index.php/Stand-off_use_cases).  In a new place between the &lt;teiHeader&gt; and &lt;text&gt;: in this case the stand-off annotations would be encoded as an independent "entity" between the &lt;teiHeader&gt; and the &lt;text&gt;. &lt;stf&gt; &lt;nt id="nt2" xmlns=" http://www.ims.uni-stuttgart.de/projekte/TIGER/public/TigerXML.xsd"&gt; &lt;edge label="head" idref="#t6"/&gt; &lt;edge label="nonhead" idref="#nt20"/&gt; &lt;edge label="nonhead" idref="#nt21"/&gt; &lt;/nt&gt; &lt;/stf&gt; In the present proposal, it is suggested to use the last option for introducing the new elements in the TEI document structure.</p><p>Most of the reasons for this have been already indicated in the discussions carried out inside the TEI community (http://sourceforge.net/p/tei/feature-requests/378/). Summarising, the reasons for this TEI document structure where the stand-off annotations are encoded as an independent "entity" not directly linked to the &lt;teiHeader&gt; or the &lt;text&gt; are the following:</p><p>it allows to clearly differentiate between the source text and the annotations made on said text, that are clearly of different nature (probably different author, creation dates, meaning, function...) -it facilitates the encoding and processing of the TEI documents because all the stand-off annotations are encoded in a clearly defined location inside the TEI structure -It is inline with similar mechanisms embedding representations external to the text proper. The stand-off annotations, that are not a piece of the text itself, should be stored in a "separate" place, different than the text. This makes much more clear the nature of the information encoding stand-off annotations in &lt;teiHeader&gt;, &lt;div&gt; or &lt;back&gt;, is contrary to the original porpoise of these elements and introduces confusion on the general encoding</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8.">Open issues</head><p>The present proposal represents only a first approach to the issue of encoding stand-off annotations in the TEI. There are a number of issues that should be discussed and agreed in the TEI community. Some of the open issues are the following:</p><p> Mechanism for encoding the stand-off metadata: in the present proposal, only a very limited metadata information has been encoded, basically using the attributes of the TEI elements. Nevertheless, there is a lot of metadata information that could also be useful to encode and, probably, it would not be possible to do it by using only the attributes. Therefore, it could be   Elements for encoding stand-off contents: as in the previous case, the present proposal only discloses a minimal set of elements that could be useful for encoding the contents of the stand-off annotations. Nevertheless, there are some cases where this set of elements are not enough for encoding the contents. Two possible candidates for be included as child of &lt;stf&gt; would be: &lt;figure&gt; for annotating not only the textual information, but also of images and formulas and &lt;graph&gt; for encoding annotations according to graph theories.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="9.">Conclusion</head><p>The motivation for the present document was to propose a general framework for encoding the stand-off annotations in the TEI. Currently there is an urgent need in the TEI Guidelines to provide general guidance for encoding stand-off annotations. As it stands now, the TEI Guidelines provide the key elements for encoding the annotations, i.e. the linking mechanism and the analysis elements, but still lacks of a general guidance of how to use said elements in a consistent and predictable manner. In some way is like if the Guidelines provide the basic products for making a meal but does not provide the recipe for cooking it.</p><p>In order to provide such a general frame for encoding the stand-off annotations, three are the main proposals disclosed in the present document: (1) the introduction of three new TEI elements specifically defined for encoding stand-off information, (2) a general frame for allowing hierarchical encoding of the stand-off annotations, and (3) a container for the stand-off annotations independent of the header and the text of the TEI document.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig</head><label></label><figDesc>Fig. 1: The basic data structure</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>Fig. 2: Various TEI encodings of a simple standoff annotation</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 :</head><label>3</label><figDesc>Fig. 3: Partial declaration of the element &lt;stf&gt;</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 6 :</head><label>6</label><figDesc>Fig. 6: XStandoff Conceptual Structure (Data Model)</figDesc><graphic coords="7,58.30,335.30,335.80,234.95" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 11 :</head><label>11</label><figDesc>Fig. 11: Partial declaration of the element &lt;stf&gt;</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 12 :</head><label>12</label><figDesc>Fig. 12: Final declaration of the element &lt;stf&gt;</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig</head><label></label><figDesc>Fig. 17: "Dependency" hierarchy</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Fig. 16 :Fig</head><label>16</label><figDesc>Fig. 16: Open-Content Text Corpus (OCTC)<ref type="bibr" target="#b0">(Bański 2010)</ref> </figDesc><graphic coords="14,187.10,168.35,218.15,149.15" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Fig. 20 :</head><label>20</label><figDesc>Fig. 20: Using external schemas</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Fig. 21 :</head><label>21</label><figDesc>Fig. 21: Standoff annotations in the TEI document structure</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>TEI: Text Encoding Initiative (http://www.tei-c.org/)</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Why TEI stand-off annotation doesn&apos;t quite work: and why you might want to use it nevertheless</title>
+		<author>
+			<persName><forename type="first">;</forename><surname>Bański</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bański</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bański</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Przepiórkowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bański</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Przepiórkowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Burnard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bauman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Dipper</surname></persName>
+		</author>
+		<ptr target="http://www.tei-c.org/Guidelines/P5/" />
+	</analytic>
+	<monogr>
+		<title level="m">TEI P5: Guidelines for Electronic Text Encoding and Interchange</title>
+		<title level="s">Balisage Series on Markup</title>
+		<meeting><address><addrLine>Boot; Boot; Oxford</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2005">2010. 2010. 2010. 2009. 2009. 2009. 2010. 2009. 2009. 2008. Dipper 2005. 2005</date>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="39" to="50" />
+		</imprint>
+	</monogr>
+	<note>Proceedings of Berliner XML Tage 2005 (BXML 2005)</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Different Views on Markup: Distinguishing Levels and Layers</title>
+		<author>
+			<persName><forename type="first">Lüngen</forename><surname>Goecke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">;</forename><forename type="middle">D</forename><surname>Goecke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Lüngen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Metzing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Stührenberg</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Linguistic Modeling of Information and Markup Languages, Text, Speech and Language Technology</title>
+		<imprint>
+			<date type="published" when="2010">2010. 2010</date>
+			<biblScope unit="page" from="1" to="21" />
+		</imprint>
+	</monogr>
+	<note>Metzing and Stührenberg</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">XCES: An XML-based Encoding Standard for Linguistic Corpora</title>
+		<author>
+			<persName><forename type="first">Bonhomme</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">;</forename><forename type="middle">N</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bonhomme</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Second Language Resources and Evaluation Conference (LREC)</title>
+		<meeting>the Second Language Resources and Evaluation Conference (LREC)<address><addrLine>Athens</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2000">2000. 2000</date>
+			<biblScope unit="page" from="825" to="830" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">An XML-based encoding format for syntactically annotated corpora</title>
+		<author>
+			<persName><forename type="first">Romary</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">;</forename><forename type="middle">N</forename><surname>De La Clergerie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">;</forename><forename type="middle">N</forename><surname>De La Clergerie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">;</forename><surname>Suderman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Mengel</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Lezius</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International standard for a Linguistic Annotation Framework, Proceedings of HLT-NAACL&apos;03 Workshop on The Software Engineering and Architecture of Language Technology</title>
+		<meeting><address><addrLine>Edmonton; Prague</addrLine></address></meeting>
+		<imprint>
+			<publisher>Mengel and Lezius</publisher>
+			<date type="published" when="2000">2003. 2003. 2007. 2007. 2007. 2000. 2000</date>
+			<biblScope unit="page" from="121" to="126" />
+		</imprint>
+	</monogr>
+	<note>LREC 2000</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">A toolkit for multidimensional markup -the development of SGF to XStand-off</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Przepiórkowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">;</forename><surname>Przepiórkowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">;</forename><forename type="middle">A</forename><surname>Bański</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Przepiórkowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bański</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Stührenberg</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Jettka</surname></persName>
+		</author>
+		<ptr target="http://www.sfb632.uni-potsdam.de/en/paula.html" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Eighth International Workshop on Treebanks and Linguistic Theories (TLT8)</title>
+		<meeting>the Eighth International Workshop on Treebanks and Linguistic Theories (TLT8)<address><addrLine>Montreal</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2008">2009. 2009. 2009. 2008. 2009. 2009. 2009</date>
+			<biblScope unit="volume">632</biblScope>
+			<biblScope unit="page" from="400" to="411" />
+		</imprint>
+	</monogr>
+	<note>Proceedings of Balisage: The Markup Conference</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">SusTEInability of linguistic resources through feature structures</title>
+		<author>
+			<persName><forename type="first">Rehm</forename><surname>Witt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lehmberg</forename><surname>Hinrichs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">;</forename><forename type="middle">A</forename><surname>Stegmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Witt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Rehm</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Hinrichs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lehmberg</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Stegmann</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2009">2009. 2009. 2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

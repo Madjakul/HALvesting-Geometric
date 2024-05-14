@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main"></title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">8807FC7D84A688F0CC89D2197027ECC5</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T14:59+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>OA battle won by STM publishers?</head><p>Nobody will benefit if a major European industry is undermined and with it the peer review system upon which science and society depend, February 2006</p><p>Open access (OA) is most commonly defined as making original research freely accessible on the web, ideally immediately on publication. STM publishers are currently either implementing, or testing, ways to harmonise this visionary goal with economic reality. April 2008</p><p>"Gold" open access publication is the practical route to achieving sustainable open access, the project partners agreed today at the PEER End of Project results conference in Brussels. May 2012</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>STM press releases over the years…</head><p>The French resistance? ;-) Geneviève Fioraso, Ministre de l"Enseignement supérieur et de la Recherche (24 Jan. 2013): "Scientific information is a public good that should be available to all"</p><p>• A policy considering all aspects of scholarly publishing -Author"s manuscript deposit, Author-pays models, Alternative models </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ARE WE FOOLED BY COLOURS?</head><p>The green road</p><p>• Essentially locked in its relation to traditional publishing mechanisms</p><p>• "peer reviewed journal articles": there is an outer force that determines what should be communicated and we need to set up a "parallel" dissemination mechanism • No need for any other model? The system will toggle automatically, like a piece of magic, when…</p><p>• Consequence: outer categories -pre-prints, embargoes (sign of an external temporality: the reference is the time of "publication" in official journals)</p><p>• Scope reduction of the content: author"s manuscripts (not "published"), stop calling them pre-prints… -slides, posters, outreach and pedagogic materials… theses</p><p>The golden road</p><p>• Even worse</p><p>• Alternative financial model for exactly the same journals: "transition"</p><p>• No guaranty of budget reduction</p><p>• Opening up a predatory market</p><p>• Which room is left for other models (Episciences, Freemium)?</p><p>• Debate on open licences fouled by the publishers" take up of it  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Green and gold as conservative categories</head></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>• A policy based on the support to scientific information infrastructures -HAL (Publication repository), OpenEdition (Digital publishing platform), BSN (Bibliothèque Scientifique Numérique) Scientific legal setting: Loi pour une République Numérique (2016) • Principle of author"s deposit (well... with embargoes) • TDM rights for legaly acquired scholarly material Identifying what we should be acting upon Taking distance with events big and small Three main action lines • Controlling the budget dedicated to third party services • Should 1% of the world research budget be dedicated to printing flyers? • Defining the practices that are relevant for scientific communication • Are we happy with the current journal system (peer-review, citation index, lack of dynamicity, Baroque technological management)? • Ensuring our digital sovereignty • Who should take care of our scientific commons ? Overview The development of a scientific information policy at Inria How to become colour-blind Identifying what we have in stock A pragmatic construction of a scientific information infrastructure INRIA: TAKING OUR DESTINY IN OUR OWN HANDS A favourable background and a vision Our priorities for a scientific information policy: • Maximal dissemination of our scientific assets (visibility and swift dissemination of knowledge), for a reasonable price • Constitution of a reliable and sovereign institutional corpus (documentation, preservation, access), with clear public governance principles • Contribution to shaping the scientific communication landscape in terms of editorial processes and with regards the usage made of scientific productions for the annual assessment of research teams • Benefits for the researcher • Providing an increased visibility to his/her research productions • Benefits for the institution • Creating an exhaustive corpus reflecting Inria"s presence • Informational sovereignty • Accompanying services • National network of librarians checking and enriching the deposits Issues -1 A deposit mandate should not come as a surprise • Strong recommendation policy since 2005 Coveragea culture of openness • From early manuscripts to post-review documents Licencesgoing for attribution (CC-BY) • Favouring the fluid dissemination of knowledge Affiliations and authorities • Persons, teams, institutions, projects • Essential for developing precise exploration tools Issues -2 Involvement of library staff • Digital curators at the service of the Inria information space Assessment • Seen as a service by our researchers • Goes with the development of tools for creating personal or team websitesto receive feedback • Versioning as part of the communication process Marking up anteriority • Time stamping of results to prevent plagiarism and state anteriority • http://www.google.com/patents/EP2547095A1 A step towards making publication more autonomous from certification • A continuum from colleagues" feedback to community review • Peer review as the certification of a specific version Keeping Gold under control • Why being cautious? • Because we are a research performing organisation • Because we have a deposit mandate • Banning the hybrid model • A centralized support to Gold open access • Single and open-ended (!) budget • Precise documentation of use • Information about costs and predatory publishers • Gold means green • Registering gold papers in HAL (with identical licence)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>measures associated with an institutional vision • Excellence in the creation of scientific knowledge • Transfer to the civil and economic society • Not the desire to implement colours, nor to do "open access" The green/gold opposition does not favour the implementation of deep changes in the scientific communication landscape TAKING STOCK Starting with what we have: HAL Initiated by the CNRS in 2001 as a mirror to ArXiv • Quick expansion to all scientific domains, comprising human and social sciences • Increasing support from higher education and research institutions • 360 000 full-text documents in open access • Among which 34 000 doctoral theses • More than 3 000 new documents every month • A joint endeavor of CNRS, Inria and Universities A few available benefits Authors" services • Personal identifier (IdHAL) and web pages (CVHAL) • Collections and portals Authorities • AureHAL: authors, institutions, journals, projects Licences • Associating a deposit with a variety of possible licences Interfaces and formats • Standards ingestion (SWORD) and export protocols (OAI/PMH) • Relying on a highly structured open format: TEI (limitations of pdf "Converting PDF to XML is a bit like converting hamburgers into cows. You may be best off printing it and then scanning the result through a decent OCR package." Michael Kay (http://lists.xml.org/archives/xml-dev/200607/msg00509.html) Inspired from: Duncan Hull Structuring content • GROBID: information extraction from PDF documents • Meta-data: title, authors, affiliations, abstracts • Bibliographical references (with crossref consolidation) • Standards base representation • TEI (Text Encoding Initiative) as a reference format • State of the art quality (CRF models) • Cf. M. Lipinski, et al., 2013 • Used at EPO/ResearchGate/Mendeley • Integrated in HAL • Automatic meta-data extraction for author"s deposit • On-going developments • Full-text extraction • Anticipating the re-publication of content (HTML, ePub, etc.) Enhanced access to repository content anHALytics • Providing advanced reporting and analytical studies on scientific activities Team: Achraf Azhar, Laurence Farhi, Patrice Lopez http://traces1.saclay.inria.fr/anHALyticsv1/search/ Various scenarios: • Research subjects of an institution, team or individual; evolution over time • Collaboration patterns between institutions, countries, teams, individuals • Domain overlaps and opportunities for multidisciplinary collaborations • insights on new technical trends and emerging domains</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="3,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="4,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="5,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="7,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="8,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="9,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="10,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="11,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="12,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="13,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="16,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="17,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="18,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="19,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="20,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="22,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="23,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="24,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="25,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="26,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="27,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="29,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="30,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="31,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="32,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="34,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="35,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="36,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="37,0.00,455.00,720.00,85.00" type="bitmap" /></figure>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ONE STEP BEYOND! Repurposing publication repositories as digital libraries</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Objectives</head></div>			</div>
+			<div type="references">
+
+				<listBibl/>
+			</div>
+		</back>
+	</text>
+</TEI>

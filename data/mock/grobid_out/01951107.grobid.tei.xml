@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Les catalogues et GROBID</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Short</forename><surname>Name</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Le</forename><surname>Petit</surname></persName>
+						</author>
+						<title level="a" type="main">Les catalogues et GROBID</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">FC0A39C6585B528BDC5B5120FB2C69D6</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Langages</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>GROBID dictionaries</head><p>Développé par Mohamed Khemakhem (Paris VI-CMB/Humboldt) Initialement prévu pour les ressources lexicales numérisées (dictionnaires, glossaires, lexiques. . . ) Détourenement du système pour les sources Encyclopedic-like Annuaires, catalogues. . .</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Installer GROBID dictionaries</head><p>Short Name (U ABC)</p><p>Les catalogues et GROBID    </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>dicionaries utilise un container docker (qu'il faut télécharger) Cela permet de fournir simplement un espace de travail avec toutes les librairies, dépendances et outils nécessaires L'installation se fait via le terminal Ligne de commande $ docker pull medkhem/grobid-dictionaries</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Form</head><label></label><figDesc>grobid-dictionaries/target/grobid-dictionaries-0.4.3-SNAPSHOT.one-jar.jar -dIn resources/dataset/dictionary-segmentation/corpus/pdf/ -dOut resources -données d'entraînement ligne de commande $ java -jar /grobid/grobid-dictionaries/target/grobid-dictionaries-0.4.3-SNAPSHOT.one-jar.jar -dIn resources/dataset/dictionary-segmentation/corpus/pdf/ -dOut resources -exe createTrainingDictionaryBodySegmentation Short Name (U ABC)Les catalogues et GROBID (U ABC) grobid-dictionaries/target/grobid-dictionaries-0.4.3-SNAPSHOT.one-jar.jar -dIn resources/dataset/dictionary-segmentation/corpus/pdf/ -dOut resources -séparement le niveau Form et le niveau Sense, est de séparer les différentes informations dans &lt;form&gt; (nom et informations biographiques) grobid-dictionaries/target/grobid-dictionaries-0.4.3-SNAPSHOT.one-jar.jar -dIn resources/dataset/dictionary-segmentation/corpus/pdf/ -dOut resources -est de séparer la description du manuscrit (&lt;def&gt;) des éventuelles notes additionnelles (&lt;note&gt;) grobid-dictionaries/target/grobid-dictionaries-0.4.3-SNAPSHOT.one-jar.jar -dIn resources/dataset/dictionary-segmentation/corpus/pdf/ -dOut resources -</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head></head><label></label><figDesc>Grobid s'appuie sur la mise-en-page (gras, italique, retour à la ligne. . . ) Il s'appuie aussi sur le texte: point, virgule, cadratin. . . Cela signifie qu'il lui faut un bon système d'OCR, car la qualité de l'OCRisation du PDF est cruciale Mais quel OCR? En plus de la question de l'entrée des données se pose celle de la sortie. Étant donnée la simplicité du schéma, cette problème est le moins complexe Simplifier l'utilisation au moyen d'un pipeline?</figDesc><table><row><cell></cell><cell>Visualiser Problèmes Aller plus loin</cell></row><row><cell>Les Les Les Les</cell><cell></cell></row><row><cell>catalogues et catalogues et catalogues et catalogues et</cell><cell></cell></row><row><cell>GROBID GROBID GROBID GROBID</cell><cell cols="2">Quelques problèmes à résoudre</cell></row><row><cell>Short Name (U ABC) GROBID Encodage TEI Intaller GROBID Machine teaching (U ABC) Short Name (U ABC) Short Name (U ABC) Short Name (U ABC) GROBID Encodage GROBID Encodage GROBID Encodage GROBID Encodage TEI Intaller GROBID TEI Intaller GROBID TEI TEI Intaller GROBID Intaller GROBID Machine teaching Machine teaching Machine teaching Machine teaching</cell><cell cols="2">Nos données d'entraînement sont disponibles en ligne Une API permet d'utiliser GROBID dictionaries une fois qu'il a https://github.com/gabays/grobid été entraîné Télécharger GROBID Il faut exécuter le service ligne de commande https://github.com/MedKhem/grobid-dictionaries Conclusion Utiliser GROBID mvn -Dmaven.test.skip=true jetty:run-war https://github.com/MedKhem/grobid-dictionaries/</cell></row><row><cell>Visualiser le résultat Conclusion Visualiser le Visualiser le Visualiser le Visualiser le résultat résultat résultat résultat Conclusion Conclusion Conclusion</cell><cell cols="2">wiki/Docker_Instructions Et aller à l'adresse http://localhost:8080/ sur son navigateur https://github.com/MedKhem/grobid-dictionaries/</cell></row><row><cell></cell><cell cols="2">wiki/How-to-Annotate</cell></row><row><cell></cell><cell cols="2">Grammatical group</cell></row><row><cell></cell><cell>Short Name (U ABC) Short Name (U ABC) Short Name (U ABC) Short Name (U ABC)</cell><cell>Les catalogues et GROBID Les catalogues et GROBID Les catalogues et GROBID Les catalogues et GROBID</cell></row></table><note><p><p><p>Conclusion</p>On utilise GROBID dictionaries via l'API Short Name (U ABC)</p>Les catalogues et GROBID Short Name (U ABC) Les catalogues et GROBID</p></note></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>Nous sommes sur mac, pour les commandes sous windows, cf.https://github.com/MedKhem/grobid-dictionaries Short Name (U ABC)Les catalogues et GROBID</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_1"><p>Short Name (U ABC)Les catalogues et GROBID</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>(U ABC) GROBID Encodage TEI Intaller GROBID Machine teaching</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">Automatic Extraction of TEI Structures in Digitized Lexical Resources using Conditional Random Fields</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luca</forename><surname>Foppiano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="https://hal.archives-ouvertes.fr/hal-01508868" />
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<pubPlace>Leiden (Netherlands</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Enhancing Usability for Automatically Structuring Digitised Dictionaries</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Axel</forename><surname>Herold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="https://hal.archives-ouvertes.fr/hal-01708137" />
+	</analytic>
+	<monogr>
+		<title level="m">GLOBALEX workshop at LREC 2018, Miyazaki (Japan)</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Automatically Encoding Encyclopedic-like Resources in TEI</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Simon</forename><surname>Gabay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hervé</forename><surname>Bohbot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Francesca</forename><surname>Frontini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Giancarlo</forename><surname>Luxardo</surname></persName>
+		</author>
+		<ptr target="https://hal.inria.fr/hal-01819505" />
+	</analytic>
+	<monogr>
+		<title level="j">TEI</title>
+		<imprint>
+			<biblScope unit="volume">2018</biblScope>
+			<pubPlace>Tokyo (Japan</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

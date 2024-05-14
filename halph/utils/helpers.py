@@ -62,19 +62,57 @@ def check_dir(path: str):
 
 
 def read_json(path: str):
+    """Reads a JSON file at path.
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+    js: List[Dict[str, Union[str, List[str]]]]
+    """
     with open(path, "r", encoding="utf-8") as jsf:
         js = json.load(jsf)
     return js
 
 
 def read_jsons(paths: List[str]):
-    js = {}
+    """Reads a JSON files in the directory at path.
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+    js: List[Dict[str, Union[str, List[str]]]]
+    """
+    js = []
     for path in paths:
         with open(path, "r", encoding="utf-8") as jsf:
-            js.update(json.load(jsf))
+            js.extend(json.load(jsf))
     return js
 
 
-def transpose_json(path: str, on: str):
+def json_to_dict(path: str, on: str):
+    data = {}
     with open(path, "r", encoding="utf-8") as jsf:
         json_headers = json.load(jsf)
+    for json_header in json_headers:
+        tmp_data = {}
+        tmp_data[json_header[on]] = {k: v for k, v in json_header.items() if k != on}
+        data.update(tmp_data)
+    return data
+
+
+def jsons_to_dict(paths: List[str], on: str):
+    data = {}
+    for path in paths:
+        with open(path, "r", encoding="utf-8") as jsf:
+            json_headers = json.load(jsf)
+        for json_header in json_headers:
+            tmp_data = {}
+            tmp_data[json_header[on]] = {
+                k: v for k, v in json_header.items() if k != on
+            }
+            data.update(tmp_data)
+    return data

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Interlinking lexicographic data in the MORDigital project</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Anas</forename><surname>Fahad Khan</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Ana</forename><surname>Salgado</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Rute</forename><surname>Costa</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Sara</forename><surname>Carvalho</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Bruno</forename><surname>Almeida</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Margarida</forename><surname>Ramos</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Raquel</forename><surname>Silva</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Toma</forename><surname>Tasovac</surname></persName>
+						</author>
+						<title level="a" type="main">Interlinking lexicographic data in the MORDigital project</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">2F78C4B9008D8DDB845A6E37C1153898</idno>
+					<note type="submission">Submitted on 25 Jul 2023</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T14:59+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Distributed under a Creative Commons Attribution -NonCommercial -ShareAlike| 4.0 International License</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body/>
+		<back>
+			<div type="references">
+
+				<listBibl/>
+			</div>
+		</back>
+	</text>
+</TEI>

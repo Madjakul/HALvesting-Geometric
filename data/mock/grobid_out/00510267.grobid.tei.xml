@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Experiments with citation mining and key-term extraction for Prior Art Search</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Patrice</forename><surname>Lopez</surname></persName>
+							<email>lopez@hotmail.com</email>
+							<affiliation key="aff0">
+								<orgName type="department">Institut für Deutsche Sprache und Linguistik</orgName>
+								<orgName type="institution">INRIA -Humboldt Universität zu Berlin</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="department">Institut für Deutsche Sprache und Linguistik</orgName>
+								<orgName type="institution">INRIA -Humboldt Universität zu Berlin</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Experiments with citation mining and key-term extraction for Prior Art Search</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">39CADAD119433FA8D3BF1B1EB404B599</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T14:59+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>H.3 [Information Storage and Retrieval]: H.3.1 Content Analysis and Indexing</term>
+					<term>H.3.3 Information Search and Retrieval</term>
+					<term>H.3.4 Systems and Software</term>
+					<term>H.3.7 Digital Libraries</term>
+					<term>H.2.3 [Database Managment]: Languages-Query Languages Measurement, Performance, Experimentation Patent, Prior Art Search, Citation mining, Key-term extraction, Regression models, Re-ranking, Automatic classification</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>This technical note presents the system built for the IP track of CLEF 2010 based on PATATRAS (PATent and Article Tracking, Retrieval and AnalysiS), the modular search infrastructure initially realized for CLEF IP 2009. We largely reused the system of the previous CLEF IP but at a relatively smaller scale and with the improvement of three main components:</p><p>• A new citation mining tool based on Conditional Random Fields (CRF).</p><p>• A key-term extraction module developed for technical and scientific documents and adapted to patent document structures using a vast ranges of metrics, features and a bagged decision tree.</p><p>• An improvement of our multi-domain terminological database called GRISP. We used the Okapi BM25 and the Indri retrieval models for the prior art task and a KNN model for the automatic classification task under the IPC subclasses. In both tasks, specific final re-ranking techniques were used, including multiple regression models based on SVM. Although the Prior Art task was more challenging and we used a more limited number of retrieval models, we maintained similar results as last year. We performed, however, miserably at the classification task, and we consider that an instance-based KNN algorithm is not competitive with standard classifiers based on preliminary large scale training.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>1 From CLEF IP 2009 to CLEF IP 2010</p><p>Our main motivations for participating to CLEF IP are to advance in the comprehension of scientific and technical information and documents at large, to develop new solutions for managing the data deluge and the information overload in science, and to facilitate the exploitation and dissemination of patent information. CLEF IP is one of the rare evaluation event that permits to tackle these problems.</p><p>We focused our efforts this year on two main aspects: the quality of citation mining from the patent documents and the extraction of key-terms in order to capture human-understandable descriptions of the main concepts of a patent. In addition, we further extended and consolidated our multilingual terminological database (GRISP, General Research Insight in Scientific and technical Publications) by integrating more knowledge sources and by driving the merging of concepts from the different sources with machine learning techniques. Regarding the overall architecture, we reused the framework developed for CLEF IP 2009, called PATATRAS (PATent and Article Tracking, Retrieval and AccesS), with a more limited number of indexes. This presentation describes mainly the novel aspects of our work compared to the system of last year. For a detailed description of the system, the reader is invited to consult our technical note of CLEF IP 2009 <ref type="bibr" target="#b3">[Lopez and Romary, 2009]</ref>.</p><p>In the following description, the collection refers to the data collection of approx. 2,6 millions documents corresponding to 1,3 million European Patents. This collection represents the prior art.</p><p>The training set refers this year to the 200 documents of training topics provided with judgements (the relevant patents to be retrieved). The prior art (PA) patent topic refers to the 2000 patents for which the prior art search is done and the classification (CL) patent topics are the 2000 patents to classify.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.1">Prior Art Searches</head><p>Following the first CLEF IP in 2009, the prior art task this year has been reviewed to coincide more closely with the actual prior art performed by patent examiners. The PA patent topics are normal unexamined applications (i.e. A1 or A2 publications) in only one language and without amendments of the description. The description of the granted patent publications often includes acknowledgement of the most important document of the prior art which has been identified during the search phase. The topic documents are thus more challenging than last year because they offer less multilingual information and less document citations.</p><p>A fully automated prior art search based on the existing search reports produced by the patent offices has inherent limitations in relation to patent families, to the influences of procedural aspects, the impact of limited search tools of the patent examiners, and the absence of non patent literature <ref type="bibr" target="#b3">[Lopez and Romary, 2009]</ref>. We could however note two issues that could be addressed for a future edition of the evaluation forum:</p><p>• The problem of missing patent application content for some PCT applications arriving to the European phase: The European Patent Office does not re-publish patent applications coming from the PCT phase, and thus it is more difficult to retrieve these documents than for a patent examiner who typically searches the full application documents from the WO patent publications.</p><p>• The designation of the expected documents: The expected result this year were expressed as a list of patent publications (i.e. with a kind code) rather than simply a reference to a patent application. As a A publication is for instance always as relevant as the corresponding B publication (because the scope of B is always included in the one of the initial application document), the other publications for the same patent applications needed to be also considered as relevant. We view this way of building the expected results problematic because a patent with many publications will be repeated more often in the expected results as a patent with only one publication, and thus will have a stronger positive impact on the retrieving score. More generally this distinction between the publications appears artificial, because the final choice of citation of a particular publication by a patent examiner is very subjective.</p><p>We would like to thank the organizers for the progress toward a realistic prior art task which is remarkable and very beneficial for the participants. The developed systems could already be profitable to the actual search work of thousand of patent examiners and patent information specialists. This evaluation framework has also started to offer a sound basis for analyzing experimentally the impact of particular techniques on patent collections.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.2">Automatic classification</head><p>CLEF IP this year introduced an automatic classification task. A set of 2 000 patent documents should be classified under one or several IPC subclasses (i.e. the four first characters of the IPC classification). The number of IPC sub-classes is approx. 600. This classification task corresponds to what is usually called the pre-classification <ref type="bibr" target="#b1">[Krier and Zacc, 2002]</ref>, where a patent application is routed to the appropriate a general level technical domain for being processed by the technically competent examiners. The classification is significantly more challenging as the complete IPC classification contains more than 60.000 subdivisions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Advanced citation mining 2.1 The visible citation network</head><p>We observed last year a very strong impact of the interrelated cited patents on retrieval results. Citation relations between patents through time are manifestations of technological improvements and evolutions. These relations could be exploited for connecting a new patent application to a potentially relevant subset of the patent collection. The first kind of citations are the citations present in the search reports established by the patent examiners. This information are immediately exploitable because fully specified in the MAREC format (i.e. the XML format for the patent documents used in CLEF IP). Table <ref type="table" target="#tab_0">1</ref> presents an overview of these citations available in the search reports.</p><p>Only the subset of the citations (EP) corresponds to documents present in the collection. It is possible from a citation to a non European patent to obtain the possible European version using patent family information. A patent family gathers all the different version of a patent application among the different geographical areas. The EPO proposes as web service (Open Patent Service, OPS) the access to the INPADOC database which permits to retrieve the possible European application of a given patent family given a non-European patent number. This service is however slow and limited by a fair use agreement. While it cannot be envisaged for a large number of patent references as present in the collection, we carried out a family look up for the patent topic set. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Source</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Increasing the citation density</head><p>A scientific and technical work is often a contribution to previous existing works. Acknowledging and referring to previous realization and documents is therefore an inherent characteristic of any scientific and technical documents, including patent documents, which appears important to address. Following EPO's statistics, independently from the first kind of citation present in the search report, the description body of patent application contains in average 9 citations from the initiative of the applicant, 7,5 references to other patents and 1,5 references to non patent literature. These citations correspond to the applicant's view of the state of the art and is a legal constraint (Rule 27(b) of the EPC, European Patent Convention). It is thus important for a patent examiner to evaluate these documents and possibly to cite some of these documents in the search report.</p><p>A patent document can contain several hundred of such references, while the number of citations in the search report is rarely more than ten. Extracting accurately these references can provide useful information for starting a search and understanding the key aspects of an application. The difficulty of this extraction task is a strong variability of contexts and patterns. Last year, we used a basic set of regular expressions for extracting patent citations in patent text bodies. The regular expressions were created based on a set of approx. 50 patterns of patent citations. Some analysis showed that we were missing at least 40% of the citations and that more advanced techniques were necessary.  The new patent reference extraction module performs the following processing steps, as illustrated by Figure <ref type="figure" target="#fig_0">1:</ref> 1. Identification of reference strings: The text body is first extracted from the patent document. The patent reference blocks are first indentified in the text body by a specific Linear-Chain CRF model.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Parsing and normalization of the extracted reference strings:</head><p>The reference text is then parsed and normalized in order to obtain a set of bibliographical attributes. References to patent are parsed and normalized in one step by a Finite State Transducer (FST) which will identify (i) if the patent is referred to as a patent application or a patent publication, (ii) a country code, (iii) a number and (iv) a kind code.</p><p>3. Consolidation with online bibliographical services: Different online bibliograhical services are then accessed to validate and to enrich the identified reference. For patent references, we use OPS (Open Patent Service<ref type="foot" target="#foot_0">1</ref> ), a web service provided by the EPO for accessing the Espacenet patent databases. This step permits for instance to retrieve the patent numbers from a reference to a patent application number.</p><p>4. Family lookup: For the citations extracted from the patent topics, in case the citation is a non-European patent, we access OPS for patent family information and try to identify the corresponding European patent.</p><p>The CRF model has been trained based on 200 patent documents corresponding to approximatively 2 000 patent citations. In <ref type="bibr" target="#b2">[Lopez, 2010]</ref>, we evaluated the f-score of the extraction of patent reference blocks at 0.9540 based on a manually annotated corpus of patents from different sources, while the previous state of the art was around 0.75. In 97.2%, we were then able to parse correctly the citation block and identify the correct patent attributes.</p><p>The tool is also able to extract non-patent literature references with a specific CRF model, to parse the extracted reference for identifying a set of 12 bibliographical attributes (author, title, journal, date, etc.) and to consolidate the result with an access to Crossref. Although potentially very relevant to the Prior Art task, in particular in certain technical domains such as computer and chemistry, this functionality has, however, not been used in the present work because of time and processing power constraints.</p><p>The result of these extraction are presented on Table <ref type="table" target="#tab_0">1</ref> for the collection and on 3 Key-term extraction of patent documents</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Approach</head><p>Key terms (or keyphrases or keywords) provide general information about the content of a document. Key-terms constitute good topic descriptions of documents which can be used in particular for information retrieval, automatic document clustering and classification. Among the extracted terms for a given scientific document in a given collection, which key terms best characterize this document?</p><p>Our work is based on the system realized for Semeval 2010, task 5 Automatic Keyphrase Extraction from Scientific Articles <ref type="bibr">[Lopez and Romary, 2010b]</ref>. Candidate phrases up to 5-grams are extracted from the textual content of the document. Phrases beginning or ending by a stopword are discarded. The ability of a candidate phrase to be considered as a key-term is estimated in a supervised manner by a bagged decision tree based on the key-terms selected by the authors and the readers of the training documents. The advantage of using examples annotated by the authors and the readers for selecting the key-terms is that the resulting extracted topic description will still be comprehensible for a human. The machine learning algorithm use three set of features:</p><p>• a first set of structural features characterizing the position of a term with respect to the document structure for each candidate: present in the title, in the abstract, in the introduction, in at least one section titles, in the conclusion, etc. the relative position of the candidate phrase in the document is also used,</p><p>• a second set of content features which tries to captures distributional properties of a term relatively to the overall textual content of the document where the term appears or the collection. For this we use a set of metrics: Generalized Dice Coeficient (GDC) as introduced by <ref type="bibr" target="#b6">[Park et al., 2002]</ref>, TF-IDF and the frequency of the candidate phrase to be selected as key-term in the global corpus.</p><p>• finally, a set of Lexical/Semantic features which are produced exploiting our multilingual terminological database GRISP and Wikipedia were introduced.</p><p>We further applied a post-ranking based on the statistics observed on HAL<ref type="foot" target="#foot_1">2</ref> research archive. HAL contains approx. 139,000 full texts articles described by a rich set of metadata, often including author's keywords. In Semeval 2010, we achieved a f-score of 27.5 for top the 15 key-terms. This level of performance must be considered knowing that the expected key-terms used for the evaluation were a relatively small and subjective selection by the authors and the readers.</p><p>The features have been adapted from this initial implementation for scientific articles to patent publications. The structure features were changed by using the available structural tag of the MAREC XML format. The TF-IDF were computed on the whole patent collection. Finally a set of 120 patent documents with annotated keywords have been used to retrain the bagged decision tree.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Extraction results</head><p>Table <ref type="table" target="#tab_4">3</ref> give an example of the key-term extraction for the patent publication EP0381288A1. The score associated to a phrase evaluates to which extend the phrase can be viewed as a key-term for the document. We can see that this extraction corresponds at the same time to a topic modeling of the document, to a human-understandable summary of the key content of the document close to usual keywords attributed to a scientific and technical article, but also can be viewed as synthetic queries for which the documents itself is relevant.  This processing scaled well the whole collection of documents since the extraction took on a low-end hardware in average 0.7 second per patent application. GRISP (General Research Insight in Scientific and technical Publications) is a multilingual terminological database based on the principles of ISO 16642 (TMF -Terminological Markup Framework) <ref type="bibr" target="#b7">[Romary, 2001]</ref>, a generic onomasiological (concept to word) model. This conceptual framework facilitates the combination of heterogeneous specialist resources and in different languages. <ref type="bibr">[Lopez and Romary, 2010a]</ref> presents the overall framework, the different technical and scientific resources which have been combined and the usage of a machine learning approach for deciding when to merge two concepts coming from different resources in a single, enriched concept.</p><p>As compared to GRISP used in 2009, ChEBI<ref type="foot" target="#foot_2">3</ref> has been integrated. ChEBI is a freely available dictionary of molecular entities developed at the European Bioinformatics Institute <ref type="bibr" target="#b0">[Degtyarenko and al., 2008]</ref>. ChEBI is a valuable source of chemical vocabulary with approx. 42.000 concepts, 97.000 terms, 28.000 semantic relations and multilingual terms in 5 languages. In addition, we update the partial Wikipedia resources with the latest 2010 XML dumps.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Overall Description of the Prior Art System</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">System architecture</head><p>Figure <ref type="figure" target="#fig_1">2</ref> gives an overview of the realized system. The system is close to the system realized for CLEF IP 2009, but with a limited number number of retrieval models and a redefined phrase retrieval model based on the extracted key-terms resulting from the preprocessing of the whole collection and the topic patents.  The arrow represents the main data flow from the patent topic to the final set of ranked results.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Document preprocessing</head><p>The document preprocessing is similar as the previous year with two differences: the addition of the new citation mining processing and the extraction of key-terms as explained in section 2 and 3, and no systematic extraction of all phrases. The preprocessing result in particular in a database storing all metadata of the collection, including the new extracted citations and the key-terms. A few metadata fields were normalized: inventor and applicant names, similarly as last year, and a particular effort was made this year on cleaning and normalization of IPC and ECLA classes.</p><p>The concept tagging based on the controlled terminology of GRISP is similar as last year. The concept disambiguation was still realized on the basis of the ECLA classes (or by default the IPC classes) of the processed patent.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3">Indexes</head><p>The four following indexes were build using the Lemur toolkit <ref type="bibr">[lem, 2001-2010]</ref> (version 4.9):</p><p>• For each of the three language (English, French, German), we built a full index at the lemma level.</p><p>• A crosslingual concept index was built using the list of concepts identified in the textual material for all three languages.</p><p>Similarly as last year, we do not index the collection document by document, but considered a "meta-document" corresponding to all the publications related to a patent application.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.4">Retrieval models</head><p>We used the two following well known retrieval models:</p><p>• Okapi weighting function BM25 (K1 = 1.5, b = 1.5, K3 = 3).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Indri</head><p>Although KL-Divergence with Jelinek-Mercer smoothing (λ = 0.4) was the best performing retrieval model last year, it is also the most time and resource consuming retrieval algorithm. As our development timeframe was this year relatively limited, we did not submit runs including the result of this retrieval model.</p><p>The two models have been used with each of the previous four indexes, resulting in the production of 5 lists of retrieval results for each topic patent. Similarly as last year, the queries for lemma and concept representations were build based on all the available textual data of a topic patent.</p><p>There are many possibilities for exploiting a topic representation based on key-term extraction. For instance, in the context of language model information retrieval, <ref type="bibr" target="#b9">[Zhou et al., 2007]</ref> uses a set of extracted keyphrases for building a topic signature language model used for a semantic smoothing method. We applied in this work a much simpler approach which can be viewed as a baseline. We used the Indri retrieval model applied to the English lemma index and built queries mixing phrases and single word terms. Due to the limit of the numbers of phrases in a query which could be processed in a reasonable time, we limit the number of multi-word key-term to a constant N, and then add the rest of phrases as individual words. For instance, for a list of n key-terms (t p , s p ) p where s p is the score associated to the term t p , having a term formed by multiple words w, t p = (w pi ) i , we build the query as follow: #weight(s 0 #1(t 0 ) s 1 #1(t 1 ) ... s N #1(t N ) ... s p w pi ... s n w ni )</p><p>In our work, we limited the number N of phrases present in the Indri query to 4. Following this construction, an Indri query takes approximatively 15 second to be processed.</p><p>The baseline results of the different indexes and retrieval models are presented in Table <ref type="table" target="#tab_6">4</ref>, column (1). Given that this year the patent topic contains text content in only one language (the main language of application), the results presented in this table are restricted to the set of topics having text in this language, i.e. only 134 queries for French, 519 for German and 1 959 for English over the total of 2 000 patent topics. This restriction explains the high MAP results for French and German indexes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Model Index</head><p>Language (2) Map with initial working sets, normal set (2 000 queries). The results for a language dependent index are produced only for the patent topics having text in this language. The results for KL were not part of the submitted runs, they have been produced while preparing this technical note and are reported here for information.</p><p>The initial working sets have been created via an iterative process similarly as last year, exploiting cited documents and the whole range of available metadata. The process could take benefit this time from a larger number of citations extracted from the description to seed the sets. Using these working sets reduce the search space while containing approx. 75% of the expected documents. As one can see on Table <ref type="table" target="#tab_6">4</ref>, column (2), the initial working sets provide a significant improvements in term of retrieval precision which is superior to the one observed last year. The working sets remain, however, slow to build, are based on manual and intuitive rules and appear difficult to improve in term of recall. We plan to replace the current algorithm by a machine learning approach which could drive the process of selecting interesting patent documents in a monotonic process rather than iteratively.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.5">Merging of results</head><p>The merging of the five result sets was realized as last year with a SVM model using a set of 4 631 training patents. We did not exploit the additional topic set of last year (10 000) and did not rebuild a specific model this year due to lack of time. As a result, the combination was not as effective as last year, but has still provided an improvement over the individual result sets.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.6">Post-ranking and final results</head><p>We re-use the same final re-ranking model as build for CLEF IP 2009. This re-ranking permits in particular to boost the score of the patents initially cited in the description of the topic patent and the ECLA classes, resulting in a significant improvement. The final results are presented on Table <ref type="table" target="#tab_7">5</ref>, and shows comparable accuracy as last year. Given that the prior art task of this year was more challenging as the topic patents were real application documents, and given that we reduced the number of retrieval model and not updated our regression models for result merging and re-ranking, this result shows the positive impact of a high quality extraction of applicant's citations in the patent descriptions and the potential of key-term extraction.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">Automatic Classification task</head><p>As we started to prepare the classification task very late, we could not experiment any algorithms requiring a training on the document collection. We thus opted for an instance-based approach, and more particularly for a KNN algorithm, simply re-using the existing system build for the prior art task. We use the existing prior art search system for providing a list of ranked results for a given patent topic to be classified and the KNN implementation of WEKA <ref type="bibr" target="#b8">[Witten and Frank, 2005]</ref>, with N = 25. Such algorithm could be developed and produced in just a few hours.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Run</head><p>Metric Score patatras MAP 0.5083 Prec. at 1 0.56 Prec. at 5 0.252 ssft CEC0 run7 MAP 0.7951 Prec. at 1 0.835 Prec. at 5 0.3662 Table <ref type="table">6</ref>: Evaluation of official runs for the classification task with the best system (Simple Shift). Unfortunately, our system suffered from several implementation errors which make the interpretation of the results difficult. The final results are presented in Table <ref type="table">6</ref> with a comparison with the best run. The difference between the two systems is very important. Even by correcting implementation errors, we consider that an instance-based KNN algorithm is not competitive with state of the art classifiers based on preliminary large scale training, and a fortiori with the advanced system realized by Simple Shift.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7">Future Work</head><p>We plan to focus our future efforts on the automatic recognition and the exploitation of the structures of patent documents. The main goal is to improve the formulation of the queries and to build more specialized indexing processes. The recognition of entities of special interest such as non patent references and numerical values is a second axis of future work which appears promising in certain technical domains such as biotechnology, chemistry and computer sciences.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: Example of patent reference extraction, parsing, consolidation and family lookup.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: System architecture overview of PATATRAS millésime "CLEF IP 2010" for query processing.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 :</head><label>1</label><figDesc>Overview of citation relations in the patent collection.</figDesc><table><row><cell></cell><cell>Authority</cell><cell>#</cell></row><row><cell>Search Report</cell><cell>all</cell><cell>4 198 873</cell></row><row><cell></cell><cell>EP</cell><cell>898 206</cell></row><row><cell>Description</cell><cell>all</cell><cell>6 257 511</cell></row><row><cell></cell><cell>EP</cell><cell>890 754</cell></row><row><cell cols="2">Description + Family EP</cell><cell>not processed</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head></head><label></label><figDesc>Compounds can exhibit anti-hepatitis C activity by inhibiting viral and host cell targets required in the replication cycle.A number of assays have been published to assess these activities. A general method that assesses the gross increase of HCV virus in culture is disclosed in U.S. Ser. No. 08/221,816 to Miles et al. In vitro assays have been reported in Lohmann et al, J. ofBiol. Chem., 274:10807-10815, 1999. A cell line,    </figDesc><table><row><cell>1</cell><cell></cell><cell></cell></row><row><cell>Extract</cell><cell></cell><cell></cell></row><row><cell>type: application</cell><cell></cell><cell></cell></row><row><cell>issuing auth. : US</cell><cell>2</cell><cell>Parse</cell></row><row><cell>number: 08/221816</cell><cell></cell><cell></cell></row><row><cell>type: patent</cell><cell></cell><cell></cell></row><row><cell>issuing auth. : US</cell><cell cols="2">3 Consolidate</cell></row><row><cell>number: 5738985</cell><cell></cell><cell></cell></row><row><cell>type: patent issuing auth. : EP</cell><cell cols="2">4 Family lookup</cell></row><row><cell>number: 0693126</cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 2 :</head><label>2</label><figDesc>Table 2 for the set of topic patens. Overview of citation relations in the set of topic patents.</figDesc><table><row><cell>Source</cell><cell>Authority</cell><cell>#</cell></row><row><cell>Search Report</cell><cell>all</cell><cell>0</cell></row><row><cell></cell><cell>EP</cell><cell>0</cell></row><row><cell>Description</cell><cell>all</cell><cell>18 876</cell></row><row><cell></cell><cell>EP</cell><cell>2 946</cell></row><row><cell cols="2">Description + Family EP</cell><cell>7 706</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 3 :</head><label>3</label><figDesc>Example of key-term extraction for document EP0381288A1.</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6"><head>Table 4 :</head><label>4</label><figDesc>MAP results of the retrieval models, Prior Art task. (1) Base MAP, Normal set (2 000 queries)</figDesc><table><row><cell></cell><cell></cell><cell></cell><cell>(1)</cell><cell>(2)</cell></row><row><cell cols="2">BM25 lemma</cell><cell>en</cell><cell cols="2">0.0842 0.1628</cell></row><row><cell cols="2">BM25 lemma</cell><cell>fr</cell><cell>0.124</cell><cell>0.2185</cell></row><row><cell cols="2">BM25 lemma</cell><cell>de</cell><cell cols="2">0.1081 0.1869</cell></row><row><cell>Indri</cell><cell>phrase</cell><cell>en</cell><cell cols="2">0.0758 0.1597</cell></row><row><cell cols="3">BM25 concept all</cell><cell cols="2">0.0655 0.1529</cell></row><row><cell>KL</cell><cell>lemma</cell><cell>en</cell><cell cols="2">0.0911 0.171</cell></row><row><cell>KL</cell><cell>lemma</cell><cell>fr</cell><cell cols="2">0.1309 0.2244</cell></row><row><cell>KL</cell><cell>lemma</cell><cell>de</cell><cell cols="2">0.1085 0.1887</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head>Table 5 :</head><label>5</label><figDesc>The regression model was trained using the set of 4 631 training patents which were compiled for CLEF IP 2009. Evaluation of official runs for the small (400 topic patents) and large (2 000 topic patents) topic sets.</figDesc><table><row><cell>Measures</cell><cell>small</cell><cell>large</cell></row><row><cell>MAP</cell><cell cols="2">0.2731 0.2645</cell></row><row><cell>Prec. at 5</cell><cell cols="2">0.4244 0.4209</cell></row><row><cell cols="3">Prec. at 10 0.3625 0.3482</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>http://ops.espacenet.com</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>HAL (Hyper Article en Ligne) is the French Institutional repository for research publications: http://hal.archives-ouvertes.fr/index.php?langue=en</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>http://www.ebi.ac.uk/chebi</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">ChEBI: a database and ontology for chemical entities of biological interest</title>
+		<author>
+			<persName><surname>References [lem ; Degtyarenko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Degtyarenko</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nucleic Acids Res</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="page" from="344" to="350" />
+			<date type="published" when="2001">2001-2010] 2001-2010. 2008. 2008</date>
+		</imprint>
+		<respStmt>
+			<orgName>The Lemur Project . University of Massachusetts and Carnegie Mellon University</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Automatic categorisation applications at the european patent office</title>
+		<author>
+			<persName><forename type="first">Zacc ;</forename><surname>Krier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Krier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Zacc</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">World patent Information</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="page" from="187" to="196" />
+			<date type="published" when="2002">2002. 2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Automatic Extraction and Resolution of Bibliographical References in Patent Documents</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Lopez ; Lopez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">First Information Retrieval Facility Conference (IRFC)</title>
+		<editor>
+			<persName><forename type="first">H</forename><surname>Cunningham</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Hanbury</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">S</forename><surname>Rüger</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Vienna, Austria; Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2010">2010. 2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Multiple retrieval models and regression models for prior art search</title>
+		<author>
+			<persName><forename type="first">Romary ;</forename><surname>Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="http://hal.archives-ouvertes.fr/hal-00411835" />
+	</analytic>
+	<monogr>
+		<title level="m">CLEF 2009 Workshop, Technical Notes</title>
+		<meeting><address><addrLine>Corfu, Greece</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2009">2009. 2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">GRISP: A Massive Multilingual Terminological Database for Scientic and Technical Domains</title>
+		<author>
+			<persName><forename type="first">Romary</forename><forename type="middle">;</forename><surname>Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Patrice</forename><surname>Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="http://hal.inria.fr/inria-00490312" />
+	</analytic>
+	<monogr>
+		<title level="m">Seventh international conference on Language Resources and Evaluation (LREC) 2010 . La Valette, Malte</title>
+		<imprint>
+			<date type="published" when="2010">2010. 2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">HUMB: Automatic Key Term Extraction from Scientic Articles in GROBID</title>
+		<author>
+			<persName><forename type="first">Romary</forename><forename type="middle">;</forename><surname>Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Patrice</forename><surname>Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="http://hal.archives-ouvertes.fr/inria-00493437" />
+	</analytic>
+	<monogr>
+		<title level="m">SemEval 2010 Workshop. Uppsala, Suède</title>
+		<imprint>
+			<date type="published" when="2010">2010. 2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Automatic glossary extraction: beyond terminology identification</title>
+		<author>
+			<persName><surname>Park</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 19th international conference on Computational linguistics</title>
+		<meeting>the 19th international conference on Computational linguistics</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2002">2002. 2002</date>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">An abstract model for the representation of multilingual terminological data: Tmf -terminological markup framework</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary ; Romary</surname></persName>
+		</author>
+		<ptr target="http://hal.inria.fr/inria-00100405" />
+	</analytic>
+	<monogr>
+		<title level="m">TAMA (Terminology in Advanced Microcomputer Applications)</title>
+		<meeting><address><addrLine>Antwerp, Belgium</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2001">2001. 2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Data Mining: Practical machine learning tools and techniques</title>
+		<author>
+			<persName><forename type="first">Frank</forename><forename type="middle">;</forename><surname>Witten</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">H</forename><surname>Witten</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Frank</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2005">2005. 2005</date>
+			<publisher>Morgan Kaufmann</publisher>
+			<pubPlace>San Francisco</pubPlace>
+		</imprint>
+	</monogr>
+	<note>2nd edition</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Topic signature language models for ad hoc retrieval</title>
+		<author>
+			<persName><surname>Zhou</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Knowledge and Data Engineering</title>
+		<imprint>
+			<biblScope unit="page" from="1276" to="1287" />
+			<date type="published" when="2007">2007. 2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

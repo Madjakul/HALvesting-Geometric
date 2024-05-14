@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">The relevance of standards for research infrastructures</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Gil</forename><surname>Francopoulo</surname></persName>
+							<email>gil.francopoulo@wanadoo.fr</email>
+							<affiliation key="aff0">
+								<orgName type="institution">INRIA-Loria</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Thierry</forename><surname>Declerck</surname></persName>
+							<email>declerck@dfki.de</email>
+						</author>
+						<author>
+							<persName><forename type="first">Monica</forename><surname>Monachini</surname></persName>
+							<email>monica.monachini@ilc.cnr.it</email>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@loria.fr</email>
+							<affiliation key="aff1">
+								<orgName type="institution">INRIA-Loria</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">The relevance of standards for research infrastructures</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">68D42E4073AAF88659D437090BB60098</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In this paper, we show the importance of standards as an essential aspect for any research infrastructure in the humanities. In the context of the current activities within ISO committee TC 37/SC 4 (Language Resource Management), we show in particular how important it is to provide means to compare linguistic representations through the use of a shared semantics for elementary descriptors. This is further exemplified by describing the ongoing work to define a central data category registry, which aims at being a reference point in the language resource community, in conjunction to the definition of basic standards for linguistic annotation, as illustrated with the current work that is being carried out in the domain of morpho-syntactic categories.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>1.</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2.</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Standards: are they at all needed ?</head><p>For many years, the language resource community has been the place of numerous projects [see Cole] that have aimed to produce resources and tools to facilitate the study or automatic processing of language. Still, we have all faced the issue of ensuring long-term availability of the corresponding results, with the consequence that researchers still have to carry out technical tasks of corpus gathering, lexical description or tool implementation that others are supposed to have achieved beforehand, and above all that should be the duty of shared research infrastructures working for the benefit of all.</p><p>One of the key issues to define such research infrastructures is our ability, as a mature scientific community, to be able to identify that new research results should be based upon the stabilization of shared knowledge by means of a range of internationally agreed upon standards. Such standards would obviously bring the following benefits:</p><p>• Ensure wide accessibility of data in space (between research sites) and time (in the perspective of providing long-term preservation of data).</p><p>Standards are there to provide a stable representational basis as well as maintained documentation, that researchers are not able to produce on their own; • Facilitate the reusability of software by making it independent from the actual proprietary data formats an implementer might use; • Guaranty that research results are comparable, by, for instance, making sure that the same underlying data has been used in the context of the elicitation of statistical results; • Create communities of practice that will share the knowledge of such standards and create new concepts on the basis of this common culture. As a matter of fact such benefits have already been observed in the context of the wide deployment of the Text Encoding Initiative guidelines, which have both been the basis of numerous projects worldwide<ref type="foot" target="#foot_0">1</ref> , but also have been the basis of a shared understanding of basic textual descriptions that now leads to the explorations of new textual types or phenomena<ref type="foot" target="#foot_1">2</ref> .</p><p>Still, the language resource community requires even more standards to cope with both the variety of linguistic phenomena that have to be taken into account as well as the diversity of human languages. This is why, a the International Organization for Standardization<ref type="foot" target="#foot_2">3</ref> has put together a new committee dedicated to language resources, known as ISO/TC 37/SC 4 and started to foster several standardization projects to deal with what has been identified as priorities for the progress of the management of language resources.</p><p>In the remaining sections, we first provide a few elements related to the role we think research infrastructures should play with regards standards. We then outline the working agenda of ISO/TC 37/SC 4 and we present our opinion concerning standards when applied to Research Infrastructure (RI). Then, as an illustration, we present the work in progress within ISO-TC37/SC4 on the morpho-syntactic profile of the data category registry (DCR).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Research infrastructures and standards</head><p>As we have seen, standards are an essential component of any language resource related activity. In this context research infrastructures should consider standardization as one essential point of their activities. More precisely we consider that at least the three following missions should be allocated to research infrastructures:</p><p>• They should contribute the wide dissemination of standards by initiating training sessions and providing teaching materials and samples on line;</p><p>• They should actually implement available standards in all their activities, with the constant objective of long-term availability of the data or tools they produce (see above); • They should be at the forefront of standardization activities by explicitly reviewing existing standards, contribute to their evolution and even participate to the definition of new standards when needed by the corresponding research community.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>3.</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>4.</head><p>5.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>6.</head><p>6.1.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>6.2.</head><p>6.3.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>7.</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Work in progress within ISO-TC37</head><p>ISO committee TC 37/SC 4 is dedicated to the specification of a full family of standards for NLP and language resources. These standards can be categorized according to two levels:</p><p>Low level standards, describing the linguistic constants. More precisely, this is a pair: a) revision of ISO-12620 that specifies the rules for describing and maintaining data categories.</p><p>b) data category registry There are also some other important low-level standards that we can use: the standards for character encoding (ISO/IEC 10646 i.e. Unicode), language codes (ISO-639), script codes (ISO-15924), country codes (ISO-3166) and dates (ISO-8601).</p><p>High level standards, describing structural models (sometimes called meta-models) that specify how to represent linguistic resources. The structural model provides classes (in UML terminology) and the relations between classes together with a textual usage description for each class.</p><p>The registry provides the needed attributes and values that are used to adorn the classes. The structural models being currently developed deal with wordsegmentation, morpho-syntactic annotation (aka MAF), syntactic annotation (aka SynAF) <ref type="bibr">[Declerck]</ref> and lexicon (aka LMF) <ref type="bibr">[Francopoulo]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Objective</head><p>The objective is to propose to the user and developer of language resources a coherent family of standards. All these standards have the following property: they allow the definition of a model of linguistic resource by combining structural elements with constants taken in low-level standards. All the resources share thus the same set of constants, supporting our goal of providing interoperability between segmentation, annotation and lexicon.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Roadmap</head><p>As said before, the duration for defining an ISO standard is rather long. It takes around four years. So, instead of defining low-level standards then high level standards (or the contrary), the various ISO groups works in parallel with a closed collaboration between them.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Some basic definitions A data category</head><p>A data category is a linguistic constant. A data category is either an attribute name like /partOfSpeech/ or a value dedicated to populate an attribute. An example of value is /noun/.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Profiles</head><p>A profile is a specific set of data categories in the DCR. The current profiles are:</p><p>For Terminology within TC37/SC3 One profile For NLP within TC37/SC4</p><p>Three profiles: Meta-data Morpho-syntax Semantics You can notice that to ensure interoperability in NLP between word-segmentation, annotation and lexicon, the distinction between each profile is made according to linguistic criteria and not according to the resources. Another point to mention, is that a data category may belong to several profiles but we try to avoid this situation in order to avoid conflicts.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The data category registry</head><p>The registry is the union of all data categories.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Morpho-syntactic profile</head><p>The DCR structure is specified by the ISO-12620 revision. In the morpho-syntactic profile we restrict ourselves for the time being to the following features: We differentiate between the notion of /broader/ relation and the notion of /conceptual domain/.</p><p>The /broader/ link allows a hierarchy of constants to be defined. Example: a common noun is a more specialized value than noun.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>: DataCategory commonNoun : DataCategory noun hasABroaderDataCategory</head><p>The notion of conceptual domain allows a set of valid values to be identified. Example: noun is a value for partOfSpeech. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>9.</head><p>What has been done in the morphosyntactic profile?</p><p>We proceeded in three phases: Phase-1: collect Phase-2: group, structure and write a first draft of the definitions Phase-3: revise An initial long and flat list of data categories has been collected from:</p><p>• Current ISO-12620</p><p>• Eagles and Multext-East</p><p>• A couple of values for the NLP sections in LMF The ISO-12620 constants are general purpose values like /language/ or /derivation/ and cover only terminological resources. For instance, for /partOfSpeech/, the only values are /noun/, /adjective/ and /verb/.</p><p>By comparison, in NLP, we need much more values including /preposition/ and /pronoun/ etc.</p><p>We propose a set of constants according to the following criteria:</p><p>• broad linguistic coverage within the morpho-syntactic perimeter • no semantic overlap • good choice of a name associated with a good textual definition</p><p>What has been recorded so far in the DCR?</p><p>The list being rather huge we created 11 directories within the Syntax software (see next section) in order to help data category organization. It easier to work on medium sized list than on a list with 300 items.</p><p>In each directory: one or several attributes names and related values are recorded. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="10.">Software</head><p>We use the Syntax software hosted by CNRS-INIST in Nancy (see http://syntax.inist.fr) in order to edit the data categories. This is a server based on a relational database with a set of PHP programs in order to manage the interaction. Here is a screen dump: 11. 12.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>13.</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>APIs</head><p>In order to allow programs to access to the DCR, a set of Application Programming Interfaces are being specified and implemented by Max Planck Institute for Psycholinguistics of Nijmegen, INRIA-Loria and University of Sheffield.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="5,97.44,70.92,414.72,301.68" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>speech values are structured with a top level set composed of 10 values like noun or verb. A very precise ontology is specified for grammatical words. Most of parts of speech are common to lexicons and annotations but two set of values (i.e. punctuation and residual) are specific to annotation and are not usually used in lexical descriptions. Reference 5 The constants are anaphora, antecedent, cataphora, coreference, endophora and referent. This is some doubt to maintain these constants in the morpho-syntactic profile. Register, dating and frequency 19 The constants are slangRegister or rarelyUsed. Semantically motivated 16 The constants are agent, intensive. This is some doubt to maintain these constants in the morphosyntactic profile. Syntactically motivated 36 Attributes are function or voice. Values are subject, activeVoice for instance.</figDesc><table><row><cell>Basics</cell><cell>29 items</cell></row><row><cell>These are general purpose linguistic constants, like: comment, derivation, elision, foreignText, label.</cell><cell></cell></row><row><cell>Cases</cell><cell>33</cell></row><row><cell>Examples of values: ablativeCase or dativeCase.</cell><cell></cell></row><row><cell>FormRelated</cell><cell>33</cell></row><row><cell>These are constantes for the specifications of forms like: spokenForm, writtenForm, abbreviation,</cell><cell></cell></row><row><cell>expansionVariation, transliteration, romanization, transcription, script.</cell><cell></cell></row><row><cell>Language Typology</cell><cell>4</cell></row><row><cell>An attribute is languageTypology and values are agglutinating, inflectional and isolating.</cell><cell></cell></row><row><cell>Morphological Features excluding cases</cell><cell>72</cell></row><row><cell>Attributes are for instance grammaticalGender, mood and tense. Values are for instance feminine,</cell><cell></cell></row><row><cell>indicative, present.</cell><cell></cell></row><row><cell>Operations</cell><cell>8</cell></row><row><cell>The constants are for instance addAfter, addBefore, copy etc.</cell><cell></cell></row><row><cell>Part of speech</cell><cell>93</cell></row><row><cell>The part of Total</cell><cell>348 items</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>See the TEI projects page under http://www.teic.org/Applications/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>2 See the P5 edition of the guidelines: http://www.teic.org</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>/P5/ 3 http://www.iso.org</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>http://lirics.loria.fr</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_4"><p>http://www.technolangue.net</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>The work presented here is partially funded by the EU eContent-22236 LIRICS project 4 , and by the French TECHNOLANGUE program 5 .</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">Survey of the State of the Art in Human Language Technology</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Cole</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mariani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Uszkoreit</surname></persName>
+		</author>
+		<editor>Zaenen A. and Zue V.</editor>
+		<imprint>
+			<date type="published" when="1997">1997</date>
+			<publisher>Cambridge University Press</publisher>
+		</imprint>
+	</monogr>
+	<note>First Edition -1997</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">SynAF: Towards a standard for syntactic annotation</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Declerck</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2006">2006</date>
+			<publisher>LREC Genoa</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Lexical Markup Framework (LMF)</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Francopoulo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>George</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Calzolari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Monachini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Bel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Soria</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2006">2006</date>
+			<publisher>LREC</publisher>
+			<pubPlace>Genoa</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

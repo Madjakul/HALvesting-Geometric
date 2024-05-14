@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">DataCatalogue : enjeux et réalisations</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Hugo</forename><surname>Scheithauer</surname></persName>
+						</author>
+						<title level="a" type="main">DataCatalogue : enjeux et réalisations</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">A91B5B01EAFB9D855C34C922D22ECF2B</idno>
+					<note type="submission">Submitted on 25 Oct 2022</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:01+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>• Créer un nouvel accès à ces documents pour les publics qui les utilisent.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Approche</head><p>• Structuration automatique de l'information,</p><p>• Indexation et publication de corpus.</p><p>• Standard XML pour l'édition de texte.</p><p>• Permet de rendre lisible et compréhensible un texte par un ordinateur (machine-readable).</p><p>Une restructuration en XML grâce au standard TEI Exemple d'encodage TEI du poème Les Chats, Baudelaire, 1857.</p><p>On donne à la machine les moyens de comprendre du texte comme une base de données.</p><p>GROBID est aujourd'hui accompagné de plusieurs modules.</p><p>Un module est un élément dépendant de GROBID, mais spécialisé sur un autre type de document.</p><p>L'objectif est de créer un module GROBID dédié au format que représentent les catalogues de vente. En conclusion, cette phase expérimentale de DataCatalogue a permis de :</p><p>• Créer un schéma TEI adapté à la représentation des catalogues de vente, qui permet de structurer finement l'information.</p><p>• Lancer le développement du module GROBID DataCatalogue, et d'obtenir des performances satisfaisantes pour les premiers modèles de segmentation. Les scores laissent une marge d'amélioration qui sera atteinte en raffinant et augmentant les exemples annotés.</p><p>• Créer des corpus annotés pour chaque niveau de segmentation développé,</p><p>• Débuter le prototypage d'une application de publication et de réfléchir au modèle de publication des fichiers restructurés.</p><p>Merci pour votre attention ! Contact : hugo.scheithauer[at]inria.fr</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>des catalogues de vente Possibilité d'utiliser des recherches avancées, ici en combinant des termes de recherche. Le projet DataCatalogue exploite donc des données précédemment acquises et générées en masse. Enjeux • Création d'un outil permettant de structurer automatiquement les catalogues de vente, • Traiter l'ensemble des catalogues de vente aujourd'hui numérisés, transcrits, et conservés à la BnF et à l'INHA (= trouver une solution généralisable),</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>•</head><label></label><figDesc>Application de publication de fichier TEI, • Open source, • Permet d'indexer un corpus, de le visualiser, et de le rendre requêtable, • Interface entièrement personnalisable. Quels outils dans notre mallette ? Publier les contenus restructurés avec TEI Publisher Ingénierie de projet GROBID et ses modules • Modélisation TEI des catalogues de vente → Comment modéliser la structure et les informations contenues dans les catalogues de vente ? → Quelle granularité vise-t-on ? • Développement du module GROBID DataCatalogue → Ingénierie logicielle sur GROBID, → Sciences des données, → Constitution des corpus d'entraînement, entraînement et évaluation des modèles, → Mise en place de la chaîne de traitement. • Publication des catalogues encodés → Quelle stratégie d'éditorialisation ? → Quelles fonctionnalités ? Quels outils dans notre mallette ? → Envisager une étape de correction post-OCR des PDF pour nettoyer les scories générées durant la transcription automatique. Extraction du texte et nettoyage GROBID Publication Les erreurs de transcription : obstacle à la structuration automatique ? → Segmentation de l'image avec eScriptorium et Kraken, donc non plus basée sur le texte mais sur la classification de pixel (le projet Gallic(orpor)a a notamment essayé cette méthode). → Segmentation de l'image avec de la détection d'objet, avec des outils type YOLOv5 (Clérice, 2022).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="4,12.83,80.79,696.00,266.57" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="7,102.75,0.00,535.16,379.59" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="9,214.71,0.00,231.82,309.92" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="9,0.00,-0.00,211.71,360.37" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="9,449.54,12.17,270.46,286.59" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="13,239.44,42.68,440.88,311.62" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="15,128.76,7.26,462.47,355.87" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="16,95.63,67.50,528.75,270.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="17,36.25,5.79,425.71,381.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="18,72.73,3.22,399.88,378.88" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="25,12.00,23.64,332.27,315.68" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="25,360.00,24.02,348.00,356.96" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="27,244.65,50.08,212.25,311.75" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="28,7.04,12.00,229.76,302.08" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="28,254.67,26.05,215.45,288.03" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="28,487.99,19.06,220.84,287.96" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="29,405.95,43.04,251.55,336.30" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="29,59.94,66.04,204.79,300.79" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="32,74.25,5.39,571.50,381.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="33,11.42,73.61,450.00,292.50" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="34,10.45,32.71,469.73,305.32" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="39,27.95,8.69,664.10,330.65" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="40,18.61,10.35,674.85,334.41" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="42,74.96,137.16,357.47,202.12" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="46,109.55,21.83,500.90,241.83" type="bitmap" /></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>• Mixed-436 : Bienaimé-Feuardent + Bourgey • Mixed-507 : Bienaimé-Feuardent + Bourgey + Desvouges Évaluer les performances des modèles GROBID Quelles performances pour le modèle de segmentation haut niveau ? Développements menés sur GROBID Évaluer les performances des modèles GROBID • Scores en hausse pour l'entraînement d'un modèle sur les collections Bienaimé-feuardent, Naville et Desvouges, mais réserve car le nombre de fichiers doit être augmenté. • L'utilisation de la collection Bourgey dans l'entraînement vient détériorer les scores.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Modéliser les catalogues de vente avec le standard XML-TEI La TEI offre la possibilité de créer des schémas personnalisés selon les besoins des projets qui l'utilisent, tout en restant conforme au standard.</p><p>Pour DataCatalogue, nous avons mis au point un schéma d'encodage des catalogues de vente. Celui-ci s'appuie sur :</p><p>• Les éléments mis à disposition par la TEI, notamment pour la description d'objets.</p><p>• Des éléments personnalisés permettant de rendre compte de la structuration de l'information des catalogues. </p></div>			</div>
+			<div type="references">
+
+				<listBibl/>
+			</div>
+		</back>
+	</text>
+</TEI>

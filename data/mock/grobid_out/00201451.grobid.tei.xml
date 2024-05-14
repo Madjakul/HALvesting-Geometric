@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A lexicon for Vietnamese language processing</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Thi</forename><surname>Minh</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Huyen</forename><surname>Nguyen</surname></persName>
+							<email>huyenntm@vnu.edu.vn</email>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>romary@loria.fr</email>
+						</author>
+						<author>
+							<persName><forename type="first">Mathias</forename><surname>Rossignol</surname></persName>
+							<email>mathias.rossignol@mica.edu.vn</email>
+						</author>
+						<author>
+							<persName><forename type="first">Xuan</forename><surname>Luong Vu</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Thi</forename><surname>Minh</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Xuan</forename><surname>Luong</surname></persName>
+							<email>vuluong@vietlex.com</email>
+						</author>
+						<author>
+							<persName><forename type="first">Thị</forename><surname>Minh</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Huyền</forename><surname>Nguyễn</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Xuân</forename><forename type="middle">Lương</forename><surname>Vũ</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="institution">Hanoi University of Science</orgName>
+								<address>
+									<settlement>Hanoi</settlement>
+									<country key="VN">Vietnam</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="institution">LORIA</orgName>
+								<address>
+									<settlement>Nancy</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="institution">International Research Center MICA</orgName>
+								<address>
+									<settlement>Hanoi</settlement>
+									<country key="VN">Vietnam</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff3">
+								<orgName type="institution">Vietnam Lexicography Center</orgName>
+								<address>
+									<settlement>Hanoi</settlement>
+									<country key="VN">Vietnam</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">A lexicon for Vietnamese language processing</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">834C371DEF1A53CD2C50A0F119336B1C</idno>
+					<idno type="DOI">10.1007/s10579-007-9034-8</idno>
+					<note type="submission">Submitted on 14 Jul 2009</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>lexicon</term>
+					<term>linguistic resources</term>
+					<term>part-of-speech</term>
+					<term>standardization</term>
+					<term>syntactic description</term>
+					<term>Vietnamese</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Over the last 20 years, the field of Natural Language Processing (NLP) has seen numerous achievements in domains as diverse as part-of-speech (POS) tagging, topic detection, or information retrieval. However, most of those works were carried out for occidental languages (roughly corresponding to the Indo-European family) and lose much of their validity when applied to other language families. Thus, there clearly exists today a need to develop tools and resources for those other languages. Furthermore, an issue of great interest is the reusability of these linguistic resources in an increasing number of applications, and their comparability in a multilingual framework. This paper focuses on the case of Vietnamese.</p><p>Only very recently have Vietnamese researchers begun to be involved in the domain of NLP. As there does not exist any published work in formal linguistics nor any recognizable standard for Vietnamese word definition and word categories, the fundamental tasks for automatic Vietnamese language processing, such as part-of-speech tagging, parsing, etc., are very difficult for computational linguists. The fact that all necessary linguistic resources have to be built from scratch by each research team is a real obstacle to the development of Vietnamese language processing.</p><p>The aim of our project is therefore to build a common linguistic database that is freely and easily exploitable for the automatic processing of Vietnamese. In this paper, we present our work on creating a Vietnamese lexicon for NLP applications. We emphasize the standardization aspect of the lexicon representation. We especially propose an extensible set of Vietnamese syntactic descriptions that can be used for tagset definition and morphosyntactic analysis. These descriptors are established in such a way as to be a reference set proposal for Vietnamese in the context of ISO subcommittee TC 37/SC 4 (Language Resource Management).</p><p>We begin with an overview of the specificities of the Vietnamese language and of the context of our research (Section 2). We then present the lexicon model (Section 3) and detail the lexical descriptions used in our lexicon (Section 4). We finally introduce in section 5 our ongoing work to build an extended lexicon in which each lexical entry is enriched with more elaborate syntactic information.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Overview of Vietnamese Language Resources for NLP</head><p>In this section, we first present some general characteristics of the Vietnamese language. We then introduce the current status of language resources construction for Vietnamese language processing.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">Characteristics of Vietnamese</head><p>The following basic characteristics of Vietnamese are adopted from <ref type="bibr" target="#b0">Cao (2000)</ref> and <ref type="bibr" target="#b8">Hữu et al.(1998)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.1.">Language family</head><p>Vietnamese is classified in the VietMuong group of the Mon-Khmer branch, that belongs to the Austro-Asiatic language family. Vietnamese is also known to have a similarity with languages in the Tai family. The Vietnamese vocabulary features a large amount of Sino-Vietnamese words. Moreover, by being in contact with the French language, Vietnamese was enriched not only in vocabulary but also in syntax by the calque (or loan translation) of French grammar.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.2.">Language Type</head><p>Vietnamese is an isolating language, which is characterized by the following specificities:</p><p>it is a monosyllabic language;</p><p>its word forms never change, contrary to occidental languages that make use of morphological variations (plural form, conjugation. . . );</p><p>hence, all grammatical relations are manifested by word order and function words.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.3.">Vocabulary</head><p>Vietnamese has a special unit called " tiếng " that corresponds at the same time to a syllable with respect to phonology, a morpheme with respect to morpho-syntax, and a word with respect to sentence constituent creation. For convenience, we call these " tiếng " syllables. The Vietnamese vocabulary contains:</p><p>simple words, which are monosyllabic;</p><p>reduplicated words composed by phonetic reduplication (e.g. trắng / whitetrăng trắng / whitish);</p><p>compound words composed by semantic coordination (e.g. quần / trousers, áo / shirtquần áo / clothes);</p><p>compound words composed by semantic subordination (e.g. xe / vehicle, đạp / to pedalxe đạp / bicycle);</p><p>some compound words whose syllable combination is no longer recognizable (e.g. bồ nông / pelican);</p><p>complex words phonetically transcribed from foreign languages (e.g. cà phê / coffee, from the French café ).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.4.">Grammar</head><p>The issue of syntactic category classification for Vietnamese is still in debate amongst the linguistic community <ref type="bibr" target="#b0">(Cao, 2000;</ref><ref type="bibr" target="#b8">Hữu et al., 1998;</ref><ref type="bibr">Diệp and Hoàng, 1999;</ref><ref type="bibr">Uỷ ban KHXHVN, 1983)</ref>. That lack of consensus is due to the unclear limit between the grammatical roles of many words as well as the very frequent phenomenon of syntactic category mutation, by which a verb may for example be used as a noun, or even as a preposition. Vietnamese dictionaries <ref type="bibr">(Hoàng, 2002)</ref> use a set of 8 parts of speech proposed by the Vietnam Committee of Social Science (Uỷ ban <ref type="bibr">KHXHVN, 1983)</ref>. We discuss precisely of these parts of speech in Section 4.</p><p>As for other isolating languages, the most important syntactic information source in Vietnamese is word order. The basic word order is Subject -Verb -Object. There are only prepositions but no postpositions. In a noun phrase the main noun precedes the adjectives and the genitive follows the governing noun.</p><p>The other syntactic means are function words, reduplication, and, in the case of spoken language, intonation.</p><p>From the point of view of functional grammar, the syntactic structure of Vietnamese follows a topic-comment structure. It belongs to the class of topic-prominent languages as described by <ref type="bibr" target="#b14">Li and Thompson 1976.</ref> In those languages, topics are coded in the surface structure and they tend to control co-referentiality (e.g. Cây đó lá to nên tôi không thích / Tree that leaves big so I not like, which means This tree, its leaves are big, so I don't like it); the topic-oriented " double subject " construction is a basic sentence type (e.g. Tôi tên là Nam, sinh ở Hà Nội / I name be Nam, born in Hanoi, which means My name is Nam, I was born in Hanoi), while such subject-oriented constructions as the passive and " dummy " subject sentences are rare or non-existent (e.g. There is a cat in the garden should be translated as Có một con mèo trong vườn / exist one &lt;animal-classifier&gt; cat in garden).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Building Language Resources for Vietnamese Processing</head><p>While research in machine translation in Vietnam started in the late 1980's <ref type="bibr" target="#b3">(Dien and Kiem, 2005)</ref>, other works in the domain of NLP for Vietnamese are still very sparse. Moreover, linguists in Vietnam are not yet involved in computational linguistics. <ref type="bibr" target="#b4">Dien et al. (Dien et al., 2001;</ref><ref type="bibr" target="#b2">Dien and Kiem, 2003;</ref><ref type="bibr">Dien et al., 2003)</ref> mainly work on English -Vietnamese translation. Concerning the processing of Vietnamese, the authors published some papers on word segmentation, POS tagging for English-Vietnamese corpus, and the building of a machine-readable dictionary. Due to the lack of linguistic resources for Vietnamese and standard word classifications, the authors make use of available word categories in print dictionaries, and also project English tags onto Vietnamese words. However, the developed tools and resources are not shared in the public research, which makes it difficult to evaluate their actual relevance.</p><p>Some other groups working on Vietnamese text processing focus their research on technical aspects and frequently meet the problem of lacking language resources such as lexicon and annotated corpora.</p><p>In 2001, we participated in the first national research project for Vietnamese language processing (" Research and development of technology for speech recognition, synthesis and language processing of Vietnamese ", Vietnam Sciences and Technologies Program KC 01-03). In (T. M. H. <ref type="bibr" target="#b15">Nguyen et al., 2003)</ref>, we present our work on the POS tagging of Vietnamese corpora. Starting from a standardization point of view, we make use for the tagger of a tagset defined by considering a lexical description model compatible with the Multext model (cf. Section 3.3). The tools (tokenizer, tagger), the tagged lexicon and corpus are distributed on the website of LORIA<ref type="foot" target="#foot_0">1</ref> .</p><p>We now present the lexicon that we built in collaboration with the Vietnam Lexicography Centre (Vietlex), thanks to the grant of the KC 01-03 project.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Lexicon Model</head><p>Our NLP lexicon is based on a print dictionary <ref type="bibr">(Hoàng Phê, 2002)</ref>. As our objective is to build a lexicon that can be shared for public research, we pay much attention to resource standardization.</p><p>There have recently been many efforts to establish common formats and frameworks in the domain of NLP, in order to maximize the reusability of data, tools, and linguistic resources. In particular, the ISO subcommittee TC 37/SC 4, launched in 2002, aims at preparing various standards by specifying principles and methods for creating, coding, processing and managing language resources, such as written corpora, lexical corpora, speech corpora, dictionary compilations and classification schemes. Among several subjects, the LMF (Lexical Markup Framework) project is dedicated to lexicon representation.</p><p>In this section, we first present the structure of the print dictionary upon which our lexicon is based, and then introduce the LMF-based model of our NLP lexicon. yêu 1 d. (id.). Vật tưởng tượng trong cổ tích, thần thoại, hình thù kì dị, chuyên làm hại người.</p><p>yêu 2 1 đg. Có tình cảm dễ chịu khi tiếp xúc với một đối tượng nào đó, muốn gần gũi và thường sẵn sàng vì đối tượng đó mà hết lòng. Mẹ yêu con. Yêu nghề. Yêu đời. Trông thật đáng yêu. Yêu nên tốt, ghét nên xấu (tng.). 2 đg. Có tình cảm thắm thiết dành riêng cho một người khác giới nào đó, muốn chung sống và cùng nhau gắn bó cuộc đời. Yêu nhau. Người yêu. 3 đg. Từ dùng sau một động từ trong những tổ hợp tả một hành vi về hình thức là chê trách, đánh mắng một cách nhẹ nhàng, nhưng thật ra là biểu thị tình cảm thương yêu. Mẹ mắng yêu con. Nguýt yêu. Tát yêu.</p><p>Figure <ref type="figure">1</ref>. Two entries of the morpheme " yêu " in the print dictionary</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Vietnamese print dictionary</head><p>Vietlex owns the electronic version of the dictionary, in MS Word format. It contains 39 924 entry words, each of which may have several related meanings. Each of those numbered meanings is associated with a part-of-speech, an optional usage or domain note, a definition, and examples of use. For example, the morpheme " yêu " corresponds to two entries in the dictionay, as shown in Figure <ref type="figure">1</ref>.</p><p>To facilitate the management of this resource, we convert the dictionary into XML format, by using the guidelines for print dictionary encoding proposed by the TEI (Text Encoding Initiative) project <ref type="bibr" target="#b12">(Ide and Véronis, 1995)</ref>. Reusing elements proposed by the TEI for dictionary encoding, we have defined a specialized DTD for the representation of the information contained in the Vietlex Centre Vietnamese dictionary. The data for each entry are automatically extracted based on the typographic indications in the original document. Since our focus is currently mainly on orthography and syntactic categories, the markup scheme remains very simple. The encoding of elements such as examples of use shall be further sophisticated in the future.</p><p>Figure <ref type="figure" target="#fig_0">2</ref> shows the XML representation of the information presented in the previous example for the morpheme " yêu ".</p><p>We now introduce the LMF project and our LMF-based lexicon representation model.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">LMF-based lexicon representation model</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.1.">LNF (Lexical Mark-up Framework)</head><p>LMF <ref type="bibr">(ISO 24613, 2006</ref>) is an abstract meta-model providing a framework for the development of NLP-oriented lexicons. Its aim is to define a generic standard for the representation of lexical data, to facilitate their exchange and management. Its definition is inspired by several pre-normative international projects such as Eagles, Isle or Parole.</p><p>The approach chosen in LMF for the description of lexical entries is to systematically link syntactic behaviour and semantic description of the meaning of the word <ref type="bibr" target="#b18">(Romary et al., 2004)</ref>. That choice is &lt;superEntry&gt; &lt;entry n="1"&gt; &lt;form&gt;&lt;orth&gt;yêu&lt;/orth&gt;&lt;/form&gt; &lt;sense&gt; &lt;!--demon --&gt; &lt;gramGrp&gt;&lt;pos&gt;d.&lt;/pos&gt;&lt;/gramGrp&gt; &lt;usg type="style"&gt;(id.).&lt;/usg&gt; &lt;!--not frequent --&gt; &lt;def&gt;Vật tưởng tượng trong cổ tích, thần thoại, hình thù kì dị, chuyên làm hại người.&lt;/def&gt; &lt;/sense&gt; &lt;/entry&gt; &lt;entry n="2"&gt; &lt;form&gt;&lt;orth&gt;yêu&lt;/orth&gt;&lt;/form&gt; &lt;sense n="1"&gt; &lt;!--love (general love)--&gt; &lt;gramGrp&gt;&lt;pos&gt;đg.  In accordance with the general principles of ISO/TC 37/SC 4 <ref type="bibr">(Ide and</ref><ref type="bibr">Romary 2001, 2003)</ref>, that information is described using elementary data categories defined in the central DCR (Data Category Registry) of TC 37. The development process of a LMF-conformant lexicon is presented on Figure <ref type="figure">5</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.2.">A LMF-based lexicon model for Vietnamese</head><p>Our lexicon is organized as follows:</p><p>each word form corresponds to a single lexical entry; the senses of each lexical entry are organized following the sense hierarchy in the print dictionary (Hoàng Phê, 2002);</p><p>with each sense is associated the corresponding definitions, examples, grammatical descriptions, etc.</p><p>This structure permits us to easily extract all information contained in the print dictionary we have presented. The information that we do not have concerns more precise grammatical descriptions of each wordmeaning pair. As the first application of our lexicon is for the task of POS tagging, we need to provide the syntactic informations in such a </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">The two-layer model of lexical descriptions</head><p>One of the sources of inspiration of TC 37/SC 4 is the Multext (Multilingual Text Tools and Corpora) project <ref type="bibr" target="#b11">(Ide and Véronis, 1994)</ref>. It has developed a morphosyntactic model for the harmonization of multilingual corpus tagging as well as the comparability of tagged corpora. It puts emphasis on the fact that in a multilingual context, identical phenomena should be encoded in a similar way to facilitate multiple applications (e.g. automatic alignment, multilingual terminological extraction, etc.). One principle of the model is to separate lexical descriptions, which are generally stable, from corpus tags. For lexical descriptions, the model uses two layers, the kernel layer and the private layer, as described below.</p><p>The kernel layer contains the morpho-syntactic categories common to most languages. The Multext model for Western European languages consists of the following categories: Noun, Verb, Adjective, Pronoun, Article/Determiner, Adverb, Adposition, Conjunction, Numeral, Interjection, Unique Membership Class, Residual, Punctuation <ref type="bibr" target="#b11">(Ide and Véronis, 1994;</ref><ref type="bibr" target="#b6">Erjavec et al., 1998)</ref>.</p><p>The private layer contains additional information that is specific to a given language or application. The specifications in this layer are represented by attribute-value couples for each category described in the kernel layer. For instance, the English noun category is specified by three attributes: Type, Number and Gender, to which the following values can be assigned: common or proper (for Type), singular or plural (for Number), masculine or feminine or neuter (for Gender). Note that an extension of specifications in this layer is possible so as to be relevant for various text-processing tasks.</p><p>Possessing these fine descriptions, one can create a tagset, up to specific applications, by defining a mathematical map from the lexical description space to the corpus tag space, while maintaining the comparability of the tagsets.</p><p>In the next section, we present our lexical specifications proposal, which fits the Multext scheme, for Vietnamese language, by building upon work published in <ref type="bibr" target="#b15">(Nguyen et al., 2003)</ref>. The lexical resources built in the framework of the KC 01-03 project are freely accessible<ref type="foot" target="#foot_1">2</ref> for research purposes, and all contributions are welcome.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Syntactic Category Descriptions</head><p>As we all know, linguistic theories first developed descriptions of Indo-European languages, which are inflecting languages where morphological variations strongly reflect the syntactic roles of each word. The distinction between categories like noun, verb, adjective, etc. in the kernel layer of Multext is relatively clear. Meanwhile, with respect to analytic languages like Vietnamese, the syntactic category classification is far from perfect due to the absence of any morphological information. Many discussions are still going on about that matter amongst the linguistic community. In order to build a descriptor set comparable with the Multext model, we start in <ref type="bibr" target="#b15">(Nguyen et al., 2003)</ref> with the classification presented by the Vietnam Committee of Social Science (Uỷ ban <ref type="bibr">KHXHVN, 1983)</ref>, which is taken into account in the Vietnamese dictionary <ref type="bibr">(Hoàng Phê, 2002)</ref>. By analyzing eight categories found in the literature (noun, verb, adjective, pronoun, adjunct, conjunction, modal particle, interjection), we have tried to align them with those employed in the kernel layer of Multext. Then, following the Multext principle, each category is characterized by attribute-value couples in the private layer.</p><p>Our task is to develop the above work by improving and detailing the description of each layer and constructing a lexicon in which every entry is encoded with these specifications. In addition to the mentioned theoretical considerations, this work has been led in parallel with research concerning the development of tools for the morphosyntactic and syntactic analysis of Vietnamese <ref type="bibr" target="#b15">(Nguyen et al., 2003;</ref><ref type="bibr" target="#b16">Nguyễn, 2006)</ref>, thus ensuring that the chosen categories do have practical applicability to actual Vietnamese text data.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Kernel Layer</head><p>The Vietnamese alphabet is an extension of the Latin one. The notions of punctuation and abbreviation for Vietnamese are the same as for English, and we keep for them the descriptions proposed by the Multext project. Therefore in this section we only discuss the syntactic categories of words in the vocabulary: Noun, Verb, Adjective, Pronoun, Article/Determiner, Adverb, Adposition, Conjunction, Numeral, Interjection, Modal Particle, Unique Membership Class, Residual. Only the modal particle class is added in comparison with Multext. Although classifier words play an important role in Vietnamese, like in most Asian languages, their use and morphology are very similar to nouns. That is why we do not define a specific " Classifier " part-of-speech, but address them in the private layer.</p><p>For each category we give a definition and some characteristics (grammatical roles) with illustrating examples if necessary. The characterization of words in the private layer is based on their combination ability with respect to grammatical roles.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.1.">Nouns</head><p>The Noun category contains words or groups of words used to designate a person, place, thing or concept (e.g. người / person; xe đạp / bicycle). The grammatical roles that a Vietnamese noun (or noun phrase) can play are: grammatical subject in a sentence; predicate in a sentence when preceded by the copula verb là (to be); complement of a verb or an adjective; adjunct; adverbial modifier.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.2.">Verbs</head><p>A verb is a word used to express an action or state of being (e.g. đi / to go; cười / to laugh). In Vietnamese, a verb (or verb phrase) can play the following grammatical roles: predicate in a sentence; sometimes grammatical subject; restrictive adjunct (e.g. thuốc uống / medicine drink, meaning orally administered drug; bàn ăn / table eat, meaning dining-table ); complement or adjectival modifier in a verb phrase (e.g. tập viết / practice write, meaning writing practice, bước vào / step enter, meaning step into).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.3.">Adjectives</head><p>This category consists of words used to describe or qualify a noun (e.g. cao / tall; xinh đẹp / beautiful). The grammatical roles of adjectives (or adjectival phrases) in Vietnamese can be: predicate in a sentence (without a preceding copula verb); sometimes grammatical subject; restrictive modifier of a noun or a verb (e.g. áo trắng / dress white, meaning white dress, nghe rõ / hear clear, meaning hear clearly).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.4.">Pronouns</head><p>The pronoun class contains words used in place of a noun that is determined in the antecedent context (e.g. tôi / I; chúng ta / we). Consequently, a pronoun plays the grammatical role of the word it replaces.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.5.">Determiners/Articles</head><p>These are the grammatical words used to identify a noun's definite or indefinite reference and/or quantity reference. For example: 1) những (indefinite plurualizer) 2) một (one, i.e. " a " article) 3) các (definite pluralizer).</p><p>These determiners are often categorized as numeral or even as noun in print dictionaries. They can also be described in the literature as a subcategory of numerals <ref type="bibr" target="#b17">(Nguyễn Tài Cẩn, 1998)</ref>, while analyzing the structure of the noun phrase.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.6.">Adverbs</head><p>An adverb is a word used to describe a verb, adjective, or another adverb (e.g. đã / past tense indicator; mãi mãi / forever).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.7.">Adpositions</head><p>In Vietnamese, only prepositions exist (e.g. trên / on; đến / to); they 1) occur before a complement composed of a noun phrase, noun, pronoun, or clause functioning as a noun phrase, and 2) form a single structure with the complement to express its grammatical and semantic relation to another unit within a clause.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.8.">Conjunctions</head><p>A conjunction is a word that syntactically links words or larger constituents, and expresses a semantic relationship between them (e.g. và / and; để / in order to). In many works and print dictionaries, the prepositions (adpositions) and conjunctions constitute the conjunction (or linking word) category probably because some words can play both roles. Still, their distinction can be identified in various sub-categories of the linking word category.</p><p>4.1.9. Numerals A numeral is a word that expresses a number or a rank (e.g. hai / two; nhất / first). Numerals are assigned to the Noun class by some authors, but the morpho-syntactic distinction between these words and other nouns is clear enough to separate them into a new class.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.10.">Interjections</head><p>An interjection is a word or a sound that expresses an emotion (e.g. ồ / oh). These words function alone and have no syntactic relation with other words in the sentence.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.11.">Modal Particles</head><p>This category contains words added to a sentence in order to express the speaker's feelings (intensification, surprise, doubt, joy, etc.). Modal particles can create different sentence types (interrogative, imperative, etc.). For instance: nhỉ is often added to the end of a sentence with the meaning of " isn't it " or " doesn't it "; nhé added to the end of a sentence makes that sentence imperative. 4.1.12. Non-autonomous elements This category corresponds to the Unique Membership Class of the Multext model. The unique value is applied to categories with a unique or very small membership, and which are " unassigned " to any of the standard part-of-speech categories. In Vietnamese these are some lexical elements, often come from Chinese, and never stand-alone, which express negation (e.g. bất in bất quy tắc / irregular) or transformation (e.g. hoá in công nghiệp hoá / industrialize), etc.. Those words may not appear as independent entries in print dictionaries.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.13.">Residuals</head><p>The residual value is assigned to classes of text-words that lie outside the traditionally accepted range of grammatical classes, although they occur quite commonly in many texts and very commonly in some. That is for example the case of foreign words, or mathematical formulae.</p><p>In the next subsection, we concentrate on the descriptions, specific for Vietnamese and represented by attribute-value couples, of the most important categories: Noun, Verb, Adjective, Pronoun, Determiner/Article, Adverb, Adposition, Conjunction, Numeral, Interjection, and Modal Particle.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">Private Layer</head><p>The choice of attributes for each category of the kernel layer is made by taking into account the ability of a word to combine with others in various sentence constituents. This consideration, together with the absence of morphological information in Vietnamese, leads us to define attributes that are closer to semantic information than is usually the case in the private layers for occidental languages, whether explicitely, using a " Meaning " attribute, or indirectly, when specifying the subcategorization frame of verbs. We list below the defined attributes with their values between square brackets. For each attribute value, we provide, when possible, an English word representative of the concept. When no English word is relevant, an explanation is given after the list of values.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.1.">Nouns (N)</head><p>-Countability [countable (seed), partially countable, non-countable (rice)] -countable nouns are those that can be employed directly with a numeral. Nouns that are generally non-countable but can directly combine with numerals in certain specific contexts are called " partially countable ".</p><p>-Unit [classifier, natural (handful), conventional (meter), collective (herd), administrative (county)] -provides attributes relevant for unit nouns, including classifier nouns. The latter appear here because in Vietnamese they usually behave like unit nouns.</p><p>-Meaning [object (table ), plant (tree), animal (cow), part (head), material (fabric), perception (color), location (place), time (month), turn, substantivizer, abstract (feeling), other]turn is defined for words such as lần (time in Repeat 5 times) or lượt (turn in It is my turn); substantivizer describes words used to turn a verb into a nominal group (e.g. " the action of . . . ing "). This attribute reflects the combination abilities within various nouns. The specification could be finer-grained, but we have no ambition to go any further for the time being.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.2.">Verbs (V)</head><p>-Transitivity [intransitive, transitive, any].</p><p>-Grade [gradable, non-gradable] -a gradable verb can be used with an adverb of degree (e.g. very).</p><p>-Frame [copula (be), modal (can), passive (undergo), existence (remain), transformation (become), process stage (begin), comparison (equal), opinion (think), imperative (order), giving (offer), directive movement (enter), non directive movement (go), moving (push), other transitive, other intransitive] -this Frame attribute encodes the distinction of verb valence (number of complements) and categories <ref type="bibr">(noun, verb, clause, etc.)</ref> of the complements in the verb phrases.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.3.">Adjectives (A)</head><p>-Type [qualitative (nice), quantitative (high)] -a quantitative adjective can have a complement specifying a quantity (e.g. " high two meters "), and in that case it cannot be used with adverbs of degree (e.g. very).</p><p>-Grade [gradable (good), non-gradable (absolute)]cf. the Grade attribute of Verb.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.4.">Pronouns (P)</head><p>-Type [personal (he), pronominal (myself), indefinite (one), time (that moment), amount (all), demonstrative (that), interrogative (who), predicative (that), reflexive (one another)].</p><p>-Person [first, second, third].</p><p>- -Meaning [opinion, strengthening, exclamation, interrogation, call, imperative] -reflects different sentence types (exclamation, interrogation, etc.), determined by these particles.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Data Examples</head><p>Making use of the descriptors presented above, we have built a lexicon in which with each entry is associated its lexical descriptions. This construction is, for the private layer, performed manually by the linguists of the Vietnam Lexicography Centre, based on the descriptions of each entry in the print Vietnamese dictionary <ref type="bibr">(Hoàng, 2002)</ref>. As presented in Section 3.1, each entry in the dictionary contains distinct information about its grammatical category and its description for various meanings, with examples. With respect to the kernel layer, we first automatically get the 8 categories recorded there, and then manually process with the categories that should be revised, as described in 3.1. The data have two formats: simple text, as in the Multext model, and XML format. We choose for the time being a simple XML scheme that represents explicitly the feature structure corresponding to the private layer.</p><p>Here are some entries illustrating the data encoded in XML format. Due to the already mentioned copyright restrictions, the given example, as well as the publicly available lexical database, do not feature word definitions and examples, although that information has been used to find the values of the various attributes. That is why the presented data is, as of now, incomplete with respect to the LMF specification, since it cannot include the " Sense " structure.</p><p>Example 1. The word chạy in three uses: 1) run in the horse runs, 2) run in run ultra-violet rays, 3) good in the sale is very good. The VLSP project has just started in August 2006<ref type="foot" target="#foot_2">3</ref> . The objective of this project is to create various essential language resources and tools for Vietnamese text and speech processing. The construction of a morpho-syntactic and syntactic lexicon is obviously one of the important tasks of the project.</p><p>As shown in Section 3.2, a lexicon model having the lexical extension for the syntax associates with each sense of an entry its syntactic behaviour information. That information gathers the descriptions of possible subcategorization frame sets.</p><p>For that task, two complementary approaches will be followed: the first one is to record the basic construction sets described in Vietnamese grammar documents. Based on the existing lexicon presented in the previous sections, we can automatize the process of linking the basic subcategorization frame sets to each lexical entry. For example, with the " Frame " attribute of a verb, we are able to link that verb to the corresponding subcategorization frame set that is common to other verbs having the same Frame value. The second approach is to learn other construction sets from corpora. For this task, we are also developping tools for corpus annotation. Moreover, we aim at creating online tools for the access and contribution to the construction of all the resources by the NLP community, for research purpose. We finally intend to complement the lexicon with new meaning descriptions independent of the copyrighted material we have relied on so far, in order to develop a fully LMF-conformant publicly available lexicon.</p><p>Another direction for future works concerns the integration of our proposal for lexicon attributes into ISO standards. Indeed, the isolating, non-flexional nature of Vietnamese has led us to define specific attributes to specify word roles, more semantic than what is commonly used for western languages. Hence most of the attributes that we propose to use are absent from the current ISO 12620 Data Category Registry (DCR). In the next step, we intend to work in cooperation with specialists of other isolating languages to propose a consensual set of values for integration in the DCR.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Conclusion</head><p>We have presented our proposal for a reference set of Vietnamese lexical descriptors by following the standardization activities of the ISO subcommittee TC 37/SC 4. These descriptors are expressed, for the time being, in a two-layer model comparable with the Multext model, which is developed for various European languages. In the kernel layer, we have added the modal particle category that contains modal words appearing frequently in Vietnamese. The other categories remain the same. In the private layer, where specific features of Vietnamese are recorded, we proposed various attributes that are syntactically important for this analytic language in which morphology is not present to help us analyze syntactic structures. With the help of the Vietnam Lexicography Center, we applied all these descriptions to a lexicon that contains all the entries (about 40,000) of the Vietnamese dictionary <ref type="bibr">(Hoàng, 2002)</ref>. These resources are represented in a common format that ensures their extensibility and is widely adopted by the international research community, with the purpose of sharing them with all the researchers in the domain of NLP. This base can help us define tagsets for various applications using morpho-syntactically annotated corpora. We expect that the ongoing project in order to build a syntactic lexicon will be fruitful with the contribution of the NLP community.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 2 .</head><label>2</label><figDesc>Figure2. Two dictionary entries for the morpheme " yêu ", in XML format</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 4 .</head><label>4</label><figDesc>Figure 3. Principles of the LMF model</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>Figure 5. LMF usage</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head></head><label></label><figDesc>The syllable hoá has the same role as the suffix ize (e.g. in industrialize) in English.As the NLP community in Vietnam grows rapidly, the needs for linguistic resources are more and more apparent. In this context, we have obtained a large agreement amongst different research groups in Vietnam to submit a new national project called VLSP (Vietnamese Language and Speech Processing).</figDesc><table><row><cell>5. Ongoing Work: Building a Syntactic Lexicon</cell></row><row><cell>&lt;struct type='lexicalEntry'&gt;</cell></row><row><cell>&lt;feat type='form'&gt;chạy&lt;/feat&gt;</cell></row><row><cell>&lt;struct type='grammaticalDescriptionGroup'&gt;</cell></row><row><cell>&lt;struct type='grammaticalDescription'&gt;</cell></row><row><cell>&lt;feat type='grammaticalCategory'&gt;verb&lt;/feat&gt;</cell></row><row><cell>&lt;struct type='subcategoryDescription'&gt;</cell></row><row><cell>&lt;feat type='transitivity'&gt;intransitive&lt;/feat&gt;</cell></row><row><cell>&lt;feat type='grade'&gt;non-gradable&lt;/feat&gt;</cell></row><row><cell>&lt;feat type='frame'&gt;non-directive movement&lt;/feat&gt;</cell></row><row><cell>&lt;/struct&gt;</cell></row><row><cell>&lt;/struct&gt;</cell></row><row><cell>&lt;struct type='grammaticalDescription'&gt;</cell></row><row><cell>&lt;feat type='grammaticalCategory'&gt;verb&lt;/feat&gt;</cell></row><row><cell>&lt;struct type='subcategoryDescription'&gt;</cell></row><row><cell>&lt;feat type='transitivity'&gt;transitive&lt;/feat&gt;</cell></row><row><cell>&lt;feat type='grade'&gt;non-gradable&lt;/feat&gt;</cell></row><row><cell>&lt;feat type='frame'&gt;moving&lt;/feat&gt;</cell></row><row><cell>&lt;/struct&gt;</cell></row><row><cell>&lt;/struct&gt;</cell></row><row><cell>&lt;struct type='grammaticalDescription'&gt;</cell></row><row><cell>&lt;feat type='grammaticalCategory'&gt;adjective&lt;/feat&gt;</cell></row><row><cell>&lt;struct type='subcategoryDescription'&gt;</cell></row><row><cell>&lt;feat type='type'&gt;qualitative&lt;/feat&gt;</cell></row><row><cell>&lt;feat type='grade'&gt;gradable&lt;/feat&gt;</cell></row><row><cell>&lt;/struct&gt;</cell></row><row><cell>&lt;/struct&gt;</cell></row><row><cell>&lt;/struct&gt;</cell></row><row><cell>&lt;/struct&gt;</cell></row><row><cell>Example 2. &lt;struct type='lexicalEntry'&gt;</cell></row><row><cell>&lt;feat type='form'&gt;hoá&lt;/feat&gt;</cell></row><row><cell>&lt;struct type='grammaticalDescription'&gt;</cell></row><row><cell>&lt;feat type='grammaticalCategory'&gt;U_hoa&lt;/feat&gt;</cell></row><row><cell>&lt;feat type='position'&gt;post&lt;/feat&gt;</cell></row><row><cell>&lt;/struct&gt;</cell></row><row><cell>&lt;/struct&gt;</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>Laboratoire Lorrain de Recherche en Informatique et ses Applications http://led.loria.fr/outils.php</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>However, due to copyright restrictions, we cannot publish other information from the print dictionary, such as the definitions, examples, etc.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>cf. the project forum at http://www.viettreebank.com</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>This work would not have been possible without the enthusiastic collaboration of all the linguists at the Vietnam Lexicography Centre, especially Hoàng Thị Tuyền Linh, Đặng Thanh Hoà, Đào Minh Thu and Phạm Thị Thuỷ. Great thanks to them! Many thanks also to Nguyễn Thành Bôn for his contribution to the development of the various tools.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">Tiếng Việt -mấy vấn đề ngữ âm, ngữ nghĩa (Vietnamese -Some Questions on Phonetics, Syntax and Semantics)</title>
+		<author>
+			<persName><forename type="first">Cao</forename><surname>Xuân</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hạo</forename></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2000">2000</date>
+			<publisher>NXB Giáo dục</publisher>
+			<pubPlace>Hà Nội, Vi êt Nam</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Some Lexical Issues in Electronic Vietnamese Dictionary&apos;. In: PAPILLON-2003 Workshop on Multilingual Lexical Databases</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dien</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">P</forename><surname>Hoi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">Q</forename><surname>Hung</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+			<pubPlace>Japan</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Hokaido University</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">POS-Tagger for English -Vietnamese Bilingual Corpus</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dien</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kiem</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Workshop: Building and Using Parallel Texts: Data Driven Machine Translation and Beyond</title>
+		<meeting><address><addrLine>Edmonton, Canada</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">State of the Art of Machine Translation in Vietnam&apos;</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dien</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kiem</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">AAMT Journal, special issue on MT Summit X</title>
+		<imprint>
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Vietnamese Word Segmentation</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dien</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kiem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">V</forename><surname>Toan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Sixth Natural Language Processing Pacific Rim Symposium</title>
+		<meeting>the Sixth Natural Language Processing Pacific Rim Symposium<address><addrLine>Tokyo, Japan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2001">2001. 2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m">Diệp Quang Ban and Hoàng Văn Thung: 1999, Ngữ pháp tiếng Việt (Vietnamese Grammar)</title>
+		<meeting><address><addrLine>Hà Nội, Vi êt Nam</addrLine></address></meeting>
+		<imprint>
+			<publisher>NXB Giáo dục</publisher>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Development and Assessment of Common Lexical Specifications for Six Central and Eastern European Languages</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Erjavec</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Tufis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the First International Conference on Language Resources and Evaluation</title>
+		<meeting>the First International Conference on Language Resources and Evaluation<address><addrLine>Granada, Spain</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m">Từ điển tiếng Việt (Vietnamese Dictionary). Vi êt Nam: NXB Đà Nẵng</title>
+		<editor>
+			<persName><forename type="first">Hoàng</forename><surname>Phê</surname></persName>
+		</editor>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Cơ sở tiếng Việt (Basis of Vietnamese)</title>
+		<author>
+			<persName><forename type="first">Hữu</forename><surname>Đạt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Trần</forename><surname>Trí Dõi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Đào</forename><surname>Thanh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lan</forename></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+			<publisher>NXB Giáo dục</publisher>
+			<pubPlace>Hà Nội, Vi êt Nam</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Standards for Language Resources</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IRCS Workshop on Linguistic Databases</title>
+		<meeting>the IRCS Workshop on Linguistic Databases<address><addrLine>Philadelphia, US</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Encoding Syntactic Annotation</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Building and Using Parsed Corpora</title>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Abeillé</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Dordrecht, Netherlands</addrLine></address></meeting>
+		<imprint>
+			<publisher>Kluwer Academic Publishers</publisher>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">MULTEXT: Multilingual Text Tools and Corpora</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Véronis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 15th International Conference on Computational Linguistics (COLING 94)</title>
+		<meeting>the 15th International Conference on Computational Linguistics (COLING 94)<address><addrLine>Kyoto, Japan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1994">1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Encoding dictionaries</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Véronis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Text Encoding Inititative: Background and context</title>
+		<editor>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J</forename><surname>Véronis</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Dordrecht, Netherlands</addrLine></address></meeting>
+		<imprint>
+			<publisher>Kluwer Academic Publishers</publisher>
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Language resource management -Lexical markup framework (LMF)</title>
+		<idno>ISO 24613, Rev.13</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ISO</title>
+		<imprint>
+			<date type="published" when="2006">2006</date>
+			<pubPlace>Geneva, Switzerland</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Subject and Topic: A new Typology of Language</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">N</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A</forename><surname>Thompson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Subject and Topic</title>
+		<editor>
+			<persName><forename type="first">C</forename><forename type="middle">N</forename><surname>Li</surname></persName>
+		</editor>
+		<meeting><address><addrLine>London/New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Academic Press</publisher>
+			<date type="published" when="1976">1976</date>
+			<biblScope unit="page" from="457" to="489" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Une étude de cas pour l&apos;étiquetage morpho-syntaxique de textes vietnamiens</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Nguyen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><forename type="middle">L</forename><surname>Vu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Actes de la Conférence francophone internationale sur le Traitement Automatique des Langues Naturelles (TALN 03)</title>
+		<meeting>s de la Conférence francophone internationale sur le Traitement Automatique des Langues Naturelles (TALN 03)<address><addrLine>Batz-sur-mer, France</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Outils et ressources linguistiques pour l&apos;alignement de textes multilingues français-vietnamiens</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M H</forename><surname>Nguyễn</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2006">2006</date>
+			<pubPlace>Nancy I, Nancy, France</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Université Henri Poincaré</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Thèse de doctorat en informatique</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Ngữ pháp tiếng Việt (Vietnamese Grammar)</title>
+		<author>
+			<persName><forename type="first">Nguyễn</forename><surname>Tài</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cẩn</forename></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+			<publisher>NXB Đại học Quốc gia</publisher>
+			<pubPlace>Hà Nội, Vi êt Nam</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Standards going concrete: from LMF to Morphalou</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Salmon-Alt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Francopoulo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Workshop Enhancing and using electronic dictionaries, The 20th International Conference on Computational Linguistics (COLING)</title>
+		<meeting><address><addrLine>Geneva, Switzerland</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Uỷ ban Khoa học Xã hội Việt Nam: 1983, Ngữ pháp tiếng Việt (Vietnamese Grammar). Hà Nội, Vi êt Nam: NXB Khoa học Xã hội</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

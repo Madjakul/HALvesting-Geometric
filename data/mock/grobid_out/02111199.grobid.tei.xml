@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Historical Dictionaries as Digital Editions and Connected Graphs: the Example of Le Petit Larousse Illustré</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Anas</forename><forename type="middle">Fahad</forename><surname>Khan</surname></persName>
+							<email>anasfkhan81@gmail.com</email>
+						</author>
+						<author>
+							<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+							<email>mohamed.khemakhem@inria.fr</email>
+							<affiliation key="aff3">
+								<orgName type="department">Francesca Frontini</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="institution">Istituto di Linguistica Computazionale &quot;A. Zampolli&quot;</orgName>
+								<address>
+									<country>Italy Hervé Bohbot</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="laboratory">UMR 5267</orgName>
+								<orgName type="institution">CNRS</orgName>
+								<address>
+									<settlement>Praxiling</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="institution">Université Paul-Valéry</orgName>
+								<address>
+									<settlement>Montpellier</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff4">
+								<orgName type="laboratory">UMR 5267 CNRS -Université</orgName>
+								<address>
+									<settlement>Praxiling</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff5">
+								<orgName type="institution">Inria ALMAnaCH</orgName>
+								<address>
+									<addrLine>Centre Marc Bloch</addrLine>
+									<settlement>Paris, Berlin</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff6">
+								<orgName type="institution">Paris Diderot University</orgName>
+								<address>
+									<settlement>Paris Laurent Romary</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff7">
+								<orgName type="institution">Inria ALMAnaCH</orgName>
+								<address>
+									<settlement>Paris</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff8">
+								<orgName type="institution">Centre Marc Bloch</orgName>
+								<address>
+									<settlement>Berlin; BBAW -Berlin-Brandenburgische Akademie der Wissenschaften, Berlin</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Historical Dictionaries as Digital Editions and Connected Graphs: the Example of Le Petit Larousse Illustré</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">C3F0318A5DA5905244B62F896EFC6B26</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T14:59+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction: Publishing Print Dictionaries as TEI-XML and RDF</head><p>The trend towards the retrodigization of print dictionaries --especially those considered to have a historical as well as a scientific importance --has been given a new impetus in recent years thanks to improvements in optical character recognition as well as to developments in the creation and promotion of standards and technologies <ref type="bibr" target="#b5">(Khemakhem et al., 2017;</ref><ref type="bibr">Khemakhem et al., 2018)</ref> which enable machine actionable versions of such texts to be published and shared much more easily than before. Traditionally the Text Encoding Initiative (TEI) <ref type="bibr" target="#b3">(Budin et al., 2012)</ref> has been the favoured standard for the encoding of retrodigitised print dictionaries, but there is now starting to be a move towards the publication of electronic editions of print dictionaries as Linked Data<ref type="foot" target="#foot_0">1</ref> (LD).</p><p>The prior popularity of TEI for this task reflects the dual nature that digital editions of print dictionaries can often have: namely, both as representations of dictionaries as texts, that is as printed artifacts that follow particular typographical conventions and have specific styles of page layout, etc; and at the same time, as computational resources that serve to make the lexicographic and, more broadly speaking linguistic, information contained in the original texts more accessible for querying and further machine processing.</p><p>On the other hand one of the greatest strengths of Linked Data (LD) lies in its core emphasis on interoperability between datasets, heterogeneous as to subject area and type, through the use of a common semantic model, that of the Resource Description Framework (RDF), as well as the use of common vocabularies across datasets. Not only does LD encourage the mutual enrichment of individual datasets by facilitating the creation of extensive links between them, it also gives modellers access to a whole ecosystem of Semantic Web technologies and standards, including several out-of-the-box tools for manipulating and visualising structured data. In addition, formal languages such as RDF, RDFS and OWL, which make up part of the Semantic Web stack, allow us to specify and to elaborate on the semantics of the classes and properties used to structure dictionary data.</p><p>Modelling a dictionary using RDF requires us to represent the information contained within it as a series of subject-predicate-object statements, which taken together describe a formal graph structure. As a consequence it is much less successful --which in this case means much less verbose --than TEI at representing things like the layout and formatting of the original text, or properties relating to the status of the text as a series of tokens, as well as in encoding certain kinds of deeply nested structures. This might suggest that RDF is better suited to describing the more abstract linguistic content of retrodigitised dictionaries, e.g., describing grammatical and semantic information for each entry (along with dictionary metadata), and for embellishing this content through links to other salient datasets and vocabularies. However as we will see, there often exist aspects of print dictionaries that although strictly speaking they concern how information is presented in the text --and relate, for example, to the dictionary as a historical artifact --and not the lexical information contained in the text itself, are still worth explicitly encoding in RDF. This is both because RDF allows us to make this extra-lexical information more accessible and usable and because it helps to ensure that each RDF version of a dictionary is a more self-contained resource.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Modelling Le Petit Larousse illustré</head><p>In order to flesh out some of the issues outlined in the preceding section, especially from the point of view of elucidating the potential benefits of using RDF as a means of publishing historic dictionaries, we will focus on a particular case study which concerns the French national project, Nénufar<ref type="foot" target="#foot_1">2</ref>  <ref type="bibr" target="#b1">(Bohbot et al., 2018)</ref>. One of the main goals of Nénufar is to make different consecutive editions of the illustrated French language dictionary Le Petit Larousse illustré (PLI), published during the first half of the 20th century, publically available both via an online interface as well as as downloadable TEI-XML digital editions and as a linked data dataset. So far all of the editions of PLI published between 1906 and 1924 have been digitised, encoded and made searchable. The native digitisation format is TEI, although the encoding adheres as much as possible to the TEI-Lex0 format <ref type="bibr" target="#b0">(Bański et al., 2017;</ref><ref type="bibr" target="#b8">Romary and Tasovac, 2018)</ref>; the conversion of entries into RDF is currently ongoing.</p><p>The PLI frequently includes encyclopedic information pertaining to its lexical entries along with the more typical kinds of lexicographic data which means that it possesses a strong socio-cultural and historic interest in addition to its significance as a legacy lexicographic resource; indeed, to some extent it can be considered a hybrid resource, dictionaryencyclopedic. Take, for instance, the entry for the word aviation from three different editions of <ref type="bibr">PLI, from 1906</ref><ref type="bibr">PLI, from , 1912</ref><ref type="bibr">PLI, from and 1915</ref> <ref type="foot" target="#foot_2">3</ref> . It's interesting to track how changes in the entry reflect contemporary discoveries that were taking place in the field of aeronautics at the time.</p><p>Here the three successive versions of the entry each contains slightly different encyclopedic glosses. Note also that in the last of the three versions of the entry a reference appears to the lexical entry for the word aéroplane. In this case two aspects of the same entry have changed over the course of different editions: the textual content of the encyclopedic gloss and the appearance of a new reference to another entry.</p><p>As regards the linked data version of the PLI, we made the decision to include as much of the encyclopedic and bibliographic information from the original dataset as possible and to model the evolution of entries across editions since, as we mentioned in the last section, this helps to ensure that the dataset is relatively self-contained --and prevents users of the RDF version of the PLI having to constantly refer back to the TEI encoding<ref type="foot" target="#foot_3">4</ref> , something which would go against the universalising spirit of the Semantic Web --and also because some of this information is well suited to being represented in RDF. By explicitly modelling the editions in RDF using bibliographic and temporal vocabularies and associating each with a specific year, we can query the data for date-specific information.</p><p>Furthermore we used the well-known Ontolex-Lemon vocabulary <ref type="bibr" target="#b7">(McCrae et al., 2017)</ref> for publishing lexicon-ontologies as linked data as the basis of our encoding in addition to making extensive use of other standards and vocabularies such as the lexinfo registry, SKOS and DEO<ref type="foot" target="#foot_4">5</ref> . However these did not always provide the properties and classes we needed and so in several cases we decided to create our own. Note that although at the time of writing the Ontolex-Lemon lexicography module is still in the process of being finalised for publication <ref type="bibr" target="#b2">(Bosque-Gil et al., 2016)</ref> we have tried our best to make sure that we don't define any new classes or properties similar to those likely to be in the former. In order to model links between entries we utilised the already existing class Reference from the DEO vocabulary, and defined a new class DictionaryGloss to represent any written explanation of a lexical element in a dictionary. To reiterate, our intention was to model the changes between PLI editions, and indeed in some cases between reprints of the same edition. We decided to model all the separate editions in one graph, since individual changes between entries in different editions usually weren't comprehensive enough to warrant a separate graph per edition, and in addition there were also differences between reprintings of the same edition and we wanted to avoid creating too many different graphs. To this end we created a class PLIDictionary to represent separatePLI editions, along with the object properties, appearsIn, firstAppearsIn and lastAppearsIn to allow us to associate elements with different editions. In our RDF encoding of the PLI, then, we model changes within entries by creating an individual entry component, whether this is a form, sense or gloss, etc, for every change and associating it with one or more PLI editions using appearsIn, firstAppearsIn and lastAppearsIn.</p><p>We will explain the strategy which was followed using the example of the RDF encoding of aviation. In Figure <ref type="figure" target="#fig_0">1</ref> we represent the entry for aviation and its relationships with its senses. Note that we have added information to the entry regarding its first appearance in the PLI by associating it with the individual 1906_001, which represents the 1906 edition of the work, using the property firstAppearsIn. Each of the two senses of aviation has a gloss apiece neither of which changes over different editions in the example.</p><p>In Figure <ref type="figure" target="#fig_1">2</ref> we show the three notes associated with the aviation entry each of which has been modelled as an individual of the class DictionaryGloss and each of which is associated with a different edition of the dictionary. We are still looking into the best, read most efficient, way of adding information about what is contained in each edition. The simplest way would be to link each lexical element to each of the editions in which it appears, but this would obviously lead to an explosion of triples. Our provisional solution is to focus on adding version information to the elements that change between versions and linking them together using the Dublin Core relation isVersionOf.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Future Work</head><p>At the time of writing we are carrying out the conversion of the dataset into RDF using the approach outlined above. By the middle of 2019 we plan to make whole of the dataset available both via a SPARQL endpoint and downloadable both in RDF and TEI-XML formats.</p><p>In the final version we also plan to add links to external conceptual/ontological resources (such as DBpedia and WordNets) using the Ontolex reference property.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 .</head><label>1</label><figDesc>Figure 1. The PLI entry for aviation and its senses and their gloss.</figDesc><graphic coords="5,102.37,70.85,390.26,258.22" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 .</head><label>2</label><figDesc>Figure 2. The PLI entry for aviation and the various versions of the entry note associated with it.</figDesc><graphic coords="5,70.85,387.26,452.95,256.20" type="bitmap" /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>A recent project, ELEXIS (https://elex.is/), which aims to create a platform for accessing and working with dictionary data, and linking senses together across dictionaries in different languages, works with both TEI-XML and RDF versions of editions of dictionaries.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>http://nenufar.huma-num.fr</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>See the different versions of this entry at http://nenufar.huma-num.fr/?article=3807</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>Go tho the "resources" section of each Nénufar entry to inspect the TEI xml.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_4"><p>http://www.sparontologies.net/ontologies/deo</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">TEI-Lex0 Guidelines for the Encoding of Dictionary Information on Written and Spoken Forms</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bański</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bowers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Erjavec</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017. 2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Presenting the Nénufar Project: a Diachronic Digital Edition of the Petit Larousse Illustré. GLOBALEX 2018 -Globalex Workshop at LREC2018</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Bohbot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Frontini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Luxardo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="https://hal.archives-ouvertes.fr/hal-01728328" />
+		<imprint>
+			<date type="published" when="2018-04">2018. April 2018</date>
+			<biblScope unit="page" from="1" to="6" />
+			<pubPlace>Miyazaki, Japan</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Modelling Multilingual Lexicographic Resources for the Web of Data: the K Dictionaries case</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bosque-Gil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gracia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Montiel-Ponsoda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Aguado-De-Cea</surname></persName>
+		</author>
+		<ptr target="http://www.lrec-conf.org/proceedings/lrec2016/workshops/LREC2016Workshop-GLOBALEX_Proceedings-v2.pdf" />
+		<imprint>
+			<date type="published" when="2016-04">2016. April 2017</date>
+			<biblScope unit="page">23</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Creating Lexical Resources in TEI P5. A Schema for Multi-purpose Digital Dictionaries</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Budin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Majewski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Mörth</surname></persName>
+		</author>
+		<idno type="DOI">10.4000/jtei.522</idno>
+		<ptr target="http://journals.openedition.org/jtei/522" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the Text Encoding Initiative(Issue</title>
+		<imprint>
+			<biblScope unit="issue">3</biblScope>
+			<date type="published" when="2012-04-23">2012. 23 April 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Converting the Liddell Scott Greek-English Lexicon into Linked Open Data using lemon</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Frontini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Boschetti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Monachini</surname></persName>
+		</author>
+		<ptr target="http://dh2016.adho.org/abstracts/236" />
+	</analytic>
+	<monogr>
+		<title level="m">Digital Humanities 2016: Conference Abstracts</title>
+		<meeting><address><addrLine>Kraków</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="page" from="593" to="596" />
+		</imprint>
+		<respStmt>
+			<orgName>Jagiellonian University &amp; Pedagogical University</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Automatic Extraction of TEI Structures in Digitized Lexical Resources using Conditional Random Fields. Electronic Lexicography, ELex</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Foppiano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="https://hal.archives-ouvertes.fr/hal-01508868" />
+		<imprint>
+			<date type="published" when="2017-02">2017. 2017. February 2018</date>
+			<biblScope unit="page">28</biblScope>
+			<pubPlace>Leiden, Netherlands</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Enhancing Usability for Automatically Structuring Digitised Dictionaries. GLOBALEX Workshop at LREC 2018</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Herold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="https://hal.archives-ouvertes.fr/hal-01708137" />
+		<imprint>
+			<date type="published" when="2018-11">2018. November 2018</date>
+			<pubPlace>Miyazaki, Japan</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Mccrae</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bosque-Gil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gracia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Buitelaar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Cimiano</surname></persName>
+		</author>
+		<title level="m">The OntoLex-Lemon Model: Development and Applications</title>
+		<imprint>
+			<date type="published" when="2017">2017. 2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">TEI Lex-0: A Target Format for TEI-Encoded Dictionaries and Lexical Resources. JADH 2018 &apos;Leveraging Open Data</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tasovac</surname></persName>
+		</author>
+		<ptr target="https://tei2018.dhii.asia/AbstractsBook_TEI_0907.pdf" />
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="274" to="275" />
+			<pubPlace>Tokyo</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

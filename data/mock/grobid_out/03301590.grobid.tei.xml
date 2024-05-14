@@ -1,0 +1,1110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Ungoliant: An Optimized Pipeline for the Generation of a Very Large-Scale Multilingual Web Corpus</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Julien</forename><surname>Abadji</surname></persName>
+							<email>julien.abadji@inria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="institution">Inria</orgName>
+								<address>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Pedro</forename><forename type="middle">Javier</forename><surname>Ortiz Suárez</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Inria</orgName>
+								<address>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">Sorbonne Université</orgName>
+								<address>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="institution">Inria</orgName>
+								<address>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Benoît</forename><surname>Sagot</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Inria</orgName>
+								<address>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Ungoliant: An Optimized Pipeline for the Generation of a Very Large-Scale Multilingual Web Corpus</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">97A02E12203B53A0681474B69F447BB6</idno>
+					<idno type="DOI">10.14618/ids-pub-10468</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Since the introduction of large language models in Natural Language Processing, large raw corpora have played a crucial role in Computational Linguistics. However, most of these large raw corpora are either available only for English or not available to the general public due to copyright issues. Nevertheless, there are some examples of freely available multilingual corpora for training Deep Learning NLP models, such as the OSCAR and Paracrawl corpora. However, they have quality issues, especially for low-resource languages. Moreover, recreating or updating these corpora is very complex. In this work, we try to reproduce and improve the goclassy pipeline used to create the OSCAR corpus. We propose a new pipeline that is faster, modular, parameterizable, and well documented. We use it to create a corpus similar to OSCAR but larger and based on recent data.Also, unlike OSCAR, the metadata information is at the document level. We release our pipeline under an open source license and publish the corpus under a research-only license.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>With the increasing interest in language modeling in recent years in Natural Language Processing (NLP) <ref type="bibr" target="#b16">(Rogers et al., 2020)</ref>, particularly concerning contextualized word representations<ref type="foot" target="#foot_0">1</ref>  <ref type="bibr" target="#b14">(Peters et al., 2018;</ref><ref type="bibr" target="#b6">Devlin et al., 2019)</ref>, there has also been an explosion in interest for large raw corpora, as some of these latest models require almost 1TiB of raw text for pre-training <ref type="bibr" target="#b15">(Raffel et al., 2020;</ref><ref type="bibr" target="#b2">Brown et al., 2020)</ref>.</p><p>While most of these language models were initially trained in English <ref type="bibr" target="#b6">(Devlin et al., 2019;</ref><ref type="bibr" target="#b22">Yang et al., 2019;</ref><ref type="bibr" target="#b5">Clark et al., 2020;</ref><ref type="bibr" target="#b23">Zaheer et al., 2020;</ref><ref type="bibr">Xiong et al., 2021)</ref> and consequently most of the large corpora used to pre-train them were in English, there has been a recent push to produce larger high quality corpora for other languages, namely those of <ref type="bibr" target="#b9">Grave et al. (2018)</ref>, CCNet <ref type="bibr" target="#b18">(Wenzek et al., 2020)</ref>, Multilingual C4 (mC4) <ref type="bibr" target="#b21">(Xue et al., 2020)</ref> and OSCAR <ref type="bibr" target="#b13">(Ortiz Suárez et al., 2019</ref><ref type="bibr">, 2020)</ref> for pre-training language models, as well as, Paracrawl <ref type="bibr" target="#b8">(Esplà et al., 2019;</ref><ref type="bibr" target="#b0">Bañón et al., 2020)</ref>, CCAligned <ref type="bibr" target="#b7">(El-Kishky et al., 2020)</ref> and WikiMatrix <ref type="bibr" target="#b17">(Schwenk et al., 2021)</ref> which are parallel corpora for training Machine Translation (MT) models. Of these, only OSCAR, Paracrawl, CCaligned and WikiMatrix are freely available and easily downloadable.</p><p>In this paper we propose a new multilingual corpus for language modeling, and for that we take inspiration in the OSCAR corpus and its pipeline goclassy<ref type="foot" target="#foot_1">2</ref>  <ref type="bibr" target="#b13">(Ortiz Suárez et al., 2019</ref><ref type="bibr">, 2020)</ref>, but we propose a new pipeline Ungoliant<ref type="foot" target="#foot_2">3</ref> that is faster, modular, parametrizable and well-documented. We then use it to produce a new corpus similar to OS-CAR, yet larger, based on recent data containing mentions of last years' events such as the COVID-19 pandemic, the 2020-2021 United States racial unrest, the Australian wildfires, the Beirut explosion and Brexit among others. Moreover, contrarily to OSCAR, our corpus retains metadata information at the document level. We release our pipeline under an Apache 2.0 open source license and we publish the corpus under a research-only use license following the licensing schemes proposed by OSCAR <ref type="bibr" target="#b13">(Ortiz Suárez et al., 2019</ref><ref type="bibr">, 2020)</ref> and Paracrawl <ref type="bibr" target="#b8">(Esplà et al., 2019;</ref><ref type="bibr" target="#b0">Bañón et al., 2020)</ref>. its Generation Pipeline</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">OSCAR</head><p>OSCAR is a multilingual corpus derived from Com-monCrawl<ref type="foot" target="#foot_3">4</ref> , a project that provides web crawl data for everyone on a periodic manner, usually each month. CommonCrawl provides data in several formats, from raw HTML source code to pure text. OSCAR was generated from the pure text data version (WET files) of the November 2018 crawl, distributed in the form of 56,000 shards, that were then filtered and classified by language (Ortiz <ref type="bibr" target="#b13">Suárez et al., 2019</ref><ref type="bibr" target="#b12">Suárez et al., , 2020))</ref>. OSCAR is available through several means, and has been used in numerous projects <ref type="bibr" target="#b13">(Ortiz Suárez et al., 2019)</ref>. OSCAR's generation pipeline also suffers from numerous issues, which we plan to address simultaneously with the release of a new, more powerful, stable, and higher quality pipeline Simply put, OSCAR is composed of single language files that contain textual data (ta.txt for the Tamil language, for example). However, due to the often huge sizes of these files, and subsequently the impracticality of storage and distribution, OS-CAR files are split and compressed in equally sized parts.</p><p>OSCAR comes in four different versions, each suited differently for different tasks, and allows less limited ways of sharing the corpus more widely. These versions are either unshuffled or shuffled (that is, for each language, lines have been shuffled, destroying records integrity), and non-deduplicated or deduplicated (since duplicate lines account for more than half of the total data<ref type="foot" target="#foot_4">5</ref> generated by the pipeline). For the unshuffled versions, each language file contains paragraphs that come from the same record, and each paragraph is separated by a newline.</p><p>OSCAR is inherently linked to its generation pipeline, and as such its quality partly depends on the pipeline's quality. While OSCAR is considered to be one of the cleanest multilingual corpora available <ref type="bibr" target="#b3">(Caswell et al., 2020</ref><ref type="bibr">(Caswell et al., , 2021))</ref>, several problems have been described, and the state of the publicly available code raises questions about maintenance and maintenability of the pipeline itself.</p><p>Apart from the fact that its content dates back to 2018, the current OSCAR corpus suffers from quality issues discussed in <ref type="bibr" target="#b3">(Caswell et al., 2020</ref><ref type="bibr">(Caswell et al., , 2021))</ref>, including:</p><p>• Language label mismatches and inconsistencies, which occurs earlier in the pipeline and would be fixable downstream,</p><p>• Representation washing as defined by <ref type="bibr">Caswell et al. (2021)</ref>, whereby low resource languages, while present in the corpus, are of a significantly lower quality than higher resource languages without any quality metric available publicly.</p><p>The most recent Common Crawl dump contains 64,000 shards. Each shard is composed of numerous records, and each record holds textual content along with metadata. While CommonCrawl shards hold document-level metadata that could be useful downstream, they were discarded and do not appear in OSCAR, whereas other corpora generated from the same source include them, e.g. CCNet <ref type="bibr" target="#b18">(Wenzek et al., 2020)</ref>. This limits OSCAR users to the textual content only, whereas metadata could have been distributed along with the corpus itself.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">goclassy</head><p>OSCAR was built using goclassy, a highperformance asynchronous pipeline written in Go <ref type="bibr" target="#b13">(Ortiz Suárez et al., 2019)</ref>. However, it suffers from several caveats that makes the re-generation and update of the corpus relatively complex in practice.</p><p>While goclassy's source code is easily readable thanks to the choice of an uncluttered language and a pragmatic approach, the lack of structure in both the source and the project itself makes goclassy difficult to extend and maintain.</p><p>The pipeline is not functional out-of-the-box, as the user has to provide the compressed shards from CommonCrawl, manually install fasttext <ref type="bibr" target="#b10">(Joulin et al., 2016</ref><ref type="bibr" target="#b11">(Joulin et al., , 2017) )</ref> and create specific directories by themselves, since only partial instructions are given in the supplied README file.</p><p>goclassy also makes heavy use of I/O, as data is saved and loaded repeatedly between steps; as an example, the identification step stores language identification data and individual sentences in two files, before generating the final files (one per language). Despite these limitations, goclassy's performance is good due to Go's emphasis on easy and efficient parallelization and inherent speed. The pipeline uses clever handling of file descriptors, limiting I/O calls cost in some parts.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Building a new OSCAR-like corpus</head><p>We introduce Ungoliant, a new corpus generation pipeline that, like goclassy, creates a large-scale multilingual text corpus from a CommonCrawl dump. Contrarily to goclassy, Ungoliant is fully modular, better structured, and highly parametrizable; thereby allowing comparisons between several parallelization strategies. A specific effort was put in testing and documentation. Parts of Ungoliant are heavily inspired by goclassy, although it is implemented in Rust rather than in Go, which is sometimes faster. <ref type="foot" target="#foot_6">6</ref>Additionally, we use Ungoliant to generate a new corpus from a recent Common Crawl dump. The new corpus includes metadata information while retaining backward compatibility with the OSCAR corpus.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Ungoliant</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.1">Rationale and scope</head><p>While Ungoliant is heavily inspired by goclassy, it provides a better set of tools to download, process, filter and aggregate textual and contextual data from CommonCrawl. These operations can be sequential, parallel or both, depending on contexts and performance requirements.</p><p>We provide both batch and streaming processing, so that the whole pipeline could be run either online, with every step running on streams of data, or offline, with every step running on tangible files, or a mix of both, using already downloaded Common-Crawl dumps but streaming the rest of the process. Moreover, we embed numerous filtering and deduplication utilities directly inside Ungoliant, making these features available for pipeline composition and post-processing.</p><p>Ungoliant features a loosely defined pipeline interface, on which we re-implement goclassy's one, while improving performance by threading more aggressively and avoiding I/O where it is not necessary: While goclassy uses intermediate files for tags and sentences, we try to keep everything in memory in order to avoid losing time loading or writing files. The Rust language provides constructs that helps us build complex abstractions and pipelines while limiting proactive file I/O or computing, since nearly all the reimplemented pipeline is built around lazy evaluation. File I/O is only used when loading shards, and when writing sentences in language files. Through benchmarking we found that the best parallelization strategy is to use rayon<ref type="foot" target="#foot_7">7</ref> , a workstealing <ref type="bibr" target="#b1">(Blumofe and Leiserson, 1999)</ref> parallel and concurrent library enabling massive parallelization. We parallelize on shard-, record-and sentence-level processing.</p><p>To evaluate Ungoliant performance, we run both goclassy and Ungoliant's implementation on 1, 10, 25 and 100 Common Crawl shards both on a middle-range laptop computer (i5-7200u, 8GB RAM, NVMe SSD) and a HPC node (Xeon 5218 (64 Threads), 180GB RAM). Results are shown in Table <ref type="table" target="#tab_0">1</ref>.</p><p>Ungoliant performs better than goclassy on all tasks, independently of the platform or number of shards processed. However, we can note that Ungoliant's speedup is higher on short tasks, which is explained by its aggressive multithreading strategy, while goclassy uses a record-scope multithreading at its finest granularity.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Iterating on the goclassy pipeline</head><p>CommonCrawl dumps contain metadata that hold useful information such as related records, recognized language(s), or origin URLs. Since OSCAR pipeline discards metadata and sentences can be shuffled, we lose the ability to investigate those metadata themselves, as well as working on potentially multilingual documents, since we separate text from metadata.</p><p>The new pipeline (and the resulting new corpus schema) aims to establish a first link between textual data and metadata from CommonCrawl, while staying backward compatible with the existing OS-CAR schema.</p><p>In other words, switching from the original OS-CAR corpus and the newly generated one should be a drop-in operation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.1">Metadata extraction and linking</head><p>Our choice of keeping the corpus backward compatible with the original OSCAR introduces changes in the way the corpus is generated, namely regarding metadata: a record's body is composed of sentences that aren't guaranteed to be of the same language. Since OSCAR merges sentences from multiple records into a single file, special attention has to be paid to the metadata dispatch too.</p><p>Approaches to tackle this problem range from (1) storing all metadata in a single location to (2) having language-specific metadata files that contain the metadata for each line in the language file.</p><p>Both (1) and ( <ref type="formula">2</ref>) have their strengths and weaknesses, namely:</p><p>1. Having all metadata at the same place may facilitate wide queries about whole metadata, but at a cost of a very large size (which harms both accessibility and performance).</p><p>2. Getting the metadata for a given line is fast since line numbers are synchronized, but there is repeated information and a potentially important increase in size.</p><p>We choose a hybrid approach which keeps metadata local to each language, while trying to limit the information repetition by keeping an entry by group of chunks rather than by line, where a chunk is a series of contiguous sentences that share the same language from the same document.</p><p>An overview of the pipeline can be seen in Figure <ref type="figure">1</ref>, with a more precise view on record processing and metadata extraction in Figure <ref type="figure">2</ref>.</p><p>Metadata are distributed via JSON-encoded files holding an ordered list of metadata entries, along with offsets (o) and paragraph lengths (l), enabling any user to get the content of a said metadata by querying for lines (o, o + l] in the content file.</p><p>This approach still has drawbacks, in particular when looking for the corresponding metadata of a given sentence/paragraph, where one has to perform a search on the metadata file, or when working with multilingual documents. Another drawback is the resulting cost of potentially merging back numerous language parts: Since metadata query is offset-based, merging back metadata files implies updating those offsets.</p><p>Having paragraphs and metadata linked by offsets in a highly parallelized pipeline implies to take special care at the offset level. The solution is to use shard-scoped offsets (starting from 0 for each  language), and to keep global offsets protected by a mutex guard. This way, when a given shard is done processing and is ready to be written on disk, we convert shard-scoped offsets to global-scoped ones, update the global-scoped ones and then write text and metadata on disk. We compare running times for the reimplementation of the goclassy pipeline, and our new pipeline adding metadata extraction, using both desktop and HPC contexts. The results are reported in Table <ref type="table">2</ref>.</p><p>Metadata generation does not seem to influence generation time dramatically. However, we can notice a slight performance difference between HPC and Desktop contexts. These differences may lie in the storage medium differences, I/O layout, or algorithmic peculiarities benefiting desktop contexts because of other bottlenecks.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Characteristics of our new backward compatible OSCAR-like corpus</head><p>We evaluate the newly generated corpus, assessing its ability to reflect events that occurred after the publication of OSCAR 2018 and detail the metadata format and potential use.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.1">Comparison with OSCAR</head><p>While it is expected that our new corpus has a larger file size than OSCAR since CommonCrawl itself grew from 7.42TB to 8.06TB, metadata quickly adds up and take for nearly 15% of the whole uncompressed data. The size augmentation is not the same for each language, and while the whole corpus is bigger   now, some languages are smaller than they were before. Results show that already largely represented languages gain more and more data (like the English language, which constitutes more than a third of the original OSCAR), except for the Russian language which loses approximately 100Gb of textual content. These results are summarized in Figure <ref type="figure" target="#fig_1">3</ref>.</p><formula xml:id="formula_0">• • • • • • • •</formula><p>However, in a context where the number of languages is very high (higher than 150) and of varying sizes, evolution can't be analyzed via a mere size evaluation. By computing, for each language, the relative size difference between the 2018 and 2021 releases of OSCAR, less resourced languages do appear, hinting at a better representation of some of them. These results can be found in Figure <ref type="figure" target="#fig_2">4</ref>.</p><p>Numerous languages have been omitted from Figure <ref type="figure" target="#fig_2">4</ref>, either:</p><p>• because they were present in the original OS-CAR and are now absent (Central Bikol and Cantonese)</p><p>• because they were absent in the original OS-CAR and are now present (Manx, Rusyn, Scots and West Flemish)</p><p>Precautions have to be taken when using these corpora and further work has to be done to correctly assess the quality of low-to-mid resource languages in order to better reflect the quality of each corpus to the OSCAR users. Some languages exhibited either a particularly low number of sentences or a very low quality, and as such couldn't be usable, while still accounting for a language in the total language count of the original OSCAR. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.2">Metadata</head><p>Metadata provides new contextual data that is useful to evaluate the corpus and draw metrics. The total size of metadata is 1.2TB, ranging from 4Kb to 500Gb, depending on the number of lines. Relative size varies from 100% to 20%, diminishing with the textual data size, which is expected.</p><p>Metadata are provided in single files for now, but split versions of both textual and contextual data will be released soon after the release of the corpus, enabling easy access.</p><p>Our choice of keeping metadata aside from the main content adds some complexity when working with both textual and contextual data: • Looking for lines corresponding to a particular metadata entry is easier: one has to read the textual file, skipping until the o-th line, then read l lines.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.3">Presence of events</head><p>Using a sample of an English part of our corpus, we perform a simple search of terms in order to assess and compare the presence of pre-and post-2018 events and persons in both corpora. Terms and frequency are grouped in Table <ref type="table" target="#tab_5">4</ref>.</p><p>Our corpus keeps around the same number of occurrences for pre-2018 events or public figures such as Barack Obama, while increasing the occurrence of people linked to more recent events (Joe Biden). We include search terms linked to post-2018 events in French and Arabic which are smaller corpora (resp. 200 and 80 GB), and in Burmese, a mid-resource language (approximately 2GB). We observe a term occurrences evolution that reflects the linked events' timing and importance.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4">License</head><p>This new corpus will be released under a researchonly license that is compliant with the EU's exceptions for research in text and data mining. Contrarily to the original OSCAR, no shuffled version of the corpus will be distributed, instead we will put in place an authentication system that will allow us to verify that requests for the corpus come from research institutions. A contact form will be also provided for independent researchers so that we can study their particular cases and determine if the utilization of the corpus corresponds to a legitimate research use.</p><p>Moreover, the introduction of metadata makes our corpus far more queryable, thus simplifying and speeding up the handling of take-down GDPR requests. For this reason, we will be releasing the complete set of metadata under a CC0 public domain license, so that any individual can check if their personal or even copyrighted data is in our new corpus and make a request accordingly.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Conclusion</head><p>We show that our solution is able to generate an OSCAR-like corpus that is augmented with metadata without breaking compatibility, while being faster, better tested and thoroughly documented. We believe our new pipeline and corpus will be useful for applications in computational linguistics as well as in corpus linguistics in general.</p><p>The generated corpus is of a larger size when including metadata and without deduplication. How-ever, deduplicated textual content is of the same magnitude between OSCAR 2018 and OSCAR 2021, while reflecting topic changes from all over the world. This fact suggests that old data may be lost with the time passing, and could be resolved by using CommonCrawl releases to build an incremental corpus, with every version augmenting the corpus size.</p><p>Metadata enables queries and statistics on the generated data, and we believe that it can be used to filter OSCAR to generate corpora that respond to certain criteria.</p><p>We plan to make this new version of OSCAR available under research constraints, with split versions of both textual content and metadata along with tools to operate on the corpus, enabling fast and easy operation on the corpus for researchers.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :Figure 2 :</head><label>12</label><figDesc>Figure 1: Scheme of the Ungoliant pipeline. The red square represents CommonCrawl content hosting, where the compressed shards are fetched. The Process Shard steps hold shard processing, paragraph creation and merging (see Figure 2), and are internally parallelized. • : CommonCrawl compressed shard. • : Uncompressed shard, containing records. • : Record Metadata • : Language identification • ¶: Paragraph, composed of sentences identified as</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 3 :</head><label>3</label><figDesc>Figure 3: Comparison of language size (in bytes) between OSCAR 2018 and OSCAR 2021 (top/bottom 5 only).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: Comparison of language percentage between OSCAR 2018 and OSCAR 2021 (top/bottom 5 only).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>•</head><label></label><figDesc>When trying to get the metadata of given sentence, one has to get the line number k, then sequentially (or use a search algorithm since offsets are sorted) look for the record (with offset o and length l), where k ∈ [o, o + l].</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 :</head><label>1</label><figDesc>Comparison of approximate generation times depending on platform and number of shards.</figDesc><table><row><cell cols="5">Platform #shards goclassy Ungoliant Approx. speedup</cell></row><row><cell></cell><cell>1</cell><cell>30s</cell><cell>13s</cell><cell>×2.3</cell></row><row><cell>Desktop</cell><cell>10</cell><cell>3m6s</cell><cell>2m12s</cell><cell>×1.3</cell></row><row><cell></cell><cell>25</cell><cell>9m10s</cell><cell>5m47s</cell><cell>×1.5</cell></row><row><cell></cell><cell>1</cell><cell>40s</cell><cell>6s</cell><cell>×6.6</cell></row><row><cell>HPC</cell><cell>25</cell><cell>2m40s</cell><cell>1m6s</cell><cell>×2.4</cell></row><row><cell></cell><cell>100</cell><cell>7m59s</cell><cell>4m14s</cell><cell>×1.8</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 3 :</head><label>3</label><figDesc>Comparison of CommonCrawl and OSCAR sizes between 2018 and 2021 versions. Compressed (CommonCrawl) sources are from November 2018 and February 2021. Total is Textual + Metadata without deduplication.</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>Table 4 :</head><label>4</label><figDesc>Comparison of occurrences of news-related terms between OSCAR and our corpus in a sample of 100 CommonCrawl shards. For the Burmese language, we use the whole 2018 and 2021 corpus since it is a low resource language. Terms are translated in the corpus language.</figDesc><table><row><cell>Language</cell><cell>Term</cell><cell>2018</cell><cell>2021</cell></row><row><cell>Arabic</cell><cell>Beirut port explosion</cell><cell>0</cell><cell>31</cell></row><row><cell>Burmese*</cell><cell>Min Aung Hlaing</cell><cell>387</cell><cell>3439</cell></row><row><cell>English</cell><cell cols="3">Obama 30039 27639</cell></row><row><cell>English</cell><cell>Biden</cell><cell cols="2">990 19299</cell></row><row><cell>French</cell><cell>Yellow Vests</cell><cell>2</cell><cell>96</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>In which one takes a unnanotated large textual corpus in a particular language and tries to predict a missing word in order to learn a vector space representation for it.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>https://github.com/oscar-corpus/ goclassy</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>https://github.com/oscar-corpus/ ungoliant</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>https://commoncrawl.org</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_4"><p>OSCAR-orig:  </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_5"><p>6.3TB, OSCAR-dedup: 3.2TB</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_6"><p>https://benchmarksgame-team.pages. debian.net/benchmarksgame/fastest/ rust-go.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_7"><p>https://github.com/rayon-rs/rayon</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">ParaCrawl: Web-scale acquisition of parallel corpora</title>
+		<author>
+			<persName><forename type="first">Marta</forename><surname>Bañón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pinzhen</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Barry</forename><surname>Haddow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kenneth</forename><surname>Heafield</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hieu</forename><surname>Hoang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Miquel</forename><surname>Esplà-Gomis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mikel</forename><forename type="middle">L</forename><surname>Forcada</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Faheem</forename><surname>Amir Kamran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Philipp</forename><surname>Kirefu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sergio</forename><forename type="middle">Ortiz</forename><surname>Koehn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Leopoldo</forename><forename type="middle">Pla</forename><surname>Rojas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gema</forename><surname>Sempere</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Elsa</forename><surname>Ramírez-Sánchez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marek</forename><surname>Sarrías</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Brian</forename><surname>Strelec</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><surname>Thompson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dion</forename><surname>Waites</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jaume</forename><surname>Wiggins</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Zaragoza</surname></persName>
+		</author>
+		<idno type="DOI">10.18653/v1/2020.acl-main.417</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics</title>
+		<meeting>the 58th Annual Meeting of the Association for Computational Linguistics</meeting>
+		<imprint>
+			<publisher>Online. Association for Computational Linguistics</publisher>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="4555" to="4567" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Scheduling multithreaded computations by work stealing</title>
+		<author>
+			<persName><forename type="first">Robert</forename><forename type="middle">D</forename><surname>Blumofe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Charles</forename><forename type="middle">E</forename><surname>Leiserson</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/324133.324234</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. ACM</title>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="720" to="748" />
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Language models are few-shot learners</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Tom</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benjamin</forename><surname>Brown</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nick</forename><surname>Mann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Melanie</forename><surname>Ryder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jared</forename><surname>Subbiah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Prafulla</forename><surname>Kaplan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Arvind</forename><surname>Dhariwal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pranav</forename><surname>Neelakantan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Girish</forename><surname>Shyam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amanda</forename><surname>Sastry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sandhini</forename><surname>Askell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ariel</forename><surname>Agarwal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gretchen</forename><surname>Herbert-Voss</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tom</forename><surname>Krueger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rewon</forename><surname>Henighan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aditya</forename><surname>Child</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><forename type="middle">M</forename><surname>Ramesh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jeffrey</forename><surname>Ziegler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Clemens</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christopher</forename><surname>Winter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Hesse</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eric</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mateusz</forename><surname>Sigler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Scott</forename><surname>Litwin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benjamin</forename><surname>Gray</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jack</forename><surname>Chess</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christopher</forename><surname>Clark</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sam</forename><surname>Berner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alec</forename><surname>Mc-Candlish</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ilya</forename><surname>Radford</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dario</forename><surname>Sutskever</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Amodei</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Neural Information Processing Systems 33: Annual Conference on Neural Information Processing Systems</title>
+		<imprint>
+			<date type="published" when="2020">2020. 2020</date>
+		</imprint>
+	</monogr>
+	<note>NeurIPS 2020, December 6-12, 2020, virtual</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Language ID in the wild: Unexpected challenges on the path to a thousandlanguage web text corpus</title>
+		<author>
+			<persName><forename type="first">Isaac</forename><surname>Caswell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Theresa</forename><surname>Breiner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daan</forename><surname>Van Esch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ankur</forename><surname>Bapna</surname></persName>
+		</author>
+		<idno type="DOI">10.18653/v1/2020.coling-main.579</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 28th International Conference on Computational Linguistics</title>
+		<meeting>the 28th International Conference on Computational Linguistics<address><addrLine>Barcelona, Spain</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="6588" to="6608" />
+		</imprint>
+	</monogr>
+	<note>International Committee on Computational Linguistics</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<author>
+			<persName><forename type="first">Isaac</forename><surname>Caswell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Julia</forename><surname>Kreutzer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lisa</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ahsan</forename><surname>Wahab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daan</forename><surname>Van Esch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nasanbayar</forename><surname>Ulzii-Orshikh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Allahsera</forename><surname>Tapo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nishant</forename><surname>Subramani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Artem</forename><surname>Sokolov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Claytone</forename><surname>Sikasote</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Monang</forename><surname>Setyawan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Supheakmungkol</forename><surname>Sarin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sokhar</forename><surname>Samb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benoît</forename><surname>Sagot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Clara</forename><surname>Rivera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Annette</forename><surname>Rios</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Isabel</forename><surname>Papadimitriou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Salomey</forename><surname>Osei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pedro</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Javier</forename><forename type="middle">Ortiz</forename><surname>Suárez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Iroro</forename><surname>Orife</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kelechi</forename><surname>Ogueji</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andre</forename><surname>Rubungo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Toan</forename><forename type="middle">Q</forename><surname>Niyongabo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mathias</forename><surname>Nguyen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">André</forename><surname>Müller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shamsuddeen</forename><surname>Müller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Muhammad ; Ayanda</forename><surname>Hassan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jamshidbek</forename><surname>Mnyakeni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tapiwanashe</forename><surname>Mirzakhalov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Colin</forename><surname>Matangira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nze</forename><surname>Leong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sneha</forename><surname>Lawson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yacine</forename><surname>Kudugunta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mathias</forename><surname>Jernite</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Orhan</forename><surname>Jenny</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Firat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">P</forename><surname>Bonaventure</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sakhile</forename><surname>Dossou</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Dlamini</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2103.12028</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Orevaoghene Ahia, Oghenefego Ahia, Sweta Agrawal, and Mofetoluwa Adeyemi. 2021. Quality at a Glance: An Audit of Web-Crawled Multilingual Datasets</title>
+		<editor>
+			<persName><forename type="first">Sakine C ¸abuk</forename><surname>Nisansa De Silva</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Stella</forename><surname>Ballı</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Alessia</forename><surname>Biderman</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Ahmed</forename><surname>Battisti</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Ankur</forename><surname>Baruwa</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Pallavi</forename><surname>Bapna</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Baljekar</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Ayodele</forename><surname>Israel Abebe Azime</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Duygu</forename><surname>Awokoya</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Ataman</surname></persName>
+		</editor>
+		<imprint/>
+	</monogr>
+	<note>Presented at the AfricaNLP 2021 workshop</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">ELECTRA: pretraining text encoders as discriminators rather than generators</title>
+		<author>
+			<persName><forename type="first">Kevin</forename><surname>Clark</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Minh-Thang</forename><surname>Luong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Quoc</forename><forename type="middle">V</forename><surname>Le</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christopher</forename><forename type="middle">D</forename><surname>Manning</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">8th International Conference on Learning Representations</title>
+		<meeting><address><addrLine>Addis Ababa, Ethiopia</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2020-04-26">2020. April 26-30, 2020</date>
+			<biblScope unit="volume">2020</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">BERT: Pre-training of deep bidirectional transformers for language understanding</title>
+		<author>
+			<persName><forename type="first">Jacob</forename><surname>Devlin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ming-Wei</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kenton</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kristina</forename><surname>Toutanova</surname></persName>
+		</author>
+		<idno type="DOI">10.18653/v1/N19-1423</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies</title>
+		<title level="s">Long and Short Papers</title>
+		<meeting>the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies<address><addrLine>Minneapolis, Minnesota</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="4171" to="4186" />
+		</imprint>
+	</monogr>
+	<note>Association for Computational Linguistics</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">CCAligned: A massive collection of cross-lingual web-document pairs</title>
+		<author>
+			<persName><forename type="first">Ahmed</forename><surname>El-Kishky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vishrav</forename><surname>Chaudhary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Francisco</forename><surname>Guzmán</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Philipp</forename><surname>Koehn</surname></persName>
+		</author>
+		<idno type="DOI">10.18653/v1/2020.emnlp-main.480</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)</title>
+		<meeting>the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)</meeting>
+		<imprint>
+			<publisher>Online. Association for Computational Linguistics</publisher>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="5960" to="5969" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">ParaCrawl: Web-scale parallel corpora for the languages of the EU</title>
+		<author>
+			<persName><forename type="first">Miquel</forename><surname>Esplà</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mikel</forename><surname>Forcada</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gema</forename><surname>Ramírez-Sánchez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hieu</forename><surname>Hoang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of Machine Translation Summit</title>
+		<meeting>Machine Translation Summit<address><addrLine>Dublin, Ireland</addrLine></address></meeting>
+		<imprint>
+			<publisher>European Association for Machine Translation</publisher>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">XVII</biblScope>
+			<biblScope unit="page" from="118" to="119" />
+		</imprint>
+	</monogr>
+	<note>Translator, Project and User Tracks</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Learning word vectors for 157 languages</title>
+		<author>
+			<persName><forename type="first">Edouard</forename><surname>Grave</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Piotr</forename><surname>Bojanowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Prakhar</forename><surname>Gupta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Armand</forename><surname>Joulin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tomas</forename><surname>Mikolov</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Eleventh International Conference on Language Resources and Evaluation (LREC 2018)</title>
+		<meeting>the Eleventh International Conference on Language Resources and Evaluation (LREC 2018)<address><addrLine>Miyazaki, Japan</addrLine></address></meeting>
+		<imprint>
+			<publisher>European Language Resources Association (ELRA)</publisher>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">Fasttext.zip: Compressing text classification models</title>
+		<author>
+			<persName><forename type="first">Armand</forename><surname>Joulin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Edouard</forename><surname>Grave</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Piotr</forename><surname>Bojanowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Matthijs</forename><surname>Douze</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hervé</forename><surname>Jégou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tomás</forename><surname>Mikolov</surname></persName>
+		</author>
+		<idno>CoRR, abs/1612.03651</idno>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Bag of tricks for efficient text classification</title>
+		<author>
+			<persName><forename type="first">Armand</forename><surname>Joulin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Edouard</forename><surname>Grave</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Piotr</forename><surname>Bojanowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tomas</forename><surname>Mikolov</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 15th Conference of the European Chapter</title>
+		<meeting>the 15th Conference of the European Chapter<address><addrLine>Short Papers; Valencia, Spain</addrLine></address></meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="427" to="431" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">A monolingual approach to contextualized word embeddings for mid-resource languages</title>
+		<author>
+			<persName><forename type="first">Pedro</forename><surname>Javier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ortiz</forename><surname>Suárez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benoît</forename><surname>Sagot</surname></persName>
+		</author>
+		<idno type="DOI">10.18653/v1/2020.acl-main.156</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics</title>
+		<meeting>the 58th Annual Meeting of the Association for Computational Linguistics</meeting>
+		<imprint>
+			<publisher>Online. Association for Computational Linguistics</publisher>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="1703" to="1714" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Asynchronous pipelines for processing huge corpora on medium to low resource infrastructures</title>
+		<author>
+			<persName><forename type="first">Pedro</forename><surname>Javier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ortiz</forename><surname>Suárez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benoît</forename><surname>Sagot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<idno type="DOI">10.14618/ids-pub-9021</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 7th Workshop on Challenges in the Management of Large Corpora, Proceedings of the Workshop on Challenges in the Management of Large Corpora (CMLC-7)</title>
+		<meeting>the 7th Workshop on Challenges in the Management of Large Corpora, the Workshop on Challenges in the Management of Large Corpora (CMLC-7)<address><addrLine>Mannheim</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-07-22">2019. 2019. Cardiff, 22nd July 2019</date>
+			<biblScope unit="page" from="9" to="16" />
+		</imprint>
+		<respStmt>
+			<orgName>Institut für Deutsche Sprache</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Deep contextualized word representations</title>
+		<author>
+			<persName><forename type="first">Matthew</forename><surname>Peters</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Neumann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohit</forename><surname>Iyyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Matt</forename><surname>Gardner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christopher</forename><surname>Clark</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kenton</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luke</forename><surname>Zettlemoyer</surname></persName>
+		</author>
+		<idno type="DOI">10.18653/v1/N18-1202</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies</title>
+		<title level="s">Long Papers</title>
+		<meeting>the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies<address><addrLine>New Orleans, Louisiana</addrLine></address></meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="2227" to="2237" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Exploring the limits of transfer learning with a unified text-to-text transformer</title>
+		<author>
+			<persName><forename type="first">Colin</forename><surname>Raffel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Noam</forename><surname>Shazeer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adam</forename><surname>Roberts</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Katherine</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sharan</forename><surname>Narang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Matena</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yanqi</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wei</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><forename type="middle">J</forename><surname>Liu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Mach. Learn. Res</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="page">67</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">A primer in BERTology: What we know about how BERT works</title>
+		<author>
+			<persName><forename type="first">Anna</forename><surname>Rogers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Olga</forename><surname>Kovaleva</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anna</forename><surname>Rumshisky</surname></persName>
+		</author>
+		<idno type="DOI">10.1162/tacl_a_00349</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Transactions of the Association for Computational Linguistics</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="842" to="866" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Wiki-Matrix: Mining 135M parallel sentences in 1620 language pairs from Wikipedia</title>
+		<author>
+			<persName><forename type="first">Holger</forename><surname>Schwenk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vishrav</forename><surname>Chaudhary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shuo</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hongyu</forename><surname>Gong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Francisco</forename><surname>Guzmán</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 16th Conference of the European Chapter</title>
+		<meeting>the 16th Conference of the European Chapter</meeting>
+		<imprint>
+			<publisher>Online. Association for Computational Linguistics</publisher>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="1351" to="1361" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">CCNet: Extracting high quality monolingual datasets from web crawl data</title>
+		<author>
+			<persName><forename type="first">Guillaume</forename><surname>Wenzek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marie-Anne</forename><surname>Lachaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexis</forename><surname>Conneau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vishrav</forename><surname>Chaudhary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Francisco</forename><surname>Guzmán</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Armand</forename><surname>Joulin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Edouard</forename><surname>Grave</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 12th Language Resources and Evaluation Conference</title>
+		<meeting>the 12th Language Resources and Evaluation Conference<address><addrLine>Marseille, France</addrLine></address></meeting>
+		<imprint>
+			<publisher>European Language Resources Association</publisher>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="4003" to="4012" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Yunyang</forename><surname>Xiong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhanpeng</forename><surname>Zeng</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>Rudrasis</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Nyströmformer: A nyström-based algorithm for approximating selfattention</title>
+		<author>
+			<persName><forename type="first">Mingxing</forename><surname>Chakraborty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Glenn</forename><surname>Tan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yin</forename><surname>Fung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vikas</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Singh</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the AAAI Conference on Artificial Intelligence</title>
+		<meeting>the AAAI Conference on Artificial Intelligence</meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title level="m" type="main">A massively multilingual pre-trained text-to-text transformer</title>
+		<author>
+			<persName><forename type="first">Linting</forename><surname>Xue</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Noah</forename><surname>Constant</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adam</forename><surname>Roberts</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mihir</forename><surname>Kale</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rami</forename><surname>Al-Rfou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aditya</forename><surname>Siddhant</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aditya</forename><surname>Barua</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Colin</forename><surname>Raffel</surname></persName>
+		</author>
+		<idno>CoRR, abs/2010.11934</idno>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="volume">5</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Xlnet: Generalized autoregressive pretraining for language understanding</title>
+		<author>
+			<persName><forename type="first">Zhilin</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zihang</forename><surname>Dai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yiming</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jaime</forename><forename type="middle">G</forename><surname>Carbonell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ruslan</forename><surname>Salakhutdinov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Quoc</forename><forename type="middle">V</forename><surname>Le</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Neural Information Processing Systems 32: Annual Conference on Neural Information Processing Systems</title>
+		<meeting><address><addrLine>NeurIPS; BC, Canada</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-12-08">2019. 2019. 2019. December 8-14, 2019</date>
+			<biblScope unit="page" from="5754" to="5764" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Big bird: Transformers for longer sequences</title>
+		<author>
+			<persName><forename type="first">Manzil</forename><surname>Zaheer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guru</forename><surname>Guruganesh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Avinava</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joshua</forename><surname>Dubey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chris</forename><surname>Ainslie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Santiago</forename><surname>Alberti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Philip</forename><surname>Ontañón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anirudh</forename><surname>Pham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qifan</forename><surname>Ravula</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Li</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amr</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ahmed</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Neural Information Processing Systems 33: Annual Conference on Neural Information Processing Systems 2020</title>
+		<meeting><address><addrLine>NeurIPS</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2020-12-06">2020. 2020. December 6-12, 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

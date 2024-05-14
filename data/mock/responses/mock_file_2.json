@@ -1,0 +1,4969 @@
+[
+    {
+        "halid": "03398740",
+        "title": "HTR-United : Mutualisons la vérité de terrain !",
+        "date": "2021",
+        "pdf": "https://hal.science/hal-03398740/file/chague_clerice_romary_htr-united_preprint.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Alix Chagué",
+                
+                "halauthorid": "170519",
+                "orcid": "0000-0002-0136-4434",
+                "google scholar": "citations?user=Pfs7W1wAAAAJ"
+            },
+            {
+                "affiliations": [
+                    "241921",
+                    "307249"
+                ],
+                "name": "Thibault Clérice",
+                
+                "halauthorid": "15153",
+                "orcid": "0000-0003-1852-9204",
+                "idref": "221533877"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "03495486",
+        "title": "NER4Archives (named entity recognition for archives) : méthodes et outils semi-automatiques pour reconnaître les entités nommées dans les instruments de recherche archivistiques encodés en XML/EAD",
+        "date": "2021",
+        "pdf": "https://hal.science/hal-03495486/file/FF21_NER4Archives_09122021_slides.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "556329"
+                ],
+                "name": "Pauline Charbonnier",
+                
+                "halauthorid": "1120933"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Lucas Terriel",
+                
+                "halauthorid": "739541",
+                "orcid": "0000-0002-9189-258X"
+            },
+            {
+                "affiliations": [
+                    "556329",
+                    "241921"
+                ],
+                "name": "Florence Clavaud",
+                
+                "halauthorid": "1218812",
+                "isni": "0000000123599480",
+                "idref": "149350279",
+                "orcid": "0000-0002-5681-4850"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "556329"
+                ],
+                "name": "Gaetano Piraino",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "556329"
+                ],
+                "name": "Vincent Verdese",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "03538115",
+        "title": "From eScriptorium to TEI Publisher",
+        "date": "2021",
+        "pdf": "https://inria.hal.science/hal-03538115/file/hscheithauer_achagu%C3%A9_lromary_From_eScriptorium_to_TEI_Publisher_2021.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Hugo Scheithauer",
+                
+                "halauthorid": "749419",
+                "orcid": "0000-0002-5659-4675"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Alix Chagué",
+                
+                "halauthorid": "170519",
+                "orcid": "0000-0002-0136-4434",
+                "google scholar": "citations?user=Pfs7W1wAAAAJ"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "03538195",
+        "title": "Production d'un modèle affiné de reconnaissance d'écriture manuscrite avec eScriptorium et évaluation de ses performances",
+        "date": "2021",
+        "pdf": "https://inria.hal.science/hal-03538195/file/hscheithauer_et_al_FF21_workshop_proposition.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Hugo Scheithauer",
+                
+                "halauthorid": "749419",
+                "orcid": "0000-0002-5659-4675"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Alix Chagué",
+                
+                "halauthorid": "170519",
+                "orcid": "0000-0002-0136-4434",
+                "google scholar": "citations?user=Pfs7W1wAAAAJ"
+            },
+            {
+                "affiliations": [
+                    "556329"
+                ],
+                "name": "Aurélia Rostaing",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Lucas Terriel",
+                
+                "halauthorid": "739541",
+                "orcid": "0000-0002-9189-258X"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "556329"
+                ],
+                "name": "Marie-Françoise Limon-Bonnet",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "556329"
+                ],
+                "name": "Benjamin Davy",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "556329"
+                ],
+                "name": "Gaetano Piraino",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "556329"
+                ],
+                "name": "Franck Beltrami",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "556329"
+                ],
+                "name": "Danis Habib",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "556329"
+                ],
+                "name": "Nathalie Denis",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "556329"
+                ],
+                "name": "Marc Durand",
+                "halauthorid": "786242",
+                "idref": "029563763"
+            }
+        ]
+    },
+    {
+        "halid": "00348372",
+        "title": "Questions & Answers for TEI Newcomers",
+        "date": "2009",
+        "pdf": "https://hal.science/hal-00348372v2/file/GettingStarted-LR-V7-romary.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "56047"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "03598115",
+        "title": "Normes et patrimoine numérique",
+        "date": "2021",
+        "pdf": "https://hal.science/hal-03598115/file/Chapitre%20LR_commentaires.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "03618381",
+        "title": "Datacatalogue: project presentation",
+        "date": "2022",
+        "pdf": "https://inria.hal.science/hal-03618381/file/atelier_culture_Inria_DataCatalogue_22-03-22%20.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Hugo Scheithauer",
+                
+                "halauthorid": "749419",
+                "orcid": "0000-0002-5659-4675"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "229998"
+                ],
+                "name": "Frédérique Duyrat",
+                
+                "halauthorid": "1212479",
+                "viaf": "49459411",
+                "idref": "070351554",
+                "orcid": "0000-0003-1290-6902"
+            },
+            {
+                "affiliations": [
+                    "118108"
+                ],
+                "name": "Federico Nurra",
+                
+                "halauthorid": "12036",
+                "researcherid": "P-6835-2017",
+                "orcid": "0000-0001-6100-8151",
+                "google scholar": "citations?user=aLxNH2AAAAAJ",
+                "idref": "253126908"
+            }
+        ]
+    },
+    {
+        "halid": "03625734",
+        "title": "NER4Archives (named entity recognition for archives) : Conception et réalisation d’un outil de détection, de classification et de résolution des entités nommées dans les instruments de recherche archivistiques encodés en XML/EAD.",
+        "date": "2022",
+        "pdf": "https://hal.science/hal-03625734/file/Atelier_Culture_Inria_NER4Archives_slides.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "556329",
+                    "241921"
+                ],
+                "name": "Florence Clavaud",
+                
+                "halauthorid": "1218812",
+                "isni": "0000000123599480",
+                "idref": "149350279",
+                "orcid": "0000-0002-5681-4850"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "556329"
+                ],
+                "name": "Pauline Charbonnier",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Lucas Terriel",
+                
+                "halauthorid": "739541",
+                "orcid": "0000-0002-9189-258X"
+            },
+            {
+                "affiliations": [
+                    "556329"
+                ],
+                "name": "Gaetano Piraino",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "556329"
+                ],
+                "name": "Vincent Verdese",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00367603",
+        "title": "Parallel alignment of structured documents",
+        "date": "2000",
+        "pdf": "https://hal.science/hal-00367603/file/Parallel_alignment_of_structured_documents_-_Romary_Bonhomme.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Patrice Bonhomme",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "03736840",
+        "title": "BERTrade: Using Contextual Embeddings to Parse Old French",
+        "date": "2022",
+        "pdf": "https://hal.science/hal-03736840/file/Bertrade_LREC_2022.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "1057",
+                    "241078"
+                ],
+                "name": "Loïc Grobol",
+                
+                "halauthorid": "14534",
+                "orcid": "0000-0002-4619-7836",
+                "idref": "193988232"
+            },
+            {
+                "affiliations": [
+                    "104851"
+                ],
+                "name": "Mathilde Regnault",
+                
+                "halauthorid": "169624",
+                "orcid": "0000-0002-9806-6539"
+            },
+            {
+                "affiliations": [
+                    "482775",
+                    "413221"
+                ],
+                "name": "Pedro Ortiz Suarez",
+                
+                "halauthorid": "178412",
+                "orcid": "0000-0003-0343-8852",
+                "arxiv": "ortizsuarez_p_1",
+                "idref": "264210743",
+                "viaf": "59166596794217591423"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Benoît Sagot",
+                
+                "halauthorid": "1461",
+                "google scholar": "citations?user=HXUT9ZkAAAAJ",
+                "idref": "177454229",
+                "orcid": "0000-0002-0107-8526"
+            },
+            {
+                "affiliations": [
+                    "1058615"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "1004855"
+                ],
+                "name": "Benoît Crabbé",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "03758054",
+        "title": "Politique de Science Ouverte du DIM Patrimoines matériels - Innovation, expérimentation et résilience",
+        "date": "2022",
+        "pdf": "https://cnrs.hal.science/hal-03758054/file/PAMIR%20_PolitiqueSO_2022-v1.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "523723"
+                ],
+                "name": "Caroline Corbières",
+                
+                "halauthorid": "748252",
+                "orcid": "0000-0002-4416-9479"
+            },
+            {
+                "affiliations": [
+                    "1042688"
+                ],
+                "name": "Loïc Bertrand",
+                
+                "halauthorid": "8516",
+                "researcherid": "D-3556-2013",
+                "idref": "075025140",
+                "orcid": "0000-0001-6622-9113"
+            },
+            {
+                "affiliations": [
+                    "419361"
+                ],
+                "name": "Serge X. Cohen",
+                
+                "halauthorid": "174958",
+                "orcid": "0000-0003-2435-2417",
+                "idref": "253119596"
+            },
+            {
+                "affiliations": [
+                    "1042688"
+                ],
+                "name": "Sophie David",
+                
+                "halauthorid": "173089",
+                "idref": "071004742",
+                "orcid": "0000-0003-4273-8620",
+                "viaf": "195776969"
+            },
+            {
+                "affiliations": [
+                    "207728"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "03829309",
+        "title": "DataCatalogue : enjeux et réalisations",
+        "date": "2022",
+        "pdf": "https://hal.science/hal-03829309/file/DataCatalogue_JE_INHA_21-10-22.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Hugo Scheithauer",
+                
+                "halauthorid": "749419",
+                "orcid": "0000-0002-5659-4675"
+            }
+        ]
+    },
+    {
+        "halid": "03930542",
+        "title": "Gallic(orpor)a : Extraction, annotation et diffusion de l’information textuelle et visuelle en diachronie longue",
+        "date": "2022",
+        "pdf": "https://hal.science/hal-03930542/file/BNF_DATAlab_2021-3.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Benoît Sagot",
+                
+                "halauthorid": "1461",
+                "google scholar": "citations?user=HXUT9ZkAAAAJ",
+                "idref": "177454229",
+                "orcid": "0000-0002-0107-8526"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Rachel Bawden",
+                
+                "halauthorid": "9441",
+                "orcid": "0000-0001-9553-1768",
+                "idref": "233174591"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Pedro Javier Ortiz Suárez",
+                
+                "halauthorid": "178412",
+                "orcid": "0000-0003-0343-8852",
+                "arxiv": "ortizsuarez_p_1",
+                "idref": "264210743",
+                "viaf": "59166596794217591423"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Kelly Christensen",
+                
+                "halauthorid": "1285539",
+                "orcid": "0000-0002-7236-874X"
+            },
+            {
+                "affiliations": [
+                    "154620"
+                ],
+                "name": "Simon Gabay",
+                
+                "halauthorid": "21216",
+                "orcid": "0000-0001-9094-4475",
+                "viaf": "305833240",
+                "isni": "0000000419576448"
+            },
+            {
+                "affiliations": [
+                    "441569",
+                    "146317",
+                    "241921"
+                ],
+                "name": "Ariane Pinche",
+                
+                "halauthorid": "11070",
+                "orcid": "0000-0002-7843-5050",
+                "idref": "253121914"
+            },
+            {
+                "affiliations": [
+                    "241921"
+                ],
+                "name": "Jean-Baptiste Camps",
+                
+                "halauthorid": "93",
+                "idref": "142859419",
+                "orcid": "0000-0003-0385-7037",
+                "viaf": "198967307",
+                "isni": "0000000357535607",
+                "google scholar": "citations?user=z0uvwcMAAAAJ"
+            }
+        ]
+    },
+    {
+        "halid": "00399881",
+        "title": "Beyond institutional repositories",
+        "date": "2010",
+        "pdf": "https://hal.science/hal-00399881/file/IJDLS_V1.5.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "41103"
+                ],
+                "name": "Chris Armbruster",
+                
+                "halauthorid": "861501"
+            }
+        ]
+    },
+    {
+        "halid": "03101177",
+        "title": "SuperMat: Construction of a linked annotated dataset from superconductors-related publications",
+        "date": "2021",
+        "pdf": "https://inria.hal.science/hal-03101177v4/file/SuperMat%20construction%20of%20a%20linked%20annotated%20dataset%20from%20superconductors%20related%20publications.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "145364"
+                ],
+                "name": "Luca Foppiano",
+                
+                "halauthorid": "16134",
+                "orcid": "0000-0002-6114-6164",
+                "idref": "253122546"
+            },
+            {
+                "affiliations": [
+                    "145364"
+                ],
+                "name": "Sae Dieb",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "145364"
+                ],
+                "name": "Akira Suzuki",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "145364"
+                ],
+                "name": "Pedro Baptista de Castro",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "145364"
+                ],
+                "name": "Suguru Iwasaki",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "145364"
+                ],
+                "name": "Azusa Uzuki",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "145364"
+                ],
+                "name": "Miren Garbine Esparza Echevarria",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "145364"
+                ],
+                "name": "Yan Meng",
+                "halauthorid": "776314",
+                "orcid": "0000-0002-1387-1644"
+            },
+            {
+                "affiliations": [
+                    "145364"
+                ],
+                "name": "Kensei Terashima",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "145364"
+                ],
+                "name": "Yoshihiko Takano",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "145364"
+                ],
+                "name": "Masashi Ishii",
+                
+                "halauthorid": "1087747"
+            }
+        ]
+    },
+    {
+        "halid": "00403925",
+        "title": "Pattern Based Term Extraction Using ACABIT System",
+        "date": "2003",
+        "pdf": "https://hal.science/hal-00403925/file/nlc_ron.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "6501"
+                ],
+                "name": "Koichi Takeuchi",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "6501"
+                ],
+                "name": "Kyo Kageura",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "6501"
+                ],
+                "name": "Teruo Koyama",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "1693"
+                ],
+                "name": "Béatrice Daille",
+                
+                "halauthorid": "12900",
+                "idref": "060702435",
+                "orcid": "0000-0001-9095-7372"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00403955",
+        "title": "Restrictions sémantiques apportées à l'étude des groupes nominaux en 'NdeN' : application à la machine à dicter",
+        "date": "1992",
+        "pdf": "https://hal.science/hal-00403955/file/JEP-92-2col.jo.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "129508"
+                ],
+                "name": "Joëlle Klein",
+                "halauthorid": "761501",
+                "idref": "190756616"
+            },
+            {
+                "affiliations": [
+                    "129508"
+                ],
+                "name": "Kamel Smaïli",
+                
+                "halauthorid": "2521",
+                "idref": "034429700"
+            },
+            {
+                "affiliations": [
+                    "129508"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "129508"
+                ],
+                "name": "François Charpillet",
+                
+                "halauthorid": "1910",
+                "idref": "070140553",
+                "orcid": "0000-0001-8260-1536"
+            }
+        ]
+    },
+    {
+        "halid": "04117132",
+        "title": "ISO LMF 24613-6: A Revised Syntax Semantics Module for the Lexical Markup Framework",
+        "date": "2023",
+        "pdf": "https://inria.hal.science/hal-04117132/file/28_iso_lmf_24613_6_a_revised_synt.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "26240"
+                ],
+                "name": "Francesca Frontini",
+                
+                "halauthorid": "2695",
+                "orcid": "0000-0002-8126-6294",
+                "idref": "227593766"
+            },
+            {
+                "affiliations": [
+                    "482775",
+                    "1159207"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "26240"
+                ],
+                "name": "Anas Fahad Khan",
+                
+                "halauthorid": "1095682"
+            }
+        ]
+    },
+    {
+        "halid": "00411835",
+        "title": "Multiple Retrieval Models and Regression Models for Prior Art Search",
+        "date": "2009",
+        "pdf": "https://hal.science/hal-00411835/file/technote.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237"
+                ],
+                "name": "Patrice Lopez",
+                
+                "halauthorid": "2984",
+                "idref": "157929930",
+                "orcid": "0000-0002-9959-9441"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "56047"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "04124743",
+        "title": "HTR-United : un écosystème pour une approche mutualisée de la transcription automatique des écritures manuscrites",
+        "date": "2022",
+        "pdf": "https://inria.hal.science/hal-04124743/file/chague_clerice_romary_mutualisaons_la_v%C3%A9rit%C3%A9_de_terrain_chapitre.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "110691",
+                    "302452",
+                    "482775"
+                ],
+                "name": "Alix Chagué",
+                
+                "halauthorid": "170519",
+                "orcid": "0000-0002-0136-4434",
+                "google scholar": "citations?user=Pfs7W1wAAAAJ"
+            },
+            {
+                "affiliations": [
+                    "482775",
+                    "241921"
+                ],
+                "name": "Thibault Clérice",
+                
+                "halauthorid": "15153",
+                "orcid": "0000-0003-1852-9204",
+                "idref": "221533877"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "04136772",
+        "title": "The Role of Research Infrastructures in the Research Assessment Reform: A DARIAH Position Paper",
+        "date": "2023",
+        "pdf": "https://hal.science/hal-04136772/file/Role%20of%20Research%20Infrastructures%20in%20Research%20Assessment_%20A%20DARIAH%20Position%20Paper.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "1159207"
+                ],
+                "name": "Laurent Romary",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "452629"
+                ],
+                "name": "Erzsébet Tóth-Czifra",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "50794"
+                ],
+                "name": "Andrew Perkis",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "1149440"
+                ],
+                "name": "Lorella Viola",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "04121339",
+        "title": "Large-scale Machine-Learning analysis of scientific PDF for monitoring the production and the openness of research data and software in France",
+        "date": "2023",
+        "pdf": "https://hal.science/hal-04121339v3/file/BSO3_preprint_20230625.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "413289"
+                ],
+                "name": "Aricia Bassinet",
+                "halauthorid": "1260223",
+                "orcid": "0000-0003-1723-7517"
+            },
+            {
+                "affiliations": [
+                    "413289"
+                ],
+                "name": "Laetitia Bracco",
+                
+                "halauthorid": "177504",
+                "idref": "19945468X",
+                "orcid": "0000-0002-2939-9110"
+            },
+            {
+                "affiliations": [
+                    "301855"
+                ],
+                "name": "Anne L'Hôte",
+                
+                "halauthorid": "1266645"
+            },
+            {
+                "affiliations": [
+                    "301855"
+                ],
+                "name": "Eric Jeangirard",
+                
+                "halauthorid": "175736",
+                "orcid": "0000-0002-3767-7125",
+                "idref": "242241344"
+            },
+            {
+                "affiliations": [
+                    "1164807"
+                ],
+                "name": "Patrice Lopez",
+                
+                "halauthorid": "2984",
+                "idref": "157929930",
+                "orcid": "0000-0002-9959-9441"
+            },
+            {
+                "affiliations": [
+                    "1159207"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00416510",
+        "title": "Marking-up multiple views of a Text: Discourse and Reference",
+        "date": "1998",
+        "pdf": "https://hal.science/hal-00416510/file/granada.final.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "101054"
+                ],
+                "name": "Dan Cristea",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "15025"
+                ],
+                "name": "Nancy Ide",
+                
+                "halauthorid": "833851"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00416585",
+        "title": "Langue et geste pour le dialogue homme-machine finalisé",
+        "date": "1995",
+        "pdf": "https://hal.science/hal-00416585/file/Mon-article-AvecFigure.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Nadia Bellalem",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00416589",
+        "title": "Les SN définis : anaphore, anaphore associative et cohérence",
+        "date": "1997",
+        "pdf": "https://hal.science/hal-00416589/file/NPdefinis-versionfinale.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Bertrand Gaiffe",
+                
+                "halauthorid": "829863"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Anne Reboul",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "04170939",
+        "title": "Modelling usage information in a legacy dictionary: from TEI Lex-0 to Ontolex-Lemon",
+        "date": "2022",
+        "pdf": "https://hal.science/hal-04170939/file/COMHUM_2022_paper_4.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "107307"
+                ],
+                "name": "Bruno Almeida",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "107307"
+                ],
+                "name": "Rute Costa",
+                
+                "halauthorid": "987700"
+            },
+            {
+                "affiliations": [
+                    "107307"
+                ],
+                "name": "Ana Salgado",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "107307"
+                ],
+                "name": "Margarida Ramos",
+                
+                "halauthorid": "1033849"
+            },
+            {
+                "affiliations": [
+                    "1159207"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "26240"
+                ],
+                "name": "Fahad Khan",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "107307"
+                ],
+                "name": "Sara Carvalho",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "1067185"
+                ],
+                "name": "Mohamed Khemakhem",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "107307"
+                ],
+                "name": "Raquel Silva",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "463302"
+                ],
+                "name": "Toma Tasovac",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "04170974",
+        "title": "Interlinking lexicographic data in the MORDigital project",
+        "date": "2022",
+        "pdf": "https://hal.science/hal-04170974/file/LLOD_2022_Book_of_Abstracts_15_16.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "26240"
+                ],
+                "name": "Anas Fahad Khan",
+                
+                "halauthorid": "1095682"
+            },
+            {
+                "affiliations": [
+                    "107307"
+                ],
+                "name": "Ana Salgado",
+                
+                "halauthorid": "1272801"
+            },
+            {
+                "affiliations": [
+                    "107307"
+                ],
+                "name": "Rute Costa",
+                
+                "halauthorid": "987700"
+            },
+            {
+                "affiliations": [],
+                "name": "Sara Carvalho",
+                
+                "halauthorid": "987708"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "107307"
+                ],
+                "name": "Bruno Almeida",
+                
+                "halauthorid": "987699"
+            },
+            {
+                "affiliations": [
+                    "107307"
+                ],
+                "name": "Margarida Ramos",
+                
+                "halauthorid": "1033849"
+            },
+            {
+                "affiliations": [
+                    "1067185"
+                ],
+                "name": "Mohamed Khemakhem",
+                
+                "halauthorid": "13481",
+                "orcid": "0000-0003-3529-2990",
+                "idref": "25311909X"
+            },
+            {
+                "affiliations": [
+                    "107307"
+                ],
+                "name": "Raquel Silva",
+                
+                "halauthorid": "1061557"
+            },
+            {
+                "affiliations": [
+                    "463302"
+                ],
+                "name": "Toma Tasovac",
+                
+                "halauthorid": "15106",
+                "orcid": "0000-0002-3919-993X",
+                "idref": "253132320"
+            }
+        ]
+    },
+    {
+        "halid": "00521601",
+        "title": "Should an Oral Dialogue System be Modular?",
+        "date": "1989",
+        "pdf": "https://hal.science/hal-00521601/file/e89_2569.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "133218",
+                    "26305"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "133218"
+                ],
+                "name": "Jean-Marie Pierrel",
+                
+                "halauthorid": "3461",
+                "idref": "055774873"
+            }
+        ]
+    },
+    {
+        "halid": "00419526",
+        "title": "Refering in a Multimodal Environment : from NL to designation.",
+        "date": "1991",
+        "pdf": "https://hal.science/hal-00419526/file/MarateaFinal.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "129508"
+                ],
+                "name": "Bertrand Gaiffe",
+                
+                "halauthorid": "829863"
+            },
+            {
+                "affiliations": [
+                    "129508"
+                ],
+                "name": "Jean-Marie Pierrel",
+                
+                "halauthorid": "3461",
+                "idref": "055774873"
+            },
+            {
+                "affiliations": [
+                    "129508"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00419543",
+        "title": "Ce matin, il pleuvait (It was raining this morning) - A Time Proof Reference",
+        "date": "1992",
+        "pdf": "https://hal.science/hal-00419543/file/Bonas1992Final.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "129508"
+                ],
+                "name": "Bertrand Gaiffe",
+                
+                "halauthorid": "829863"
+            },
+            {
+                "affiliations": [
+                    "129508"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00419550",
+        "title": "« Ce matin, il pleuvait », ou la référence à l'épreuve du temps.",
+        "date": "1993",
+        "pdf": "https://hal.science/hal-00419550/file/langageFinal.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Bertrand Gaiffe",
+                
+                "halauthorid": "829863"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "04001303",
+        "title": "Which TEI representation for the output of automatic transcriptions and their metadata? An illustrated proposition",
+        "date": "2022",
+        "pdf": "https://inria.hal.science/hal-04001303v2/file/HTR_TEI_representation_hscheithauer_et_al.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Hugo Scheithauer",
+                
+                "halauthorid": "749419",
+                "orcid": "0000-0002-5659-4675"
+            },
+            {
+                "affiliations": [
+                    "110691",
+                    "302452",
+                    "482775"
+                ],
+                "name": "Alix Chagué",
+                
+                "halauthorid": "170519",
+                "orcid": "0000-0002-0136-4434",
+                "google scholar": "citations?user=Pfs7W1wAAAAJ"
+            },
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00099352",
+        "title": "Dhydro: a generic environment developed to edit and access multilingual terminological data on the Internet",
+        "date": "2000",
+        "pdf": "https://inria.hal.science/inria-00099352/file/DHYDRO-Turku.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Jean-Luc Husson",
+                
+                "halauthorid": "835344"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Nadia Viscogliosi",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "83784"
+                ],
+                "name": "Sylviane Descotte",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "83784"
+                ],
+                "name": "Marc van Campenhoudt",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "04223769",
+        "title": "Fine tuning the interface between research and libraries: the data re-use charter",
+        "date": "2018",
+        "pdf": "https://inria.hal.science/hal-04223769/file/FiesoleRetreatMasterApril2018.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "04223806",
+        "title": "Monitoring an APC policy - lessons learned and perspective after 7 years",
+        "date": "2023",
+        "pdf": "https://inria.hal.science/hal-04223806/file/romary.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "482775"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00424254",
+        "title": "Communication scientifique : Pour le meilleur et pour le PEER",
+        "date": "2009",
+        "pdf": "https://inria.hal.science/inria-00424254/file/HermesPeer_v0.3.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "56047"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "04255210",
+        "title": "Scientific project of the DIM PAMIR",
+        "date": "2022",
+        "pdf": "https://hal.science/hal-04255210/file/DIM%20PAMIR%20Projet%20scientifique.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "1042688"
+                ],
+                "name": "Loïc Bertrand",
+                
+                "halauthorid": "8516",
+                "researcherid": "D-3556-2013",
+                "idref": "075025140",
+                "orcid": "0000-0001-6622-9113"
+            },
+            {
+                "affiliations": [
+                    "1159207"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "541953"
+                ],
+                "name": "Isabelle Rouget",
+                
+                "halauthorid": "176052",
+                "orcid": "0000-0002-9673-0416"
+            },
+            {
+                "affiliations": [
+                    "260669",
+                    "158846"
+                ],
+                "name": "Ariane Thomas",
+                
+                "halauthorid": "1291369"
+            },
+            {
+                "affiliations": [
+                    "218275"
+                ],
+                "name": "Laurence de Viguerie",
+                
+                "halauthorid": "180479",
+                "orcid": "0000-0002-7038-6979",
+                "idref": "144363488"
+            },
+            {
+                "affiliations": [
+                    "1042688"
+                ],
+                "name": "Sophie David",
+                
+                "halauthorid": "173089",
+                "idref": "071004742",
+                "orcid": "0000-0003-4273-8620",
+                "viaf": "195776969"
+            }
+        ]
+    },
+    {
+        "halid": "04263250",
+        "title": "Open science and research assessment: which agenda should the informatics community push forward?",
+        "date": "2023",
+        "pdf": "https://inria.hal.science/hal-04263250/file/Open%20science%20and%20research%20assessment%20-%20ECSS_finalCut.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "93516"
+                ],
+                "name": "Pierre Paradinas",
+                
+                "halauthorid": "964585"
+            },
+            {
+                "affiliations": [
+                    "1159207"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00433399",
+        "title": "Codage des références et coréférences dans les DHM",
+        "date": "1997",
+        "pdf": "https://inria.hal.science/inria-00433399/file/Chronique_EDB_23_2.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Florence Bruneseaux",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00436328",
+        "title": "Standardization of the formal representation of lexical information for NLP",
+        "date": "2013",
+        "pdf": "https://hal.science/hal-00436328/file/Chap99RomaryUnformatted.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "54505"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00438724",
+        "title": "Stabilizing knowledge through standards a perspective for the humanities",
+        "date": "2009",
+        "pdf": "https://inria.hal.science/inria-00438724/file/NobelSymposium-LR_June2009.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "56047",
+                    "95237"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00441215",
+        "title": "Representing human and machine dictionaries in Markup languages",
+        "date": "2013",
+        "pdf": "https://inria.hal.science/inria-00441215v2/file/Lemnitzer_Romary_Witt-HSK-Article-v2009-12-15_-_deformatted.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "105568"
+                ],
+                "name": "Lothar Lemnitzer",
+                
+                "halauthorid": "865518"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "105569"
+                ],
+                "name": "Andreas Witt",
+                
+                "halauthorid": "865519"
+            }
+        ]
+    },
+    {
+        "halid": "00441562",
+        "title": "Towards Interoperability of ISO Standards for Language Resource Management",
+        "date": "2010",
+        "pdf": "https://inria.hal.science/inria-00441562/file/LRMan_Lee-Romary_ICGL2010.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "105639"
+                ],
+                "name": "Kiyong Lee",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00460454",
+        "title": "Dictionnaires électroniques et normalisation - éléments de réflexion",
+        "date": "1997",
+        "pdf": "https://inria.hal.science/inria-00460454/file/Rapport.TLFI-Avril97.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00460457",
+        "title": "Informatisation du Dictionnaire Hydrographique International",
+        "date": "1997",
+        "pdf": "https://inria.hal.science/inria-00460457/file/DHI-rapportOct97.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Patrice Bonhomme",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00107515",
+        "title": "Acting on a visual world : the role of perception in multimodal HCI",
+        "date": "1998",
+        "pdf": "https://inria.hal.science/inria-00107515v2/file/AAAIBIS.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Frédéric Wolff",
+                "halauthorid": "756594",
+                "idref": "153615958"
+            },
+            {
+                "affiliations": [
+                    "2351",
+                    "15020"
+                ],
+                "name": "Antonella de Angeli",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00460678",
+        "title": "The Lingua Parallel Concordancing Project: Managing Multilingual Texts for Educational Purpose",
+        "date": "1994",
+        "pdf": "https://inria.hal.science/inria-00460678/file/Text.technology.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Nathalie Mehl",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "David Woolls",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00468100",
+        "title": "Mise en oeuvre d'un accès ouvert à des ressources linguistiques — bilan du projet Silfide et perspectives.",
+        "date": "1998",
+        "pdf": "https://inria.hal.science/inria-00468100/file/chapSilfide.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Jean-Marie Pierrel",
+                
+                "halauthorid": "3461",
+                "idref": "055774873"
+            }
+        ]
+    },
+    {
+        "halid": "00468494",
+        "title": "\"Mets ça ici\" où quand \"ici\" dépend de \"ça\". L'interprétation de \"ici\" dans les énoncés de positionnement.",
+        "date": "1996",
+        "pdf": "https://inria.hal.science/inria-00468494/file/ChapitreIciFinal.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00479847",
+        "title": "ISO-TimeML: An International Standard for Semantic Annotation",
+        "date": "2010",
+        "pdf": "https://inria.hal.science/inria-00479847/file/LREC-Final.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "115095"
+                ],
+                "name": "Pustejovsky James",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "105639"
+                ],
+                "name": "Kiyong Lee",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "74206"
+                ],
+                "name": "Harry Bunt",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00465197",
+        "title": "Comparing Repository Types - Challenges and barriers for subject-based repositories, research repositories, national repository systems and institutional repositories in serving scholarly communication",
+        "date": "2010",
+        "pdf": "https://inria.hal.science/inria-00465197v2/file/Armbruster_Romary_ComparingRepositories.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "41103"
+                ],
+                "name": "Chris Armbruster",
+                
+                "halauthorid": "861501"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00487747",
+        "title": "XML Translation Workflow",
+        "date": "2003",
+        "pdf": "https://inria.hal.science/inria-00487747/file/2003.09.The.XML.Translation.Workflow.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "102993"
+                ],
+                "name": "Jean Sénellart",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "24471",
+                    "187"
+                ],
+                "name": "Christian Boitet",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "56047"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00487748",
+        "title": "L'informatisation du Dictionnaire hydrographique international : normalisation et utilisation",
+        "date": "1998",
+        "pdf": "https://inria.hal.science/inria-00487748/file/TermMaritime98.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "56047"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Patrice Bonhomme",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "72742"
+                ],
+                "name": "Bessero Gilles",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00488852",
+        "title": "Langue, dialogue finalisé et cognition spatiale",
+        "date": "1997",
+        "pdf": "https://inria.hal.science/inria-00488852/file/chapLRBG-corr.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Bertrand Gaiffe",
+                
+                "halauthorid": "829863"
+            }
+        ]
+    },
+    {
+        "halid": "00489935",
+        "title": "The Reference Annotation Framework: A case for semantic content representation",
+        "date": "2005",
+        "pdf": "https://inria.hal.science/inria-00489935/file/iwcs-6.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "190838"
+                ],
+                "name": "Susanne Salmon-Alt",
+                
+                "halauthorid": "787987",
+                "idref": "144327929"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00490312",
+        "title": "GRISP: A Massive Multilingual Terminological Database for Scientiﬁc and Technical Domains",
+        "date": "2010",
+        "pdf": "https://inria.hal.science/inria-00490312/file/LREC-PLLR-2010.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Patrice Lopez",
+                
+                "halauthorid": "2984",
+                "idref": "157929930",
+                "orcid": "0000-0002-9959-9441"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00491642",
+        "title": "Modélisation de l'intention du locuteur au cours d'une recherche d'information",
+        "date": "1999",
+        "pdf": "https://inria.hal.science/inria-00491642/file/DuboisRomaryAnglade99.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Jean-Christophe Dubois",
+                "halauthorid": "762770",
+                "idref": "156353466"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "2513"
+                ],
+                "name": "Yolande Anglade",
+                "halauthorid": "762771",
+                "idref": "192734598"
+            }
+        ]
+    },
+    {
+        "halid": "00493437",
+        "title": "HUMB: Automatic Key Term Extraction from Scientiﬁc Articles in GROBID",
+        "date": "2010",
+        "pdf": "https://inria.hal.science/inria-00493437/file/article.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Patrice Lopez",
+                
+                "halauthorid": "2984",
+                "idref": "157929930",
+                "orcid": "0000-0002-9959-9441"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00510267",
+        "title": "Experiments with citation mining and key-term extraction for Prior Art Search",
+        "date": "2010",
+        "pdf": "https://inria.hal.science/inria-00510267/file/technote.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Patrice Lopez",
+                
+                "halauthorid": "2984",
+                "idref": "157929930",
+                "orcid": "0000-0002-9959-9441"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00511769",
+        "title": "Using the TEI framework as a possible serialization for LMF",
+        "date": "2010",
+        "pdf": "https://inria.hal.science/inria-00511769/file/NijmegenLexicaAugust2010.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00517052",
+        "title": "Curating academic publications — a perspective for research libraries",
+        "date": "2010",
+        "pdf": "https://inria.hal.science/inria-00517052/file/ALPSP-talk.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00518060",
+        "title": "MLIF: A Metamodel to Represent and Exchange Multilingual Textual Information",
+        "date": "2010",
+        "pdf": "https://inria.hal.science/inria-00518060/file/Paper-MLIF_LREC-2010_CEA-INRIA_25mars2010.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "35123"
+                ],
+                "name": "Samuel Cruz-Lara",
+                
+                "halauthorid": "6857",
+                "idref": "033638497"
+            },
+            {
+                "affiliations": [
+                    "55498"
+                ],
+                "name": "Gil Francopoulo",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "56047"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "40217"
+                ],
+                "name": "Nasredine Semar",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00521576",
+        "title": "Interprétation des énoncés langue+geste en situation de dialogue homme-machine",
+        "date": "1996",
+        "pdf": "https://inria.hal.science/inria-00521576/file/ExposA_.Cluny-avril96.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Nadia Bellalem",
+                
+                "halauthorid": "855219"
+            }
+        ]
+    },
+    {
+        "halid": "00521577",
+        "title": "Interprétation des énoncés langue+geste en situation de dialogue homme-machine.",
+        "date": "2000",
+        "pdf": "https://inria.hal.science/inria-00521577/file/Cluny-final-sept97-4HAL.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Nadia Bellalem",
+                
+                "halauthorid": "855219"
+            }
+        ]
+    },
+    {
+        "halid": "00521585",
+        "title": "Reference interpretation in a multimodal environment combining speech and gesture",
+        "date": "1995",
+        "pdf": "https://hal.science/hal-00521585/file/ReferenceInterpretation.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "129508"
+                ],
+                "name": "Nadia Bellalem",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "129508"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00521599",
+        "title": "Analyse cognitive d'expressions temporelles dans un dialogue homme-machine en langage naturel",
+        "date": "1989",
+        "pdf": "https://hal.science/hal-00521599/file/2428_001.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "133218"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "133218"
+                ],
+                "name": "Jean-Marie Pierrel",
+                
+                "halauthorid": "3461",
+                "idref": "055774873"
+            }
+        ]
+    },
+    {
+        "halid": "00521619",
+        "title": "Prédiction et vérification lexicale dans le cadre d'un dialogue oral homme-machine",
+        "date": "1988",
+        "pdf": "https://hal.science/hal-00521619/file/JEP88.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "133218",
+                    "26305"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "133218"
+                ],
+                "name": "Bernard Mangeol",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00521669",
+        "title": "Outils d'accès à des ressources linguistiques",
+        "date": "2000",
+        "pdf": "https://hal.science/hal-00521669/file/Chapitre8.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00521680",
+        "title": "Foundation of a Component-based Flexible Registry for Language Resources and Technolog",
+        "date": "2008",
+        "pdf": "https://inria.hal.science/inria-00521680/file/364_paper.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "120233"
+                ],
+                "name": "Daan Broeder",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "258630"
+                ],
+                "name": "Thierry Declerck",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "59192"
+                ],
+                "name": "Erhard Hinrichs",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "110738"
+                ],
+                "name": "Stelios Piperidis",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "26240"
+                ],
+                "name": "Nicoletta Calzolari",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "120233"
+                ],
+                "name": "Peter Wittenburg",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00521889",
+        "title": "Veins Theory: A Model of Global Discourse Cohesion and Coherence",
+        "date": "1998",
+        "pdf": "https://hal.science/hal-00521889/file/newColing8.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "101054"
+                ],
+                "name": "Dan Cristea",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "15025"
+                ],
+                "name": "Nancy Ide",
+                
+                "halauthorid": "833851"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00522004",
+        "title": "Télémédecine et Dialyse",
+        "date": "1999",
+        "pdf": "https://inria.hal.science/inria-00522004/file/BDP933.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "97424"
+                ],
+                "name": "Pierre-Yves Durand",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "97424"
+                ],
+                "name": "Jacques Chanliau",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "97424"
+                ],
+                "name": "Agnès Mariot",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "44280"
+                ],
+                "name": "Michèle Kessler",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "105170",
+                    "2406"
+                ],
+                "name": "Jean-Pierre Thomesse",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "2355"
+                ],
+                "name": "François Charpillet",
+                
+                "halauthorid": "1910",
+                "idref": "070140553",
+                "orcid": "0000-0001-8260-1536"
+            },
+            {
+                "affiliations": [
+                    "2406"
+                ],
+                "name": "Robert Hervy",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00525130",
+        "title": "A Contrastive Indexing Method and its Integration in Aquarelle Folders",
+        "date": "1997",
+        "pdf": "https://inria.hal.science/inria-00525130/file/Delos.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Patrice Bonhomme",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00525171",
+        "title": "The MATE meta-scheme for coreference in dialogues in multiple languages",
+        "date": "1999",
+        "pdf": "https://inria.hal.science/inria-00525171/file/W99-0309.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "129802"
+                ],
+                "name": "Massimo Poesio",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Florence Bruneseaux",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00525227",
+        "title": "A Framework for Multi-level Linguistic Annotation",
+        "date": "2000",
+        "pdf": "https://inria.hal.science/inria-00525227/file/lopez-romary.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Patrice Lopez",
+                
+                "halauthorid": "2984",
+                "idref": "157929930",
+                "orcid": "0000-0002-9959-9441"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00525250",
+        "title": "CES/XML : An XML-based Standard for Linguistic Corpora",
+        "date": "2000",
+        "pdf": "https://inria.hal.science/inria-00525250/file/xces.lrec00.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "15025"
+                ],
+                "name": "Nancy Ide",
+                
+                "halauthorid": "833851"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Patrice Bonhomme",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00525258",
+        "title": "Comprehensive Framework for MultiModal Meaning Representation",
+        "date": "2003",
+        "pdf": "https://inria.hal.science/inria-00525258/file/IWCS-AKLR-final3.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Ashwani Kumar",
+                
+                "halauthorid": "830161"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00526962",
+        "title": "Integration of Spatial and Temporal Information Produced by a Natural Language discourse",
+        "date": "1991",
+        "pdf": "https://inria.hal.science/inria-00526962/file/Kmet.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "129508"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00527799",
+        "title": "A model oriented approach to the mapping of annotation formats using standards.",
+        "date": "2010",
+        "pdf": "https://inria.hal.science/inria-00527799/file/ZipserRomary_final.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "118511",
+                    "95237"
+                ],
+                "name": "Florian Zipser",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "118511",
+                    "95237"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00531019",
+        "title": "Stabilizing knowledge through standards - A perspective for the humanities",
+        "date": "2011",
+        "pdf": "https://inria.hal.science/inria-00531019/file/NobelTextLR-MM.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00537302",
+        "title": "Back to meaning - information structuring in the PEER project",
+        "date": "2010",
+        "pdf": "https://inria.hal.science/inria-00537302/file/PEERBreakingNews.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2497"
+                ],
+                "name": "Foudil Bretel",
+                
+                "halauthorid": "882876"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Patrice Lopez",
+                
+                "halauthorid": "2984",
+                "idref": "157929930",
+                "orcid": "0000-0002-9959-9441"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Maud Medves",
+                
+                "halauthorid": "15656",
+                "orcid": "0000-0002-0624-1564",
+                "idref": "074697420"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00537742",
+        "title": "Eléments de convivialité dans un dialogue de commande multimodal",
+        "date": "1991",
+        "pdf": "https://inria.hal.science/inria-00537742/file/IHM.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "129508"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "129508"
+                ],
+                "name": "Bertrand Gaiffe",
+                "halauthorid": "763447",
+                "idref": "191811785"
+            },
+            {
+                "affiliations": [
+                    "129508"
+                ],
+                "name": "Jean-Marie Pierrel",
+                
+                "halauthorid": "3461",
+                "idref": "055774873"
+            }
+        ]
+    },
+    {
+        "halid": "00537845",
+        "title": "Outlining a scholarly workbench – publication and data as a continuum",
+        "date": "2010",
+        "pdf": "https://inria.hal.science/inria-00537845/file/eScidocDaysNov2010.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00544997",
+        "title": "Towards an ISO Standard for Dialogue Act Annotation",
+        "date": "2010",
+        "pdf": "https://inria.hal.science/inria-00544997/file/560_Paper.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "74206"
+                ],
+                "name": "Harry Bunt",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "258630"
+                ],
+                "name": "Jan Alexandersson",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "129802"
+                ],
+                "name": "Jean Carletta",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "105639"
+                ],
+                "name": "Jae-Woong Choe",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "135204"
+                ],
+                "name": "Alex Chengyu Fang",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "302425"
+                ],
+                "name": "Koiti 橋田 浩一 Hasida",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "105639"
+                ],
+                "name": "Kiyong Lee",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "74206"
+                ],
+                "name": "Volha Petukhova",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "74654"
+                ],
+                "name": "Andrei Popescu-Belis",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "26240"
+                ],
+                "name": "Claudia Soria",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "102994"
+                ],
+                "name": "David Traum",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00593677",
+        "title": "Scholarly Communication",
+        "date": "2012",
+        "pdf": "https://inria.hal.science/inria-00593677/file/Scientii_c_Communication-V2.0.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00593903",
+        "title": "[Tiger2/] Documentation",
+        "date": "2010",
+        "pdf": "https://inria.hal.science/inria-00593903v2/file/tiger2_documentation_20100525.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "95237"
+                ],
+                "name": "Amir Zeldes",
+                
+                "halauthorid": "901260"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Florian Zipser",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00646223",
+        "title": "Approach to the Creation of a Multilingual, Medical Interface Terminology",
+        "date": "2011",
+        "pdf": "https://inria.hal.science/hal-00646223/file/tia2011-11-10-refterm-proceedings-2col_2_.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "457493",
+                    "175582"
+                ],
+                "name": "Joseph Roumier",
+                
+                "halauthorid": "928107"
+            },
+            {
+                "affiliations": [
+                    "175583"
+                ],
+                "name": "Robert Vander Stichele",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "175694"
+                ],
+                "name": "Elena Cardillo",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00650597",
+        "title": "Towards International Standards for Language Resources",
+        "date": "2007",
+        "pdf": "https://inria.hal.science/hal-00650597/file/Elsnet.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "15025"
+                ],
+                "name": "Nancy Ide",
+                
+                "halauthorid": "833851"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00659856",
+        "title": "TEI-based representation of the PEER metadata profile",
+        "date": "2012",
+        "pdf": "https://inria.hal.science/hal-00659856/file/PEER_metadata_profile.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Maud Medves",
+                
+                "halauthorid": "15656",
+                "orcid": "0000-0002-0624-1564",
+                "idref": "074697420"
+            }
+        ]
+    },
+    {
+        "halid": "00630289",
+        "title": "Data formats for phonological corpora",
+        "date": "2012",
+        "pdf": "https://inria.hal.science/inria-00630289v2/file/PhonologicalCorpora_LR_AW_final.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "105569"
+                ],
+                "name": "Andreas Witt",
+                
+                "halauthorid": "865519"
+            }
+        ]
+    },
+    {
+        "halid": "00680193",
+        "title": "Data management in the humanities",
+        "date": "2012",
+        "pdf": "https://inria.hal.science/hal-00680193/file/ERCIMNews-LR.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00680230",
+        "title": "Etienne Brunet, Ce qui compte - Ecrits choisis, tome II",
+        "date": "2012",
+        "pdf": "https://inria.hal.science/hal-00680230/file/Etienne_Brunet.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00721871",
+        "title": "A cognitive model for the representation of time in a man-machine dialogue.",
+        "date": "1989",
+        "pdf": "https://inria.hal.science/hal-00721871/file/ArticleZTAnglaisOCR.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "130529",
+                    "26305"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "130529"
+                ],
+                "name": "Jean-Marie Pierrel",
+                
+                "halauthorid": "3461",
+                "idref": "055774873"
+            }
+        ]
+    },
+    {
+        "halid": "00723349",
+        "title": "Collaborative Machine Translation Service for Scientific texts",
+        "date": "2012",
+        "pdf": "https://inria.hal.science/hal-00723349/file/Cosmat-EACL.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "117974"
+                ],
+                "name": "Patrik Lambert",
+                
+                "halauthorid": "880460"
+            },
+            {
+                "affiliations": [
+                    "102993"
+                ],
+                "name": "Jean Senellart",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "117974"
+                ],
+                "name": "Holger Schwenk",
+                
+                "halauthorid": "910684"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Florian Zipser",
+                
+                "halauthorid": "904964"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Patrice Lopez",
+                
+                "halauthorid": "2984",
+                "idref": "157929930",
+                "orcid": "0000-0002-9959-9441"
+            },
+            {
+                "affiliations": [
+                    "102993",
+                    "225"
+                ],
+                "name": "Frédéric Blain",
+                "halauthorid": "766712",
+                "idref": "184304822"
+            }
+        ]
+    },
+    {
+        "halid": "00728779",
+        "title": "Textual summarisation of flowcharts in patent drawings for CLEF-IP 2012",
+        "date": "2012",
+        "pdf": "https://inria.hal.science/hal-00728779/file/clef-ip-2012-flow.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Andrew Thean",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Jean-Marc Deltorn",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Patrice Lopez",
+                
+                "halauthorid": "2984",
+                "idref": "157929930",
+                "orcid": "0000-0002-9959-9441"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00704511",
+        "title": "Consistent modelling of heterogeneous lexical structures",
+        "date": "2012",
+        "pdf": "https://inria.hal.science/hal-00704511v2/file/25-237-1-CE_-_1.0_2012-09-16_-_LR_WW.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "309384"
+                ],
+                "name": "Werner Wegstein",
+                
+                "halauthorid": "925916"
+            }
+        ]
+    },
+    {
+        "halid": "00735753",
+        "title": "PEER D2.2 Final report on the provision of usage data and manuscript deposit procedures for publishers and repository managers",
+        "date": "2009",
+        "pdf": "https://inria.hal.science/hal-00735753/file/PEER_D2_2_20091028_v5.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "203762"
+                ],
+                "name": "Barbara Bayer-Schur",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "203447"
+                ],
+                "name": "Foudil Bretel",
+                
+                "halauthorid": "882876"
+            },
+            {
+                "affiliations": [
+                    "41103"
+                ],
+                "name": "Natasa Bulatovic",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "203788"
+                ],
+                "name": "Gabriella Harangi",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "1065644"
+                ],
+                "name": "Wolfram Horstmann",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "41103"
+                ],
+                "name": "Friederike Kleinfercher",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "203761"
+                ],
+                "name": "Rianne Koning",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "203789"
+                ],
+                "name": "Vilius Kuciukas",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "203762"
+                ],
+                "name": "Marianna Mühlhölzer",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "203762"
+                ],
+                "name": "Dale Peters",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "61197"
+                ],
+                "name": "Jochen Schirrwagen",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "55270"
+                ],
+                "name": "Maurice Vanderfeesten",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00757452",
+        "title": "Constraints on the Use of Language, Gesture and Speech for Multimodal Dialogues",
+        "date": "1997",
+        "pdf": "https://inria.hal.science/hal-00757452/file/W97-1413.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Bertrand Gaiffe",
+                
+                "halauthorid": "829863"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00765413",
+        "title": "[tiger2] As a standardized serialisation for ISO 24615 - SynAF",
+        "date": "2012",
+        "pdf": "https://inria.hal.science/hal-00765413/file/TLT-SynAF2-Tiger2-1.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "221511"
+                ],
+                "name": "Sonja Bosch",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "160750"
+                ],
+                "name": "S. K. Choi",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "54505"
+                ],
+                "name": "Éric Villemonte de La Clergerie",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "135204"
+                ],
+                "name": "Alex Chengyu Fang",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "221512"
+                ],
+                "name": "Gertrud Faass",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "105639"
+                ],
+                "name": "Kiyong Lee",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "97983"
+                ],
+                "name": "Antonio Pareja-Lora",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "105569"
+                ],
+                "name": "Andreas Witt",
+                
+                "halauthorid": "865519"
+            },
+            {
+                "affiliations": [
+                    "95237"
+                ],
+                "name": "Amir Zeldes",
+                
+                "halauthorid": "901260"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Florian Zipser",
+                
+                "halauthorid": "904964"
+            }
+        ]
+    },
+    {
+        "halid": "00769199",
+        "title": "A combined onomasiological and semasiological approach to the development of a comprehensive interface terminology for information storage and retrieval in primary health care",
+        "date": "2012",
+        "pdf": "https://inria.hal.science/hal-00769199/file/CISP_2012_MERITERM_PRESENTATION-jr_ELENA_LAURENT_ELE.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "175583"
+                ],
+                "name": "Robert Vander Stichele",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "210442"
+                ],
+                "name": "Marc Jamoulle",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "175694"
+                ],
+                "name": "Elena Cardillo",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "457493",
+                    "175582"
+                ],
+                "name": "Joseph Roumier",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "332983"
+                ],
+                "name": "Erik van Nimwegen",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "131302"
+                ],
+                "name": "Maxime Warnier",
+                
+                "halauthorid": "11335",
+                "orcid": "0000-0002-0742-2228",
+                "idref": "241734053"
+            }
+        ]
+    },
+    {
+        "halid": "00770623",
+        "title": "Future Developments for TEI ODD",
+        "date": "2012",
+        "pdf": "https://inria.hal.science/hal-00770623/file/Abstract.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "210783"
+                ],
+                "name": "James Cummings",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "210783"
+                ],
+                "name": "Sebastian Rahtz",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "210784"
+                ],
+                "name": "Lou Burnard",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "210785"
+                ],
+                "name": "Syd Bauman",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "190838"
+                ],
+                "name": "Betrand Gaiffe",
+                
+                "halauthorid": "841458"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "105569"
+                ],
+                "name": "Piotr Banski",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00801439",
+        "title": "Beyond Infrastructure -- Modelling Scholarly Research and Collaboration",
+        "date": "2013",
+        "pdf": "https://inria.hal.science/hal-00801439/file/DH2013DM2EProposal.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "22205"
+                ],
+                "name": "Susan Schreibman",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "217279"
+                ],
+                "name": "Stefan Gradmann",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "217279"
+                ],
+                "name": "Steffen Hennicke",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "327716"
+                ],
+                "name": "Tobias Blanke",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "1065644"
+                ],
+                "name": "Sally Chambers",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "217280"
+                ],
+                "name": "Alastair Dunning",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "217281"
+                ],
+                "name": "Jonathan Gray",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "1065644"
+                ],
+                "name": "Gerhard Lauer",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "1342"
+                ],
+                "name": "Alois Pichler",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "51528"
+                ],
+                "name": "Jürgen Renn",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "217282"
+                ],
+                "name": "Christian Morbidoni",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "258630"
+                ],
+                "name": "Felix Sasaki",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "300875"
+                ],
+                "name": "Claire Warwick",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00853293",
+        "title": "Academic Publishing: New Opportunities for the Culture of Supply and the Nature of Demand",
+        "date": "2013",
+        "pdf": "https://inria.hal.science/hal-00853293/file/Scholarly_Publishing_Demand_side_issues.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "229765"
+                ],
+                "name": "Jennifer Edmond",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00854014",
+        "title": "Wissenschaftliche Arbeit und Open Access",
+        "date": "2013",
+        "pdf": "https://inria.hal.science/hal-00854014/file/ArtikelGegenWorte.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00912653",
+        "title": "Technologies, services and user expectations--Prospects for DARIAH",
+        "date": "2013",
+        "pdf": "https://inria.hal.science/hal-00912653/file/Dariah2-layout.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00913691",
+        "title": "DARIAH: Advancing a digital revolution in the arts and humanities across Europe",
+        "date": "2014",
+        "pdf": "https://inria.hal.science/hal-00913691/file/eData_Research_DARIAH.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "1065644"
+                ],
+                "name": "Sally Chambers",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00922068",
+        "title": "Modelling frequency data -- Methodological considerations on the relationship between dictionaries and corpora",
+        "date": "2013",
+        "pdf": "https://inria.hal.science/hal-00922068/file/tei_rome_abstract.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "300742"
+                ],
+                "name": "Gerhard Budin",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "240131"
+                ],
+                "name": "Karlheinz Mörth",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00922750",
+        "title": "Data models and the (blind ?) query of lexical resources",
+        "date": "2013",
+        "pdf": "https://inria.hal.science/hal-00922750/file/ModelsAndQueries.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511",
+                    "84774"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00950862",
+        "title": "TBX goes TEI -- Implementing a TBX basic extension for the Text Encoding Initiative guidelines",
+        "date": "2014",
+        "pdf": "https://inria.hal.science/hal-00950862v2/file/ArticleTBXinTEI.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511",
+                    "84774"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00959841",
+        "title": "EAG(CENDARI): customising EAG for research purposes",
+        "date": "2013",
+        "pdf": "https://inria.hal.science/hal-00959841v2/file/EAGpaperDublin-final.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511"
+                ],
+                "name": "Maud Medves",
+                
+                "halauthorid": "15656",
+                "orcid": "0000-0002-0624-1564",
+                "idref": "074697420"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511",
+                    "84774"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00098819",
+        "title": "A contextual analysis of referring gestures",
+        "date": "1999",
+        "pdf": "https://inria.hal.science/inria-00098819/file/p199-wolff.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Frédéric Wolff",
+                
+                "halauthorid": "835298"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00098868",
+        "title": "Silfide: A System for Open Access and Distributed Delivery of TEI Encoded Documents",
+        "date": "1999",
+        "pdf": "https://inria.hal.science/inria-00098868/file/CHUMSilfide-em.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Patrice Bonhomme",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Florence Bruneseaux",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Jean-Marie Pierrel",
+                
+                "halauthorid": "3461",
+                "idref": "055774873"
+            }
+        ]
+    },
+    {
+        "halid": "00098880",
+        "title": "A general XML-based distributed software architecture for accessing and sharing ressources",
+        "date": "1999",
+        "pdf": "https://inria.hal.science/inria-00098880/file/XmlFinlandeFinal.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Samuel Cruz-Lara",
+                
+                "halauthorid": "6857",
+                "idref": "033638497"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Patrice Bonhomme",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Christophe de Saint-Rat",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00098949",
+        "title": "Le projet européen DHYDRO : la normalisation à l'épreuve d'un forum terminologique",
+        "date": "1999",
+        "pdf": "https://inria.hal.science/inria-00098949/file/AETdhydro.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "83784"
+                ],
+                "name": "D. Blampain",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "83784"
+                ],
+                "name": "Sylviane Descotte",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Jean-Luc Husson",
+                
+                "halauthorid": "835344"
+            },
+            {
+                "affiliations": [
+                    "97434"
+                ],
+                "name": "Hans Rohde",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "83784"
+                ],
+                "name": "Marc van Campenhoudt",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Nadia Viscogliosi",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00991745",
+        "title": "Méthodes pour la représentation informatisée de données lexicales/Methoden der Speicherung lexikalischer Daten",
+        "date": "2014",
+        "pdf": "https://inria.hal.science/hal-00991745/file/5-Romary-Witt-2014-05-15_MM-SS-LR-AW.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511",
+                    "84774"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "105569"
+                ],
+                "name": "Andreas Witt",
+                
+                "halauthorid": "865519"
+            }
+        ]
+    },
+    {
+        "halid": "00991842",
+        "title": "Le chemin de l'Agence -- Pointillés de synchronisations",
+        "date": "2014",
+        "pdf": "https://inria.hal.science/hal-00991842/file/Arabesques_Mai-2014.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "207728"
+                ],
+                "name": "Jacques Millet",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "95237",
+                    "118511",
+                    "84774"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00099209",
+        "title": "Du document électronique à son usage : le rôle central de la normalisation",
+        "date": "2000",
+        "pdf": "https://inria.hal.science/inria-00099209/file/solarisfinal.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "7776"
+                ],
+                "name": "Jean-Luc Benoit",
+                
+                "halauthorid": "835364"
+            },
+            {
+                "affiliations": [
+                    "7776"
+                ],
+                "name": "Charles Bernet",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Patrice Bonhomme",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Nadia Viscogliosi",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00992220",
+        "title": "Sustainable data for sustainable infrastructures",
+        "date": "2014",
+        "pdf": "https://inria.hal.science/hal-00992220/file/Romary_HAL.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "95237",
+                    "118511",
+                    "84774"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    },
+    {
+        "halid": "00099351",
+        "title": "Specialized lexicography by means of a conceptual data base: establishing the format for a multilingual marine dictionary",
+        "date": "2000",
+        "pdf": "https://inria.hal.science/inria-00099351/file/dhydrolex.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Jean-Luc Husson",
+                
+                "halauthorid": "835344"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Nadia Viscogliosi",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            },
+            {
+                "affiliations": [
+                    "83784"
+                ],
+                "name": "Sylviane Descotte",
+                "halauthorid": "0"
+            },
+            {
+                "affiliations": [
+                    "83784"
+                ],
+                "name": "Marc van Campenhoudt",
+                "halauthorid": "0"
+            }
+        ]
+    },
+    {
+        "halid": "00099390",
+        "title": "Questioning Indefinites in Dialogues",
+        "date": "2000",
+        "pdf": "https://inria.hal.science/inria-00099390/file/daarc-3.pdf",
+        "authors": [
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Susanne Salmon-Alt",
+                
+                "halauthorid": "787987",
+                "idref": "144327929"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Bertrand Gaiffe",
+                
+                "halauthorid": "829863"
+            },
+            {
+                "affiliations": [
+                    "2351"
+                ],
+                "name": "Laurent Romary",
+                
+                "halauthorid": "307",
+                "arxiv": "romary_l_1",
+                "researcherid": "A-5114-2012",
+                "idref": "060702494",
+                "orcid": "0000-0002-0756-0508",
+                "viaf": "282014122",
+                "isni": "0000000388795444"
+            }
+        ]
+    }
+]

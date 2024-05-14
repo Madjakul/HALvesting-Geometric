@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A new method for interoperability between lexical resources using MDA approach</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Malek</forename><surname>Lhioui</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Kais</forename><surname>Haddar</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<title level="a" type="main">A new method for interoperability between lexical resources using MDA approach</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">92A8A89D42DBEF601F59791CD399E9DC</idno>
+					<note type="submission">Submitted on 30 Jul 2016 Distributed under a Creative Commons Attribution| 4.0 International License</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>lexical resources</term>
+					<term>interoperability</term>
+					<term>MDA approach</term>
+					<term>OWL ontology</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>NLP Applications typically require interoperability because they generally need the same linguistic resources. Exchanging information between lexical resources, having different representation formalisms, is difficult. Thus, ancient resources may need to change over time. In addition to that, the transformation process from one format to another is not guaranteed all over the time. The built method allows constructing a pivot format for involved lexical resources with no prior restriction. A challenge that NLP communities confronts is the disappearing of several old representation formalisms after long periods of development. This method will easily protect several resources from disappearing. So, several formalisms will continue to persist. Thus projects, which require merging several formalisms in the same application, will prefer to use our method. In fact, it allows using the number of formalisms one wants. We use MDA (Model Driven Architecture) transformation approach because of its great interest in areas handling heterogeneous knowledge. In fact, if even a current version of a used standard (LMF for example) is not yet stable or a new version is born, MDA approach ensures enrichment and not destruction of the current version.</p><p>Building a new method for interoperability between lexical resources may face large problems. The first difficulty resides on how to choose an optimal strategy for interoperability between these resources: algebraic specifications, alignment ontology techniques, Meta modeling, etc. In addition to that, the choice of the ontology representation language (RDF(S), OWL-Lite and OWL-DL) is also a crucial dilemma. In addition to that, the construction of meta-models and models in MDA approach requires a big cognition of the involved lexical resources. Moreover, transformation rules have to be so definite.</p><p>The paper presents a new method strictly founded to resolve interoperability between lexical resources (LRs) using the well-known MDA Transformation approach. Indeed, we attempt to find compulsory techniques in order to establish a method for interoperability between lexical resources whatever their formats (LMF, TEI, HPSG…). The method consists on building a pivot format by making an automatic mapping process between involved lexical resources. The target building format plays the role of the pivot. In order to build this pivot format, we have to succeed to fulfill a set of steps. We construct OWL-DL ontology for lexical resources: construction of meta-model associated to lexical resource, construction of the ATL transformation and deduction of OWL-DL model. Thus, applying these steps, we build a new format for involving lexical resources.</p><p>The originality of this method is that there are no previous works aiming to make interoperability between lexical resources operable. Moreover, the use of MDA approach for resolving interoperability between lexical resources is in itself an innovation. Projects and NLP applications today must rely on interoperability; otherwise they are out of progress. In this context, an article named TAUS (TAU, 2011) declares that: "The lack of interoperability costs the translation industry a fortune". As a matter of fact, this fortune is compensated mostly in order to adjust data formats. In addition, our method is operable whatever the language.</p><p>In the following sections, we introduce a brief state of the art in order to give a global idea about existing works related to our topic. Then, we explain precisely our proposed method for resolving the interoperability issue between lexical resources. We apply, in the next section, the new proposed method to LMF lexicon. Finally, we conclude with a small discussion for the obtained results.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>State of the art</head><p>The state of the art provides an important idea about existing works regardless of the language. There have been several works dealing with the use of MDA transformation approach for the processing of several applications. However, there is no use of the MDA approach for the processing of interoperability between lexical resources. Yet, this approach ensures interoperability according to the OMG "Portability and interoperability are built into the architecture"<ref type="foot" target="#foot_0">1</ref> . Since there are many related topics, we classify the state of the art into three main parts: lexical resources, MDA Transformation and interoperability issue. The first part gives an idea about existing lexical resources regardless the language. We give examples of lexical resources in several languages such as Arabic. In the second part, we talk about MDA as a great method for transformation models. The last part deals with interoperability issue, and since there are no serious attempts to resolve this notion in NLP area, we will discuss the bidirectional mapping from one format to another.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Lexical resources</head><p>Lexical resources vary in accordance with the need of linguistics and this requirement varies with the NLP community development progress. This process makes the resources more complex and heterogeneous. In the literature, existing lexical resources are innumerable. We can concentrate on some of them. In the 1980ies SGML markup language was created as the first formalism representation of linguistic data. Early in the following century, several markup languages have been invented by the Text Encoding Initiative (TEI) <ref type="bibr" target="#b15">(Wörner et al., 2006)</ref>. After years and exactly in 2003, a new standard named LMF was born due to efforts provided by the community of NLP <ref type="bibr">(Francopolou, 2013)</ref>. Speech is one of the several areas of NLP domain. This area includes several representation formalisms as well as the other areas. For example, EXMARaLDA is one of these formalisms. It represents spoken interaction with an annotation graph <ref type="bibr">(Bird &amp; Lieberman, 1999)</ref>. Other formalisms in this context was born such as ELAN, TASX, Praat and ANVIL. They are efficient for multimodal annotation. In the same context, there are formalisms that include several heterogeneous resource structures. The well known example for that is Tusnelda. It is inspired typically from the work of TEI <ref type="bibr" target="#b13">(Wagner and Zeisler, 2004)</ref>. There are other formalisms which take care of various linguistic levels (phonology, morphology, syntax, semantic, etc.) <ref type="bibr" target="#b6">(Ide and Romary, 2001)</ref>. Thus, from an historical point of view, there is a large number of heterogeneous resources which inducing the question of transformation. This notion is the subject of the next subsection.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">MDA Transformation</head><p>MDA Transformation is an approach proposed by OMG <ref type="bibr" target="#b11">(Poole, 2001)</ref> in 2001. It is increasingly used in several applications and projects whatever their kind. It consists on using different models phases. It allows interoperability between applications by connecting their models <ref type="bibr">(Accord, 2002)</ref>. It supported evaluation and decreased manually implementation of hundred of codes for a specific domain by separating conception from implementation <ref type="bibr" target="#b9">(Miller and Mukerji, 2001)</ref>. The implementation of MDA requires three main levels: MOF (Meta-Object Facility) defines the platform for implanting all models (OMG/MOF, 1997). PIM (Plateform Independant Model) which serves as a basis for the business part specification of an application, PSM (Plateform Specific Model) which participates in the specification model creation of the application after projection on a platform. The major advantage of this approach apart from time saving is preoccupations separation and the transformation process. This transformation allows mapping from PIMs to PSMs using modules described in specific languages such as ATL. ATL (Atlas Transformation Language) is a language providing rules allowing transformation from source to target models. Since this approach allows interoperability between applications, it leads us to think about making evident interoperability between models. Thus, we introduce in the following subsection interoperability notion in general.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2.3</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Interoperability issue</head><p>Interoperability is the substitution, merging and sharing knowledge between different entities whatever their kind. NLP community replaces these terms by only one term which is communication. Thus, interoperability allows communication between involved entities. Interoperability is a general notion that can be projected to many domains. In this paper, we interested to interoperability between lexical resources. Lexical resources are more and more multiplatform, multi-providers… and these characteristics are increased by the time, so that, interoperability becomes hard even impractical to achieve between lexical resources. These last suffer from several interoperability issues. For example the definition of procedures to implement a set of services in NLP applications (machine translation, named entity recognition, part of speech tagging) shall be made through LMF by ISO, TEI by TEI Consortium and HPSG by linguistics… This leads to interoperability problems when experts have to collaborate. Thus, information technology professionals consider that interoperability is an important criterion as well as security and reliability in their applications. From an historical point of view, there are no significant efforts resolving interoperability between lexical resources. Yet, there are several challenges consisting on mapping from one format to another. The first mapping attempt is done by (Wilcock, 2007) consisting on converting HPSG lexicons to an OWL ontology. In 2010, Loukil has expanded these processes by inventing a rule-based system opting to translate LMF syntactic lexicon into TDL within the LKB platform <ref type="bibr" target="#b8">(Loukil et al., 2010)</ref>. (Haddar et al, 2012) have developed a prototype for projection HPSG syntactic lexica towards LMF. In the same context, there is a mapping process already done by <ref type="bibr" target="#b7">(Lhioui et al., 2015)</ref> aiming to convert LMF lexicons to ontologies described on OWL-DL language. Bidirectional processes are usually limited to involved formats. Whatever we desire to involve more than two formalisms, processing became hard and impossible to achieve even if we use several properties such as transitivity. For these reasons and in order to attenuate task complexity of mapping process, several organizations such as ISO give a quick solution but not efficient for interoperability using normalization. In fact, Lexical Markup Framework (LMF) is one of these solutions proposed by the ISO in 2003 (Francpolou, 2013). It involves several packages aiming to cover the maximum of the large domains: phonology, morphology, syntactic, semantic, pragmatic, etc. Other researchers have used another tool for resolving interoperability which is ontologies. A famous example of these works is the General Ontology for Linguistic Description (GOLD) <ref type="foot" target="#foot_1">2</ref> . GOLD is an OWL ontology having specific knowledge related to linguistic domain. The GOLD ontology contains the basis linguistic knowledge of any theoretical framework. According to <ref type="bibr" target="#b3">(Farrar and Lewis, 2005)</ref>, GOLD defines linguistic knowledge as axioms, for example "a verb is a part of speech", and uses at the same time language neutral, for example "parts of speech are subclasses of gold: GrammaticalUnit". The classes are presented in the protégée editor and then expressed as concepts in the GOLD ontology <ref type="bibr" target="#b2">(Farrar and Langendoen, 2003)</ref>. Thus, GOLD is an abstract model and representation formalisms such as HPSG are the instantiation of this abstract model. <ref type="bibr" target="#b3">(Farrar and Lewis, 2005</ref>) consider these instantiations as sub-communities of practice noted Communities Of Practice Extension (COPEs). COPEs, sub-communities or sub-ontologies designed the same nomenclature and extend the overall GOLD ontology <ref type="bibr" target="#b14">(Wilcock, 2007)</ref>. The integration of these COPEs in the GOLD ontology is a hard process and necessitates different mechanisms of ontology alignment. In the next subsection, we try to give an idea for techniques of ontologies alignment. All these notions will be strongly correlated to introduce our approach. In the following section, we define a new approach for interoperability between lexical resources using MDA Transformation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Proposed method</head><p>The new build method is based on MDA Transformation approach. This approach is well-known and has proved its importance in guaranteeing reusability. This characteristic is crucial since it makes projects up to date. The proposed method is characterized by the ability to allow involved lexical resources to operate together. The new introduced method has as input a set of lexical resources. Lexical resources are composed of a set of lexicons such as LMF lexicon. It consists of three main steps. The first one is the achievement of the two independent models PIM (source and target) and the source PSM of each LR. The second is the achievement of the transformation module in ATL and finally, the generation of the specific model PSM (OWL-DL in our case). The output of the proposed method is a set of ontologies which can operate together using several algorithms or free tools of alignment. In fact, the use of ontologies as an output is the keystone of our method. Ontology structures allow merging, comparing, finding correspondences, finding correspondences and deducing differences between lexical resources due to the tools of ontology alignment. Fig. <ref type="figure" target="#fig_0">1</ref> describes the whole process of the proposed method. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>OWL-DL ontologies</head><p>The full schema of the proposed method will be explained carefully by examination of each step separately. In fact, MDA Transformation of the LRs to OWL ontologies is a crucial step in our method. The main idea of this step is to distinguish functional specifications from specifications of implementation related to a given platform in order to prepare structures able to operate together (in our case ontologies able to be aligned and then interacted). Thus, using MDA as an approach will make us able to elaborate independent specifications from the implementation in a specific platform using models. The first model to build is the PIM. The PIM is the model conceived to specify involved structures independently from any specific platform. This characteristic allows us abstracting functionalities of the involved lexical resource and to compare it to other resources. If the lexical resource is updated, the associated PIM will never be destroyed, but, it will be refined as many times as possible; this makes one of the most advantages of the MDA approach when resolving interoperability issue. Fig. <ref type="figure" target="#fig_1">2</ref> summarized the MDA Transformation in general: MMS2MMT.atl includes the set of transformation rules. This method is composed of three sub-steps as we have mentioned below: Achievement of the two independent models PIM (source and target) of each LR, the achievement of the transformation module in ATL and the generation of the specific model PSM (OWL-DL in our case).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Achievement of the two independent models PIM (source and target) of each LR and source PSM</head><p>The achievement of the first independent model PIM of the source is concluded from the lexical resource. PIM is a model independent to any plateformes or technologies and describes the heart of the method. It is represented in UML (Unified Modeling Language) with OCL (Object Constraint Language) constraints if exist. This model defines all functionalities of the given lexical resource described in an abstract manner. The PIM model ensures analysis and design of applications. At this step, the de-MOF MMS ATL MMT</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>MMS2MMT.atl MS MT</head><p>sign phase of the process involves the application of design pattern, partition into modules and sub-modules, etc. This PIM allows making available a structural and dynamic vision of the application without recourse to the technical design of the application. Therefore, a model (in our case the PIM) is essentially defined by a set of concepts and their relationships presented in a class diagram.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Achievement of the transformation module in ATL</head><p>The achievement of the transformation module in ATL ensures transition from one model (source) to another (target). Modules transformations based on meta-models constitute the main step of the MDA. In fact, a transformation model corresponds to a function taking a set of input models and finding a set of output models. The models, in and out, respect their meta-models previously built. The transformation uses the model manipulation API. In order to carry out the transformation between the two involved models, we define a set of transformation rules which are expressed in ATL language allowing the passage from the source PIM to the target. There are three different manners to model transformation in general: programming approach, template approach and modeling approach. The first one is based on object-oriented languages.</p><p>It is to program a transformation model as well as a computer application. The second consists to define templates models and then replace them with their equivalent values in source models. The last one models transformation rules using MDA approach.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Generation of the specific model PSM (OWL-DL).</head><p>After achievement of the PIM model (source and target) and elaborating rules allowing the passage from the source PIM to the target, we project the source PIM to a specific model PSM (Platform Specific Model). In order to generate the target PSM, we execute the ATL rules, then, we obtain automatically the target PSM. In fact, PSM is closest to the final code. It is related to a particular platform.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Implantation: Transformation of LMF lexicon to OWL-DL ontology using MDA approach</head><p>In this section, we present the steps of the cited method applied to LMF lexicon: the two PIMs (source: LMF, target: OWL), the transformation rules and the two PSMs. Fig. <ref type="figure" target="#fig_2">3</ref> represents the source PIM of the core model of the following extract of LMF lexicon developed using Eclipse Galileo:</p><p>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;LexicalResource dtdVersion="16"&gt; &lt;GlobalInformation&gt; &lt;feat att="languageCoding" val="ISO 639-3" /&gt; &lt;feat att="scriptcoding" val="ISO 15 924" /&gt; &lt;/GlobalInformation&gt; &lt;Lexicon&gt; &lt;feat att="language" val="arabic" /&gt; &lt;LexicalEntry morphologiquePatterns=" ‫ل‬ ‫م‬ ‫ر‬ ‫ّي‬ ‫د‬ "&gt; &lt;feat att="partOfSpeech" val="verb" /&gt; &lt;feat att="root" val=" ‫ن‬ _ ‫ق‬ _ ‫ل‬ " /&gt; &lt;feat att="scheme" val=" َ ‫ل‬ َ َ " /&gt; &lt;/LexicalEntry&gt; &lt;/Lexicon&gt; &lt;/LexicalResource&gt; The build PIM can be refined as well as possible if the lexical resource (LMF lexicon) is updated. After building the source model, we have now obliged to build the target PIM of this lexical resource. Since we need to construct OWL-DL ontologies, we build a PIM for OWL-DL ontologies. Fig. <ref type="figure" target="#fig_3">4</ref> represents the target PIM for the previous lexical resource (LMF lexicon):  <ref type="figure">----------------------------Ontology----------------------------------</ref> These transformation rules create an OWL PSM for the LMF lexicon of Fig. <ref type="figure" target="#fig_1">2</ref> which is an ontology described in OWL language. These rules are stored in an ATL file. Finally, fig. <ref type="figure" target="#fig_3">4</ref> represents this target PSM created automatically when executing the ATL file of the LMF Lexicon presented in Fig. <ref type="figure" target="#fig_1">2:</ref> &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt; &lt;xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="owl"&gt; &lt;Ontology ontologyI-RI="http://www.semanticweb.org/asus/ontologies/2016/2/"/&gt; &lt;Prefix name="rdf" IRI="http://www.w3.org/1999/02/22rdf-syntax-ns#"/&gt; &lt;Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/&gt; &lt;Declaration&gt;&lt;class IRI="#LexicalResource"/&gt; &lt;/Declaration&gt; &lt;Declaration&gt; &lt;class IRI="#GlobalInformation"/&gt;&lt;/Declaration&gt; &lt;Declaration&gt;&lt;class IRI="#Lexicon"/&gt;&lt;/Declaration&gt; &lt;Declaration&gt;&lt;class IRI="#LexicalEntry"/&gt;&lt;/Declaration&gt;&lt;/xmi:XMI&gt; This output describes an ontology which is created automatically by a quick processing of the output of PSM. The processing consists of the removal of the "xmi" prefix since it is an automatic output of the ATL transformation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Discussions</head><p>The new built method has proved its interest in handling heterogeneous resources. The evaluation process has been successfully led by fixing three criterions: sustainability of expertise, productivity gains and inclusion of execution platforms. The first criterion (sustainability of expertise) affects two characteristics. The first one supervises lifetime of the built models (PIM and PSM). The models must have a lifetime greater than the code. This is guaranteed by the unrestricted refinement of models.</p><p>The second characteristic provides modeling languages supporting different levels of abstraction. This point is guaranteed by the fact that UML and OCL support abstraction. The second criterion concerns productivity gains. In fact, the automation operations of models guarantee the productivity gain. Moreover, the built method facilitates the creation of operations of production on the models. The last criterion concerns the taking into account of the execution platforms. This stage is explicit in the life cycle of applications. MDA approach guarantees this characteristic as platforms are related to models. These aspects make the method very robust. The other important aspect in the built method is that the transformation process is done automatically.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conclusion</head><p>In this paper, we have proposed a new method for interoperability between interoperability using MDA approach. This new method allows merging, comparing, finding correspondences, finding correspondences and deducing differences between lexical resources. Then, we implement the method by projection on LMF. Our method is reusable and generic, and operable on all lexical resources whatever the language. Our method is generated automatically. In future works, we have to extend our method using the alignment of the building ontologies. In fact, if we combine MDA Transformation and ontology alignment, interoperability appears to be quite suitable. Therefore, combining these two approach MDA Transformation and ontology alignment for this study seems to have promising results.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Steps of the proposed method</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. : MDA Transformation of the LRs to OWL ontologies Fig. 2 describes the ATL transformation in the MDA approach. MOF is the metameta model. MMS and MMT designate respectively the meta-model source and the meta-model target. MS and MT denote respectively model source and model target.MMS2MMT.atl includes the set of transformation rules. This method is composed of three sub-steps as we have mentioned below: Achievement of the two independent models PIM (source and target) of each LR, the achievement of the transformation module in ATL and the generation of the specific model PSM (OWL-DL in our case).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. The associated source PIM of the below extract of LMF lexicon</figDesc><graphic coords="9,162.60,147.36,269.88,99.24" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. The associated target PIM of the below extract of LMF lexicon Fig. 4 defines the independent model of OWL ontologies which is related to the given lexical resource. It represents the class "Ontology" which presents the root, the prefixes which are used to abbreviate and minimize scripture of the namespaces in the entire ontology. Then, we define the set of transformation rules: module LMF2OWL; create OUT : OWL from IN : LMF; -----------------------------Ontology----------------------------------rule LexicalResource2Ontology{ from s:LMF!LexicalResource to t:OWL!Ontology(ontologyIRI &lt;-),d:OWL!Prefix(name&lt;-'rdf', IRI&lt;-'http://www.w3.org/1999/02/22-rdf-syntax-ns#'), u:OWL!Prefix(name&lt;-'rdfs', IRI&lt;-'http://www.w3.org/2000/01/rdf-schema#'), h:OWL!Declaration(), g:OWL!Class(IRI &lt;-'#LexicalResource',declaration &lt;-h)} rule GlobalInformation2DeclarationClass{ from s:LMF!GlobalInformation</figDesc><graphic coords="9,142.92,335.04,309.36,122.28" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>rule LexicalResource2Ontology{ from s:LMF!LexicalResource to t:OWL!Ontology(ontologyIRI &lt;-),d:OWL!Prefix(name&lt;-'rdf', IRI&lt;-'http://www.w3.org/1999/02/22-rdf-syntax-ns#'), u:OWL!Prefix(name&lt;-'rdfs', IRI&lt;-'http://www.w3.org/2000/01/rdf-schema#'), h:OWL!Declaration(), g:OWL!Class(IRI &lt;-'#LexicalResource',declaration &lt;-h)} rule GlobalInformation2DeclarationClass{ from s:LMF!GlobalInformation to t:OWL!Declaration(), g:OWL!Class(IRI &lt;-'#GlobalInformation', declaration &lt;-t) } rule Lexicon2DeclarationClass{ from o:LMF!Lexicon to p:OWL!Declaration(), i:OWL!Class(IRI &lt;-'#Lexicon', declaration &lt;-p) } rule LexicalEntry2DeclarationClass{ from k:LMF!LexicalEntry to n:OWL!Declaration(), j:OWL!Class(IRI &lt;-'#LexicalEntry', declaration &lt;-n) }</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>http://www.omg.org/mda/specs.htm</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>Gold is accessible and free downloadable from (http://www.linguistics-ontology.org/)</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">Edf</forename><surname>Cnam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Enst</forename><surname>R&amp;d</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">France</forename><surname>Enst-Bretagne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R&amp;d</forename><surname>Telecom</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Inria</forename><surname>Lifl</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Softeam</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Projet ACCORD</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="1" to="5" />
+			<date type="published" when="2002-05">Mai 2002</date>
+			<pubPlace>Date</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Assemblage de composants par contrats</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Annotation graphs as a framework for multidimensional linguistic data analysis. Towards Standards and Tools for Discourse Tagging</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bird</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Liberman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Workshop</title>
+		<meeting>the Workshop</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">A linguistic ontology for the semantic web</title>
+		<author>
+			<persName><forename type="first">Scott</forename><surname>Farrar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Terence Langendoen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">GLOT International</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="97" to="100" />
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">The GOLD Community of Practice: An infrastructure for linguisHc data on the web</title>
+		<author>
+			<persName><forename type="first">Scott</forename><surname>Farrar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><forename type="middle">D</forename><surname>Lewis</surname></persName>
+		</author>
+		<ptr target="hIp://www.u.arizona.edu/˜farrar/" />
+		<imprint>
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Lexical Markup Framework, US, Great Britain and the United States</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Francopoulo</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+			<publisher>ISTE Ltd and John Wiley &amp; Sons, Inc</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<author>
+			<persName><forename type="first">K</forename><surname>Haddar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Fehri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">A prototype for projecting HPSG syntactic lexica towards LMF</title>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Standards for Language Resources</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ide</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IRCS Workshop on Linguistic Database</title>
+		<meeting>the IRCS Workshop on Linguistic Database</meeting>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+			<biblScope unit="page" from="141" to="149" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lhioui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Haddar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<title level="m">A prototype for projecting LMF lexica towards OWL</title>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">A normalized syntactic lexicon for arabic verbs and its evaluation within the LKB platform</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Loukil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Ktari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Haddar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Benhamadou</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+			<publisher>ACSE</publisher>
+			<pubPlace>Egypt</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Model Driven Architecture (MDA)</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Miller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mukerji</surname></persName>
+		</author>
+		<ptr target="http://cgi.omg.org/docs/ormsc/01-07-01.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">Architecture Board ORMSC</title>
+		<imprint>
+			<date type="published" when="2001-07">July 2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title/>
+		<author>
+			<persName><surname>Omg/Mof</surname></persName>
+		</author>
+		<idno>OMG Document AD/97-08-14</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Meta Object Facility (MOF) Specification</title>
+		<imprint>
+			<date type="published" when="1997-09">Septembre 1997</date>
+		</imprint>
+	</monogr>
+	<note>www.omg.org</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Model-Driven Architecture : Vision, Standards And Emerging Technologies</title>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">D</forename><surname>Poole</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ECOOP 2001, Workshop on Metamodeling and Adaptive Object Models</title>
+		<imprint>
+			<date type="published" when="2001-04">April 2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<author>
+			<persName><surname>Tau</surname></persName>
+		</author>
+		<title level="m">TAUS, Report on a TAUS research about translation interoperability</title>
+		<imprint>
+			<date type="published" when="2011-02-25">2011. 2011. 25 February, 2011</date>
+		</imprint>
+		<respStmt>
+			<orgName>TAU</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">A syntactically annotated corpus of Tibetan</title>
+		<author>
+			<persName><forename type="first">Zeisler ;</forename><surname>Wagner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Wagner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Zeisler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. of LREC</title>
+		<meeting>of LREC</meeting>
+		<imprint>
+			<publisher>Lisboa</publisher>
+			<date type="published" when="2004">2004. 2004</date>
+			<biblScope unit="page" from="1141" to="1144" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<author>
+			<persName><forename type="first">G</forename><surname>Wilcock ; Wilcock</surname></persName>
+		</author>
+		<title level="m">An OWL ontology for HPSG, ACL</title>
+		<meeting><address><addrLine>Finland</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2007">2007. 2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<author>
+			<persName><surname>Wörner</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2006. Modelling Linguistic Data Structures</title>
+		<meeting><address><addrLine>Montréal, Québec</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">From disparate disciplines to unity in diversity How the PARTHENOS project has brought European humanities Research Infrastructures together</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Frank</forename><surname>Uiterwaal</surname></persName>
+							<email>f.uiterwaal@niod.knaw.nl</email>
+						</author>
+						<author>
+							<persName><forename type="first">Franco</forename><surname>Niccolucci</surname></persName>
+							<email>franco.niccolucci@gmail.com</email>
+						</author>
+						<author>
+							<persName><forename type="first">Sheena</forename><surname>Bassett</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Steven</forename><surname>Krauwer</surname></persName>
+							<email>s.krauwer@uu.nl</email>
+						</author>
+						<author>
+							<persName><forename type="first">Hella</forename><surname>Hollander</surname></persName>
+							<email>hella.hollander@dans.knaw.nl</email>
+						</author>
+						<author>
+							<persName><forename type="first">Femmy</forename><surname>Admiraal</surname></persName>
+							<email>femmy.admiraal@dans.knaw.nl</email>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+						</author>
+						<author>
+							<persName><forename type="first">George</forename><surname>Bruseker</surname></persName>
+							<email>bruseker@ics.forth.gr</email>
+						</author>
+						<author>
+							<persName><forename type="first">Carlo</forename><surname>Meghini</surname></persName>
+							<email>carlo.meghini@isti.cnr.it</email>
+						</author>
+						<author>
+							<persName><forename type="first">Mark</forename><surname>Hedges</surname></persName>
+							<email>mark.hedges@kcl.ac.uk</email>
+						</author>
+						<author>
+							<persName><forename type="first">Jennifer</forename><forename type="middle">Edmond</forename><surname>-Trinity</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="institution">PIN Scrl -Polo Universitario &quot;Città di Prato</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="institution">PIN Scrl -Polo Universitario &quot;Città di Prato</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="institution">CLARIN ERIC &amp; Utrecht University</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">From disparate disciplines to unity in diversity How the PARTHENOS project has brought European humanities Research Infrastructures together</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">D7931EECF24B08D04FA73CCE914C2F09</idno>
+					<idno type="DOI">10.3366/ijhac.2021.0264</idno>
+					<note type="submission">Submitted on 25 Oct 2021 Distributed under a Creative Commons Attribution| 4.0 International License</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Research Infrastructure</term>
+					<term>Digital Humanities</term>
+					<term>European Projects</term>
+					<term>Horizon 2020</term>
+					<term>Computational Methods</term>
+					<term>Research Data Management</term>
+					<term>Standards</term>
+					<term>Interoperability</term>
+					<term>Training</term>
+					<term>Dissemination</term>
+					<term>Best Practices</term>
+					<term>Interdisciplinarity</term>
+					<term>International Cooperation</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Shared challenges in the humanities field</head><p>Innovative research is best served by a climate which supports interdisciplinary and transnational approaches. No matter whether someone studies Franconian languages, Anglo-Saxon archaeological remains or World War One photography; to successfully cover an interdisciplinary research question, one needs to be able to combine a wide array of source material. At the same time, a significant amount of research data and archival objects were conceivedand are still, to some extent, confinedwithin national and disciplinary boundaries; be it transcripts of parliamentary debates, civil records or newspapers. More recently, the phenomenon of proprietary data started to constitute additional technical restrictions.</p><p>To address this situation, a global trend towards integration of (cyber)infrastructure is taking place. While early examples of the application of computational methods in the humanities date back to mid-twentieth century, the amount of support that large-scale digital infrastructure have provided since the start of the twenty-first century has been remarkable and unprecedented. <ref type="bibr" target="#b0">1</ref> This support takes many different forms and shapes; at the local, the national and the international level. Locally, humanities "labs" quickly became ubiquitous as spaces where research questions, technical expertise and physical infrastructure entwine. Such environments can be found both in academia and in the GLAM (Galleries, Libraries, Archives and Museums) field. <ref type="bibr" target="#b1">2</ref> At the national level, opportunities to combine data, tools and services are also exploited.</p><p>In the United States, the seminal policy document Our cultural commonwealth (…) gave nationwide impetus to the digital advancements of the humanities 2006 onwards. <ref type="bibr" target="#b3">3</ref> This article is written from the perspective of a transnational Research Infrastructure (RI). In Europe, the task to coordinate the integration of scientific knowledge and expertise was assigned to the European Strategy Forum for Research Infrastructures (ESFRI). The establishment of this body was envisioned as a first step in the creation of a European Research Area. <ref type="bibr" target="#b4">4</ref> In the first ESFRI roadmap, released in the same year as Our cultural commonwealth (…), the challenge laid out for the humanities was defined as follows: 'The present major task is (…) to create pan-European infrastructural systems that are needed by the social sciences and humanities to utilise the vast amount of data and information (…) in Europe'. <ref type="bibr" target="#b5">5</ref> The concept of an 'RI' in this article, stems from this policy definition.</p><p>Thirteen years later, it is fair to say that European RIs have been prominent in the humanities, and they only grew in size and relevance. They pool data and expertise, exchange knowledge and, consequently, enable innovation in their fields. Between 2006 and now, a significant number of projects was initiated. The first ESFRI roadmap already mentioned DARIAH and CLARIN, <ref type="bibr" target="#b6">6</ref> respectively supporting the humanities at large and language-related studies. CENDARI encouraged research in its two-pilot historic periods (the Middle Ages and the First World War) and made archival descriptions from all over Europe available in one archival directory. <ref type="bibr" target="#b7">7</ref> Dispersed Holocaust sources were brought together in one portal by EHRI while, at the same time, the RI built a 'human network', fostering cooperation among Holocaust researchers. <ref type="bibr" target="#b8">8</ref> Archaeologists organised themselves in ARIADNE and IPERION-CH opened up services and facilities to those focussing on the restoration and conservation of cultural heritage. 9</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>From shared challenges to joint solutions</head><p>While this success of humanities RIs resulted in a wealth of aggregated research assets, it was felt that the risk of creating silos deserved attention. This was demonstrated in the results of a survey among 110 research institutions across Europe, which highlighted that 'The major challenge of a collaborative and connective pan-European research programme will be to harmonise digital research practices by drawing together the numerous national and, increasingly, multilateral digital research initiatives'. <ref type="bibr" target="#b10">10</ref> At the same time, it became apparent that different disciplines struggled with similar challenges. Researchers from all of the fields above experienced at least some difficulties in distinguishing which policies apply to them, choosing the right standards for structuring and storing data, and making sure these data are interoperable by design.</p><p>To develop solutions to both this quantitative 'digital data deluge' and to these shared challenges, the project PARTHENOS (which stands for: Pooling Activities, Resources and Tools for Heritage E-research Networking, Optimization and Synergies) was conceived. <ref type="bibr">11</ref> The project actively addressed these issues by developing products and services for the study of history; language-related studies; archaeology, heritage &amp; applied disciplines; and, to a lesser degree, the social sciences. Examples of project output are a research scenario-guided tool to introduce humanities scholars to standards, a project-specific semantic mapping entitled the PARTHENOS Entities Model and a set of guidelines to make research data reusable.</p><p>As RIs are often built either at a disciplinary level (such as CLARIN, DARIAH etc.) or at a fundamental level (Géant, EGI, OpenAire), opportunities for efficiencies and knowledge sharing at the meso-level were at the risk of being missed out in this emergent landscape. This paper provides insight in the challenges that underlie a cluster project which brought humanities RIs together.</p><p>After briefly introducing the project and its requirements-based approach, this paper demonstrates how PARTHENOS aimed to create synergies around policies, standards, interoperability, training opportunities and project communication respectively. The authors will conclude this article by reflecting on both the successes and the challenges that PARTHENOS has faced in the light of its innovative potential, its transnational and interdisciplinary ambitions and the sustainability of its results in the wider digital humanities ecosystem.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The PARTHENOS project</head><p>Since its inception in 2015, the PARTHENOS project brought together major European integrating initiatives. Besides the durable infrastructures CLARIN and DARIAH, it also included the projects CENDARI, ARIADNE, EHRI and IPERION-CH. The collaboration took place within a so-called cluster scheme, introduced by the EU Horizon 2020. Despite the project ending in October 2019, the stewardship over assets that were created during the project was divided among partners, warranting their sustainability for the future.</p><p>It deserves mentioning that PARTHENOS' role as an integrating project for the humanities is not unique. The divergence of methodology and infrastructure happens continuously and at different levels, formally and informally. One example of integration is CLARIAH, a merger of CLARIN and DARIAH at the governmental level. This amalgamation can be found in different European countries, such as The Netherlands, Germany and Austria. As CLARIN and DARIAH were both partners in PARTHENOS, this goes to show that different modalities of integration do not have to be mutually exclusive, but can take place in harmonic conjunction.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>An approach based on the needs of communities</head><p>In order to build bridges between disciplines, PARTHENOS' products and services were designed to cover the needs of all the fields involved. Given the multi-disciplinary constellation of the project this exercise was not straight-forward. A researcher in the field of linguistics will often require different information than a policy-or a decision-maker, and a digital archaeology teacher's requirements will be different from those of a technical specialist in metadata interoperability.</p><p>Given the active involvement of existing RIs in the social sciences, humanities and cultural heritage disciplines, the project could draw up an aggregated inventory from existing reports relatively quickly around five themes: data policies; standardisation; interoperability of data, services and tools; education and training; and communication needs. To make sure that the developed solutions would be both practical and applicable, the project decided to rely on real world scenarios. Consistency was ensured by applying a use case-based approach as described by American computer scientist Alistair Cockburn. <ref type="bibr" target="#b11">12</ref> According to this methodology, a use case description should consist of specific elements, such as: a descriptive statement of the goal; preconditions, describing what is necessary for the realisation of this goal; and the definition of a successful outcome.</p><p>During the development process, the Deming cycle (Plan-Do-Check-Act) was adhered to. <ref type="bibr" target="#b12">13</ref> This means that by establishing an ongoing dialogue between the group of people that gathered the requirements and the implementation teams, the project continually verified whether the needs of the field were correctly understood. This was tested by presenting users with beta versions and showcases of the tools under development.</p><p>An example of a use case in the field of standards is: 'Build a corpus of linguistic data for analysis'. <ref type="bibr" target="#b13">14</ref> While this research scenario would be used primarily by linguists, the creation of a text corpus could be just as useful to a historian who works with a large body of text. This is where the added value of cross-fertilisation between disciplines becomes apparent. By facilitating the exchange of digital methods that are widely applicable, scholars are encouraged to look at those of neighbouring disciplines.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The need for common policies and implementation strategies</head><p>One of the obstacles PARTHENOS identified, is the scattered nature of research data management policies. Best practices are often developed within disciplinary boundaries as communities are best aware of their specific needs and the distinctive character of the research assets they work with. An added benefit is that adoption is easier encouraged within rather than across fields. While these are indeed strengths of discipline-specific guidelines, they also increase the risk of tunnel vision as researchers from the same field are more likely to interpret data by using the same prior knowledge.</p><p>The humanities disciplines are sometimes considered part of the 'long tail of science'. This means that data-centric research is perceived as less relevant for these fields than, for example, physics and biology. The authors of this article consider this position to be only part of the story. While data are increasingly important in history, archaeology and related fields, the tools designed for big data research are often not appropriate for humanities data sets, which tend to be smaller and more variable in format and structure. Moreover, humanities research data does not yet have a well-established tradition of digital publication and is therefore often neither discoverable nor accessible. A lack of awareness of best practices in data management, lies at the heart of this risk of creating 'dark data' (a qualification that hints at their lack of findability). <ref type="bibr" target="#b14">15</ref> On the contrary, shared best practices enable researchers from different disciplines to work from a point of mutual understanding. Also, researchers can more easily reuse each other's results, allowing them to build on each other's observations. It is for these reasons that PARTHENOS decided to make the current, distributed and previously unmapped landscape of research policies more comprehensible and accessible.</p><p>The following three products can offer guidance in making research data FAIR: <ref type="bibr" target="#b15">16</ref> 1.) The PARTHENOS Policy Wizard. An interface which allows users to find information about policies which are relevant to their discipline and tasks through intelligent categorisation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2.)</head><p>The PARTHENOS Data Management Plan (DMP) template was created, building on the Horizon2020 template while enriching and tailoring it with specifications from humanities disciplines. The content of this template was derived from a survey carried out among the consortium's experts and describes the life cycle of data creation, -collection, -archiving andpreservation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>3.) PARTHENOS Guidelines.</head><p>The 'PARTHENOS Guidelines to FAIRify data management and make data reusable' are offered as common recommendations, aimed at building bridges between different, although tightly interrelated, fields and stakeholders within the humanities. 17</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The need for information on standards</head><p>Like policies, standards also constitute an important form of consensus on how humanities research data can best be processed and stored. As a key element to interoperability and reusability, they play a central role in any field. Contrary to policies, standards in themselves are non-legally binding methodological or technical specifications. Also, they adhere to the following three characteristics. Standards are:</p><p>1.) the result of a consensus building activity; 2.) publicly available, and; 3.) maintained regularly.</p><p>Simultaneously, through the mindset and practices standards create, they also build a common cultural background among the communities that adopt them, increasing the probability and feasibility of future collaboration.</p><p>The humanities field is no stranger to standards. The Text Encoding Initiative (TEI) guidelines garnered significant support since their inception in various scholarly domains, ranging from history to literary studies; ISO comprises a specific technical committee dedicated to language resources, which provided various standards for the representation and annotation of linguistic content; <ref type="bibr" target="#b17">18</ref> the natural interaction between scholars and cultural heritage institutions made standards such as EAD (Encoded Archival Description) an integral part of their work; <ref type="bibr">19</ref> and the semantic representation of cultural heritage data has been standardised in CIDOC CRM (ISO 21127:2006), a high-level compatibility framework. <ref type="bibr" target="#b18">20</ref> Whereas there are scholarly groups that have already been active in defining and using standards, the authors of this article observed thatespecially among newcomers to digital methodsthere is a lack of precise knowledge about standardisations. <ref type="bibr" target="#b19">21</ref> To overcome this, PARTHENOS devised the Standardization Survival Kit (SSK), a tool that illustrates both the importance of standards in the research process, as well as the usefulness of designing an online environment that allows researchers to access relevant reference material. Digital specialists from the various PARTHENOS research communities designed scenarios that cover all types of scholarly domains and methodologies, such as the management of archaeological field surveys and the usage of laser techniques for conservation practices in heritage science. <ref type="bibr" target="#b20">22</ref> The need for interoperability As a cluster project, a challenge that PARTHENOS was in a unique position to tackle was the integration of knowledge through interoperable data. The results of a recent international survey among archivists show that interoperability was considered important almost unanimously, as respondents believe it enhances the findability of objects, that it can make the mutual relations between data more visible and that it allows archives to become part of a "wider context and (…) information flow". <ref type="bibr" target="#b21">23</ref> Information management for RIs is both an epistemological and a technical challenge. The success of digital infrastructure depends on its fitness to facilitate researchers in their collaborative development of knowledge. <ref type="bibr" target="#b22">24</ref> One could argue that creating an RI involves building a community that as yet only partially exists towards a goal that as yet has not been fully understood. Therefore, the information integration task is mishandled if it is reduced to the question of which common system to adopt or what standard to enforce. Such goals can only be reached by mutual agreement.</p><p>In this light, PARTHENOS created a conceptual model around RI management itself, which models datasets, software, services, projects and actors andmost importantlythe contextual relations between them. This conceptual model, the PARTHENOS Entities Model (PEM), provides the means to represent information on research assets in an accurate yet overarching way. It provides possibilities to classify servicessuch as hosting, curation and e-servicesand proposes a distinction between volatile and persistent digital objects, which makes the evolution of software and datasets visible. In line with the need for the model to be nonprescriptive as was described above, the framework does not impose a form of documentation, but provides a semantic model which allows the translation of existing data about research assets into a common representation. The model is aligned to CIDOC CRM to support interoperability with a wide variety of contemporary and future datasets.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Skills, professional development and advancement</head><p>As described above, PARTHENOS did not only cover the technical aspects of RIs. The human network sustaining technical infrastructure and underlying data, as well as the act of making humanities researchers more aware of the potential of the computational methods that can be applied to analyse them, were considered just as important. <ref type="bibr" target="#b23">25</ref> This is why a part of the project specifically focussed on offering the means to learn about both digital humanities research and the world of RIs.</p><p>Since the first ESFRI roadmap in 2006, there has not only been a rise in the coordinated development of RIs in Europe. Significant changes have also been taking place elsewhere in the wider research ecosystem. Researcher careers have become, if anything, more precarious and less able to follow clear, pre-determined pathways. In the United States, this phenomenon became known as 'Alternate Academy,' or 'Alt-Ac', <ref type="bibr" target="#b24">26</ref> and while it is widespread as a phenomenon, the discourse around it has largely risen out of the digital humanities, where interdisciplinary, applied and collaborative approaches open up wider perspectives than the ones which might be found in established disciplinary approaches.</p><p>Accessing these opportunities requires a different perspective, different networks and different skills, however, than is normally provided by higher education institutions. Digital RIs are optimised for sustained work in teams, for creation rather than exploration, for the flexibility to harness technologies, policies and processes that are themselves still in development. This shift in requirement is evocative of how Rockwell and Sinclair describe the challenge of DH pedagogy, with RIs representing a rethinking of teaching needs from the most fundamental level:</p><p>'One can think through a digital humanities curriculum in three ways. One can ask what should be the intellectual content of a program and parse it up into courses; one can imagine the skills taught in a program and ensure that they are covered; or one can ensure that the acculturation and professionalization that takes place in the learning community is relevant to the students'. <ref type="bibr" target="#b25">27</ref> As infrastructures are inherently committed to developing this third path, they are optimised for sustained work in teams, for creation rather than exploration, for the flexibility to harness technologies, policies and processes that are themselves still in development.</p><p>The realisation of this model for arts and humanities training has been a key component of the PARTHENOS project which approached this challenge through three mechanisms. The first of these is the PARTHENOS On-Line Training Suite, a collection of Open Educational Resources (OERs) developed by and for the infrastructure community. <ref type="bibr" target="#b26">28</ref> Unlike other peer platforms, such as DARIAH Teach, 29 or the CLARIN VideoLectures portal, <ref type="bibr" target="#b27">30</ref>  On-line training alone is, of course, a blunt instrument, so PARTHENOS also engaged with two other modes by which researchers hone their skills and build their networks in the digital age. The first of these is an analysis of Transnational Access, long a feature of European RIs, butin its original policy definitionnot always a comfortable match with organisations that may focus on virtual access. Given the importance of problem-focused, contextualised development of skills for the digital humanities, however, it is critical that we understand how the virtual sits alongside the physical access, in particular for those researchers who may be more advanced in their careers, or at a turning point in their research project or approach. <ref type="bibr" target="#b28">31</ref> Secondly, PARTHENOS has partly closed the gap between formal education programmes, such as those in universities, and the knowledge creation and transfer modes of RIs through a co-creation and exchange of curricular models with some of our university partners. Through these modes of engagement, the project aspired to create a more fluid transfer of skills and people between these two essential poles in arts and humanities research.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Communication, dissemination and outreach</head><p>Increasingly, researchers are encouragedand often obligedto include a communication and dissemination plan in their proposals. Both legal frameworks and moral appeals inspired a significant increase in the creation of open digital research data. The potential for research, which lies in this wealth of data, is unequivocal. Scholars however, indicated that the amount of pluriformity in the way these data are disseminated, increasingly creates 'disaggregated traditional scientific output' within an already fragmented communication system. <ref type="bibr" target="#b29">32</ref> In terms of dissemination, the challenge PARTHENOS faced was twofold. The first one was embedded in the design of the project itself, as the project not only built, but also opened up an ecosystem in which the tools and services described throughout this paper provide the envisioned benefits of integration and interoperability. By doing so, the project aspired to provide the means to approach this diversity in humanities research data and to deal with its tremendous pluriformity, thus providing an answer to fragmented dissemination systems.</p><p>Secondly, PARTHENOS itself needed a deliberate dissemination strategy for its own output to be discovered and used by scientific and professional communities. These two challenges existed by no means in isolation. The success of PARTHENOS' outreach activities determined to a large extent whether the project would reduce 'complexity'as Schroeder, Fry and de Beer describe the humanities' fields diverse outputor added to the very problem.</p><p>A recurring concern around big projects is their 'one size fits all' approach. PARTHENOS, however, was aware that both the information needs, as well as the ways in which different stakeholders are best addressed, differ per target group. This is why in the PARTHENOS' Communication Plan, different stakeholder groups were defined, allowing the project to match communication channels accordingly. However, these roles were never envisioned as a straightjacket. Rather, 'they merely exist to highlight the heterogeneous nature of the PARTHENOS' stakeholders, and to emphasise the need for a tailored approach to communication and dissemination, rather than act as a prescriptive classification'. 33  <ref type="bibr" target="#b31">34</ref> For a humanities RI, the direct and the close audience formulated in Figure <ref type="figure" target="#fig_1">1</ref> above could be regarded as evident. While researchers are its most prominent users, GLAM institutions are often important providers of data and expertise. However, as an audience, society at large was considered just as important. Interested individuals outside academia or museums made important contributions to (digital) humanities research via crowdsourcing events, hackathons or otherwise. Bearing this in mind, all PARTHENOS' outlets (the website, the newsletter, Twitter etc.) and services are open access in order to not raise any institutional barriers. The project aspired to encourage citizen sciencean umbrella term which includes all sorts of science taking place outside the walls of formal academiajust as much as more formal scholarly research (see Figure <ref type="figure" target="#fig_2">2</ref>).  <ref type="bibr" target="#b32">35</ref> The open format of communication and dissemination PARTHENOS pays heed to three main points of criticism of large-scale infrastructures, namely that they cannot successfully address a heterogeneous field, that they are a place of exclusiveness and that they, rather than promoting innovation, are a restrictive force in that RIs are project-centred and enforce standards. Through its open communication strategy however, PARTHENOS always aspired to be a 'loosely coupled ecosystem of services and activities', rather than a prescriptive force in an ivory tower. <ref type="bibr" target="#b33">36</ref> </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conclusion: a process of constant evolution</head><p>One of the first observations that was made in this article, is that the start of the Digital Humanities can be traced back to around mid-twentieth century. Given the seventy-year timeframe between then and now, it logically follows that the development of the field has been one of steady evolution. This conclusion will focus on how PARTHENOS reflects on its role as a part of that evolution in terms of encouraging transnational and interdisciplinary research and how the sustainability of this impact is expected to last beyond the temporal and financial limitations of the project.</p><p>The sustainability of assets created by largescale infrastructures is by no means a given. As poignantly stated in a CENDARI report on sustainability "the Digital Humanities landscape is littered with projects that were not sustained by or for their intended user community". <ref type="bibr" target="#b34">37</ref> The report proposes several recommendations to overcome this situation that were successfully applied during and after the project, such as making sustainability planning an integral part of the project and sharing knowledge across affiliated projects. The involvement of various existing Humanities RI's in PARTHENOS was indeed crucial in making sure that the project did not try to reinvent the wheel. Earlier in this paper, the authors explained how the composition of PARTHENOS around existing projects led to a clear vision on the needs of an internationally and disciplinary diverse group of communities. This did not only contribute positively to the project's success in understanding and targeting these requirements, but also saved a lot of time at the start of the project as PARTHENOS could built on earlier user surveys.</p><p>Vice versa, this head start for PARTHENOS went hand in hand with the sustainability of the other projects that preceded it and fed into it. This is not to say that PARTHENOS itself was not also subject to its own disciplinary and geographic limitations. As the consortium consisted of European RIs it was certainly, at least to some degree, subject to its own regional bias. At the same time, partners in PARTHENOS were aware that the challenges addressed by the project require global solutions. To give an example of this, the fact that best practices from countries outside Europe were also included in the offering of the PARTHENOS Policy Wizard is testament to this global perspective.</p><p>Among the best practices the Wizard references, the Alexandria Archive Institute's Guidelines for web-based data publication in archaeology and the Library of Congress' planning document for the sustainability of digital formats, both developed within the United States, can also be found. <ref type="bibr" target="#b35">38</ref> Admittedly however, such examples are more the exception than the rule, and despite the project's transnational focus, the question of how to optimally include a truly global perspective will remain relevant for any future European project.</p><p>Another challenge the project encountered is need to strike a delicate balance between being ambitious as a forerunner on one side and being mindful of the current status of the digital humanities field on the other. Earlier in this article, the authors explained how PARTHENOS developed tools to increase the awareness around standards. At the same time, it is also clear that there are more than one reason why certain standards are not always universally accepted and embraced. Some researchers for instance might find that existing standards do not (yet) accurately reflect their data. An existing taxonomy might not cover a specific research subject because the field is relatively new, relatively niche or simply never found its way to an existing vocabulary. This illustrates that the acceptance of standards does not necessarily follow a clearly defined path, nor does it happen overnight. This can be demonstrated by the development of the model CIDOC CRM, to which the PARTHENOS Entity Model complies. The amount of extensions that have been created over the years for specific fields or practices demonstrates that the model did not originally meet the needs of every individual researcher. CRMba and CRMarchaeo for documenting archaeological excavations and CRMCR for restauration practices are three such extensions. <ref type="bibr" target="#b36">39</ref> In the case of the earliest two however, significant efforts to integrate the extensions have also been made. <ref type="bibr" target="#b37">40</ref> This illustrates that, firstly, a model such like CIDOC CRM will always be work in progress. Secondly, these ongoing integration efforts demonstrate how an open, active and devoted multidisciplinary community can continually improve on such a model, working towards true interdisciplinarity along a bottom-up approach. PARTHENOS found that organising public events, workshops and webinars, thereby involving both project internal and external scholars, was crucial in facilitating this process of co-creation.</p><p>As PARTHENOS approached completion, the involvement of the existing RIs was once again essential for sustaining what has been created beyond the projects lifetime. Several examples of how PARTHENOS' project assets were adopted by these partners illustrate their value.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>DARIAH migrated the material of the PARTHENOS Training Suite to the DARIAH-Campus</head><p>where it not only continues to find an audience, but where it will also remain part of an environment with an active community behind its further development. Moreover, the Campus now also has a wider range of training materials to showcase. The project ARIADNEplus adopted the PARTHENOS Entity Model and will continue to increase the reach of the 'PARTHENOS Guidelines to FAIRify data management and make data reusable' into more languages. At the time of writing, PARTHENOS materials around topics such as research data management and ontologies are still being used in academic curricula, such as King's College London's Master's course in Digital Humanities and the University of Missouri iSchool.</p><p>If there is one overarching conclusion that can be drawn from the PARTHENOS project, it is that planning sustainable impact can only be achieved when approached holistically. In the diverse landscape that is the digital humanities ecosystem, PARTHENOS never stood on its own. On the contrary, the project not only originated from the existing ecosystem, but also successfully fed back into it with the PARTHENOS legacy being built upon by the current Humanities RIs and their respective communities.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>the PARTHENOS Suite contains materials presented outside of formal curricula which reflect the core requirements and values within infrastructural work. This focus on the collaborative and integrative makes the materials in the Training Suite unique, and applicable to both independent learners and educators looking to expand their knowledge of such issues as what RIs are, how they are managed, how to understand and manage humanities data, what collaboration means for the community, and other related issues. The organisation of PARTHENOS webinars allowed for both additional learning opportunities, as well as the creation of newly created in-depth content for the Training Suite through their recordings.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: PARTHENOS stakeholder map<ref type="bibr" target="#b31">34</ref> </figDesc><graphic coords="17,72.00,320.38,319.77,300.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: Citizen science, a topic discussed during PARTHENOS' webinar series<ref type="bibr" target="#b32">35</ref> </figDesc><graphic coords="18,72.00,292.78,385.80,389.45" type="bitmap" /></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">The early history of digital humanities</title>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of Digital Humanities</title>
+		<editor>
+			<persName><forename type="first">C</forename><forename type="middle">A</forename><surname>Sula</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">H</forename><surname>Hill</surname></persName>
+		</editor>
+		<meeting>Digital Humanities</meeting>
+		<imprint>
+			<publisher>Montreal</publisher>
+			<date type="published" when="2017">2017. 2017</date>
+			<biblScope unit="page" from="349" to="384" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mahey</surname></persName>
+		</author>
+		<ptr target="https://glam-labs.s3.amazonaws.com/media/dd/documents/Open_a_GLAM_Lab-10-" />
+		<title level="m">Open a GLAMLab. Digital cultural heritage innovation labs</title>
+		<meeting><address><addrLine>Doha</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-08-28">2019. 28 Aug 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Beyond humanities qua digital: spatial and material development for digital research infrastructures in HumlabX</title>
+		<author>
+			<persName><surname>Foka</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Digital scholarship in the humanities</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="page" from="264" to="278" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Our cultural commonwealth: the report of the American Council of Learned Societies Commission on cyberinfrastructure for the humanities &amp; social sciences</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Unsworth</surname></persName>
+		</author>
+		<ptr target="https://worldpece.org/sites/default/files/artifacts/media/pdf/our_cultural_commonwealth.pdf" />
+		<imprint>
+			<date type="published" when="2006-08">2006. Aug 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<ptr target="https://ec.europa.eu/info/research-and-innovation/strategy/era_en" />
+		<title level="m">European Research Area (ERA)</title>
+		<imprint>
+			<publisher>European Commission</publisher>
+			<date type="published" when="2019-03">March 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<author>
+			<persName><surname>Esfri</surname></persName>
+		</author>
+		<ptr target="https://ec.europa.eu/research/infrastructures/pdf/esfri/esfri_roadmap/roadmap_2006/esfri_roadmap_2006_en.pdf" />
+		<title level="m">European roadmap for Research Infrastructures -Report</title>
+		<imprint>
+			<date type="published" when="2006-03-15">2006. 15 Mar 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Dariah</forename><surname>Website</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">Website CLARIN-ERIC</orgName>
+			</affiliation>
+		</author>
+		<ptr target="https://www.clarin.eu/" />
+		<imprint>
+			<date type="published" when="2018-09-20">20 Sept 2018. 20 Sept 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Cendari</forename><surname>Website</surname></persName>
+		</author>
+		<ptr target="http://www.cendari.eu/" />
+		<imprint>
+			<date type="published" when="2018-09-20">20 Sept 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Ehri</forename><surname>Website</surname></persName>
+		</author>
+		<ptr target="https://www.ehri-project.eu/" />
+		<imprint>
+			<date type="published" when="2018-09-20">20 Sept 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Ariadne</forename><surname>Website</surname></persName>
+		</author>
+		<ptr target="http://www.iperionch.eu/" />
+		<imprint>
+			<date type="published" when="2018-09-20">20 Sept 2018. 20 Sept 2018</date>
+			<publisher>Website IPERION-CH</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Survey and analysis of humanities and social science research at the science academies and related research institutes of Europe</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Leathem</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Facing the future: European Research Infrastructures for the humanities and social sciences</title>
+		<editor>
+			<persName><surname>Duşa</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Berlin, 2014</addrLine></address></meeting>
+		<imprint>
+			<biblScope unit="page" from="35" to="38" />
+		</imprint>
+	</monogr>
+	<note>Facing the future. Cited here at 36</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Writing effective use cases</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Cockburn</surname></persName>
+		</author>
+		<ptr target="https://www.infor.uva.es/~mlaguna/is1/materiales/BookDraft1.pdf" />
+		<imprint>
+			<date type="published" when="1999-03-15">1999. 15 Mar 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Framework of strategic learning: the PDCA cycle</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pietrzak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Paliszkiewicz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Management</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="149" to="161" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<author>
+			<persName><forename type="first">S</forename><surname>Drude</surname></persName>
+		</author>
+		<ptr target="http://www.parthenos-project.eu/Download/Deliverables/D2.1_User-requirements-report-v2.pdf" />
+		<title level="m">D2.1 Report on user requirements</title>
+		<imprint>
+			<date type="published" when="2016-03-15">2016. 15 Mar 2019</date>
+			<biblScope unit="page" from="117" to="118" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Shedding light on the dark data in the long tail of science</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">B</forename><surname>Heidorn</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Library Trends</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="280" to="299" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">The FAIR principles provide an important frame of reference for the output PARTHENOS generates on the topic of research data management</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Wilkinson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Scientific data</title>
+		<imprint>
+			<biblScope unit="page">3</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+	<note>The FAIR guiding principles for scientific data management and stewardship</note>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<author>
+			<persName><forename type="first">H</forename><surname>Hollander</surname></persName>
+		</author>
+		<ptr target="https://zenodo.org/record/3368858#.YBel3BYo9tR" />
+		<title level="m">PARTHENOS guidelines to FAIRify data management and make data reusable</title>
+		<imprint>
+			<date type="published" when="2019-02-02">2019. 2 Feb 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<ptr target="https://www.loc.gov/ead/" />
+		<title level="m">Website ISO standards catalogue on language resource management</title>
+		<imprint>
+			<date type="published" when="2018-09-20">20 Sept 2018. 20 Sept 2018</date>
+		</imprint>
+	</monogr>
+	<note>19 EAD project website</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Cultural heritage data management: the role of formal ontology and CIDOC CRM</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Bruseker</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Heritage and archaeology in the digital age: acquisition, curation, and dissemination of spatial cultural heritage data</title>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Vincent</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">V</forename><forename type="middle">M</forename><surname>López-Menchero Bendicho</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Ioanniders</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">T</forename><forename type="middle">E</forename></persName>
+		</editor>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="93" to="131" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">How to work together successfully with e-Humanities and e-Heritage Research Infrastructures&apos; PARTHENOS eHumanities and eHeritage webinar series</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Illmayer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Puren</surname></persName>
+		</author>
+		<ptr target="http://training.parthenos-project.eu/sample-page/ehumanities-eheritage-webinar-series/webinar-work-with-research-infrastructures/" />
+		<imprint>
+			<date type="published" when="2018-09-20">20 Sept 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<idno type="DOI">10.5281/zenodo.2668414</idno>
+		<ptr target="https://doi.org/10.5281/zenodo.2668414" />
+		<title level="m">D4.1 Standardization survival kit</title>
+		<imprint>
+			<date type="published" when="2016-05-06">2016. 6 May 2019. 2017. 6 May 2019</date>
+		</imprint>
+	</monogr>
+	<note>For additional background. D4.2 Report on standardization</note>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">The meaning of interoperability and its implications for archival institutions: challenges and opportunities in Croatia, Finland and Sweden</title>
+		<author>
+			<persName><surname>Tanackovic</surname></persName>
+		</author>
+		<ptr target="http://www.informationr.net/ir/22-1/colis/colis1653.html" />
+	</analytic>
+	<monogr>
+		<title level="j">Information research</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<date type="published" when="2017-08-28">2017. 28 Aug 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">This is for instance illustrated by the juxtaposition of &apos;interoperability&apos; (a technical accomplishment) and &apos;interchange&apos; (&apos;true&apos; human-mediated interoperability by understanding</title>
+		<idno type="DOI">10.1093/llc/fqw048</idno>
+		<ptr target="https://doi.org/10.1093/llc/fqw048" />
+	</analytic>
+	<monogr>
+		<title level="j">Digital scholarship in the humanities</title>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Holmes</surname></persName>
+		</editor>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="63" to="68" />
+			<date type="published" when="2017-05">2017. May 2019</date>
+		</imprint>
+	</monogr>
+	<note>Whatever happened to interchange?</note>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">The vocabulary of a technical infrastructure and a human network borrows heavily from EHRI&apos;s mission</title>
+		<ptr target="https://www.ehri-project.eu/about-ehri" />
+	</analytic>
+	<monogr>
+		<title level="m">European Holocaust Research Infrastructure -Mission statement</title>
+		<imprint>
+			<date type="published" when="2019-07-23">23 July 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<title level="m" type="main">#Alt-Academy: 01. Alternative academic careers for humanities scholars</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Nowiskie</surname></persName>
+		</author>
+		<ptr target="http://mediacommons.futureofthebook.org/alt-ac/sites/mediacommons.futureofthebook.org.alt-ac/files/alt-academy01.pdf" />
+		<imprint>
+			<date type="published" when="2011-03-29">2011. 29 Mar 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Challenges for the humanities: digital infrastructures</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Rockwell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sinclair</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Digital humanities pedagogy: practices, principles and politics</title>
+		<editor>
+			<persName><forename type="first">B</forename><surname>Hirsch</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="volume">178</biblScope>
+			<biblScope unit="page" from="177" to="212" />
+		</imprint>
+	</monogr>
+	<note>Cited here at</note>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<ptr target="http://training.parthenos-project.eu/" />
+		<title level="m">Website PARTHENOS on-line training suite</title>
+		<imprint>
+			<date type="published" when="2019-03-29">29 Mar 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<monogr>
+		<ptr target="http://videolectures.net/clarin/?q=clarin" />
+		<title level="m">CLARIN VideoLectures portal</title>
+		<imprint>
+			<date type="published" when="2019-03-29">29 Mar 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<monogr>
+		<title level="m" type="main">Amongst digital humanists: an ethnographic study of digital knowledge production</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Antonjević</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+			<pubPlace>Basingstoke</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">e-research infrastructures and scientific communication</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Schroeder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Debeer</surname></persName>
+		</author>
+		<ptr target="http://docs.lib.purdue.edu/iatul/2007/papers/28" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IATUL conferences 2007</title>
+		<meeting>the IATUL conferences 2007</meeting>
+		<imprint>
+			<date type="published" when="2021-02">Feb 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<monogr>
+		<title level="m" type="main">D8.2 Initial communication plan</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Speck</surname></persName>
+		</author>
+		<ptr target="http://www.parthenos-project.eu/Download/Deliverables/D8.2_Initial_Communication_Plan.pdf" />
+		<imprint>
+			<date type="published" when="2015-04-12">2015. 12 April 2018</date>
+			<biblScope unit="page">15</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<monogr>
+		<title level="m" type="main">3 First year communication report and updated communication plan</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Speck</surname></persName>
+		</author>
+		<ptr target="https://zenodo.org/record/2668230#.YD6JbHko9tQ" />
+		<imprint>
+			<date type="published" when="2019-05-13">May 2019, 13</date>
+			<biblScope unit="volume">8</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<author>
+			<persName><forename type="first">F</forename></persName>
+		</author>
+		<idno type="DOI">10.5281/zenodo.2668343</idno>
+		<ptr target="https://doi.org/10.5281/zenodo.2668343" />
+		<title level="m">D8.5 Third year communication report and updated communication plan</title>
+		<imprint>
+			<date type="published" when="2019-05-17">May 2019, 17</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Crowds for clouds: recent trends in humanities research infrastructures</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Blanke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Kristel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Cultural heritage infrastructures in digital humanities</title>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Benardou</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">E</forename><surname>Champion</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">C</forename><surname>Dallas</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">L</forename><surname>Hughes</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Abingdon</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="48" to="62" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><surname>Edmond</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Morselli</surname></persName>
+		</author>
+		<ptr target="https://pure.knaw.nl/ws/portalfiles/portal/2499837/CENDARI_D2.4_Sustainability_Plan_final_2_.pdf" />
+		<title level="m">CENDARI D2.4 Sustainability plan</title>
+		<imprint>
+			<date type="published" when="2021-02-06">6 Feb 2021</date>
+			<biblScope unit="page">10</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<monogr>
+		<title level="m" type="main">Sustainability of digital formats: planning for library of congress collections</title>
+		<author>
+			<persName><forename type="first">Alexandria</forename><surname>Archive</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Institute</forename></persName>
+		</author>
+		<ptr target="https://www.loc.gov/preservation/digital/formats/fdd/descriptions.shtml" />
+		<imprint>
+			<date type="published" when="2020-04-24">24 Apr 2020. 24 Apr 2020</date>
+			<publisher>The Library of Congress</publisher>
+		</imprint>
+	</monogr>
+	<note>Guidelines for web-based data publication in archaeology</note>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<title level="m" type="main">CRMCR -a CIDOC-CRM extension for supporting semantic interoperability in the conservation and restoration domain</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Bannour</surname></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page" from="26" to="30" />
+		</imprint>
+	</monogr>
+	<note>3rd digital heritage international congress (DigitalHERITAGE</note>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">CRMBA and CRMarchaeo models harmonization</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Ronzino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Felicetti</surname></persName>
+		</author>
+		<ptr target="http://www.cidoc-crm.org/Resources/crmba-and-crmarchaeo-models-harmonization" />
+	</analytic>
+	<monogr>
+		<title level="m">34th joint meeting of CIDOC CRM SIG and ISO/TC46/SC4/WG9</title>
+		<imprint>
+			<date type="published" when="2015-10-08">8 October 2015. 21 Aug 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Reflète la richesse des thématiques Inria</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<title level="a" type="main">Reflète la richesse des thématiques Inria</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">08B66AAE97D2821E91C406F82DDA235E</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Algèbre linéaire numérique</term>
+					<term>Algorithmique arithmétique</term>
+					<term>Analyse de données</term>
+					<term>Analyse de données à grande échelle</term>
+					<term>Analyse de signaux EEG</term>
+					<term>MEG</term>
+					<term>Interfaces Cerveau Ordinateur</term>
+					<term>Analyse numérique</term>
+					<term>calcul scientifique</term>
+					<term>Modélisation</term>
+					<term>Simulation HPC</term>
+					<term>architecture des calculateurs</term>
+					<term>Assistance à la personne</term>
+					<term>Automatique</term>
+					<term>Bioinformatique</term>
+					<term>biomathématiques</term>
+					<term>microbiologie</term>
+					<term>Biologie computationnelle</term>
+					<term>biologie des systèmes</term>
+					<term>Biologie numérique</term>
+					<term>Biomécanique</term>
+					<term>Biomedical Engineering</term>
+					<term>Biostatistique</term>
+					<term>Calcul formel</term>
+					<term>Calcul intensif / HPC</term>
+					<term>Calcul parallèle</term>
+					<term>calcul scientifique HPC</term>
+					<term>Cancérologie</term>
+					<term>Compilation</term>
+					<term>Computational geometry and algebra</term>
+					<term>computer vision</term>
+					<term>Cybersécurité</term>
+					<term>data</term>
+					<term>mining</term>
+					<term>decentralised</term>
+					<term>communication networks</term>
+					<term>Distributed systems</term>
+					<term>Environnement</term>
+					<term>Évaluation et optimisation de performances de grandes infrastructures de calculs</term>
+					<term>fouille de données biomédicales</term>
+					<term>apprentissage</term>
+					<term>représentations des connaissances</term>
+					<term>Génie Logiciel</term>
+					<term>bases de données</term>
+					<term>Conception de langage</term>
+					<term>géométrie et topologie algorithmiques</term>
+					<term>Géométrie</term>
+					<term>Algèbre</term>
+					<term>Modélisation</term>
+					<term>Gestion et protection des données personnelles</term>
+					<term>Haptics</term>
+					<term>parallelisme</term>
+					<term>algorithmique</term>
+					<term>IHM</term>
+					<term>IHM visualisation</term>
+					<term>imagerie médicale</term>
+					<term>Intelligence Artificielle</term>
+					<term>optimisation</term>
+					<term>apprentissage</term>
+					<term>Intelligence artificielle</term>
+					<term>science des données</term>
+					<term>langages de programmation</term>
+					<term>les interfaces cerveau-ordinateur</term>
+					<term>Logique mathématique</term>
+					<term>Linguistique computationnelle</term>
+					<term>Machine Learning</term>
+					<term>mathématiques</term>
+					<term>mathématiques appliquées (simulation</term>
+					<term>)</term>
+					<term>mathématiques appliquées et informatique</term>
+					<term>Mathématiques appliquées et simulation</term>
+					<term>électrophysiologie cardiaque</term>
+					<term>environnement</term>
+					<term>Mathématiques discrètes et codage</term>
+					<term>mathématiques</term>
+					<term>physique statistique</term>
+					<term>théorie des probabilités</term>
+					<term>statistiques</term>
+					<term>géométrie</term>
+					<term>anatomie computationnelle Maths appliquées</term>
+					<term>Analyse et modélisation numérique</term>
+					<term>Mécanique des fluides</term>
+					<term>Propagation d&apos;ondes</term>
+					<term>Environnement</term>
+					<term>Calcul intensif et parallèle</term>
+					<term>Système d&apos;information intégré</term>
+					<term>Microarchitecture</term>
+					<term>Modelisation neurosciences</term>
+					<term>Modélisation probabiliste</term>
+					<term>Modélisation stochastique</term>
+					<term>modelisation stochastique</term>
+					<term>apprentissage statistique/ profond</term>
+					<term>traitement d&apos;image</term>
+					<term>teledetection</term>
+					<term>imagerie de la peau</term>
+					<term>modelisation/optimisation</term>
+					<term>networks</term>
+					<term>Neuroinformatique</term>
+					<term>Neurosciences Computationnelles</term>
+					<term>Optimisation</term>
+					<term>Optimisation et complémentarité</term>
+					<term>ordonnancement pour le calcul parallèle</term>
+					<term>Perception interaction cognition</term>
+					<term>Preuves et vérification</term>
+					<term>Preuves formelles</term>
+					<term>Probabilités</term>
+					<term>Problèmes inverses</term>
+					<term>production de la parole</term>
+					<term>Réalité Virtuelle</term>
+					<term>Représentation des connaissances et raisonnement automatique</term>
+					<term>Réseaux</term>
+					<term>Réseaux informatiques</term>
+					<term>sécurité</term>
+					<term>Réseaux mobiles</term>
+					<term>Robotique</term>
+					<term>Robotique et intelligence artificielle (2)</term>
+					<term>Santé</term>
+					<term>biologie et planète numériques / Sciences de la planète</term>
+					<term>de l&apos;environnement et de l&apos;énergie</term>
+					<term>Simulation numérique</term>
+					<term>Software Engineering / Programming Languages</term>
+					<term>Statistique</term>
+					<term>Neurosciences</term>
+					<term>synthèse d&apos;images et acquisition numérique</term>
+					<term>systems</term>
+					<term>software engineering</term>
+					<term>TAL</term>
+					<term>théorie algorithmique des nombres</term>
+					<term>Théorie de jeux appliquée aux réseaux</term>
+					<term>Theory of control</term>
+					<term>Traitement automatique des langues</term>
+					<term>Traitement automatique du langage</term>
+					<term>traitement de la parole</term>
+					<term>traitement du signal</term>
+					<term>Traitement du signal audio</term>
+					<term>Traitement du signal et apprentissage</term>
+					<term>traitement du signal et machine learning</term>
+					<term>Véhicule autonome</term>
+					<term>Véhicule autonome et robotique mobile</term>
+					<term>Vérification et Preuves Formelles</term>
+					<term>Vérification formelle de protocoles cryptographiques</term>
+					<term>Vision artificielle</term>
+					<term>apprentissage automatique</term>
+					<term>Vision par ordinateur</term>
+				</keywords>
+			</textClass>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Comment ouvrir la science ?</p><p>• Démarche individuelle et collective I.-Lorsqu'un écrit scientifique issu d'une activité de recherche financée au moins pour moitié par des dotations de l'Etat, des collectivités territoriales ou des établissements publics, par des subventions d'agences de financement nationales ou par des fonds de l'Union européenne est publié dans un périodique paraissant au moins une fois par an, son auteur dispose, même après avoir accordé des droits exclusifs à un éditeur, du droit de mettre à disposition gratuitement dans un format ouvert, par voie numérique, sous réserve de l'accord des éventuels coauteurs, la version finale de son manuscrit acceptée pour publication, dès lors que l'éditeur met lui-même celle-ci gratuitement à disposition par voie numérique ou, à défaut, à l'expiration d'un délai courant à compter de la date de la première publication. Ce délai est au maximum de six mois pour une publication dans le domaine des sciences, de la technique et de la médecine et de douze mois dans celui des sciences humaines et sociales. La version mise à disposition en application du premier alinéa ne peut faire l'objet d'une exploitation dans le cadre d'une activité d'édition à caractère commercial.</p><p>II.-Dès lors que les données issues d'une activité de recherche financée au moins pour moitié par des dotations de l'Etat, des collectivités territoriales, des établissements publics, des subventions d'agences de financement nationales ou par des fonds de l'Union européenne ne sont pas protégées par un droit spécifique ou une réglementation particulière et qu'elles ont été rendues publiques par le chercheur, l'établissement ou l'organisme de recherche, leur réutilisation est libre.</p><p>III.-L'éditeur d'un écrit scientifique mentionné au I ne peut limiter la réutilisation des données de la recherche rendues publiques dans le cadre de sa publication.</p><p>IV.-Les dispositions du présent article sont d'ordre public et toute clause contraire à celles-ci est réputée non écrite.</p><p>La plan national pour la science ouverte </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>•</head><label></label><figDesc>Anticiper sur la dissémination des différentes composantes d'un projet scientifique • Intégration aux méthodes • La science ouverte comme partie intégrante des politiques d'établissements d'ESR • Lien avec les bilans d'activité, les évaluations, la communication institutionnelle • Réfléchir à la nécessité d'une souveraineté numérique sous-jacente • L'ouverture repose sur l'existence d'hébergements numériques fiables et pérennes • Importance d'infrastructures publiques soutenant la science ouverte • Projet politique • Intégrer la science ouverte dans la démarche des tutelles et financeurs de la recherche • Conditions de financement, plans de gestion des données • Showing by doing: ex. HCERES =&gt; https://hal-hceres.archives-ouvertes.fr • Tenir compte du cadre légal Que dit la loi ? -Principes généraux • Ouverture des données par défaut • Données de la recherche comme document administratif • Responsabilité: institution, opérateur: chercheur • Cas spécifiques: diffusion obligatoire des données géographiques et environnementales • Exceptions possibles • Propriété intellectuelle, données personnelles, considérations stratégiques ou de valorisation • Exceptions particulières pour les musées, archives, bibliothèques • Cadre législatif • Loi n° 78-753 du 17 juillet 1978, CADA (Commission d'accès aux documents administratifs) • Directive 2003/98/CE du Parlement européen et du Conseil du 17 novembre 2003 sur la réutilisation des informations du secteur public. PSI (Public Sector Information) • Directive européenne du 26 juin 2013 relative à la réutilisation des informations du secteur public • Loi dite Valter du 28 décembre 2015 relative à la gratuité et aux modalités de la réutilisation des informations du secteur public • Loi pour une République numérique -7 octobre 2016 • Intégration dans le Code des relations entre le public et l'administration (livre III, titre II) Code de la recherche -Article L533-4</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="7,253.35,142.35,453.30,255.30" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="15,271.00,113.00,417.00,313.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="16,168.00,118.96,536.00,151.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="17,271.00,113.00,417.00,313.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="18,133.67,99.67,417.00,313.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="19,156.00,137.83,472.00,207.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="20,180.00,127.67,583.00,249.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="21,156.00,115.96,472.00,134.00" type="bitmap" /></figure>
+		</body>
+		<back>
+
+			<div type="funding">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Toutes types de données représentées Pourquoi héberger? Pas d'idéologie particulière, mais un souci de garder une trace… • Mention de la confidentialité • Prise de conscience de la notion de justifiabilité (publications) Taille des jeux de données Formats utilisés Cf. commentaires: très grosse variété des formats. Peu de signe d'une attention à la réutilisabilité (standards) Documentation des jeux de données Plutôt rassurant À améliorer… Lien avec le code (commentaires dans le source), les fichiers paramètres, article spécifique Faible Hébergement CD, DVDs, serveurs d'équipe Gitlab et github sont +très+ utilisés Présence croissante de Zenodo, référence à Huma-Num</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Réutilisation et licences</head><p>Contraste ouverture (engagée, cf. commentaires) -licence (CC-BY, logiciel)</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>En pratique</head><p>Science ouverte et accès ouvert</p><p>• Science ouverte old school : libre accès aux publications de recherche</p><p>• Une étape indispensable avant de faire de la science ouverte en haute mer • La face immergée du travail scientifique, ce à quoi on va faire référence in fine</p><p>• Difficultés :</p><p>• accès (paywalls) • coûts (abonnements ou APCs -revues hybrides)</p><p>• réutilisation (e.g. fouille)</p><p>• Souveraineté : disposer d'un corpus fiable, accessible et pérenne de ses production (chercheurs, communauté, institution, financeur)</p><p>• Exemple de politique d'établissement pour réfléchir: Inria</p><p>• Obligation de dépôt dans HAL (lien avec les rapports annuels), même pour les articles dans des revues sous APC • Budget centralisé des APC -interdiction de l'hybride     Vers un environnement vertueux de gestion des données d'expérience</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Phase préparatoire</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Phase d'expérimentation</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Phase de diffusion</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Documents et points de vigilance à chaque étape</head><p>• Phase préparatoire</p><p>• Proposition de projet (financement, accès à un instrument)</p><p>• Plan de gestion de données • Charte de réutilisation: accord amont entre les parties prenantes</p><p>• Phase d'expérimentation</p><p>• Carnet de laboratoire pour documenter les différentes étapes de recueil de données et les éventuels calculs</p><p>• Phase d'identification des acteurs intervenant dans le processus (PI, chercheur, technicien, stagiaire etc.)</p><p>• Cf. MOOC science reproductible • Documentation globale des processus: http://ssk.huma-num.fr/#/</p><p>• Hébergement des données temporaires, métadonnées associées, qualification pour une future sélection</p><p>• Phase de diffusion • https://datacharter.hypotheses.org</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Méthode</head><p>• La charte est une déclaration faite par chacune des parties et affichée en tant que telle</p><p>• Globale à une organisation, un projet, un échantillon ou un jeu de données particulier</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Principes</head><p>• Reciprocity, Interoperability, Citability, Openness, Stewardship and Trustworthiness</p><p>• https://datacharter.hypotheses.org/77</p><p>• Mise en oeuvre:</p><p>• Questionnaire destinés aux différents acteurs du processus de recherche</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Exemple</head><p>• DARIAH-Campus</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>L'initiative DARIAH Campus</head><p>• Objectif: réunir en un même espace l'ensemble des ressources pédagogiques de DARIAH • Une variété d'objet et de sources: • Utilisation de la charte:</p><p>• Définir des conditions générales de partage, réutilisation et contribution • Version complète sous:</p><p>• https://campus.dariah.eu/docs/dariah-campus-reuse-charter</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Quelques éléments…</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>La charte de réutilisation de DARIAH campus</head><p>• Exposé introductif: donner une idée claire de la vision retenue</p><p>• "Fostering open access to scholarly resources, as well as collaboration and fair data-sharing practices among a diverse range of actors involved in knowledge creation in the Arts and Humanities" • "as a mutual declaration of goodwill, the charter allows us to clarify our expectations regarding the interaction between content creators, users and curators"</p><p>• Un positionnement sur l'ensemble des 6 principes • Une annexe spécifiant les détails techniques</p><p>• Profil des métadonnées utilisées • Formats/standards utilisés pour les contenus (en construction)</p><p>Positionnement de DARIAH campus sur les 6 principes -1</p><p>• Réciprocité</p><p>• "learners ((re)users) are encouraged to share their feedback but also contribute new training materials" • "contact information of both authors (together with other contributors) and commenters/reviewers will be made explicit"</p><p>• Interopérabilité</p><p>• "training materials will be made accessible in open formats"</p><p>• "share metadata in a standardized format to ease harvesting our content"</p><p>• "We make available the content of our hosted learning resources (written in Markdown, a lightweight markup language) available through a GitHub repository"</p><p>• Citabilité</p><p>• [We] "make our recommended citation model explicit for each training resource shared via DARIAH-Campus"</p><p>Positionnement de DARIAH campus sur les 6 principes -2</p><p>• Ouverture</p><p>• "Open Educational Resource (OER)"</p><p>• "openly and freely available under a Creative Commons CC-BY 4.0 license"</p><p>• Curation (stewardship)</p><p>• "workflows to ensure the long-term availability of the training materials hosted on DARIAH-Campus"</p><p>• Fiabilité (trustworthyness)</p><p>• "we recognize the diverse contributor roles (author, editor, contributor) to clearly document who participated in the production process in order to ensure its traceability"</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conclusions</head><p>• Différents outils à différentes étapes du projet • A toutes les étapes   </p></div>			</div>
+			<div type="references">
+
+				<listBibl/>
+			</div>
+		</back>
+	</text>
+</TEI>

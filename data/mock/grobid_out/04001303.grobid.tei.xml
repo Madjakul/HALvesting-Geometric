@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Which TEI representation for the output of automatic transcriptions and their metadata? An illustrated proposition</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Hugo</forename><surname>Scheithauer</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="laboratory">ALMAnaCH -Automatic Language Modelling and ANAlysis &amp; Computational Humanities</orgName>
+								<address>
+									<country>Inria Paris</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Alix</forename><surname>Chagué</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="laboratory">ALMAnaCH -Automatic Language Modelling and ANAlysis &amp; Computational Humanities</orgName>
+								<address>
+									<country>Inria Paris</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">UdeM -Université de Montréal</orgName>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="laboratory">EPHE -École pratique des hautes études</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="laboratory">ALMAnaCH -Automatic Language Modelling and ANAlysis &amp; Computational Humanities</orgName>
+								<address>
+									<country>Inria Paris</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Which TEI representation for the output of automatic transcriptions and their metadata? An illustrated proposition</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">EEB821B6B4DD3F01F27611FA3EBF722C</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>HTR</term>
+					<term>OCR</term>
+					<term>digital edition</term>
+					<term>metadata</term>
+					<term>layout</term>
+					<term>eScriptorium</term>
+					<term>TEI Publisher</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The recent and fast development of automatic transcription software is accompanied by a growing heterogeneity of formats to save the output of such a task. TEI P5 can be helpful to simplify workflows and bring in more coherence in digitization pipelines. We present a twofold modelization in TEI which brings together essential information resulting from the transcription phase with the editorial layers. The usefulness of this modelization is illustrated with several examples showing how such an approach can be leveraged at different stages of a digitization pipeline.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>The recent growth of computer power available for processing data with machine learning techniques -particularly for Deep Learning contexts -have led to the faster development of technologies such as Optical Character Recognition (OCR), and recently Handwritten Text Recognition (HTR). It is now possible to envision reading manuscripts from the 20th century (Massot, Sforzini, and Ventresque 2019) as easily as those from the 13th century. <ref type="bibr">1</ref> The main challenge for automatic transcription is the variation of letter shapes through time and space, even within the same alphabetical system. However, thanks to the development of the appropriate software and tools with rather accessible interfaces, the technology has now moved from Computer Vision labs to those in Social Sciences and the Humanities as well as to cultural institutions. Such software accelerates our capacity to create texts which can then be used for research projects or for the digital editions of large patrimonial collections. These evolutions are highlighted by the emergence of new workflows for digitizing and editing texts. It has now become crucial to address the question of knowing how we can keep and organize all the information deriving from the automatic transcription process.</p><p>Expanding the role of the TEI guidelines in the context of HTR In the field of automatic text recognition, whether applied to printed documents or to manuscripts, two de facto standards are currently used to record the output of the recognition process: ALTO XML 2 and PAGE XML (Pletschacher &amp; Antonacopoulos,  2010). <ref type="bibr">3</ref> These two XML formats are mainly intended to render the details of the layout of the original documents in combination with the textual elements that have been recognized. They thus follow a representation paradigm which is far from sufficient when the underlying objective is to produce complex digital editions. On the contrary, TEI XML is specifically appropriate for digital editions with the specificity that it enables one to simultaneously handle the intellectual organization of the document but also its physical incarnation. For this reason, it is common that once the transcription process is over, and the edition begins, we move on to TEI XML and keep only the information necessary for the edition. This usually leads projects to have to manage heterogeneous formats in order to a) keep the precise information resulting from the HTR process and b) enrich the content in the form of a structured edition, while avoiding to lose the connection between both.</p><p>We would like to advocate here for a change of paradigm where TEI would be given a stronger and earlier role in these workflows, with the advantage of better organizing the articulation between the various transcription, edition and enrichment levels. Thus, our question is the following: how far can we map the results of an automatic transcription process to TEI and by which representational means?</p><p>Initially arising from reflections conducted within the frame of the LECTAUREP project (which we will present later), we maintained an effort to generalize our proposition to as many use cases as possible. Our experiment is based on the use of eScriptorium, a virtual research environment which combines a web interface and the OCR/HTR engine Kraken (Stokes et al., 2021). <ref type="bibr">4</ref> Another notable HTR engine used by the Digital Humanities community is Transkribus (Mühlberger et al., 2019). They both offer the possibility to export the output of the automatic transcription in formats such as plain text, ALTO XML and PAGE XML. <ref type="bibr">5</ref> Transkribus has also implemented the export to TEI XML<ref type="foot" target="#foot_2">6</ref> and other formats like Docx. Apart from ALTO and PAGE, all these formats generate texts which cannot be reinjected into the software.</p><p>On the contrary, one of our objectives is to improve the reusability of contents generated through HTR and OCR at various stages of the workflow leading to a digital edition. Using TEI XML to encode pivot files would mean aggregating the raw transcription with its edited version into one single file. Ideally, this would allow users to go back and forth between these two states of the text while avoiding complex manipulations of the data. Such a pivot file entails making the TEI encoding compatible with the requirements of automatic transcription software and their traditional formats, but it could also improve the propagation of the metadata throughout the pipeline. New issues are also currently arising following the creation of large corpora produced with automatic transcription technologies, such as the need to reconstruct the logical structure of digitized text documents. Having access to layout information allows semi-automatic and automatic processing in order to do so. <ref type="bibr">7</ref> Our approach has also been inspired by the vision adopted in the TEI in libraries initiative, which also had in mind the idea of bringing together automatic transcription and more structured TEI-based representations. Born in 1999, the TEI in libraries initiative was grounded as a TEI workgroup 8 and released its last version in 2018. It listed best practices for using TEI in the context of library text digitization projects. 9 A notable aspect is that it proposed to keep OCR output in a TEI file, and established key concepts which echoes the direction we decided to take: TEI can "be suited to the goals of a preservation unit or mass digitization initiative," and it allows texts "to be a faithful representation of the appearance of the source document derived from OCR."<ref type="foot" target="#foot_1">10</ref> In this paper, we want to go a step further and specifically address the challenges now posed by a greater use of OCR and HTR in a variety of new contexts, with a specific emphasis on modeling layout information in TEI documents.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>OCR and HTR terminology</head><p>Before entering into the details of our TEI modelization for the encoding of automatic transcription output, we would like to provide the reader with a few elements about the OCR and HTR terminology, which we will then map onto TEI concepts later.</p><p>In most automatic transcription software components, an image can be divided into one or more text regions (also commonly called zones, or text zones). They are used to mark zones in a page that usually bear a semantic significance. Figure <ref type="figure">1</ref> represents a poem, "Le Pont Mirabeau," written by Guillaume Apollinaire, circa 1912, kept at the French National Library (BnF). The layout is rather simple, and consists of a page number, a title, and stanzas. All of them are directly identified on the image as text regions. We may mention that there exist initiatives that intend to build ontologies to normalize the naming of the zones and their use (Gabay et al. 2021). A zone normally contains lines of text. They are themselves composed with three elements (see Figure <ref type="figure">2</ref>): a baseline/topline defines a virtual line, passing through at least two points, on which the text is written or from which it is hanging; a mask is a polygon, defined by at least three points, which delimits the area of pixels containing the text of the line; and lastly, the text itself. In the resulting PAGE XML files, for instance, it includes the identification of the creator, i.e. the application used, eScriptorium, and changes made to the transcription on the platform, such as the dates of creation and of the last modification.<ref type="foot" target="#foot_3">11</ref> Such information is quite straightforward to map onto &lt;teiHeader&gt; components: in &lt;respStmt&gt; for information about the users and the software, and &lt;revisionDesc&gt; for temporal information. This can be complemented with another mapping, for information such as the title of the document or any identifier linked to the image, within &lt;titleStmt&gt; (see Figure <ref type="figure">3</ref>). With the continuous development of automatic transcription software, more complex and detailed metadata will become available in the future. The &lt;teiHeader&gt; already offers the needed components to fully document most of those we can already foresee. For instance, the metadata attached to the transcription models -such as the name of the model, who trained it, the OCR/HTR engine used and its version, or the list of codecs known by the model -, could be given in the &lt;respStmt&gt;. The name of the software and of the individuals or organizations who modify the transcription afterwards could be indicated there as well.</p><p>Details on the transcription itself could be supplied in the &lt;editorialDecl&gt; (see Figure <ref type="figure">4</ref>). This element already offers a set of sub-elements which can be used to describe regular decisions often made before training and applying a transcription model, such as hyphenation (&lt;hyphenation&gt;), normalization (&lt;normalization&gt;), i.e. how diacritics and other typographic elements were transcribed; or else how punctuation (&lt;punctuation&gt;) is handled and transposed into unicode characters.</p><p>The output of OCR and HTR often needs to undergo manual or automatic correction to remove the remaining errors. Post-transcription corrections, either done automatically, semi-automatically or by hand, can thus be detailed in &lt;correction&gt; (Rigaud et al., 2019; Nguyen et al., 2019). 12 &lt;editorialDecl&gt; &lt;normalization&gt; &lt;p&gt;In the training corpus, abbreviations were transcribed using "^".&lt;/p&gt; &lt;/normalization&gt; &lt;correction&gt; &lt;p&gt;No post-transcription corrections.&lt;/p&gt; &lt;/correction&gt; &lt;hyphenation eol="all"&gt; &lt;p&gt;All hyphenations were kept. They were transcribed with "-".&lt;/p&gt; &lt;/hyphenation&gt; &lt;/editorialDecl&gt; As for the representation of the raw transcription itself, we chose to keep a clear separation between it and the actual edited text. While the latter would go in the &lt;body&gt; element, all the raw output of the transcription is defined in a &lt;sourceDoc&gt; element. As stated in the TEI P5 Guidelines, &lt;sourceDoc&gt; contains the transcription or other representations of a single source document. <ref type="bibr">13</ref> Several child elements are available, namely: &lt;graphic&gt;, &lt;surface&gt; and &lt;zone&gt;.</p><p>Our implementation of &lt;sourceDoc&gt; follows two key principles. First, &lt;sourceDoc&gt; must be the strict transposition of any output information resulting from the HTR or OCR process. For instance, since ALTO and PAGE XML exports include masks' coordinates, we need to reflect these in the TEI representation. Secondly, we want to keep &lt;body&gt; free from any HTR or OCR information, meaning that what we find there will be the sole responsibility of the editor. As a result, any interpretation of the output of the transcription will be contained in &lt;body&gt; and never inside &lt;sourceDoc&gt;. Distinguishing the raw transcription from the edition guarantees a continuum between the original document and its final publication. We deliberately decided to double the textual content in order to have two distinct blocks: the initial output of the transcription, and its edition (see Figure <ref type="figure">5</ref>).</p><p>In conjunction with our specification work to map the OCR/HTR output to TEI, we have implemented a full-fledged XSLT transform from PAGE XML to TEI which generates the content of &lt;sourceDoc&gt; as presented here.<ref type="foot" target="#foot_5">14</ref> Note that a similar transformation scenario could be created to go from ALTO to TEI. We managed to ensure that all elements available in a PAGE XML document could be retrieved during the transformation and transposed into the resulting TEI document.</p><p>In a PAGE XML document, a &lt;Page&gt; element represents the transcribed image. Basic metadata can be assigned to various attributes, for instance @imageFilename will store the name given to the source image, and @imageWidth and @imageHeight give a set of x,y values in pixels, defining a two dimensional space bearing text lines. With TEI, and nested inside &lt;sourceDoc&gt;, we use &lt;graphic&gt; for documenting such information, with the @url, @width and @height attributes. In addition, we give the image an identifier with @xml:id for linking it later to its transcription.</p><p>We then use &lt;surfaceGrp&gt; to represent the sum of all text regions and their associated text lines for a given image. &lt;surface&gt; and &lt;surfaceGrp&gt; are linked using an @xml:id attribute on the first element, and @facs for the second. For each text region, a &lt;surface&gt; element is created and nested within this parent element. PAGE XML uses &lt;textRegion&gt; and &lt;Coords&gt; elements to document text regions. The former gives an identifier, and the latter gives its coordinates as pairs of points, which can be located on the image. In TEI, we distribute this information with three attributes inside &lt;surface&gt;: @xml:id gives an identifier; @type will be associated with values defined with an ontology in the transcription software to qualify the different text regions (for example "numbering", "title" and "line_group", as seen in our example in Figure <ref type="figure">1</ref>). Finally, @points indicates the coordinates of the text region. This last attribute will be found in any other element bearing layout information and defining an area or a line. 1455,176 1455,176 1458,176 1458,176 1461,176 1461,176 1461,176 1464,176  1464,176 1513,216 1530,228 1692,228 1701,306 1701,320 833,332"&gt;  &lt;path type="baseline" points="833,317 1701,306 </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The example of LEPIDEMO: TEI as a pivot file</head><p>As stated earlier, we do not envision &lt;sourceDoc&gt; as the place where the transcription is interpreted, nor where the edition takes place. However, the text provided in &lt;sourceDoc&gt; will often be the foundation for later editions and interpretations which will be rendered in &lt;body&gt;. The LECTAUREP project provided a use case to demonstrate how a TEI file built according to our modelization can usefully serve both the raw transcription and its edition.</p><p>LECTAUREP is a project jointly led by Inria (ALMAnaCH team) and the Archives nationales de France (DMC team) between 2018 and 2021 (Chagué and Rostaing,  2021). It aimed at facilitating the exploration of directories listing minutes and deeds redacted by Parisian notaries between the beginning of the 19th century and the mid-20th century. Once the transcriptions were acquired with eScriptorium, we wanted to detect named entities before publishing the final enriched transcriptions. However, due to the complex layout used in the documents, we realized that it would be difficult to automatically parse and analyze hundreds of pages without structuring the output of the transcription. Such structuration would help us target specific text regions where named entities can be found. As illustrated in Figure <ref type="figure">7</ref>, each page contains a table consisting of a header and several columns (usually seven) dividing the information in different categories.</p><p>[fig. <ref type="figure">7</ref>] A notary directory dated from April, 1937 (inventory number: FRAN_0025_4648_L-1). From left to right, the header indicates: repertory number; date; the type of deedits type; the persons who signed it and a summary; when it was paid and the sum paid to the notary. With a fully encoded table in TEI, it would theoretically be possible to aim for a specific column and then tag elements according to its nature. For example, we could tag every type of act in the third and fourth column with simple rules because the information is rather simple, consisting only of tokens specifically describing the type of act. In our use case, named entity recognition would then be performed semi-automatically, without the need to train a model for every column, and automatically when information is syntactically more complex (e.g. the fifth column).</p><p>We built a demonstration pipeline called LEPIDEMO (for LECTAUREP Pipeline Demonstration, see Figure <ref type="figure">8</ref>) during which images are first loaded on eScriptorium, where the layout is annotated and the documents transcribed before being exported as PAGE XML files. <ref type="bibr">16</ref> The Page XML files were transposed into TEI with an XSLT.<ref type="foot" target="#foot_6">17</ref> As mentioned before, the extracted information populated &lt;teiHeader&gt; and &lt;sourceDoc&gt; only. Then, we processed coordinates available in &lt;sourceDoc&gt; thanks to a Python script in order to reconstruct each page's logical structure. This helped us create the content of &lt;body&gt;: mainly a &lt;table&gt; element with child elements such as &lt;row&gt; and &lt;cell&gt; encoding its content. We also created relations between the &lt;sourceDoc&gt; and the &lt;body&gt;, linking the lines of texts by means of a pair of @xml:id in the former, and @facs in the latter. Finally, we were able to normalize dates given that one line specifies the year and month applicable to the whole page while a column gives only the date of the day applicable to the minute (see Figure <ref type="figure">8</ref>). We are also able to narrow down the scope of the search for named entities in the text. Corrections and the annotation of named entities would be appended to the content of &lt;body&gt;.</p><p>With the example of LEPIDEMO, we show the importance of distinguishing the raw output of OCR/HTR from the edition phase where the coordinates are interpreted and the text annotated. Without this interpretation of &lt;sourceDoc&gt;, we would not be able to make sense of the different resulting text lines. However, the content of &lt;body&gt; is irrelevant to an OCR/HTR software because in order to become readable the information no longer follows the physical structure rendered on the image. Keeping both &lt;sourceDoc&gt; and &lt;body&gt; in the same document enables one to show a physical structure compatible with an OCR/HTR software (to train a new transcription or segmentation model, for example) while still being able to move on to more detailed edition steps.</p><p>Using layout information when publishing TEI We used the modelization presented above to propose a visualization of the resulting TEI files hinged on four views, as illustrated in Figure <ref type="figure">10</ref>. The first one is a IIIF viewer displaying a facsimile: a IIIF identifier referring to the image is stored with a @url inside &lt;graphic&gt; in &lt;sourceDoc&gt;. Secondly, a diplomatic representation of the document is based on the content of the &lt;body&gt; element. Then thirdly, a flat representation of the text provided in sourceDoc is displayed region by region, allowing users to see the original image's segmentation. Lastly, an imitative transcription of the text, based on the information contained in &lt;sourceDoc&gt;, including the canvas' size, the segments' coordinates and their associated text nodes are rendered thanks to SVG, an XML-based vector image format for two-dimensional graphics.<ref type="foot" target="#foot_7">19</ref>  The SVG visualization provides a solution to confront a transcription with its original layout. This gives the community an opportunity to publish text with a complex layout, as seen in Figure <ref type="figure">11</ref>, where the meaning of the text is extremely tied to the layout.</p><p>[fig. <ref type="figure">11</ref>] A visualization in TEI Publisher of a facsimile of calligrams written by Guillaume Apollinaire. Guillaume Apollinaire, Calligrammes, ed. Roger de La Fresnaye, Lausanne, 1952, https://gallica.bnf.fr/ark:/12148/bpt6k9775732c/f31. Created by the authors.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conclusion</head><p>We argued that all elements resulting from an OCR or an HTR process can be mapped to a &lt;sourceDoc&gt; element as defined by the TEI Guidelines. With a bipartite organization revolving around the articulation of &lt;sourceDoc&gt; and &lt;body&gt;, we can leave the output of the transcription intact and render any interpretation or correction of the text (otherwise incompatible with a transcription software) inside &lt;body&gt;, with the appropriate elements. By adopting this architecture, we propose that digitization pipelines switch earlier to TEI, with the objective of simplifying the workflow and better documenting the transcription phase and its later edition, either for keeping track of this process, or for further usage, such as described in our examples. OCR, and HTR in particular, are rapidly evolving fields, this concerns formats as much as software. Our modelization is intended as a first step towards a better stabilization of the landscape thanks to TEI. New use cases and approaches will certainly arise, we therefore welcome any feedback on that matter and are open to collaborations.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>[</head><label></label><figDesc>fig. 1] Layout annotation of a poem written by Guillaume Apollinaire, Le Pont Mirabeau, ca. 1912, Bibliothèque nationale de France (BnF). https://gallica.bnf.fr/ark:/12148/btv1b525056707/f33/.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>[fig. 2] A text line corresponding to the poem's title, its baseline (red), and mask (purple). Guillaume Apollinaire, Le Pont Mirabeau, ca. 1912, Bibliothèque nationale de France (BnF). https://gallica.bnf.fr/ark:/12148/btv1b525056707/f33/ Encoding automatic text transcription in TEI As of March 2022, the ALTO and PAGE XML formats used in eScriptorium to export recognition output only provide a few metadata elements about the transcription itself.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>[</head><label></label><figDesc>fig. 3] Documenting a transcription: metadata representation from ALTO XML to TEI. Created by the authors.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>[</head><label></label><figDesc>fig. 4] An example of &lt;editorialDecl&gt;. Created by the authors.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>[fig. 10] "Le Pont Mirabeau," by Apollinaire, as displayed in the open source application TEI Publisher.We propose four views (from left to right): the facsimile with IIIF; its edited transcription; a flat representation of all text regions along with their content; and lastly the imitative view, based on layout information rendered with SVG. Created by the authors and Floriane Chiffoleau.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="9,89.25,201.29,411.00,226.50" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="11,78.75,79.50,440.25,215.25" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="12,78.75,105.37,440.25,186.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="12,85.13,524.11,424.50,225.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>An example of the &lt;sourceDoc&gt;. Created by the authors.</figDesc><table><row><cell>"/&gt;</cell></row><row><cell>&lt;line&gt;Le Pont Mirabeau.&lt;/line&gt;</cell></row><row><cell>&lt;/zone&gt;</cell></row><row><cell>&lt;/surface&gt;</cell></row><row><cell>&lt;!--... --&gt;</cell></row><row><cell>&lt;/surfaceGrp&gt;</cell></row><row><cell>&lt;/sourceDoc&gt;</cell></row><row><cell>[fig. 6]</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head></head><label></label><figDesc>Having access to layout information inside the final encoded text also allows for further usage during the publication phase.With TEI Publisher (e-editiones 2021), we propose a solution to display the resulting TEI file where the transcription output is associated with an image facsimile. TEI Publisher is an open source publication application powered by eXist-db. It offers a fully customizable interface, and uses ODDs and web templates to visualize a corpus of files encoded with TEI. Furthermore, it allows faceted search and corpora exploration.18    </figDesc><table /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_0"><p>See also the Kraken repository on Github: https://github.com/mittagessen/kraken (viewed on 03/23/2022) 3 See also the PAGE XML Github repository: https://github.com/PRImA-Research-Lab/PAGE-XML (viewed on 03/24/2022) 2 See the Analyzed Layout and Text Object (ALTO) 4.2 schema specifications at https://www.loc.gov/standards/alto/news.html#4-2-released (viewed on 03/23/2022)</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="10" xml:id="foot_1"><p>See TEI in Libraries, ver. 4.0.0: and especially the 4.0.0 version which can be found here: https://tei-c.org/extra/teiinlibraries/4.0.0/bptl-driver.html (viewed on 03/23/2022)</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_2"><p>Said XSLT can be found on the following Github repository: https://github.com/dariok/page2tei (viewed on 03/23/2022)5  The implementation of these two export formats does not go without raising issues, namely due to the absence of a normalization strategy which results in tedious transitions from one interpretation of the format to another (Transkribus' ALTO and eScriptorium's ALTO are not immediately compatible) and from one version to the next (Transkribus' shift from ALTO 2 to ALTO 4 in March 2021 broke many pipelines based on ALTO 2).</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="11" xml:id="foot_3"><p>Note that, as of March 2022, the current version of eScriptorium considers that date of creation equals the date of last modification.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="13" xml:id="foot_4"><p>See the TEI Guidelines for the &lt;sourceDoc&gt; element: https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-sourceDoc.html (viewed on 03/24/2022)12  See the TEI guidelines for more documentation about said elements: respectively, https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-normalization.html, https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-punctuation.html, https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-correction.html (viewed on 03/23/2022)</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="14" xml:id="foot_5"><p>The XSLT is available on Github repository: https://github.com/TEI4HTR/page2tei (viewed on 03/24/2022)</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="17" xml:id="foot_6"><p>We also developed a python script that allows users to download TEI files from eScriptorium. See https://github.com/lectaurep/TEI-From-eScriptorium (viewed on 03/28/2022). We hope to implement a TEI export directly in eScriptorium in the future.16  See the pipeline at https://github.com/lectaurep/lepidemo (viewed on 03/28/2022). Restructured files could be accessed at: https://github.com/lectaurep/lepidemo/tree/master/data/output (viewed on 03/29/2022)</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="19" xml:id="foot_7"><p>See the Scalable Vector Graphics (SVG) 2 recommandations at https://www.w3.org/TR/SVG2/ (viewed on 03/28/2022)</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgments</head><p>We would like to mention the essential contribution of our colleague Floriane Chiffoleau on the elaboration of the visualization prototype with TEI Publisher. We also wish to thank Simon Gabay, Juliette Janes, Claire Jahan and Ariane Pinche for their insightful feedback.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Biographies</head><p>Hugo Scheithauer, Research &amp; Development Engineer, ALMAnaCH (Inria), Paris: hugo.scheithauer@inria.fr.</p><p>Research and Development Engineer in the Inria ALMAnaCH team, Hugo Scheithauer holds a master's degree in art history and in "Technologies numériques appliquées à l'histoire" at the École nationale des chartes. He works on the automatic segmentation of sale catalogs for the DataCatalogue project, jointly led by Inria, the National Library of France (BnF) and the National Institute for Art History (INHA).</p><p>Alix Chagué, PhD Candidate in Digital Humanities, ALMAnaCH (Inria), Paris and CRIHN (Université de Montréal), Montreal: alix.chague@inria.fr.</p><p>Alix Chagué is a PhD candidate in Digital Humanities, focusing on the resources and methods to apply HTR technologies in the various fields of the Humanities. As a co-founder of the HTR-United initiative (https:/htr-united.github.io), she defends the construction by the community of homogenous practices within the Open Science framework. She is also a coordinator for the Master Degree in Documentation and Digital Humanities at the Ecole du Louvre in Paris. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Laurent</head></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Fully encoded TEI examples can be found on Github. 15 [fig. 5] A sourceDoc-based encoding components. Created by the authors. &lt;sourceDoc&gt; &lt;graphic xml:id=&quot;f33&quot; url=&quot;ark:/12148/btv1b525056707/f33/&quot; width=&quot;2312px&quot; height=&quot;3469px&quot;/&gt; &lt;surfaceGrp facs=&quot;#f33&quot;&gt; &lt;!--... --&gt; &lt;surface xml:id=</title>
+		<ptr target="https://hal.inria.fr/hal-03479258" />
+	</analytic>
+	<monogr>
+		<title level="m">The first file results from an automatic transcription, and the second was manually transcribed</title>
+		<meeting><address><addrLine>Paris, France</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1024">196 1744,265 1668,330 827,351 793,236 868. 179 998,185 1024,170 1027,170 1027,170 1027,170 1030,170 1030,170 1033,170 1033,170 1033,170 1035,170 1090,187 1125,173 1125,173 1128,173 1128,173 1128,173 1131,173 1131,173 1131,173 1134,173 1134,173 1189,199 1206,205 1218,199 1270,179 1270,179 1273,179 1273,179 1273,179 1276,179 1276,179 1278,179 1278,179 1278,179 1281,179 1313,202 1371,202 1452,176 1455. 2021</date>
+			<biblScope unit="volume">173</biblScope>
+		</imprint>
+		<respStmt>
+			<orgName>AI4LAM and BnF and Université Paris Saclay</orgName>
+		</respStmt>
+	</monogr>
+	<note>Fantastic Futures 2021 / Futures Fantastiques 2021</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">TEI Publisher: Documentation</title>
+		<ptr target="https://teipublisher.com/exist/apps/tei-publisher/doc/documentation.xml?odd=docbook.odd" />
+	</analytic>
+	<monogr>
+		<title level="m">TEI Publisher</title>
+		<imprint>
+			<date type="published" when="2021-08">August 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">SegmOnto: Common Vocabulary and Practices for Analysing the Layout of Manuscripts (and More)</title>
+		<author>
+			<persName><forename type="first">Simon</forename><surname>Gabay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jean-Baptiste</forename><surname>Camps</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ariane</forename><surname>Pinche</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Claire</forename><surname>Jahan</surname></persName>
+		</author>
+		<ptr target="https://hal.archives-ouvertes.fr/hal-03336528" />
+	</analytic>
+	<monogr>
+		<title level="m">1st International Workshop on Computational Paleography (IWCP@ICDAR 2021)</title>
+		<meeting><address><addrLine>Lausanne, Switzerland</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Journal of Data Mining and Digital Humanities Atelier Digit_Hum</title>
+		<author>
+			<persName><forename type="first">Marie-Laure</forename><surname>Massot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Arianna</forename><surname>Sforzini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vincent</forename><surname>Ventresque</surname></persName>
+		</author>
+		<idno type="DOI">10.46298/jdmdh.5043</idno>
+		<ptr target="https://doi.org/10.46298/jdmdh.5043" />
+		<imprint>
+			<date type="published" when="2019-03">March 2019</date>
+		</imprint>
+	</monogr>
+	<note>Transcribing Foucault&apos;s Handwriting with Transkribus</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Transforming Scholarship in the Archives through Handwritten Text Recognition: Transkribus as a Case Study</title>
+		<author>
+			<persName><forename type="first">Guenter</forename><surname>Mühlberger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Louise</forename><surname>Seaward</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Melissa</forename><surname>Terras</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sofia</forename><surname>Oliveira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vicente</forename><surname>Ares</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Maximilian</forename><surname>Bosch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sebastian</forename><surname>Bryan</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Colutto</surname></persName>
+		</author>
+		<idno type="DOI">10.1108/JD-07-2018-0114</idno>
+		<ptr target="https://doi.org/10.1108/JD-07-2018-0114" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Documentation</title>
+		<imprint>
+			<biblScope unit="volume">75</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="954" to="976" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Deep Statistical Analysis of OCR Errors for Effective Post-OCR Processing</title>
+		<author>
+			<persName><forename type="first">Thi-Tuyet-Hai</forename><surname>Nguyen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adam</forename><surname>Jatowt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mickaël</forename><surname>Coustaty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Antoine</forename><surname>Nhu-Van Nguyen</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Doucet</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/jcdl.2019.00015</idno>
+		<ptr target="https://doi.org/10.1109/jcdl.2019.00015" />
+	</analytic>
+	<monogr>
+		<title level="m">2019 ACM/IEEE Joint Conference on Digital Libraries (JCDL)</title>
+		<meeting><address><addrLine>Champaign, France</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="page" from="29" to="38" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">The PAGE (Page Analysis and Ground-Truth Elements) Format Framework</title>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Pletschacher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Apostolos</forename><surname>Antonacopoulos</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICPR.2010.72</idno>
+		<ptr target="https://doi.org/10.1109/ICPR.2010.72" />
+	</analytic>
+	<monogr>
+		<title level="m">2010 20th International Conference on Pattern Recognition</title>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="page" from="257" to="260" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">ICDAR 2019 Competition on Post-OCR Text Correction</title>
+		<author>
+			<persName><forename type="first">Christophe</forename><surname>Rigaud</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Antoine</forename><surname>Doucet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mickaël</forename><surname>Coustaty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jean-Philippe</forename><surname>Moreux</surname></persName>
+		</author>
+		<ptr target="https://hal.archives-ouvertes.fr/hal-02304334" />
+	</analytic>
+	<monogr>
+		<title level="m">15th International Conference on Document Analysis and Recognition</title>
+		<meeting><address><addrLine>Sydney, Australia</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="page" from="1588" to="1593" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">The EScriptorium VRE for Manuscript Cultures</title>
+		<author>
+			<persName><forename type="first">Peter</forename><forename type="middle">A</forename><surname>Stokes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benjamin</forename><surname>Kiessling</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Stökl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ben</forename><surname>Ezra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robin</forename><surname>Tissot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">El</forename><surname>Hassane</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gargem</forename></persName>
+		</author>
+		<ptr target="https://classics-at.chs.harvard.edu/classics18-stokes-kiessling-stokl-ben-ezra-tissot-gargem/" />
+	</analytic>
+	<monogr>
+		<title level="m">Classics@ Journal. 2021</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

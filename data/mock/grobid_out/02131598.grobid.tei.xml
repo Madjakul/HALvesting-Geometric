@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Preparing the Dictionnaire Universel for Automatic Enrichment</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2019-06-12">June 12, 2019</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Pedro</forename><forename type="middle">Javier</forename><surname>Ortiz Suarez</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Inria</orgName>
+								<address>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">Sorbonne Université</orgName>
+								<address>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Inria</orgName>
+								<address>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Benoît</forename><surname>Sagot</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Inria</orgName>
+								<address>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Preparing the Dictionnaire Universel for Automatic Enrichment</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2019-06-12">June 12, 2019</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">0C1F764287B26D15F1B134207214313D</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The Dictionnaire Universel (DU) is an encyclopaedic dictionary originally written by Antoine Furetière around 1676-78, later revised and improved by the Protestant jurist Henri Basnage de Beauval who expanded, corrected and included terms of arts, crafts and sciences, into the Dictionnaire. The aim of the BASNUM project is to digitize the DU in its second edition rewritten by Basnage de Beauval, to analyse it with computational methods in order to better assess the importance of this work for the evolution of sciences and mentalities in the 18th century, and to contribute to the contemporary movement for creating innovative and data-driven computational methods for text digitization, encoding and analysis. Based on the experience acquired within the research group, an enrichment workflow based upon a series of Natural Language Processing processes is being set up to be applied to Basnage's work. This includes, among others, automatic identification of the dictionary structure (macro-, meso-and microstructure), named-entity recognition (in particular persons and locations), classification of dictionary entries, detection and study of polysemy markers, tracking and classification of quotation use (bibliographic references), scoring semantic similarity between the DU and other dictionaries. The main challenges being the lack of available annotated data in order to train machine learning models, decreased accuracy when using modern pre-trained models due to the differences between present-day and 18th century French, and even unreliable or low quality OCRisation. The paper describes methods that are useful to tackle these issues in order to prepare the the DU for automatic enrichment going beyond what current available tools like Grobid-dictionaries can do, thanks to the advent of deep learning NLP models. The paper also describes how these methods could be applied to other dictionaries or even other types of ancient texts.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>The Dictionnaire Universel The BasNum Project</p><p>The aim of Bas Num is to digitize the DU, in the 1701 version rewritten by Basnage de Beauval, to analyse it with computational methods in order to better assess the importance of this work for the evolution of sciences and mentalities in the 18th century, and to contribute to the contemporary movement for creating innovative and data-driven computational methods for text digitization, encoding and analysis.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Automatic Enrichment of Ancient Dictionaries</head><p>At Inria we will develop methods for the automatic structuring of lexicographical entries from the digitized version of Basnage's DU, we will also enrich the contents of this dictionary using machine learning methods. There are two main types of machine learning models:</p><p>• Statistical methods: We have some existing tools.</p><p>• Neural methods: We want to build our own tools.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Optical Character Recognition Transkribus</head><p>• Well established tool.</p><p>• Uses statistical methods.</p><p>• Has an user interface.</p><p>• Generates PDF's.</p><p>• Does not preserve typographical features.</p><p>• Free but not Open Source.</p><p>• Transkribus infrastructure has to be used.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Kraken</head><p>• Not so well established.</p><p>• Uses neural methods.</p><p>• User interface in development.</p><p>• Does not generate PDF's.</p><p>• Preserves Typographycal features.</p><p>• Free and Open Source.</p><p>• We can use our own infrastructure.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>GROBID-Dictionaries [4]</head><p>[5] is an machine learning library using statistical methods for structuring digitised lexical resources and entry-based documents with encyclopedic or bibliographic content. It allows the parsing, extraction and structuring of text information in such resources.</p><p>GROBID-Dictionaries takes as input lexical resources digitised in PDF format and generates a TEI-encoded hierarchy of the different recognised text structures.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Workflow Workflow</head><p>Preparing the Dictionnaire Universel for Automatic Enrichment</p><p>• Annotate intelligently for not so intelligent models! At the beginning, only entries for the letter C where transcribed.</p><p>Our OCR engine learned that every entry starts with C. Randomise your annotations!</p><p>• TEI is flexible TEI is flexible to some extend, agree on how to annotate, as multiple annotations schemes reduce the precision of the model.</p><p>• Get a lot of text in the target language [6] Then get a lot of data of the target period or about the target topic.</p><p>Thank you!</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>•</head><label></label><figDesc>In 1635, the Académie française began producing a dictionary of the French language [2]. Antoine Furetière got involved in the production of the first edition. • Furetière grew frustrated with the slow progress of the Académie. He began to work on his own dictionary, The Dictionaire universel (DU) around 1676-78 [7]. • The second edition (1701) of the DU was improved by Henri Basnage de Beauval who virtually turned the DU into an encyclopaedia [1][3].</figDesc></figure>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Deep Learning Model</head><p>• Try to get a high quality data to reduce noise.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Contribution à la connaissance des réseaux d&apos;information au début du XVIIIe siècle: Henri Basnage de Beauval et sa correspondance à propos de l</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Bots</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Van Lieshout</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">B</forename><surname>De Beauval</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Histoire des ouvrages des savans</title>
+		<meeting><address><addrLine>Amsterdam</addrLine></address></meeting>
+		<imprint>
+			<publisher>Holland University Press</publisher>
+			<date type="published" when="1984">1984</date>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page" from="1600" to="1800" />
+		</imprint>
+	</monogr>
+	<note>: publication annotée de quelque cent lettres et index thématique et analytique</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m">References ii A. Furetière</title>
+		<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">contenant généralement tous les mots françois tant vieux que modernes</title>
+	</analytic>
+	<monogr>
+		<title level="s">&amp; les termes des sciences et des arts. Arnoud et Reinier Leers</title>
+		<imprint>
+			<biblScope unit="page">1701</biblScope>
+		</imprint>
+		<respStmt>
+			<orgName>Dictionnaire Universel</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">2e édition revue, corrigée et augmentée par M</title>
+		<author>
+			<persName><forename type="first">Par</forename><surname>Feu Messire Antoine Furetière</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">.</forename></persName>
+		</author>
+		<imprint>
+			<publisher>Basnage de Bauval</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Automatic extraction of tei structures in digitized lexical resources using conditional random fields</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Foppiano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Herold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017-09">2017. Sept. 2017. 2018. May 2018</date>
+		</imprint>
+	</monogr>
+	<note>Enhancing usability for automatically structuring digitised dictionaries. GLOBALEX workshop at LREC</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Asynchronous Pipelines for Processing Huge Corpora on Medium to Low Resource Infrastructures</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">J</forename><surname>Ortiz Suárez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sagot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">7th Workshop on the Challenges in the Management of Large Corpora (CMLC-7)</title>
+		<meeting><address><addrLine>Cardiff, United Kingdom</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-07">July 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">imagier de la culture classique</title>
+		<author>
+			<persName><forename type="first">Antoine</forename><surname>Furetière</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Le dictionnaire universel d&apos;Antoine Furetière</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<date type="published" when="1978">1978</date>
+			<publisher>SNL -Le Robert</publisher>
+			<pubPlace>Paris</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

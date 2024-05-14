@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main"></title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">57FE6A327CE985B945021A2E7A521EE3</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0" /><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Facilities❏❏</head><label></label><figDesc>Data producer = data owner ❏ Data only available on demand ❏ No embargo except if a scientific publication is scheduled Only one facility : Royal Institute for Cultural Heritage (BE) uses a licence Creative Commons 3.0 by-nc-nd for one dataset ❏ 2 facilities are thinking about licensing their datasets: -AGLAE-C2RMF (FR) for "Digital reports and grey literature" and "Digital imaging" -CATS (DK) for "CATS Reference Collection Database and Digital Documentation"</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="3,192.50,12.82,335.01,379.37" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="6,370.11,62.97,340.49,301.29" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="18,192.50,12.82,335.01,379.37" type="bitmap" /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0"><p>AGLAE -C2RMF (FR) BNC-WIGNER (HU)MTA Atomki (HU) SOLEIL -IPANEMA (FR)</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>instrumentation for non-invasive measurements CNR-INO (IT) CNR -ISTM (IT) CNRS (FR) IESL-FORTH (GR) LABDIA (IT) NCU (PL) RWTH (DE) UNIPG (S.M.A.Art) (IT)</p></div>
+			</div>
+
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Data types ❏ Digital data except : -"Reports and grey literature collection" (C2RMF) -"Imaging collection" (C2RMF) ❏ Various formats : Data hosting Internal servers External hard disks LTO tapes Computers... 1st solution 2nd solution Other solutions</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Open formats for texts and sounds</p></div>			</div>
+			<div type="references">
+
+				<listBibl/>
+			</div>
+		</back>
+	</text>
+</TEI>

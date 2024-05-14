@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main"></title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">C969EFEA0F4780D8CF42B45261D9ABA4</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T14:59+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Frederic Wolff</head><p>Loria BP 239 54506 Vandoe;Fee-les-Nancy wolff@loria.fr LaurefLrt;mary BP 239 54506 Vandoyn;z-les-Nancy romary@loria.fr</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>REFERRING GESTURES IN MULTIMODAL INTERFACES</head><p>Multimodal interfaces offer to users different ways to express their intentions using the most appropriate means. For instance, to refer to the object involved in the mentioned action, the difficulty of naming determines the modality (speech or/and gesture) used to access the referents as shown by De Angeli. However analysis of referring gestures remains based on simple principles which constraint users' gestural expression to unnatural production rules. Our experimental study has shown that the variability of natural gestures is governed by visual context <ref type="bibr">[l]</ref>. In this article, we present a contextual modelling of the analysis of spontaneous referring gestures used in multimodal interfaces. So it becomes possible to cope with the designations' diversity and offer a wider freedom of expression for the user.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>REFERRING GESTURE AND VISUAL PERCEPTION</head><p>Various features of referring gestures are directly determined by the perceptual organization of the visual scene. Our corpus of multimodal dialogues recorded during Wizard of Oz experiments, presents a wider freedom of gestural expression than the usual pointing paradigm of classical interfaces [ 11.</p><p>Referring gestures used in coordination with verbal utterances build a taxonomy based on four categories as shown in figure <ref type="figure" target="#fig_0">1</ref>. Whereas pointing still remains the most used gesture with 77% of all trajectories, circling movements appear with a frequency of 11%. 8% of all gestures defines the targeting category corresponding to a pointing covering a widespread area. The last type of gesture, scribbling, appears only seldom, 1%. Each type of gesture is performed with a freedom in shape, precision, completeness and access strategy. For instance, it has been observed that the shape of referring trajectories are produced on the one hand to lit the layout of the objects referred to, and on the other hand to avoid surrounding objects. User's movements are thus executed according to the perceptual environment in such a way that it becomes difficult to determine gesture type by considering only the trajectory shape. In the targeting example presented by figure <ref type="figure" target="#fig_0">1</ref>, an out of (visual) context analysis of the gestural shape will lead to circling typing (and its corresponding referent searching heuristic) contrary to the user's intention. So we claim that a robust typing of gestures can only be performed by considering the visual context.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Pointing targeting circling scribbling</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A CONTEXT DEPENDENT GESTURAL ANALYSIS</head><p>By considering the gestural trajectories and their position relative to the referred ob.jects in our corpus, we observe two kinds of intention: gestures which aim the objects (elective gestures), and gestures which separate referents from the surrounding objects (separative gestures). Such alternatives reflect the use of visual space to access to referents. To determine the user's intention, we build a spatial partition of the visual scene as shown in figure <ref type="figure">2</ref>. The first area is defined around each visual object, and corresponds to the elective part of visual space. The remaining inter-object space represents the visual area used by the user to carry out separative gestures like circling .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Figure 2: partitioning the eestural space</head><p>To determine the gestural intention of an entire trajectory, each point is typed according to its position in one of the two areas. The area most used by the point allows one to type the gesture and choose the heuristic adapted to retrieve the referents. For an elective gesture, the referred objects correspond to elective [areas used by the user, whereas the referents of an separative gesture are found on the side of the trajectory which presents the greatest curvature.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1</head><label>1</label><figDesc>Figure 1: taxonomy of referring gestures</figDesc></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">Acting on a visual world: the role of perception in multimdal HCI</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Wolff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">De</forename><surname>Angeli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<idno>AAAI 98</idno>
+		<imprint>
+			<biblScope unit="volume">199</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">Workshop on Representations for Multi-mtdal Human-Computer Interaction</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

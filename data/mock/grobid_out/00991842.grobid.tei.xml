@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main"></title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">AB9D65EA45D49583456A0EED9C0F466D</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Le chemin de l' Agence Pointillés de synchronisations</head><p>Version 2 du 16 mai 2014</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Les fins du désordre documentaire</head><p>Les cinq bibliothèques qu'abrite notre institut des sciences du numérique ont longtemps proliféré en jachères inventives, croisant leurs catalogues hétérogènes jusqu'à la perfection formelle d'une Babelde référence dans ses domaines, mais dont l'intelligibilité multipliait approximations et silences bibliographiques. Il y a un peu plus de dix ans, les documentalistes d'Inria ont ainsi récrit l'histoire de leur SIGB, un cahier de spécifications techniques et fonctionnelles, la partition d'une migration des données des catalogues locaux en un seul catalogue national, avec saut de format Unimarc et adoption de Rameau à l'avenant.</p><p>Cette préhistoire devait donner aux 80.000 documents du fonds Inria une visibilité que ses collaborations scientifiques ne cessaient d'appeler, ses équipes de recherche accueillant trois fois plus de doctorants qu'elles ne comportent de chercheurs titulaires, s'ouvrant tant aux enseignantschercheurs qu'aux scientifiques des autres organismes, voire de l'industrie. Une étude d'opportunité parallèle confirmait déjà l'intérêt d'une adhésion au Sudoc -cinq millions de notices à l'époque et 200 bibliothèques de recherche déployées. Sans compter la séduction qu'opérait l'appel d'une mutualisation des travaux documentaires portée par le réseau professionnel Sudocle catalogage partagé bien sûr, mais également la dynamisation des échanges professionnels, formations et émulations.</p><p>Le déploiement des ressources documentaire d'Inria fut pour l'Agence une partie de plaisir douloureux, le mapping de ses collections nécessitant plusieurs passages avant que l'ILN 149 ne naisse avec armes, bagages et consignes -l'indexation du Sudoc par Google Scholar dès 2007jusqu'à l'embarquement pour le World Catalog, en 2009.L'importation des catalogues Inria aura accouché de 35 % de notices nouvelles pour le Sudoc, 65 % ayant fusionné -le chiffre d'un ordre de bataille enfin normé.</p><p>Mais la prise en mains du SIGB Millennium, la maîtrise des transferts réguliers, l'appropriation des grandes fonctions documentaires dans le nouveau périmètre du réseau animé par l'Abes n'ont cessé d'enrichir le métier des documentalistes d'Inria depuis lors, dans une démarche d'anticipation et d'échanges professionnels qui animent toujours les enjeux de l'information scientifique -qu'il s'agisse de l'affinement des ressources décrites, de leur expression dans le web de données ou de leur transparence d'appropriation par l'utilisateur final, ce chercheur qui n'a cure des OPAC et autres balisages à chignons.</p><p>Nous touchons bien là aux limites de l'appropriation documentaire, savoir la gestion fine des objets de la recherche scientifique, bien au-delà du seul document quadrillé par un siècle de pratiques bibliothéconomiques modernes, et qui visent les données qui le portent, le code qui l'illustre ou encore les grains pédagogiques qui l'étayent dans le temps. L'éclatement de la ressource documentaire appelle de nouveaux services personnalisés, qui affinent toujours plus cet introuvable tableau de bord de la recherche, dans son élaboration même. Tout en refondant la relation du professionnel de la documentation à l'utilisateur cible, y redéfinissant encore son profil métier.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Révélations scientifiques de l'Abes</head><p>L'univers des pratiques, méthodes et langages partagés sous l'expertise de l'Abes, permettra encore aux établissements de redéfinir les voies de l'accès et de la diffusion des nouveaux objets de la recherche scientifique, quand serait-ce à servir leur désengagement des ressources documentaires que l'on dit désormais classiques, en favorisant l'établissement de leur cartographie fine, comme de leur accès contrôlé, autant que partagé. D'ores et déjà les instances de gouvernance de l'Abes y concourent résolument -et c'est également un motif heuristique fort d'Inria de contribuer, depuis 2010, aux travaux de son conseilscientifique. C'est pour nous, qui définissons les priorités des actions de l'institut dans le domaine de la diffusion des productions scientifiques, l'occasion de comprendre comment articuler des exigences toujours plus complexes de nos chercheurs avec une offre de service qui ne se conçoit maintenant plus qu'en interétablissements.</p><p>L'Abes a parfaitement ouvert la voie de nouveaux services qui ne se cantonne plus à cataloguer des objets présents dans des silos documentaires, mais bien d'assurer un continuum entre toute une palette de services, allant de la gestion nationale d'acquisition de ressources documentaires jusqu'à l'accompagnement de campagnes massives de numérisation. Ainsi, la mise en place du hub de métadonnées, la participation à l'Istex ou tout "simplement" la gestion d'un référentiel tel qu'IdRef contribuent à modeler un paysage où l'Abes, en collaboration avec les autres centres d'expertise que sont l'INIST, OpenEdition ou le CCSD (dontInria est partenaire), offre le meilleur de ses services en les mettant en cohérence avec le reste du paysage national.</p><p>Maintenant qu'Inria a encore fait un pas supplémentaire en définissant une politique ambitieuse d'Open Access qui comporte à la fois une obligation de dépôt sans réserve dans le serveur de publication HAL et l'engagement dans la définition de nouveaux modèles d'édition scientifique avec l'initiative Episciences, nous voyons encore plus d'occasions de travailler ensemble pour faire évoluer un peu plus le paysage de l'IST. Nous souhaitons profiter ainsi de toutes les opportunités offertes par les nouveaux chantiers de l'Abes, tant dans la perspective fédératrice offerte par le travail sur les normes documentaires et les outils intégrés pour les bibliothèques, que dans son implication au niveau d'action nationales (BSN) ou européennes (Liber, DARIAH).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Jacques Millet&amp; Laurent Romary, Inria</head></div>		</body>
+		<back>
+			<div type="references">
+
+				<listBibl/>
+			</div>
+		</back>
+	</text>
+</TEI>

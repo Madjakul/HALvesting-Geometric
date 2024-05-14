@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Textual summarisation of flowcharts in patent drawings for CLEF-IP 2012</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Andrew</forename><surname>Thean</surname></persName>
+							<email>andy.thean@gmail.com</email>
+							<affiliation key="aff0">
+								<orgName type="department">Institut für Deutsche Sprache und Linguistik</orgName>
+								<orgName type="institution">INRIA -Humboldt Universität zu Berlin</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department">Institut für Deutsche Sprache und Linguistik</orgName>
+								<orgName type="institution">INRIA -Humboldt Universität zu Berlin</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department">Institut für Deutsche Sprache und Linguistik</orgName>
+								<orgName type="institution">INRIA -Humboldt Universität zu Berlin</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jean-Marc</forename><surname>Deltorn</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Institut für Deutsche Sprache und Linguistik</orgName>
+								<orgName type="institution">INRIA -Humboldt Universität zu Berlin</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department">Institut für Deutsche Sprache und Linguistik</orgName>
+								<orgName type="institution">INRIA -Humboldt Universität zu Berlin</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department">Institut für Deutsche Sprache und Linguistik</orgName>
+								<orgName type="institution">INRIA -Humboldt Universität zu Berlin</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Patrice</forename><surname>Lopez</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Institut für Deutsche Sprache und Linguistik</orgName>
+								<orgName type="institution">INRIA -Humboldt Universität zu Berlin</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department">Institut für Deutsche Sprache und Linguistik</orgName>
+								<orgName type="institution">INRIA -Humboldt Universität zu Berlin</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department">Institut für Deutsche Sprache und Linguistik</orgName>
+								<orgName type="institution">INRIA -Humboldt Universität zu Berlin</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="department">Institut für Deutsche Sprache und Linguistik</orgName>
+								<orgName type="institution">INRIA -Humboldt Universität zu Berlin</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department">Institut für Deutsche Sprache und Linguistik</orgName>
+								<orgName type="institution">INRIA -Humboldt Universität zu Berlin</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><forename type="middle">Romary</forename><surname>Textual</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Institut für Deutsche Sprache und Linguistik</orgName>
+								<orgName type="institution">INRIA -Humboldt Universität zu Berlin</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Textual summarisation of flowcharts in patent drawings for CLEF-IP 2012</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">232AADD4C0D3AD35B52769EF4138420C</idno>
+					<note type="submission">Submitted on 6 Sep 2012</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>H.3 [Information Storage and Retrieval]: H.3.1 Content Analysis and Indexing</term>
+					<term>H.3.3 Information Search and Retrieval</term>
+					<term>H.3.4 Systems and Software</term>
+					<term>H.3.7 Digital Libraries Measurement, Performance, Experimentation Patent, Prior Art Search, Image Processing, Flowchart</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">INTRODUCTION</head><p>Certain inventions are most effectively summarised in pictorial form and patent professionals sometimes rely heavily on patent drawings for performing prior art searches. Searching patent drawings is currently a labour-intensive, error-prone task which would be facilitated by automatic indexing methods. Generic methods for automatically indexing patent drawings have been reported <ref type="bibr" target="#b6">(Hanbury et al., 2011;</ref><ref type="bibr" target="#b18">Vrochidis et al., 2010;</ref><ref type="bibr" target="#b1">Codina et al., 2009)</ref> but the heterogeneity of patent drawings means that it is difficult for a one-size-fits-all approach to reach high levels of performance on all image classes. Flowcharts represent a large and useful subclass of patent images for which specially-adapted methods will improve indexing performance. They have a special role in the patents domain since they offer a way to graphically represent a process (a process is one of four legally-recognised categories of patent claim alongside products, apparatus and use e.g. Rule 43(2) EPC ( <ref type="formula">2000</ref>)) and often contain information-rich text that is prohibited from other types patent drawing (they are usually considered an exception to rules that generally prohibit text from patent drawings e.g. Rule 46(2)(j) of <ref type="bibr" target="#b2">EPC (2000)</ref> and Rule 6.2 (b) of <ref type="bibr" target="#b14">PCT (1970)</ref>). Flowcharts were one of the image categories targeted in the Patent Image Classification task of CLEF-IP 2011 (see <ref type="bibr" target="#b15">Piroi et al. (2011)</ref> and references therein), but the summarisation of flowcharts in patent drawings has not been discussed previously in the literature.</p><p>Few studies have addressed the automatic analysis of flowcharts in general. <ref type="bibr" target="#b7">Ito (1982)</ref> used corner detection and edge-based block shape classification to derive FORTRAN code directly from a flowchart bitmap (see also US5386508). In <ref type="bibr" target="#b0">Abe et al. (1986)</ref>, a method for discriminating between the various components of a flowchart diagram (symbols, lines and characters) was discussed. <ref type="bibr" target="#b8">Kasturi et al. (1990)</ref> proposed an automatic line drawing analysis system (including flowcharts) based on the reduction of the image into segments and closed loops. <ref type="bibr" target="#b20">Yu et al. (1997)</ref> described a general framework for the analysis of engineering drawings characterised by alternating instances of symbols and connections lines. The particular case of flowchart summarisation was also discussed in <ref type="bibr" target="#b4">Futrelle and Nikolakis (1995)</ref> in the context of automatic document analysis. More recently, <ref type="bibr" target="#b16">Szwoch (2007)</ref> applied template matching to the recognition and description of handdrawn flowchart components for the purpose of automatic diagram aestheticization. <ref type="bibr" target="#b17">Vasudevan et al. (2008)</ref> described a prototype system of flowchart knowledge extraction from images based on chain code boundary descriptors and neural network classifier. Finally, in <ref type="bibr" target="#b11">Lemaitre et al. (2010)</ref> the characteristic causal relationship between flowchart components (described as line strokes) was exploited through a set of syntactic constraints that helped address the problems of flowchart diagram recognition as well as text-graphics segmentation.</p><p>The paper is set out as follows: in Section 2 the problem addressed in the CLEF-IP 2012 Flowchart Recognition task is defined in detail; in Section 3 a method of solving this problem is described; in Section 4 the performance of the method is reported and discussed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Problem Statement</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Input image data</head><p>A training set of 50 training images were released in March 1012, followed by a set of 100 test images three months later: results were submitted on July 10th 2012. The input image data consists of binary images of flowcharts taken from patent drawings. Each image contains a single figure and has been cropped from a patent drawing to exclude irrelevant information such as patent metadata and page numbers. As such the task does not include figure segmentation: in general a single patent drawing may contain multiple figures and a single flowchart may be spread over multiple drawings/figures. In principle, the appearance of any patent drawing is constrained by the rules applied at large patent offices (although not all patent drawings are compliant). Examples of the most important of these rules as applied by the EPO are as follows (Rule 46(2) of EPC <ref type="bibr">(2000)</ref>, Section A-X, 7.5.1 of GL ( <ref type="formula">2012</ref>)):</p><p>• only black lines drawn with drafting instruments are allowed;</p><p>• the scale of the drawing should allow for two thirds reduction in size;</p><p>• the character height should be larger than 0.32 mm;</p><p>• reference signs (no-box nodes) should be clear and without brackets;</p><p>• no text should be included in drawings unless it is indispensable (this rule is intended to minimise the need for language translation in drawings, however text in flowcharts is usually considered indispensable);</p><p>• leading lines (wiggly edges) should be as short as possible and extend to the feature indicated.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Text output</head><p>The aim of the Flowchart Recognition task was to produce textual summaries in a predetermined format containing information about the flowchart structure in the following 3 categories.</p><p>• Metadata describing the number of nodes and edges in the flowchart and, optionally, the 'title' of the flowchart (usually the figure number).</p><p>• Node data describing the type of each node and, optionally, the text appearing in the node.</p><p>The following node types are possible: oval, rectangle, double-rectangle, parallelogram, diamond, circle, cylinder, no-box, unknown and point. All types of node correspond to boxes or image regions that may contain text apart from point nodes which are the junction points where two or more edges meet.</p><p>• Edge data describing node connectivity relationships including, optionally, any text attached to the edge. Edges are either undirected or directed (in the sense indicated by arrow symbols) and have the following possible types: plain, dotted, or wiggly. The type wiggly refers to elements referred to as leading lines in patent law: wiggly edges are not necessarily wiggly in shape, but serve to connect reference signs to nodes (e.g. see Section A-X, 7.5.1 of GL ( <ref type="formula">2012</ref>)).  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Preprocessing and de-noising</head><p>The input images may be scanned (and binarised) versions of hard copies filed with the patent application. Note that online filing of patent applications in electronic form now dominates submissions and leads to less noisy images, but scanned images dominate archived patent image databases. To remove some of the defects introduced by the digitisation process the following two-step method is applied. Firstly, a morphological opening with a kernel of 3×3 pixels removes isolated black dots. Secondly, a sequence of local median filters is applied in order to remove isolated line breaks and small 1-to-2-pixel gaps and to perform de-jagging of the lines. The choice of a median filter rather than a morphological closing, is motivated by the aim of bridging line breaks without artificially connecting text characters with the neighboring flowchart outline.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Text-graphic segmentation</head><p>For 70% of the training set it is possible to separate text from graphics (nodes and edges) by assuming that graphics are the single largest connected component. Based on this observation, text-graphic segmentation was performed by analysing the spatial extent of all connected components in the image. A mixture of three two-dimensional Gaussians was fitted to the height-vs-width distribution of the connected components using the Expectation Maximisation (EM) algorithm.</p><p>The cluster with the largest height and width was deemed to contain all graphics components.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Finding implicit-graphics pixels</head><p>Certain types of connectivity between black pixels in a flowchart are merely implied i.e. the connectivity of dotted/dashed line elements, the connectivity of edges and nodes that do not physically touch and the outlines of broken box nodes (for example diamonds that are broken to accommodate text). The chosen method defines implicit-graphics pixels as white pixels that should be treated as black pixels in order to physically establish the connectivity implied by the flowchart author. While some of the smaller line breaks are removed by the first preprocessing step (see Section 3.1), larger gaps can remain that cannot be resolved by simple morphological operations. Wedgeshaped masks, defined by an opening angle and a radius, are used to bridge such line breaks and connect dashed line segments. Firstly, a skeleton of the isolated graphic component is obtained and an estimate of the orientation in the neighborhood of each endpoint is derived. A wedge-shaped mask is placed at each endpoint and aligned with the local skeleton orientation. All intersecting pairs of masks are identified and two endpoints are reconnected by a straight line if their respective wedge masks intersect. This method is similar in nature to the dashed line detection algorithm presented in <ref type="bibr" target="#b8">Kasturi et al. (1990)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4">Segmentation of closed regions</head><p>A connector is defined as a line in a flowchart that does not define a box node. Usually a connector pixel belongs to an edge, but it may also belong to a point node. The approach chosen for nodeconnector segmentation relies on a first step of box node classification. Closed regions in the graphics may correspond to either box nodes or loops (a loop is defined as a background region enclosed by edge lines). Node-connector segmentation is performed as follows. Firstly, loops are identified using the box classification technique described below. Secondly, the interior region of any remaining box node is dilated and used as a mask to separate nodes from connectors. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.5">Box classification</head><p>Estimating the global orientation of the flowchart was necessary to allow accurate box-node classification and OCR processing. The aspect ratio of the box node candidates identified after closed-region segmentation was measured and the entire image was rotated clockwise by 90 degrees if the fraction of box node candidates for which the height exceeded the width was greater than a fixed threshold.</p><p>Classifying box node candidates involved reducing each closed shape to a shape primitive. This step exploits the observation that during the flowchart authoring process individual box nodes may be squeezed or stretched in the horizontal and vertical directions according to the amount of text they contain. Since node classification should be invariant to such transformations, each candidate was subjected to a squeezing operation in the horizontal and vertical direction by application of the operators S H and S V , where</p><formula xml:id="formula_0">S H = ∂ ∂x ( y B(x, y) dy) and S V = ∂ ∂y ( x B(x, y) dx),</formula><p>and discarding the segments for which S V or S V are below a predefined threshold.</p><p>The result of the squeezing operations is a shape primitive which characterises the basic shape family of each node type (see Figure <ref type="figure">3</ref>). This shape simplification step is particularly suitable for the present definition of shape categories. In the present task, the class oval does not only encompass elliptical outlines (ovals in the simplest sense) but also half-circles joined by two horizontal lines and even rounded rectangles (see Figure <ref type="figure">3</ref>). Similarly, the class diamond includes, in addition to the standard four-sided parallelograms, hexagons and octagons (each having two parallel sides of the same size and aligned with the horizontal or the vertical). Reducing each of these shapes to a single primitive (an elliptical shape in the case of ovals, a quadrilateral shape for diamonds) enables each family to be characterised. and the diamonds (c). After applying squeeze simplifications (SH or SV ) to the original box regions, the resulting primitive shapes are decomposed in subcomponents and re-arranged using shape-specific transforms (TCB1 R and TCB2 R for the cylinder bodies, TP R for the parallelograms and TD R for the diamonds) prior to measuring the associated geometric features (ellipticity (CB1R) and rectangularity (CB2R, PR and DR).</p><formula xml:id="formula_1">(a) (c) (b) S V S H S H CB1 P R R D R T CB2 R T T D R T CB2 R P R CB1 R</formula><p>Multiple shape features were extracted from the box nodes: a first set of features, f 0 , was derived from the original box node, while a second set, f R , was derived from the horizontally and/or vertically reduced shape. Features in the f 0 set include area (A 0 ), ellipticity (E 0 ), solidity (S 0 : the ratio between the area within the bounding rectangle and the area within the box node perimeter) and the horizontal and vertical symmetries (SyH 0 and SyV 0 ). Reduced shape features include area (A R ), ellipticity (E R ), solidity (S R ) as well as symmetry measures aimed at characterising specific node shapes: diamond, parallelogram and cylinder bodies (see Figure <ref type="figure" target="#fig_3">4</ref>). D R measures the rectangularity (here estimated by the solidity, as defined above) of a reduced shape after decomposing it into four quadrants and reassembling them as in figure <ref type="figure" target="#fig_3">4(a)</ref>. Diamonds are thus expected to be formed by complementary shapes and can be characterised by a value of D R close to 1 (indicative of a high degree of rectangularity of the recomposed shape). In the same way P R offers a measure of rectangularity of a recomposed shape obtained by cutting in two halves a horizontally-squeezed node box and repositioning its two portions (Figure <ref type="figure" target="#fig_3">4(b)</ref>). Here again a high degree of rectangularity is expected from a horizontally-sheared rectangle (i.e. a parallelogram under the present task definitions). CB1 R and CB2 R measure the symmetries and complementaries expected from typical cylinder body shapes: CB1 R measures the ellipticity of a composite shape obtained by adjoining the body half and the horizontally reflected top half of a vertically squeezed node box (Figure <ref type="figure" target="#fig_3">4</ref>(c)), whereas CB2 R measures the rectangularity of the two recombined halves. For an input node box region B(x, y) the set of features given in Tables 1 and 2 is generated.</p><p>Based on the features defined in Tables <ref type="table" target="#tab_0">1</ref> and<ref type="table" target="#tab_1">2</ref>, the box nodes are first classified into the following set of shape families, as defined in the CLEF-IP task: circle, oval, parallelogram, rectangle, diamond. On top of these required categories, we introduced the following additional classes: loop (to identify closed areas defined by edges and box outlines) and small (to flag regions having an area below a fixed threshold). The two other node classes that are not defined by a closed outline shape (i.e. point node and no box node) are discussed in Sections 3.6 and 3.8.</p><p>A simple hierarchical classification scheme is used to discard the small regions and separate asymmetrical shapes (loops) from the other classes. The rectangles are then identified. The remaining shapes (oval, circle, parallelogram, diamond, cylinder-body) are then classified using heuristic thresholds on feature values. Statistical pattern recognition techniques have not been applied due to time constraints and the lack of image-level annotations in the training set. Obviously, the application of such techniques is expected to significantly improve classification performance.</p><p>Composite shapes (double rectangles and cylinders) are identified in a second pass as a combination of primitive shapes (double rectangles being formed by a collection of three adjoining rectangles, and cylinders by an oval and a cylinder body).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.6">Point node detection</head><p>Point nodes, defined as the junctions where edges meet, were identified as follows. Firstly, horizontal and vertical lines in the connector-only image were detected using a simplified version of the Hough transform by projecting pixel values onto the vertical and horizontal axes and identifying maxima. Secondly, point node candidates were identified as the image coordinates where horizontal and vertical lines crossed. Thirdly, a box centered on the point node candidates was used for validation: candidates were accepted if the box contained a branch-point and 3 or more lines crossed the box perimeter.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.7">Edge classification</head><p>The main challenge in classifying edge types surrounds the classification of dashed and wiggly edges. Dashed edges are not common and were identified as those containing multiple implicitgraphics segments (see Section 3.3). Counterintuitively, wiggly edges ('leading lines') are often straight and indistinguishable from plain undirected edges in the absence of context. These edges are classified solely according to their relationship to no-box nodes. Since wigglies correspond to leading lines and reference signs are of type no-box, any edge connecting a box node to a no-box was a assumed to be a wiggly. Preliminary trials suggested that truly curved wiggly edges could be detected using features describing the orientation of their endpoints which are neither horizontal nor vertical, such features could be useful for improving no -box classification in future.</p><p>Edge directivity was classified using a simple set of features. Firstly, the two endpoints of each edge were identified and a fixed region around each endpoint was analysed. Next, the number of erosions required to remove all black pixels from the endpoint region was measured and a binary classification tree with heuristic thresholds was applied. Again, the use of statistical pattern recognition techniques was not applied due to time constraints and the lack of image-level annotations.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Feature</head><formula xml:id="formula_2">R Area o S H o S V E R Ellipticity o S H o S V S R Solidity o S H o S V D R Solidity o T D R o S H o S V P R Solidity o T P R o S H CB1 R Ellipticity o T CB1 R o S V CB2 R Solidity o T CB2 R o S V</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.8">Text object segmentation and classification</head><p>The text-graphic segmentation method (Section 3.2) results in a set of connected components representing characters that must be further grouped into text objects and classified into boxnode labels, edge labels, no-box nodes (reference signs) and metadata. Segmenting text objects involved the hierarchical, agglomerative clustering of characters according to the proximity of their centroids. Since characters are generally grouped horizontally, before clustering, vertical distances were weighted with a positive scaling constant which favoured horizontal associations. Any text within the closed region of a box node was classified as a node label in a straightforward manner. To classify edge labels and no-box nodes each text object was dilated and checked for overlap with known edges. If the overlapping edge connects to two nodes (box nodes or point nodes) the text object is classified as an edge label, whereas if the overlapping edge connects to only one node the text object is classified as a no-box node and the edge is classified as a wiggly.</p><p>The fonts used for metadata (figure titles) tend to be larger than the other types of text objects and titles usually appear at the image edges. After classification of text objects into box-node labels, edge labels and no-box nodes any remaining text is re-clustered according to centroid positions. The new text objects were scored proportionally to their total area and their distance from the image center: the object with the highest score was classified as metadata.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.9">Text object recognition</head><p>Reliable OCR of text in the patent flowchart collection is challenging for multiple reasons.</p><p>• The quality of image digitisation can be very low. This is mainly due to the low quality of the original scanning and the original paper support:</p><p>• The quality of patent flowchart draftsmanship is variable. Note that rules and guidelines discussed in Section 2.1 do not exclude hand-drawn flowcharts;</p><p>• The segmentation of textual content is difficult (see Section 3.8);</p><p>• The text used in flowcharts is a particular form of technical language, different from the general domain language addressed by the state of the art OCR engines.</p><p>These different issues have been addressed using flowchart-specific text segmentation followed by state-of-the-art OCR software (ABBYY FineReader, version 10 and Tesseract 3.0) and customised post-correction techniques based on a Shannon's noisy-channel model approach and language models.</p><p>It has been shown that post-correction of the recognition errors based on specialised models can provide a significant reduction of the word error rate produced by general OCR engines. The proposed technique is based on a Shannon's noisy-channel model approach, more precisely a probabilist modeling of the degradation of the original string by the OCR process. This approach is used by spell-checker systems and auto-correction/auto-completion systems for information retrieval systems. The model can then be applied to a noisy string for correcting recognition errors, as shown in <ref type="bibr" target="#b9">Kolak and Resnik (2002)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.9.1">Character Level Model</head><p>Following a probabilistic framework, finding the correct string c given an original string o corresponds to finding,</p><formula xml:id="formula_3">argmax c P (c|o)</formula><p>and, following Bayes' Rule, argmax c P (o|c)P (c) Following Shannon's noisy-channel model approach, P (c) is the source model estimating which string is likely to be sent, and P (o|c) is the channel model estimating how the signal is degraded. In our case, P (o|c) estimates the probability that the string o is recognised by the OCR when the original string present in the bitmap image is c. For the source and channel model, we introduce first an N-Gram model of characters denoted CM with N=6:</p><formula xml:id="formula_4">P (c) P (c|CM ) = m P (c m |c m-1 , ..., c m-5 )</formula><p>For the channel/error model, we use a probabilistic framework for edit operations following a confusion model.</p><formula xml:id="formula_5">P (o 1..n |c 1..m ) = 1..m P e (c 1..m → o 1..n )</formula><p>where P e corresponds to the probability that the OCR recognised the string o 1..n when interpreting the string c 1..m based on the four following edit operations:</p><formula xml:id="formula_6">P match (c i → o j |c i ∈ c 1..m ∨ o j ∈ o 1..n ) = P match (c i ) P substitution (c i → o j |c i ∈ c 1..m , o j ∈ o 1..n ) = P substitution (c i → o j ) P insertion (c i → o j |c i ∈ c 1..m , o j ∈ o 1..n ) = P insertion (c i → ε) P deletion (c i → o j |c i ∈ c 1..m , o j ∈ o 1..n ) = P deletion (ε → o j )</formula><p>Having a probabilistic interpretation of the edit distance allows the probabilistic costs of the edit operations to be learned from a corpus of errors instead of setting costs manually/experimentally as is often the case with existing spell checkers based on noisy channel models. The probabilities P substitution (c i → o j ), P insertion (ε → o j ) and P deletion (c i → ε) are learned from a corpus of OCR errors aligned with the expected correction following the Levenshtein distance:</p><formula xml:id="formula_7">P match (c i ) = 1 - count(c i → {c j } j =i ) + count(c i → ε) count(c i ) P substitution (c i → o j ) = count(c i → o j ) count(c i ) P insertion (ε → o j ) = count(ε → o j ) count(c) P deletion (c i → ε) = count(c i → ε) count(c i )</formula><p>where c corresponds to any characters of the alphabet of the source. A smoothing operation is then applied for estimating the edit operations unseen in the OCRerror training data. This was done by giving a very small additive probability to all character substitutions, insertions and deletions (Lidstone's additive smoothing).</p><p>Note that transposition is not used in our channel model because this sort of character error is relevant for spell-checker applications, but extremely rare in the case of OCR. The original Levenshtein distance was therefore preferred over the Damerau-Levenshtein distance generally used for spell-checking.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.9.2">Language Model</head><p>N-gram language models are used to capture constraints on word sequences. For estimating P(c) a word trigram language model LM was combined with the character model CM :</p><formula xml:id="formula_8">P (c) P (c|CM )P (c|LM ) = P ( c p |CM ) p P (c p |c p-1 , c p-2 )</formula><p>where c p denotes the complete concatenated character sequence with boundary characters corresponding to the p words c p .</p><p>At this stage the main issue is the word segmentation of the corrected word sequence. The character model handles word splits naturally and merges by inserting, substituting or deleting character boundaries. Consequently, the application of the character model may result in different hypotheses having different numbers of words. The application of a language model on these different hypotheses will be biased by the fact that the probability of a longer word sequence is always penalised. For solving this problem, empty final words are introduced so that all hypotheses have the same word length (set to the maximum among the hypotheses). The transition cost to empty final words is computed dynamically as the average of the existing transitions.</p><p>Given a noisy word sequence recognised by the OCR, the final aim is to find, for a sequence of corrections of words:</p><formula xml:id="formula_9">argmax c P (o|c)P (c) = argmax c 0≤p≤pmax m P e (c 1..m,p → o n..q ) m P (c m,p |c m-1,p , ..., c m-5,p ) P (c p |c p-1 , c p-2 )</formula><p>where p max is the maximum number of words in the segmentation introduced by the character model and n to q correspond to the character range of the corrupted character sequence corresponding to the word p in the correction.</p><p>The decoding of the intended sequence of words given the observed sequence of words recognised by the OCR is implemented using the Viterbi approximation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.9.3">Training</head><p>For the present experiments a set of approximatively 2000 corrections of error produced by ABBYY FineReader was used. A correction is simply the alignment of the erroneous strings and the corrected ones which allow the probabilistic costs of the edit operations introduced in the previous section to be learned. Since the corpus of errors was only produced for ABBYY FineReader, the resulting model has limited applicability to Tesseract.</p><p>For training the character and language model, a corpus of 10.000 patent descriptions and 2.000 scientific articles was used. In both cases, the resources were a mixture of English, German and French texts.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Results and discussion</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Graph structure recognition</head><p>At the time of writing no official performance results are available for the algorithm test run submitted. Instead, the performance of the algorithm has been measured by manually comparing algorithm output with known ground-truth values. This method of evaluation, although timeconsuming, allows a detailed analysis of the modes of failure of the algorithm. For each class of objects in the flowchart, P r, the precision and, Re, the recall value of the classification scores over the whole test set were determined as P r = true positive true positive + f alse positive and Re = true positive true positive + f alse negative .</p><p>In addition, the balanced F-score, F , is calculated as F = 2. P r.Re P r + Re .  Table <ref type="table" target="#tab_2">3</ref> summarises the results of the evaluation for the various node and edge types. Note the following.</p><p>• The relatively high values of P r and Re for box nodes is achieved despite the use of a simplistic classification approach. This indicates that the box features defined in Section 3.5 are discriminative.</p><p>• The relatively low values of P r for directed edges and Re for undirected edges are probably caused by an overly simplistic approach to extracting directivity features and classifying them. A large fraction of directed edges were misclassified as undirected edges as shown by the relatively high values of P r and Re when directivity is ignored.</p><p>• Since the identification of wiggly edges and no-box nodes occurs in conjunction, the performance scores for these two entities are almost identical: P r wiggly =0.96 and Re wiggly =0.76.</p><p>• A recall score of 83% was measured for identifying the position of the title (prior to OCR).</p><p>• The relatively low value of P r point is partly explained by text touching characters which causes false positives.</p><p>In order to examine the patterns of algorithm failure, a single combined F-score, F N , is calculated for all nodes of each flowchart (excluding no-box nodes since they are labels that do not define the flowchart logic). Similarly, a single combined F-score, F E , is calculated for all edges of each flowchart (ignoring directivity). F denotes the average of the node or edge F-scores for a given flowchart.</p><p>The results of the combined F-score evaluation over the whole test set are summarised in Figure <ref type="figure" target="#fig_4">5</ref>. Out of a total sample of 100 analysed flowcharts, 34 show a F-score of F N =F E =1.00. 50% of the diagrams have an average F-score superior to 0.90, while 75% show an average score of 0.78 or better. Only 10% of the test sample have an average F-score below 0.50. For the purpose of identifying the most significant sources of errors, the flowcharts associated with F &lt;0.8 were we identified. Each of these flowcharts was assigned to one of three categories according to the main mode of failure: (i) initial text-graphics segmentation error, (ii) presence of text characters touching the flowchart graphics and (iii) discontinuities in the flowchart graphic structure (mainly due to broken lines).</p><p>Looking in turn at each of these classes, it was observed that poor segmentation of the main flowchart component at the early stage of processing was the main cause of very low F-scores. Six flowcharts have F &lt;0.5: EP00000821886 (13), EP00000926609 (23), EP000010469970029 (40), EP000010702880135 (45), EP0000110761 (50) and EP00001113655 (51). The mode of failure for this group of patents is associated with the text-graphic segmentation module (Section 3.2), in particular the assumption that the graphic component of the flowchart can be isolated from text by selecting the connected components with the largest heights and widths. A failure at this stage prohibits further node classification and edge identification.</p><p>Characters touching graphics (mostly text intersecting node boundaries) is also an important source of errors. Six flowcharts fall into category: EP000006215470107 (2), EP000006479080138 (3), EP000006879010063 (4), EP00001063844 (44), EP00001217549 (57) and EP00001526500 (91). Although this type of error is mostly due to a combination of design choices and scanning noise, it can also stem from the preprocessing steps designed to remove small gaps in the image components (Sections 3.1 and 3.3). This reflects the difficulty in bridging line breaks without creating unwanted pixel junctions between otherwise disconnected entities. It is noted that the problem of separating touching text from graphics remains a challenging issue for general OCR processing engines <ref type="bibr" target="#b13">(Nagy (2000)</ref>). It has been studied in the document image analysis literature in relation to the analysis of maps <ref type="bibr" target="#b3">(Fletcher and Kasturi, 1988;</ref><ref type="bibr" target="#b12">Luo et al., 1995)</ref>), form processing <ref type="bibr" target="#b19">(Yoo et al. (1997)</ref>) and technical drawing understanding <ref type="bibr" target="#b8">(Kasturi et al., 1990</ref>). An improved text-graphics segmentation method would benefit from the inclusion of an additional stage of detection and separation of touching characters.</p><p>The failure to correctly bridge broken lines (Section 3.3) is the leading source of error for values of F &gt;0.5. A total of 10 flowcharts in the range 0.3&lt; F &lt;0.75 show significant errors that can be attributed to discontinuous graphical components. Line breaks can affect the connecting lines between nodes creating false positives in the edge components, as is the case for: EP00000866609 (17), EP000000884919 (18), EP00000098456 (29) and EP000001513121 ( <ref type="formula">89</ref>)). Line breaks can also prevent a proper identification of the nodes as for: EP000001104172 (49), EP000001197682 (55), EP000001201195 (56), EP000001223519 (59), EP0000012274360 (60) and EP000001521176 (90). Improving gap bridging schemes would improve performance.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Recognition of text objects</head><p>In order to evaluate the performance of the text object recognition module (Section 3.9), text labels were transcribed manually for approximately 20% of the test set (412 out of a total of 2023 text boxes). The sentence and word scores given below are based on this sample.</p><p>The following scores are presented in Table <ref type="table" target="#tab_3">4</ref>.</p><p>• A coverage score, which is the percentage of cases where the OCR returns a result.</p><p>• An accuracy score which is the percentage of correct results produced by the OCR given the total expected results. When the OCR does not produce a result, it is considered that the result is incorrect. An accuracy evaluation is given at both word level and sentence level, i.e. if the complete text associated with a graphical object is correctly recognised.</p><p>• A precision score which is the percentage of correct results produced by the OCR given the total result produced by the OCR, similarly at word and sentence level. As a comparison, the highest accuracy of current state-of-the-art OCR engines is considered to be around 98-99% correctly recognised words in optimal conditions. It is clear from the coverage evaluation that Tesseract filters out a large amount of results that it judges incorrect. Although the Tesseract confidence threshold affects its coverage, no exploration of this parameter was performed for lack of time. It can be observed that, although producing fewer results, the precision of Tesseract out-of-the-box remains significantly below that of ABBYY FineReader.</p><p>As the post-correction technique has been trained only on ABBYY FineReader errors, it is less effective at improving Tesseract results. The accuracy of ABBYY FineReader is improved by 9.4%, meaning a reduction of the word error rate of 26.2%. This reduction of the error rate is lower than the 60% reduction reported by <ref type="bibr" target="#b10">Kolak et al. (2003)</ref> using a similar approach (but correcting an OCR engine with a significantly lower baseline performance). These results should be considered carefully because, due to time constraints, only a partial of the models was applied to the flowchart text problem:</p><p>• The texts considered for training the probabilistic costs of the edit operations, the character and language models were patent descriptions and scientific articles without text from flowcharts. Ideally, the text present on the flowchart of the training data (50 flowcharts) should have been combined with the other training resources.</p><p>• The errors used for training the costs of the edit operations were generated for ABBYY FineReader only. A fairer comparison would use Tesseract-generated errors for correcting Tesseract output.</p><p>• The ideal source for training the language model is the patent description of the patent where the flowchart figure appears. As the patent publication number was given with the flowchart images, the usage of the description text would have been possible, for instance by retrieving the ST.36 document via the 'Open Patent Service' of the EPO.</p><p>These issues suggest clear directions for future improvement. It should be possible to improve the post-correction model significantly by improving the way specialised training data is selected and exploited.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :</head><label>1</label><figDesc>Figure1: Possible membership states of image pixels in a flowchart. Numerical labels refer to the section headings below which describe how the various membership values are assigned. Note that joint membership states are, in principle, possible but are not allowed in the approach chosen.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 1</head><label>1</label><figDesc>Figure1shows the possible membership states of image pixels in a flowchart. The method steps of the algorithm implemented are shown in Figure2.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 2 :Figure 3 :</head><label>23</label><figDesc>Figure 2: Method steps of the present flowchart summarisation process.The present processing architec-ture can be separated in three main components: (I) a preprocessing and segmentation stage (see sections 3.1 to 3.4), (II) a node and edge classification stage (sections 3.5 to 3.7), and (III) a text extraction and recognition stage (sections 3.8 and 3.9).In addition to the processing steps, the rounded vertical boxes represent the data structures aggregating the output of the connector identification (box "C"), the edge classification (box "E", which also contains the edge-node relationships) and the node classification (box "C"). Dashed lines represent a delayed transfer of data: Either the passage of the graphic component of the flowchart for the detection of the lines connections between nodes, or of the text layer used to extract individual text regions prior to OCR.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: Derivation of the symmetric features for the cylinder bodies (a), the parallelograms (b)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 5 :</head><label>5</label><figDesc>Figure 5: The distribution of F-scores for individual flowcharts FE denotes the F-scores for all edges (omitting directionality), while FN corresponds to the F-score of all nodes (except no-boxes) in each flowchart. Those flowcharts with low F-scores have been marked with numbers and symbols that indicate the mode of failure: Diamonds indicate poor text-graphic segmentation, dotted circles denote the problems caused by characters touching graphics, open squares relate to a substantial fraction of broken lines. All other flowcharts are represented by small disks. The larger black disk indicates a group of 34 flowcharts at FN =FE=1.00 . The grey dashed quarter circles mark the regions of the plot containing respectively 90%, 75% and 50% of the data points.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 :</head><label>1</label><figDesc>Features and operators for the original</figDesc><table><row><cell></cell><cell>Feature Operator</cell></row><row><cell></cell><cell>A</cell></row><row><cell></cell><cell>Operator</cell></row><row><cell>A 0</cell><cell>Area</cell></row><row><cell>E 0</cell><cell>Ellipticity</cell></row><row><cell>S 0</cell><cell>Solidity</cell></row><row><cell>SyH 0</cell><cell>Horizontal symmetry</cell></row><row><cell>SyV 0</cell><cell>Vertical symmetry</cell></row><row><cell>box regions</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2 :</head><label>2</label><figDesc>Features and operators for the shape primitives</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 3 :</head><label>3</label><figDesc>Precision and Recall scores for nodes and edges (node classes cylinder, parallelogram and unknown are not included since there are too few examples). The combined scores free all box nodes (excluding point and no-box nodes) and all edges (ignoring directivity) are also given.</figDesc><table><row><cell>Class</cell><cell>Precision</cell><cell>Recall</cell></row><row><cell>All box nodes</cell><cell>0.91</cell><cell>0.83</cell></row><row><cell>rectangle</cell><cell>0.99</cell><cell>0.90</cell></row><row><cell>diamond</cell><cell>1.00</cell><cell>0.87</cell></row><row><cell>oval</cell><cell>0.97</cell><cell>0.81</cell></row><row><cell>circle</cell><cell>1.00</cell><cell>0.79</cell></row><row><cell>double rectangle</cell><cell>1.00</cell><cell>0.72</cell></row><row><cell>point</cell><cell>0.53</cell><cell>0.80</cell></row><row><cell>no-box</cell><cell>0.94</cell><cell>0.77</cell></row><row><cell>All edges (ignoring directivity)</cell><cell>0.90</cell><cell>0.89</cell></row><row><cell>DE</cell><cell>0.97</cell><cell>0.47</cell></row><row><cell>UE</cell><cell>0.31</cell><cell>0.81</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 4 :</head><label>4</label><figDesc>Result</figDesc><table><row><cell>Technique</cell><cell>ABBYY</cell><cell>ABBYY &amp; post-correct.</cell><cell>Tesseract</cell><cell>Tesseract &amp; post-correct.</cell></row><row><cell>Coverage (sentence)</cell><cell>99.76</cell><cell>99.76</cell><cell>61.84</cell><cell>61.84</cell></row><row><cell>Coverage (word)</cell><cell>96.81</cell><cell>96.70</cell><cell>77.84</cell><cell>78.25</cell></row><row><cell>Accuracy (sentence)</cell><cell>72.27</cell><cell>79.06</cell><cell>22.98</cell><cell>23.88</cell></row><row><cell>Accuracy (word)</cell><cell>76.13</cell><cell>82.43</cell><cell>44.43</cell><cell>46.36</cell></row><row><cell>Precision (sentence)</cell><cell>72.53</cell><cell>79.52</cell><cell>37.16</cell><cell>39.22</cell></row><row><cell>Precision (word)</cell><cell>78.63</cell><cell>84.13</cell><cell>54.03</cell><cell>57.08</cell></row></table><note><p>of OCR of text object with ABBYY FineReader and Tesseract with and without postcorrection techniques.</p></note></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Discrimination of symbols, lines and characters in flowchart recognition</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Abe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Azumatani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mukouda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Suzuky</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">8th International Conference on Pattern Recognition</title>
+		<imprint>
+			<date type="published" when="1986">1986</date>
+			<biblScope unit="page" from="1071" to="1074" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Integration of semantic, metadata and image search engines with a text search engine for patent retrieval</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Codina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Pianta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Vrochidis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Papadopoulos</surname></persName>
+		</author>
+		<ptr target="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.143.98" />
+		<imprint>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Note: the wording of Rule 46 EPC is almost identical to the wording used in PCT Rules 6.2 (b), 11.11 and 11.13 and US Manual of Patent Examining Procedure</title>
+		<author>
+			<persName><surname>Epc</surname></persName>
+		</author>
+		<author>
+			<persName><surname>European</surname></persName>
+		</author>
+		<ptr target="http://www.epo.org/law-practice/legal-texts/epc.htm14l" />
+		<imprint>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+	<note>Patent Convention. 14th edition. Section 1.84</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">A robust algorithm for text string separation from mixed text/graphics images. Pattern Analysis and Machine Intelligence</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">A</forename><surname>Fletcher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Kasturi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/34.9112</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on</title>
+		<idno type="ISSN">0162-8828</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="910" to="918" />
+			<date type="published" when="1988-11">nov 1988</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Efficient analysis of complex diagrams using constraint-based parsing</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">P</forename><surname>Futrelle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Nikolakis</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICDAR.1995.602019</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Third International Conference on</title>
+		<meeting>the Third International Conference on</meeting>
+		<imprint>
+			<date type="published" when="1995-08">1995. aug 1995</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="782" to="790" />
+		</imprint>
+	</monogr>
+	<note>Document Analysis and Recognition</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Guidelines for Examination in the European Patent Office</title>
+		<author>
+			<persName><surname>Gl</surname></persName>
+		</author>
+		<ptr target="http://www.epo.org/law-practice/legal-texts/guidelines.html" />
+		<imprint>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Patent image retrieval: a survey</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hanbury</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Bhatti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lupu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Mörzinger</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2064975.2064979</idno>
+		<ptr target="http://doi.acm.org/10.1145/2064975.2064979" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 4th workshop on Patent information retrieval, PaIR &apos;11</title>
+		<meeting>the 4th workshop on Patent information retrieval, PaIR &apos;11<address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2011">2011</date>
+			<biblScope unit="page" from="3" to="8" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Automatic input of flow chart in document images</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ito</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">6th international conference on Software engineering</title>
+		<imprint>
+			<date type="published" when="1982">1982</date>
+			<biblScope unit="page" from="319" to="328" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">A system for interpretation of line drawings. Pattern Analysis and Machine Intelligence</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Kasturi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">T W</forename><surname>El-Masri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Shah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Gattiker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><forename type="middle">B</forename><surname>Mokate</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/34.58870</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on</title>
+		<idno type="ISSN">0162-8828</idno>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="978" to="992" />
+			<date type="published" when="1990-10">oct 1990</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">OCR error correction using a noisy channel model</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Kolak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Resnik</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Human Language Technology Conference (HLT)</title>
+		<meeting>the Human Language Technology Conference (HLT)<address><addrLine>San Diego, California, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">A generative probabilistic OCR model for NLP applications</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Kolak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Byrne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Resnik</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Human Language Technology Conference (HLT-NAACL)</title>
+		<meeting>the Human Language Technology Conference (HLT-NAACL)<address><addrLine>Edmonton, Canada</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Interest of syntactic knowledge for on-line flowchart recognition</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lemaitre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Mouchere</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Camillerapp</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Coasnon</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="page" from="85" to="88" />
+		</imprint>
+	</monogr>
+	<note>In 9th IAPR International Workshop on Graphics RECognition (GREC 2011</note>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Directional mathematical morphology approach for line thinning and extraction of character strings from maps and line drawings</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Luo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Agam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Dinstein</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICDAR.1995.598989</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Third International Conference on</title>
+		<meeting>the Third International Conference on</meeting>
+		<imprint>
+			<date type="published" when="1995-08">1995. aug 1995</date>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="257" to="260" />
+		</imprint>
+	</monogr>
+	<note>Document Analysis and Recognition</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Twenty years of document image analysis in pami. Pattern Analysis and Machine Intelligence</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Nagy</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/34.824820</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on</title>
+		<idno type="ISSN">0162-8828</idno>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="38" to="62" />
+			<date type="published" when="2000-01">jan 2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title level="m" type="main">Done at Washington on June 19</title>
+		<author>
+			<persName><surname>Pct</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1970-09-28">1970. 1970. September 28, 1979, modified on February 3, 1984, and on October 3, 2001. April 1, 2002</date>
+		</imprint>
+	</monogr>
+	<note>Patent Cooperation Treaty</note>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<author>
+			<persName><forename type="first">F</forename><surname>Piroi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lupu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hanbury</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Zenz</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Clef-Ip</surname></persName>
+		</author>
+		<ptr target="http://clef2011.org/resources/proceedings/Overview-CLEF-IPClef2011.pdf" />
+		<title level="m">Retrieval in the Intellectual Property Domain</title>
+		<imprint>
+			<date type="published" when="2011">2011. 2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Recognition, understanding and aestheticization of freehand drawing flowcharts</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Szwoch</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICDAR.2007.4377093</idno>
+	</analytic>
+	<monogr>
+		<title level="m">ICDAR 2007. Ninth International Conference on</title>
+		<imprint>
+			<date type="published" when="2007">2007. 2007</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="1138" to="1142" />
+		</imprint>
+	</monogr>
+	<note>Document Analysis and Recognition. sept</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Flowchart knowledge extraction on image processing</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">G</forename><surname>Vasudevan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Dhanapanichkul</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Balakrishnan</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/IJCNN.2008.4634384</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE International Joint Conference on</title>
+		<title level="s">IEEE World Congress on Computational Intelligence</title>
+		<imprint>
+			<date type="published" when="2008-06">2008. 2008. june 2008</date>
+			<biblScope unit="page" from="4075" to="4082" />
+		</imprint>
+	</monogr>
+	<note>Neural Networks</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Towards content-based patent image retrieval: A framework perspective</title>
+		<author>
+			<persName><forename type="first">Stefanos</forename><surname>Vrochidis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Symeon</forename><surname>Papadopoulos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anastasia</forename><surname>Moumtzidou</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.wpi.2009.05.010</idno>
+		<ptr target="http://www.sciencedirect.com/science/article/pii/S0172219009000489" />
+	</analytic>
+	<monogr>
+		<title level="j">World Patent Information</title>
+		<idno type="ISSN">0172-2190</idno>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="94" to="106" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+	<note>Panagiotis Sidiropoulos, Emanuelle Pianta, and Ioannis Kompatsiaris</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Line removal and restoration of handwritten characters on the form documents</title>
+		<author>
+			<persName><forename type="first">J-Y</forename><surname>Yoo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M-Ki</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">Y</forename><surname>Ban</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y-B</forename><surname>Kwon</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICDAR.1997.619827</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Fourth International Conference on</title>
+		<meeting>the Fourth International Conference on</meeting>
+		<imprint>
+			<date type="published" when="1997-08">1997. aug 1997</date>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="128" to="131" />
+		</imprint>
+	</monogr>
+	<note>Document Analysis and Recognition</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">A system for recognizing a large class of engineering drawings. Pattern Analysis and Machine Intelligence</title>
+		<author>
+			<persName><forename type="first">Yuhong</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Samal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">C</forename><surname>Seth</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/34.608290</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on</title>
+		<idno type="ISSN">0162-8828</idno>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="868" to="890" />
+			<date type="published" when="1997-08">aug 1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

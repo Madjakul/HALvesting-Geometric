@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Constitution d&apos;un corpus de dialogue oral pour l&apos;évaluation automatique de la compréhension hors et en contexte du dialogue</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">H</forename><surname>Maynard</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">K</forename><surname>Mctait</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">D</forename><surname>Mostefa</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">L</forename><surname>Devillers</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">S</forename><surname>Rosset</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">P</forename><surname>Paroubek</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">C</forename><surname>Bousquet</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">K</forename><surname>Choukri</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">J</forename><surname>Goulian</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">J-Y</forename><surname>Antoine</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">F</forename><surname>Béchet</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">O</forename><surname>Bontron</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">L</forename><surname>Charnay</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">M</forename><surname>Vergnes</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">N</forename><surname>Vigouroux</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><surname>Limsi</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Elda</forename><forename type="middle">/</forename><surname>Elra</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><surname>Irit</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><surname>Clips</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><surname>Valoria</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><surname>Lia</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><surname>Telip</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">France-Telecom</forename><surname>R&amp;d</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><surname>Loria</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">VECSYS</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Constitution d&apos;un corpus de dialogue oral pour l&apos;évaluation automatique de la compréhension hors et en contexte du dialogue</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">FEA8766B8C9FB6453E2520B2C0D18BAD</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>This paper presents and reports on the progress of the EVALDA/MEDIA project, focusing on the recording protocol of the reference dialogue corpus. The aim of this project is to define and test an evaluation methodology that assess and diagnose the contextsensitive understanding capability of spoken language dialogue systems. Systems from both academic organizations (CLIPS, IRIT, LIA, LIMSI, LORIA, VALORIA) and industrial sites (FRANCE TELECOM R&amp;D, TELIP) will be evaluated. ELDA is the coordinator of the Technolangue/EVALDA multicampaign evaluation project, a national initiative sponsored by the French government, of which MEDIA is a sub-campaign. MEDIA began in January 2003. VECSYS provides the recording platform for the project.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">INTRODUCTION</head><p>L'objectif du projet MEDIA de l'action TECHNOLANGUE est de définir et de tester une méthodologie d'évaluation de la compréhension hors et en contexte des systèmes de dialogue. Nous proposons de mettre en place un paradigme d'évaluation fondé sur la définition et l'utilisation de batteries de tests issues de corpus réels et sur une représentation sémantique et des métriques communes. Ce paradigme devrait permettre de diagnostiquer les capacités de compréhension hors contexte et en contexte des systèmes de dialogue. Ce paradigme sera utilisé dans le cadre d'une campagne d'évaluation qui réunira les systèmes des différents sites, sur une même tâche de demandes de renseignements.</p><p>Actuellement, il n'existe pas de méthodologie standard, ni même de pratique communément admise dans la communauté scientifique, pour évaluer et comparer des systèmes de dialogue. La nature dynamique et interactive du dialogue rend difficile la constitution d'un jeu de données de test afin d'offrir un référentiel d'évaluation commun à plusieurs tâches. Par contre, des projets de taille conséquente ont tenté de jeter les bases d'une méthodologie d'évaluation pour les systèmes de dialogue oral, en commençant par le projet francophone AUF-Arc B2 <ref type="bibr" target="#b0">[1]</ref>, l'évaluation par DEFI <ref type="bibr" target="#b1">[2]</ref>, les projets européens EAGLES <ref type="bibr" target="#b2">[3]</ref>, DISC <ref type="bibr" target="#b3">[4]</ref>, SUNDIAL <ref type="bibr" target="#b4">[5]</ref> ainsi que les projets ATIS <ref type="bibr" target="#b5">[6]</ref> et maintenant COMMUNICATOR <ref type="bibr" target="#b6">[7]</ref> aux USA.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Le paradigme PEACE (Paradigme d'Evaluation</head><p>Automatique de la Compréhension hors et En contexte dialogique) <ref type="bibr" target="#b7">[8,</ref><ref type="bibr" target="#b8">9]</ref> sur lequel est fondé le projet MEDIA permet une évaluation automatique, comparative et diagnostique pour la compréhension hors et en contexte dialogique. Il est fondé sur la constitution de batteries de tests reproductibles issues de dialogues réels. Ce paradigme suit le même courant d'idée que les évaluations DQR <ref type="bibr" target="#b9">[10]</ref> et DEFI <ref type="bibr" target="#b1">[2]</ref> basées sur des batteries de tests. L'environnement d'évaluation repose sur l'idée, que dans le cadre de systèmes portant sur des tâches de renseignements liées à une base de données, il est possible de mettre en place une représentation sémantique commune, vers laquelle chaque système est capable de convertir sa propre représentation. De plus, le paradigme permet une évaluation en contexte du dialogue. Le contexte est simulé de façon artificielle, par une paraphrase, le but étant de tester l'interprétation d'un énoncé U dans le contexte D^n (pour reprendre les notations de l'approche DQR). Enfin, alors que les grands programmes d'évaluation étaient centrés sur l'évaluation des performances (mesures globales), cette campagne devrait permettre non seulement une évaluation des performances mais aussi un diagnostic des modélisations utilisées. L'objectif du projet MEDIA est donc de donner à la communauté scientifique francophone les moyens d'évaluer comparativement les approches de la compréhension, en lui offrant la possibilité de partager des corpus et en définissant des représentations et des métriques génériques communes. La première étape du projet MEDIA a été consacrée à la définition et à la constitution d'un corpus commun de dialogues en français, dédié à la tâche retenue dans MEDIA (serveur d'information touristique). Après une présentation du projet MEDIA, l'article présente la méthodologie utilisée pour la collecte du corpus (définition de la Unités de référence tâche, description de la plate-forme d'enregistrement, protocole), ainsi que les premières observations sur ce corpus.</p><p>Une unité de référence pour l'évaluation de la compréhension hors contexte, comprend la transcription exacte des énoncés utilisateurs et la représentation sémantique de référence. Une unité de références pour l'évaluation de la compréhension en contexte de dialogue, comprend le contexte sous forme d'une paraphrase <ref type="bibr" target="#b7">[8]</ref>, la transcription exacte de l'énoncé utilisateur et la représentation sémantique résultant de l'interprétation de l'énoncé compte tenu du contexte. La paraphrase peut être obtenue soit à partir des annotations en contexte du corpus, soit par la concaténation des phrases usagers et des réponses du système.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">LE PROJET MEDIA 2.1 Organisation de la campagne</head><p>L'organisation d'une campagne d'évaluation de la compréhension hors et en contexte des systèmes de dialogue a pour but principal de promouvoir une dynamique de l'évaluation au sein de la communauté. L'objectif de ce projet est <ref type="bibr">de</ref>  Le paradigme doit offrir une analyse qualitative et diagnostique automatique des performances du module de compréhension hors contexte et en contexte. On pourra par exemple s'intéresser à des difficultés particulières de l'oral qui existent hors contexte: hésitation, répétition etc. Une liste des fonctionnalités de la compréhension en contexte à tester, s'inspirant de la documentation réalisée dans le cadre de la campagne par DEFI <ref type="bibr" target="#b1">[2]</ref>, sera définie par le consortium (ellipses, anaphores, relâchement de contraintes etc.).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Paradigme d'évaluation</head><p>Afin de permettre une évaluation diagnostique, le paradigme d'évaluation s'appuie sur une représentation générique commune.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Représentation sémantique générique commune</head><p>Il s'agit de mettre en place une représentation du sens des énoncés utilisateurs permettant d'établir une relation d'équivalence dans l'ensemble des requêtes possibles. Une réflexion est menée pour définir cette représentation commune en dehors de tout domaine, mais dans le contexte de systèmes de renseignements liés à une base de données. Le formalisme de représentation choisi doit être consensuel et permettre l'annotation de grands corpus. Il est basé sur une structure attributs-valeurs qui permet la représentation de structures complexes. Ce formalisme permet aussi bien de coder l'acte de dialogue que le contenu propositionnel d'un énoncé. Il est convenu que chaque participant prend en charge la conversion depuis sa propre représentation interne vers la représentation commune.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">CONSTITUTION DU CORPUS</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Définition de la tâche et du domaine</head><p>Dans le cadre d'une campagne d'évaluation de dialogues homme-machine, nous avons décidé de restreindre la tâche aux applications de demandes de renseignements accédant à des bases de données, telles que serveur touristique, serveur d'horaires de train, d'avion etc. La définition de la représentation sémantique est générique. Elle est ensuite adaptée à la tâche et à la base de données. L'idéal était de travailler sur une application reliée à une base de données réelle, par exemple à partir d'un accès au WEB sur un site d'agence de voyage ou d'office de tourisme. La tâche commune choisie pour l'évaluation est celle d'informations touristiques concernant la réservation d'hôtels à partir de sites web. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Collecte du corpus</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Plateforme d'enregistrement</head><p>La méthode choisie de collection du corpus est celle du « magicien d'Oz » (Wizard of Oz : WoZ). Celle-ci consiste à simuler un dialogue homme-machine en langage naturel. La simulation provient du fait que la machine est remplacée par une personne qui répond à une demande de l'utilisateur en imitant le fonctionnement automatique d'un serveur vocal. Pour ce faire, cet opérateur ou compère utilise un outil graphique développé par VECSYS, qui l'aide à la génération des réponses qu'il doit communiquer à l'appelant. Les phrases de génération sont obtenues en complétant un modèle avec les informations provenant d'un site Web d'informations touristiques et les données de l'appelant. La Figure <ref type="figure" target="#fig_1">1</ref> illustre le fonctionnement de l'outil d'enregistrement.</p><p>Le signal est enregistré directement au format numérique. Les dialogues sont ensuite transcrits orthographiquement, segmentés en actions dialogiques et annotés sémantiquement.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Protocole d'enregistrement</head><p>Les utilisateurs participant aux enregistrements se basent sur des scenarii de réservation de chambres d'hôtel qui ont été générés à partir de scénarii de base de façon à avoir une diversité dans les dialogues. Afin d'obtenir des requêtes utilisateurs présentées de   La Figure <ref type="figure" target="#fig_0">3</ref> présente un extrait de dialogue. On peut y observer les phénomènes fréquents du dialogue : hésitations, répétitions, ainsi que des références « cette nuit là » « la même chose » qui sont très nombreuses.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Etat du corpus</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">DIFFUSION DU CORPUS</head><p>Le corpus, y compris les transcriptions et annotations sémantiques, sera diffusé par ELRA/ELDA le plus largement possible sous la forme d'une distribution qui comprendra également les résultats anonymes de l'évaluation et les outils développés pour la campagne. Le consortium prêtera attention à la réutilisabilité de ce type de ressources, afin de contribuer à la standardisation des méthodes de test. Le but de cette distribution est de permettre à un acteur externe de la campagne de s'évaluer et de comparer ses résultats à ceux produits lors de la campagne.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">CONCLUSION</head><p>La fin de la collecte et des transcriptions du corpus MEDIA est prévue pour le mois de mars 2004. Chaque dialogue (signal et transcriptions) sera accompagné des consignes du scénario donné à l'usager d'une part, et des consignes fixant le comportement du compère d'autre part. A la suite des enregistrements, l'annotation sémantique des dialogues devrait commencer début avril. Le travail porte actuellement sur l'analyse des dialogues déjà enregistrés afin de finaliser la structure de la représentation et l'ensemble des concepts liés à la tâche.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>REMERCIEMENTS</head><p>Le projet MEDIA est soutenu par l'action interministérielle française Technolangue dans le cadre de l'infrastructure d'évaluation des systèmes d'ingénierie linguistique du français EVALDA.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>3 -</head><label>3</label><figDesc>1 -L'appelant contacte le serveur téléphonique MEDIA pour obtenir des informations touristiques et réserver une chambre d'hôtel Bonjour je voudrais une chambre pour deux personnes à Marseille du 13 au 17 juillet, sur le vieux port. En fonction de la réponse obtenue ou de l'information manquante, une phrase est générée A Marseille, sur le vieux port, du 14 au 17 juillet , 8 hôtels correspondent à votre demande… 4 -Le compère complète la phrase avec les informations prépa avant l'appel ou données par l'appe Nous avons besoin de corpus de dialogue communs pour adapter les différents systèmes de compréhension en contexte dialogique et pour créer les batteries de tests servant à l'évaluation. Pour que l'évaluation ne soit pas biaisée, nous avons décidé d'enregistrer un nouveau corpus en utilisant une simulation de serveur vocal d'informations touristiques par magicien d'Oz. Ainsi chaque locuteur croit dialoguer avec une machine alors que le dialogue est en réalité pris en charge par un humain (un « compère ») qui simule les réponses d'un serveur d'informations touristiques. Ceci nous permet d'obtenir un corpus de dialogues variés, grâce notamment aux comportements du compère. Dans cette campagne, il est prévu de ne travailler que sur les transcriptions exactes des dialogues comprenant les transcriptions des intervenants (utilisateurs et système). Cependant, il nous semble important de disposer également du signal audio numérisé de bonne qualité correspondant aux dialogues, afin de pouvoir élargir la campagne au traitement d'entrées issues d'un système de reconnaissance de la parole. La taille envisagée du corpus est d'environ 15000 requêtes utilisateurs. Pour cela 1250 dialogues provenant de 250 locuteurs seront enregistrés, chaque locuteur effectuant 5 scénarii différents. Le corpus final contiendra de l'ordre de 70 heures d'enregistrement.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1 : fonctionnement de l'outil WoZ manière la plus naturelle possible, ces scénarii sont communiqués aux utilisateurs par téléphone afin de réduire les paraphrases langagières des textes du scénarii. Plusieurs points d'entrée dans le dialogue sont possibles : choix d'une ville, choix d'un itinéraire, choix d'un événement, prix, période. Huit catégories de scénarii ont été définies pour avoir des niveaux de complexité différente. Un exemple d'un scénario complexe est indiqué en Figure 2. comprenant la réservation de plusieurs hôtels à plusieurs endroits selon un itinéraire particulier.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>U</head><label></label><figDesc>: euh donc bah je voudrais réserver pour cette nuit là donc deux chambres à l'hôtel Mercure euh de Lille S: je vous réserve deux chambres à l'hôtel Mercure le Grand Hôtel à Lille souhaitez-vous d'autres réservations U: alors ça serait la même chose donc deux chambres également à Paris euh pour la nuit du vingt et un au vingt-deux puis du vingt-deux au vingt-trois février avec les mêmes euh les mêmes critères euh donc toujours deux couples avec un enfant</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 3 :</head><label>3</label><figDesc>Figure 3 : Exemple d'échanges utilisateur-compère</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 1 :</head><label>1</label><figDesc>Mesures moyennes sur le corpusLa variabilité des énoncés produits dépend de la complexité du scénario mais également du comportement du compère. Les phénomènes les plus intéressants (références, négociations, négations…) sont observés surtout pour des scénarii complexes avec un compère non coopératif.</figDesc><table><row><cell cols="2">Ce corpus est en cours d'enregistrement. Actuellement,</cell></row><row><cell cols="2">plus des 4/5èmes du corpus a été enregistré, c'est-à-</cell></row><row><cell cols="2">dire environ 1000 dialogues. La Table 1 indique des</cell></row><row><cell cols="2">mesures moyennes sur un échantillon de 200 dialogues</cell></row><row><cell cols="2">transcrits. On remarque notamment que les énoncés</cell></row><row><cell cols="2">locuteurs restent relativement courts (6 mots).</cell></row><row><cell>Durée moyenne</cell><cell>3.4 minutes</cell></row><row><cell>Enoncés locuteur par dialogue</cell><cell>15 énoncés</cell></row><row><cell>Enoncés compère par dialogue</cell><cell>18 énoncés</cell></row><row><cell>Longueur d'un énoncé locuteur</cell><cell>6 mots</cell></row><row><cell>Longueur d'un énoncé compère</cell><cell>10 mots</cell></row><row><cell>Taille lexique locuteur</cell><cell>1115 mots</cell></row><row><cell>Taille lexique compère</cell><cell>849 mots</cell></row><row><cell>Mots les plus utilisés par le locuteur</cell><cell>Oui, je, euh, de,</cell></row><row><cell>(ordre décroissant)</cell><cell>à, un, une, hôtel</cell></row><row><cell>Mots les plus utilisés par le compère</cell><cell>De, à, hôtel, le,</cell></row><row><cell>(ordre décroissant)</cell><cell>réserver, l', je</cell></row></table></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">The Aupelf-Uref Evaluation-Based Language Engineering Action and Related Projects</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mariani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the First International Conference on Language Resources and Evaluation</title>
+		<meeting>the First International Conference on Language Resources and Evaluation<address><addrLine>Granada</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Predictive and objective evaluation of speech understanding: the challenge evaluation campaign of the I3 speech workgroup of the French CNRS</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Antoine</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the third International Conference on Language Resources and Evaluation</title>
+		<meeting>the third International Conference on Language Resources and Evaluation<address><addrLine>Las Palmas</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Handbook of Standards and Resources for Spoken Language Resources</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Gibbon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Moore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Winsky</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1997">1997</date>
+			<publisher>Mouton de Gruyter</publisher>
+			<pubPlace>New-York</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">The Disc Approach to Spoken Language System Development and Evaluation</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Dybkjaer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the First International Conference on Language Resources and Evaluation</title>
+		<meeting>the First International Conference on Language Resources and Evaluation<address><addrLine>Granada</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Corpus-based methods in language and speech processing</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Giachin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mcglashan</surname></persName>
+		</author>
+		<editor>S. Young and G.Bloothooft</editor>
+		<imprint>
+			<date type="published" when="1997">1997</date>
+			<publisher>Dordrecht Kluwer Academic Publishers</publisher>
+			<biblScope unit="page" from="69" to="117" />
+		</imprint>
+	</monogr>
+	<note>Spoken Language Dialogue Systems</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<author>
+			<persName><surname>Madcow</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Multi</surname></persName>
+		</author>
+		<title level="m">Site Data Collection for a Spoken Language Corpus, DARPA Speech and Natural Language Workshop</title>
+		<imprint>
+			<date type="published" when="1992">1992</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Quantitative and Qualitative Evaluation of Darpa Communicator Spoken Dialog Systems</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Walker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Passonneau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Boland</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ACL/EACL Toulouse</title>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Méthodologies d&apos;évaluation des systèmes de dialogue parlé: réflexions et expériences autour de la compréhension</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Devillers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Maynard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Paroubek</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">TALN</title>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">A framework for evaluating contextual understanding</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Maynard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Devillers</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the International Conference of Speech and Language Processing</title>
+		<meeting>the International Conference of Speech and Language Processing</meeting>
+		<imprint>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Obtaining predictive results with an objective evaluation of spoken dialogue systems: experiments with the DCR assessment paradigm</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Antoine</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Second International Conference on Language Resources and Evaluation</title>
+		<meeting>the Second International Conference on Language Resources and Evaluation<address><addrLine>Athens</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

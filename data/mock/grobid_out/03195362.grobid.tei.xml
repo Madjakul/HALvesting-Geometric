@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">The Advent of a New Lexicographic Portuguese Project</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Rute</forename><surname>Costa</surname></persName>
+							<email>rute.costa@fcsh.unl.pt</email>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">NOVA CLUNL</orgName>
+								<orgName type="institution" key="instit2">Centro de Linguística da Universidade NOVA de Lisboa</orgName>
+								<address>
+									<country key="PT">Portugal</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Ana</forename><surname>Salgado</surname></persName>
+							<email>anasalgado@campus.fcsh.unl.pt</email>
+							<affiliation key="aff1">
+								<orgName type="institution">Academia das Ciências de Lisboa</orgName>
+								<address>
+									<country key="PT">Portugal</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Anas</forename><forename type="middle">Fahad</forename><surname>Khan</surname></persName>
+							<email>fahad.khan@ilc.cnr.it</email>
+							<affiliation key="aff2">
+								<orgName type="institution">Istituto Di Linguistica Computazionale &apos;A. Zampolli&apos;</orgName>
+								<address>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Sara</forename><surname>Carvalho</surname></persName>
+							<email>sara.carvalho@ua.pt</email>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">NOVA CLUNL</orgName>
+								<orgName type="institution" key="instit2">Centro de Linguística da Universidade NOVA de Lisboa</orgName>
+								<address>
+									<country key="PT">Portugal</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="department">Centro de Línguas</orgName>
+								<orgName type="laboratory">CLLC</orgName>
+								<orgName type="institution">Literaturas e Culturas da Universidade de Aveiro</orgName>
+								<address>
+									<country key="PT">Portugal</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+							<affiliation key="aff4">
+								<orgName type="institution">Inria, team ALMAnaCH</orgName>
+								<address>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Bruno</forename><surname>Almeida</surname></persName>
+							<email>brunoalmeida@fcsh.unl.pt</email>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">NOVA CLUNL</orgName>
+								<orgName type="institution" key="instit2">Centro de Linguística da Universidade NOVA de Lisboa</orgName>
+								<address>
+									<country key="PT">Portugal</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff5">
+								<orgName type="institution">ROSSIO Infrastructure</orgName>
+								<address>
+									<country key="PT">Portugal</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Margarida</forename><surname>Ramos</surname></persName>
+							<email>mvramos@fcsh.unl.pt</email>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">NOVA CLUNL</orgName>
+								<orgName type="institution" key="instit2">Centro de Linguística da Universidade NOVA de Lisboa</orgName>
+								<address>
+									<country key="PT">Portugal</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+							<email>medkhemakhemfsegs@gmail.com</email>
+							<affiliation key="aff6">
+								<address>
+									<settlement>Arcascience</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Raquel</forename><surname>Silva</surname></persName>
+							<email>raq.asilva@gmail.com</email>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">NOVA CLUNL</orgName>
+								<orgName type="institution" key="instit2">Centro de Linguística da Universidade NOVA de Lisboa</orgName>
+								<address>
+									<country key="PT">Portugal</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Toma</forename><surname>Tasovac</surname></persName>
+							<email>ttasovac@humanistika.org</email>
+							<affiliation key="aff7">
+								<orgName type="department">BCDH -Belgrade Center for Digital Humanities</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">The Advent of a New Lexicographic Portuguese Project</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">0BE499B4EDBA8ECC978ECD75096D69EC</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>digital humanities</term>
+					<term>GROBID-Dictionaries</term>
+					<term>legacy dictionary</term>
+					<term>lexicography</term>
+					<term>ontologies</term>
+					<term>standards</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>MORDigital is a newly funded Portuguese lexicographic project that aims to produce high-quality and searchable digital versions of the first three editions (1789; 1813; 1823) of the Diccionario da Lingua Portugueza by António de Morais Silva, preserving and making accessible this important work of European heritage. This paper will describe the current state of the art, the project, its objectives and the methodology proposed, the latter of which is based on a rigorous linguistic analysis and will also include steps necessary for the ontologisation of knowledge contained in and relating to the text. A section will be dedicated to the various investigation domains of the project description. The output of the project will be made available via a dedicated platform.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>The Diccionario da Lingua Portugueza by António de Morais Silva, hereafter referred to as Morais, constitutes a considerable piece of cultural heritage since it marks the beginning of modern Portuguese lexicography, serving also as a model for all subsequent lexicographic production throughout the 19th and 20th centuries. In this paper, we present MORDigital, a newly funded Portuguese lexicographic project, which was successfully submitted to the IC&amp;DT 2020 Projects Call under the scientific area of 'information sciences computing', which falls under 'languages and literatures -linguistics, subarea computer sciences and information sciences'. The project will be funded over the next three years <ref type="bibr">(2021)</ref><ref type="bibr">(2022)</ref><ref type="bibr">(2023)</ref><ref type="bibr">(2024)</ref>.</p><p>The MORDigital project aims to produce high-quality and searchable digital versions of the first three editions <ref type="bibr">(1789; 1813; 1823)</ref> of Morais in order to preserve this important European heritage work while also making it accessible. These digital versions will be converted into structured data and made publicly available with the purpose of guaranteeing the preservation of this legacy resource. After an introduction to the dictionary itself, we provide a general outline of the project and detail its main objectives, focusing on the importance of using standards and formats for interoperability purposes. We then explore the research methodology adopted. This methodology for the creation of an open-access Portuguese language dictionary is based on a comprehensive understanding of lexical units and the privileging of a strictly linguistic analysis to create future ontologies that adequately represent the lexical data in the study, in addition to making them accessible and reusable.</p><p>This project aims to make a substantial contribution to the scientific community and aspires to apply innovative computational methodologies to digitise lexicographic texts and coding based on a comprehensive analysis of lexicographic articles and their components. This paper is organised as follows: the first (and current) section introduces and outlines the article. Section 2 reviews the theoretical framework and existing standards. In Section 3, we historically frame our object of study. Section 4 introduces the Morais dictionary. Section 5 describes the MORDigital project, the methodology, as well as tools and formats. Finally, in Section 6, we highlight our future work and present concluding remarks.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Theoretical Framework</head><p>European lexicography can boast a long tradition of theoretical and descriptive work on dictionaries and especially in the case of historical dictionaries, as is discussed in several works, amongst which <ref type="bibr" target="#b29">Zgusta (1971)</ref>, <ref type="bibr" target="#b27">Wiegand (1984)</ref>, <ref type="bibr" target="#b15">Quemada (1987)</ref>, <ref type="bibr" target="#b0">Atkins and Rundell (2008)</ref>, <ref type="bibr" target="#b22">Tarp (2008)</ref>, <ref type="bibr" target="#b6">Durkin (2019)</ref> and <ref type="bibr" target="#b3">Considine (2019)</ref>. These authors have approached lexicography from either a theoretical or methodological perspective, helping to bring to light the paradigm shift we witness in the convergence between lexicography, computational linguistics, digital humanities, and ontologies.</p><p>In Portugal, this scientific activity around lexicography work is present in <ref type="bibr" target="#b26">Villalva and Williams (2019)</ref>, <ref type="bibr" target="#b17">Salgado, Costa and Tasovac (2019)</ref>, <ref type="bibr">Salgado and Costa (2019)</ref>, <ref type="bibr" target="#b12">Lino (2018</ref><ref type="bibr" target="#b20">), Silvestre (2016)</ref>, <ref type="bibr" target="#b8">Gonçalves and Banza (2013)</ref>, <ref type="bibr" target="#b4">Correia (2009)</ref> and <ref type="bibr" target="#b25">Verdelho (2003)</ref>, among others. The European Dictionary Portal 1 points to the existence of four online Portuguese dictionaries and a portal. Despite being electronic, most of these resources are structured and formalised according to a paper-based methodology, and therefore do not fully explore their digital potential. In turn, the Dicionário Aberto, one of the dictionaries available on the portal, differs from our objectives, even though it is based on a historical dictionary. This is because the researchers' primary focus <ref type="bibr" target="#b21">(Simões &amp; Farinha, 2009)</ref> was not so much preserving the original source but mainly modernizing the dictionary. Thus, and according to the available data, there are no dynamic, open-access resources based on Portuguese heritage dictionaries, so efforts must be made to provide this accessibility to recognised heritage value sources in the form of searchable, dynamic resources.</p><p>Lexicography has undergone a radical change in the past two decades, especially with technological advances, the fall of many publishers, as well as the changes introduced into their business models <ref type="bibr">(Rundell, 2010, p. 170)</ref>. This paradigm shift is also directly related to the advancement of digital humanities, which quickly became an aggregator of several scientific disciplines. Although the first definitions of the term 'digital humanities' were limited to humanities computing <ref type="bibr">(Terras &amp; Vahouette, 2013)</ref>, today, these definitions are far from being universally accepted <ref type="bibr">(Gold &amp; Klein, 2016)</ref>. Instead, the term now covers a variety of lines of research belonging to a number of different disciplines, and is characterised by the use of tools, computational methods and standards, implying, above all, a new general perspective of the humanities in response to the epistemological challenges that these changes impose.</p><p>The perspective underpinning the construction of lexical resources that we propose in this project presupposes rethinking the methodologies of the Portuguese lexicographic tradition, perceiving lexicography, terminology, ontologies and computational linguistics as an integral part of the digital humanities, which will imply a paradigm shift in the construction of dictionary resources. In this new paradigm, ontologies will play a key role in organising and representing linguistic and metalinguistic knowledge, bringing added value by providing greater logical consistency in the representation of data <ref type="bibr" target="#b2">(Carvalho, Costa &amp; Roche, 2018;</ref><ref type="bibr">Almeida, Costa &amp; Roche, 2019)</ref>, as well as supporting its operationalisation and, therefore, its preservation in the long term.</p><p>The European lexicographic scenario is currently quite heterogeneous, both in what concerns the types of existing lexicographic resources and their particular structural component, which relates to how the data are represented, the adopted models, as well as the respective applied formats. Each format has its own syntax and vocabulary, defined according to certain parameters to enable the reusability of the lexicographic content. The diversity of incompatible formats creates severe problems in the digital landscape, making it impossible to interconnect resources and their respective metadata and lexical data. Herein lies the importance of following compatible standards and formats such as LMF <ref type="bibr">(ISO 24613: 2008)</ref>, TEI Lex-0<ref type="foot" target="#foot_1">2</ref>  <ref type="bibr" target="#b23">(Tasovac and Romary et al., 2018)</ref> and <ref type="bibr">Ontolex-Lemon (McCrae et al., 2017)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Historical Background</head><p>Diccionario da Lingua Portugueza by António de Morais Silva was elaborated during the Age of Enlightenment. This century brought a renewal in several fields of knowledge, namely those concerning the description of living languages, at a time when Latin was still the language of instruction. Dictionaries were perceived as metalinguistic instruments. The 17th century marked a very prolific period in terms of lexicographic production, especially with regard to the French dictionary production (for example, Dictionnaire françois, contenant les mots et les choses, plusieurs nouvelles remarques sur la langue françoise (1680) by Father Richelet or Dictionnaire universel (1690) by Antoine Furetière), which served as a model for all subsequent lexicographic works.</p><p>Portuguese lexicography benefited from this moment, especially with the Morais dictionary's publication in 1789, which inaugurated modern Portuguese lexicography. This dictionary followed the publication of the third edition of the Vocabolario degli Accademici della Crusca (1691), the Dictionnaire de l'Académie Française (1694) and the Vocabulario Portuguez and Latino (1712-1728) by Father Rafael Bluteau. The latter marked the transition between the Latin-Portuguese dictionary and the first Portuguese monolingual dictionary [Morais] <ref type="bibr">(Silvestre, 2008, p. 7)</ref>, thus paving the way for the emergence of a new way of working in lexicography that would influence subsequent publications, such as the Diccionario da lingoa portugueza (1793), published by the Lisbon Science Academy and the Elucidário das Palavras, Termos e Frases by Joaquim de Santa Rosa de Viterbo (1798). As <ref type="bibr" target="#b25">Verdelho (2003)</ref> mentions, Morais 'laid the foundation to all the lexicographic genealogy developed over the last 200 years' (p. 473) and, according to <ref type="bibr" target="#b1">Biderman (1984)</ref>, referring to the second edition, 'constitutes a milestone in Portuguese-language lexicography' (p. 5). Despite all this, lexicographic production arises late in Portugal when compared with that of other countries. The publication of dictionaries in vernacular languages was already proliferating throughout Europe, as can be seen from the publishing timelines of other monolingual dictionaries.<ref type="foot" target="#foot_2">3</ref> </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Morais Dictionary</head><p>The first edition of the known Morais dictionary is entitled in its main edition ( <ref type="formula">1789</ref>  The first edition was first published in two volumes: first, from the letters A to K, in a total of 752 pages, and then, from the letters L to Z, with 541 pages. The work was printed at Simão Thaddeo Ferreira's publishing house, in Lisbon.</p><p>The following two editions (1813; 1823) are considered new dictionaries, due to both their enrichment and the updating. The second edition, corrected and enlarged in two volumes (A-E; F-Z), was also published in Lisbon, in Typographia Lacerdina. Morais claims the authorship of the dictionary on the title page, where the work is presented as the Diccionario da Lingua Portugueza, recopilado dos vocabularios impressos ate agora, e nesta segunda edição novamente emendado, e muito accrescentado, por Antonio de Moraes Silva natural do Rio de Janeiro [Diccionario da Lingua Portugueza, compiled from the vocabularies printed so far, and in this second edition, again amended and incredibly enriched by Antonio de Moraes Silva]. The same happened to the third edition, coordinated by Pedro José de Figueiredo, who expanded it from five to six thousand articles, as stated in the title.</p><p>The author died the following year, in 1824. The work continued to be published and enhanced over the years until 1949. From then to 1959, in 12 volumes, the tenth edition was prepared, under the coordination of Augusto Moreno, Cardoso Júnior and José Pedro Machado, but maintaining Morais as the author.</p><p>Even though the Morais dictionary is available on some web pages (e.g. CEPESE 4 ), it is provided as a PDF document, resulting from the digitisation of the work on paper. This format does not take great advantage of the digital environment and its potential, since it does not allow advanced searches. It is this issue that we intend to explore in our project.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">MORDigital</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">The Project</head><p>As stated in the introduction, the main goal of MORDigital 5 is to encode the selected editions of Diccionario de Lingua Portugueza by António de Morais Silva. MORDigital aims to promote accessibility to cultural heritage while fostering reusability and contributing towards a greater presence of lexicographic digital content in Portuguese through open tools and standards. MORDigital follows a new paradigm in lexicography, results from the convergence of lexicography, terminology, computational linguistics, and ontologies as an integral part of digital humanities and Linked (Open) Data.</p><p>In this project, we connect data and metadata within the same lexicographic resource and between different resources, through the Web of Data, which is based on principles structured around the use of RDF, URIs and SPARQL, a language for querying and retrieving information. Underlying the formalisation and application of the standards is the linguistic and lexicographic knowledge that permeates the entire project and contributes to the necessary systematisation of data and metadata. Being a project dedicated to Portuguese, it has the added value of bringing a historical resource into the LLOD cloud in a language that is still underrepresented.</p><p>Retrodigitising historical dictionaries into machine-readable dictionaries poses several challenges that the scientific community has tried to resolve by creating tools, different formats, and establishing standards, following the FAIR 6 principles for modelling lexical resources and making them available.</p><p>Our starting point will be the Morais digitisations available as PDF at the Portuguese National Library and the Brasiliana Library 7 . However, the lack of quality of the available PDF may lead us to undertake a new digitisation process of Morais. High-quality digitisation is required to use GROBID-Dictionaries <ref type="bibr" target="#b11">(Khemakhem, Foppiano, Romary, 2017</ref><ref type="bibr" target="#b10">, Khemakhem et al., 2019)</ref>, a machine learning system for converting PDF into the TEI/XML format and structuring the content of the digitised versions of the dictionaries.</p><p>5 MORDigital -Digitalização do Diccionario da Lingua Portugueza de António de Morais Silva [PTDC/LLT-LIN/6841/2020] 6 Findable, Accessible, Interoperable, Reusable; cf. Wilkinson et al., 2016.  7 http://dicionarios.bbm.usp.br/pt-br/dicionario/edicao/2 Following current open data best practices, the main goal is to put forward a methodology that can be replicated in other legacy paper dictionaries, using tools that allow the automatic extraction of lexicographic content, as well as the modernisation of the spelling in an automated way.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Methodology</head><p>MORDigital proposes to: (i) analyse all components that comprise the dictionary's macroand microstructure; ii) identify, organise and describe the different levels of linguistic knowledge to apply the aforementioned standards systematically; (iii) develop methodologies that can be replicated for other applications and test the alignment of the different encodings of Morais; (iv) participate in reviewing the corresponding standards as members of the standard bodies and scientific forums; (v) propose best practices for harmonising the encoding of lexicographic resources; (vi) make Morais available via an openaccess platform.</p><p>Our methodology is based on 5 central axes:</p><p>(1) high-quality retrodigitisation of Morais and automatic structuring of the lexical content for the creation of a computer-readable resource;</p><p>(2) lexicographically-oriented language description;</p><p>(3) Morais encoding, using the TEI Lex-0 specifications mapped to the LMF standard and their respective serialisations, as well as to OntoLex-Lemon;</p><p>(4) creation of an ontology for alignment purposes;</p><p>(5) and conception of a platform for Morais, enriched with both lexicographic and ontological modules.</p><p>All defined tasks will be accomplished successively and managed through subtask assignments, which will be carried out either simultaneously or sequentially, depending on their nature.</p><p>We will initiate by surveying the dictionary sources and by a prior evaluation of the quality of digitised versions of these sources (paper to text), for the extraction of lexical information (text to structure). Firstly, this involves transforming the native encoding format into a TEI/XML compliant one (the encoding will be based on TEI standards according to the TEI Lex-0 specification) and LMF metamodels into advanced techniques for semi-structured text acquisition.</p><p>The result will be a model of a historical dictionary whose entries are structured in a standard format, namely TEI Lex-0. We plan to adapt the system's cascading architecture to allow the extraction of the different TEI constructs corresponding to the lexicographic structures and conventions. The outcome is a chain of cascading machine learning models, trained and evaluated against manually annotated data. Once the source is digitised, further corrected and marked-up, it will be compared to precedent and subsequent versions, and a series of queries will be conducted to extract all available information about labels. We will then convert TEI Lex-0 datasets into RDF by means of the W3C recommendation for publishing lexicons as Linked Data, namely OntoLex-Lemon. More specifically, we intend to test the implementation of the lexicography module of the Lexicon Model for Ontologies (lexicog)<ref type="foot" target="#foot_4">8</ref> , which was recently specified by the Ontology Lexicon community group of the W3C. This will allow for the publication of the Morais datasets as LOD graphs, enabling further NLP applications.</p><p>A further step will be the creation of an ontology of all the previously identified and systematised labels (e.g. domain, register, grammar, among others). This will be implemented by resorting to Protégé<ref type="foot" target="#foot_5">9</ref> , a free, open-source ontology editor. The ontology will be represented in OWL. The next step is the alignment of the dictionary versions, which will be carried out in stages: i) alignment of the entries; ii) alignment of the senses; iii) alignment of other lexicographic content.</p><p>During the testing phase, formally controlled tests will be carried out to discover errors and bugs that need to be resolved. Finally, we will build a platform that integrates all Morais versions while also mapping the different heterogeneous annotation models, in order to provide access to high-quality digital lexicographic content enhanced by ontologies.</p><p>Thus, the search functionalities will include basic and advanced queries, namely searches by lexical relations. A specialised team will be hired to build and develop the interface. Its robustness will be tested according to the types of functionalities defined on validation tests.</p><p>The alignment between the various editions will be searchable, and the scanned pages made available. In another module, where there will be considerable investment by the team, it is intended that the lexicographic content can be deconstructed and organised in the form of an ontology. We will develop advanced search engines (search for entries by different labels or lexical relations). As part of the aforementioned platform, we will include a section to promote training for the sustainable development of lexicographic resources. This will foster both the qualification of Portuguese lexicographers as well as the users' linguistic knowledge.</p><p>Moreover, this will provide quality data for researchers.</p><p>We aim for our lexical resources to maintain the original spelling. However, making a resource available to the public today, and considering the prevalence of search engines, requires the modernisation of the spellings, especially at the lemma level. The original spelling of the lemma will have to be aligned with more current spellings. To this end, the original forms will be noted as a lemma, but we will first match them with the most current spellings and simultaneously work on their encoding in the XML annotation file. This topic represents the added value of enabling reduplication in other related works, since the correspondences between the lexical units and their respective coding can be reused. We Spelling Vocabulary] of the Lisbon Science Academy<ref type="foot" target="#foot_8">12</ref> . The result will allow the end-user to search the current spellings, with which he/she is familiar, and find the entry corresponding to the old spelling, which will thus remain faithful to the original.</p><p>The way we look at Morais transcends the traditional concept of dictionary and is in line with the evolution of e-lexicography itself. We will take advantage of standard formats and linked data technologies for encoding dictionaries, which will allow us to abandon, once and for all, the editorial perspective that is still present in most digital resources. To achieve our goal, we also believe it is necessary to put forward methodologies for improving the quality of lexicographic descriptions.</p><p>At the end of the project, we expect to have encoded a vital heritage dictionary, compliant with the most advanced standards for scholarly digital editions and made available via an open licence. The versions will be accessible and searchable through an advanced interface, which will enable the selective querying of text by lemma and type of lexicographic content.</p><p>The source data will be made available separately from the querying interface, both for</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>)</head><label></label><figDesc>Diccionario da Lingua Portugueza composto pelo Padre D. Rafael Bluteau Diccionario da Lingua Portugueza composto pelo Padre D. Rafael Bluteau, reformado, e accrescentado por Antonio de Moraes Silva, natural do Rio de Janeiro [Diccionario da Lingua Portugueza composed by Father D. Rafael Bluteau, retired, and accredited by Antonio de Morais Silva, born in Rio de Janeiro], as seen in Figure 1.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: Frontispiece of Morais (1789), first volume</figDesc><graphic coords="6,173.25,234.34,264.00,339.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>will subsequently create a correspondence between the MOR spellings and the spellings in accordance with the 1945 Luso-Brazilian Convention 10 and the 1990 Portuguese Spelling Agreement 11 , taking advantage of work previously developed by one of the team members on the Vocabulário Ortográfico da Língua Portuguesa (VOLP-ACL) [Portuguese Language</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>http://www.dictionaryportal.eu/en/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>https://dariah-eric.github.io/lexicalresources/pages/TEILex0/TEILex0.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>Such as the Tesoro de la lengua castellana, española by Sebastián de Covarrubias in 1611, which, in addition to being the first Spanish monolingual dictionary, is the first European one. Other examples include the first edition of the Vocabolario degli Accademici della Crusca, which was compiled in Florence and printed in Venice in 1612, as well as the French dictionaries mentioned before.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>https://www.cepese.pt/portal/pt/bases-de-dados/dicionario/apresentacao</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_4"><p>https://www.w3.org/2019/09/lexicog/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="9" xml:id="foot_5"><p>https://protege.stanford.edu</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="10" xml:id="foot_6"><p>http://www.portaldalinguaportuguesa.org/?action=acordo&amp;version=1945</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="11" xml:id="foot_7"><p>https://dre.pt/application/file/a/403254</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="12" xml:id="foot_8"><p>Available at https://www.volp-acl.pt/</p></note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>research and long-term preservation. Thus, the project will have significantly contributed towards the analysis and annotation of dictionaries through computer-assisted processes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Concluding remarks</head><p>This project will represent a substantial contribution to the scientific community, aiming to create innovative and data-driven computational methods for text digitisation and encoding, based on a comprehensive analysis of lexicographic articles and their respective components. Tests on automatic text capture will refine processes and techniques, advancing the state of the art regarding semantic annotation of semi-structured documents. A rigorous linguistic treatment will make it possible to organise and structure the lexicographic components, and to elicit lexical relationships between various elements. The linking mechanisms of the resulting structured dictionary to other resources will constitute a prototype that can be replicated in other works, namely in the Portuguese-speaking world.</p><p>MORDigital will be a user-friendly, open-access web interface, equipped with a robust research system that will not only facilitate the search on a more traditional lexicographic perspective but will also allow undertaking research on various types of structured lexicographic and terminological information <ref type="bibr" target="#b5">(Costa et al., 2020)</ref>. Combining semasiological and onomasiological approaches applied to the three editions of Morais will be possible via the inclusion of ontologies (e.g. diasystematic marking, namely domain labels, registers and part of speech categories). This method will make a new type of dictionary emerge which will contribute to creating a digital linguistic resource that is central to digital humanities. Endusers will be predominantly scholars dealing with language and historical issues. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.">Acknowledgements</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8.">References</head><p>Almeida, B., <ref type="bibr">Costa, R., and Roche, C. (2019)</ref>. The names of lighting artefacts: extraction and representation of Portuguese and Spanish terms in the archaeology of al-Andalus.</p><p>Revue <ref type="bibr">TAL,</ref> </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">The Oxford Guide to Practical Lexicography</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">B T</forename><surname>Atkins</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Rundell</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+			<publisher>Oxford University Press</publisher>
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">A Ciência da Lexicografia</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">T C</forename><surname>Biderman</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1984">1984</date>
+			<publisher>São Paulo</publisher>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="page" from="1" to="26" />
+			<pubPlace>Brasil</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">The Role of Conceptual Relations in the Drafting of Natural Language Definitions: an Example from the Biomedical Domain</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Carvalho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Costa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Roche</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the LREC 2018 Workshop &apos;Globalex 2018 -Lexicography &amp; WordNets</title>
+		<editor>
+			<persName><forename type="first">I</forename><surname>Kernerman</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">S</forename><surname>Krek</surname></persName>
+		</editor>
+		<meeting>the LREC 2018 Workshop &apos;Globalex 2018 -Lexicography &amp; WordNets<address><addrLine>Miyazaki</addrLine></address></meeting>
+		<imprint>
+			<publisher>European Language Resources Association (ELRA</publisher>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="10" to="16" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">The Cambridge World History of Lexicography</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Considine</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<publisher>Cambridge University Press</publisher>
+			<pubPlace>Cambridge</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Correia</surname></persName>
+		</author>
+		<title level="m">Essencial Sobre Língua Portuguesa</title>
+		<imprint>
+			<publisher>Editorial Caminho</publisher>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+	<note>Os Dicionários Portugueses</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><surname>Costa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Carvalho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Salgado</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Simões</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tasovac</surname></persName>
+		</author>
+		<title level="m">Langue(s) &amp; Parole, n. 55. Mons: Edition du CIPA</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="201" to="230" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">The Oxford Handbook of Lexicography</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Durkin</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/oxfordhb/9780199691630.001.0001</idno>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m">Debates in the Digital Humanities</title>
+		<editor>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Gold</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">L</forename><forename type="middle">F</forename><surname>Klein</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Mineápolis</addrLine></address></meeting>
+		<imprint>
+			<publisher>University of Minnesota Press</publisher>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Fontes de metalinguísticas para a história do português clássico -O caso das Reflexões sobre a Lingua Portugueza</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">F</forename><surname>Gonçalves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Banza</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Património Textual e Humanidades Digitais: da antiga à Nova Filologia</title>
+		<editor>
+			<persName><forename type="first">M</forename><forename type="middle">F</forename><surname>Gonçalves</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Banza</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Évora</addrLine></address></meeting>
+		<imprint>
+			<publisher>CIDEHUS</publisher>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="page" from="73" to="111" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">Language resource management -Lexical markup framework (LMF)</title>
+		<idno>ISO 24613. 2008</idno>
+		<imprint>
+			<publisher>ISO</publisher>
+			<pubPlace>Geneva</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">How OCR Performance Can Impact on the Automatic Extraction of Dictionary Content Structures</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Galleron</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Williams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">J</forename><surname>Suárez</surname></persName>
+		</author>
+		<ptr target="https://hal.archives-ouvertes.fr/hal-02263276" />
+	</analytic>
+	<monogr>
+		<title level="m">19th Annual Conference and Members&apos; Meeting of the Text Encoding Initiative Consortium. Austria: Graz</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Automatic Extraction of TEI Structures in Digitized Lexical Resources Using Conditional Random Fields</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Foppiano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of eLex 2017 Conference: Electronic lexicography in the 21st century: Lexicography from Scratch</title>
+		<meeting>eLex 2017 Conference: Electronic lexicography in the 21st century: Lexicography from Scratch<address><addrLine>Netherlands</addrLine></address></meeting>
+		<imprint>
+			<publisher>Leiden</publisher>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="598" to="613" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Portuguese lexicography in the internet era</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Lino</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Routledge Handbook of Lexicography. Abingdon: Routledge</title>
+		<editor>
+			<persName><forename type="first">P</forename><surname>Fuertes-Oliveira</surname></persName>
+		</editor>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">The Ontolex-Lemon model: development and applications</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Mccrae</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bosque-Gil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gracia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Buitelaar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Cimiano</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of eLex 2017 Conference: Electronic lexicography in the 21st century: Lexicography from Scratch</title>
+		<meeting>eLex 2017 Conference: Electronic lexicography in the 21st century: Lexicography from Scratch<address><addrLine>Netherlands</addrLine></address></meeting>
+		<imprint>
+			<publisher>Leiden</publisher>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="587" to="597" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Diccionario da lingua portugueza composto pelo padre D. Rafael Bluteau, reformado, e accrescentado por Antonio de Moraes Silva, natural do Rio de Janeiro, 2 vols</title>
+		<author>
+			<persName><forename type="first">António</forename><surname>Morais: Silva</surname></persName>
+		</author>
+		<author>
+			<persName><surname>De Morais</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Officina de Simão Thaddeo Ferreira</title>
+		<imprint>
+			<publisher>Lisboa</publisher>
+			<date type="published" when="1789">1789</date>
+		</imprint>
+	</monogr>
+	<note>For the purpose of this project, other editions will be consulted</note>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Notes sur lexicographie et dictionnairique</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Quemada</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Cahiers de Lexicologie</title>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="page" from="229" to="242" />
+			<date type="published" when="1987">1987</date>
+			<pubPlace>Paris</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">English Learners&apos; Dictionaries at the DSNA</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Rundell</surname></persName>
+		</author>
+		<editor>I. J. Kernerman and P. Bogaards</editor>
+		<imprint>
+			<date type="published" when="2009">2010. 2009</date>
+			<publisher>Kdictionaries</publisher>
+			<biblScope unit="page" from="169" to="175" />
+			<pubPlace>Jerusalem</pubPlace>
+		</imprint>
+	</monogr>
+	<note>What future for the learner&apos;s dictionary?</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Improving the consistency of usage labelling in dictionaries with TEI Lex-0. In Lexicography</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Salgado</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Costa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tasovac</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s40607-019-00061-x</idno>
+		<ptr target="https://doi.org/10.1007/s40607-019-00061-x" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of ASIALEX</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="133" to="156" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><surname>Salgado</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Costa</surname></persName>
+		</author>
+		<idno type="DOI">10.17561/rilex.v2.n2.2</idno>
+		<ptr target="http://dx.doi.org/10.17561/rilex.v2.n2.2" />
+		<title level="m">Marcas temáticas en los diccionarios académicos ibéricos: estudio comparativo. RILEX. Revista sobre investigaciones léxicas</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="37" to="63" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Silvestre</surname></persName>
+		</author>
+		<title level="m">Bluteau e as Origens da Lexicografia Moderna</title>
+		<imprint>
+			<publisher>INCM</publisher>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Lexicografia</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Silvestre</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Manual de Linguística Portuguesa</title>
+		<editor>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Martins</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">E</forename><surname>Carrilho</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Berlin</addrLine></address></meeting>
+		<imprint>
+			<publisher>De Gruyter Mouton</publisher>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="page" from="200" to="223" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Dicionário Aberto: um recurso para processamento de linguagem natural</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Simões</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Farinha</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Viceversa: Revista Galega de Traducción</title>
+		<meeting><address><addrLine>Spain</addrLine></address></meeting>
+		<imprint>
+			<publisher>Vigo</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="159" to="171" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<author>
+			<persName><forename type="first">S</forename><surname>Tarp</surname></persName>
+		</author>
+		<title level="m">Lexicography in the Borderland between Knowledge and Non-Knowledge</title>
+		<meeting><address><addrLine>Tübingen</addrLine></address></meeting>
+		<imprint>
+			<publisher>Niemeyer</publisher>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<title level="m" type="main">TEI Lex-0: A baseline encoding for lexicographic data. Version 0.8.6. DARIAH Working Group on Lexical Resources</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tasovac</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="https://dariah-eric.github.io/lexicalresources/pages/TEILex0/TEILex0.html" />
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<title level="m" type="main">Defining Digital Humanities: A Reader</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Terras</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Nyhan</surname></persName>
+		</author>
+		<editor>Vahouette, E.</editor>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+			<publisher>Ashgate</publisher>
+			<pubPlace>London</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<author>
+			<persName><forename type="first">T</forename><surname>Verdelho</surname></persName>
+		</author>
+		<title level="m">Dicionário de Morais Silva e o Início da Lexicografia Moderna. História Da Língua e História Da Gramática -Actas do Encontro</title>
+		<meeting><address><addrLine>Braga</addrLine></address></meeting>
+		<imprint>
+			<publisher>ILCH, Universidade do Minho</publisher>
+			<date type="published" when="2003">2003</date>
+			<biblScope unit="page" from="473" to="490" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<title level="m" type="main">The Landscape of Lexicography</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Villalva</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Williams</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<pubPlace>Lisboa-Aveiro</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Centro de Linguística da Universidade de Lisboa-Universidade de Aveiro</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">On the Structure and Contents of a General Theory of Lexicography</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">E</forename><surname>Wiegand</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">LEXeter&apos;83 Proceedings</title>
+		<editor>
+			<persName><forename type="first">R</forename><forename type="middle">R K</forename><surname>Hartmann</surname></persName>
+		</editor>
+		<imprint>
+			<date type="published" when="1984">1984</date>
+			<biblScope unit="page" from="13" to="30" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">The FAIR guiding principles for scientific data management and stewardship</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Wilkinson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dumontier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">J</forename><surname>Aalbersberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Appleton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Axton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Baak</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/sdata.2016.18</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Sci. Data</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">160018</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<title level="m" type="main">Manual of Lexicography. Prague: Academia/The Hague: Mouton</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zgusta</surname></persName>
+		</author>
+		<ptr target="http://creativecommons.org/licenses/by-sa/4.0/" />
+		<imprint>
+			<date type="published" when="1971">1971</date>
+		</imprint>
+	</monogr>
+	<note>This work is licensed under the Creative Commons Attribution ShareAlike 4.0 International License</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

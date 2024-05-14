@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">NER4Archives (named entity recognition for archives) : méthodes et outils semi-automatiques pour reconnaître les entités nommées dans les instruments de recherche archivistiques encodés en XML/EAD</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Pauline</forename><surname>Charbonnier</surname></persName>
+							<email>pauline.charbonnier@culture.gouv.fr</email>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Conférence Internationale sur l&apos;Intelligence Artificielle appliquée aux Bibliothèques</orgName>
+								<orgName type="department" key="dep2">Archives et Musées</orgName>
+								<address>
+									<addrLine>FF21 Bibliothèque nationale de France -9 décembre</addrLine>
+									<postCode>2021</postCode>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Conférence Internationale sur l&apos;Intelligence Artificielle appliquée aux Bibliothèques</orgName>
+								<orgName type="department" key="dep2">Archives et Musées</orgName>
+								<address>
+									<addrLine>FF21 Bibliothèque nationale de France -9 décembre</addrLine>
+									<postCode>2021</postCode>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Conférence Internationale sur l&apos;Intelligence Artificielle appliquée aux Bibliothèques</orgName>
+								<orgName type="department" key="dep2">Archives et Musées</orgName>
+								<address>
+									<addrLine>FF21 Bibliothèque nationale de France -9 décembre</addrLine>
+									<postCode>2021</postCode>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Lucas</forename><surname>Terriel</surname></persName>
+							<email>lucas.terriel@inria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Conférence Internationale sur l&apos;Intelligence Artificielle appliquée aux Bibliothèques</orgName>
+								<orgName type="department" key="dep2">Archives et Musées</orgName>
+								<address>
+									<addrLine>FF21 Bibliothèque nationale de France -9 décembre</addrLine>
+									<postCode>2021</postCode>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Conférence Internationale sur l&apos;Intelligence Artificielle appliquée aux Bibliothèques</orgName>
+								<orgName type="department" key="dep2">Archives et Musées</orgName>
+								<address>
+									<addrLine>FF21 Bibliothèque nationale de France -9 décembre</addrLine>
+									<postCode>2021</postCode>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Conférence Internationale sur l&apos;Intelligence Artificielle appliquée aux Bibliothèques</orgName>
+								<orgName type="department" key="dep2">Archives et Musées</orgName>
+								<address>
+									<addrLine>FF21 Bibliothèque nationale de France -9 décembre</addrLine>
+									<postCode>2021</postCode>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Florence</forename><surname>Clavaud</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Conférence Internationale sur l&apos;Intelligence Artificielle appliquée aux Bibliothèques</orgName>
+								<orgName type="department" key="dep2">Archives et Musées</orgName>
+								<address>
+									<addrLine>FF21 Bibliothèque nationale de France -9 décembre</addrLine>
+									<postCode>2021</postCode>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Conférence Internationale sur l&apos;Intelligence Artificielle appliquée aux Bibliothèques</orgName>
+								<orgName type="department" key="dep2">Archives et Musées</orgName>
+								<address>
+									<addrLine>FF21 Bibliothèque nationale de France -9 décembre</addrLine>
+									<postCode>2021</postCode>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Conférence Internationale sur l&apos;Intelligence Artificielle appliquée aux Bibliothèques</orgName>
+								<orgName type="department" key="dep2">Archives et Musées</orgName>
+								<address>
+									<addrLine>FF21 Bibliothèque nationale de France -9 décembre</addrLine>
+									<postCode>2021</postCode>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Conférence Internationale sur l&apos;Intelligence Artificielle appliquée aux Bibliothèques</orgName>
+								<orgName type="department" key="dep2">Archives et Musées</orgName>
+								<address>
+									<addrLine>FF21 Bibliothèque nationale de France -9 décembre</addrLine>
+									<postCode>2021</postCode>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Gaetano</forename><surname>Piraino</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Conférence Internationale sur l&apos;Intelligence Artificielle appliquée aux Bibliothèques</orgName>
+								<orgName type="department" key="dep2">Archives et Musées</orgName>
+								<address>
+									<addrLine>FF21 Bibliothèque nationale de France -9 décembre</addrLine>
+									<postCode>2021</postCode>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Conférence Internationale sur l&apos;Intelligence Artificielle appliquée aux Bibliothèques</orgName>
+								<orgName type="department" key="dep2">Archives et Musées</orgName>
+								<address>
+									<addrLine>FF21 Bibliothèque nationale de France -9 décembre</addrLine>
+									<postCode>2021</postCode>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Vincent</forename><surname>Verdese</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Conférence Internationale sur l&apos;Intelligence Artificielle appliquée aux Bibliothèques</orgName>
+								<orgName type="department" key="dep2">Archives et Musées</orgName>
+								<address>
+									<addrLine>FF21 Bibliothèque nationale de France -9 décembre</addrLine>
+									<postCode>2021</postCode>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Les</forename><surname>Futurs</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Conférence Internationale sur l&apos;Intelligence Artificielle appliquée aux Bibliothèques</orgName>
+								<orgName type="department" key="dep2">Archives et Musées</orgName>
+								<address>
+									<addrLine>FF21 Bibliothèque nationale de France -9 décembre</addrLine>
+									<postCode>2021</postCode>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">NER4Archives (named entity recognition for archives) : méthodes et outils semi-automatiques pour reconnaître les entités nommées dans les instruments de recherche archivistiques encodés en XML/EAD</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">8480FBB9D30C77564A06666CF5527243</idno>
+					<note type="submission">Submitted on 20 Dec 2021 Distributed under a Creative Commons Attribution| 4.0 International License</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Contexte NER4Archives</head><p>&lt;EAC-CPF&gt;    Bibliographie NER </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>-indexation des inventaires → Peu de points d'accès simples et intuitifs aux descriptions pour les utilisateurs Le problème est le même dans de nombreux services d'archives français (où EAD est très utilisé et les inventaires sous-indexés) Contexte NER4Archives</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>•</head><label></label><figDesc>Accroissement des données annotées et de la qualité d'annotation (mesure inter-annotateurs) • Utilisation des pleines potentialités des outils existants (INCEpTION) pour l'annotation semi-automatique • Nouvelles configurations de modèles NER • Prototypage à partir des modèles NER pour l'indexation semi-automatique des inventaires Outils, méthodes, expérimentations, code-source du projet : https://gitlab.inria.fr/almanach/ner4archives Merci de votre attention ! #FF21 #NER4Archives</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="2,23.74,40.42,672.52,226.02" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="4,269.72,8.89,343.16,387.22" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="8,63.75,123.33,589.07,154.88" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="9,36.80,74.82,628.67,232.97" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="19,486.71,-11.40,222.38,427.85" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>inventaire FRAN_IR_041253 (service du département du Minutier Central des notaires parisiens)</head><label></label><figDesc></figDesc><table><row><cell cols="2">La chaîne de traitement complète (étiquetage IOB, Ramshaw &amp; Marcus, 1995)</cell></row><row><cell cols="2">• Sélection de 8 instruments de recherche sur 17 sélectionnés suivant des critères précis • Choix de 5 catégories : LOCATION, PERSON, ORGANISATION, EVENT, TITLE • Création de conventions d'annotations (guidelines) avec quelques exemples d'entités annotées dans leur contexte • 4 annotateurs Richelieu I-LOCATION Mainlevée O par O Louis B-PERSON Paul I-PERSON Blondel I-PERSON , O huissier B-TITLE , O demeurant O 51 B-LOCATION , I-LOCATION rue I-LOCATION de I-LOCATION , O au O profit O de O Jean-Baptiste B-PERSON Charles I-PERSON Plisson I-PERSON , O agent B-TITLE d' I-TITLE affaires I-TITLE , O 9 B-LOCATION , I-LOCATION rue I-LOCATION de O rémission O accordées O à O Jean B-PERSON Barrault I-PERSON , O écuyer B-TITLE , O homme B-TITLE d' I-TITLE armes I-TITLE des I-TITLE ordonnances I-TITLE sous O la O charge O de O Jacques B-PERSON Galiot I-PERSON de I-PERSON Genoilhac I-PERSON , O seigneur B-TITLE d' I-TITLE Assier I-TITLE sénéchal B-TITLE extrait de l'Lettres O , O extrait de l'</cell></row><row><cell>Thérèse I-LOCATION</cell><cell>d' I-TITLE</cell></row><row><cell>. O</cell><cell>Armagnac I-TITLE</cell></row><row><cell></cell><cell>. O</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>inventaire FRAN_IR_000061 (service du Département du Moyen-Âge et de l'Ancien Régime)</head><label></label><figDesc>État du premier corpus pour l'entraînement et les tests</figDesc><table><row><cell>Validation des méthodes : premiers résultats (a)</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="4">Résultats préliminaires obtenus avec des modèles entraînés ou affinés sur le corpus</cell><cell></cell></row><row><cell>NER4Archives V1 • Total de phrases annotées : 872 / 106 513 séquences Type de Scores NER généraux</cell><cell cols="4">Répartition des entités dans le Scores NER par entités (F1-score) corpus V1 de NER4Archives PERSON LOCATION ORGANISATION TITLE</cell></row><row><cell cols="3">LOCATION Première évaluation pour la modèle / • Total d'entités : 2 241 entités Architecture F1-score entités</cell><cell>797</cell><cell></cell></row><row><cell cols="4">PERSON reconnaissance des entités nommées 495 • Coefficient de Kappa de Fleiss (évaluation inter-annotateurs): CNN (SpaCy) 0.53 CNN (SpaCy) 0.67 0.74 0.41</cell><cell>0.49</cell></row><row><cell cols="5">ORGANISATION 490 (NER -named entity recognition) dans &gt; 68.6 % (mesure du 07/10/2021) &gt; + 17.3 % entre le 06/2021 et le 10/2021 -BERT (SpaCy Transformer (SpaCy BERT 0.82 Transformer 0.92 0.83 0.78 0.92</cell></row><row><cell>(sur l'interprétation du Kappa : Landis &amp; Koch, 1977) • Temps d'annotation (mise en place et cycle annotation-reprise-correction) ≈ 4 mois camembert-base) -camembert-b les inventaires BiLSTM-CRF (DelfT) 0.58 ase)</cell><cell>TITLE EVENT</cell><cell></cell><cell>431 28</cell><cell></cell></row><row><cell>BiLSTM-CRF</cell><cell>0.81</cell><cell>0.79</cell><cell>0.69</cell><cell>0.64</cell></row><row><cell>(DelfT)</cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table><note><p>Le score pour EVENT n'a pu être calculé en raison du nombre insuffisant d'entités dans l'ensemble d'entraînement</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>•</head><label></label><figDesc>Cohen, C. (1960)  A coefficient of agreement for nominal scales, Educational and psychological measurement. • Dupont, Y. (2019) Un corpus libre, évolutif et versionné en entités nommées du français, TALN 2019 -Traitement Automatique des Langues Naturelles. • Dupont, Y. (2017) Exploration de traits pour la reconnaissance d'entités nommées du Français par apprentissage automatique, 19e Rencontre des Étudiants Chercheurs en Informatique pour le Traitement Automatique des Langues (RÉCITAL). Wilms L., Faber W. J., van Veen T. (2014) Large-scale refinement of digital historic newspapers with name entity recognition, Digital transformation and the changing role of news media in the 21st Century, IFLA Newspapers/GENLOC Pre-Conference Satellite Meeting Geneva. • Ramshaw, L., Marcus, M. (1995) Text Chunking Using Transformation-Based Learning. Third ACL Workshop on Very Large Corpora. MIT. • Sagot, B., Richard, M., Stern, R. (2012). Annotation référentielle du Corpus Arboré de Paris 7 en entités nommées. • Javier Ortiz Suárez, P., Dupont, Y., Muller, B., Romary, L., Sagot, B. (2020) Establishing a New State-of-the-Art for French Named Entity Recognition, LREC 2020 -12th Language Resources and Evaluation Conference.</figDesc><table><row><cell>•</cell><cell>Ehrmann, M., Romanello, M., Flückiger, A., Clematide, S. (2020), Extended Overview of CLEF HIPE 2020:</cell></row><row><cell></cell><cell>Named Entity Processing on Historical Newspapers, CLEF 2020 Working Notes. Conference and Labs of the</cell></row><row><cell></cell><cell>Evaluation Forum.</cell></row><row><cell>•</cell><cell>Ehrmann, M. (2008) Les entités nommées, de la linguistique au TAL: statut théorique et méthodes de</cell></row><row><cell></cell><cell>désambiguısation, PhD thesis. Paris 7.</cell></row><row><cell>•</cell><cell>Fort, K. (2012), Les ressources annotées, un enjeu pour l'analyse de contenu: vers une méthodologie de</cell></row><row><cell></cell><cell>l'annotation manuelle de corpus, PhD thesis. Université Paris-Nord-Paris XIII.</cell></row><row><cell>•</cell><cell>Fort, K., Sagot, B. (2010) Influence of pre-annotation on POS-tagged corpus development, The fourth ACL</cell></row><row><cell></cell><cell>linguistic annotation workshop.</cell></row><row><cell>•</cell><cell>Krippendorff, K. (2011) Computing Krippendorff's alpha-reliability.</cell></row><row><cell>•</cell><cell>Landis, J. R., Koch, G. G. (1977) The Measurement of Observer Agreement for Categorical Data. Biometrics.</cell></row><row><cell>•</cell><cell>Maurel, D., Friburger, N., Antoine, J.-Y., Eshkol, I., Nouvel, D. (2011) Cascades de transducteurs autour de la</cell></row><row><cell></cell><cell>reconnaissance des entités nommées, Traitement automatique des langues.</cell></row><row><cell>•</cell><cell>Neudecker C.,</cell></row></table></figure>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0" />			</div>
+			<div type="references">
+
+				<listBibl/>
+			</div>
+		</back>
+	</text>
+</TEI>

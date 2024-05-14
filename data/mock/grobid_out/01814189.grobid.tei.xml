@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Fueling Time Machine: Information Extraction from Retro-Digitised Address Directories</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+							<email>mohamed.khemakhem@inria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="department">Inria ALMAnaCH</orgName>
+								<address>
+									<settlement>Paris</settlement>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">Centre Marc Bloch</orgName>
+								<address>
+									<settlement>Berlin</settlement>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="institution">Paris Diderot University</orgName>
+								<address>
+									<settlement>Paris</settlement>
+								</address>
+							</affiliation>
+							<affiliation key="aff6">
+								<orgName type="laboratory">UMR 8094</orgName>
+								<orgName type="institution">CNRS</orgName>
+								<address>
+									<settlement>Paris</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Carmen</forename><surname>Brando</surname></persName>
+							<email>carmen.brando@ehess.fr</email>
+							<affiliation key="aff3">
+								<orgName type="laboratory">CRH (EHESS / CNRS UMR 8558)</orgName>
+								<address>
+									<settlement>Paris</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="department">Inria ALMAnaCH</orgName>
+								<address>
+									<settlement>Paris</settlement>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">Centre Marc Bloch</orgName>
+								<address>
+									<settlement>Berlin</settlement>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="department">BBAW -Berlin-Brandenburgische Akademie der Wissenschaften</orgName>
+								<address>
+									<settlement>Berlin</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Frédérique</forename><surname>Mélanie-Becquet</surname></persName>
+							<affiliation key="aff5">
+								<orgName type="laboratory">LATTICE</orgName>
+								<orgName type="institution">ENS / Paris</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jean-Luc</forename><surname>Pinol</surname></persName>
+							<email>jean-luc.pinol@ens-lyon.fr</email>
+							<affiliation key="aff7">
+								<orgName type="laboratory">LARHRA CNRS UMR 5180</orgName>
+								<address>
+									<settlement>Lyon</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Fueling Time Machine: Information Extraction from Retro-Digitised Address Directories</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">3F0F11AB5D2ED5F47C2B823FCBC8FEE5</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Whereas mapping systems, such as Google Maps or Bing, have become nowadays the common tools to geocode addresses or to browse neighborhoods on modern maps, browsing a legacy map representing a geographical snapshot of historical cities is far from being accomplished. The issue is related in the first place to the lack of data allowing a system to map a given address to a throwback location. Such information are abundantly available in dedicated paper resources, such as legacy address directories <ref type="foot" target="#foot_0">1</ref> . But even digitised, mining the content of these resources remains limited due to the adhoc employed information extraction techniques. Time machine<ref type="foot" target="#foot_1">2</ref> is a major large scale project aiming to bridge this gap, among many others, by analysing and valorising the content of legacy documents for the ultimate purpose of redrawing the historical, social and economical heritage of Europe. In this context, we present our approach and first results of a state-of-the-art technique for extracting information from digitised address directories.</p><p>Our labour has been motivated by two emerging factors. First, the public release of several digitised versions in high-definition from the legacy address directories "Annuaires-almanach" of Paris, made available by the French National Library<ref type="foot" target="#foot_2">3</ref> . The directory series, which had been edited since the 18th century, carry a joint description of the commercial activities and postal information of the french capital. Second, a recently implemented approach by <ref type="bibr" target="#b1">Khemakhem et al. 2017 and</ref><ref type="bibr" target="#b2">Khemakhem et al. 2018</ref> has given an information extraction system, GROBID-Dictionaries, which has been designed to structure digitised dictionaric resources by using machine learning models. We have been struck by the similarities in the structures of dictionaries and address directories, where both resources share a semasiological representation. In fact, the latters could be perceived as encyclopedic resource where locations are described as unique concepts.</p><p>We have used Text Encoding Initiative (TEI) as a common modeling standard and proposed a first encoding of entries in an address directory. We distinguish between two categories of entries (see table <ref type="table" target="#tab_0">1</ref>). The first is reserved for each entry describing a single occupant in a unique or a shared address. In other terms, to each number in a street, one or many occupants could be assigned and for each one of them corresponds an entry. The second category of entries gathers the description blocs of a common street. An entry in this case encapsulates information like the name of the street, length, neighbouring street, etc. St-Germain-des-Prés). &amp;lt;-rue de l'Echaudé, 18.-►rue St-Beno!t, 11&lt;/sense&gt; &lt;/entry&gt; The current architecture of GROBID-Dictionaries, based on cascading machine learning models, has been to a large extent able to support the presented encoding of the textual information and extract the macro structures. In fact, the first level of segmentation has the mission to differentiate between the different parts of a digitised page. The second level relies on a model for segmenting a page body to entries which will be further segmented in the third level to main semantic blocks. Despite sometimes the noisy OCRised data (see table <ref type="table" target="#tab_0">1</ref>), till the third level, the only required adaptation of the system has been the implementation of a new label to mark the numbering of entries &lt;num&gt;. After this minor adaptation, a first experimentation of the system has shown interesting results for the first 3 segmentation levels, which we report in table <ref type="table">2</ref>. Although the models had given better results with dictionaries in previous experimentations, the current results are still considered impressive given the different nature of the address directories and the noise in the OCRs, especially for the first model. The outcome should be improved as soon as we annotate more data and further strengthen the selected features, if needed. To reach the complete encoding presented in table 1, we are investigating the creation of new models to be integrated in the existing architecture for processing the clusters of texts labels. Before considering building new models trained from scratch, the integration of models used for the same purpose in the GROBID 5 family projects is likely to be the most efficient solution, such for the parsing of addresses and person names. We are considering also to improve the OCRs for known entries such as the majority of street names, which could be checked against existing defined lists.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Model</head><p>In conclusion, fueling a Time machine with structured information extracted from legacy address directories seems not to be an issue anymore thanks to the availability of the target digitised material and the advanced extraction techniques embedded in GROBID-Dictionaries. The existing architecture of the tool could be further improved by annotating more data, plugging in existing models or creating new ones to be applied in larger scale or on similar documents in other languages. Finally, our aim is to further retrodigitise releases of the Annuaires-almanach and geocode historical postal addresses listed there thereby to analyse commercial activity in old Paris taken from large amounts of historical sources as introduced by Kaplan et al. 2017.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>&lt;pc&gt;,&lt;/pc&gt; &lt;lbl&gt;et&lt;/lbl&gt; &lt;address&gt;pl. Péreire, 1.&lt;/address&gt; &lt;/sense&gt; &lt;/entry&gt; &lt;entry&gt; &lt;form&gt;ABBAYE (rue de V)&lt;/form&gt; &lt;sense&gt;(230" de longueur) (Ancienne abbaye de St-Germain-des-Prés) 6* Arr. (Luxembodrg).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 :</head><label>1</label><figDesc>Both images in lines 2 and 3 correspond respectively to excerpts of pages 3500 and 2882 of the 1901 release 4 of the annuaires-almanach</figDesc><table /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>Historical maps are evidently an important source of geolocalised information, our proposed approach aims to be complementary to well-known methods for georeferencing old maps and thus deals with a new kind of historical source.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>http://timemachineproject.eu</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>http://gallica.bnf.fr/ark:/12148/cb32695639f/date</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>http://gallica.bnf.fr/ark:/12148/bpt6k9763088f</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_4"><p>https://github.com/kermitt2</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Big data of the past</title>
+		<author>
+			<persName><forename type="first">Frédéric</forename><surname>Kaplan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Isabella</forename><surname>Di</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lenardo</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Frontiers in Digital Humanities</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Automatic Extraction of TEI Structures in Digitized Lexical Resources using Conditional Random Fields</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luca</forename><surname>Foppiano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Enhancing Usability for Automatically Structuring Digitised Dictionaries</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Axel</forename><surname>Herold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">GLOBALEX workshop at LREC</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

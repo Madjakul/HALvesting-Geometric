@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">GROBID -Information Extraction from Scientific Publications</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+						</author>
+						<author>
+							<persName><forename type="first">Patrice</forename><surname>Lopez</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary Inria</surname></persName>
+						</author>
+						<title level="a" type="main">GROBID -Information Extraction from Scientific Publications</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">A1DFDB1FC61CCBBAC6B54BADD039C581</idno>
+					<note type="submission">Submitted on 29 Dec 2017 Distributed under a Creative Commons Attribution| 4.0 International License</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>GROBID -Information Extraction from Scientific Publications by Patrice Lopez and Laurent Romary</head><p>Scientific papers potentially offer a wealth of information that allows one to put the corresponding work in context and offer a wide range of services to researchers. GROBID is a high performing software environment to extract such information as metadata, bibliographic references or entities in scientific texts.</p><p>Most modern digital library techniques rely on the availability of high quality textual documents. In practice, however, the majority of full text collections are in raw PDF or in incomplete and inconsistent semi-structured XML. To address this fundamental issue, the development of the Java library GROBID started in 2008 <ref type="bibr" target="#b0">[1]</ref>. The tool exploits "Conditional Random Fields" (CRF), a machine-learning technique for extracting and restructuring content automatically from raw and heterogeneous sources into uniform standard TEI (Text Encoding Initiative) documents.</p><p>In the worst -but common -case, the input is a PDF document. GROBID integrates fast PDF processing techniques to extract and reorganise not only the content but also the layout and text styling information. These pieces of information are used as additional features to further improve the recognition of text structures beyond the exploitation of text only information. The tool includes a variety of CRF models specialized in different sub-structures -from high level document zoning to models for parsing dates or person names. These models can be cascaded to cover a complete document.</p><p>The first and most advanced model is dedicated to the header of a scientific or technical article and is able to reliably extract different metadata information such as titles, authors, affiliations, address, abstract, keywords, etc. This information is necessary in order to identify the document, make it citable, and use it in library systems. Following an evaluation carried out for this task in 2013 by <ref type="bibr">[2]</ref>, GROBID provided the best results over seven existing systems, with several metadata recognized with over 90% precision and recall. For header extraction and analysis, the tool is currently deployed in the production environments of various organizations and companies, such as the EPO, ResearchGate, Mendeley and finally as a pre-processor for the French national publication repository HAL.  GROBID also includes a state of the art model for the extraction and the recognition of bibliographic citations. The references present in an article or patent are identified, parsed, normalized and can be matched with a standard reference database such as CrossRef or DocDB (patents). Citation information is considered very useful for improving search ranking and makes it possible to run bibliographic studies and graph-based social analyses. For instance, the citation notification service of ResearchGate uses GROBID bibliographic reference extraction to process every uploaded article. When an existing publication of a registered member is identified, the member can be informed where and how his work has been cited. More challenging, the restructuring of the body of a document (potentially including figures, formula, tables, footnotes, etc.) is continually improving and is currently the object of the semiautomatic generation of more training data. Although more experimental, it can provide to a search engine for scientific literature richer and better text content and structures than basic PDF extractors (e.g., pdftotext, Apache TIKA or PDFBox).</p><p>The objectives of GROBID are still mainly research challenges, but significant efforts have also been dedicated to engineering. The tool can be used as web services or batch and is fast enough to scale to millions of documents in reasonable time and cluster. On a single low end hardware, GROBID processes, on average, three PDF documents per second or 3000 references in less than 10 seconds. Since 2011, the tool has been available as Open Source (Apache 2 licence) to any developers/third parties (see link below). New contributors are of course welcome. Version 0.3 of the tool has just been released, and its development will continue over the next few years with the participation of various national and international collaborators.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Links:</head><p>Text Encoding Initiative: http://www.tei-c.org https://github.com/kermitt2/grobid</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: Block segmentation of PDF documents before construing content.</figDesc><graphic coords="3,72.00,71.90,467.50,352.05" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: Online service for GROBID with TEI compliant export.</figDesc><graphic coords="4,72.00,71.90,467.15,305.15" type="bitmap" /></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">GROBID: Combining Automatic Bibliographic Data Recognition and Term Extraction for Scholarship Publications</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Lopez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ECDL 2009, 13th European Conference on Digital Library</title>
+		<meeting><address><addrLine>Corfu, Greece</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Evaluation of header metadata extraction approaches and tools for scientific PDF documents</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lipinski</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2467696.2467753</idno>
+		<ptr target="http://doi.acm.org/10.1145/2467696.2467753" />
+	</analytic>
+	<monogr>
+		<title level="m">proc. of the 13th ACM/IEEE-CS joint conference on Digital libraries (JCDL &apos;13)</title>
+		<meeting>of the 13th ACM/IEEE-CS joint conference on Digital libraries (JCDL &apos;13)<address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="page" from="385" to="386" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">HUMB: Automatic Key Term Extraction from Scientific Articles in GROBID</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="https://hal.inria.fr/inria-00493437" />
+	</analytic>
+	<monogr>
+		<title level="m">SemEval 2010 Workshop</title>
+		<meeting><address><addrLine>Uppsala, Sweden</addrLine></address></meeting>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">TBX goes TEI Implementing a TBX basic extension for the Text Encoding Initiative guidelines</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<title level="a" type="main">TBX goes TEI Implementing a TBX basic extension for the Text Encoding Initiative guidelines</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">78877406F7E98EC7C8609A37B34C59B0</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Terminology</term>
+					<term>XML</term>
+					<term>TBX</term>
+					<term>TEI</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>This paper presents an attempt to customise the TEI (Text Encoding Initiative) guidelines in order to offer the possibility to incorporate TBX (TermBase eXchange) based terminological entries within any kind of TEI documents. After presenting the general historical, conceptual and technical contexts, we describe the various design choices we had to take while creating this customisation, which in turn have led to make various changes in the actual TBX serialisation. Keeping in mind the objective to provide the TEI guidelines with, again, an onomasiological model, we try to identify the best comprise in maintaining both the isomorphism with the existing TBX Basic standard and the characteristics of the TEI framework.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>representation and it was observed how updated the format was with regards more recent developments. Still, As can be seen from Figure <ref type="figure">1</ref>, the TEI representation, despite its missing language section, contains most of the elements that one can find in the current TBX Basic format;  ISO 12200 (Martif), published in 1999, resulted from a wish to take up and improve the TEI proposal, but also to make is an independent initiative<ref type="foot" target="#foot_0">5</ref> under the auspices of ISO. Beyond the introduction of a language section, Martif also embeds terminological entries within a document structure strongly inspired from the TEI one (e.g. the header-text organisation; entries embedded within a &lt;text&gt; and &lt;body&gt; hierarchy);  In 1999, ISO also published an important standard, ISO 12620:1999<ref type="foot" target="#foot_1">6</ref> , which compiled a set of reference descriptors (or data categories) to be used in any kind of terminological database. This standard represented the first abstraction over specific terminological formats as well as a tool for specification and customisation in the domain of termbank design. All descriptor we will use in this paper and in the TEI customisation we describe originate in this standard;  ISO 16642 (TMF), published in 2003, brought another level of abstraction by describing a meta-model and modelling mechanisms independently of any specific XML format. Interoperability across terminological formats is basically ensured through compliance to ISO 16642 and ISO 12620:1999;  In the period that followed, further work was carried out within LISA to define an optimal follower to Martif, which lead to the publication of the first version of TBX (TermBase eXchange) in 2007, which in turn was published as ISO standard 30042 in 2008.</p><p>As published in 2008, the TBX standard appears to be a comprehensive integration of the progress made over the years in understanding the variety of needs in the domain of digital terminology management. Still, the cumulative design that we have tried to outline before made it a complex object with two many options (e.g. two elements &lt;tig&gt; and &lt;ntig&gt; for implementing the term section component) and above all a proprietary technological implementation (reflected in the so-called XCS parameter files) for customising the necessary subsets needed specific implementations. This situation has slowed down the actual take-up of the format dramatically, with the emergence of other initiatives such as SKOS within the W3C that could completely ignore the benefits a proper terminological representation of the corresponding data.</p><p>In parallel, the quick uptake of digital methods in the humanities, where several research communities such as field linguists, epigraphists or classicists (among others) have a need to record onomasiological data associated to their primary sources, made it necessary to consider providing them back with an accessible chapter in the TEI guidelines. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The TEI perspective</head><p>The text Encoding Initiative was initiated in 1987, when a group of experts in charge of several major literary text archives met to establish the foundation of what was about to become the most ambitious standardisation activity in the humanities. Under the auspices of the two major learned societies of that time, the ACH<ref type="foot" target="#foot_2">7</ref> and the ALLC 8 , it produced reference guidelines that, since their first stable edition in 1992 (see <ref type="bibr" target="#b0">Burnard &amp; Sperberg-McQueen, 1995)</ref>, evolved to incorporate both the most recent technological evolutions and the continuous feedback from its constantly growing user community.</p><p>There are several reasons why the paths of both terminology standards and the TEI crossed at some point:</p><p> The Text Encoding Initiative had created a dynamics combining both a strong political (and financial) support as well as a high level of technological awareness. It brought together experts from many different fields ranging from poetics to computational linguistics, with also an informed contribution from the library community;  The first important decision related to the design of the TEI guidelines was to adopt the recently published ISO SGML standard (ISO 8879, published in 1986!) which offered, despite its complexity, a then unique platform for specifying and customising complex document structures;  From a content point of view, the TEI was organised into working groups dedicated to various domains of text technology and representation. For lexical data, there was an ambition to cover both semasiological and onomasiological representation models with on the one hand a group dedicated to -print dictionaries‖ and, on the other hand, one working on a future chapter -terminologies‖.</p><p>In this somehow favourable double context, the present paper describes what we think is an optimal strategy to both enrich the TEI guidelines with a proper means of representing onomasiological (terminological) data and contribute to the wider dissemination of best practices in this domain as reflected by the existing portfolio of international standards.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Filius prodigus</head><p>The main idea is to take of the simplified representation of a terminological entry as depicted in the TBX Basic proposal and incorporate in at any place in a TEI document where a semasiological representation (mainly embodied in the TEI guidelines by the &lt;entry&gt; element) could also take place. The choice of TBX Basic, a very small subset of TBX originally developed by LISA, is justified by the need to achieve the best compromise between simplicity and conformance to the ISO standard. It is indeed essential, when considering this proposal, to keep in mind that the target user group is that of scholars with enough digital awareness to use the TEI guidelines, but with little or no background in terminology management. The resulting format should thus be both easy to use and compatible with the TEI cultural background.</p><p>The choice thus made can be seen as a start for further iteration between the TEI and TBX since it is based on two approximate assumptions. First, it considers that nothing should be kept from the existing TBX macro-structure and that the TEI architecture takes priority. TBX is somehow forced to fit back into the TEI guidelines. Second, by taking up TBX basic, no preliminary analysis is made as to the type semasiological use cases that would be adapted to the TEI user community. In particular, more precise insights should be gained to identify which data categories are actually needed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A basic overview of the available building blocks</head><p>The TEI document architecture</p><p>The TEI guidelines contain more than 500 elements to mark-up textual documents at various level of structural granularity and to take into account many different textual genres such as manuscripts, dramas, speech transcriptions or dictionaries. Its main document structure, depicted in Figure <ref type="figure" target="#fig_0">2</ref>, combines a mandatory header (&lt;teiHeader&gt; element), grouping together all the meta-data attached to the document, with the actual content (&lt;text&gt;). This content can be further decomposed as a &lt;front&gt;, a &lt;body&gt; and a &lt;back&gt; element, in reference to the traditional book structure. The TEI vocabulary provides a variety of means to encode a document, which we can sketch according to the following main categories:  Description of the structure of a text by means of the generic &lt;div&gt; element;  Organisation of the content along paragraph level objects such as lists, figures, tables, etc.  Inline annotation elements to mark-up specific linguistic segments (highlighted object, foreign expressions) or reference to entities (names, dates, numbers);</p><p> Domain specific constructs for dealing with turns in speech transcription, dictionary entries, etc.  General-purpose representation objects such as bibliographical descriptions.</p><p>All these elements are part of a reference framework from which a given project should select which elements are needed for its purpose. Indeed the TEI guidelines provide specific mechanisms to express such customisations as described in the next section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The TEI specification framework</head><p>The TEI guidelines can be seen from two different angles. First, as the basis of an XML representation format, they provide the technical constraints to control the validity of TEI conformant document instances. Second, they are delivered with an extensive prose description that informs users about the logic of the guidelines as well as the most appropriate way(s) to use them to represent specific textual phenomena<ref type="foot" target="#foot_3">9</ref> . Still, these two views are not split into two separated objects but indeed integrated within one single specification, from which one view and the other can be automatically generated. This mechanism, in line with the concept of literate programming <ref type="bibr" target="#b2">(Knuth, 1992)</ref>, relies in the existence of an underlying specification language named ODD (One Document Does it all), which is itself expressed in TEI.</p><p>In the TEI infrastructure, each element is thus defined as an ODD specification providing all the necessary information both to control its (XML) syntactic behaviour and to generate the corresponding documentation. Such information comprises a gloss, a definition, the technical description of its content model, the various attributes it can bear and one or several example of its usage.</p><p>Besides, the TEI framework offers two additional mechanisms that are central in providing the global coherence of the TEI guidelines: Classes and Modules.</p><p>There are two types of classes: attribute classes, which groups together attributes used within the same elements<ref type="foot" target="#foot_4">10</ref> and model classes, which group together elements that a related semantics and occur at the same places in a document. The latter are means to simplify the expression of content models, but also to facilitate the customisation process by simply adding or removing an element from a class.</p><p>Modules are more global objects intended to group together coherent sets of elements designed for a similar purpose. Typically all the specific elements for dictionary encoding are grouped together in one single class.</p><p>These various mechanisms form the basis of the customisation mechanisms in the TEI guidelines based upon the ODD language, namely by selecting a group of modules for a given representation objective and within each module, keeping or discarding elements in the content model by editing the appropriate model classes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The TBX entry model</head><p>The TBX entry model is organised in strict compliance to ISO 16642 (TMF) such that the three core components of TMF, namely Terminological Entry, Language Section and Term Section are implemented respectively by means of the three elements: &lt;termEntry&gt;, &lt;langSet&gt; and &lt;tig&gt;<ref type="foot" target="#foot_5">11</ref> .</p><p>The descriptive objects associated to these three levels are made of a) specific elements such as &lt;term&gt;, &lt;note&gt;, &lt;ref&gt; and &lt;xref&gt; and b) so called meta dataelements that may express a wide range of possible data categories, namely &lt;admin&gt;, &lt;descrip&gt; and &lt;termNote&gt;. For instance, &lt;descrip type=‖definition‖&gt; is the TBX construct to represent a definition at the level of &lt;termEntry&gt; or &lt;langSet&gt;.</p><p>Figure <ref type="figure">3</ref> shows a typical (reduced) example of a TBX entry, where we can see how specific descriptions can also be embedded within grouping elements (&lt;descripGrp&gt;), when they need to be refined by additional information. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Technical integration TBX in ODD</head><p>In order to integrate the TBX entry construct in the TEI framework, we have actually created a full ODD specification for it, which facilitates and documents the merging process. This ODD specification of TBX, which is delivered with the pre-print of this publication 12 , is based on a simple architecture depicted in Figure <ref type="figure" target="#fig_1">4</ref> and strongly inspired from the TBX original organisation. Each level of the TBX terminological entry model is specified as a combination of members from the class model.auxInfo (whose member are, by default, &lt;admin&gt;, &lt;descrip&gt;, &lt;descripGrp&gt;, &lt;transacGrp&gt;, &lt;note&gt;, &lt;ref&gt;) and element(s) required at the child level.</p><p>For instance, the content model of &lt;tig&gt; is simply described as: </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Modernizing and complementing the TBX technical setting</head><p>This first level of specification of the TBX entry in ODD has some immediate impact on its actual XML properties. First, all elements in this specification, like any element from the TEI guidelines are made member of the att.global attribute class to supply them with so-call global attributes, in particular the generic W3C attributes @xml:id, @xml:lang, @xml:base, @xml:space. Second, all elements originally bearing a @target attribute in TBX are made members of att.pointing, the corresponding attribute class where this attribute is defined. The consequence here is that the oldfashioned ID/IDREF pointing mechanism in TBX is refreshed into a general URI based reference system. This change also makes the difference between internal (&lt;ref&gt;) and external (&lt;xrev&gt;) reference obsolete leading to the disappearance of &lt;xref&gt;.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conflicting elements and attributes</head><p>Several elements<ref type="foot" target="#foot_6">13</ref> and attributes 14 have the same name as other elements and attributes in the TEI guidelines. This could be seen as a non-issue when dealing with these in their appropriate namespaces, thus avoiding any syntactic conflict. Still, we have considered it important to provide a vision for making such objects in TBX and in the TEI converge, and this for the following reasons:</p><p> For historical reasons, the TEI has been a strong inspiration for TBX, and the various TBX instances of the duplicate elements are indeed clones of the corresponding TEI ones, with a very similar underlying semantics;  From a user point of view, it would be difficult to systematically keep both of these elements and attributes in the same XML document model, without spending a lot of energy trying to elicit the actual differences;  The TBX instances are often simplified versions of their TEI counterparts, both from the point of view of their content models and the attributes they may bear;  Even more, some of the TBX elements or attributes have departed from their original semantics (&lt;hi&gt;) or lost base with the XML technological evolutions (&lt;ref&gt; or @target, still relying on the deprecated ID/IDREF mechanisms);</p><p> Finally, the perspective of merging part of the TBX vocabulary in the TEI framework in the long run, should lead us to anticipate a necessary convergence.</p><p>These various arguments have lead us to replace all TBX instance of the duplicated by their TEI counterparts, even if we are fully aware of the drawback resulting from the frequent alternation of namespaces within a terminological entry.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Enriching element contents</head><p>One important aspect of the TEI infrastructure is that it provides a large range of elements for the inline annotation of textual content. Such elements are indeed essential for the precise mark-up of all sorts of entities mentioned in a text (persons, places, etc.), linguistic phenomena (mentioned references, foreign expressions) but also technical means like inline cross-referencing. In this respect, the TBX framework is relatively poor since it only allows the following elements in the content model of plain text components<ref type="foot" target="#foot_7">15</ref> :  A group of so-called meta-markup elements (&lt;bpt&gt;, &lt;ept&gt;, &lt;ph&gt;) designed to encapsulate non XML mark-up from an primary text source. These elements have also become quite standard practice in localisation or translation memory documents;  Two specific inline elements: &lt;hi&gt; for highlighting segments of texts, optionally cross-referencing an external object (with a @target attribute) and &lt;foreign&gt; to annotate foreign words or expressions inline.</p><p>The process of creating a customisation incorporating TBX entries in TEI documents offers the perspective of enlarging the number and types of such components while preserving backward compatibility with the legacy model of such textual elements.  The meta-markup elements are available in the TBX namespace;  Textual elements are provided with a wide variety of annotation objects;  The TBX &lt;hi&gt; and &lt;foreign&gt; are replaced by their TEI counterparts. This removes the @target attribute from &lt;hi&gt;, which is somehow fortunate since it guides users towards adopting more appropriate elements (such as &lt;ref&gt;) for cross-referencing.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>How can TBX benefit from going TEI</head><p>Beyond the obvious gain in visibility that the TBX standard can benefit from by being linked to the widely adopted TEI framework, we would like to focus on the various ways the work described in this paper could positively impact on the future technical definition of TBX.</p><p>The main proposal for TBX in managing its evolution within a more sustainable framework would be to re-align its document macro-structure to that of the TEI. Indeed, the whole document model down to &lt;termEntry&gt; in TBX is strongly inspired from the TEI guidelines, but suffers from both its oversimplification and from the fact that it cannot automatically benefit from existing components, and further improvements, in the TEI guidelines that would immediately be valuable to TBX (e.g. software description, bibliographical sources, etc.). By re-using the TEI model in its reference namespace, with the appropriate customisation in order to avoid cluttering the header with constructs that have nothing to do with terminology management, TBX would benefit from a rich and maintained meta-data environment while keeping the freedom of defining the standard as a specialized subset.</p><p>One real challenge for the experiment we are carrying out here is to find a strategy for the various domains where the TEI provides alternative, and essentially more precise, constructs than TBX for the same types of objects.</p><p>A first example are the grammatical features in the TEI guidelines, which offer a wide variety of elements for providing part of speech, gender, number, etc. information, possibly grouped together within a &lt;gramGrp&gt; container. For users accustomed to the TEI background, such descriptors would be obvious alternatives to the use of the &lt;termNote&gt; element from TBX. Should we provide both possibilities in the long term? Should we suggest the use of &lt;gramGrp&gt; in TBX? Or should we just consider that the use of one or the other corresponds to two dialects (TEI-TBX vs. mainstream TBX) with explicit mappings between the two.</p><p>In the same way, the bibliographical descriptions in TBX are very shallow and only allow plain text content such as: There are several similar cases that we could point out, in particular with regards the descriptions of the forms associated to a term (pronunciation, transliterations, inflexions). The precise analysis of all the potential conflicts goes beyond the scope of this version of the paper, but we consider that the answer should not be made issue per issue, but be based upon global scenarios as to what is the optimal implementation in the TEI framework, what level of interoperability we want to keep with mainstream TBX and what the TBX standard itself could actually incorporate in the future.</p><p>Where should we go from here?</p><p>We have described in this paper an attempt to create a missing component in the TEI guidelines that would provide an onomasiological representation for lexical data in complement to the existing -dictionaries‖ chapter. This component is strongly based upon the TBX standard, but we have made the choice of defining of a specific blend of TBX rather than just plugging-in TBX entries within a TEI document. This is, to our view, an essential step if we want acceptance of such representations within the largest TEI user community covering all fields in the humanities. Still, in conformance to the principles of ISO 16642 (TMF) we have tried to ensure maximal isomorphism between the blend we have defined and the original TBX standard, while identifying the situations where the TEI could bring even more encoding precision.</p><p>The vision that needs to be developed in the long term for the TEI guidelines should provide a clear guidance as to which model can be used for which purpose in a Digital Humanities scenario. In this context, it is important to remember that TBX Basic was conceived for a specific class of applications in terminology management and not to offer a simple framework for onomasiological representations <ref type="foot" target="#foot_8">16</ref> . Further work should also contribute to have a better understanding on the optimal articulation between semasio-lexical representations and onomasio-terminogical ones in the humanities. Such work could be inspired by seminal works such as <ref type="bibr" target="#b5">(Melby &amp; Wright, 1999)</ref> or the ongoing Ontolex initiative within W3C.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: TEI document architecture</figDesc><graphic coords="5,92.00,525.84,232.00,92.35" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: Overall architecture of the ODDD model of a TBX entry</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>A TEI P3 example of terminology encoding (source: http://www.tei-c.org/Vault/GL/P3/TE.htm)</head><label></label><figDesc></figDesc><table><row><cell>&lt;/tig&gt;</cell></row><row><cell>&lt;tig lang=de&gt;</cell></row><row><cell>&lt;term&gt; Opazität &lt;/term&gt;</cell></row><row><cell>&lt;gram type=pos&gt; n &lt;/gram&gt;</cell></row><row><cell>&lt;gram type=gen&gt; f &lt;/gram&gt;</cell></row><row><cell>&lt;descrip type='definition'&gt; Maß für die</cell></row><row><cell>Lichtdurchsichtigkeit &lt;/descrip&gt;</cell></row><row><cell>&lt;ref type='bibliographic' target='HFdn1983'&gt; p. 383 &lt;/ref&gt;</cell></row><row><cell>&lt;admin type='responsibility' resp='DIN TC for paper</cell></row><row><cell>products'&gt;&lt;/admin&gt;</cell></row><row><cell>&lt;/tig&gt;</cell></row><row><cell>&lt;tig lang=fr&gt;</cell></row><row><cell>&lt;term&gt; opacité &lt;/term&gt;</cell></row><row><cell>&lt;gram type=pos&gt; n &lt;/gram&gt;</cell></row><row><cell>&lt;gram type=gen&gt; f &lt;/gram&gt;</cell></row><row><cell>&lt;descrip type='definition'&gt; rapport du flux lumineux</cell></row><row><cell>incident au flux lumineux transmis ou réfléchi</cell></row><row><cell>par un noircissement photographique &lt;/descrip&gt;</cell></row><row><cell>&lt;ptr type='bibliographic' target='HJdi1986'&gt;</cell></row><row><cell>&lt;admin type='responsibility' resp='C.I.R.A.D.'&gt; &lt;/admin&gt;</cell></row><row><cell>&lt;/tig&gt;</cell></row><row><cell>&lt;/termEntry&gt;</cell></row><row><cell>Figure 1:</cell></row><row><cell>&lt;termEntry&gt;</cell></row><row><cell>&lt;admin type='domain'&gt; appearance of materials &lt;/admin&gt;</cell></row><row><cell>&lt;tig lang=en&gt;</cell></row><row><cell>&lt;term&gt; opacity &lt;/term&gt;</cell></row><row><cell>&lt;gram type=pos&gt; n &lt;/gram&gt;</cell></row><row><cell>&lt;descrip type='definition'&gt; degree of obstruction to the</cell></row><row><cell>transmission of visible light &lt;/descrip&gt;</cell></row><row><cell>&lt;ptr type='bibliographic' target='ASTM.E284'&gt;</cell></row><row><cell>&lt;admin type='responsibility' resp='ASTM E12'&gt; &lt;/admin&gt;</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Example of a TBX Basic entry (source: http://iate.europa.eu)</head><label></label><figDesc></figDesc><table><row><cell>&lt;termEntry xmlns="http://www.tbx.org"&gt;</cell></row><row><cell>&lt;descrip type="subjectField" xml:lang="fr"&gt;Industrie mécanique&lt;/descrip&gt;</cell></row><row><cell>&lt;langSet xml:lang="de"&gt;</cell></row><row><cell>&lt;descripGrp&gt;</cell></row><row><cell>&lt;descrip type="definition"&gt;endloser Riemen mit trapezförmigem</cell></row><row><cell>Querschnitt, der auf zwei Riemenscheiben mit Eindrehungen läuft&lt;/descrip&gt;</cell></row><row><cell>&lt;admin type="source"&gt;De Coster, Wörterbuch,</cell></row><row><cell>Kraftfahrzeugtechnik, SAUR, München, 1982&lt;/admin&gt;</cell></row><row><cell>&lt;/descripGrp&gt;</cell></row><row><cell>&lt;note&gt;wird zum Antrieb der Lichtmaschine, des Ventilators und der</cell></row><row><cell>Wasserpumpe benutzt&lt;/tei:note&gt;</cell></row><row><cell>&lt;tig&gt;</cell></row><row><cell>&lt;term&gt;Keilriemen&lt;/tei:term&gt; &lt;admin type="source"&gt;De Coster, …&lt;/admin&gt; &lt;/tig&gt;</cell></row><row><cell>&lt;/langSet&gt;</cell></row><row><cell>&lt;langSet xml:lang="fr"&gt;</cell></row><row><cell>&lt;descripGrp&gt; &lt;descrip type="definition"&gt;courroie sans fin …&lt;/descrip&gt; &lt;admin type="source"&gt;De Coster, …&lt;/admin&gt; &lt;/descripGrp&gt;</cell></row><row><cell>&lt;tig&gt;</cell></row><row><cell>&lt;term&gt;Keilriemen&lt;/tei:term&gt; … &lt;/tig&gt;</cell></row><row><cell>&lt;/langSet&gt;</cell></row><row><cell>&lt;/termEntry&gt;</cell></row><row><cell>Figure 3:</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head></head><label></label><figDesc>The proposed customisation implements this extension in two steps:  The creation of a class model.metaMarkup grouping together all abovementioned meta-markup elements;  Express the content model of textual elements as a combination of text, members of the model.metaMarkup class and the existing model.limitedPhrase from the TEI infrastructure.By doing so the content model of text elements changed in several ways:</figDesc><table><row><cell>&lt;rng:zeroOrMore&gt;</cell></row><row><cell>&lt;rng:choice&gt;</cell></row><row><cell>&lt;rng:text/&gt;</cell></row><row><cell>&lt;rng:ref name="model.limitedPhrase"/&gt;</cell></row><row><cell>&lt;rng:ref name="model.metaMarkup"/&gt;</cell></row><row><cell>&lt;/rng:choice&gt;</cell></row><row><cell>&lt;/rng:zeroOrMore&gt;</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_0"><p>Martif aimed at reaching out the translation and localisation industry, which were not part of the target audience of the TEI guidelines.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_1"><p>ISO 12620:1999  was further revised to describe the general setting of a data category registry (see<ref type="bibr" target="#b1">Ide &amp; Romary, 2004)</ref> for ISO/TC 37 activities, hence the dated reference.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_2"><p>Association for Computers and the Humanities</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="9" xml:id="foot_3"><p>The TEI guidelines contain in particular a wealth of examples for each element and the major constructs they allow.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="10" xml:id="foot_4"><p>For instance, the class att.global, which contains general purpose attributes such as the W3C @xml:id, @xml:lang or the TEI generic @n (local numbering), @rend (rendering information).</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="11" xml:id="foot_5"><p>All TBX elements are implemented within the TBX namespace: -http://www.tbx.org‖</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="13" xml:id="foot_6"><p>term, ref, hi, foreign  </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="15" xml:id="foot_7"><p>&lt;admin&gt;, &lt;descrip&gt;, &lt;note&gt;, &lt;ref&gt; and &lt;termNote&gt;; &lt;term&gt; has a specific status as it only allows &lt;hi&gt; in its content.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="16" xml:id="foot_8"><p>We have not gone in the details of the TBX basic data categories, but we can observe how such categories as projetSubset, with its industrial background, probably out of scope of a humanities application.</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>This work has benefited from the support og the French ANR TermITH project (http://www.atilf.fr/ressources/termith/).</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">The Design of the TEI Encoding Scheme‖</title>
+		<author>
+			<persName><forename type="first">Burnard</forename><surname>Lou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Michael Sperberg-Mcqueen</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/BF01830314</idno>
+		<ptr target="http://dx.doi.org/10.1007/BF01830314" />
+	</analytic>
+	<monogr>
+		<title level="j">Computers and the Humanities</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="17" to="39" />
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Magnetic tape exchange format for terminological/ lexicographical records (MATER) ISO 8879:1986 Information processing --Text and office systems --Standard Generalized Markup Language (SGML) (revised in 2008) ISO 12200:1999 Computer applications in terminology --Machine-readable terminology interchange format (MARTIF) --Negotiated interchange ISO 16642:2003 Computer applications in terminology</title>
+		<author>
+			<persName><forename type="first">Ide</forename><surname>Nancy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="http://hal.inria.fr/inria-00099858ISO" />
+	</analytic>
+	<monogr>
+		<title level="m">A Registry of Standard Data Categories for Linguistic Annotation‖ in Proc. 4th International Conference on Language Resources and Evaluation -LREC&apos;04 135-138</title>
+		<imprint>
+			<date type="published" when="1987">2004. 1987</date>
+			<biblScope unit="volume">6156</biblScope>
+		</imprint>
+	</monogr>
+	<note>Terminological markup framework ISO 30042:2008 Systems to manage terminology, knowledge and content --TermBase eXchange (TBX</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Literate Programming. California: Stanford University Center for the Study of Language and Information</title>
+		<author>
+			<persName><forename type="first">Donald</forename><forename type="middle">E</forename><surname>Knuth</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1992">1992</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">MicroMATER: A Proposed Standard Format for Exchanging Lexical/Terminological Data Files</title>
+		<author>
+			<persName><forename type="first">Alan</forename><forename type="middle">K</forename><surname>Melby</surname></persName>
+		</author>
+		<ptr target="http://www.erudit.org/revue/META/1991/v36/n1/003620ar.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">META Translator&apos;s Journal</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="135" to="160" />
+			<date type="published" when="1991">1991. 1991</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">The Machine Readable Terminology Interchange Format (MARTIF): Putting Complexity in Perspective</title>
+		<author>
+			<persName><forename type="first">Alan</forename><forename type="middle">K</forename><surname>Melby</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Klaus-Dirk</forename><surname>Schmitz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sue</forename><forename type="middle">Ellen</forename><surname>Wright</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">TermNet News: Journal for International Cooperation in Terminology</title>
+		<imprint>
+			<biblScope unit="volume">54</biblScope>
+			<biblScope unit="page" from="11" to="21" />
+			<date type="published" when="1997">1997</date>
+			<pubPlace>TermNet, Vienna</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Leveraging Terminological Data for Use in Conjunction with Lexicographical Resources.‖ Terminology and Knowledge Engineering &apos;99. Innsbruck</title>
+		<author>
+			<persName><forename type="first">Alan</forename><forename type="middle">K</forename><surname>Melby</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sue</forename><surname>Ellen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wright</forename></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+			<biblScope unit="page" from="544" to="569" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">I</forename><surname>Tei</surname></persName>
+		</author>
+		<idno>11-15/16</idno>
+		<ptr target="http://www.tei-c.org/Vault/AI/ai7m17.txt" />
+		<title level="m">7m12.txt TEI AI7c, AI7-Minutes of the 3rd TEI AI7 meeting of 1991</title>
+		<imprint>
+			<date type="published" when="1991-06-11">June 11. 1991</date>
+		</imprint>
+	</monogr>
+	<note>7m05.txt TEI AI7b, Meeting II of TEI AI7 Terminology</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

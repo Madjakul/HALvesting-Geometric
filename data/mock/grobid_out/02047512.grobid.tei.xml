@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Connecting the Humanities through Research Infrastructures</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Sheena</forename><surname>Bassett</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">PIN Scrl</orgName>
+								<orgName type="institution">University of Florence</orgName>
+								<address>
+									<addrLine>Piazza Ciardi 25</addrLine>
+									<postCode>59100</postCode>
+									<settlement>Prato</settlement>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Leon</forename><surname>Wessels</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="institution">Utrecht University</orgName>
+								<address>
+									<country key="NL">The Netherlands</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="institution">CLARIN ERIC</orgName>
+								<address>
+									<settlement>Utrecht</settlement>
+									<country key="NL">The Netherlands</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Steven</forename><surname>Krauwer</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="institution">Utrecht University</orgName>
+								<address>
+									<country key="NL">The Netherlands</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="institution">CLARIN ERIC</orgName>
+								<address>
+									<settlement>Utrecht</settlement>
+									<country key="NL">The Netherlands</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Bente</forename><surname>Maegaard</surname></persName>
+							<affiliation key="aff2">
+								<orgName type="institution">University of Copenhagen</orgName>
+								<address>
+									<country key="DK">Denmark</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="institution">CLARIN ERIC</orgName>
+								<address>
+									<settlement>Utrecht</settlement>
+									<country key="NL">The Netherlands</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Hella</forename><surname>Hollander</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">Data Archiving and Networked Services (DANS)</orgName>
+								<address>
+									<country key="NL">The Netherlands</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff6">
+								<orgName type="department">DARIAH ERIC</orgName>
+								<address>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Femmy</forename><surname>Admiraal</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">Data Archiving and Networked Services (DANS)</orgName>
+								<address>
+									<country key="NL">The Netherlands</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff6">
+								<orgName type="department">DARIAH ERIC</orgName>
+								<address>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<affiliation key="aff5">
+								<orgName type="department">Institut National de Recherche en Sciences du Numérique (INRIA)</orgName>
+								<address>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff6">
+								<orgName type="department">DARIAH ERIC</orgName>
+								<address>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Frank</forename><surname>Uiterwaal</surname></persName>
+							<affiliation key="aff7">
+								<orgName type="institution">NIOD Institute for War, Holocaust and Genocide Studies</orgName>
+								<address>
+									<country key="NL">The Netherlands</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Connecting the Humanities through Research Infrastructures</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">8E45BE4FAB26DD5F72ED82F3DFED1960</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>cross-discipline</term>
+					<term>policies</term>
+					<term>language resources</term>
+					<term>Research Infrastructures</term>
+					<term>standards</term>
+				</keywords>
+			</textClass>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>Several Research Infrastructures (RIs) exist in the Humanities and Social Sciences, some -such as CLARIN, DARIAH and CESSDA -which address specific areas of interest, i.e. linguistic studies, digital humanities and social science data archives. RIs are also unique in their scope and application, largely tailored to their specific community needs. However, commonalities do exist and it is recognised that benefits are to be gained from these such as efficient use of resources, enabling multi-disciplinary research and sharing good practices. As such, a bridging project PARTHENOS has worked closely with CLARIN and DARIAH as well as ARIADNE (archaeology), CENDARI (history), EHRI (holocaust studies) and E-RIHS (heritage science) to identify, develop and promote these commonalities. In this paper, we present some specific examples of cross-discipline and trans-border applications arising from joint RI collaboration, allowing for entirely new avenues of research.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">CLARIN: Language is not just for linguists</head><p>Linguists study language, but language is not just studied by linguists. As the European Research Infrastructure Consortium for language resources and technology, CLARIN offers digital language data and tools to scholars, researchers, students and citizen-scientists from all disciplines <ref type="bibr" target="#b0">[1]</ref>. CLARIN's vision is to make all digital language data collections and tools from all over Europe and beyond accessible through a single sign-on online environment <ref type="bibr" target="#b1">[2]</ref>. In this section we will highlight two initiatives particularly aimed at stimulating cross-border and cross-disciplinary collaboration using language resources and tools.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Resource Families</head><p>To provide user-friendly overviews of available corpora (i.e. collections of digital language data), including information on language, size, annotation, availability and licence, CLARIN has introduced the Resource Families initiative (https://www.clarin.eu/resource-families). Resource Families are data collections that display a high degree of maturity and homogeneity, that are available for most EU languages and are a rich source of social and cultural data <ref type="bibr" target="#b2">[3]</ref>. Currently CLARIN offers overviews of seven Resource Families: language data collected from social media, historical corpora, second-language learner corpora, newspaper corpora, parallel corpora, parliamentary corpora and spoken corpora. Resource Families are relevant for multiple scientific disciplines in the digital humanities and social sciences. Parliamentary data for instance, is used by political scientists, historians, and linguists to study complex phenomena such as Euroscepticism and gender stereotypes <ref type="bibr" target="#b3">[4]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Language Resource Switchboard</head><p>Equally important to language resources are the means to process them. The CLARIN Language Resource Switchboard (https://switchboard.clarin.eu) helps researchers to connect resources to the tools to process them <ref type="bibr" target="#b4">[5]</ref>. It provides tools for different types of parsing and annotation, analysis, distant reading, etc. By providing uniform, manually-annotated overviews of corpora and a range of advanced, robust tools for processing and analysing these corpora, CLARIN enables researchers from various disciplines to find cross-national and cross-language patterns in language data far more quickly and easily, on a much larger scale than before.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">DARIAH: The Standardization Survival Kit</head><p>Whereas some scholarly groups have been very active in defining and using standards in their practices, the project observed that there is a general lack of precise knowledge in the standardization landscape, especially from newcomers to digital methods <ref type="bibr" target="#b5">[6]</ref>. A solution to this information gap is the Standardization Survival Kit (SSK). which assists scholars in finding information on which standards may play a role in their specific scholarly activities and is designed around research scenarios in line with the requirements gathered earlier in the project <ref type="bibr" target="#b6">[7]</ref>. The current scenarios illustrate both the importance of standards in research processes, as well as the usefulness of designing an online environment which allows researchers to browse through scenarios and access relevant reference material <ref type="bibr" target="#b7">[8]</ref>. Additionally, the project developed material (a leaflet and several videos) to make scholars aware of standards. The resulting digital environment was designed in close collaboration with digital specialists from the various communities and RIs represented in the PARTHENOS project with the support of DARIAH who initiated the standards work. The current scenarios cover all types of scholarly domains and methodologies: managing field surveys, creating a textual or a musical corpus, managing archival information as well as using laser techniques for conservation practice in heritage science and includes four specific linguistic scenarios. An important expected future feature will be the possibility to couple the maintenance of validated scenarios with the freedom for scholars to publish their own scenarios through the platform.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">PARTHENOS: The need for common policies and implementation strategies</head><p>As a cluster project, it has been PARTHENOS' aim to make optimal use of experiences gained throughout all disciplines. Shared best practices and formal policies make it possible to answer research questions in a more overarching way. Not only does this enable researchers from different universities and geographic areas to refer to the same policies in a shared language and mutual understanding. Also, researchers can more easily reuse each other's results, allowing them to build on each other's observations and knowledge. It is PARTHENOS' aim to work towards the integration of research data policies across the disciplines in the humanities, as well as to increase their interdisciplinary exchanges. This is a broad mission, for which one generic solution could never suffice, also due to the current, distributed and previously unmapped landscape of research policies. However, the FAIR Principles have been applied as an underlying framework and three important forms of project output provide solutions to this situation, helping all stake holders in making more research data more findable, accessible, interoperable and re-usable <ref type="bibr" target="#b8">[9]</ref>:</p><p>1.) The PARTHENOS Policy Wizard. The Policy Wizard is a tool which helps researchers to discover which data policy applies best to their particular data. It allows the user to select an area of interest, for example History, and find a range of policies suggesting how data should be collected, processed, stored and shared with other researchers.</p><p>2.) Data Management Plan template. The PARTHENOS DMP template builds on the Horizon2020 version and has been tailored for the Humanities using expert input. It provides built-in guidance with some pre-filled options for completing a DMP.</p><p>3.) PARTHENOS Guidelines. Twenty high-level guidelines are offered as common recommendations to build bridges between different, although tightly interrelated, fields and stakeholders (researchers and data repositories) within the Humanities by the harmonisation of policy definition and their implementation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Conclusions</head><p>Collaboration between RIs for the purpose of developing synergy on common aspects of research has helped initiate harmonisation and led to the development of useful tools whilst also reducing barriers for cross-discipline and cross-border research. Other collaborative examples in PARTHENOS are shared international contacts and a Training Suite that addresses the need for knowledge about RIs as well as shared Humanities topics.</p></div>		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">The CLARIN Research Infrastructure: Resources and Tools for eHumanities Scholars</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Hinrichs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Krauwer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Ninth International Conference on Language Resources and Evaluation</title>
+		<meeting>the Ninth International Conference on Language Resources and Evaluation<address><addrLine>Reykjavik</addrLine></address></meeting>
+		<imprint>
+			<publisher>European Language Resources Association</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="1525" to="1531" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">CLARIN: Towards FAIR and Responsible Data Science Using Language Resources</title>
+		<author>
+			<persName><forename type="first">Jong</forename><surname>De</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Maegaard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>De Smedt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Fišer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Van Uytvanck</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Eleventh International Conference on Language Resources and Evaluation</title>
+		<meeting>the Eleventh International Conference on Language Resources and Evaluation<address><addrLine>Miyazaki</addrLine></address></meeting>
+		<imprint>
+			<publisher>European Language Resources Association</publisher>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="3259" to="3264" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">CLARIN&apos;s Key Resource Families</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Fišer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lenardič</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Erjavec</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Eleventh International Conference on Language Resources and Evaluation</title>
+		<meeting>the Eleventh International Conference on Language Resources and Evaluation<address><addrLine>Miyazaki</addrLine></address></meeting>
+		<imprint>
+			<publisher>European Language Resources Association</publisher>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="1320" to="1325" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<ptr target="http://training.parthenos-project.eu/test-2/digital-humanities-research-questions-and-methods/researching-parliamentary-records-in-the-digital-humanities/boosting-digital-humanities-research-with-parliamentary-data/" />
+		<title level="m">More information can be found on the PARTHENOS training module Boosting Digital Humanities Research with Parliamentary Data</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">The CLARIN Language Resource Switchboard</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Zinn</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Abstracts of the CLARIN Annual Conference</title>
+		<meeting><address><addrLine>Aix-en-Provence</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2016">2016. 2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">How to work together successfully with e-Humanities and e-Heritage Research Infrastructures&apos; (PARTHENOS Webinar). 3rd cycle. PARTHENOS eHumanities and eHeritage Webinar Series</title>
+		<author>
+			<persName><forename type="first">Illmayer</forename><surname>Klaus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marie</forename><surname>Puren</surname></persName>
+		</author>
+		<ptr target="http://training.parthenos-project.eu/sample-page/ehumanities-eheritage-webinar-series/webinar-work-with-research-infrastructures/" />
+		<imprint>
+			<date type="published" when="2018-09-20">2018. 20 September 2018</date>
+			<pubPlace>Germany</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">This is an example of the dialogue between the team which collected requirements and the team which builds a tool to fulfil the addressed needs (see under</title>
+		<imprint/>
+	</monogr>
+	<note>an approach based on the needs of communities</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Standardization survival kit (Draft)</title>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Emiliano</forename><surname>Degl'innocenti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Klaus</forename><surname>Illmayer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adeline</forename><surname>Joffres</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Emilie</forename><surname>Kraikamp</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="volume">4</biblScope>
+		</imprint>
+	</monogr>
+	<note>Research Report] Deliverable. Report on Standardization (draft). [Technical Report] Deliverable 4.2 (2017</note>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">The FAIR principles provide an important frame of reference for the output PARTHENOS generates on the topic of research data management</title>
+	</analytic>
+	<monogr>
+		<title level="j">Scientific Data</title>
+		<editor>
+			<persName><forename type="first">D</forename><surname>Mark</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Michel</forename><surname>Wilkinson</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Dumontier</surname></persName>
+		</editor>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+	<note>The FAIR Guiding Principles for scientific data management and stewardship</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

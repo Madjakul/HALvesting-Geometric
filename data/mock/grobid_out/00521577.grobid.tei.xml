@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Interprétation des énoncés langue+geste en situation de dialogue homme-machine</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2010-09-28">28/09/2010</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>romary@loria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Centre de Recherche en Informatique de Nancy CRIN-CNRS &amp; INRIA Lorraine Bâtiment Loria</orgName>
+								<address>
+									<addrLine>B.P. 239</addrLine>
+									<postCode>F-54506</postCode>
+									<settlement>Vandoeuvre Lès Nancy</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Nadia</forename><surname>Bellalem</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Centre de Recherche en Informatique de Nancy CRIN-CNRS &amp; INRIA Lorraine Bâtiment Loria</orgName>
+								<address>
+									<addrLine>B.P. 239</addrLine>
+									<postCode>F-54506</postCode>
+									<settlement>Vandoeuvre Lès Nancy</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Interprétation des énoncés langue+geste en situation de dialogue homme-machine</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2010-09-28">28/09/2010</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">2F5254FC355DD559DE70DEABBEC7842D</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Présentation générale</head><p>L'objectif de cet article est de donner une idée générale des problèmes liés à la définition de systèmes de dialogue homme-machine, et plus particulièrement des facteurs et des mécanismes qui régissent l'interprétation d'énoncés multimodaux combinant langue et geste. L'ensemble des travaux présentés ici se situent dans une problématique résolument pluridisciplinaire puisqu'ils associent des résultats issus de la linguistique, de la psychologie et de l'informatique, dans le cadre de modèles qui -à court ou moyen terme -se veulent opérationnels.</p><p>La notion même de communication entre un être humain et un ordinateur peut à la fois enthousiasmer ou faire frémir. Comme tout nouveau secteur scientifique, le domaine du dialogue homme-machine génère des incertitudes propres à éveiller l'imagination et donc à masquer la réalité des choses. De fait, nous sommes loin encore de pouvoir reproduire une qualité de dialogue telle que celle présentée dans le film de Stanley Kubrik 2001 Odyssée de l'espace. Dans cet oeuvre, le système HAL 9000 peut aussi bien jouer aux échec, interagir au niveau du pilotage d'un vaisseau spatial ou discuter de problèmes métaphysiques avec les membres de l'équipage. En dehors même des problèmes 28/09/2010 de reconnaissance de la parole -que nous n'aborderons pas ici -les capacités de compréhension des systèmes que nous présenterons ne permettent pas de tels changements thématiques, car dans tous les cas, leur mise en oeuvre correspond à des applications concrètes de commande ou de recherche d'information.</p><p>Après avoir présenté les concepts fondamentaux associés à la notion d'interface et de dialogue, nous aborderons les principales méthodes d'investigation qui caractérisent le domaine du dialogue homme-machine. Nous verrons en particulier qu'il est possible de s 'appuyer sur des données expérimentales pour guider la définition de modèles de communication entre un utilisateur et un système informatique dans un cadre hautement finalisé. Nous essayerons alors de dresser un bilan rapide des connaissances actuelles dans le domaine du dialogue multimodal en montrant le nombre important des facteurs linguistiques et perceptifs qui régissent de telles communications. Enfin, nous essayerons d'esquisser un modèle d'analyse des références multimodales compatible avec les mécanismes linguistiques sous-jacents.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Des interfaces au dialogue</head><p>D'un certain point de vue, chercher à construire un système de dialogue homme-machine, correspond à redéfinir une médiation possible entre un être humain et un objet qu'il cherche à utiliser pour réaliser une certaine tâche.</p><p>Cependant, il y a loin de l'idée que l'on se fait d'un marteau par exemple, à l'image qui nous vient quand on parle de dialogue. Peut-être est-il nécessaire   28/09/2010 une idée peut-être un peu moins abstraite que ce qui peut être dit dans d'autres cadres de la notion de sens. Qu'est-ce donc que comprendre pour un système de dialogue finalisé ? N'est ce pas réaliser une ou plusieurs actions qui satisfassent les intentions exprimées par l'utilisateur ? D'une certaine manière et sans entrer véritablement dans les conséquences d'une telle analyse, il semble possible de s'orienter vers une sémantique de l'action qui peut aussi se voir comme une sémantique du but. Une telle sémantique consisterait, pour chaque énoncé de l'utilisateur, à se demander quel but peut y être associé. Ainsi, dans le cadre d'un système de réservation de billets de chemin de fer, l'analyse d'un énoncé tel que existe-t-il des trains pour Paris en début de matinée ? doit pouvoir comprendre le fait que le locuteur souhaite effectivement connaître un horaire précis de train et ne pas simplement répondre oui.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Méthodes et observations</head><p>Comme on le voit, la définition de systèmes de dialogue homme-machine est un processus complexe nécessitant une réflexion à la fois linguistique, puisque l'on s'appuie sur la langue, et informatique pour les aspects de modélisation proprement dits. La difficulté qui se pose alors au chercheur est de se fixer une méthodologie qui lui permette de maitriser l'ensemble de ces facteurs sans pour autant perdre de vue son objectif final qui est d'obtenir un système qui sache effectivement dialoguer.   « calibrer » l'espace visuel, alors que le geste, comme nous l'avons vu, va plutôt jouer un rôle de sélecteur. Le cas du démonstratif illustre relativement bien ce point de vue, puisque l'on va considérer qu'une expression telle que cet homme, accompagné d'un geste, va transmettre à l'allocutaire l'instruction de ne percevoir devant lui qu'un ensemble de personnes, dont l'une sera plus particulièrement mis en évidence par le geste qui lui pointe dessus. La langue apporte là des contraintes relativement précise sur les propriétés que doit posséder le cadre dans lequel s'effectue l'acte de référence ainsi que sur la nature du contraste que le geste va opérer (dans le cas du démonstratif, il s'agit d'un contraste intra-catégoriel). Au contraste spatial que nous avions introduit pour le geste vient donc s'adjoindre un contraste linguistique qui agit de façon complémentaire.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Geste, langue et perception</head><p>Comme nous l'avons remarqué, la perception joue enfin un rôle important dans l'expression même des trajectoires gestuelles. Si nous essayons d'aller un peu plus loin ici, nous pouvons préciser différents facteurs perceptifs qui vont contraindre de façon importante l'interprétation que peut se faire un locuteur d'une scène donnée et donc toute expression référentielle relative à cette scène.</p><p>La perspective dans laquelle nous nous placons ici est de déterminer l'organisation spatiale associée à un champ perceptif donné. L'objectif n'est pas pour nous de détailler les processus réels ou supposé tels qui sont impliqués dans l'acte de perception, mais bien de nous centrer sur les résultats attendus en termes de structures afin de mieux comprendre les paramètres qui influent sur les actes référentiels. Une première observation que nous pouvons faire est que l'appropriation perceptive d'une scène combine à la fois les effets propres au champ perceptif (contraste, couleurs, formes etc.) et ceux liés à l'expérience individuelle de celui qui observe, en particulier sa connaissance du domaine perçu et ses intentions vis à vis de ce domaine. En fonction de ces différents facteurs, un certain nombre de formes et de structures spécifiques à la situation globale de 28/09/2010 perception vont émerger. Ainsi, un champ de fleurs a peu de chance d'être perçu de la même façon par un peintre qui cherche son inspiration et par un botaniste qui recherche une espèce rare.</p><p>La psychologie peut ici nous apporter quelques éléments de réponse, notamment dans le cadre de la Gestalttheorie qui suggère quelques principes fondamentaus liés à un acte de perception <ref type="bibr">(Forgus,</ref><ref type="bibr">66)</ref> : La tâche choisie est une tâche de rangement. Il s'agit plus précisément de ranger les objets situés dans la partie supérieure de l'écran sur les différentes étagères et réceptacles situés en partie inférieure de l'écran. Voici l'un des gestes effectués dans le cadre de cette expérience.</p><formula xml:id="formula_0"></formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Capture du geste</head><p>Le signal gestuel est une liste d'événements de la forme :  pour la désignation en croix qui ne correspond à aucun objet à déplacer, on détermine une zone correspondant à la surface occupée par la croix.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.5">Analyse conjointe avec l'énoncé langagier</head><p>Il s'agit maintenant de prendre en compte les expressions référentielles détectées dans l'énoncé accompagné du geste et d'établir une correspondance avec les désignations détectées dans le geste sur la base d'une synchronisation des plages temporelles. Dans l'énoncé de notre exemple figurent trois expressions à valeur déictique : " ces deux peluches", " celle-là" et "ici" qui mises en relation avec les trois désignations détectées fournissent les informations suivantes :</p><p> ces deux peluches + entourage (objet3, objet4) : l'expression indique que le référent comporte deux objets de type "peluche", conditions vérifiées par le groupe (objet3, objet4). Le référent est donc ici le couple (objet3, objet4).</p><p> celle-là + pointage (objet9) : l'expression démonstrative reprend le type du référent précédent "peluche" qui correspond effectivement au type de l'objet9 qui est donc le bon référent.</p><p> ici + croix (surface) : le déictique "ici" correspond à lieu déterminé par un geste, ce qui est effectivement le cas. Il faut noter que le point d'intersection de</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>d'éclaircir quelque peu les choses, en considérant la nature profonde d'une possible relation entre l'homme et la machine. De fait, si l'on prend un petit peu plus de recul, on constate que l'homme agit sur son environnement de deux façons principales. Soit il manipule directement les objets sur lesquels il souhaite opérer, soit il exprime ce qu'il désire faire à l'un de ses congénères qui va se charger de réaliser l'action correspondante. Ainsi, nous sommes habitués à interagir soit avec des objets relativement inertes (le marteau), soit avec des 28/09/2010 individus possédant des capacités comparables aux nôtres à qui nous transmettons des intentions. Si maintenant il s'agit de placer une situation de dialogue homme-machine dans ce schéma, la situation risque d'être un peu plus complexe. En fait, l'hypothèse que nous souhaitons faire est que l'essentiel réside dans la perception que l'utilisateur humain va avoir du système informatique avec lequel il interagit et corrélativement du niveau de compréhension auquel il s'attend de la part de celui-ci. Concevoir une interface consiste alors à définir un comportement d'ensemble du système informatique qui permette à l'utilisateur de réaliser sa tâche dans le cadre d'une certaine modalité d'interaction que celuici est prêt à accepter. Nous proposons ainsi de conceptualiser la relation entre l'homme et la machine sous la forme de deux logiques principales : d'une part, une relation directe entre l'homme et les opérations qu'il souhaite réaliser, que nous qualifierons de logique du « faire », et d'autre part, une logique du « faire faire », où l'action passe par une phase de communication entre l'homme et la machine. La logique du faire, c'est la logique du marteau. L'ordinateur a le rôle d'un outil (ou de plusieurs) que l'utilisateur dirige à sa guise. De la sorte, celui-ci n'a pas à indiquer quelles intentions sous-tendent son activité puisque lui seul doit gérer la séquence d'opérations susceptible d'aboutir au but qu'il s'est fixé. C'est dans cette logique que ce situe la plupart des interfaces actuelles d'ordinateurs (telles le Macintosh ou l'environnement Windows), et l'on voit (cf. figure 1.) que l'utilisateur a la charge de planifier une séquence d'actions plutôt que de transmettre une quelconque consigne à la machine. 28/09/2010</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1 : Interaction homme-machine dans une logique du « faire »</figDesc><graphic coords="4,110.50,83.00,393.00,185.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 2 :Figure 3 :</head><label>23</label><figDesc>Figure 2 : Interaction homme-machine dans une logique du « faire faire »</figDesc><graphic coords="5,107.00,83.00,398.00,172.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>De fait, deux cadres méthodologiques peuvent être envisagés pour l'étude du dialogue homme-machine : soit réaliser des maquettes de système de dialogue qui sont ensuite évaluées et modifiées suivant un processus itératif, soit mettre en oeuvre des expériences de simulation où le système de dialogue est remplacédans le cadre d'un protocole précis -par un interlocuteur humain qui communique avec l'utilisateur et agit sur la tâche. Intuitivement, la première méthode semble celle qui correspond le mieux aux objectifs visés, puisqu'il s'agit de mettre en oeuvre et d'évaluer des systèmes qui 28/09/2010 préfigurent ceux que l'on souhaite véritablement rendre opérationnel. Pourtant, elle est relativement difficile à mettre en oeuvre et ce pour tout un ensemble de raisons. Ainsi, nous avons vu qu'un système de dialogue repose sur un ensemble de modules correspondant à différents traitements (reconnaissance de la parole, analyse lexicale et syntaxique, interprétation du message, réalisation de l'action, gestion du dialogue et des retours à l'utilisateurs) qui tous doivent fonctionner pour que le système complet soit opérationnel. Tout ceci représente donc un effort important que l'on ne peut envisager que dans le cadre de projets de grande ampleur, et non pas pour tester occasionnellement telle ou telle hypothèse de recherche. L'autre possibilité consiste donc à remplacer le système de dialogue envisagé par une simulation où un humain va prendre à son compte l'ensemble des fonctionnalités -et éventuellement des contraintes -associé à un système supposé réel. Une expérience de simulation repose en général sur une structure classique impliquant d'une part un ou plusieurs expérimentateurs (des « compères ») et d'autre part une application informatique (ou une base de connaissances) auquel peuvent accéder ces expérimentateurs. Suivant un certain protocole, on présente aux utilisateurs un scénario d'intéraction présentant les caractéristiques de la tâche ainsi que les modes d'actions (oral, geste etc.) qu'il peut utiliser pour arriver à ses fins.A titre d'illustration, nous pouvons présenter les grandes lignes d'une expérience menée au sein de notre laboratoire en collaboration avec les ergonomes de CERMA au début des années 90(Dauchy et al., 93 ; Mignot et al.,   93). La situation qui était considérée dans cette expérience était une tâche d'aménagement intérieur d'un appartement représenté graphiquement sur un écran tactile branché sur un Macintosh. Chaque utilisateur pouvait s'exprimer ou agir sur l'interface à l'aide de la parole et du geste suivant un ensemble de consignes qui lui étaient présenté, tout en étant surveillé via une caméra vidéo placée dans la salle d'expérimentation. Par exemple, l'un des scénarios était 28/09/2010 décrit de la façon suivante :Vous choisissez sur catalogue un frigidaire, un évier, une cuisinière, un meuble de rangement ainsi qu'une table et quatre chaises assorties de façon à les placer dans la cuisine.Disposez ensuite sur la maquette les articles sélectionnés.Bien que ce type de tâche puisse paraître particulièrement simple, il faut remarquer qu'il permet de réaliser des observations relativement précises de l'usage de la langue et du geste en contexte multimodal. Sans reprendre l'étude exhaustive faite par Christophe Mignot (95) de cette expérience, nous pouvons remarquer la richesse des phénomènes référentiels observés. Ainsi, dans le dialogue suivant 1 , on constate l'usage de descriptions définies (le réfrigérateur, la cuisinière), de pronoms anaphoriques (le), de pronoms démonstratifs (celui-ci + geste) ou de déictiques (ici + geste). Chacun de ces usages semble bien correspondre à différents niveaux de représentation de la tâche d'une part et de l'espace d'autre part, qu'un système automatique devrait nécessairement être en mesure de traiter.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>Comme le montrent assez bien les données expérimentales présentées dans la section précédente, la mise en oeuvre de modèles -et a fortiori de systèmes -de dialogue homme-machine multimodal est rendu particulièrement complexe de par la conjonction de nombreux facteurs qui interagissent constamment. Ainsi, en plus des phénomènes classiques associés à l'interprétation de toute suite de phrases ou d'énoncés, interviennent différents paramètres relatifs à l'espace de travail perçu par le locuteur et qui conditionnent la réalisation de la composante gestuelle de son acte de communication.Remarquonstout d'abord que le geste n'est pas une entité parfaitement identifiable dans sa fonction de communication. Il peut, dans le cas spécifique des langages nationaux ou internationaux de signes pour les sourds-muets (voir par exemple Naughton, 96 dans un contexte « bilingue »), participer de façon quasi-exclusive à la communication. A l'inverse, une communication téléphonique ne permet de transmettre à son interlocuteur aucune information gestuelle alors que celle-ci est toujours présente au niveau de l'émetteur… Dans le même ordre d'idée, l'observation de toute communication orale montre que seul un petit nombre de gestes semblent être intentionnellement produits pour, par exemple, désigner un objet, représenter une forme, ou exprimer une certaine longueur. Ces différents gestes ne sont d'ailleurs pas clairement isolés du reste des mouvements des doigts, des mains ou des bras. On ne peut que constater le fort degré de contextualisation des gestes, qui les rend quasi-ininterprétable quand on ne dispose pas par exemple du message oral qui les accompagne. Enfin, il est parfois nécessaire d'inclure dans la notion de geste l'ensemble des postures corporelles ou faciales qui peuvent, tout aussi bien que l'ensemble main-bras, apporter des informations essentielles au dialogue. Pour clarifier quelque peu la situation, Claude Cadoz (92), introduit une classification relativement générale des gestes pouvant être observés chez un être 28/09/2010 humain. Il distingue ainsi les quatre catégories suivantes :  le geste iconique qui par sa forme directement caractérisable représente un objet ou un concept (on peut simplement penser aux codes de la tête pour confirmer ou infirmer quelque chose) ;  le geste épistémique, qui consiste à toucher directement un objet pour en percevoir la forme, la texture ou tout autre caractéristique. Ce type de geste n'a pas de visée communicative, mais plutôt informationnelle ;  le geste ergatif, qui vise à agir sur un objet. Ce geste n'est de fait lié à aucun contenu informationnel. Il est en quelque sorte l'instrument de la perspective du « faire » que nous avons exposé au début de cet article ;  enfin, le geste déictique vise à identifier un objet ou une propriété dans l'environnement communicationnel de celui qui le réalise. Dans la perspective stricte d'un dialogue homme-homme ou hommemachine, seuls les gestes iconiques et déictiques doivent en général être pris en compte, puisque ce sont les seuls qui nécessitent une interprétation de la part d'un interlocuteur. Cependant, la plupart des équipes de recherche restreignent encore plus le spectre des gestes à considérer, car il n'existe à l'heure actuelle aucune description unifiées de ces deux catégories somme toute assez hétérogènes. Ainsi, le début des années 90 a vu apparaître différents systèmes (e.g. Braffort, 92) permettant de reconnaître un ensemble de gestes iconiques définis à l'avance. L'avantage d'une telle méthode est qu'elle est rapidement implantable sur machine à l'aide d'algorithmes classique de reconnaissance des formes. A l'inverse, un certain nombre d'études (e.g. Caelen, 91) ont porté leur attention sur la place du geste dans des énoncés multimodaux simples comportant des déictiques tels que ici ou ça. Ces études ont cependant trop souvent, afin d'aller au plus vite au stade de l'implantation sur machine, réduit à l'extrême la complexité des gestes considérés, ainsi que le finesse des descriptions linguistiques associées aux expressions déictiques. Pourtant, malgré les différentes critiques qu'elles suggèrent, ces expériences ont permis de mettre 28/09/2010 en évidence les directions principales de recherches qu'ils faut maintenant suivre pour intégrer pleinement le geste à des systèmes de communication hommemachine. Si l'on se fixe comme objectif de définir des systèmes qui s'intègrent dans le cadre d'une communication que l'on qualifierait de spontané, il faut bien reconnaître qu'il faut tendre vers des échanges dont la composante principale est plutôt langagière que gestuelle. On a ainsi observé les limitations en terme de bande passante communicationnelle de systèmes tels que Socrates, mis en place par les chemins de fer français pour la commande de billets. Ces systèmes, qui reposent exclusivement sur un écran tactile, engendre très vite une frustration liée à l'impossibilité de communiquer l'information que l'on juge la plus pertinente à un moment donné. Le système est en quelque sorte pré-cablé pour présenter successivement une série de fonctions que l'utilisateur peut désigner. A l'inverse, la langue permet d'accéder directement à une intention abstraite (e.g. Je voudrais un billet pour Paris), quitte à ce qu'un sous-dialogue complète certaines informations manquantes et ne peuvant être inférées à partir du contexte. La conséquence d'une telle option d'un point de vue gestuel est qu'il semble raisonnable de laisser de coté les gestes purement iconiques pour se concentrer sur les gestes strictement coverbaux et plus particulièrement ceux qui participent à des opérations de référence. Bien souvent, et probablement pour des raisons de facilité, on qualifie ces gestes de co-référentiels, alors que, comme nous allons le détailler, il est préférable que considérer qu'il n'existe qu'un seul acte de référence auquel participent conjointement geste et expression langagière.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head></head><label></label><figDesc>Après avoir présenté le cadre général dans lequel nous concevions une communication spontanée combinant langue et geste, notamment pour des actes référentiels, essayons de préciser les rôles respectifs de chacun de ces deux modes. Selon nous, le rôle essentiel d'un geste de référentiation est de focaliser 28/09/2010 l'attention de l'interlocuteur sur une sous-partie de l'espace de perception (visuel) partagé entre celui-ci et celui qui s'exprime. Remarquons immédiatement qu'il ne peut y avoir de communication gestuelle sans perception visuelle. Même si cela parait être une évidence, c'est l'occasion de rappeler que d'une part, le geste est perçu par un autre sens que le signal auditif, avec les conséquences que cela peut entraîner en termes de différentiation des traitements, et que d'autre part il marque le rôle prépondérant des critères spatiaux dans l'interprétation de l'acte référentiel global (langue + geste). L'objet (ou référent) désigné par un geste est immédiatement considéré comme un élément de cet espace perçu, éventuellement mis en perspective par rapport à d'autres éléments similaires. Cette constatation nous permet dès lors d'introduire une notion de contraste spatial associé à tout acte de désignation gestuel et support du résultat final de son interprétation. Très concrètement, une telle notion permet de prédire qu'un geste va être d'autant plus précis que l'objet désigné est étroitement entouré de « contre-cibles », à savoir d'autres objets susceptibles de jouer un rôle équivalent ou complémentaire au moment de l'énonciation. Ainsi, si l'on souhaite désigner un tableau sur un mur, un simple mouvement de la tête est suffisant si celui-ci est isolé dans la pièce où le locuteur se trouve, alors qu'un geste relativement précis du doigt sera nécessaire s'il est entouré de deux autres tableaux. D'un point de vue algorithmique, une telle constatation permet de régler la finesse d'interprétation des trajectoires gestuelles sur un écran tactile par exemple, pour interpréter des désignations qui pointent plus ou moins précisément sur l'objet visé en fonction du contexte. La perspective adopté pour le geste permet d'expliciter de façon particulière le rôle de la langue dans un énoncé multimodal en disant qu'il indique le mode de sélection des référents dans l'espace de visualisation. Si nous essayons d'éviter ici toute théorie générale de la référence linguistique, nous pouvons en effet rapprocher la place de l'expression référentielle à celle d'un filtre qui va 28/09/2010</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head></head><label></label><figDesc>toute perception tend à structurer le champ perceptif ;  les formes se distinguent comme des éléments ayant une unité globale se détachant d'un fond non structuré ;  la perception d'une forme est associée à la perception d'une signification ;  toute forme possède une certaine prégnace qui la rend plus robuste à la perception ;  on observe une préservation des caractéristiques de la forme (principe de constance). Dans une situation de dialogue finalisé où la tâche est présentée graphiquement à l'utilisateur, ces principes prennent une valeur particulière et permettent de cerner les caractéristiques des gestes qui vont servir à désigner les objets perçus. D'une manière générale, les formes présentées sont en générale parfaitement identifiables (forte iconicité) et les effets de Gestalt portent principalement sur la possibilité de repérer des regroupements de formes similaires. Sur cette base, nous avons ainsi pu identifier (Bellalem, 95 ; Bellalem et Romary, 95 a et b) que l'une des dimensions essentielles d'analyse devait porter sur la propension d'un geste à soit désigner un objet ou un groupe d'objets qui se distingue clairement de son entourage (désignation centrale), soit marquer les frontière d'un groupe d'objets pour le détacher d'autres objets similaires (désignation périphérique). 4.3 Bilan partiel L'ensemble de cette section nous a permis de mettre en évidence un certain 28/09/2010 nombre de paramètres d'origines diverses intervenant dans la production, et donc dans l'interprétation, d'énoncés multimodaux combinant langage et désignation gestuelle. Il est maintenant temps d'observer des données réelles et d'envisager les traitements automatiques qui, au stade actuel de nos connaissances, peuvent être réellement implantées. Nous allons le faire bien sûr au travers d'une tâche particulière qui préfigure le type d'interactions que nous souhaitons voir réalisées dans nos recherches à venir, en portant plus particulièrement notre attention sur l'analyse des trajectoires gestuelles.5. Interprétation d'énoncés multimodaux -analyse et interprétation de trajectoires gestuellesLa compréhension automatique d'un geste de désignation nécessite au moins deux étapes de traitement. La première consiste à étudier les caractéristiques de la trajectoire afin d'en extraire les parties les plus significatives du point de vue de l'acte de désignation, la seconde consiste à interpréter la trajectoire relativement à la scène sur laquelle le geste est intervenu et relativement au message langagier accompagnant le geste. La première étape est dite "analyse structurelle", son objectif est la recherche de singularités dans la trajectoire. Il s'agit de portions de trajectoire présentant du point de vue de certains paramètres tels que la courbure ou la vitesse d'exécution du geste de fortes variations dénotant une possible intentionnalité de la part de l'utilisateur. Quant à la seconde étape, dite d'interprétation, elle consiste à recherche les objets de la scène, candidat à ou aux désignations contenues dans le geste en tenant compte de la forme de la désignation et de la répartition spatiales des objets. Rappelons qu'un geste désigne l'ensemble du mouvement accompagnant l'énoncé verbal et de ce fait un geste peut contenir plus d'une désignation. Nous présentons dans ce qui suit les différentes étapes de traitement des trajectoires gestuelles sur un geste effectué à l'aide d'un stylet sur un écran tactile. Ces traitements s'articulent autour des trois composantes suivantes : 28/09/2010  l'analyse du geste et la recherche des parties significatives,  la représentation de la répartition spatiale des objets dans la scène, tentant de représenter la structuration issue de la perception visuelle,  l'interprétation du geste par rapport à la scène c'est-à-dire la détermination des objets candidats aux différentes désignations apparaissant dans le geste. 5.1 Présentation de l'exemple traité L'exemple choisi est issu d'une expérience de type magicien d'Oz menée au CRIN (Wolff et al., 97) dont l'objectif est la constitution d'un corpus multimodal.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>(</head><label></label><figDesc>figurent tous les éléments de la trajectoire (le point d'intersection représente par une croix, les début et fin de segments par une barre) issu de l'étude du tracé de la courbure présentée en (3).</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>Dans cet exemple, 'U' indique les énoncés de l'utilisateur et 'S' ceux du système simulé. Les gestes effectués par l'utilisateur ont été retranscrits à l'aide d'indications du type DOWNUP{objet}.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_1"><p>Il s 'agit d'une interpolation des points de la trajectoire par une courbe polynomiale permettant de calculer en particulier des dérivées d'ordre 1 et</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_2"><p>Ces dérivées participent ellesmême au calcul de la courbure et de la vitesse le long de la trajectoire.</p></note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>28/09/2010</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3.2">Analyse de la 2ème zone de contact</head><p>L'analyse des événements recueillis montre qu'il s'agit d'un point de contact avec l'écran, il s'agit très probablement d'un geste de pointage au point de coordonnées <ref type="bibr">(464,</ref><ref type="bibr">62)</ref>. La suite des événements étant la suivante : <ref type="table">(4 463 62 65893 2)   (6 464 62 66004)</ref> (5 464 62 66115 0).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3.3">Analyse des 3 ème et 4 ème zones de contact</head><p>L'analyse montre qu'il s'agit de deux droites dont les meilleures approximations sont calculées. On peut remarquer qu'il s'agit d'un geste multicontact contrairement aux deux précédents et qui est identifié comme une croix.</p><p>Tracé des événements et de la meilleure approximation pour le geste multicontact en forme de croix.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.4">Calcul des objets candidats aux désignations</head><p>La scène présentée au sujet comporte des objets identiques en nombre variables. On peut remarquer qu'il n'y a pas de superposition d'objets ce qui facilite quelque peu l'interprétation des désignations.</p><p>Il est cependant nécessaire de construire une représentation de la répartition spatiale des objets qui fait apparaître des groupes d'objets perceptifs comme indiqués sur la figure suivante (les représentations ont été simplifiées) : </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">informatique peut elle aussi jouer son role d&apos;intégrateur en s&apos;assurant, via la définition de modèles implantables, que les résultats des autres disciplines ne sont pas contradictoires</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Références</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Etude du mode de désignation dans un dialogue homme-machine finalisé à forte composante langagière : analyse structurelle et interprétation</title>
+		<author>
+			<persName><forename type="first">Nadia</forename><surname>Bellalem</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+		<respStmt>
+			<orgName>Université Henri Poincaré</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Thèse d&apos;informatique</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Langue et geste pour le dialogue homme-machine finalisé, Communication en conception</title>
+		<author>
+			<persName><forename type="first">Nadia</forename><surname>Bellalem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">EuropIA</title>
+		<imprint>
+			<biblScope unit="page" from="185" to="201" />
+			<date type="published" when="1995">1995</date>
+			<pubPlace>Paris</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Reference interpretation in a multimodal environment combining speech and gesture</title>
+		<author>
+			<persName><forename type="first">Nadia</forename><surname>Bellalem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Actes First International Workshop on Intelligence and Multimodality in Multimedia Interfaces</title>
+		<meeting>s First International Workshop on Intelligence and Multimodality in Multimedia Interfaces<address><addrLine>Edinburgh</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Utilisation des gestes de la main pour l&apos;interaction homme-machine, Actes IHM&apos;92</title>
+		<author>
+			<persName><forename type="first">Braffort</forename><surname>Annelies</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Baudel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Teil</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1992">1992</date>
+			<biblScope unit="page" from="193" to="196" />
+			<pubPlace>Paris</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Le geste canal de communication homme/machine -la communication instrumentale</title>
+		<author>
+			<persName><forename type="first">Claude</forename><surname>Cadoz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Technique et Science Informatique</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="31" to="61" />
+			<date type="published" when="1992">1992</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><surname>Caelen</surname></persName>
+		</author>
+		<title level="m">Interaction multimodale dans ICP-Draw, expérience et perspective, Actes IHM&apos;91</title>
+		<imprint>
+			<publisher>GRECO-PRC Communication Homme-Machine</publisher>
+			<date type="published" when="1991">1991</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Joint speech and gesture analysis : some experimental results</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Dauchy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Mignot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Valot</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Actes Eurospeech</title>
+		<imprint>
+			<biblScope unit="volume">93</biblScope>
+			<biblScope unit="page" from="1315" to="1318" />
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">Perception</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">H</forename><surname>Forgus</surname></persName>
+		</author>
+		<idno>1966. 28/09/2010</idno>
+		<imprint>
+			<publisher>McGraw-Hill Book Compagny</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">Usage de la parole et du geste dans les interfaces multimodales -Etude expèrimentale et modèlisation</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Mignot</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+			<pubPlace>Nancy I</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Doctorat d&apos;Université, Université Henri Poincarè</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">An Experimental Study of Future ``Natural&apos;&apos; Multimodal Human-Computer Interaction</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Mignot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Valot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Carbonell</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Actes INTERCHI&apos;93 1993 Conference on Human Factors in Computing Science INTERACT&apos;93 and CHI</title>
+		<meeting>s INTERCHI&apos;93 1993 Conference on Human Factors in Computing Science INTERACT&apos;93 and CHI<address><addrLine>Amsterdam (The Netherlands</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1993">1993</date>
+			<biblScope unit="volume">93</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<author>
+			<persName><forename type="first">Naughton</forename><surname>Karen</surname></persName>
+		</author>
+		<title level="m">Spontaneous Gesture and Sign -A Study of ASL Signs Co-occuring with Speech, Actes WIGLS (Workshop on the Integration of Gesture in Language and Speech)</title>
+		<meeting><address><addrLine>Newark and Wilmington (Delaware</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1996">1996</date>
+			<biblScope unit="page" from="125" to="134" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Perception et action dans le cadre d&apos;une interface homme-machine multimodale: Etude experimentale</title>
+		<author>
+			<persName><forename type="first">Wolff</forename><surname>Frederic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nadia</forename><surname>Bellalem</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Actes Colloque JOSC</title>
+		<imprint>
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main"></title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">EA663689480ADFB9DBFB68AEB2F394DC</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ISO 10862</head><p>• Small craft -Quick release system for trapeze harness (ISO/TC 188: Small craft) • An ISO standard to prevent death and injury to sailors attached to sailing trapezes on small craft, by ensuring that they can release themselves from the wire hooking them to the boat in emergency • Requirements and test methods to ensure the correct operation of safety release devices -Release time shorter than 5 sec.</p><p>-Device operable with only one hand (and with full finger neoprene gloves) -Safety mechanism should not be released inadvertently Note: In Europe, harnesses complying with the standard will bear the CE mark RWO Trapeze Bar</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Standards</head><p>• What they are -Reference background for the management of a technical process -The three pillars of a standard: consensus, publicity, maintenance -A small constraint for each, a large benefit for all!</p><p>• Reading it, understanding it, implementing it…</p><p>• What they aren't -Something coming from nowhere… participating is always an option -Mandatory documents: common ground for a transaction -Regulations: unless a state or an international organisation takes it up</p><p>• The need for standards developing organizations (SDO)</p><p>-Ensure that the three pillars of standardisation are in place</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CAN THE TEI BE CONSIDERED AS PART OF THE STANDARDS FLEET?</head><p>The Text Encoding Initiative Consortium In the beginning </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>TEI in a nutshell</head><p>• TEI namespace:</p><p>-xmlns="http://www.tei-c.org/ns/1.0"</p><p>• TEI documentation:</p><p>http://www.tei-c.org/release/doc/tei-p5-doc/en/html/</p><p>• TEI processor, Roma:</p><p>http://www.tei-c.org/Roma/     • Document structure (model of a "text")  The TEI guidelines    The central role of customization • Customization as the seed for the guidelines evolution -Changes introduced for a specific project may be doomed to be useful for a wider community</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>EXPLORING NEW WATERS: TEI FOR SCIENTIFIC INFORMATION?</head><p>Characterising scientific documents  The (simplified) patent life-cycle</p><p>• Patent application in one or several patent offices -USPTO, Japan, EPO (directly or initiated in a specific country) -First application: reference date for the patent ("coming into force") -Forms a "Patent family"</p><p>• Examination process for one application The situation so far</p><p>• Complete implementation in the back-office system -Integration of several so-far dispersed data-bases -First large-scale implementation of &lt;standOff&gt; (code name: bePatient!)</p><p>• Quite a few customisations -maintained in a reference ODD specification -Re-use of TEI attributes at various places </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>INTEGRATION OF THE STAND-OFF PROPOSAL IN THE PDM MODEL</head><p>With thanks to the stand-off gang…</p><p>The simple picture • Wide document type coverage:</p><p>-E.g. representation of the patent legal corpus (European Patent Convention, Guidelines, Case law)</p><p>• The &lt;teiCorpus&gt; element is a useful object ;-) for large-scale applications -Generic dictionary tools -Education (discussions -arguments are as important as schema)</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CHANNELLING TUMULTUOUS WATERS: THE TEI LEX-0 INITIATIVE</head><p>• Position wrt current chapter -Provide further constraints; at times departing from the guidelines… -Not necessarily an editing/publishing format TEI Lex-0 should be primarily seen as a format that existing TEI dictionaries can be univocally transformed to in order to be queried, visualised, or mined in a uniform way</p><p>The ELEXIS centralized hub • Working Group "Retrodigitised Dictionaries" (Toma Tasovac and Vera Hildenbrandt)</p><p>• Current -DARIAH</p><p>• Working Group "Lexical Resources" (Laurent Romary and Toma Tasovac)</p><p>-Support from H2020-funded European Lexicographic Infrastructure (ELEXIS) Recursive entry -example &lt;entry type="wordFamily"&gt; &lt;form type="base"&gt; &lt;orth&gt;Haus-&lt;/orth&gt; &lt;/form&gt; &lt;pc&gt;,&lt;/pc&gt; &lt;form type="base"&gt; &lt;orth&gt;haus-&lt;/orth&gt; &lt;/form&gt; &lt;pc&gt;:&lt;/pc&gt; &lt;!--possibly some shared usg information --&gt; &lt;entry type="wordForm"&gt; &lt;form type="lemma"&gt; &lt;orth expand="Hausaltar"&gt;-altar&lt;/orth&gt; &lt;pc&gt;,&lt;/pc&gt; &lt;gramGrp&gt; &lt;gen value="masculine"&gt;der&lt;/gen&gt; &lt;/gramGrp&gt; &lt;/form&gt; &lt;sense&gt;...&lt;/sense&gt; &lt;/entry&gt; &lt;entry type="wordForm"&gt; &lt;form type="lemma"&gt; &lt;orth expand="Hausandacht"&gt;-andacht&lt;/orth&gt; &lt;pc&gt;,&lt;/pc&gt; &lt;/form&gt; &lt;!--... --&gt; &lt;/entry&gt; &lt;!--...</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>--&gt; &lt;/entry&gt;</head><p>Reducing the content model of &lt;entry&gt;</p><p>• Allowed in &lt;entry&gt; -&lt;form&gt;, &lt;sense&gt;, &lt;entry&gt;, &lt;etym&gt;, &lt;gramGrp&gt;, &lt;usg&gt;, &lt;xr&gt;, &lt;pc&gt;, and &lt;dictScrap&gt;</p><p>• Not allowed in &lt;entry&gt; -&lt;def&gt;, &lt;hom&gt;, and &lt;cit&gt;</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Additional features</head><p>-Mandatory @xml:id -Mandatory @xml:lang to indicate the object language -Encouraging using a @type on &lt;entry&gt;</p><p>• Ongoing discussion to determine a coherent set of values</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Usage information</head><p>• a label which can be attached at various points in the entry hierarchy in order to signal e. g. restrictions in terms of geographic regions, domains of specialized language or stylistic properties for the particular lexical item that it is attached to label-like descriptors (often abbreviated) and as fuller narrative expressions</p><p>• E.g. &lt;usg type="style" norm="expletive"&gt;Schimpfwort&lt;/usg&gt; • &lt;usg type="hint"&gt;(рекла сељанка на њиви за време врућине)&lt;/usg&gt; ("(said by a peasant woman in the field in hot weather)")</p><p>Providing more coherence to usg/@type  Using ODD for external vocabulary</p><p>• Is this an exotic idea?</p><p>-The ODD specification language is not tied to TEI -The ODD processor can generate documentation and schema independantly of the TEI architecture -Still, it is possible to take up bits of the TEI architecture</p><p>• E.g. some attributes, specific crystals (e.g. bibliography)</p><p>• Other known applications: XHTML (M. Holmes), Springer DTD, etc.</p><p>• Using the ODD chaining possibilities • Highlight some description elements that could be improved -E.g. content related elements (existence of copies of the material, bibliographic references, …)</p><p>• Sorted in categories (roles) Where do we go from this?</p><p>• A generic modelling workflow for heterogeneous multisource data</p><p>-Demonstrates the power of the TEI architecture</p><p>• Contribution to the maintenance of archival standards -Bridge between EAD2002 and EAD3 -TEI as a possible framework for taking care of EAD in the long run and facilitating the integration of EAC (and EAG)</p><p>• TEI -EAD conversions -E.g. interoperability with &lt;msDesc&gt; components</p><p>• Dreamy… -Adding stand-off (yes &lt;standOff&gt;!) annotations extracted from plain text EAD content</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>WHICH COURSE FOR THE TEI?</head><p>The TEI is doing well -the hidden TEI</p><p>• Antonio Zampolli price by ADHO -Reflects that the TEI is pervading all fields in the (digital?) humanities</p><p>• TEI has become a natural component of a humanities project based on textual sources -Many small editions are flourishing everywhere -Now recommended or requested by funding organisations (DFG!) -Numerous training events (cf. DiXiT, DARIAH master classes)</p><p>• Taken up by larger organisations -Academies, Dictionary projects, EPO… especially in Europe</p><p>Consolidating our conceptual model</p><p>• TEI as a rich space of elementary constructs -Attributes (classes), "entities", bibliographical and dictionary entries, etc.</p><p>• Multifarious document types for various communities -From scholarly editions to dictionaries, including computer mediated communication, scientific information, etc. -More precise guidelines for specific applications </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>•</head><label></label><figDesc>Mission and organisation -Develops guidelines for the representation of text-based documents -Community based: institutional and individual membership • Standardisation process -2 releases per year of the TEI guidelines -Community feedback on Github -Triage and decision made by TEI technical council -All documents are freely available (CC-BY+BSD 2-clause license) • Vertical standardisation -Anything that has to do with text -Worked on infrastructural aspects by necessity (ODD) -The TEI community had a seminal role in setting up XML • Business model -Contributions of the members to the consortium 08.08.2019 Seite 13</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>-</head><label></label><figDesc>Search report, communications, decision, appeal, opposition -Patent documents may be revised at each stage • Necessity to have a single model for dealing with all stages and versions• The TEI appeared to be the optimal</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>•-</head><label></label><figDesc>Intertwined with the source text Stand off annotation: Source text is referenced from outside Embedded stand off annotation: Stand off annotations attached to the same document as the source Why embedded stand-off annotation? • In line (!) with the TEI philosophy • Each time the source document is seen as the reference organisational unit -Corpus management -Transmission workflow -Multiple annotation layers -Competing annotations • E.g. Manual vs. automatic annotation Standoff: A long-standing issue • The idea of standoff annotation is not new in general -Thompson &amp; McKelvie, 1997 Standoff annotation has been a core concept in the TEI guidelines since the beginning -Cf. Chapter: Linking, Segmentation, and Alignment -Availability of &lt;anchor&gt;, &lt;span&gt;, &lt;interp&gt;, &lt;link&gt;, @ana • But: not integrated in the TEI architecture -Stand-off elements can appear anywhere in a TEI document -Usual trade-off between on-site vs. grouping (&lt;back&gt;) • The NLP community has also developed its own means -GraF (Ide &amp; Suderman 2007) , Paula (Zeldes et al. 2009), etc. • Need for a proper, and inclusive, treatment of standoff annotations in the TEI -Better integration, more guidance Embedded standoff: Basic concept • Building up an autonomous document containing primary source and additional annotations -Annotations are conveyed with their specific meta-data -Annotations have their specific place in the TEI document architecture -Standoff annotations may be recursively organized -Standoff annotations may point to textual as well as facsimile content -Well-defined elementary annotation units -Coherence with existing models (Open Annotation, ISO TC 37) should be ensured • Typical use-cases -Annotated corpora • Treebanks -Text mining • Named entity recognition, keyword/terms extraction -Human annotations on a document • critical editions, patent examination, peer review… • Strong relation with interlinear annotation Annotations in TEI: related to the annotation, such as annotator, revisions of the annotations, availability Recursive construct: allows the organisation of annotations par method, annotator, campaign &lt;div&gt;-like component for structuring complex series of annotations Elementary annotation unit Timeline • 2011: Paper by Thomas Schmidt in jTEI (https://jtei.revues.org/142) • August 2012: new tickets by Javier Pose (EPO) • January 2014: Workshop in Berlin -Draft of a first proposal -Setting-up a github environment • 2012-2016: ISO 24624 project (Editor: Thomas Schmidt) -Need for a annotation grouping component (&lt;annotationBlock&gt;) • May 2015: Council meeting in Ann Arbor -Several updates to the proposal -"Stabilisation" of element names, with memory leaks • March 2016: TEI release 6.0.0 New element &lt;annotationBlock&gt; for interlinear annotation • August 2016: publication of ISO 24624 Transcription of Spoken Language Going further: mapping the Web Annotation Data Model (WADM) annotation body target &lt;span type="" from="" to=""&gt; Any TEI object (with @xml:id) or &lt;surface&gt; &lt;bibl&gt;, &lt;person&gt;, &lt;place&gt;, &lt;fs&gt;, &lt;note&gt;, &lt;body&gt;, MAF, SynAF &lt;interp type="" inst="" ana=""type="" corresp="#_theSurface" ulx="1253" uly="802" lrx="22" lry="29"/&gt; Prototypical example Dates in a named entity recognition context &lt;annotationBlock&gt; &lt;date xml:id="E4N1" from="1944-08-17" to="1944-08-25"&gt; 17 -25 août 1944&lt;/date&gt; &lt;interp ana="#E4N1" inst="#d1e173"/&gt; &lt;span xml:id="d1e173" from="#E4T6" to="#E4T10" /&gt; &lt;/annotationBlock&gt; Great advantage on readiness and programmatic treatment standOff: A resilient model for the patent document model • Covers a whole range of annotation types -Manuel annotations by examiners (features, clarity, claim trees) -Commentaries by examiner (preliminay to socalled "search report") -Automatically created annotations • Bibliography • Various technical entities (chemistry, biology, physics) • Argumentative objects Chaining ODDs in PDM PDM model &lt;schemaSpec ident="standoff-proposal" start="TEI teiCorpus"&gt; &lt;schemaSpec ident="tei_docdb" prefix="tei_" start="TEI teiCorpus" source="https://raw.githubusercontent.com/laurentromary/stdfSpec/A nArbor/Specification/standoff-proposal_doc.xml"&gt; TEI framework Stand-off customisation PDM: A real life demonstration of the TEI power to be used in digital library projects • Complex re-combination of TEI components with more exploratory developments -Numerous feedback to the TEI guidelines on GitHub</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>•-</head><label></label><figDesc>Reconciling the lexical and the editorial view -Generalising the use of @notation (orth, pron, hyph, stress, syll, pRef, oRef) -Improving &lt;etym&gt;: att.typed and recursivity -&lt;entry&gt; in &lt;def&gt; (chr-emil) -Deprecating oVar and oRef; before a deeper reform is set in place… -Towards a model.sensePart class for &lt;sense&gt; -And recursive entries! Next steps • Ensuring the best possible convergence between initiatives -Constantly fighting against silos -Adapting existing endeavours rather than re-inventing • Disseminating knowledge and competence on lexical standards -Training: Lexical master class, #DARIAHteach -Documenting: blogs, papers and … the SSK • Standardisation as a never-ending activity: improving things further -Integrating standards in concrete usage scenarios to identify usability, constraints etc. -Standardising as knowledge transfer COMBINING STREAMS OF HETEROGENEOUS ARCHIVAL DATA With thanks to Veerle Vanden Daelen and Charles Riondet EHRI: an infrastructure for historical research about the holocaust  EHRI's second phase (2015-2019) as an EU financed project with a total budget of almost 8 mio €  24 partner institutions from 17 countries: Research institutions, archives and e-science specialists  EHRI's goal: Support research into the Kazerne Dossin: Memorial, Museum and Documentation Centre on Holocaust and Human Rights (Mechelen) Fragmentation and dispersal of archival sources  Geographical scope Holocaust  Attempts to destroy the evidence  Migration of Holocaust survivors  Multiple documentation projects after the war  Internationalization Holocaust research  Holocaust in Eastern Europe  New levels of collaborative research  New opportunities for digital research Why EHRI? The main objective of EHRI is to support the Holocaust research community by 1. integrating information on key archival collections and institutions into an online portal 2. encouraging collaborative Holocaust research and investigating new methodologies www.ehri-project.eu EHRI Aims 57 country reports, &gt;1,900 descriptions of institutions, &gt;230,000 archival descriptions EHRI Portal -https://portal.ehri-project.eu/ EHRI Database Country reports (57 countries) Entry on the individual archive (over 1,900) Individual entries (collections / units) (tens of thousands) Machine processing of finding aids (XML) -Collection descriptions • Initiated in 1993, EAD 1.0 (1998) … EAD3 (2015) • Inspired by TEI (cf. D. Pitti) • Maintained by the Society of American Archivists and the Library of Congress • Allows one to align onto the ISAD(G) archival standard • EAD is too permissive (Shaw 2001; Bunn 2013) -Tension between information exchange and archival description • Future: RiC (Records in Context)  New paradigm? Definitive solution? EAD in EHRI: strategic view • EAD2002 is the pivot format for automatic ingestion of archival descriptions. • Ingestion of data in many formats -EAD1, Dublin Core, home-made formats -EAD2002 with very different encoding guidelines • EHRI must have its own specific description rules -Narrowing EAD encoding possibilities -Adding quality checks -Content-oriented rules -Not modifying the EAD2002 reference schema • A strategy centered on the archival network -Content-oriented rules based both on EHRI and CHI input data models -Integrating the human readable documentation in the validation process</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>•-</head><label></label><figDesc>Collaboration with ISO (standards), DARIAH (recommendations) • Reducing syntactic freedom in specific application domains, not in TEI as a whole -Complementing our stock: onomasiological constructs, standOff• Strong conceptual basis with pure ODD -For TEI and non TEI based application -Starting point for offering support to other dissemination formats (JSON, LOD) -Interfacing the trends -XML is likely to remain central for a long time for sustainable backoffice content Focusing, enlarging? • Enlarging our expert basis (e.g. dictionaries, stand-off) Stronger role for SIGs -Close coordination with council -Bringing in more technical experts from outside • Institutional partnership -Archives, Clarin, DARIAH, MEI, Europeana • Further enforcement of the TEI guidelines • Sharing our technical platform -E.g. EAD maintenance -Thinking together the sustainability of TEI material • Repositories (Tapas?) • The TEI already offers a strong basis for sustainability • Need for a stable communication framework -Lively conference and journal (jTEI) -Investing in the web site and the wiki Should we/you be afraid of standards? &lt;cit&gt; &lt;quote&gt;Yes you should be afraid, but you should be more afraid of not having them&lt;/quote&gt; &lt;author&gt;Wendell Piez&lt;/author&gt; &lt;/cit&gt;</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="10,344.83,377.00,350.00,171.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="14,0.00,160.50,541.87,379.50" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="56,388.35,150.93,285.50,223.25" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="59,514.88,116.29,205.87,325.09" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="60,98.54,94.13,539.17,385.62" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="61,0.00,309.69,379.39,213.30" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="61,382.68,105.57,311.62,175.20" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="62,4.38,136.00,709.62,283.88" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="63,0.00,154.75,720.00,269.63" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="64,14.14,77.22,683.19,448.44" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="68,8.13,114.09,701.48,353.60" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="69,-7.00,111.63,764.12,249.62" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="69,92.00,365.50,536.38,170.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="73,3.08,188.50,720.14,211.50" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="74,5.78,154.25,705.22,314.92" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="75,-0.00,149.00,720.00,293.43" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head>•</head><label></label><figDesc>Dates, names, notes, references, foreign expressions, etc.    </figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_16"><head></head><label></label><figDesc>With thanks to Toma Tasovac, Belgrade Center for Digital Humanities and the DARIAH WG on lexical resources Where we are coming from..</figDesc><table><row><cell>Tightening the TEI dictionary chapter</cell></row><row><cell>&lt;entry&gt; • Objective of TEI Lex-0</cell></row><row><cell>&lt;def&gt;Un animal sans queue ni tête&lt;/def&gt; &lt;hom&gt; -Improving consistent encoding of lexical entries across lexicographic projects</cell></row><row><cell>&lt;form&gt;I don't remember why but I need a variant here...&lt;/form&gt; &lt;/hom&gt; • Various use cases in mind</cell></row><row><cell>&lt;gramGrp&gt;</cell></row><row><cell>&lt;note&gt;Oups, forgot to mention some grammatical constraints&lt;/note&gt;</cell></row><row><cell>&lt;/gramGrp&gt;</cell></row><row><cell>&lt;form&gt;</cell></row><row><cell>&lt;orth&gt;maybe I could put the lemma here&lt;/orth&gt;</cell></row><row><cell>&lt;/form&gt;</cell></row><row><cell>&lt;usg type="equiv"&gt;rabbit&lt;/usg&gt;</cell></row><row><cell>&lt;xr type="translation"&gt;&lt;ref&gt;rabbit&lt;/ref&gt;&lt;/xr&gt;</cell></row><row><cell>&lt;/entry&gt;</cell></row></table><note><p><p><p>-Target format (analysing and comparing)</p>• Cf. TEI Analytics</p>(MONK project)    </p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_21"><head>-</head><label></label><figDesc>MUST: mandatory for import process -SHOULD: mandatory for description process, i.e. In terms if archival description. Not technically mandatory, but may cause comprehension issues -COULD: non mandatory rules. Enhance the general quality of the description, without any obligation. Pointing that informational element.</figDesc><table><row><cell cols="3">Schematron in EHRI: example Connect validation and mapping Schematron in EHRI (cont.) process to ad hoc documentation (Re)process</cell></row><row><cell>Input data in EAD</cell><cell>EAD validation</cell><cell>EAD doc</cell></row><row><cell></cell><cell>EHRI-EAD</cell><cell></cell></row><row><cell>(native EAD</cell><cell>schema</cell><cell></cell></row><row><cell>or already</cell><cell>EHRI</cell><cell></cell></row><row><cell>mapped)</cell><cell>validation</cell><cell>EHRI doc</cell></row><row><cell></cell><cell>schematron</cell><cell></cell></row><row><cell></cell><cell>Validation results</cell><cell></cell></row><row><cell></cell><cell>Re(process)</cell><cell></cell></row><row><cell></cell><cell>+ Comprehensive messages and guidelines</cell><cell></cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Defining an XML element with ODD</head><p>Generating documentation and schema EAD in ODD within EHRI in a nutshell • Full coverage of EAD 2002 -Official EAD schema (RelaxNG) : www.loc.gov/ead/ead.rng -Guidelines provided by the Library of Congress: http://loc.gov/ead</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">TBX goes TEI --Implementing a TBX basic extension for the Text Encoding Initiative guidelines</title>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<idno>TKE 2014. &lt;hal- 00950862v2</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Terminology and Knowledge Engineering</title>
+		<imprint>
+			<date type="published" when="2014-06">2014. Jun 2014. 2014</date>
+			<pubPlace>Berlin, Germany</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Terminology and Knowledge Engineering</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">An abstract model for the representation of multilingual terminological data: TMF -Terminological Markup Framework</title>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<idno>&lt;inria-00100405</idno>
+	</analytic>
+	<monogr>
+		<title level="j">TAMA</title>
+		<imprint>
+			<date type="published" when="2001-02">2001. Feb 2001. 2001</date>
+			<pubPlace>Antwerp, Belgium</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Tei</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Crosswalks</surname></persName>
+		</author>
+		<idno>&lt;hal- 00762664v4</idno>
+		<ptr target="&lt;http://www.jlcl.org&gt;" />
+	</analytic>
+	<monogr>
+		<title level="j">JLCL -Journal for Language Technology and Computational Linguistics</title>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Standards for language resources in ISO -Looking back at 13 fruitful years. edition -die Terminologiefachzeitschrift</title>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="https://cv.archives-ouvertes.fr/laurentromary" />
+	</analytic>
+	<monogr>
+		<title level="m">Deutscher Terminologie-Tag e.V. (DTT), 2015. &lt;hal-01220925&gt; Laurent Romary, Andreas Witt. Méthodes pour la représentation informatisée de données lexicales/Methoden der Speicherung lexikalischer Daten. Lexicographica, de gruyter Mouton</title>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="30" to="00991745" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

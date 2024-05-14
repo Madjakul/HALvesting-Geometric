@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">How OCR Performance can Impact on the Automatic Extraction of Dictionary Content Structures</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Ioana</forename><surname>Galleron</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Geoffrey</forename><surname>Williams</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Pedro</forename><forename type="middle">Javier</forename><surname>Ortiz Suárez</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Pedro</forename><forename type="middle">Javier</forename><surname>Ortiz</surname></persName>
+						</author>
+						<title level="a" type="main">How OCR Performance can Impact on the Automatic Extraction of Dictionary Content Structures</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">C75BF2880B46EBE7ED760462690972C3</idno>
+					<note type="submission">Submitted on 3 Aug 2019</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T14:59+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In the last decade, OCR progress has triggered a massive trend towards the digitisation of legacy documents, with several Digital Humanities projects exploring 123 means for structuring retro-digitised dictionaries. However there is a lack of awareness of the impact of the OCRs quality on the information extraction process. In this work, we shed light on the relationship between these two steps through experiments carried out with a TEI-based system for automatic parsing of dictionaries.</p><p>Our work concerns "the Basnage", a complex dictionary resulting from the complete revision and enlargement in 1701 of the 'Dictionnaire Universel' of Abbé Furetière, initially published in 1690. In order to obtain an XML/TEI version of this work, we use GROBID-Dictionaries <ref type="bibr" target="#b0">[1,</ref><ref type="bibr" target="#b1">2]</ref>, a machine learning system for cascade parsing and extraction of TEI structure in dictionaries. The tool's models have been tested on different categories of entry based documents with lexical and encyclopedic content. We used two differently OCRied versions of the first volume of the Basnage following 4 the process described in an earlier experiment <ref type="bibr" target="#b2">[3]</ref>  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conclusion</head><p>Two main conclusions could be drawn from these experiments. First, the OCRisation process has an important impact on the performance of the automatic parsing of TEI structures. The impact becomes more significant for extracting more granular information. Second, the models implemented in GROBID-Dictionaries are resistant to the noise introduced by the OCR system opening perspectives for exploiting more available digitised material.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>1. Inria-ALMAnaCH -Automatic Language Modelling and ANAlysis &amp; Computational Humanities 2. UPD7 -Université Paris Diderot -Paris 7 3. CMB -Centre Marc Bloch, Berlin 4. Université Sorbonne-Nouvelle 5. Sorbonne Université 6. Université Grenoble Alpes</head><label></label><figDesc></figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 1 : Field Level Evaluation of the Dictionary Segmentation Model</head><label>1</label><figDesc>which relies on the power of iterative training of HTR models of Transkribus framework:</figDesc><table><row><cell>5</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 2 : Field Level Evaluation of the Dictionary Body Segmentation Model</head><label>2</label><figDesc></figDesc><table><row><cell></cell><cell></cell><cell>Sample 1</cell><cell></cell><cell></cell><cell>Sample 2</cell><cell></cell></row><row><cell cols="2">TEI element Precision</cell><cell>Recall</cell><cell>F1</cell><cell>Precision</cell><cell>Recall</cell><cell>F1</cell></row><row><cell>&lt;etym&gt;</cell><cell>87.5</cell><cell>60</cell><cell>71.19</cell><cell>73.68</cell><cell>71.79</cell><cell>72.73</cell></row><row><cell>&lt;form&gt;</cell><cell>94.44</cell><cell>92.73</cell><cell>93.58</cell><cell>92.24</cell><cell>96.4</cell><cell>94.27</cell></row><row><cell>&lt;pc&gt;</cell><cell>90.91</cell><cell>69.44</cell><cell>78.74</cell><cell>88.97</cell><cell>80.13</cell><cell>84.32</cell></row><row><cell>&lt;re&gt;</cell><cell>33.33</cell><cell>9.09</cell><cell>14.29</cell><cell>55.56</cell><cell>22.73</cell><cell>32.26</cell></row><row><cell>&lt;sense&gt;</cell><cell>67.65</cell><cell>59.28</cell><cell>63.19</cell><cell>77</cell><cell>76.65</cell><cell>76.84</cell></row><row><cell>&lt;xr&gt;</cell><cell>100</cell><cell>80</cell><cell>88.89</cell><cell>100</cell><cell>100</cell><cell>100</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 3 : Field Level Evaluation of the Lexical Entry Model</head><label>3</label><figDesc></figDesc><table /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>https://basnage.hypotheses.org/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>https://elex.is/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>http://nenufar.huma-num.fr/presentation/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>https://archive.org/details/b30455376_0001/page/n27</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_4"><p>https://transkribus.eu/Transkribus/</p></note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Biographies</head><p>Mohamed Khemakhem is a PhD candidate at Inria, team ALMAnaCH (Paris), Paris 7 University and Centre Marc Bloch (Berlin). His research is focused on parsing lexical and encyclopedic legacy resources using standard-based machine learning models.</p><p>Ioana Galleron is a professor of French literature and Digital Humanities at Sorbonne-Nouvelle and UMR 8094 LATTICE of CNRS. She works on computer assisted literary analysis.</p><p>Geoffrey Williams is a Professor of Applied Linguistics at the University of South Brittany and researcher at UMR 5316, Litt &amp; Arts at the University Grenoble Alpes. He is a e-lexicographer and leads the ANR BasNum project.</p><p>Laurent Romary is senior researcher at Inria, team ALMAnaCH and works on data modelling and standards in humanities computing.</p><p>Pedro Ortiz Suárez is a PhD candidate at Inria, team ALMAnaCH (Paris) and Sorbonne Université. His research is focused on enriching lexical and encyclopedic legacy resources using deep learning models.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">Automatic Extraction of TEI Structures in Digitized Lexical Resources using Conditional Random Fields</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luca</forename><surname>Foppiano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017-09">2017. Sep 2017</date>
+			<pubPlace>Leiden, Netherlands</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Enhancing Usability for Automatically Structuring Digitised Dictionaries</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Axel</forename><surname>Herold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">GLOBALEX workshop at LREC 2018</title>
+		<meeting><address><addrLine>Miyazaki, Japan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018-05">May 2018. 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Retro-digitizing and Automatically Structuring a Large Bibliography Collection</title>
+		<author>
+			<persName><forename type="first">David</forename><surname>Lindemann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018-12">Dec 2018</date>
+			<publisher>EADH</publisher>
+			<pubPlace>Galway, Ireland</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

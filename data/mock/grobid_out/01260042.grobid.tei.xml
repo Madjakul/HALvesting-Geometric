@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">DARIAH in Motion -Tangible infrastructure for intangible information</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="laboratory">DARIAH in Motion -Tangible infrastructure for intangible information. Intangible Cultural Heritage and Innovation</orgName>
+								<address>
+									<addrLine>Nov 2015</addrLine>
+									<postCode>01260042</postCode>
+									<settlement>Berlin</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="laboratory">DARIAH in Motion -Tangible infrastructure for intangible information. Intangible Cultural Heritage and Innovation</orgName>
+								<address>
+									<addrLine>Nov 2015</addrLine>
+									<postCode>01260042</postCode>
+									<settlement>Berlin</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Inria</forename><forename type="middle">&amp;</forename><surname>Dariah</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="laboratory">DARIAH in Motion -Tangible infrastructure for intangible information. Intangible Cultural Heritage and Innovation</orgName>
+								<address>
+									<addrLine>Nov 2015</addrLine>
+									<postCode>01260042</postCode>
+									<settlement>Berlin</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">DARIAH in Motion -Tangible infrastructure for intangible information</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">691FC013BEB05CA462C0299316D457BF</idno>
+					<note type="submission">Submitted on 21 Jan 2016 Distributed under a Creative Commons Attribution| 4.0 International License</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0" /><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>•</head><label></label><figDesc>Increased number of digitized and born-digital sources • Dealing with the digital life cycle -Creation, curation, enrichment, communication, archiving• Consequence for DARIAH -Building on the Long-established tradition of digital arts and humanities research in Europe -Contributing to sustaining data, technical services and above all expertise -The central role of researchers: DARIAH as collective intelligence -Sharing with outsiders: DARIAH as a platform • 2006: DARIAH @ ESFRI Roadmap • 2008 -2011: Preparatory Phase project -Stef Scagliola, Walter Scholger, Zoe Schubert, Manfred Thaller, … Live Version at: https://dariah.uni-koeln.de Based on DE database (Göttingen, Cologne) Showcase compiled in NL, implemented in DE TaDiRAH taxonomy implemented DARIAH Geobrowser implementation and Online Guide under construction ×Sustainability and accuracy of the course data ×National Moderators to edit/curate national data &gt; nomination by National Coordinators ×Data curation as national In-Kind contribution?</figDesc></figure>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0" />			</div>
+			<div type="references">
+
+				<listBibl/>
+			</div>
+		</back>
+	</text>
+</TEI>

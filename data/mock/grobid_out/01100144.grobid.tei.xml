@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Episciences IAM: un projet éditorial entre rupture et continuité</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Gaëlle</forename><surname>Rivérieux</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Alain</forename><surname>Monteil</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Jacques</forename><surname>Millet</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Hélène</forename><surname>Lowinger</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="department">Institut für Deutsche Sprache und Linguistik</orgName>
+								<orgName type="institution">Inria</orgName>
+								<address>
+									<addrLine>France 1</addrLine>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="institution">Humboldt-Universität zu Berlin</orgName>
+								<address>
+									<country key="DE">Allemagne</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Episciences IAM: un projet éditorial entre rupture et continuité</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">5AAEFBB12DE9D9ED0958ADEED757A31A</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Overlay Journal</term>
+					<term>Open Access</term>
+					<term>Repository</term>
+					<term>Scientific publication</term>
+				</keywords>
+			</textClass>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Résumé</head><p>Avec le lancement <ref type="bibr">de</ref>  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction 1.Contexte historique et rôle des journaux scientifiques</head><p>Les revues scientifiques, nées il y a plus de trois siècles <ref type="bibr" target="#b6">(Mabe, 2009)</ref> en Europe, se sont constituées pour répondre à plusieurs besoins. Elles ont permis la diffusion et la communication des découvertes et avancées scientifiques, réunies sur un support qui soit stable et archivable. C'est en 1665 qu'Henry Oldenburg, homme de science visionnaire, alors premier secrétaire de la « Royal Society of London for Improving Natural Knowledge », reçoit l'autorisation de publier la première revue scientifique : « Philosophical Transactions of the Royal Society of London ». Cette publication établit les principes fondateurs des revues scientifiques: la priorité scientifique et l'examen par les pairs. La création de cette revue a suivi le modèle initié par la publication, en France, quelques mois plus tôt du « Journal des sçavans », qui annonçait les nouveautés dans le monde scientifique. En ce sens, il fut le premier périodique littéraire et scientifique à jouer un rôle dans la diffusion des connaissances en permettant la communication entre savants. Ces deux revues ont contribué à créer une dynamique d'échanges, genèse des futures communautés scientifiques. Depuis leur naissance, les fonctions des revues ont évolué. On les trouve maintenant totalement intégrées au coeur du processus de recherche. Elles l'alimentent, en le nourrissant des résultats produits antérieurement, et elles en diffusent le fruit au plus grand nombre, par le biais de nouveaux résultats. En outre, leur stabilité offre un mécanisme d'enregistrement pérenne et de validation officielle des résultats de recherche. Ce faisant, elles permettent de dater les résultats scientifiques et d'en attester la qualité par un processus de révision par les pairs.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.2">Les revues et leurs nouveaux enjeux</head><p>Plus récemment, les revues se sont trouvées au coeur de nouveaux débats. Utilisées pour évaluer le travail des chercheurs (entre autres, au moyen d'indicateurs bibliométriques), elles sont également devenues l'objet d'un marché éditorial très lucratif dont les établissements d'enseignement supérieur et les organismes de recherche sont captifs. Tel est le contexte de l'édition scientifique, sujet de notre première partie. Le concept d'épijournal et la déclinaison de mise en oeuvre avec Episciences IAM seront abordés dans une seconde partie. Enfin nous conclurons notre propos par les enjeux de l'édition scientifique au regard du domaine scientifique de l'informatique.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Le contexte de l'édition scientifique</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Un marché éditorial tendu</head><p>Le marché de l'édition scientifique, tant par sa taille que par le revenu qu'il génère, est devenu une véritable industrie. En 2012, on ne comptait pas moins de 28 100 revues académiques vivantes, qui collectivement publiaient 1,8 million d'articles par an <ref type="bibr" target="#b7">(Mabe et Ware, 2012)</ref>. Le revenu généré est estimé à 9,4 milliards US$, rien que pour les revues scientifiques, techniques et médicales anglophones <ref type="bibr" target="#b7">(Mabe et Ware, 2012)</ref>. Pourtant, ce marché n'a pas bénéficié aux acteurs du monde académique (scientifiques, bibliothèques) qui ont vu leurs dépenses d'abonnements aux revues connaître un accroissement sans précédent. Le schéma suivant (fig. <ref type="figure">1</ref>) illustre cette augmentation avec une hausse de plus de 400% entre 1986 et 2011 des dépenses d'abonnements dans les bibliothèques américaines. Quant aux auteurs, si l'accroissement du nombre de revues a pu au départ servir les besoins de communication de disciplines scientifiques de plus en plus nombreuses, l'inflation des titres de revues contribue à complexifier le paysage éditorial et à augmenter considérablement le nombre d'articles qu'un chercheur doit s'approprier pour conduire ses recherches.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Figure 1. Augmentation de 400% des dépenses d'abonnements des bibliothèques américaines entre 1986 et 2011</head><p>Cette hausse des dépenses, corrélée à des négociations tendues entre professionnels de l'information et certains éditeurs a conduit à une véritable « crise du coût des abonnements » ou « serial crisis » dans les pays anglo-saxons. Ces difficultés ont néanmoins apporté une raison supplémentaire pour rechercher des solutions alternatives afin de réduire les coûts et explorer de nouveaux modèles éditoriaux.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Vers de nouveaux modèles de diffusion</head><p>Pour s'opposer à cet abus de position dominante qu'ont construit certains grands éditeurs, des voix, individuelles et collectives, en France et dans le monde, se sont élevées de la part de scientifiques comme de bibliothécaires. Par exemple, celles du consortium Couperin qui dans son manifeste<ref type="foot" target="#foot_0">1</ref> affirme des valeurs telles que : « faire de l'information scientifique et technique le bien commun de la communauté scientifique » ; ainsi qu'une réappropriation des contenus scientifiques par la communauté « pour une information et une édition scientifiques au service de la recherche, de l'enseignement supérieur et de la démocratie ». Le consortium se prononce aussi sur le rôle attendu des éditeurs : « Couperin reconnaît le rôle positif et déterminant exercé de tous temps par les éditeurs scientifiques mais refuse le diktat de certains groupes mondiaux aux visées monopolistiques » et affirme son soutien à des solutions nouvelles : « Couperin s'engage, aux côtés d'autres acteurs internationaux de l'information, à promouvoir l'édition scientifique libre et alternative ». La situation financière tendue à laquelle de nombreux établissements doivent faire face ainsi que la mobilisation des scientifiques et des professionnels de l'information semblent constituer autant de forces favorables à l'émergence d'un nouveau modèle de publication. A la fin du XXème siècle, l'avènement du World Wide Web a vu apparaître les premières initiatives en faveur de l'Open Access. Le lancement d'ArXiv<ref type="foot" target="#foot_1">2</ref> en 1991, première archive ouverte dédiée à la physique, a permis aux auteurs le dépôt en auto-archivage de leurs documents de travail. L'objectif étant de permettre la diffusion et l'échange immédiat, avant même leur publication dans une revue. Les déclarations de Budapest<ref type="foot" target="#foot_2">3</ref> (2001) puis Berlin<ref type="foot" target="#foot_3">4</ref> (2003) signées par de nombreux établissements sont autant d'évènements fondateurs de ce mouvement de l'Open Access. D'autres archives ouvertes ont depuis vu le jour, permettant dès lors le partage et la communication immédiate d'articles scientifiques au plus grand nombre, telle l'archive ouverte HAL<ref type="foot" target="#foot_4">5</ref> (Hyper Article en Ligne) en France, qui à ce jour compte plus de 270 000 documents en texte intégral sur son serveur. Ce nouveau mode de diffusion a poussé les éditeurs à se positionner vis-àvis de l'Open Access et à l'intégrer comme l'une des composantes de leur modèle économique. Cela les a conduits à se prononcer sur leur politique vis-à-vis de l'Open Access, sur les durées d'embargo parfois imposées avant la diffusion définitive en Open Access, mais aussi sur leur modèle économique avec l'émergence du « Gold Open Access ».</p><p>Plusieurs voies, explicitées par le JISC<ref type="foot" target="#foot_5">6</ref> (Joint Information Systems Committee) dans son site Sherpa Romeo<ref type="foot" target="#foot_6">7</ref> , existent pour qualifier et clarifier la position et les restrictions des éditeurs (indications données pour un éditeur ou pour une revue en particulier) vis-à-vis d'un dépôt d'article dans une archive ouverte (Green, Blue, Yellow, White). En parallèle, deux grandes voies se sont ouvertes dans le paysage de l'Open Access. La voie verte (Green Open Access) consiste en un auto-archivage par l'auteur de son manuscrit dans une archive ouverte (institutionnelle, thématique etc.) et donc, sa diffusion immédiate sans aucune restriction. La voie dorée (Gold Open Access), modèle parfois très onéreux, permet la diffusion immédiate d'un article scientifique dans sa « version éditeur » sous couvert du paiement d'une redevance (article processing charge) qui varie de 1500 à 5000 US$ l'article. Cette dernière est supposée couvrir les frais de l'éditeur en échange de ses prestations : organisation de l'évaluation des articles, mise en forme éditoriale, archivage à long terme et mise en ligne. Le paiement de la redevance est le plus souvent pris en charge par les établissements employant les auteurs, en fonction de leurs moyens et de leur politique. Cependant, ce modèle est assujetti aux budgets dont disposent les établissements et aux tarifs pratiqués par les éditeurs qui les fixent librement et/ou mêlés à d'autres modèles type « hybrides » qui n'en facilitent pas forcément la compréhension.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Du journal à l'épi-journal : pour un partage plus équitable des</head><p>découvertes scientifiques Le secteur de l'édition académique a rapidement évolué ces dix dernières années. Cette évolution s'est notamment traduite au vu de l'accroissement de la part d'articles déposés en Open Access, puis au travers des débats qui ont eu lieu sur le sujet (telles que les « Journées Couperin<ref type="foot" target="#foot_7">8</ref> » en 2013), l'émergence de mandats de dépôts (par exemple à l'Université de Liège) et enfin avec l'ampleur prise par le modèle « Gold » ou « Voie dorée » chez les éditeurs commerciaux. Au sein des communautés scientifiques, le sujet de l'édition scientifique tient une place importante. A l'occasion des travaux issus du workshop « Perspectives Workshop: Publication Culture in Computing Research »<ref type="foot" target="#foot_8">9</ref> de Dagstuhl en 2012, Nicolas Holzschuch, directeur de recherche chez Inria et responsable scientifique de l'équipe Maverick affirme : « There is room for a new publication model, combining Open Archives for immediate access with editorial peer-reviewing » <ref type="bibr" target="#b5">(Holzschuch, 2012)</ref>. Dans cet article, il dresse un cahier des charges décrivant le système attendu par les scientifiques de la communauté informatique et mathématiques appliquées. Il s'agirait d'une archive ouverte qui permette les échanges entre scientifiques et qui réunit plusieurs types d'objets tels que des images, codes, vidéos en liaison avec l'article. L'outil doit être robuste, souple, multidisciplinaire, durable et lié à un processus éditorial de haute qualité scientifique. Enfin, l'outil doit être indépendant financièrement.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Le concept d'épi-journal avec Episciences</head><p>3.1 L'épi-journal : au-dessus de l'archive ouverte Parmi les nouveaux modèles de publication, l'épi-journal se définit comme un journal électronique en libre accès, constitué d'articles soumis à une revue au travers d'une archive ouverte et non publiés par ailleurs. C'est ce modèle de journal qui est visé par le projet Episciences IAM<ref type="foot" target="#foot_9">10</ref> (Informatics and Applied Mathematics) porté par Inria<ref type="foot" target="#foot_10">11</ref> . Cela consiste à favoriser l'émergence de nouvelles revues en libre accès ou aider à libérer les revues des contraintes commerciales généralement imposées par les éditeurs dès qu'il s'agit d'offrir un accès définitif, libre et immédiat aux résultats scientifiques, sans embargo ni contrepartie financière. Il s'agit de proposer aux scientifiques une alternative à l'édition classique, qui soit scientifiquement et économiquement viable. L'écologie d'un tel projet rompt avec l'édition commerciale traditionnelle en offrant des contenus scientifiques de haut niveau, sans frais pour l'auteur, comme pour le lecteur. Ce projet, ainsi que ses services associés, seront conçus comme une infrastructure de recherche portée par un consortium d'institutions qui attribue des moyens pour assurer le libre accès. L'objectif est de réunir progressivement des partenaires qui pourront fournir une contribution sous forme de ressources financières et/ou humaines. Evidemment, ce projet ne connaîtra la réussite que si les scientifiques s'emparent de cette question et jouent pleinement leur rôle. Il s'agira de bâtir une ligne éditoriale, de construire un comité de lecture de grande qualité, d'assurer un examen par les pairs honnête et transparent, de citer les publications de ces épi-journaux au même titre que celles des revues « classiques », et de reconnaître ces publications à leur juste valeur dans tous les processus d'évaluation tant individuel (recrutements, promotions) que collectif (équipes, laboratoires, établissements). Il est attendu des communautés scientifiques qu'elles s'organisent en « méta-comités thématiques<ref type="foot" target="#foot_11">12</ref> », qui regrouperont les experts internationaux de renom dans leurs domaines. Ces méta-comités garantiront cohérence et qualité scientifiques en donnant leur accord préalable à toute création d'épi-journal. Ce nouvel environnement éditorial s'adresse autant à des revues existantes, souhaitant s'affranchir d'un environnement commercial, qu'à des revues émergentes, créées « ex-nihilo ».</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Le processus éditorial dans la plateforme Episciences.org 13</head><p>Pour être soumis, les articles doivent être déjà en ligne dans une archive ouverte compatible avec Episciences.org. Cette compatibilité se caractérise par l'archivage pérenne du document et la gestion des versions successives. Les articles sont ensuite soumis à un processus éditorial (relecture par les pairs) en liaison directe avec l'archive ouverte d'origine. La gestion du workflow éditorial est assurée au moyen de la plateforme technique Episciences.org développée et hébergée par le CCSD 14 . Une fois connecté à la plateforme Episciences, l'auteur soumet son document en indiquant l'identifiant affecté par l'archive ouverte d'origine. Le document est alors « vu » par la plateforme Episciences. Le processus éditorial peut commencer après que le rédacteur en chef de l'épijournal ait assigné des relecteurs et que ces derniers aient accepté la relecture. Le processus (voir fig. <ref type="figure" target="#fig_0">2</ref> et 3) se décline alors selon les principes traditionnels d'évaluation et de révision par des relecteurs. Ceux-ci pourront accepter l'article en l'état, demander des modifications ou le rejeter. Une grille de relecture, paramétrée au préalable par le comité de rédaction assiste les relecteurs dans leur tâche. Dans le cas où un article est rejeté par un épi-journal, celui-ci reste toujours accessible dans son archive ouverte d'origine, sans qu'aucun lien ne puisse être fait avec l'épijournal. La publication officielle dans la revue ne se réalise qu'après acceptation finale par le comité éditorial scientifique. Comme dans le cas d'une revue scientifique traditionnelle, l'évaluation, le retour critique et la discussion sur la publication sont assurées par des scientifiques. Des itérations peuvent avoir lieu en cas de demande de corrections. Enfin, l'article publié dans la revue apparaîtra dans l'archive ouverte comme une nouvelle version du document. Cependant quelques différences majeures sont à souligner avec l'édition traditionnelle : Les articles édités dans un épi-journal seront soumis à une licence CC-BY garantissant aux auteurs le respect de leurs droits patrimoniaux tout en assurant un libre accès au lecteur. De part leur mise en ligne en archive ouverte, parfois très en amont d'une soumission à un épi-journal, les articles auront déjà pu faire l'objet d'échanges informels entre scientifiques. Enfin, le processus éditorial est totalement géré par les communautés scientifiques de même que la gestion de la candidature d'un épi-journal est examinée par un méta-comité éditorial du domaine scientifique concerné.   </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Services offerts aux épi-journaux avec la plateforme</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Les revues et leurs enjeux pour la communauté IAM</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">Une singularité éditoriale</head><p>Il est souvent convenu (Bernat, 2012) dans la communauté informatique que les conférences internationales avec comité de programme sont plus essentielles pour la carrière d'un chercheur que les revues. Ces lieux, espaces doubles, assurent une fonction d'échanges scientifiques en direct et une fonction éditoriale privilégiée. Ceux-ci sont peuvent être considérés plus efficients comme mode de transmission des idées que la publication d'un article dans une revue, qui peut parfois prendre plusieurs années à voir le jour <ref type="bibr" target="#b4">(Hermenegildo, 2012)</ref>. Il existe plusieurs raisons expliquant cette différence de communication scientifique dans la communauté informatique. Rappelons tout d'abord que la jeunesse de la science informatique fait qu'il n'existe pas le même historique de publications que pour des sciences multiséculaires, les conférences ont dès leur apparition été un lieu fondamental d'échanges et d'idées pour les informaticiens. Expliquons ensuite que les processus de sélection des articles dans les conférences informatiques n'ont rien à envier à ceux des revues, en termes de rigueur et de sélectivité. Des articles publiés dans certaines conférences particulièrement sélectives ont un plus grand impact scientifique qu'un article de revue <ref type="bibr" target="#b5">(Holzschuch, 2012)</ref>. Mentionnons aussi que la pluridisciplinarité, très souvent présente dans les travaux informatiques, rentre plus difficilement dans le périmètre de revues souvent très spécialisées. L'évolution à la fois matérielle et surtout conceptuelle de ces jeunes sciences nécessite une adaptation thématique que, contrairement à des revues trop « figées », autorisent des conférences. Alors que les chercheurs en informatique publient plus dans le cadre de conférences, leur évaluation <ref type="bibr" target="#b8">(Patterson et al., 1999)</ref> est souvent menée à partir de l'analyse bibliométrique des seules revues. Les publications issues de conférences, voire des objets tels que : logiciels, calculs…, pourraient sembler plus significatifs. Dans ce système, un des risques (qu'on peut aujourd'hui contrôler en étant faisant preuve de pédagogie et en explicitant le phénomène) est que les publications issues de conférences ne trouvent pas la place qu'elles méritent <ref type="bibr" target="#b4">(Hermenegildo, 2012)</ref>, notamment lors des évaluations, des recrutements ou des promotions des chercheurs.</p><p>Dans un autre ordre d'idée, Jonathan Grudin <ref type="bibr">(Grudin, 2012)</ref> analyse l'évolution des fonctions des revues et des conférences ces 30 dernières années. Ces deux médias de communication, forment l'écosystème de la publication scientifique. Avec la métaphore des « niches écologiques », il aide à prendre conscience des changements qui se produisent et de leurs conséquences. Grudin explique que jusqu'à une époque récente, les revues et les conférences avaient des rôles clairement distincts. Dans les années 80, les conférences, en devant très sélectives, ont envahi la niche écologique des revues. La question posée par Grudin est de savoir ce qui va se passer avec la niche laissée vide par les conférences. Les biologistes expliquent qu'en général une nouvelle espèce apparaît dans une niche écologique laissée vide. Nous pensons qu'il y a dans cette niche écologique vide, une place pour quelque chose de nouveau. Cet espace pourrait devenir celui des épi-journaux.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Alternatives pour faire évoluer le paysage éditorial</head><p>D'autres signes nous montrent que l'épi-journal semble un être un moyen de rencontrer les attentes des chercheurs en informatique. La connexion avec l'archive ouverte peut être un moyen de faire accélérer le workflow éditorial et de laisser une place aux échanges entre scientifiques. Fortnow <ref type="bibr" target="#b1">(Fortnow, 2012)</ref> décrit un système qui permettrait aux conférences et journaux d'accéder aux pre-prints déposés en archive ouverte pour offrir aux auteurs de soumettre leurs papiers à une critique plus constructive. Holzschuch <ref type="bibr" target="#b5">(Holzschuch, 2012)</ref>  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3">Le développement logiciel au coeur de la publication scientifique : vers la revue augmentée</head><p>Parmi les besoins exprimés par la communauté en informatique et mathématiques appliquées se pose la question de la reproductibilité des programmes décrits dans les articles de revue. Les questions de contrôle autour des données et le besoin de validation de résultats de recherche se posent notamment au moment de la publication des articles. En règle générale, les données de production scientifique ne sont pas présentées dans la publication elle-même puisqu'elles sont captives d'un environnement de développement logiciel totalement séparé des articles. Ce faisant, il est extrêmement difficile d'implémenter un algorithme uniquement par l'intermédiaire de la littérature scientifique par défaut d'informations disponibles sur les procédures à suivre. Cela pose deux types de problématiques en termes de difficultés de réutilisation des données de recherche et de leur vérification. Image Processing On Line 17 (IPOL) est une revue scientifique en libre accès en traitement de l'image. IPOL propose un nouveau paradigme de validation, de diffusion et de partage sous la forme d'une revue augmentée. Les articles sont présentés en ligne avec leurs algorithmes et leur implémentation validée dans un site web qui offre la possibilité de tester les jeux de données associés ou ses propres jeux de données. L'évaluation des données peut reposer sur plusieurs dimensions. Différents types d'information peuvent être requises pour qu'une publication dite « augmentée » puisse être validée. Cela peut concerner le code source et la spécification d'un programme, la description d'un programme, la procédure d'implémentation ou la certification d'une implémentation. Les critères d'évaluation peuvent comprendre la qualité de l'implémentation qui conditionne l'acceptation ou le rejet d'un article soumis au comité éditorial, l'analyse de la documentation associée, le codage, la standardisation, la portabilité sous plusieurs systèmes d'exploitation et les notions de dépendance vis-à-vis de données externes. Chaque article publié est référencé et indexé dans les bases de données bibliographiques et se voient attribuer un DOI. Les contenus sont en libre accès et les articles sont diffusés avec une licence CC-BY. Quant aux codes, ils sont distribués sous licence GPL ou BSD.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conclusion</head><p>Plus qu'une fin en soi, nous pensons que la revue de demain ne sera plus un objet isolé. Au contraire, elle s'inscrira dans un environnement plus complexe aux contours évolutifs (archives ouvertes, réseaux sociaux, données brutes de la recherche) qui obligera à une remise en question et à une adaptation fréquente des scientifiques et des professionnels de l'information. D'autres frontières se dessineront en présence de ces nouveaux modèles de communication et de contributions scientifiques qui imposeront aux établissements et aux organismes d'évaluation une révision des critères d'évaluations individuelles ou collectives en intégrant les épi-journaux comme toute autre revue du domaine. Désormais, des épi-journaux s'appuyant sur des archives ouvertes permettent un libre accès à tous à une littérature de haut niveau, labellisées par un comité scientifique. Un des enjeux de ces épi-journaux sera d'arriver à offrir une meilleure adéquation avec les attentes de la communauté IAM que ce soit en termes de coûts, de reprise en main de la chaîne éditoriale, de reconnaissance de de ces revues et d'échanges entre scientifiques. Un autre défi à relever sera de pouvoir relier les articles des revues avec des données brutes et/ou des programmes certifiés et documentés afin de rendre possible la réutilisation des données de recherche. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 2 .</head><label>2</label><figDesc>Figure 2. En cas de validation par le comité de rédaction, l'article est publié dans l'épi-journal.</figDesc><graphic coords="9,77.45,56.70,298.75,185.75" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 3 .</head><label>3</label><figDesc>Figure 3. En cas de refus de publication dans l'épi-journal, l'article reste dans son archive ouverte d'origine Globalement, l'archive ouverte offre un service de gestion du document (compte utilisateur, archivage à long terme, visibilité) et Episciences la possibilité de mettre en oeuvre ce nouveau modèle éditorial. Le workflow prévu par la plateforme va permettre aux manuscrits d'auteurs d'être soumis à une qualification scientifique en cas de validation.</figDesc><graphic coords="9,66.45,303.55,309.80,198.20" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="4,110.50,215.70,230.20,302.20" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>4 Premières expérimentations du projet « Episciences IAM : Informatics and applied mathematics » 4.1 JDMDH 15 (Journal of Data Mining and Digital Humanities)</head><label></label><figDesc>Episciences.orgDes services éditoriaux et d'assistance aux éditeurs-en-chefs et à leurs comités éditoriaux sont proposés par l'équipe d'Episciences IAM. Ils consistent à contribuer à la gestion du processus de révision par les pairs, à la gestion des volumes et numéros de la revue. L'appui est également offert en termes de qualité de données et métadonnées et en animation de communauté. Il s'agit également de promouvoir ces revues en les référençant et en les indexant dans les bases de données spécialisées. Cette revue, nativement créée avec Episciences, est la toute première à voir le jour depuis la plateforme. La thématique de la revue, qui couvre tous les aspects des méthodes de fouille de données pour les humanités numériques correspond à une discipline émergeante. Dans le cadre de la naissance de cette revue, son comité scientifique a collectivement décidé de s'investir dans un épi-journal avec l'aide d'Inria et d'Episciences. L'essentiel du travail a été de mettre en place le workflow éditorial et l'organisation des tâches incombant aux divers membres du comité éditorial, de créer le site web de la revue, de choisir une identité visuelle et d'aider les membres à prendre en main la plateforme. Désormais, le défi le plus important, qui est un véritable enjeu pour toute nouvelle revue, est de lui constituer son lectorat et de lui construire une réputation.</figDesc><table><row><cell>4.2</cell></row><row><cell>Enfin, il convient d'assurer le portage des données dans les archives</cell></row><row><cell>ouvertes participantes.</cell></row><row><cell>Les services techniques offerts consistent en l'hébergement par la</cell></row><row><cell>plateforme d'archives ouvertes nationale HAL, où chaque revue peut</cell></row><row><cell>bénéficier d'un environnement technique de haut niveau : fonctionnement</cell></row><row><cell>24h/24, 7j/7, archivage à long terme et infrastructure d'authentification</cell></row><row><cell>propre.</cell></row></table><note><p>En ce qui concerne la propriété intellectuelle, cette dernière est conservée par les auteurs qui n'autorisent le journal et la plateforme qu'à une licence non exclusive de droit de publication. Une revue pourrait décider qu'une licence s'applique, mais nous recommandons fortement l'adoption d'une licence CC-BY (attribution) qui est la plus adéquate aux contenus scientifiques. Quant aux signatures des auteurs, ces dernières doivent être complétées en accord avec les recommandations de leurs institutions En termes de propriété du titre de l'épi-journal, nous partons du principe que ce dernier doit être libre de toute appartenance privée. Quand un titre de revue n'appartient ni à une société savante, ni à une institution académique, un consortium d'institutions pourrait le parrainer et en prendre la propriété au service des comités éditoriaux. Inria est disposé à prendre cette responsabilité durant une période transitoire. Les étapes de copy-éditing sont laissées au libre choix du comité éditorial qui prendra la décision du style et du format de soumission. Généralement, une soumission au format LaTeX induit que les instructions de formatage soient suivies dans la plupart des cas sans apport de copy-editing supplémentaire dans les articles.</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>DMTCS (Discrete Mathematics and Theoretical Computer Science)</head><label></label><figDesc>DMTCS est une revue qui existe depuis 1997 et dont la thématique se situe au carrefour de deux disciplines : les mathématiques discrètes et l'informatique théorique. DMTCS a toujours été une revue en libre accès et par choix du responsable éditorial, n'a jamais été publiée par un éditeur classique. Depuis sa création, elle a d'abord été diffusée sur un serveur interne, la révision par les pairs se faisant par échange de mails. Elle a ensuite migré sur la plateforme Open Journal System 16 (OJS). L'intégration de cette revue dans Episciences a impliqué la reprise des données de tous les numéros antérieurs (34 au total) et de la quinzaine de volumes qui la composent. Au total, ce sont 411 articles incluant des actes de conférences et numéros spéciaux qui ont été importés dans l'archive ouverte HAL qui sert d'archive de référence pour la conservation des PDF à long terme. Les données concernées sont d'une part les fichiers PDF des articles et d'autre part les métadonnées. Seules les données relatives aux utilisateurs, lesquelles auraient pu servir à compléter les affiliations des auteurs dans HAL et les fichiers au format Postscript n'ont pu être réutilisés.</figDesc><table /><note><p>La méthode d'import s'est appuyée sur le format BibTeX, suite à l'impossibilité d'utiliser les différents formats d'export offerts par OJS (PubMed, XML, DOAJ). En effet, ces derniers se sont avérés trop lacunaires vis-à-vis des informations attendues par l'archive ouverte HAL. L'avantage de l'import BibTeX dans HAL est que cette méthode, efficace, est bien maîtrisée par les documentalistes d'Inria. Finalement, le plus gros effort s'est porté sur la complétion des affiliations des auteurs. Le temps nécessaire pour l'intégration dans HAL est d'environ 15 à 20 minutes par référence.</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head></head><label></label><figDesc>propose d'inverser l'ordre de publication en incitant les auteurs à déposer leurs articles dans une archive ouverte. L'article serait ainsi exposé aux commentaires constructifs et aux échanges permettant de le faire évoluer positivement, puis serait soumis ensuite à un comité de lecture de revue. Les commentaires apportés par la communauté permettraient aux lecteurs de poser des questions précises sur les algorithmes utilisés par exemple. Ces échanges constructifs, réalisés au travers des réseaux sociaux le plus souvent, incarnent ce que Holzschuch nomme le « collège invisible » et promeuvent la qualité de l'article. Ensuite, la soumission de l'article à une revue qui l'accepte in fine, labellise et atteste le niveau scientifique dudit article. Ce processus permettrait de rendre les résultats scientifiques disponibles plus rapidement tout en assurant une caution scientifique grâce à la validation par un comité. Dans cet ordre d'idée, le projet Episciences IAM apporte une plus-value aux articles déposés dans les archives ouvertes. Une labellisation est accordée aux articles, apportée par les comités éditoriaux, dès qu'ils sont publiés dans un épi-journal. Dialogues, échanges et critiques constructives sont également possibles en amont de la publication officielle puisqu'un auteur peut-être contacté suite à son dépôt dans une archive ouverte, et ce, indépendamment du processus éditorial.</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head></head><label></label><figDesc>BibliographieBERNAT, Andrew P (2012). Thoughts on the publication culture in computing research. In Report from Dagstuhl Perspective Workshop : Publication Culture in Computing Research. 12452 . Dagstuhl, p.26. [En ligne] Disponible à : http://drops.dagstuhl.de/opus/volltexte/2013/3977/pdf/dagrep_v002_i011_p 020_s12452.pdf (Page consultée le 7 août 2014) BROWN, Josh (2010). An introduction to overlay journals Rapport. [En ligne]. Disponible à : http://discovery.ucl.ac.uk/19081/1/19081.pdf (Page consultée le 7 août 2014). /www.ifla.org/files/assets/hq/publications/ifla-journal/ifla-journal-36-1_2010.pdf (Page consultée le 7 août 2014)</figDesc><table><row><cell cols="7">CASSELLA, Maria ; CALVI, Licia. (2010). New journal models and publishing</cell></row><row><cell cols="7">perspectives in the evolving digital environment. In IFLA Journal, vol. 36,</cell></row><row><cell>no.1,</cell><cell>pp.7-15</cell><cell>[En</cell><cell>ligne]</cell><cell>Disponible</cell><cell>à</cell><cell>:</cell></row><row><cell>http:/</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>http://www.couperin.org/presentation</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>http://arxiv.org/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>http://www.budapestopenaccessinitiative.org/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>http://openaccess.mpg.de/Berlin-Declaration</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_4"><p>http://hal.archives-ouvertes.fr</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_5"><p>http://www.jisc.ac.uk/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_6"><p>http://www.sherpa.ac.uk/romeo/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_7"><p>http://couperin.sciencesconf.org/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="9" xml:id="foot_8"><p>http://www.dagstuhl.de/en/program/calendar/semhp/?semnr=12452</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="10" xml:id="foot_9"><p>http://episciences.org/page/epiiam</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="11" xml:id="foot_10"><p>http://www.inria.fr/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="12" xml:id="foot_11"><p>Voir le méta-comité EPI-Maths porté par l'Institut Fourier UMR5582 du CNRS et de l'Université Joseph Fourier (Grenoble) : http://www.episciences.org/page/epimath</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="13" xml:id="foot_12"><p>http://episciences.org/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="15" xml:id="foot_13"><p>http://jdmdh.episciences.org/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="16" xml:id="foot_14"><p>https://pkp.sfu.ca/ojs/</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Conference Paper Selectivity and Impact</title>
+		<author>
+			<persName><forename type="first">Jilin</forename><forename type="middle">;</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joseph</forename><forename type="middle">A</forename><surname>Konstan</surname></persName>
+		</author>
+		<ptr target="http://dl.acm.org/citation.cfm?id=1743569" />
+	</analytic>
+	<monogr>
+		<title level="m">Communications of the ACM</title>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="volume">53</biblScope>
+			<biblScope unit="page" from="79" to="83" />
+		</imprint>
+	</monogr>
+	<note>En ligne. Page consultée le 7 août 2014</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Separating the editorial from the distribution in CS publication</title>
+		<author>
+			<persName><forename type="first">Lance</forename><surname>Fortnow</surname></persName>
+		</author>
+		<ptr target="http://www.dagstuhl.de/mat/Files/12/12452/12452.FortnowLance.Paper.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">Report from Dagstuhl Perspective Workshop : Publication Culture in Computing Research. 12452 . Dagstuhl</title>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page">28</biblScope>
+		</imprint>
+	</monogr>
+	<note>En ligne. Page consultée le 7 août 2014</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Journal-conference interaction and the competitive exclusion principle</title>
+		<author>
+			<persName><forename type="first">Jonathan</forename><surname>Grudin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ACM Interactions</title>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="page" from="68" to="73" />
+		</imprint>
+	</monogr>
+	<note>En ligne</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Disponible</surname></persName>
+		</author>
+		<ptr target="https://interactions.acm.org/archive/view/january-february-2013/journal-conference-interaction-and-the-competitive-exclusion-principle" />
+		<imprint/>
+	</monogr>
+	<note>Page consultée le 7 août 2014</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<author>
+			<persName><forename type="first">Manual</forename><forename type="middle">V</forename><surname>Hermenegildo</surname></persName>
+		</author>
+		<ptr target="http://www.dagstuhl.de/mat/Files/12/12452/12452.HermenegildoManuel.Paper.pdf" />
+		<title level="m">Report from Dagstuhl Perspective Workshop : Publication Culture in Computing Research. 12452 . Dagstuhl</title>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="29" to="30" />
+		</imprint>
+	</monogr>
+	<note>Conferences vs. Journals in CS, what to do? Evolutionary ways forward ICLP/TPLP Model. En ligne. Page consultée le 7 août 2014</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Open Archives and the Invisible College: driving forces towards a new publication model</title>
+		<author>
+			<persName><forename type="first">Nicolas</forename><surname>Holzschuch</surname></persName>
+		</author>
+		<ptr target="http://hal.inria.fr/hal-00749806" />
+	</analytic>
+	<monogr>
+		<title level="m">Report from Dagstuhl Perspective Workshop : Publication Culture in Computing Research. 12452 . Dagstuhl</title>
+		<imprint>
+			<date type="published" when="2012">2012. 2012</date>
+			<biblScope unit="page">31</biblScope>
+		</imprint>
+	</monogr>
+	<note>En ligne. Page consultée le 7 août 2014</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Scholarly publishing</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Mabe</surname></persName>
+		</author>
+		<idno type="DOI">10.1017/S1062798709000532</idno>
+		<ptr target="http://dx.doi.org/10.1017/S1062798709000532" />
+	</analytic>
+	<monogr>
+		<title level="j">European Review</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="page" from="3" to="22" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+	<note>En ligne. Page consultée le 7 août 2014</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<author>
+			<persName><forename type="first">Michael</forename><forename type="middle">;</forename><surname>Mabe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Ware</surname></persName>
+		</author>
+		<ptr target="http://www.stm-assoc.org/2012_12_11_STM_Report_2012.pdf" />
+		<title level="m">The STM report : an overview of scientific and scholarly publishing</title>
+		<imprint>
+			<publisher>The Hague, International Association of Scientific, Technical and Medical Publishers</publisher>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+	<note>3 rd edition. En ligne. Page consultée le 7 août 2014</note>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Evaluating computer scientists and engineers for promotion and tenure</title>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">(</forename><surname>Patterson</surname></persName>
+		</author>
+		<ptr target="http://cra.org/resources/bp-view/evaluating_computer_scientists_and_engineers_for_promotion_and_tenure/" />
+	</analytic>
+	<monogr>
+		<title level="m">Computing Research News, (Best practices memo)</title>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+	<note>En ligne. Page consultée le 7 août 2014</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Exploring overlay journals: the RIOJA project</title>
+		<author>
+			<persName><forename type="first">Panayiota</forename><forename type="middle">;</forename><surname>Polydoratou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>Moyle</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">CERN Workshop on Innovations in Scholarly Communication (OAI5)</title>
+		<meeting><address><addrLine>Geneva, Switzerland</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+	<note>En ligne</note>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">The Deconstructed Journal Revisited -A Review of Developments</title>
+		<author>
+			<persName><forename type="first">John</forename><surname>Smith</surname></persName>
+		</author>
+		<ptr target="http://elpub.scix.net/data/works/att/0314.content.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">ELPUB2003 :From information to knowledge: Proceedings of the 7th ICCC/IFIP International Conference on Electronic Publishing Universidade do Minho, Portugal</title>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+	<note>En ligne. Page consultée le 7 août 2014</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Where to send your paper</title>
+		<author>
+			<persName><forename type="first">Jan</forename><surname>Van Leeuwen</surname></persName>
+		</author>
+		<ptr target="http://www.dagstuhl.de/mat/Files/12/12452/12452.vanLeeuwenJan.Paper.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">Report from Dagstuhl Perspective Workshop : Publication Culture in Computing Research. 12452 . Dagstuhl</title>
+		<imprint>
+			<date type="published" when="2012">2012. 2012</date>
+			<biblScope unit="page">31</biblScope>
+		</imprint>
+	</monogr>
+	<note>En ligne. Page consultée le 7 août 2014</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

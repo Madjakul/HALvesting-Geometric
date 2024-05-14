@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Eléments de convivialité dans un dialogue de commande multimodal 1</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">CRIN</orgName>
+								<orgName type="institution" key="instit2">CNRS/INRIA-Lorraine</orgName>
+								<address>
+									<addrLine>B.P. 239</addrLine>
+									<postCode>54506</postCode>
+									<settlement>Vandoeuvre Lès Nancy</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Bertrand</forename><surname>Gaiffe</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">CRIN</orgName>
+								<orgName type="institution" key="instit2">CNRS/INRIA-Lorraine</orgName>
+								<address>
+									<addrLine>B.P. 239</addrLine>
+									<postCode>54506</postCode>
+									<settlement>Vandoeuvre Lès Nancy</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jean-Marie</forename><surname>Pierrel</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">CRIN</orgName>
+								<orgName type="institution" key="instit2">CNRS/INRIA-Lorraine</orgName>
+								<address>
+									<addrLine>B.P. 239</addrLine>
+									<postCode>54506</postCode>
+									<settlement>Vandoeuvre Lès Nancy</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Eléments de convivialité dans un dialogue de commande multimodal 1</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">834BB0CAF2A8133FE2DA5B6981B53632</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:01+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Interaction multimodale</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Dans cet article, nous présentons différents points que nous avons développé afin de mettre en oeuvre un système de dialogue de commande multimodal au dessus d'un logiciel multimédia existant. Jusqu'à maintenant beaucoup d'attention s'est porté sur l'étude des phénomènes référentiels (Kleiber 81,90, Gaiffe 91) parce qu'une bonne compréhension de ceux-ci donne une meilleure continuité au dialogue et donc pour l'utilisateur plus de naturel. A l'opposé (mais nous verrons que ceci est complémentaire) nous abordons ici le problème du traitement des informations prédicatives contenues dans un énoncé pour montrer comment leur gestion adéquate permet à la fois de faciliter la compréhension et de guider l'utilisateur profane ou simplement étourdi dans sa tâche. Notre objectif étant à terme d'intégrer ces phénomènes aux phénomènes référentiels dans un souci d'amélioration de la convivialité des systèmes de dialogue de commande multimodaux.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.1">Structure des énoncés</head><p>Dans le cadre de la mise en oeuvre de nouvelle interfaces destinées à assurer un échange optimum entre un usager et un système informatique, de nombreuses options peuvent être choisies, de l'amélioration des systèmes de fenêtrage à l'étude de nouveaux modes d'interaction (tablette graphique, écran tactile, gant de désignation). La perspective que nous avons adoptée correspond à chercher à prendre en compte au maximum les dispositions naturelles d'un utilisateur à utiliser le langage et éventuellement une désignation simple pour communiquer. Dans cette perspective, il est possible de décrire la structure d'un énoncé élémentaire d'un utilisateur comme la juxtaposition de deux informations : une proposition (au sens large par opposition au sens technique que prend ce terme en logique) et un acte de langage. Dans le cadre d'un dialogue de commande -plus réduit à ce titre qu'un dialogue d'interrogation de base de donnée par exemple -l'acte de langage se limite aux modalités d'ordre, d'affirmation (apport d'information) et éventuellement de question. On est loin des descriptions plus exhaustives faites par exemple par J. <ref type="bibr">Searle (1972)</ref>.</p><p>Notre intérêt va plutôt se porter sur la proposition contenue dans un énoncé de commande pour laquelle on peut mettre en évidence une partie prédicative contenant l'action que la tâche associée au dialogue doit effectuer et une partie référentielle permettant d'établir la liste des objets concernés par le prédicat. L'objectif de cet article est de montrer qu'il est possible à partir des parties référentielle et surtout prédicative d'un énoncé de mettre en oeuvre un certain nombre de méthodes visant à assurer une meilleure convivialité à l'interface fournie à l'utilisateur, ces méthodes nécessitant l'établissement de structures de représentation originales prenant en compte à la fois des aspects temporels et référentiels.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.2">Présentation générale du domaine.</head><p>Le cadre général de ce travail est la réalisation d'un gestionnaire de dialogue formant une interface supplémentaire pour un logiciel existant. Le logiciel que nous avons choisi : Multicard (un éditeur de document multimédia développé par Bull), présente différentes caractéristiques qui nous permettent d'envisager la mise en oeuvre d'un dialogue relativement élaboré avec celui-ci. Tout d'abord, la tâche associée au logiciel est suffisamment simple et consiste essentiellement à créer, détruire et modifier des objets qui formeront la base du futur document multimédia. Dans la version actuelle du logiciel, ces commandes sont accessible à l'utilisateur par l'intermédiaire d'une interface de type Macintosh (menus) que le dialogue envisagé doit rendre plus convivial. Mais par ailleurs, les objets apparaissent en nombre important, et surtout, sont de types très différents, ce qui impose à l'utilisateur une charge cognitive importante pour gérer son environnement. Ainsi, la mise en oeuvre s'en trouve complexifiée puisqu'il s'agit de procurer à l'utilisateur, dans le cadre d'un dialogue multimodal, tous les atouts nécessaires à une bonne spécification des objets sur lesquels il désire travailler. A ce stade nous pouvons donner une idée générale de la manière avec laquelle un tel gestionnaire de dialogue doit s'articuler avec la tâche et les différents modes (figure 1.1). Dans cet environnement, l'utilisateur et le système peuvent échanger des informations de différentes manières. Pour transmettre de l'information au système, l'utilisateur peut soit utiliser un mode Langage Naturel, implémenté par exemple sous la forme d'une entrée parole ou d'un clavier (du fait des difficultés liées actuellement à la première solution), soit un mode de Désignation, mis en oeuvre actuellement par l'intermédiaire d'une souris, mais pour lequel un véritable gant de désignation serait une solution plus naturelle (certains points envisagés au niveau de la référence se concoivent d'ailleurs mieux avec une telle entrée).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.3.">Eléments de continuité du dialogue.</head><p>Il est important de situer les énoncés d'un dialogue les uns par rapport aux autres à plus d'un titre. Certains problèmes de référence à des objets (anaphores pare exemple)ne peuvent se résoudre que dans cette continuité. Nous verrons dans la suite en quoi les références à des actions entrent aussi dans ce cadre de continuité via l'aspect gestion de plan.</p><p>Les éléments classique de continuité dans le dialogue relève de différentes approches :</p><p>• réthorique lorsqu'il s'agit d'argumentation <ref type="bibr" target="#b8">(Moeschler 1989)</ref>, qui ne nous intéresse que peu dans le cadre de dialogue de commande.</p><p>• cohérence dans la référence aux objets, les énoncés étant liés quand ils parlent des mêmes objets (c'est un point essentiel pour la résolution des anaphores).</p><p>• cohérence dans la référence aux actions : les actions successives induites par les énoncés peuvent refléter un plan de l'utilisateur.Détecter ce plan aide évidemment à gérer le dialogue et en particulier à résoudre des anaphores du type "refait le" ou "recommence". La suite de cet article montrera en quoi cela permet également de guider l'utilisateur dans sa tâche.</p><p>Evidemment, les deux derniers points influent l'un sur l'autre. Dans un plan de l'utilisateur, un certain nombre d'objets ou de types d'objets sont nécessairement récurrent. Enfin, dernière remarque, la cohérence dans la référence aux objets en lien avec les actions suppose une représentation de la vie des objets qui reflète leurs différents états. Nous évoquerons ces deux aspects de gestion des propriétés des objets de la tâche et de gestion de la continuité des actions (plan) dans les deux sections suivantes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Gestion des informations temporelles.</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">Mise à jour des propriétés des objets de la tâche.</head><p>Comme nous l'avons vu, une commande élémentaire au système est composée d'un opérateur et de n objets sur lesquels doit s'appliquer celui-ci (au sens large, puisque nous incluons ici les objets qui doivent être créés par la commande courante). Le problème de la référence, traité dans <ref type="bibr" target="#b3">(Gaiffe, 1991)</ref>, ne sera pas repris ici. Il est cependant important de retenir qu'une convivialité maximum est obtenue dès lors que l'on donne à l'utilisateur de multiples possibilités d'effectuer cette opération, avec en particulier la possibilité de réaliser des anaphores (propres au mode LN) ou des coréférences multimodales. La compréhension de tels expressions ne peut être faite de manière convenable qu'à la condition de mettre en oeuvre un mécanisme de focus généralisé par rapport à celui introduit par Sidner (81,83, Grosz 86) et schématisé figure 2.1. Si nous supposons ici résolus les problèmes de calcul de référence, nous disposons donc à ce stade d'un certain nombre de propriétés pour chacun de ces objets, propriétés qui vont être modifiées par l'application de la commande au niveau de la tâche. Il est important à ce stade de considérer les deux aspects de cette mise à jour en mettant en évidence les deux lieux où de l'information relative aux objets est enregistrée. En premier lieu, la tâche (ici Multicard) a ses propres structures de donnée et gère, pour chaque action, les modifications adéquates. Ces modifications peuvent être visibles à l'utilisateur (elles se traduisent alors par une modification de l'écran) ou invisibles (réorganisation éventuelle de la mémoire, ajout d'attributs liés au système etc…). Le dialogue ne doit s'occuper de ces modifications que dans la mesure où elles sont pertinentes pour l'utilisateur (i.e. l'utilisateur risque de s'en servir dans ses énoncés ultérieurs). De fait, le gestionnaire de dialogue doit posséder sa propre représentation de ces informations, représentation essentiellement symbolique, qui doit à la fois traduire un certain état graphique présent devant l'utilisateur et permettre une liaison avec les instructions en provenance du Langage Naturel<ref type="foot" target="#foot_1">2</ref> . Deux stratégies peuvent être alors envisagées : soit interroger régulièrement la tâche pour obtenir des renseignements sur les états respectifs des différents objets présents, soit tenir à jour -par une modélisation adéquate des actions -les propriétés des objets en supposant qu'un parallèle correct est établi entre les opérations réelles de la tâche et les "modèles" de celles-ci seuls connues du dialogue. La première solution, bien que plus précise, nécessite la mise en oeuvre de procédures de filtrage et de symbolisation d'informations arbitraires (puisque liées à un logiciel préexistant au dialogue), mais bien plus, elle impose une dépendance extrême du dialogue vis à vis de la tâche. L'autre démarche nous semble maintenant plus profitable car elle permet d'une part de disposer d'une information proche de celle manipulée par l'utilisateur dans ses énoncés et d'autre part, elle impose de disposer d'une représentation des opérateurs de la tâche qui, comme nous le verrons dans la section suivante, sont autant de briques élémentaires pour le calcul de plan d'aide à la réalisation des objectifs de l'utilisateur.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Reconnaissance et proposition de plans.</head><p>Dans un certain nombre de travaux sur le dialogue <ref type="bibr" target="#b1">(Agre, 1989</ref>) la notion de plan est introduite pour refléter la stratégie adoptée par le locuteur pour construire son discours. Dans le cadre d'un dialogue de commande tel que celui que nous considérons ici, cette notion nous paraît bien plus importante quand elle est reliée à la tâche ellemême parce qu'il est alors possible de mieux suivre les énoncés successifs de l'utilisateur et même parfois de lui proposer une aide dans le cadre de sa tâche. Cette gestion des plans est rendue nécessaire du fait que contrairement au dialogues gérés par <ref type="bibr" target="#b4">Grosz (1986)</ref>, l'arbre des sous-tâches n'est pas préexistant au dialogue mais construit au fur et mesure par l'utilisateur.</p><p>• reconnaissance de plan L'objectif est ici de situer l'action courante de l'utilisateur dans une perspective un peu plus large qui facilite la compréhension des énoncés à venir. Ceci d'une part en reliant les actions qui peuvent se correspondre (par exemple : vérification des préconditions d'une nouvelles action dans le cadre restreint de la précédente) et d'autre part de procurer des valeurs par défauts déduites du contexte dans l'hypothèse où effectivement l'utilisateur suit un plan cohérent. En fait de plan, nous considérons dans un premier temps des scripts d'action réduits tel que celui présenté figure 2.1, où deux actions sont considérées, une action de création de groupe (i.e. un ensemble de noeuds dans Multicard) suivie d'une création de noeud, pour laquelle il est possible d'ajouter une propriété par défaut, à savoir l'appartenance du noeud au groupe qui vient juste d'être créé. • proposition de plan Le calcul de plan pour l'utilisateur se place dans une perspective complémentaire d'aide à la mise en oeuvre d'un document Multicard. En effet, un utilisateur de Multicard ne connaît pas nécessairement toutes les préconditions associées à chaque action et même dans le cas contraire, il ne désire pas nécessairement énoncer tous les détails d'une opération menant à la création de tel ou tel objet. La solution de refuser systématiquement tous les ordres qui ne sont pas strictement applicables dans un contexte s 0 fixé n'est pas nécessairement la meilleure pour assurer une bonne convivialité à l'ensemble. Aussi avons nous choisi de permettre à l'utilisateur (jusqu'à un certain point) de se limiter à l'expression de jalons élémentaires dans la mise en oeuvre d'un document. Le principe est le suivant : si s 0 est l'état courant (les objets et leurs propriétés) et si P est une commande de l'utilisateur, si P(s 0 ) est applicable, alors on exécute simplement la commande, sinon, on propose à l'utilisateur une suite P 1 , P 2 , … P n d'actions élémentaires permettant d'atteindre les préconditions de P, à savoir tels que PP n …P 1 (s 0 ) soit réalisable. L'utilisateur valide alors cette séquence si elle correspond à son intention initiale. A titre d'exemple supposons simplement que l'utilisateur exprime l'action de supprimer un noeud qui s'avère contenir un lien avec un autre objet du document courant. Le système propose alors de supprimer au préalable ce lien afin d'atteindre l'une des préconditions de suppression d'un noeud qui est que celui ci soit vide de tout lien.</p><p>Il faut bien garder à l'esprit que les deux niveaux de plan que nous présentons ici présentent une granularité de description des actions assez différente. Dans le cas de la reconnaissance de plan, on se contente de relier des actions importantes susceptibles d'interagir. Dans le second cas chacune des actions élémentaires est déterminée et est proposée à l'utilisateur.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Conclusion.</head><p>Les différents éléments présentés ci-dessus ont essentiellement concerné le traitement de l'information prédicative d'une commande d'un utilisateur. Cependant, il est indispensable de ne pas séparer ce niveau d'information de celui de la référence qui participent conjointement, comme le fait justement remarquer J. <ref type="bibr" target="#b5">Hobbs (1979)</ref>, à la structuration et à la continuité du discours. Nous avons vu dans cet article que la représentation de certaines informations temporelles liées au traitement des actions était un point de passage obligé lors de la mise en oeuvre d'un système de dialogue de commande. Notre objectif est maintenant d'intégrer ces informations dans une représentation communes des objets référencés dans le discours et des événements qui leur sont associés. Cette étape, qui doit prendre en compte nos travaux en cours sur la représentation du temps (romary 91), permettra de réaliser une intégration similaire à celle réalisée dans le cadre de la DRT par B. <ref type="bibr" target="#b9">Partee (1984)</ref> par exemple. Enfin, signalons que ces différents axes de recherche font l'objet d'une attention particulière dans le cadre de la mise en oeuvre d'une nouvelle maquette pour le projet Multiworks.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 . 1 :</head><label>11</label><figDesc>Figure 1.1 : Articulation du dialogue avec la tâche et les différents modes.</figDesc><graphic coords="3,115.05,396.63,328.00,198.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 . 1 :</head><label>21</label><figDesc>Figure 2.1 : Structures de focus associées à une référence multimodale.</figDesc><graphic coords="5,115.05,193.24,368.00,206.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 2</head><label>2</label><figDesc>Figure 2.2 : script élémentaire de l'utilisateur.</figDesc><graphic coords="6,198.50,327.63,227.00,60.00" type="bitmap" /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>Ce travail a été mené dans le cadre du projet Esprit Multiworks.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>On pourra parler alors de véritable représentation de connaissances multimodales.</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Références</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">What are plans for ?</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Agre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Chapman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Designing Autonomous Agents : Theory and Practice from Biology to Engineering</title>
+		<editor>
+			<persName><forename type="first">P</forename><surname>Maes</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cambridge MA</addrLine></address></meeting>
+		<imprint>
+			<publisher>MIT Press</publisher>
+			<date type="published" when="1989">1989. 1991</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Vers un dialogue naturel homme-machine : apport des études sur les interfaces orales en langue naturelle</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Carbonell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Et Pierrel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Actes du colloque sur l&apos;ingéniérie des interfaces homme-machine</title>
+		<imprint>
+			<date type="published" when="1989">1989</date>
+			<pubPlace>Cargèse</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">References in a Multimodal Dialogue : towards a unified processing</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Gaiffe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Pierrel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. Eurospeech 91</title>
+		<meeting>Eurospeech 91</meeting>
+		<imprint>
+			<publisher>Gènes</publisher>
+			<date type="published" when="1991">1991</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Attention, Intentions and the structure of discourse</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Grosz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Sidner</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computational Linguistics</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="175" to="204" />
+			<date type="published" when="1986">1986</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Coherence and coreference</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Hobbs</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Cognitive Science</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="67" to="90" />
+			<date type="published" when="1979">1979</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Problèmes de référence : descriptions définies et noms propres</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kleiber</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1981">1981</date>
+			<publisher>Klincksieck</publisher>
+			<pubPlace>Paris</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Sur l&apos;anaphore associative : article défini et adjectif démonstratif</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kleiber</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Rivista di linguistica</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page">1</biblScope>
+			<date type="published" when="1990">1990</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Modélisation du dialogue : représentation de l&apos;inférence argumentative</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Moeschler</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1989">1989</date>
+			<publisher>Hermès</publisher>
+			<pubPlace>Paris</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Nominal and temporal anaphora</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Partee</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Linguistics and Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="243" to="286" />
+			<date type="published" when="1984">1984</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">Vers une meilleure intégration de la parole dans des systèmes de communication homme-machine</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Pierrel</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1990">1990</date>
+		</imprint>
+	</monogr>
+	<note>Traitement du signal</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Integration of spatial and temporal information produced by a natural language discourse</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Kmet</title>
+		<imprint>
+			<biblScope unit="volume">91</biblScope>
+			<biblScope unit="page" from="22" to="24" />
+			<date type="published" when="1991">1991. 1991</date>
+			<pubPlace>Sophia-Antipolis</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Searl</surname></persName>
+		</author>
+		<title level="m">Les actes de langage</title>
+		<meeting><address><addrLine>Hermann; Paris</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1972">1972</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Focusing for interpretation of pronouns</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Sidner</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">American Journal of Computational Linguistics</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="217" to="231" />
+			<date type="published" when="1981">1981</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Focusing and discourse</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Sidner</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Discourse Processes, 6</title>
+		<imprint>
+			<date type="published" when="1983">1983</date>
+			<biblScope unit="page" from="105" to="142" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

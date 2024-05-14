@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">TBX in ODD: Schema-agnostic specification and documentation for TermBase eXchange</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Stefan</forename><surname>Pernes</surname></persName>
+							<email>stefan.pernes@inria.fr</email>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+						</author>
+						<author>
+							<persName><forename type="first">Kara</forename><surname>Warburton</surname></persName>
+						</author>
+						<title level="a" type="main">TBX in ODD: Schema-agnostic specification and documentation for TermBase eXchange</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">5E56CDF129CDCEA685EABCCABEA1CF40</idno>
+					<note type="submission">Submitted on 6 Sep 2017 Distributed under a Creative Commons Attribution| 4.0 International License</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HAL is a multi-disciplinary open access archive for the deposit and dissemination of scientific research documents, whether they are published or not. The documents may come from teaching and research institutions in France or abroad, or from public or private research centers. L'archive ouverte pluridisciplinaire HAL, est destinée au dépôt et à la diffusion de documents scientifiques de niveau recherche, publiés ou non, émanant des établissements d'enseignement et de recherche français ou étrangers, des laboratoires publics ou privés.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>TermBase eXchange (TBX), the ISO standard for the representation and interchange of terminological data, is currently undergoing revision and will for the first time formalize overarching structural constraints regarding the definition and validation of dialects and XML styles. To match these requirements, the ODD specification language provides advanced subset selection and constraint specification capabilities covering both structure and content of text encoding formalisms. Following the literate programming methodology, it furthermore allows the definition of integrated resources, which contain formal specifications alongside their prose descriptions and usage examples. This paper first describes the meta-model behind TBX as well as current challenges in the context of its revision. From this follows a description of applicable ODD mechanisms and the design of an ODD architecture, which allows for a complete specification of present-day TBX.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Terminological Markup Framework and TermBase eXchange</head><p>Terminology standards have witnessed a long evolution since 1987 when a first pre-SGML format for storage and interchange via magnetic tapes was devised. <ref type="bibr">Published in 2003</ref><ref type="bibr">as ISO 16642 (2003)</ref>, the Terminological Markup Framework (TMF) marks a pivotal point in the succession of terminology standards as it constitutes a meta structure for terminology encoding which also provides the foundation for the more recent TBX format. TMF specifies a framework designed to provide guidance on the basic principles for representing data recorded in terminological data collections (ibid.). Its aims can be described as twofold <ref type="bibr">(Romary 2001, 2f)</ref>: (1) as a meta-model for terminological data representation it facilitates the description and comparison of existing interchange formats, and (2) it provides a mechanism for the flexible definition of interchange formats while safeguarding interoperability between them. The specification of such a meta-model thus eases the integration of different terminological databases with each other as well as with other lexical resources. In principle, TMF allows one to describe a potentially infinite set of Terminological Markup Languages (TML). Formally, this flexibility is achieved by describing the various components of terminological databases as either part of the structural skeleton or as data categories. This leads to the four elementary notions of TMF (ibid., 3f):</p><p>1. The meta-model: A structural skeleton for terminological entries following a concept-oriented, or onomasiological, view.</p><p>2. Information units taken from a Data Category Repository (DCR) as described in ISO 12620 <ref type="bibr">(1999)</ref> (a new version is about to be published).</p><p>3. Methods and representations: The actual implementation of a TML, combining the structural skeleton with the chosen data categories. This also comprises the mappings between data categories and the vocabularies used to express them (e.g. as an XML element or a database field).</p><p>4. A generic mapping tool: A methodology that maps any given TML onto the meta-model. The notion of a generic mapping tool can be replaced by the ODD architecture as proposed in this paper.</p><p>As a consequence of these elementary notions, the interoperability between two TMLs is reduced to a comparison of their respective use of data categories.</p><p>TermBase eXchange (TBX) as defined by ISO 30042 ( <ref type="formula">2008</ref>) is precisely an instantiation of the described meta-model alongside a specific selection of data categories. It is a reference implementation of TMF, taking the form of XML (thus its official specification is implemented as XML DTD, RelaxNG, and W3C schemas) and constituting what is nowadays called TBX-Default, or the master TBX dialect. It is designed to support various types of processes involving terminological data, including analysis, descriptive representation, dissemination, and interchange (exchange), in various computer environments (ibid.). TBX is currently undergoing extensive review as ISO CD30042 (2017): It establishes provisions for the specification of official TBX dialects, such as their minimum requirements in terms of structure and data categories. Furthermore, it is targeting increased interoperability by merging the content models of two alternative term information group elements, tig and ntig, into one termSec element. See Figure <ref type="figure" target="#fig_0">1</ref> for a short sample TBX entry (in accordance with the current Community Draft version). Additionally, two markup styles, data categories as tags (DCT) and data categories as attribute values (DCA), are defined. Apart from the need for a modular framework for dialect specification, a consequence of this development is that the specification of TBX itself will profit from tighter control over data categories, their identifiers and values, as well as data type information for these values. As has also been noted in the context of data exchange with Linked Open Data description formalisms such as RDF and OWL, the current specification of TBX does not provide data type description mechanisms in the classical sense, focussing mostly on string values based on W3C XML primitives (cf. <ref type="bibr">Reineke 2014, 7)</ref>. Thus, the strengths of an ODD architecture as proposed herein are a modular mechanism for the description of TBX dialects and an increased control over data types.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">The Text Encoding Initiative and One Document Does it all</head><p>The Text Encoding Initiative (TEI) maintains a set of guidelines which have become a de facto standard in the encoding of literary, historical, and linguistics research data. Being established in 1987, the TEI guidelines predate and inform a number of modern web and encoding standards. They comprise close to 500 elements which are organised in functional-thematic modules, classes of shared attributes, and macros for common content models. The broadness and complexity of the TEI is paired with its own specification language that allows for a modular definition of project-specific customizations. One Document Does it all (ODD) is a generic specification language, establishing a separation between the specification of TEI encoding models and current schema languages, be it a XML DTD, a RelaxNG schema, or a W3C schema. Thus, TEI encoding models are essentially agnostic about the choice of a representation language and could also map to formalisms other than XML <ref type="bibr">(Burnard 2013, 13)</ref>. Furthermore, ODD follows the literate programming paradigm and constitutes a single resource containing formal declarations alongside descriptive prose and examples of usage <ref type="bibr">(Burnard and Rahtz 2004, 3)</ref>. Figure <ref type="figure" target="#fig_1">2</ref> schematically displays the different aspects of processing ODD files.  Formal declarations in ODD concern foremost the key components of the TEI abstract model: elements, attributes, modules, classes, and macros. The last three components serve to reduce the overall systems complexity and allow a coarse-grained selection of characteristics for a TEI customization. Another major simplification stems from a conscious effort to provide uniform levels of description and hence processing allowing components to be added, changed, replaced, or deleted within a given context and at any point in a schema declaration <ref type="bibr">(Burnard and Rahtz 2004, 8)</ref>. Modifications of this kind can be chained together (ODD chaining), thus making it easy to supplement a broadly specified TEI customization with fine-grained, context-specific modifications. The context specificity of such declarations also allows for a tighter constraint on possible attribute values by means of data typing <ref type="bibr">(Burnard 2013, 10)</ref>:</p><p>The vast majority of attribute values are defined by reference to a data type macro as defined within the ODD system, which are in turn mapped to a W3C Schema data type or to an expression in RELAX NG syntax, thus allowing the ODD system to overlay additional semantics onto such bare data types (see Figure <ref type="figure">3</ref>, TEI datatypes). Additionally, a further layer of constraint specification can be added using ISO Schematron, making it possible to implement many of the informally expressed rules for good practice, which are typically found in the prose of encoding guidelines.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Description of the TBX in ODD architecture</head><p>Prior work has already established an ODD architecture for the ISO 30042 (2008) Basic dialect <ref type="bibr" target="#b7">(Romary 2014)</ref>. Furthermore, the TBX specification published in 2008 was actually written in ODD by the core editorial team of the time<ref type="foot" target="#foot_0">1</ref> . This approach -a major diversion from conventional ISO authoring practices -was undertaken as case study for the use of ODD to author ISO standards that contain a mixture of prose, machine-readable specifications and sample code, and that require schemas as derivative products. Major changes introduced by the current revision of TBX are a modular framework for the specification of dialects and the implementation of markup styles (DCA vs. DCT). Both requirements can be met via module selection in ODD. A prerequisite for this ODD chaining mechanism is a master ODD file, containing specifications for all core structure elements and permissible data categories (it is equivalent to TBX-Default, the so-called master TBX dialect). Specifying a new TBX dialect in ODD is achieved by selecting modules and classes, or parts thereof, and selecting data categories from the ISO Data Category Repository, which may also extend on the TBX default set of data categories. Using the ODD framework, this dialect can afterwards be transformed into any of the supported schema languages for document validation -which also serve as the official specification of TBX and its dialects. The same approach applies for the validation of one or the other data category style. For example, in order to generate a schema for validating files using only DCA style, one would define a subset of the master ODD that excludes the module TBXDCT and vice versa.</p><p>A preliminary overview of the module and class organization is shown in Figure <ref type="figure" target="#fig_2">4</ref>. File header elements, core structure, and elements specific to the two markup styles are grouped into modules, while </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Conclusion</head><p>In this paper we have described the specification of TermBase eXchange (TBX), which is currently undergoing revision as ISO CD30042 (2017), using the ODD specification language. The requirements for this upcoming version of TBX include a system for the derivation of dialects, which need to be verifiably compliant to the core structure and, in the best case, can be defined in a user-friendly, modular fashion. The ODD language provides such a framework and follows a literate programming approach where documentation, usage examples, and formal specifications all reside in one document. Additionally, it is a sustainable approach that does not depend on any specific schema language and is in principle able to map to the data modelling ecosystem of the day -an advantage given the long-term perspective of terminology encoding standards.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: Example TBX entry in DCT style</figDesc><graphic coords="4,70.87,137.82,453.54,215.78" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: ODD processing and chaining</figDesc><graphic coords="4,161.57,521.37,272.13,156.82" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: TBX module and class organization in ODD</figDesc><graphic coords="6,70.87,70.86,453.53,192.33" type="bitmap" /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>Arle Lommel, Alan Melby, and Kara Warburton</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Resolving the Durand Conundrum</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Burnard</surname></persName>
+		</author>
+		<ptr target="http://jtei.revues.org/842" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the Text Encoding Initiative</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">RelaxNG with son of ODD. Extreme Markup Languages</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Burnard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rahtz</surname></persName>
+		</author>
+		<ptr target="http://www.tei-c.org/cms/Talks/extreme2004/paper.html" />
+		<imprint>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Terminology and other language and content resources -Specification of data categories and management of a Data Category Registry for language resources</title>
+	</analytic>
+	<monogr>
+		<title level="m">ISO 12620</title>
+		<meeting><address><addrLine>Standard; Geneva, Switzerland</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Computer applications in terminology -Terminological markup framework. Standard, International Organization for Standardization</title>
+		<idno>ISO 16642</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Systems to manage terminology, knowledge and content -TermBase eXchange (TBX). Standard, International Organization for Standardization</title>
+		<meeting><address><addrLine>Geneva, Switzerland; Geneva, Switzerland</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2003">2003. 2008</date>
+			<biblScope unit="volume">30042</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Systems to manage terminology, knowledge and content -TermBase eXchange (TBX). Standard, International Organization for Standardization</title>
+		<author>
+			<persName><surname>Iso Cd30042</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<pubPlace>Geneva, Switzerland</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">TBX between termbases and ontologies</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Reineke</surname></persName>
+		</author>
+		<ptr target="http://hal.archives-ouvertes.fr/hal-01005838" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 11th International Conference on Terminology and Knowledge Engineering</title>
+		<meeting>the 11th International Conference on Terminology and Knowledge Engineering</meeting>
+		<imprint>
+			<date type="published" when="2014">2014. 2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">An abstract model for the representation of multilingual terminological data: TMF -Terminological Markup Framework</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<ptr target="http://hal.inria.fr/inria-00100405" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 5th TermNet Symposium</title>
+		<meeting>the 5th TermNet Symposium<address><addrLine>TAMA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2001">2001. 2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">TBX goes TEI -Implementing a TBX basic extension for the Text Encoding Initiative guidelines</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<idno>TKE 2014. hal-00950862v2</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 11th International Conference on Terminology and Knowledge Engineering</title>
+		<meeting>the 11th International Conference on Terminology and Knowledge Engineering</meeting>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

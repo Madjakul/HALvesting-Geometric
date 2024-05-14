@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Questioning Indefinites in Dialogues</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Susanne</forename><surname>Salmon-Alt</surname></persName>
+							<email>susanne.alt@loria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="institution">LORIA Campus Scientifique</orgName>
+								<address>
+									<postBox>B.P. 239</postBox>
+									<postCode>54506</postCode>
+									<settlement>Vandoeuvre-lès-Nancy Cedex</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Bertrand</forename><surname>Gaiffe</surname></persName>
+							<email>bertrand.gaiffe@loria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="institution">LORIA Campus Scientifique</orgName>
+								<address>
+									<postBox>B.P. 239</postBox>
+									<postCode>54506</postCode>
+									<settlement>Vandoeuvre-lès-Nancy Cedex</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@loria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="institution">LORIA Campus Scientifique</orgName>
+								<address>
+									<postBox>B.P. 239</postBox>
+									<postCode>54506</postCode>
+									<settlement>Vandoeuvre-lès-Nancy Cedex</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Questioning Indefinites in Dialogues</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">570FD64AA1962AF56C9C3F2CA689C782</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The standard analysis of indefinites (e.g. Russell or more recently in the Discourse Representation Theory) views them as introducing a new discourse referent that is considered as independent from both the textual and extra-textual context. Still it can be observed that in many situations such as dialogue there are cases where sequences of indefinites are explicitly referring to the same entity, when for instance its properties have to be refined. On the basis of a corpus study of task-oriented dialogue transcriptions, we show that indefinites can only be coreferential if the events that bear them as arguments are coreferential as well. We thus identify the basic cues that may lead to the automatic determination of such situations (e.g. adverbials, sub-categorising statements etc.) and apply them to analyze our corpus examples. We also show that the configuration of dialogue acts (re-statements, question-answer pairs) directly influence the subsequent use of indefinite following an initial statement.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Standard Analysis of Indefinites</head><p>The standard analysis of indefinite noun phrases is based on Russell, viewing them as introducing a quantifier. In traditional first order logic, existential and universal quantification states a relation between the denotations of two predicates, and is opposed to designation which consists in naming individuals by constants. For a sentence like (1), the standard translation for a is the following :</p><p>(1) A man is walking : ∃x man(x) ∧ walking(x)</p><p>The advantage of this analysis is to isolate noun phrases which do not refer to a particular individual, and to give a rather good approximation for linguistic observations like those well known as "quantifier scope ambiguities". But an important limitation of this view is that it is unable to give a correct account of phenomena like cross-sentential anaphora and "donkey sentences" <ref type="bibr" target="#b14">(Kamp, 1981)</ref>.</p><p>This limitation was one of the criteria 1 for considering that indefinites in a restricted sense -a N, Ns, two Ns -are not to be treated as quantifiers like at least one N, every N, exactly two Ns. It leads to a separate treatment of quantified NPs and indefinites in the DRT framework <ref type="bibr" target="#b15">(Kamp and Reyle, 1993)</ref>. Whereras quantified NPs introduce a tripartite structure, where the quantifier expresses a particular relation between a restrictor and a scope, indefinite NPs introduce just a new variable for an individual. In the following, we concentrate on such indefinites.</p><p>The fact that indefinites introduce a new variable is intended to reflect the idea that they are used to introduce new discourse referents, whereas definite descriptions, demonstratives and pronouns are used to refer to already known entities. Such a correlation between linguistic 1 Other criteria and a more detailed overview can be found in <ref type="bibr" target="#b7">Corblin (1994)</ref>.</p><p>forms and assumed familiarity or cognitive status has been proposed in particular by <ref type="bibr">Prince's Taxonomy (1981)</ref> and refined by the Givenness Hierarchy <ref type="bibr" target="#b13">(Gundel et al.,1993)</ref>. For both, the use of indefinite descriptions is optimally associated to "brand new" entities <ref type="bibr" target="#b19">(Prince, 1981)</ref>, for which the hearer can only access a representation of the type described by N <ref type="bibr" target="#b13">(Gundel et al., 1993)</ref>. But following Gundel et al., a cognitive status of the Givenness Hierarchy entails all lower statuses, and a particular form can be often replaced by forms which require a lower status. Since the status "type-identifiable" is entailed by all other statuses, all other statuses meet necessary conditions for use of the indefinite article. Nevertheless, as shown in data from different languages, it is not the case. Therefore, <ref type="bibr" target="#b13">Gundel et al (1993)</ref> invoke supplementary conversational implicatures, stating that the use of an indefinite noun phrase implicates that the referent is not uniquely identifiable, and hence not familiar.</p><p>Related to this cognitive aspect of the use of indefinites -non familiarity -is a linguistic one, which is context independance. From a linguistic point of view, <ref type="bibr" target="#b6">Corblin (1987)</ref> opposes the category of indefinites to the categories of definites and demonstratives on the basis of their relations to the context. He considers the category of indefinites as a typically context independent category, taking this feature as a consequence of the basic referential operations associated with the interpretation of indefinites : enumeration and extraction. This means, that a sentence of the type "n N X" (Two dogs bark) an always be interpreted as an extraction of n individual values from the the class of N, based on information given by X. It follows from this principle that each possible extraction is strictly independent from all the others, since the conditions for an extraction are fully defined by a given class N, a number n and predicative information X. This view on the functioning of indefinites excludes any connection to the context or to previous extractions.</p><p>The condition of non familiarity and the interpretation principle of context independance justify the standard view on indefinites, which is a non coreferential one. Indeed, coreference -defined as referentiel identity for two or more linguistic forms <ref type="bibr" target="#b17">(Milner, 1982)</ref> -links usually a first expression introducing a new referent to subsequent mentions of this referent (see example 2) : (4a) A et tu prends une deuxième barre take a second line (4b) A une petite a small one (2) A man is walking. The man is followed by a dog.</p><p>(5a) A et tu vas prendre une ligne verticale and you have to take a vertical line Since the referent has already been isolated via the first mention making it uniquely identifiable, the conditions of non familiarity and context independance do not hold for subsequent mentions. Therefore, the use of a second indefinite intended to refer to the same referent is not suitable (see example 3) :</p><p>(5b) B une grande ? a big one ? (5c) A une grande oui a big one, yes (6a) A donc au bord de cette route, il y a deux (3) A man is walking. A man is followed by a dog. maisons so beside this road, there are two houses (6b) A donc une maison qui se trouve à gauche Not only does this not correspond to the cognitive status of the referent, but it would also suggest a context independent interpretation : In (3), the second indefinite simply operates a second extraction of an individual from the class MEN, but since nothing forces nor prevents the identity of the two mentioned individuals, the discourse is somehow odd. de cette route et une autre à droite one house on the left of this road and another one on the right (7a) A et tu vas prendre un rond and you have to take a circle The standard analysis of indefinites -seeing them as introducing new discourse referents which are non familiar and context independant -seems to fit well in the general picture. Still, it does not account entirely for the data we observed.</p><p>(7b) B un grand ou un petit ?</p><p>a big one or a small one ? (7c) A un petit a small one (8a) A alors, il va falloir que tu fasses un toit</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">The Data</head><p>now you have to make a roof (8b) A il faut que tu mettes un grand triangle Our data stems from a french corpus of task oriented dialogues<ref type="foot" target="#foot_0">2</ref> , involving two persons, A and B, in a task of figure manipulation. Following the instructions given by a A, B has to reconstruct simple pictures(Figure <ref type="figure">1a</ref>). The pictures are composed of geometrical figures, available from a virtually illimited stack of objects of various shapes (Figure <ref type="figure" target="#fig_1">1b</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>you have to put a big triangle</head><p>In (4), ( <ref type="formula">5</ref>) and ( <ref type="formula">7</ref>), there are respectively two, three and four indefinites specifying the same referent, i.e. the figure to be manipulated. In (6b), the two indefinite noun phrases une maison qui se trouve à gauche de cette route and une autre à droite do not introduce new referents, but rather refer to the same entities as deux maisons in (6a). Finally, in (8), un toit and un grand triangle stand for the same object, even if they project probably different points of view on this entity.</p><p>In each of these cases, introducing two different discourse referents for the indefinite noun phrases cannot be the correct reading, since the indefinite descriptions are clearly understood as referring to the same object. What we need therefore is first a mechanism which blocks the introduction of new referents for indefinites under certain conditions, and second, a clearer idea about what can be the very nature of these conditions. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Cues for Coreferential Indefinites "Condition of newness" as a default</head><p>A proposition concerning the first point -blocking the introduction of new discourse referents for indefinites under special conditions -has been elaborated by <ref type="bibr" target="#b7">Corblin (1994)</ref>. He proposes to consider the "condition of newness" underlying the analysis of indefinites within the DRT framework as a default condition. From a logical point of view, he first shows that the introduction of two different discourse referents for two indefinite descriptions does not have any consequences on the model Analysing the dialogues, we found several cases where sequences of indefinites are explicitly referring to the same entity : theoretic interpretation of a DRS. Indeed, defining embedding as a function from the universe of the DRS into the universe of the model does not exclude the possibility of mapping two different discourse referents onto the same individual in the model, since this relation is not an injective one. This means that the standard version of DRT <ref type="bibr" target="#b15">(Kamp and Reyle, 1993)</ref> does not predict any difference between a coreferential and a non coreferential use of indefinites.</p><p>In order to strengthen the intuition that it is much more natural to use two indefinites for two different individuals, but without excluding definitly a coreferential use, Corblin proposes to extend the standard version of the theory regarding to two points : First, the embedding function is redefined as an injective function. Second, the rule for indefinites is redefined as a defeasible rule, stating that an indefinite is interpreted as introducing a new discourse referent, as long as there are no explicit indications against this.</p><p>The problem is now to give a more detailed, and ideally formalized description of the conditions under which this rule has to be overwritten. <ref type="bibr" target="#b6">Corblin (1987</ref><ref type="bibr" target="#b7">Corblin ( , 1994</ref><ref type="bibr" target="#b8">Corblin ( , 1995) )</ref> mentions only some informal cues, like enumeration of properties ( <ref type="formula">9</ref>), previous announcements (10) and identity statements (11).</p><p>(9) Tu as trompé Marie. Tu as déçu une femme qui t'adorait.</p><p>(10) Here is a story about Mary. One day, a woman crossed the road… (11) Pierre was looking for Mary. A woman crossed the road. It was Mary.</p><p>The last type of examples seems to play a central role in suspending the default interpretation of indefinites by stipulating explicitly -through the use of the verb to bethe identity of the mentioned entities. It can be related to another -may be the best known -case of coreference between indefinites, which is an attributive use 3 , like in (12). ( <ref type="formula">12</ref>) My teacher is a woman.</p><p>In these cases, the indefinite is not used in order to isolate, via the specific reference calculus for indefinites, a referent, but rather to define a property of a referent identified independently, based on discourse features.</p><p>Discourse features, and more specifically rhetorical structure <ref type="bibr">(Mann and Thompson, 1986)</ref> or discourse relations <ref type="bibr" target="#b1">(Asher, 1993)</ref> can also be seen as indicators to take into account the interpretation of ( <ref type="formula">9</ref>) and ( <ref type="formula">10</ref>). This brings us to the next section, which relates recent work bringing together a particular kind of discourse structure and coreference between indefinites.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Event Coreference and Indefinites</head><p>In a recent paper on event coreference and discourse relations within the framework of SDRT <ref type="bibr" target="#b1">(Asher, 1993)</ref>, <ref type="bibr" target="#b11">Gaiffe and Danlos (2000)</ref> give evidence for the need of a 3 We do not use "attributive" in the sense of <ref type="bibr" target="#b10">Donnellan (1966)</ref>.</p><p>new discourse relation Particularisation. The arguments are based on the observation of discourses like ( <ref type="formula">13</ref>) and ( <ref type="formula">14</ref>) :</p><p>(13) Ted damaged a garment. He stained a shirt. ( <ref type="formula">14</ref>) Guy experienced a lovely evening last night.</p><p>He had a fantastic meal.</p><p>(14) is a classical example of Elaboration, since the event introduced in the second sentence (S2) is a part of the event introduces in the first sentence (S1). Example (13), however, cannot be analysed like this. Indeed, the event introduced in S2 is not a part of the event introduced in S1 : the events are the same. In other words, ( <ref type="formula">13</ref>) is a particular case of event coreference, where the second sentence contains more specific information about the event than the first one <ref type="bibr" target="#b9">(Danlos, 1999)</ref>. For this kind of discourse configuration, a new discourse relation Particularisation has been proposed. The introduction of this new relation is justified in particular by the fact that event coreference implies necessarily a coreferential relation between the arguments of the same thematic role. This is for example the case for the indefinites a garment and a shirt in (13).</p><p>Therefore, the discourse relation Particularisation can be useful regarding our goal -establishing formal criteria overwriting the default rule for the introduction of a new referent for an indefinite. Indeed, since Particularisation → event coreference → argument identity, Particularisation can be seen as one of the criteria we are looking for. Applied to (13), it means, that the Particularisation relation between the first and the second event cancels the introduction of a new discourse referent for the indefinite a shirt by setting it identical to another one.</p><p>The problem we have to solve then is to establish a Particularisation relation between two discourse segments π1 and π2, corresponding to S1 and S2. Following <ref type="bibr" target="#b11">Danlos and Gaiffe (2000)</ref>, this can be done based on a set of linguistic constraints C part . If π1 and π2 have to be related by a discourse relation τ, and S1 and S2 met the constraints C part , then the Particularisation relation is inferred by default (&gt;) :</p><formula xml:id="formula_0">(τ, π1, π2) ∧ C part &gt; Particularisation (π1, π2)</formula><p>The elements of C part are the following : (a) Cue phrases : S1 and S2 are not related by a cue phrase, excepted such cue phrases as more precisely or in fact. (b) Semantic relations between the constituents of S1 and S2 : In order to concentrate on what will be useful in the following, we limit ourselves to cases where the predicates of S1 and S2 are identical 4 . In this case, the conditions for a particularizing event coreference between S1 and S2 are given below (Arg n r stands for an argument of the predicate of sentence n, with the thematic role r, with n ∋ {1,2,..} and r ∋ {agent, patient,…}) :</p><formula xml:id="formula_1">particularizing_event_coreference (S1,S2) if Predicate 1 =Predicate 2 ∧ for each Arg 2 r : Arg 2 r = SPEC (Arg 1 r ) ∨ Arg 2 r = IDENT(Arg 1 r</formula><p>) and some other element in S2 brings new information SPEC stands for a relation of semantic specification and includes hyponomy (a garment vs. a shirt) and identification (a tree vs. a tree near the house). IDENT stands for a semantic relation of identity and includes pronominal anaphora (a tree vs. it) and semantic identity (same expression, synonymy,…). Roughly speaking, these conditions state that, if the predicates of two sentences are identical, either the arguments in S2 have to give more information than the arguments in S1, or, if the the arguments do not give new information, another element in S2 (for example, a temporal adverbial like yesterday) has to do it.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">Bringing them together…</head><p>Our main goal is to account for coreferential indefinites, such as presented in section 2. Therefore, we were looking for a mechanism integrating coreferential indefinites into a DRT-like semantic framework, and for linguistic cues triggering this mechanism. A suitable mechanism has been proposed by <ref type="bibr" target="#b7">Corblin (1994)</ref> -see section 3.1. <ref type="bibr" target="#b11">Danlos and Gaiffe (2000)</ref> consider the Particularisation relation within an SDRT-like framework as a cue for coreference between indefinites -see section 3.2</p><p>The main steps for dealing with indefinites can thus be defined as follows : If an indefinite occurs in a sentence S i giving raise to an S-DRS π i , then</p><p>-the indefinite introduces a new discourse referent x into π i -if π i has to be linked to a previous S-DRS π i-1 by a relation τ and the conditions for a particularizing discourse C part are met, then a Particularisation relation is inferred by default :</p><formula xml:id="formula_2">(τ,π i-1 , π i ) ∧ C part &gt; Particularisation (π i-1 ,π i ) -Particularisation(π i-1 ,π i )</formula><p>implies event coreference between S1 and S2, and event coreference implies the identity of the arguments -therefore, x has to be marked as identical with another discourse referent of π i-1 Applying this to the toy example (15) yields to : </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>4.</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>4.1.</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Application to the data</head><p>In this section, we try to apply the machinery presented in 3. This example contains two indefinites, une deuxième barre and une petite, specifying the same object. Therefore, the discourse referent introduced for une petite has to be merged with the referent for une deuxième barre.</p><p>One possibility to justify this is to establish a Particularisation relation between the discourse segments for (4a) and (4b). Nevertheless, the problem is more complicated than for the toy examples : The first difference concerns the illocutionary force of the discourse segments. Up to now, Particularisation has been used for statements, whereas (4a) and (4b) are orders. The second difference concerns the syntactical completeness of the utterances. Since we are interested in the modelling of spoken discourse, we have to deal with additional phenomena such as VP-and noun head ellipses, like in (4b).</p><p>Our representation of the speech acts and propositional contents follows <ref type="bibr" target="#b12">Grisvard and Gaiffe (1999)</ref> Indeed, at a first time, all we know about the propositional content from the ellipsis is the introduction of a small entity. However, (4b) being an order, the eventuality under its scope must be a future event which the hearer as an agent <ref type="bibr" target="#b12">(Grisvard and Gaiffe, 1999)</ref>. From the dialogue context, and taking into account discourse coherence constraints such as Common Theme Maximization <ref type="bibr" target="#b3">(Asher et al., 1997)</ref>, we infer supplementary information about π 2 : the category of e' and of s, and the fact that s has to be an argument of the event. Intergrating this information into π 2 leads to : The agent is the same in (4a) and (4b). The category of the predicates are compatible. The patients of (4a) and (4b) are compatible too : they are of the same category, as required in <ref type="bibr" target="#b11">Gaiffe and Danlos (2000)</ref>. Since nothing has been detailed concerning the modifiers, we consider here that it is sufficient to have modifiers which are not mutually exclusive 5 . Since small do not exclude 4.2. 5 In further work, this hypothesis needs to be refined in order to take into account more fine-grained linguistic observations : <ref type="bibr" target="#b6">Corblin (1987)</ref>, for example, points out that the use of different types of modifiers can be seen as an indicator for a non coreferential interpretation, even for second, C part holds and we can infer Particularisation (π 1 ,π 2 ). From that follows that the events in π 1 and π 2 are the same and therefore, s in π 2 has to be identical with l in π 1 : π 2 : ∃s∃e' small(s) ∧ EVENT(e', B) ∧ e' &gt; now ∧ category(EVENT) = take ∧ category(s) = line ∧ e = e' ∧ s = l</p><p>In comparison to previous examples, the Particularisation relation holds here between the propositional content of two orders, and not between two statements.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Example type B (5a) A et tu vas prendre une ligne verticale</head><p>and you have to take a vertical line (5b) B une grande ? a big one ? (5c) A une grande oui a big one, yes</p><p>The dialogue in example (5) contains three indefinites specifying a same referent : une ligne verticale (5a), une grande (5b) and une grande (5c). Here, the problem is a little bit more complex than in (4) : Not only have we to insert a discourse relation justifying the identity between indefinites, but we have also to deal with typically dialogical aspects, such as questions and answers.</p><p>The first step is the introduction of a representation for (5a) : tell_to(A, B, π 1 ) with : π 1 ∃l∃e line(l) ∧ vertical(l) ∧ take(e,B,l) ∧ e &gt; now Treating (5b) consists then in resolving the ellipsis, like in (4). Additionally, (5b) is a question, and we consider it as a form of yes-no question (which can be paraphrased as Should I take a big vertical line ?). Therefore, it introduces a proposition for which the truth has to be validated in the continuation of the dialogue : ask_if(B, A, π 2 ) with :</p><formula xml:id="formula_3">π 2 ∃b∃e' line(b) ∧ vertical(b) ∧ big(b) ∧ take (e',B,b) ∧ e' &gt; now</formula><p>definite descriptions, such as in : Cette rose rouge me gêne. Je vais jeter la rose fânée. We think, however, that this assumption is a little bit too strong. It is also possible that the conditions in dialogues with an immediatly accessible perceptual environment are not exactly the same as in discourse, where the objects can be identified only based on discursive information.</p><p>-ellipse comme en (4) … ? pas très clair… π 2 can be attached to π 1 by a discourse relation NotEnoughInformation <ref type="bibr" target="#b5">(Asher, 1998)</ref>. ( <ref type="formula">5c</ref>) has an illocutionary force of say_that.</p><p>-relation QAP entre CP ou entre AdL ?</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Example type C</head><p>say_that(A, B, π 3 ) (6a) A donc au bord de cette route, il y a deux π 3 , introduced for the propositional content of (5c), is a response to (5b). Therefore, the relation between π 2 and π 3 is QuestionAnswerPair <ref type="bibr" target="#b4">(Asher and Lascarides, 1998)</ref>. maisons so beside this road, there are two houses (6b) A donc une maison qui se trouve à gauche Since the ask_if act can be merged with the say_that act into a global say_that act, where π 3 confirms the truth of π 2 , it yields to a new representation with a new S-DRS π 2' . de cette route et une autre à droite one house on the left of this road and another one on the right In example <ref type="bibr" target="#b0">(6)</ref>, deux maisons introduces a new complex discourse referent with a cardinality constraint. The indefinites une maison qui se trouve à gauche and une autre à droite introduce new discourse referents too, but the new referents have to be related to the complex one, since they refer to parts of it. say_that(A, B, π 2' )</p><formula xml:id="formula_4">π 2' ∃b∃e' line(b) ∧ vertical(b) ∧ big(b) ∧ take(e',B,b) ∧ e' &gt; now</formula><p>This new DRS may be attached to π 1. The conditions C part holds : there are no discourse cues linking the utterances, and the semantic relations are the following : </p><formula xml:id="formula_5">π1 ∃h∃r∃s house(h) ∧ card(h) = 2 ∧ road(r) ∧ state(s) ∧ beside(s, h, r) (6b</formula><p>) can be interpreted as : say_that(A, B, π 2 ) The agent and the predicate are the same in (5a) and (5b). The patient in (5b) is more specific, since grande ligne verticale implies ligne verticale. Therefore, C part holds, and we can infer Particularisation (π 1 ,π 2' ). The final discourse structure of ( <ref type="formula">5</ref>) is given in Figure <ref type="figure" target="#fig_5">2</ref>. At this stage, nothing says that y and z are part of m. Postulating Particularisation(π 1 ,π 2 ) would lead to this result. However, as defined in <ref type="bibr">Gaiffe and Danlos (1999)</ref>, this relation holds between events and not between states. Therefore, we have to adapt it to coreference between states. Let us say that the conditions on discourse cues remain inchanged, and the conditions on the semantic relations concern the arguments and the predicate of the state.</p><p>The relation could be justified since there are no discourse cues, and with regard to the following reasoning : Figure <ref type="figure" target="#fig_5">2</ref>. Discourse Structure for (5)</p><p>From Particularisation (π 1 ,π 2' ) follows, that the events in π 1 and π 2' are the same and so do the particpants : on_the_left_of(s, x, y) &gt; beside(s, x, y) on_the_right_of(s, x, y) &gt; beside(s, x, y)</p><formula xml:id="formula_6">π 2' ∃b∃e' line(b) ∧ vertical(b) ∧ big(b) ∧</formula><p>take(e',B,b) ∧ e' &gt; now ∧ e' = e ∧ b = l ∧ e &gt; now meaning that the states being on the left and being on the right are more specific than the state being beside and, therefore, include it. The identity of the argument y, road, is guaranted, since it is used deictically in (6a) and (6b). The agents of state s, s' and s'' are semantically compatible. Now, what happens here is a Particularisation relation holding between, on the one In this example, the Particularisation relation has been extended in a manner to hold between the propositional content of an order (tell_to) and a statement (say_that). problèmes : hand, the sum of the states s' and s'' (π2), and, and the other hand, the state s (π1). Therefore, the sum of the agents of s' and s'' has to be identical to the agent of s. From this, it follows that the two indefinites in (6b) introduce referents which are parts of the referent introduced in (6a).</p><p>It is worth to mention that the Particularisation relation holds indeed between s and the sum -and not only one part -of s' and s''. In fact, a discourse composed only of s and s' would be awkward :</p><p>(16) There are two houses beside the road. One house stands on the left of this road.</p><p>An explanation for this is the fact that Particularisation cannot hold between the two sentences, since the cardinalities of the arguments are incompatible. But this example seems also to indicate that the Elaboration relation needs to be redefined more precisely : In fact, such as defined in <ref type="bibr" target="#b2">Asher and Lascarides (1993)</ref>, nothing prevents from the establishment of such a relation between the states in ( <ref type="formula">16</ref>). That means that the awkwardness of this example cannot be predicted with the current state of the definition of this discourse relation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4.">Example type D (7a) A et tu vas prendre un rond</head><p>and you have to take a circle (7b) B un grand ou un petit ?</p><p>a big one or a small one ? (7c) A un petit a small one This example differs from (5) in one point : the question in (7b) is not a yes-no-question, but a whquestion about the kind of object to be manipulated. The specification of this object is realized through the use of four indefinites. Establishing a Particularisation relation between (7a) and a complex segment composed of (7b) and (7c) would be one possibility to treat these indefinites adequatly.</p><p>As in (5), the first utterance is an order of the form : tell_to(A, B, π 1 ) with : The agent and the predicate are the same for π 1 and π 2'' .</p><formula xml:id="formula_7">π 1 ∃c∃t circle(c) ∧ take(t</formula><p>The patient in π 2'' is more specific, since petit cercle implies cercle. Therefore, C part holds, and we can infer Particularisation (π 1 ,π 2' ).</p><p>From Particularisation (π 1 ,π 2'' ) follows, that the events in π 1 and π 2'' are the same and so do the particpants : π 2'' ∃s∃e small(s) ∧ take(e, B, s) ∧ circle(s) ∧ e &gt; now ∧ e = t ∧ s = c</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.5.">Example type E</head><p>(8a) A alors, il va falloir que tu fasses un toit now you have to make a roof (8b) A il faut que tu mettes un grand triangle you have to put a big triangle</p><p>For this example, it seems impossible to establish the coreference of the indefinites un toit and un grand triangle on the basis of linguistic indicators for event coreference. We do not have cue phrases, nor semantic relations linking the arguments or the predicate. Indeed, even if mettre un grand triangle can be seen as specifying the action of faire un toit in this particular context of the task, establishing this relation needs to take into account extralinguistic knowledge. <ref type="bibr" target="#b9">Danlos (1999)</ref> proposed therefore to extend the notion of hyperonomy between lexical items so as to cover extralinguistic hyperonomy between clauses. This type of extended hyperonomy is not only close to the notion of inference, but it depends also on the application specific context. One possibility to treat example (8) would be to use an inference rule, such as : R1 : putting a triangle &gt; moving geometrical figures modelling the fact that putting a triangle is a particular form of moving geometrical figures. In addition, we need an application specific rule, stating that in this context, making pictures (such as a roof) consists in moving geometrical figures : R2 : moving geometrical figures &gt; make a roof Based on this knowledge, it is possible to infer that putting a triangle is a specification of making a roof, and therefore, (8a) and (8b) refer to the same event. Since event coreference implies the identity of the arguments, a roof and a triangle have to refer to the same entity.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Summary and Discussion</head><p>The standard analysis of indefinites sees them as context independent and therefore non coreferential. However, we presented corpus examples, containing sequences of indefinites explicitly referring to the same entity. The problem was then to account for such cases in an DRT or SDRT-like framework.</p><p>This paper presents an attempt to do this, based on recent work on a new discourse relation -Particularisation. This relation has one specificity : it implies the identity of the participants involved in the related events. It can therefore be considered as one possibility to take into account coreferential readings of indefinites.</p><p>However, the Particularisation relation has been defined for discourse and not for spoken dialogues. Adapting it to our dialogue examples demands in particular to deal with NP-and VP-ellipses and with a variety of speech acts -questions, answers and orderswhich are different from statements. The first problem can be (partially) solved by taking into account the second one : Indeed, it has been shown that different speech acts impose different constraints their propositional content <ref type="bibr" target="#b12">(Grisvard and Gaiffe, 1999)</ref>. Based on this observation and on work about common theme maximazation <ref type="bibr" target="#b3">(Asher et al., 1997)</ref>, is it possible to infer missing information. In order to deal with the second problem -the variety of speech acts -it is first necessary to combine them into more complex discourse segments (for example, a question and an anwser into a statement). Secondly, we have to admit that Particularisation can hold not only between statements, but also between orders, between an order and a statement, and between a statement and the sum of several statements.</p><p>The mechanism we present here may seem quite complicated, if compared to the mechanisms for identity postulation for anaphora or identity assertion for to be constructions in DRT. Nevertheless, we think that there are necessary since a coreferential reading of indefinites does not function in exactly the same way as anaphora resolution or identity assertion.</p><p>Concerning anaphora resolution in DRT, the principle consists in introducing a new discourse referent and to choose a suitable antecedent from those which are accessible in the discourse universe. The difference with the coreferential reading of indefinites is the choice of the antecedent : whereas the only choice constraints for antecedents of anaphora are pragmatic ones (excepted gender, number and semantic restrictions), there is no choice at all for coreferential indefinites involved in a Particularisation relation : the identity is mandatory for the arguments of the same thematical role.</p><p>The main difference with identity assertions such as in Fred is a linguist is the following : for coreferential indefinites in particularizing discourses, the identity is not asserted, but stipulated. <ref type="bibr">Kamp and Reyle (1993 : 258)</ref> point out that this is not a trivial point, even if the truthconditional interpretations for stipulated and asserted identity are the same. Stipulated identity (represented by a condition x = y) represents the fact that a certain NP is being used as a means for picking up a certain discourse referent introduced by independent means. Asserted identity (represented by a condition x is y) represents the fact that the interpreter understands the identity statement of x and y, but it does not mean that he or she thinks necessarily that this statement is true. If needed, such a condition, in which no conflation has taken place, can in some way be marked as "dubious", in order to reflect the interpreter's epistemic state more accurately.</p><p>Finally, given the unusual mechanisms involved in coreferential readings of indefinites, it seems worth to ask why speakers use indefinites in such a way. The response tho this question lies in the specific interpretation principle for indefinites : As opposed to definites, demonstratives and pronouns, indefinites do not presuppose an external mechanism in order to identify a particular individual : they don't designate. The only thing they do is to provide information about properties of individuals satisfying the description. To put it in other words, an indefinite description "a N" presupposes a domain of entities of type N, but cannot be used to identify a particular individual of this domain. In many cases, this domain is context dependent, either given by discourse information or by perceptual information, as it is the case for our dialogues : here, the interpretation domains for the indefinites are provided by the virtual stacks of geometrical figures (Figure <ref type="figure" target="#fig_1">1b</ref>). To give an example, an expression like a triangle presupposes the existence of a set of triangles. Such a domain of triangles is indeed available, given by the virtual stacks of big and small triangles, represented explicitly in (Figure <ref type="figure" target="#fig_8">3</ref>). The utterance Take a triangle means then that the hearer has to choose one of the triangles of this domain. Now imagine that the speaker would like to precise the size of the triangle which has to be manipulated. Since there are always more than one possible referents in the perceptual domain, he has to use an indefinite description Take a small triangle. A definite description Take the small triangle would be inappropriate, simply because the structure of the perceptual domain don't allow the hearer to identify uniquely a particular triangle.</p><p>What we would like to stress here is the important role of the contextual structure for the use of different types of referring expressions. Concerning the use of coreferential indefinites, we assume the following : Since an indefinite description is not used to uniquely identify a referent, but to identify a contextual domain, the specific role of a sequence of coreferential indefinites is to state a relation between two or more domains. In case of Particularisation between two utterances, this relation is a domain restriction, like in our corpus examples.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure</head><label></label><figDesc>Figure 1a. Example of a picture to construct</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 1b .</head><label>1b</label><figDesc>Figure 1b. Available geometrical figures</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>( 15 )(</head><label>15</label><figDesc>Ted damaged a garment. He damaged a shirt. S1 : Ted damaged a garment. π 1 ∃g∃e garment(g) ∧ damaged(e,Ted,g) S2 : He damaged a shirt. π 2 ∃s∃e' shirt(s) ∧ damaged(e,h,s) ∧ h = ? (τ,π 1 , π 2 ) ∧ C part , since : (a) no cue phrases linking S1 to S2 π 1 , π 2 ) ∧ C part &gt; Particularisation (π 1 ,π 2 ) Particularisation(π 1 ,π 2 ) → event coreference → argument identity π 2 ∃s∃e' shirt(s) ∧ damaged(e,h,s) ∧ e'=e ∧ s=g ∧ h = Ted Following this reasoning, the coreferential relation between the indefinites a garment and a shirt is established, based on the Particularisation relation between the two sentences of (15).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>3. to our corpus examples. Since the criterion of Particularisation has been introduced for examples taken from written discourse, we have to adapt it in several ways to oral dialogues. Nevertheless, we try to keep the same backbone of the reasoning, based on a comparison of the predicates and arguments in order to obtain a coreferential reading for the indefinites occuring in our corpus examples Example type A (4a) A et tu prends une deuxième barre take a second line (4b) A une petite a small one</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>. An utterance is represented as IF ( S, H, PC) with IF = Illocutionary Force {tell_to, say_that, ask_if, ask_wh-}, S = Speaker, H = Hearer and PC = Propositional Content. The propositional content is equivalent to an S-DRS. Representing the first utterance of (4) in this form leads to : tell_to(A, B, π 1 ) with π 1 : ∃l∃e second(l) ∧ line(l) ∧ take(e, B, l) ∧ e &gt; now Introducing a representation for (4b) gives raise to : tell_to(A, B, π 2 ) with π 2 : ∃s∃e' small(s) ∧ EVENT(e', B) ∧ e' &gt; now</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>π 2 :</head><label>2</label><figDesc>∃s∃e' small(s) ∧ EVENT(e', B) ∧ e' &gt; now ∧ category(EVENT) = take ∧ category(s) = line The next step is linking π 1 and π 2 by a discourse relation. Therefore, the conditions C part for a particularizing discourse have to be tested. There is no discourse cue between (4a) and (4b), and the semantic relations are the following :</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head></head><label></label><figDesc>(6a) leads to a first representation of the speech act as : say_that(A, B, π 1</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head></head><label></label><figDesc>with :π2 ∃y∃z∃r'∃s'∃s'' house (y) ∧ house(z) ∧ state(s') ∧ state(s'') ∧ road(r') ∧ on_the_left_of(s',y, r') ∧ on_the_right_of(s'',z , r') ∧ r' = ?</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Figure 3 .</head><label>3</label><figDesc>Figure 3. Interpretation domain for a triangle</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>∃s∃e small(s) ∧ take(e, B, s) ∧ circle(s) ∧ e &gt; now This new DRS may be attached to π 1. The conditions C part holds : there are no discourse cues linking the utterances, and the semantic relations are the following :</figDesc><table><row><cell cols="2">π 2 λNP. [NP] [λx. ∃e take(e, B, x) ∧ circle(x) ∧ (big(x) ∨ small(x)) ∧ e &gt; now]</cell></row><row><cell cols="2">(7c) is a response to (7b), providing the NP which has</cell></row><row><cell>to be applied to π 2 .</cell><cell></cell></row><row><cell>say_that(A,B, π 3 )</cell><cell></cell></row><row><cell>with</cell><cell></cell></row><row><cell cols="2">π 3 λP. ∃s small(s) ∧P(s)</cell></row><row><cell cols="2">Applying this to π 2 yields to : π 2'' λP. ∃s small(s) ∧P(s) [λx. ∃e take(e, B, x) ∧ circle(x) ∧ (big(x) ∨ small(x) ∧ e &gt; now]</cell></row><row><cell cols="2">π 2'' ∃s small(s) ∧ ∃e take(e, B, s) ∧ circle(s) ∧ (big(s) ∨ small(s) ∧ e &gt; now</cell></row><row><cell>π 2'' Tu</cell><cell>Arg 1 agent</cell></row><row><cell>vas prendre un cercle. Tu</cell><cell>Pred 1 patient Arg 1 Arg 2 agent = IDENT (Arg 1 agent )</cell></row><row><cell>va prendre un petit cercle</cell><cell>Pred 2 = Pred 1 Arg 2 agent = SPEC (Arg 1 agent )</cell></row><row><cell>,B,c) ∧ t &gt; now</cell><cell></cell></row><row><cell>(7b), as a wh-question, is a propositional function</cell><cell></cell></row><row><cell>(paraphrased as Which circle should I take ?), taking a</cell><cell></cell></row><row><cell>NP as an argument :</cell><cell></cell></row><row><cell>ask_wh(B, A, π 2 )</cell><cell></cell></row><row><cell>with</cell><cell></cell></row><row><cell>π 2 λNP.[NP][TAKE]</cell><cell></cell></row><row><cell>[TAKE] = λx. ∃e take(e, B, x) ∧ circle(x) ∧ (big(x) ∨ small(x)) ∧ e &gt; now</cell><cell></cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_0"><p>The corpus has been collected by N.<ref type="bibr" target="#b18">Ozkan (1994)</ref>.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_1"><p>The full list of conditions can be found in<ref type="bibr" target="#b9">Danlos (1999)</ref>.</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>References</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Reference to Abstract Objects in Discourse</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Asher</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1993">1993</date>
+			<publisher>Kluwer Academic Publishers</publisher>
+			<biblScope unit="page">455</biblScope>
+			<pubPlace>Dordrecht, Boston, London</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Temporal Interpretation, Discourse Relations and Common Sense Entailement</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Asher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lascarides</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Linguistics and Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="37" to="49" />
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Discourse Parallelism, Scope, and Ellipsis</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Asher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Hardt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Busquets</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Seventh Conference on Semantics and Linguistic Theory</title>
+		<meeting>the Seventh Conference on Semantics and Linguistic Theory<address><addrLine>Palo Alto, CA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Questions in Dialogue</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Asher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lascarides</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Linguistics and Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="page" from="237" to="309" />
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Varieties of Discourse Structure in Dialogue</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Asher</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Twendial (Proceedings of the Second International Workshop on Dialogue</title>
+		<meeting><address><addrLine>Twente, the Netherlands</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">F</forename><surname>Corblin</surname></persName>
+		</author>
+		<editor>Indéfini, Défini et Démonstratif. Droz</editor>
+		<imprint>
+			<date type="published" when="1987">1987</date>
+			<pubPlace>Genève</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">La condition de nouveauté comme défaut</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Corblin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Faits de Langues</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="147" to="160" />
+			<date type="published" when="1994">1994</date>
+		</imprint>
+	</monogr>
+	<note>PUF</note>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Les formes de reprise dans le discours</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Corblin</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+			<pubPlace>France</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Presses Universitaires de Rennes</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Event Coreference between two sentences</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Danlos</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of International Workshop on Computational Semantics</title>
+		<meeting>International Workshop on Computational Semantics<address><addrLine>Tildburg</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">Reference and Definite Descriptions</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">S</forename><surname>Donnellan</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1966">1966. 1971</date>
+			<publisher>Cambridge University Press</publisher>
+			<biblScope unit="page" from="100" to="115" />
+		</imprint>
+	</monogr>
+	<note>Reprinted in : Semantics</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Coréférence événementielle et relations de discours</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Gaiffe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Danlos</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">TALN</title>
+		<imprint>
+			<date type="published" when="2000">2000. 2000</date>
+			<pubPlace>Lausanne, Switzerland</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">An Event Based Dialogue Model and its Implementation in MultiDial2</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Grisvard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Gaiffe</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Eurospeech</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page" from="1155" to="1158" />
+			<date type="published" when="1999">1999</date>
+			<pubPlace>Budapest, Hungary</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Givenness, Implicature and the form of referring expressions in discourse</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gundel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">A</forename><surname>Hedberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Zacharski</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Language</title>
+		<imprint>
+			<biblScope unit="volume">69</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="275" to="307" />
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title level="m" type="main">A Theory of Truth and Semantic Representation</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kamp</surname></persName>
+		</author>
+		<editor>Groenendijk J., Janssen T. , Stokhof M.</editor>
+		<imprint>
+			<date type="published" when="1981">1981</date>
+			<biblScope unit="page" from="277" to="322" />
+			<pubPlace>Amsterdam</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Formal Methods in the Study of Language</note>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">From Discourse to Logic</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kamp</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Reyle</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1993">1993</date>
+			<publisher>Kluwer Academic Publishers</publisher>
+			<biblScope unit="page">713</biblScope>
+			<pubPlace>Dordrecht, Boston, London</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Rhetorical structure theory : A theory of text organization</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">C</forename><surname>Mann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A</forename><surname>Thompson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Text</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="243" to="281" />
+			<date type="published" when="1988">1988</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Ordres et raisons de langue</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Milner</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Edition du Seuil</title>
+		<imprint>
+			<date type="published" when="1982">1982</date>
+			<pubPlace>Paris, France</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ozkan</surname></persName>
+		</author>
+		<title level="m">Vers un modèle dynamique du dialogue : analyse de dialogues finalisés dans une perspective communicationnelle</title>
+		<imprint>
+			<date type="published" when="1994">1994</date>
+		</imprint>
+		<respStmt>
+			<orgName>Cognitive Science, INP Grenoble</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Ph.D.Thesis</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Toward a taxonomy of given-new information</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Prince</surname></persName>
+		</author>
+		<editor>Cole P., Radical Pragmatics</editor>
+		<imprint>
+			<date type="published" when="1981">1981</date>
+			<publisher>Academic Press</publisher>
+			<biblScope unit="page" from="223" to="255" />
+			<pubPlace>New York</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

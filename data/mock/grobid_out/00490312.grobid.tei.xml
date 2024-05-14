@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">GRISP: A Massive Multilingual Terminological Database for Scientific and Technical Domains</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Patrice</forename><surname>Lopez</surname></persName>
+							<email>patricelopez@hotmail.com</email>
+							<affiliation key="aff0">
+								<orgName type="department">INRIA &amp; HUB -IDSL</orgName>
+								<address>
+									<settlement>Berlin</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="department">INRIA &amp; HUB -IDSL</orgName>
+								<address>
+									<settlement>Berlin</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">GRISP: A Massive Multilingual Terminological Database for Scientific and Technical Domains</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">74D4D53D5DC9E30AB792711FFAC69A1E</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The development of a multilingual terminology is a very long and costly process. We present the creation of a multilingual terminological database called GRISP covering multiple technical and scientific fields from various open resources. A crucial aspect is the merging of the different resources which is based in our proposal on the definition of a sound conceptual model, different domain mapping and the use of structural constraints and machine learning techniques for controlling the fusion process. The result is a massive terminological database of several millions terms, concepts, semantic relations and definitions. This resource has allowed us to improve significantly the mean average precision of an information retrieval system applied to a large collection of multilingual and multidomain patent documents.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Technical and scientific documents aim at supporting specialist communication and are thus written in specialist language, 30-80% of which is composed of terminology <ref type="bibr" target="#b0">(Ahmad, 1996)</ref>. Terminology is the main vehicle by which technical and scientific units of knowledge are represented and conveyed.</p><p>A vast range of applications related to technical and scientific knowledge requires semantic and terminological descriptions covering multiple domains. For instance, Biosis<ref type="foot" target="#foot_0">1</ref> from Thomson Scientific is a terminological database of more than 2 millions terms used for classifying and indexing life science scientific articles at large (i.e. biology, medicine, genetics, agriculture, etc.). The multilingual terminology of the European Union, IATE<ref type="foot" target="#foot_1">2</ref> , contains 8,4 million terms in 23 languages covering EU specific terminology as well as multiple fields such as agriculture or information technology. The development and the maintenance of such large terminological resources is an extremely long and difficult process requiring continuous human expertize from multiple domains.</p><p>Many domain specific resources exist, often well curated and, sometimes, freely available. The present work addresses the following question: Is it possible to exploit these heterogeneous resources, even the less constrained ones, such as Wikipedia, for creating a unique terminological resource covering multidomain technical and scientific content?</p><p>The TermScience portal <ref type="bibr" target="#b8">(Khayari et al., 2006</ref>) is a first step toward the combination of heterogeneous multilingual scientific terminological resources, but does not address the problem of controlling and realizing appropriate fusions. The problem of merging resources from different terminology has been identified. However, as the main goal of authors was to investigate the problem of modeling, they described a solution for encoding the heterogeneity of the sources, and not a solution for controlling and realizing appropriate fusions.</p><p>The issue of merging different semantic resources have been well studied in the context of the fusion of ontologies, in particular with the popularity of the semantic web framework <ref type="bibr" target="#b12">(McGuinness et al., 2000;</ref><ref type="bibr" target="#b10">Madhavan et al., 2001;</ref><ref type="bibr" target="#b5">Doan et al., 2001;</ref><ref type="bibr" target="#b7">Gal et al., 2005)</ref>. Since the ontologies usually remain relatively small, some proposals rely on semi-automatic techniques as <ref type="bibr" target="#b12">(McGuinness et al., 2000)</ref>. Fully automatic methods exploit structural and linguistic matching <ref type="bibr" target="#b10">(Madhavan et al., 2001)</ref> or machine learning techniques using different aspects of an ontology, such as concepts and properties <ref type="bibr" target="#b5">(Doan et al., 2001)</ref>. To avoid the problem of lack of training data, fuzzy logic methods have been proposed <ref type="bibr" target="#b7">(Gal et al., 2005)</ref>. To our knowledge, however, automatic merging techniques for heterogeneous terminologies has not been yet investigated. Terminologies follow different design principles than semantic web ontologies. They contain much richer textual content, they do not rely on formal and axiomatic organization of concepts and do not model facts and assertions.</p><p>For classification purposes, Digital Libraries (DL) also require descriptions across multiple domains and raise the issue of merging heterogeneous knowledge sources. <ref type="bibr" target="#b18">(Wang et al., 2008)</ref>, for instance, proposes a technique for merging multilingual subject heading lists from different classification scheme based on heuristics. As these heuristics rely on specific DL metadata, it does not appear possible to exploit them for terminologies.</p><p>Focusing on terminological resources, this paper presents the creation of a massive multilingual and multidomain terminology called GRISP (General Research Insight in Scientific and technical Publications) from freely available resources for the purpose of computer applications. We describe first the conceptual terminological model which allowed us to represent in a common scheme the existing resources. We then present and evaluate how we controlled the correctness of the merging of the differ-ent sources. Finally, we describe how this resource was successfully used for a large scaled patent retrieval task.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Common Framework</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">Objective of the present work</head><p>Our main goal is to create a terminological resource able to support automatic text processing applications. In traditional terminology, natural language is viewed as an obstacle to objectification which should be constrict. Several principles of traditional terminology needed for the human design of terminological resources aim at reducing the impact of natural language. One example is standardisation of terminology. Standardisation is a strife for univocity <ref type="bibr" target="#b16">(Temmerman, R., 1997)</ref>. Following the Würsterian principle, one concept is referred to by one term (no synonymy) and one term can only refer to one concept (no polysemy).</p><p>Since we focus here on computer applications having to process natural language, we relaxed basic traditional terminological principles. For instance, for the purpose of computer applications, terms do not need canonical forms, and enumerating as many terms variants as possible appears useful for automatic concept annotation. Term ambiguity within a given main domain need to be allowed for covering actual data. Similarly, instead of providing one good definition, providing different definitions corresponding to different views of the same concept can be more appropriate for tasks requiring robustness. Our objective is closer to build a linguistic knowledge base than a terminology for the purpose of human-driven curation and standardization.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Terminological Conceptual Model</head><p>Contrary to dictionaries which are word-based, terminologies (which may also include non-linguistic items such as formulae, codes, symbols and graphics) are fundamentally concept-based, reflecting the fact that the terms which they contain map out an area of specialist knowledge in which encyclopedic information plays a central role. The goal of terminological modeling is to represent the vocabulary, the definitions and the essential properties of concepts. In addition, for maximizing the exploitation of a terminological resource, it appears crucial: (i) to be independent from any particular applications, (ii) to support multiple languages, (iii) to follow standards and best practices for interoperability.</p><p>In order to set up a common framework able to represent multiple terminologies, a generic model able to cover a variety of terminological resources is necessary. We organized our terminological database according to the principles of ISO 16642 (TMF -Terminological Markup Framework) <ref type="bibr" target="#b14">(Romary, 2001)</ref>. Based on a generic semasiological (sense to word) model, TMF ensures that each elementary field is both attached to the appropriate level of description, (e.g. Terminological Entry, Language Section or Term Section) and possibly refined with local meta data. Such local metadata are particularly relevant in compiled databases since they allow tracking the source and responsibility for any piece of information, but also permit the creation of views, virtually reconstructing coherent subsets within a given domain or originated from the same source (e.g. all MeSH-based entries; cf. <ref type="bibr" target="#b8">(Khayari et al., 2006)</ref>).</p><p>TMF provides comprehensive and consistent representations for elementary linguistic features which can appear at different levels of description depending on a specific resource. Representing an existing terminological resource into the TMF framework supposes the identification of these standard units of representation in the source terminology and their mapping into the TMF elementary fields. The TMF elementary units of description are strictly defined and follow well-formedness constraints to facilitate an unambiguous structural mapping of data. Although terminological notions such as term, concept, conceptual relation or definition can vary from one resource to another one, depending on their level of description and purposes, they are well defined and controlled in TMF. By using this framework, we fulfill at the same time the need of having a general model suited to existing heterogeneous terminologies and the requirements of standardization.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.">Domains</head><p>Following <ref type="bibr" target="#b1">(Bentivogli et al., 2004)</ref>, a domain can be characterized by the name of a discipline where a certain specialist knowledge area is developed (e.g. chemistry) or by the specific object of the knowledge area (e.g. food).</p><p>A key property of traditional specialist terminology is the unambiguous semantic of the term given a domain. MeSH for instance distinguishes 129 main domains covering different aspects of the medical field, such as anatomy, genetics or biology, but also other domains such as computer science, sociology or geography. A given term can realize different concepts but never more than one concept per domain.</p><p>For building the present multidomain terminology, we use a set of 76 basic domains derived from the technical and scientific domains of WordNet Domains <ref type="bibr" target="#b11">(Magnini and Cavaglià, 2000)</ref>, itself derived from the Dewey decimal classification<ref type="foot" target="#foot_2">3</ref> . This set of domains is organized in a hierarchy and follows a degree of granularity which makes general domain mapping between different terminology source easy and well adapted to text processing tasks.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.">Resource mappings</head><p>Terminological resources normally include a division into categories for describing the fields under which the concepts are organized. In the present work, the correspondence between the resources is first given by the basic domains. Each upper level resource specific domain/category have been manually mapped to the relevant basic domains.</p><p>The realization of this mapping is normally relatively straightforward and easy to handle manually. However, hierarchies from different source vocabularies do not always map correctly, resulting in conflicting positioning of some concepts in the semantic network of the basic domains.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.5.">Concept Merging</head><p>We call aggregation the addition of different terminological sources into the same conceptual model. Obviously, different sources frequently overlap semantically. The real value of the combination of different terminologies is the ability to identify common concepts to obtain consistent and enriched semantic representations. Beyond a simple aggregation of terminological resources, the crucial problem of the present work is the correct merging of concepts having different origins.</p><p>Conflicting domain mapping, high polysemy of term variants and incorrectly positioned concepts can cause two problems: (1) to incorrectly merge two concepts sharing common terms and common domains, (2) to lose precision in term descriptions when merging concepts.</p><p>A traditional terminology is based on the principle that one designation corresponds to one concept. As this univocal relationship does not occur in practice, subject fields are used to avoid polysemy, each subject field being considered as a closed domain <ref type="bibr" target="#b2">(Cabré et al., 1999)</ref>. From this principle, i.e. a term is not polysemous in a given domain, we specify a first merging rule:</p><p>Merging Rule 1: If two concepts belong to the same domain and share a common term, the two concepts are merged.</p><p>The univocity principle is well followed in a single traditional terminology or ontology, but not in a resource as Wikipedia. Many variant terms can be single word terms and abbreviations which are highly polysemic. In addition, as mentioned in the previous section, the division into domains is not consistent from one source to another. A more restrictive rule can, therefore, be introduced: Merging Rule 2: If two concepts belong to the same domain and their preferred terms are the same, the two concepts are merged.</p><p>However, as a more general design, the merging of concepts can be rather viewed as an overall balance of evidences related to structural and property (terms, definition, etc.) similarity. We thus also propose and compare the usage machine learning techniques for refining concept merging decision which will be presented in section 4 and compared with the two introduced merging rules.</p><p>For all the approaches, an additional constraint is required to avoid the merging by transitivity of two concepts initially separated in one common source: For instance, if two concepts c 1 and c 2 originate from the source S 1 , and c 3 from S 2 , if c 1 is merged with c 3 , resulting in the concept c 4 =c 1 ⊕ c 3 , c 4 cannot be further merged with c 2 since the two concepts c 1 and c 2 were separated in S 1 . The following invariant is thus introduced: Source-Conformance Invariant: Two concepts having at least one source in common cannot be merged.</p><p>This invariant ensures that the precision in term description in one resource is kept in the merged terminology. In our example, the concept c 3 can be merged both with c 1 and c 2 , but the merged concepts c 1 ⊕ c 3 and c 2 ⊕ c 3 will be kept separated. The Source-Conformance Invariant is, however, relevant only for standard terminology.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Resources</head><p>In this section, we give an overview of the resources used in the present work and their integration: MeSH: The Medical Subject Heading<ref type="foot" target="#foot_3">4</ref> is the National Library of Medicine's controlled vocabulary thesaurus. It consists of sets of terms naming descriptors in a hierarchical structure, for a total of approx 650.000 terms. As MeSH already includes a conceptual organization, its integration in the GRISP conceptual model is straightforward.</p><p>The Specialist Lexicon<ref type="foot" target="#foot_4">5</ref> is an open source lexicon containing approx. 400.000 lexical entries from the biomedical field. It is also released as part of UMLS. It has been used to enrich our list of acronyms and term variants.</p><p>The Gene Ontology<ref type="foot" target="#foot_5">6</ref> is a major open resource providing a controlled vocabulary of approx. 28.500 terms for gene product attributes (The Gene Ontology Consortium, 2000).</p><p>ChEBI<ref type="foot" target="#foot_6">7</ref> is a freely available dictionary of molecular entities developed at the European Bioinformatics Institute <ref type="bibr" target="#b4">(Degtyarenko and al., 2008)</ref>. ChEBI is a valuable source of chemical vocabulary with approx. 42.000 concepts, 97.000 terms, 28.000 semantic relations and multilingual terms in 5 languages.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>WordNet, WOLF and SUMO:</head><p>WordNet is a linguistic knowledge base describing general language. We used WordNet Domains <ref type="bibr" target="#b11">(Magnini and Cavaglià, 2000)</ref> in order to restrict the set of synsets to those related to technical and scientific domains. The resulting terms capture general technical and scientific vocabulary for to all considered domains. This restriction corresponds to approx. 22.000 synsets. For these synsets, the existing mapping to SUMO (the Suggested Upper Merged Ontology) has been imported for the purpose of interoperability of GRISP with ontologies, as well as the existing French terms present in WOLF <ref type="bibr" target="#b15">(Sagot and Fišer, 2008)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IPC:</head><p>The International Patent Classification<ref type="foot" target="#foot_7">8</ref> is a hierarchical classification of approx. 70.000 subdivisions distributed by the WIPO (World Intellectual Property Organization). It contains approx. 4.000 illustrations (mostly chemical compounds) and so-called catch words.</p><p>Wikipedia: <ref type="foot" target="#foot_8">9</ref> The collaborative encyclopedia is an extremely rich, multilingual and multidomain source of specialist vocabulary. It is, however, also very noisy, in the sense that the categorization (based on more than 140.000 categories) and the term variants (redirections) are defined without any constraints. The Wikipedia dump XML files have been processed with a slightly modified version of Wikiprep<ref type="foot" target="#foot_9">10</ref> able to extract multilingual relations in addition to usual structure and text information. Similarly as <ref type="bibr" target="#b6">(Gabrilovich and Markovitch, 2007)</ref>, we interpreted an article as a concept, the title of the article being the pre-ferred term and the disambiguation redirections being variant terms realizing this concept. The first paragraph of an article has been used as definition. 170 Wikipedia top level categories corresponding to technical and scientific domains were mapped to the 76 basic GRISP domains.</p><p>Our experiments also include UMLS (Unified Medical Language System<ref type="foot" target="#foot_10">11</ref> ) resources to complete the coverage of MeSH with an addition of approx. 850.000 terms. UMLS, however, is not a free resource and requires a specific license. For the multilingual resources (Wikipedia, ChEBI), we considered only the English, French and German languages. As WordNet, the IPC and Wikipedia cannot be considered as standard terminologies, the Source-Conformance Invariant was not considered for these sources.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Learning to Merge Concepts</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Learning Model</head><p>Merging of concepts can be expressed as a machine learning problem, more precisely as a binary classification. When expressed as a regression problem, the regression model can provide a merging score which can be used with a threshold for selecting more or less aggressive merging strategies. We experimented SVM (Support Vector Machine) and MLP (Multi-Layer Perceptron) binary classification models based respectively on libSVM <ref type="bibr" target="#b3">(Chang and Lin, 2001)</ref> and the WEKA toolkit <ref type="bibr" target="#b19">(Witten and Frank, 2005)</ref> to decide if two concepts from different sources should be merged or not. The merging decision is applied recursively until a minimal number of merging per iteration is reached.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">Feature definition</head><p>For capturing structural and content-based similarity between concepts having different origins, we introduce the features summarized on Table <ref type="table" target="#tab_1">2</ref> </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Training</head><p>We use two sources of training data providing examples of merging decisions.</p><p>• The first source is based on the existing MeSH mappings present in Wikipedia infobox templates for medical entities. For a large number of entries in the medical and biochemistry domains, the Wikipedia articles provide the corresponding MeSH concept identifier. This information can be used to evaluate the merging of Wikipedia with MeSH and UMLS concepts and, by generalization, the merging of Wikipedia with standard terminologies. We extracted from Wikipedia, a total number of 1.657 merging decisions.</p><p>• The second source is based on a multidisciplinary terminology for scientific and technical domains called PASCAL which was kindly provided by the INIST<ref type="foot" target="#foot_11">12</ref> in the framework of TermSciences <ref type="bibr" target="#b8">(Khayari et al., 2006)</ref>. A concept in PASCAL containing two terms that belong to two different concepts in the simple aggregation, and when at least one domain is shared, can be used as example of correct merging. We extracted from this source a set of 2.230 merging decisions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Evaluation</head><p>We first present quantitatively the resulting terminological database and, second, evaluate the concept merging between resources. In addition, GRISP contains 596.865 definitions, 1.321.988 source specific categorizations of concepts, approx. 20.000 acronyms, 14.268 chemical formulas and 12.375 chemical structure identifiers. We can observe that the merging of concepts concerns a relative small proportion of the whole set of concepts. This is due to the fact that many concepts and terms corresponds to product names, such as medical or chemical entities, which are not candidate for any merging. However, the merging are relevant for concepts which are more generic and frequently used.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.">Resulting Database</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2.">Merging Accuracy</head><p>We present on Table <ref type="table" target="#tab_4">4</ref> an evaluation using a reference set corresponding to a random subset of 10% of the merging examples extracted from Wikipedia/MeSH mappings and from the PASCAL terminology. The coverage (cov.) (nb of expected merging found / nb of merging to be found) is evaluated automatically based on the evaluation set. The accuracy (acc.) involves a limited manual evaluation for judging further merging found after the expected merging, but not in the evaluation set. The Merging Rule 2 produces almost perfect merging but with a very low coverage. Rule 1 extends the coverage at the price of a relatively high rate of merging error. The Machine Learning approaches further extend the coverage while maintaining a high precision. Using the MeSH/Wikipedia mappings as evaluation appear, however, relatively biased since it is clear that many MeSH terms have been added in the corresponding Wikipedia articles at the same time as the MeSH descriptor ID.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Merger</head><p>Wiki </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Tool and Encoding</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.1.">The GRISP browser</head><p>The GRISP terminology is currently stored in a MySQL database following a relational model implementing the conceptual model of ISO 16642.</p><p>We developed a web application for querying and browsing the resulting terminological database. Figure <ref type="figure" target="#fig_0">1</ref> illustrates the view of the concept corresponding to the star term radial engine as displayed by the GRISP browser. Although our primary goal is to create a terminological resource for computer application, we believe that this tool can also be used as a multilingual terminological database for supporting specialized manual translation and as a technical knowledge base. For these purposes, the browser exploits the encyclopedic entries of the GRISP and can display molecules or illustrations extracted from the primary sources, as illustrated by Figure <ref type="figure" target="#fig_1">2</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.2.">TMF encoding</head><p>Using the data model based on ISO 16642 allow us to exploit Data Category Registry (DCR) following the ISO 12620 standard for facilitating the implementation of filters and converters between different terminology instances and to produce a Generic Mapping Tool (GMT) representation, i.e. a canonical XML representation.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.3.">Resource Life Cycle</head><p>As the aggregation and merging process is fully automated, the maintenance/curation of the individual sources over time can be integrate continuously in the existing merged terminological database.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.">Application to Patent Processing</head><p>We have evaluated the interest and the relevance of the GRISP terminology with a information retrieval system for patent documents system called PATATRAS (PATent and Article Tracking, Retrieval and AnalysiS) described in <ref type="bibr" target="#b9">(Lopez and Romary, 2009)</ref> and developed for the CLEF IP 2009 track <ref type="bibr" target="#b13">(Roda et al., 2009)</ref>. The collection consists of all patent publications from the European Patent Office until 2000, approx. 1,9 million documents in English, French and German (more than 3 billion words). The goal of the CLEF IP track was to realize a prior art search for a total number of 10.000 patents, referred to as patent topics. The automatic evaluation was based on the documents cited by patent examiners in the official search reports and examination procedures, with an average of approx. 6 relevant documents per patent topic. PATATRAS has been ranked first for all subtasks of the evaluation track among 14 participants <ref type="bibr" target="#b13">(Roda et al., 2009)</ref>.</p><p>As one of our goal was to perform a complete conceptual indexing of this collection, a terminology covering a large spectrum of technical and scientific domains in three languages was needed. We performed a complete conceptual indexing of this collection based on GRISP. The terms of the GRISP terminological database have been used for annotating the textual data of the whole multilingual collection. A term annotator able to deal with such a large volume of data has been developed specifically for this track. After a POS tagging and a lemmatisation of the whole collection, this annotator matched the term variants following morphological variations. The concept disambiguation was realized on the basis of the IPC classes of the processed patent which indicates one or several basic domains where the patent document belongs. Approx. 1.1 million different terms present in GRISP have been identified at least one time in the collection resulting in more than 176 million annotations.</p><p>In addition to this large scale conceptual index, we created three additional indexes of word forms (one per language) and a phrase index for English. We report in Table <ref type="table" target="#tab_5">5</ref> the results obtained with the KL divergence model for each index in term of MAP (Mean Average Precision). A preprocessing based on patent specific metadata and classification information was first realized to prune the search space. The queries were based on the whole content of the 10.000 patents for which the prior art was realized. Table <ref type="table" target="#tab_5">5</ref> shows that the retrieval based on English word form surpasses the conceptual based retrieval. The fact that a control terminology covers usually only a part of a text, implies an information loss as compared to a word form indexation and retrieval <ref type="bibr" target="#b21">(Zhou et al., 2007)</ref>. However, as shown by table 6, the conceptual model presents a very strong complementarity with the word-form models. By combining retrieval models on the basis of confidence estimations, it is possible to exploit the different retrieval models, in particular conceptual results, for refining the overall accuracy. In the present case, the combination of models was based on a linear interpolation of ranked results sets, the coefficients being computed by SVM regression models using query-specific features and existing search reports present in the patent collection, see <ref type="bibr" target="#b9">(Lopez and Romary, 2009)</ref> for details. The accuracy after the merging of the retrieval model and after a final post-ranking based on specific patent metadata and statistics, are presented Table <ref type="table" target="#tab_7">7</ref>. The combined multilingual result set which integrate the concept results shows a MAP 43.5% higher than the one of the best monolingual individual result set. In bioinformatics, it is known that information retrieval based on well curated resources as MeSH or UMLS can be more effective than word-based retrieval models <ref type="bibr" target="#b20">(Zhou et al., 2006)</ref>. The combination of word-based language model and concept-based language model for Information Retrieval in Genomics results in significant performance improvements <ref type="bibr" target="#b21">(Zhou et al., 2007)</ref>. The present work shows that, even with lower standard and less complete terminological resources, a model combination can improve baseline retrieval results. A conceptual terminological model such as GRISP provides specialized and precise representations which are complementary to the word-based models.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Model</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Measures</head><p>To our knowledge, this was the first time that a controlled conceptual indexing was realized on such a large scale for multiple scientific and technical domains in a realistic multilingual task.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8.">Conclusion and Future Works</head><p>We have proposed a method for creating a massive multilingual terminological database for multiple scientific and technical domains based on various existing free terminologies and knowledge bases. The accuracy of the concept merging between several resources have been evaluated following several methods.</p><p>The resulting resource has been used successfully for improving the accuracy of an information retrieval system applied to a collection of 1.9 million of patent documents covering multiple technical fields in the context of the CLEF IP 2009 track.</p><p>Within this framework, any new specialized terminologies, not specifically created for text processing applications, can be aggregated and merged to GRISP, providing new vocabulary and complementary semantic descriptions, with minimal manual efforts.</p><p>We plan to release a free version of GRISP corresponding to the merging of the subset of resources which are free and permits the distribution of derived versions for noncommercial use.</p><p>Future works include the experiments of GRISP for more applications, in particular the automatic classification of scientific publications and patent documents following different classification schemes. We also foreseen the integration of more languages such as Japanese and Chinese which are essential for scientific and technical information.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: View of the multilingual terminological database for the concept corresponding to the term Radial Engine. This concept is obtained after multiple merging of concepts from WordNet and Wikipedia, resulting in a richer semantic and terminological description.</figDesc><graphic coords="7,55.63,73.96,481.46,284.40" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: View of the multilingual terminological database for the concept corresponding to the term Muramic Acid. The concept results from the merging of the corresponding MeSH, English and French Wikipedia and ChEBI entries.</figDesc><graphic coords="7,55.56,426.53,232.37,172.47" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 :</head><label>1</label><figDesc>Basic Domains of GRISP</figDesc><table><row><cell>Applied Science</cell><cell>Pure Science</cell><cell>Social Science</cell></row><row><cell>Agriculture</cell><cell>Astronomy</cell><cell>Health</cell></row><row><cell>Animal Husbandry</cell><cell>Biology</cell><cell>Body Care</cell></row><row><cell>Food</cell><cell>Biochemistry</cell><cell>Military</cell></row><row><cell>Home</cell><cell>Anatomy</cell><cell>Pedagogy</cell></row><row><cell>Architecture</cell><cell>Physiology</cell><cell>School</cell></row><row><cell>Town Planning</cell><cell>Genetics</cell><cell>University</cell></row><row><cell>Buildings</cell><cell>Animals</cell><cell>Publishing</cell></row><row><cell>Furniture</cell><cell>Plants</cell><cell>Sociology</cell></row><row><cell>Computer Science</cell><cell>Environment</cell><cell>Artisanship</cell></row><row><cell>Engineering</cell><cell>Chemistry</cell><cell>Commerce</cell></row><row><cell>Mechanics</cell><cell>Earth</cell><cell>Industry</cell></row><row><cell>Astronautics</cell><cell>Geology</cell><cell>Transport</cell></row><row><cell>Electrotechnology</cell><cell>Meteorology</cell><cell>Aviation</cell></row><row><cell>Hydraulics</cell><cell>Oceanography</cell><cell>Vehicles</cell></row><row><cell>Telecommunication</cell><cell>Paleontology</cell><cell>Nautical</cell></row><row><cell>Post</cell><cell>Geography</cell><cell>Railway</cell></row><row><cell>Telegraphy</cell><cell>Mathematics</cell><cell>Economy</cell></row><row><cell>Telephony</cell><cell>Geometry</cell><cell>Enterprise</cell></row><row><cell>Medicine</cell><cell>Statistics</cell><cell>Finance</cell></row><row><cell>Dentistry</cell><cell>Physics</cell><cell>Insurance</cell></row><row><cell>Pharmacy</cell><cell>Acoustics</cell><cell>Tax</cell></row><row><cell>Psychiatry</cell><cell>Atomic Physic</cell><cell>Administration</cell></row><row><cell>Radiology</cell><cell>Electricity</cell><cell>Politics</cell></row><row><cell>Surgery</cell><cell>Electronics</cell><cell></cell></row><row><cell></cell><cell>Gas</cell><cell></cell></row><row><cell></cell><cell>Optics</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2 :</head><label>2</label><figDesc>. List of features for machine learning merging.</figDesc><table><row><cell cols="2">(f1-2) Identification of the two involved sources</cell></row><row><cell>(f3)</cell><cell>Number of common domains between the</cell></row><row><cell></cell><cell>two concepts</cell></row><row><cell>(f4)</cell><cell>Number of same source-specific</cell></row><row><cell></cell><cell>categorizations</cell></row><row><cell>(f5)</cell><cell>Boolean indicating if both preferred terms</cell></row><row><cell></cell><cell>are identical</cell></row><row><cell>(f6)</cell><cell>Boolean indicating if both preferred terms</cell></row><row><cell></cell><cell>are identical after stemming</cell></row><row><cell>(f7)</cell><cell>Ratio of identical terms given all terms</cell></row><row><cell>(f8)</cell><cell>Similarity measure of the definition texts,</cell></row><row><cell></cell><cell>after stemming and based on negative KL</cell></row><row><cell></cell><cell>divergence</cell></row><row><cell>(f9)</cell><cell>Number of domains of the merged concept</cell></row><row><cell>(f10)</cell><cell>Number of words of the longest common</cell></row><row><cell></cell><cell>terms</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 3</head><label>3</label><figDesc></figDesc><table><row><cell cols="4">gives a quantitative view of the resulting termino-</cell></row><row><cell cols="4">logical database depending on the merging approach. The</cell></row><row><cell cols="4">aggregation method corresponds to no merging at all.</cell></row><row><cell>Merger</cell><cell>Concepts</cell><cell>Terms</cell><cell>Sem. Rel.</cell></row><row><cell>Aggregation</cell><cell cols="2">1.503.818 3.140.726</cell><cell>970.864</cell></row><row><cell cols="4">Merg. Rule 1 1.457.538 3.157.179 1.022.303</cell></row><row><cell cols="3">Merg. Rule 2 1.476.508 3.114.711</cell><cell>971.218</cell></row><row><cell>SVM</cell><cell cols="3">1.450.688 3.195.118 1.088.446</cell></row><row><cell>MLP</cell><cell cols="3">1.451.710 3.192.325 1.081.955</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 3 :</head><label>3</label><figDesc>GRISP volume statistics following the different merging strategies.</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 4 :</head><label>4</label><figDesc>Evaluation of the merging strategies.</figDesc><table><row><cell></cell><cell>/MeSH</cell><cell>PASCAL</cell></row><row><cell>Merging</cell><cell>cov. 0.6464</cell><cell>cov. 0.5358</cell></row><row><cell>Rule 1</cell><cell>acc. 0.9497</cell><cell>acc. 0.9371</cell></row><row><cell>Merging</cell><cell>cov. 0.3607</cell><cell>cov. 0.2735</cell></row><row><cell>Rule 2</cell><cell>acc. 0.9949</cell><cell>acc. 0.9916</cell></row><row><cell>SVM</cell><cell>cov. 0.8642 acc. 0.9698</cell><cell>cov. 0.6203 acc. 0.9522</cell></row><row><cell>MLP</cell><cell>cov. 0.8607 acc. 0.9748</cell><cell>cov. 0.6178 acc. 0.9515</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>Table 5 :</head><label>5</label><figDesc>Retrieval accuracy following different indexing models for the CLEF IP 2009 track.</figDesc><table><row><cell>index</cell><cell cols="2">lang MAP</cell></row><row><cell>word form</cell><cell>en</cell><cell>0,1589</cell></row><row><cell>word form</cell><cell>fr</cell><cell>0,1234</cell></row><row><cell>word form</cell><cell>de</cell><cell>0,1218</cell></row><row><cell>phrase</cell><cell>en</cell><cell>0,1344</cell></row><row><cell>concept</cell><cell>-</cell><cell>0,1476</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head>Table 7 :</head><label>7</label><figDesc>Final Results for the CLEF IP 2009 track.</figDesc><table><row><cell></cell><cell>Combined</cell><cell>After</cell></row><row><cell></cell><cell>models</cell><cell>Post-Ranking</cell></row><row><cell>MAP</cell><cell>0.2281</cell><cell>0.2802</cell></row><row><cell>Prec. At 5</cell><cell>-</cell><cell>0.2768</cell></row><row><cell>Prec. At 10</cell><cell>-</cell><cell>0.1776</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>http://thomsonreuters.com/products services/science/ science products/life sciences/biology/biosis</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>2 http://iate.europa.eu</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>http://www.oclc.org/dewey</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>http://www.nlm.nih.gov/mesh</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_4"><p>http://lexsrv3.nlm.nih.gov/SPECIALIST</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_5"><p>http://www.geneontology.org</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_6"><p>http://www.ebi.ac.uk/chebi</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_7"><p>http://www.wipo.int/classifications/ipc/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="9" xml:id="foot_8"><p>http://download.wikimedia.org</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="10" xml:id="foot_9"><p>http://sourceforge.net/projects/wikiprep</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="11" xml:id="foot_10"><p>http://www.nlm.nih.gov/research/umls</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="12" xml:id="foot_11"><p>The French National Institute for Technical and Scientific Information.</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<author>
+			<persName><forename type="first">K</forename><surname>References</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ahmad</surname></persName>
+		</author>
+		<title level="m">Pointer project final report</title>
+		<imprint>
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical report</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Revising the wordnet domains hierarchy: semantics, coverage and balancing</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bentivogli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Forner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Magnini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Pianta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of COLING Workshop on Multilingual Linguistic Resources</title>
+		<meeting>COLING Workshop on Multilingual Linguistic Resources<address><addrLine>Geneva, Switzerland</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">T</forename><surname>Cabré</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Sager</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Decesaris</surname></persName>
+		</author>
+		<title level="m">Terminology: theory, methods, and applications</title>
+		<imprint>
+			<publisher>John Benjamins Publishing Company</publisher>
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Libsvm: a library for support vector machines</title>
+		<author>
+			<persName><forename type="first">C.-C</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C.-J</forename><surname>Lin</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical report</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">ChEBI: a database and ontology for chemical entities of biological interest</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Degtyarenko</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nucleic Acids Res</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="page" from="344" to="350" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Reconciling schemas of disparate data sources: a machinelearning approach</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Doan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Domingos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Halevy</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc ACM SIGMOD Conf</title>
+		<meeting>ACM SIGMOD Conf</meeting>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Computing semantic relatedness using wikipedia-based explicit semantic analysis</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Gabrilovich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Markovitch</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of IJCAI</title>
+		<meeting>IJCAI</meeting>
+		<imprint>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">A framework for modeling and evaluating automatic semantic reconciliation</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Anaby-Tavor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Trombetta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Montesi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">VLDB Journal</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="50" to="67" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Unification of multi-lingual scientific terminological resources using the iso 16642 standard. the termsciences initiative</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Khayari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Schneider</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Kramer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Workshop Acquiring and representing multilingual</title>
+		<meeting><address><addrLine>Genoa, Italy</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+	<note>specialized lexicons: the case of biomedicine</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Multiple retrieval models and regression models for prior art search</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">CLEF 2009 Workshop</title>
+		<meeting><address><addrLine>Corfu, Greece</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Generic schema matching with cupid</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Madhavan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">A</forename><surname>Bernstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Rahm</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. 27th Intl. Conference on Very Large Databases (VLDB)</title>
+		<meeting>27th Intl. Conference on Very Large Databases (VLDB)<address><addrLine>Rome, Italy</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Integrating subject field codes into wordnet</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Magnini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Cavaglià</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of LREC-2000, International Conference on Language Resources and Evaluation</title>
+		<meeting>LREC-2000, International Conference on Language Resources and Evaluation<address><addrLine>Athens, Greece</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">An environment for merging and testing large ontologies</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">L</forename><surname>Mcguinness</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Fikes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Rice</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wilder</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Seventh International Conference on Principles of Knowledge Representation and Reasoning</title>
+		<meeting>the Seventh International Conference on Principles of Knowledge Representation and Reasoning<address><addrLine>Breckenridge, Colorado</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Clef-ip 2009: Retrieval experiments in the intellectual property domain</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Roda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Tait</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Piroi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Zenz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">CLEF 2009 Workshop</title>
+		<meeting><address><addrLine>Corfu, Greece</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">An abstract model for the representation of multilingual terminological data: Tmf -terminological markup framework</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">TAMA (Terminology in Advanced Microcomputer Applications)</title>
+		<meeting><address><addrLine>Antwerp, Belgium</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Building a free french wordnet from multilingual resources</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Sagot</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Fišer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Ontolex</title>
+		<meeting><address><addrLine>Marrakech, Maroc</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Questioning the univocity ideal. the difference between socio-cognitive terminology and traditional terminology</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Temmerman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Hermes, Journal of linguistics</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="page" from="51" to="91" />
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Gene ontology: tool for the unification of biology</title>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Genet</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="page" from="25" to="29" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+	<note>The Gene Ontology Consortium</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Matching multi-lingual subject vocabularies</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Issac</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Schopman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Schlobach</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Van Der Meij</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 13th European Conference on Digital Libraries (ECDL)</title>
+		<meeting>the 13th European Conference on Digital Libraries (ECDL)<address><addrLine>Corfu, Greece</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Data Mining: Practical machine learning tools and techniques</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">H</forename><surname>Witten</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Frank</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2005">2005</date>
+			<publisher>Morgan Kaufmann</publisher>
+			<pubPlace>San Francisco, 2</pubPlace>
+		</imprint>
+	</monogr>
+	<note>nd edition edition</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Using Conceptbased Indexing to Improve Language Modeling Approach to Genomic IR</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Hu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Lecture Notes in Computer Science</title>
+		<imprint>
+			<biblScope unit="volume">3936</biblScope>
+			<biblScope unit="page">444</biblScope>
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Topic signature language models for ad hoc retrieval</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Zhang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Knowledge and Data Engineering</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page">1276</biblScope>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

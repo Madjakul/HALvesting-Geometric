@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main"></title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">A388AFFBF8C148389B473ADC38386DA0</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T14:59+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Publications</head><p>Training workflow Is the right to read a right to mine?</p><p>• Problem:</p><p>-Wide quantity of produced scientific information</p><p>• Text and data mining as a way to identify useful content -Fragmentation of the corpus • Towards a TDM exception for research at EU level?</p><p>-Non for-profit organisations? -Publishers fight to prevent a re-examination of the directive</p><p>• Even introduce clauses preventing re-use rights in their licences ruling out mining • Foster restrictions even in the context of an exception (using publisher's software, against the payment of a fee…) • Specific clause in article 3 of the current project for a future revision -Germany and UK already have an exception -And France?... • Waiting for Godot -The article is not valid until application guidelines (décret d'application) are published -The French government declared that they would wait for the EU to finalize its text…</p><p>In practice…</p><p>• How much can we trace from the source?</p><p>-Cf. Machine Learning models -Full extraction of content -More models for more forms of documents (books, PhD theses) or dictionaries (related entries)</p><p>• Application: Re-publishing content -E.g. public domain material</p><p>• Petit Larousse illustré -joint project with Univ. Montpellier -The XML-TEI as a pivot format The text and language standardisation landscape</p><p>• Generic horizontal standards -ISO 639 series and BCP 47 for languages -Scripts, times and dates, etc.</p><p>-XML for document representation</p><p>• Specific vertical standards -Text Encoding Initiative (TEI) for textual content   Open access issues and questions</p><p>• How do we gain maximal access and re-use rights on scientific publications? • Do we want to leave the publication landscape unchanged?</p><p>-When the digital turn has already changed so much…</p><p>• Do we let the private sector take care of it for us?</p><p>• How do we preserve our digital sovereignty as scholars?</p><p>The French context • HCERES -Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur -Assessment institution for higher education and research -Announced (Jan. 2018) that HAL will be the only source for publications</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Digestif</head><p>• Where do we go from here?</p><p>-Be open</p><p>• Publications, data, software, services • This is the role of the EU infrastructure DARIAH to facilitate this… -Understand the magic behind models</p><p>• Increasing computer literacy is a must in the digital turn -But this does not necessarily mean "programming"</p><p>-Re-use and cite</p><p>• A necessary condition for the success of the openness agenda Merci de votre attention! laurent.romary@inria.fr @laurentromary</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>-</head><label></label><figDesc>The essence of publishing • Importance of attribution • Reflects the context and time of the research (project, affiliation, biography) • The hidden hand of reviewers Patents -A variety of roles • Applicant/inventor/representati ve • Opponents • … and examiners Standards -Priority to the institution • Consensus building =&gt; large expert group • ISO: no authors but project leaders • W3C: editors Structure Publications -Semi-formal • Title/authors/affiliations/abstract • Loosely structured content • Formulas, Tables, figures, graphics • References Patents -Very formal • Title/inventors/claims/abstract/ description • Multilingualism (EPO) • Formulas, Tables, figures, graphics Standards -Very formal • Introduction/scope/terms and definitions/description/referen ces/annexes • Formulas, Tables, figures, graphics Language Publications -Semi-formal • Loose keywords, when any • Community of practices • Creativity is part of the publication process… Patents -Obfuscating • Achieving widest coverage and preventing retrieval Standards -Very formal • Central role of the terms and definitions section • Based on the principles of terminology Network Publications -Semi-formal • References pointing to previous publications in the same domain • Citation is an essential aspect of scholarly fame… Patents -Very formal • Citations in the application description • Citations as annotations from the examiner • Impact on acceptance or refusal Standards -Very formal • Section 2: normative references • Possible additional bibliographic section at the end Certification process Publications -Semi-formal • Traditional (vestigial?) concept of peer-review • From author's initial manuscript to publisher's version • Evolution in the role of each version (e.g. prior art) Patents -Very formal • Review by patent examiners • Coordination of multiple submissions: national, US, Europe, etc. • Importance of initial submission date Standards -Very formal • Decision process reflecting membership structure • ISO: WD, CD, DIS, FDIS, IS • One single reference document Openness Publications -on-going issue… • Traditional (vestigial?) concept of scholarly publishers • Openness should be easy in the current digital context • Debate on how to reach full openness to scholarly content… Patents -Open! • Openness is part of the patent design (18 months after first filing) • Still, no open dissemination of content in standardised form • WIPO, Google patent, etc. Standards -various models • ISO: pay per document • W3C, TEI: full openness Scientific documents -summary • More commonalities than differences -Similar organisational principles -Joint referencing mechanisms -Related scientific and technical content • Possible to foresee similar processing techniques -Now focussing on scientific papers -See (Lopez &amp; Romary; 2009 and 2010) for similar works on patents • There remains the issue of content accessibility… TEXT AND DATA MINING Data mining and machine learning • Text and data mining -Identifying and qualifying information from a corpus of documents or a database • Machine learning techniques -Implementation of mathematical (probabilistic) models -Trained on a corpus of existing documents or databases • Unsupervised: the machine learning algorithm recognizes patterns without prior knowledge of the content • Supervised: the training corpus is tagged for the categories to be recognised • Models have been around since the 70's; -e.g. neural networks, Markov models • Huge recent progress with the availability of increased computer capacity (storage, speed) Text and Data mining of scientific documents • Exploring all aspects of a document -Meta-data (title, authors, abstract, keywords) -Bibliographic references (list, anchors in the text) -Full text structure (divisions, paragraphs, figures, tables) -Scientific objects (stellar objects, molecules, etc.) • A wide range of possible applications -Improving information retrieval tools -Linking documents (bibliography, similar content) -Building up databases of scientific knowledge -Automatic construction of scientific hypotheses Input is often noisy! Conditional random fields (CRF) • Segmenting and assigning labels to a set of observations sequences -E.g. part of speech tagging -[Le DET][petit ADJ][chat NOUN][est COP][mort ADJ][. PCT] • Part of the general class of graphical models -Expression of local factors between groups of variables -General distribution results in the combination of these local factors • E.g. Bayesian networks, neural networks, factor graphs, Markov random fields, Ising models • CRFs are centred on solving the classification problem -Modelling the conditional distribution -CRFs typically outperform Hidden Markov Models Predicting variables from an input sequence of feature vectors y = {y 0 , y 1 , . . . , y T } X ={x 0 , x 1 . . . x T } Input sequence of vectors Predicted output Vector of features Dependence between output variables CRF: Modelling p(y|x) for large set of features with complex dependenciesVariables and features in practice</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>•</head><label></label><figDesc>CRF-based analysers of scientific quantities in texts • Recognizes 120 base units and expressions of atomic, interval and lists of values • Standardisation in SI units (JSR-363, ISO 80000 series, ...) • Identifies and attaches the "quantified" substance or objects to the measurements • Processes 1000 words per seconds (one thread) GROBID -Quantities (cont.) • Independent from the scientific field • Fills in a "hole" in the data mining landscape • Open source under an Apache 2 licence • Already used in large scale applications -NASA Jet Propulsion Laboratory -Istex: corpus of scientific articles with a national subscription &lt;gramGrp&gt;&lt;pos&gt;v.&lt;/pos&gt;&lt;/gramGrp&gt; &lt;sense&gt; &lt;sense&gt;1 knock, 'He chappid fower or five times at the door and got no reply.'&lt;/sense&gt; &lt;sense&gt;2 mash potatoes, 'I like me tatties chappid.'&lt;/sense&gt; &lt;sense&gt;3 chop wood, 'Ah'll go and chap twa three sticks for the fire.' chappeen tree potato masher&lt;/sense&gt; &lt;/sense&gt; &lt;/entry&gt; Orkney Scots dictionary Mueller (1878) ("Etymologisches Wörterbuch der englischen Sprache", 2nd ed., Cöthen 1878/1879) Grobid -perspectives • A generic machinery for text document analysis -Online services, Open source software • Still some work ahead -Tables, figures, etc.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="21,0.00,281.00,720.00,72.49" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="31,0.00,124.00,720.00,417.42" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="34,0.00,148.05,720.00,285.13" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="35,0.00,141.32,720.00,268.29" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="43,0.00,148.81,720.00,344.78" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="44,0.00,135.48,720.00,373.06" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="47,398.84,132.77,306.63,315.70" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="52,255.76,88.73,438.70,220.36" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="53,11.56,249.02,338.29,162.76" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="53,349.85,1.19,369.32,534.67" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>and extractions made by research organisations in order to carry out text and data mining</head><label></label><figDesc>Article 3 -Text and Data Mining 1. Member States shall provide for an exception to the rights provided for in Article 2 of Directive 2001/29/EC, Articles 5(a) and 7(1) of Directive 96/9/EC and Article 11(1) of this Directive for reproductions of works or other subject-matter to which they have lawful access for the purposes of scientific research. 2. Any contractual provision contrary to the exception provided for in paragraph 1 shall be unenforceable. 3. Rightholders shall be allowed to apply measures</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>to ensure the security and integrity of the networks and databases where</head><label></label><figDesc></figDesc><table><row><cell>The French context</cell></row><row><cell>• Loi pour une République Numérique (article 38)</cell></row><row><cell>-« Les copies ou reproductions numériques réalisées à partir d'une source licite, en vue de l'exploration de textes et de données incluses ou associées aux écrits scientifiques pour les besoins de la recherche publique, à l'exclusion de toute finalité commerciale. »</cell></row><row><cell>necessary to achieve that objective. subject-matter are hosted. Such measures shall not go beyond what is the works or other -Legally acquired material -copies for the purpose of TDM -public research (no commercial purpose)</cell></row><row><cell>4. Member States shall encourage rightholders and research organisations to define commonly-agreed best practices concerning the application of the measures referred to in paragraph 3.</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>LE DESSERT -CAFÉ GOURMAND STANDARDS -AN ESSENTIAL ASPECT OF OPEN KNOWLEDGE</head><label></label><figDesc>Specific exception in France since 2006 or from the Marrakech treaty (2013)</figDesc><table><row><cell>Why do we actually need standards?</cell></row><row><cell>• A paradox in science</cell></row><row><cell>-Freezing knowledge, overhead in a creativity</cell></row><row><cell>phase, forcing scholars to produce comparable</cell></row><row><cell>results…</cell></row><row><cell>• Some obvious arguments</cell></row><row><cell>-Long term legibility of data</cell></row><row><cell>-Facilitate re-use and, yes, comparison of results • Generation of HTML, ePub, simplified versions (e.g. learners' dictionary) -Simplifies the development of generic tools • … or Braille output for visually impaired persons (queries, visualisation, etc.)</cell></row></table><note><p>-</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_9"><head>•</head><label></label><figDesc>Inria -a strong open access policy since 2014 -Deposit mandate in the HAL national repository (annual report) -Forbidding hybrid APCs (Article Processing Charges) -Central budget for APCs corresponding to full open access journal • Loi pour une République Numérique -Article 30: for publicly funded research (50%), right to make post-print available online, 6/12 month embargo, publisher's version if available online</figDesc><table /><note><p>• Appel de Jussieu -http://jussieucall.org -Reducing subscription budgets to invest in new publication models</p></note></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Ex.: simple expressions of quantities Ex.: Interpreting intervals</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Unit Substance Value</head><p>Measure <ref type="bibr">[value, interval, listc, listd]</ref> ... and 200-700 μmol/l of sodium valproate with ... CRF models in grobid-quantities  <ref type="bibr">token ; lowercase ; prefix (1,2,3,4) char ; suffix (1,2,3,4)</ref> char ; capitalisation ; digit ; single char (0/1) ; punctuation ; word shape (Xxxx) ; word shape trimmed; is known unit token; is number token</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Input text and features</head></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">The DARIAH ERIC: Redefining Research Infrastructure for the Arts and Humanities in the Digital Age</title>
+		<author>
+			<persName><forename type="first">Jennifer</forename><surname>Dariah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Frank</forename><surname>Edmond</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Fischer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Mertens</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Romary</surname></persName>
+		</author>
+		<idno>Humanities. 〈hal-01588665</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ERCIM News</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<publisher>ERCIM</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<author>
+			<persName><forename type="first">Openness</forename><surname>Laurent</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Romary</forename></persName>
+		</author>
+		<idno>〈hal-00854014</idno>
+		<title level="m">Wissenschaftliche Arbeit und Open Access. GEGENWORTE, Berlin-Brandenburgischen Akademie der Wissenschaften</title>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="volume">30</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Data fluidity in DARIAH -pushing the agenda forward. BIBLIOTHEK Forschung und Praxis</title>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Mertens</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anne</forename><surname>Baillot</surname></persName>
+		</author>
+		<idno type="DOI">〈10.1515/bfp-2016-0039〉.〈hal-01285917v2</idno>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<publisher>De Gruyter</publisher>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="page" from="350" to="357" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">GROBID -Information Extraction from Scientific Publications</title>
+		<author>
+			<persName><forename type="first">Grobid</forename><surname>Laurent Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Patrice</forename><surname>Lopez</surname></persName>
+		</author>
+		<ptr target="https://digilex.hypotheses.org/250" />
+	</analytic>
+	<monogr>
+		<title level="m">ERCIM News, ERCIM</title>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="volume">100</biblScope>
+		</imprint>
+	</monogr>
+	<note>Scientific Data Sharing and Re-use</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Automatic Extraction of TEI Structures in Digitized Lexical Resources using Conditional Random Fields</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Khemakhem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luca</forename><surname>Foppiano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+		</author>
+		<idno>〈hal-01508868v2</idno>
+		<imprint>
+			<date type="published" when="2017-09">2017. Sep 2017</date>
+			<pubPlace>Leiden, Netherlands</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Questions &amp; Answers for TEI Newcomers</title>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Tei</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Romary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Jahrbuch für Computerphilologie</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<date type="published" when="2009">2009</date>
+			<publisher>Mentis Verlag</publisher>
+		</imprint>
+	</monogr>
+	<note>Jahrbuch für Computerphilologie. 〈hal-00348372v2〉</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Going Digital: Creating Change in the Humanities: ALLEA E-HUMANITIES WORKING GROUP REPORT</title>
+		<author>
+			<persName><forename type="first">Sandra</forename><surname>Collins</surname></persName>
+		</author>
+		<idno>ALLEA. 2015. 〈hal-01154796</idno>
+		<ptr target="https://cv.archives-ouvertes.fr/laurentromary" />
+		<imprint/>
+	</monogr>
+	<note>Research Report</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Segmentation tool for hadith corpus to generate TEI encoding</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Hajer</forename><surname>Maraoui</surname></persName>
+							<email>hajer.maraoui@fst.utm.tn</email>
+							<affiliation key="aff0">
+								<orgName type="department">Faculty of Sciences of Tunis</orgName>
+								<orgName type="laboratory">MIRACL Laboratory</orgName>
+								<orgName type="institution">University of Tunis El Manar</orgName>
+								<address>
+									<country key="TN">Tunisia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Kais</forename><surname>Haddar</surname></persName>
+							<email>kais.haddar@yahoo.fr</email>
+							<affiliation key="aff1">
+								<orgName type="department">Faculty of Science of Sfax</orgName>
+								<orgName type="laboratory">MIRACL Laboratory</orgName>
+								<orgName type="institution">University of Sfax</orgName>
+								<address>
+									<country key="TN">Tunisia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@inria.fr</email>
+							<affiliation key="aff2">
+								<orgName type="institution">Inria, Team ALMAnaCH</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Segmentation tool for hadith corpus to generate TEI encoding</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">D751522D85C6743CD737737911AF1AA0</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:02+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Hadith corpus</term>
+					<term>hadith structure</term>
+					<term>segmentation tool</term>
+					<term>TEI encoding</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>A segmentation tool for a hadith corpus is necessary to prepare the TEI hadith encoding process. In this context, we aim to develop a tool allowing the segmentation of hadith text from Sahih al-Bukhari corpus. To achieve this objective, we start by identifying different hadith structures. Then, we elaborate an automatic processing tool for hadith segmentation. This tool will be integrated in a prototype allowing the TEI encoding process. The experimentation and the evaluation of this tool is based on Sahih al-Bukhari corpus. The obtained results were encouraging despite some flaws related to exceptional cases of hadith structure.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>A segmentation phase is necessary to analyse and standardize corpora especially for hadith corpora. In fact, the automatization of the segmentation of large hadith corpora guarantee the treatment optimization in term of time and results precision. Moreover, it facilitates the processing and the manipulation for some tools that analyze and standardize each part of the text in hadith corpus. However, this phase imposes some problems especially with the structure of large hadith corpora, which characterised with text particularity and variant features. Furthermore, these corpora are originally in Arabic language, which impose some difficulties that related with language specificities.</p><p>In this context, to segment a large corpus of hadith, such as Sahih al-Bukhari, we must first start with a deep study on hadith corpora specificities and identify the features of hadith text. Then, we must classify the separator terms that recognise the different units in hadith corpus and develop the necessary resources to realise the segmentation process. After that, we need to develop a tool for the segmentation of hadith corpus.</p><p>In the present paper, we begin with a state of art on hadith in Sahih al-Bukhari corpus. Then, we illustrate the features of hadith text. After that, we present our segmentation tool for hadith text from sahih al-Bukhari. Then, we continue with by an evaluation step. We cloture our paper with a conclusion and some perspective.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Stat of art on hadith in Sahih al-Bukhari corpus</head><p>Sahih al-Bukhari (or ‫البخاري‬ ‫صحيح‬ in Arabic) is one of the six major hadith collections of Sunni Islam. The Arabic word sahih ‫)صحيح(‬ translates as authentic or correct. The prophetic traditions (or hadiths), were collected by the Muslim scholar Muhammad al-Bukhari, after being transmitted orally for generations <ref type="bibr" target="#b3">[4]</ref>. Al-Bukhari went to Mecca when he was 16 years old and learned hadith there. He traveled around other Islamic countries to collect hadiths. He had collected 600,000 hadiths of which he only considered 7,275 ones as authentic in his well-known work, Sahih al-Bukhari. He finished his work around 846/232 AH <ref type="bibr" target="#b4">[5]</ref>. The book is considered as one of the two most authentic and trusted collections of hadith along with Sahih Muslim. Sahih al-Bukhari covers almost all aspects of life in providing proper guidance of Islam such as the method of performing prayers and other actions of worship directly from the Prophet Muhammad. In Islamic terminology, the term hadith refers to reports of statements or actions of the Prophet Muhammad, or of his implicit approval or criticism of something said or done in his presence. Classical hadith specialist Ibn Hajar al-Asqalani says that the intended meaning of hadith in religious tradition is something attributed to Muhammad but that is not found in the Quran. The two major aspects of a hadith are the Matn which is the actual narration, and Sanad or Isnad which is the chronological list of narrators. Each Isnad reporter mentions the person from whom he heard the hadith all the way to the prime reporter of the Matn itself. The Isnad was an authentication of the hadith to verify that it is actually come from the Prophet Muhammad. The Isnad means literally 'support', so it is the support in determining the hadith authenticity or weakness (more details in <ref type="bibr" target="#b3">[4]</ref> and <ref type="bibr" target="#b5">[6]</ref>).</p><p>Research in the Isnad is very important in the science of hadith. To define the hadith authentication, the traditional methods consist of following clear steps in the judgment on the Isnad. Currently, software tools allow hadith judging like electronic hadith encyclopedias and some websites. Moreover, information retrieval and search engines that related to semantic web can be used to serve in deciding the authenticity of hadith.</p><p>Many projects worked on hadith corpus. Indeed, these projects focused on several branches of researches such as hadith ontology, linguistic analyzing, Hadith segmentation, classification and the mining of information.</p><p>In <ref type="bibr" target="#b6">[7]</ref>, the researchers proposed a model named SALAH for the unsupervised segmentation and the linguistic analysis of the hadith texts. The model automatically segments each text unit in Isnad and Matn. After that, a personalized augmented version of the AraMorph morphological analyzer (RAM) examines and annotates lexically and morphologically the text content. The system generates as final output a graph with relations among transmitters and a lemmatized text corpus in XML format.</p><p>In <ref type="bibr" target="#b7">[8]</ref>, the author constructed an ontology-based Isnad Judgment System (IJS) that automatically generates a suggested judgment of Hadith Isnad. This is based on the standard instructions followed by the Hadith scholars to judge hadith Isnad. A prototype of the approach implemented to provide a proof of concept for the requirements and to verify its accuracy.</p><p>Authors of paper <ref type="bibr" target="#b8">[9]</ref> built a domain specific ontology (Hadith Isnad Ontology) to support the process of authenticating Isnad. They evaluate the ontology through Hadith example and DL-Queries.</p><p>In <ref type="bibr" target="#b9">[10]</ref>, the authors reported on a system that automatically generates the transmission chains of a Hadith and graphically display it. They involve parsing and annotating the Hadith text and identifying the narrators' names. They use shallow parsing along with a domain specific grammar to parse the Hadith content.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Arabic hadith features: Sahih al-Bukhari corpus</head><p>Sahih al-Bukhari is arranged like books in Islamic jurisprudence (or ‫ِقه‬ ‫ف‬ " " , fiqh). It contains also some additional sections focusing on different topics such as the origins of creation, the exegesis of the Quran and the Holy prophets. Al-Bukhari also expressed his own views of the issues in fiqh by classifying the sections of his book and assigned for each section a significant title which express the fiqh of al-Bukhari. These titles involve all the interpretations and explications of al-Bukhari to clarify the meaning of hadiths which are difficult to understand.</p><p>Sahih al-Bukhari corpus is structured into 97 chapters and 3450 sections. The chapters contain 7563 hadith in totality. This number includes repeated hadiths. It confirmed contains 7275 ones, and setting aside the repeated ones, as Nawawi says, it includes 4,000 hadiths, though Ibn Hajar says that on this count, it contains 2,761 hadiths. Moreover, the number of its hadiths is different in different versions of the book; for example, Firabri has cited 300 hadiths more than those cited by Ibrahim b. Ma'qil al-Nasafi, and the latter cited 100 hadiths fewer than those cited by Himad b. Shakir al-Nasawi.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Hadith features</head><p>Each hadith in Sahih al-Bukhari is cited in a relative section, titled by the author to express his interpretation of the meaning of hadith, under a chapter combine the sections related with one topic. Moreover, each hadith is quoted with an order number and finish with the references. This structure in accurately respected in Sahih al-Bukhari. As an example, Fig. <ref type="figure" target="#fig_0">1</ref> present hadith number 3209 from chapter 59 "beginning of creation", section 6 "the reference to angels", as it occurs in sahih al-Bukhari. In order to extract hadiths text from Sahih al-Bukhari, it is convenient to keep the relative coordination of each hadith to maintain the structure and authentication support.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Hadith Structure</head><p>The typical hadith structure consists of two parts, the transmitter chain (Isnad) and the actual narration (Matn). Since just close sets of words separate both Isnad from Matn and the various transmitters inside Isnad one from another, this explicit organization allows to detect and retrieve information with a relatively small amount of ambiguity.</p><p>Despite the regular structure of the majority of hadiths occurred in Sahih al-Bukhari, it still exists others with a different structure. These cases are related with implicit parameters which are referenced or mentioned in implicit way. For example, it common to find a hadith text with only the Matn. But also cited with an expression of the reference where to find the appropriate isnad or came as a continuation of the Matn of a previous hadith. As an Example, Fig. <ref type="figure" target="#fig_1">2</ref> illustrate this case in hadith number 654 from the section 32, chapter 10 "Call to prayers". </p><formula xml:id="formula_0">‫م‬ ْ ‫ال‬ ِ ‫ر‬ ْ ‫ِك‬ ‫ذ‬ ‫باب‬ 3209 - ‫ِي‬ ‫ن‬ َ ‫َر‬ ‫ب‬ ‫َخْ‬ ‫أ‬ :َ ‫َال‬ ‫ق‬ ، ٍ ‫ْج‬ ‫ي‬ َ ‫ُر‬ ‫ج‬ ‫ْنُ‬ ‫اب‬ ‫َا‬ ‫ن‬ َ ‫َر‬ ‫ب‬ ‫َخْ‬ ‫أ‬ ،ٌ ‫د‬ َ ‫ل‬ ‫خْ‬ َ ‫م‬ ‫َا‬ ‫ن‬ َ ‫َر‬ ‫ب‬ ‫َخْ‬ ‫أ‬ ، ‫مٍ‬ َ ‫ال‬ َ ‫س‬ ‫ْنُ‬ ‫ب‬ ُ ‫َّد‬ ‫م‬ َ ‫ُح‬ ‫م‬ ‫َا‬ ‫ن‬ َ ‫َّث‬ ‫د‬ َ ‫ح‬ َّ ‫ل‬ َ ‫ص‬ ِ ‫ي‬ ِ ‫َّب‬ ‫الن‬ ِ ‫َن‬ ‫ع‬ ،ُ ‫ْه‬ ‫َن‬ ‫ع‬ ُ ‫َّللاَّ‬ َ ‫ي‬ ‫ضِ‬ َ ‫ر‬ َ ‫ة‬ َ ‫ْر‬ ‫ي‬ َ ‫ُر‬ ‫ه‬ ‫ُو‬ ‫ب‬ َ ‫أ‬ َ ‫َال‬ ‫ق‬ :َ ‫َال‬ ‫ق‬ ، ٍ ‫ِع‬ ‫َاف‬ ‫ن‬ ‫نْ‬ َ ‫ع‬ ، َ ‫َة‬ ‫ب‬ ْ ‫ُق‬ ‫ع‬ ‫ْنُ‬ ‫ب‬ ‫ى‬ َ ‫ُوس‬ ‫م‬ ‫ُو‬ ‫ب‬ َ ‫أ‬ ُ ‫ه‬ َ ‫َع‬ ‫َاب‬ ‫ت‬ َ ‫و‬ ، َ ‫م‬ َّ ‫ل‬ َ ‫س‬ َ ‫و‬ ِ ‫ْه‬ ‫ي‬ َ ‫َل‬ ‫ع‬ ُ ‫هللا‬ ‫ى‬ َ ‫ص‬ ِ ‫ي‬ ِ ‫َّب‬ ‫الن‬ ِ ‫َن‬ ‫ع‬ ،َ ‫ة‬ َ ‫ْر‬ ‫ي‬ َ ‫ُر‬ ‫ه‬ ‫ي‬ ِ ‫ب‬ َ ‫أ‬ ‫نْ‬ َ ‫ع‬ ، ٍ ‫ِع‬ ‫َاف‬ ‫ن‬ ‫نْ‬ َ ‫ع‬ ، َ ‫َة‬ ‫ب‬ ْ ‫ُق‬ ‫ع‬ ‫ْنُ‬ ‫ب‬ ‫ى‬ َ ‫ُوس‬ ‫م‬ ‫ِي‬ ‫ن‬ َ ‫َر‬ ‫ب‬ ‫َخْ‬ ‫أ‬ :َ ‫َال‬ ‫ق‬ ، ٍ ‫ْج‬ ‫ي‬ َ ‫ُر‬ ‫ج‬ ِ ‫ْن‬ ‫اب‬ ِ ‫َن‬ ‫ع‬ ، ‫مٍ‬ ‫َاصِ‬ ‫ع‬ ، َ ‫م‬ َّ ‫ل‬ َ ‫س‬ َ ‫و‬ ِ ‫ْه‬ ‫ي‬ َ ‫َل‬ ‫ع‬ ُ ‫هللا‬ ‫ى‬ َّ ‫ل‬ ِ ‫ْر‬ ‫ب‬ ِ ‫ج‬ ‫َى‬ ‫َاد‬ ‫ن‬ َ ‫ْد‬ ‫ب‬ َ ‫الع‬ ُ ‫َّللاَّ‬ ‫َبَّ‬ ‫ح‬ َ ‫أ‬ ‫َا‬ ‫ذ‬ ِ ‫إ‬ " :َ ‫َال‬ ‫ق‬ ‫اءِ:‬ َ ‫َّم‬ ‫الس‬ ِ ‫ْل‬ ‫ه‬ َ ‫أ‬ ‫ِي‬ ‫ف‬ ُ ‫يل‬ ِ ‫ْر‬ ‫ب‬ ِ ‫ج‬ ‫ِي‬ ‫َاد‬ ‫ُن‬ ‫َي‬ ‫ف‬ ،ُ ‫يل‬ ِ ‫ْر‬ ‫ب‬ ِ ‫ج‬ ُ ‫ُّه‬ ‫ب‬ ‫ُحِ‬ ‫َي‬ ‫ف‬ ،ُ ‫ْه‬ ‫ب‬ ِ ‫ب‬ ‫حْ‬ َ ‫َأ‬ ‫ف‬ ‫ًا‬ ‫َن‬ ‫ال‬ ُ ‫ف‬ ‫بُّ‬ ‫ُحِ‬ ‫ي‬ َ ‫َّللاَّ‬ ‫نَّ‬ ِ ‫إ‬ :َ ‫يل‬ " ِ ‫ض‬ ‫رْ‬ َ ‫األ‬ ‫ِي‬ ‫ف‬ ُ ‫ُول‬ ‫َب‬ ‫الق‬ ُ ‫ه‬ َ ‫ل‬ ُ ‫َع‬ ‫ُوض‬ ‫ي‬ َّ ‫م‬ ُ ‫ث‬ ، ‫اءِ‬ َ ‫َّم‬ ‫الس‬ ُ ‫ْل‬ ‫ه‬ َ ‫أ‬ ُ ‫ُّه‬ ‫ب‬ ‫ُحِ‬ ‫َي‬ ‫ف‬ ،ُ ‫ُّوه‬ ‫ب‬ ‫حِ‬ َ ‫َأ‬ ‫ف‬ ‫ًا‬ ‫َن‬ ‫ال‬ ُ ‫ف‬ ‫بُّ‬ ‫ُحِ‬ ‫ي‬ َ ‫َّللاَّ‬ ‫نَّ‬ ِ ‫إ‬ . ] ‫في‬ ‫طرفاه‬ 6040 , 7435 .[</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="59">-Chapter of beginning of creation (…)</head><p>6 -Section the reference to angels (…) 3209 -The Prophet (peace and blessing upon him) said, "If Allah loves a person, He calls Gabriel saying, 'Allah loves so and-so; O Gabriel! Love him.' Gabriel would love him and make an announcement amongst the inhabitants of the Heaven. 'Allah loves so-and-so, therefore you should love him also,' and so all the inhabitants of the Heaven would love him, and then he is granted the pleasure of the people on the earth". [Links in 6040, 7435].</p><formula xml:id="formula_1">10 - ‫كتاب‬ ‫األذان‬ )...( 32 - ‫هر‬ ‫الظ‬ ‫إلى‬ ‫هجير‬ ‫الت‬ ‫فضل‬ ‫باب‬ )...( 537 - « ‫ا‬ َ ‫م‬ ‫ُونَ‬ ‫م‬ َ ‫ْل‬ ‫َع‬ ‫ي‬ ‫وْ‬ َ ‫ل‬ َ ‫و‬ ‫في‬ ‫ا‬ َ ‫م‬ ‫ُونَ‬ ‫م‬ َ ‫ْل‬ ‫َع‬ ‫ي‬ ‫وْ‬ َ ‫ل‬ َ ‫و‬ ، ِ ‫ْه‬ ‫ي‬ َ ‫ل‬ ِ ‫إ‬ ‫وا‬ ُ ‫َق‬ ‫َب‬ ‫ْت‬ ‫َس‬ ‫ال‬ ِ ‫ير‬ ِ ‫ْج‬ ‫َّه‬ ‫الت‬ ‫في‬ ً ‫ْوا‬ ‫ب‬ َ ‫ح‬ ‫وْ‬ َ ‫ل‬ َ ‫و‬ ‫ا‬ َ ‫ُم‬ ‫ه‬ ‫وْ‬ َ ‫ت‬ َ ‫أل‬ ِ ‫ْح‬ ‫ُّب‬ ‫الص‬ َ ‫و‬ ِ ‫ة‬ َ ‫َم‬ ‫ت‬ َ ‫ع‬ ْ ‫ال‬ .» ] ‫أطراف‬ ‫ه‬ 615 ، 721 ، 2689 - ‫تحفة‬ 12570 - 12577 .[</formula><p>537 -"And if they knew the reward of offering the Zuhr prayer early (in its stated time), they would race for it and they knew the reward for 'Isha' and Fajr prayers in congregation, they would attend them even if they were to crawl". [Links in 615, 721, 2689_ 12570 -12577].</p><p>The hadith in this case came to prove the previous one and occurs elsewhere with the reference indicated in the end of the Matn. In other context, other forms of hadith are more abstract and follow an irregular structure. The most of these hadith came to prove the previous hadith.</p><p>In Sahih al-Bukhari occurs also other form of hadiths. These traditions contain a complex structure in the part of mentioning the Isnad. Frequently, a hadith can have more than one chain of narrators as Isnad. These chains can occur in the front of the text cited after each other or divided in two sections before and after the Matn. As Example of this composition, Fig. <ref type="figure" target="#fig_2">3</ref> present hadith number 6 from section 1 "How was the revelation on the Prophet", chapter 1 "Revelation". Based on sahih al-Bukhari corpus study, we determinate that to realize a hadith normalization system, we must start with the prime unite of sahih al-Bukhari corpus which is the hadith text. In fact, to reach the corpus normalization, a hadith extraction and segmentation phase is essential to prepare to the succeeding phase for encoding hadith text with TEI. This lead as to investigate the development of an extraction and segmentation tool integrated in our Hadith encoding prototype to split out the hadith text for the next encoding step which is presented in the next section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Hadith segmentation tool</head><p>To implement the segmentation method of hadith text from Sahih al-Bukhari corpus, we developed a tool for this process. This tool is made to prepare the hadith text for the hadith encoding prototype with TEI (more details in <ref type="bibr" target="#b1">[2]</ref> and <ref type="bibr" target="#b2">[3]</ref>). The implementation is based on JAVA language and the API JDOM Library. Fig. <ref type="figure" target="#fig_3">4</ref> presents the general architecture of this program. This tool is developed to extract automatically each hadith text from Sahih al-Bukhari then segment each one to Isnad and Matn which goes as input to the hadith encoding process.</p><formula xml:id="formula_2">1 - ‫الوحي‬ ‫بدء‬ ‫كتاب‬ )...( 1 - ِ ‫َّللاَّ‬ ِ ‫ُول‬ ‫س‬ َ ‫ر‬ ‫ى‬ َ ‫ل‬ ِ ‫إ‬ ِ ‫ى‬ ‫حْ‬ َ ‫و‬ ْ ‫ال‬ ُ ‫ْء‬ ‫َد‬ ‫ب‬ ‫َانَ‬ ‫ك‬ َ ‫ْف‬ ‫َي‬ ‫ك‬ ‫باب‬ )...( 6 - ِ ‫ى‬ ِ ‫ْر‬ ‫ه‬ ‫الزُّ‬ ِ ‫َن‬ ‫ع‬ ‫سُ‬ ُ ‫ُون‬ ‫ي‬ ‫َا‬ ‫ن‬ َ ‫َر‬ ‫ب‬ ‫َخْ‬ ‫أ‬ َ ‫َال‬ ‫ق‬ ِ ‫َّللاَّ‬ ُ ‫ْد‬ ‫َب‬ ‫ع‬ ‫َا‬ ‫ن‬ َ ‫َر‬ ‫ب‬ ‫َخْ‬ ‫أ‬ َ ‫َال‬ ‫ق‬ ‫َانُ‬ ‫ْد‬ ‫َب‬ ‫ع‬ ‫َا‬ ‫ن‬ َ ‫َّث‬ ‫د‬ َ ‫ح‬ َّ ‫د‬ َ ‫ح‬ َ ‫و‬ ‫ح‬ ُ ‫ه‬ َ ‫و‬ ‫َحْ‬ ‫ن‬ ِ ‫ى‬ ِ ‫ْر‬ ‫ه‬ ‫الزُّ‬ ِ ‫َن‬ ‫ع‬ ‫َرٌ‬ ‫ْم‬ ‫ع‬ َ ‫م‬ َ ‫و‬ ‫سُ‬ ُ ‫ُون‬ ‫ي‬ ‫َا‬ ‫ن‬ َ ‫َر‬ ‫ب‬ ‫َخْ‬ ‫أ‬ َ ‫َال‬ ‫ق‬ ِ ‫َّللاَّ‬ ُ ‫ْد‬ ‫َب‬ ‫ع‬ ‫َا‬ ‫ن‬ َ ‫َر‬ ‫ب‬ ‫َخْ‬ ‫أ‬ َ ‫َال‬ ‫ق‬ ٍ ‫َّد‬ ‫م‬ َ ‫ُح‬ ‫م‬ ‫ْنُ‬ ‫ب‬ ‫رُ‬ ْ ‫ش‬ ِ ‫ب‬ ‫َا‬ ‫ن‬ َ ‫ث‬ ِ ‫َّللاَّ‬ ِ ‫ْد‬ ‫َب‬ ‫ع‬ ‫ْنُ‬ ‫ب‬ ِ ‫َّللاَّ‬ ُ ‫ْد‬ ‫َي‬ ‫ُب‬ ‫ع‬ ‫ِى‬ ‫ن‬ َ ‫َر‬ ‫ب‬ ‫َخْ‬ ‫أ‬ َ ‫َال‬ ‫ق‬ ِ ‫َّللاَّ‬ ُ ‫ُول‬ ‫س‬ َ ‫ر‬ ‫َانَ‬ ‫ك‬ َ ‫َال‬ ‫ق‬ ٍ ‫َّاس‬ ‫َب‬ ‫ع‬ ِ ‫ْن‬ ‫اب‬ ِ ‫َن‬ ‫ع‬ َ ‫س‬ َ ‫و‬ ِ ‫ْه‬ ‫ي‬ َ ‫َل‬ ‫ع‬ ُ ‫هللا‬ ‫ى‬ َّ ‫ل‬ َ ‫ص‬ ، َ ‫م‬ َّ ‫ل‬ ُ ‫َاه‬ ‫ق‬ ْ ‫َل‬ ‫ي‬ ‫ينَ‬ ‫حِ‬ ‫َانَ‬ ‫ض‬ َ ‫م‬ َ ‫ر‬ ‫ِى‬ ‫ف‬ ‫ُونُ‬ ‫َك‬ ‫ي‬ ‫ا‬ َ ‫م‬ ُ ‫د‬ َ ‫و‬ ‫جْ‬ َ ‫أ‬ ‫َانَ‬ ‫ك‬ َ ‫و‬ ، ِ ‫َّاس‬ ‫الن‬ َ ‫د‬ َ ‫و‬ ‫جْ‬ َ ‫أ‬ ِ ‫َّللاَّ‬ ُ ‫ُول‬ ‫س‬ َ ‫ر‬ َ ‫َل‬ ‫ف‬ ، ‫آنَ‬ ‫رْ‬ ُ ‫ق‬ ْ ‫ال‬ ُ ‫ُه‬ ‫س‬ ِ ‫َار‬ ‫ُد‬ ‫َي‬ ‫ف‬ ‫َانَ‬ ‫ض‬ َ ‫م‬ َ ‫ر‬ ‫نْ‬ ‫مِ‬ ٍ ‫ة‬ َ ‫ْل‬ ‫ي‬ َ ‫ل‬ ِ ‫ُل‬ ‫ك‬ ‫ِى‬ ‫ف‬ ُ ‫َاه‬ ‫ق‬ ْ ‫َل‬ ‫ي‬ ‫َانَ‬ ‫ك‬ َ ‫و‬ ، ُ ‫يل‬ ِ ‫ْر‬ ‫ب‬ ِ ‫ج‬ ، َ ‫م‬ َّ ‫ل‬ َ ‫س‬ َ ‫و‬ ِ ‫ْه‬ ‫ي‬ َ ‫َل‬ ‫ع‬ ُ ‫هللا‬ ‫ى‬ َّ ‫ل‬ َ ‫ص‬ ْ ‫َي‬ ‫خ‬ ْ ‫ال‬ ِ ‫ب‬ ُ ‫د‬ َ ‫و‬ ‫جْ‬ َ ‫أ‬ ‫نَ‬ ‫مِ‬ ِ ‫ر‬ ِ ‫يح‬ ِ ‫الر‬ ِ ‫ة‬ َ ‫ل‬ َ ‫س‬ ‫ُرْ‬ ‫م‬ ْ ‫ال‬ . ] ‫أطراف‬ ‫ه‬ 1902 ، 3220 ، 3554 ، 4997 - ‫تحفة‬ 5840 - 5 / 1 .[ 1 -Chapter of revelation (…)</formula><p>1 -Section of how the revelation was for the prophet (…) 6 -Allah's Messenger (peace and blessing upon him) was the most generous of all the people, and he used to reach the peak in generosity in the month of Ramadan when Gabriel met him. Gabriel used to meet him every night of Ramadan to teach him the Qur'an. Allah's Messenger (peace and blessing upon him) was the most generous person, even more generous than the strong uncontrollable wind (in readiness and haste to do charitable deeds). [Links in 1902, 3220, 3554, 4997 _ 5840 -1/5]. In the processing of our hadith encoding prototype, the system need as an input the Isnad and the Matn of each hadith in the used corpus. This input data is the output of the presented tool. To prepare hadith text for the encoding prototype, the system requests the user to choose an external file, with .txt extension which contains the hadith corpus in Arabic language, by selecting the file path. Then, the program reads the corpus and identify each hadith text. To detect hadith text in the corpus, we based on the fact that each hadith starts with a hadith number and a trigger word, as we name it, that express the beginning of the Isnad. We built for this reason a trigger word dictionary in XML format for the words that indicate the hadith beginning. Trigger word dictionary includes also the terms that separate the narrator names and indicates the commencement of the Matn. The trigger word identification allows the manipulation of hadith text. We classify these parts of speech to three classes: Trigger Word Before (TWB), Trigger Word After (TWA) and Trigger Word Between (TWT). Table <ref type="table">1</ref> illustrates the different forms of these terms in the trigger words dictionary. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Trigger Word Dictionary Evaluation and discussion</head><p>To evaluate the hadith corpus segmentation tool, we select as input a text file containing Sahih al-Bukhari corpus which include 7563 hadith. Consequently, the tool system creates respectively 7485 hadith text files and save them. Then the system segments each hadith and sends the Isnad and the Matn to the encoding process in the prototype core. Table <ref type="table" target="#tab_0">2</ref> illustrates the obtained results. Then, the segmentation process separate hadith fragments correctly for 7259 hadith texts. However, we found 304 Hadith that were not segmented properly. These hadith have particular structure which require some rectification to cover these cases. Indeed, we estimate the capacity of this tool manually. Table <ref type="table" target="#tab_2">3</ref> illustrates the obtained values of precision, recall and F-score. According to the value of precision, we conclude that the value of precision is worth 0.96. Also, the recall value is 0.96. These values provide an F-measure equal to 0.96. Consequently, we conclude that the obtained results are encouraging. Besides, the unsupervised tool system does not require a pretreatment or execute modification on the input corpus file. However, we handled some problems. Some of them are related with the particular Hadith forms which need to integrate more specificity.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">Conclusion and perspectives</head><p>In order to optimize the processing of hadith text, we aimed to developed a segmentation tool for hadith corpus. To achieve that, first, we started with a deep study of Hadith text structure from Sahih al-Bukhari. After that, we designed and created an integrated tool in our TEI encoding prototype for the segmentation of hadith corpus. Then, we tested this tool with a Sahih al-Bukhari corpus which englobe 7563 hadith texts from 94 chapters. As mentioned, the obtained values of measures show that the results obtained from the hadith segmentation tool are encouraging. As perspective, the hadith segmentation tool can be used in others levels of analyses. Furthermore, we want to apply the proposed tool to other types of Hadith corpo-</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Hadith corpus</head><p>Precision Recall F-score 7563 Hadith 0,96 0,96 0,96 ra such as Sahih Muslim. Also, we want to extend the set of rules to cover the exceptional structures of hadith text.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Hadith number 3209 from chapter 59, section 6 from sahih al-Bukhari.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Hadith number 654 from chapter 10, section 32 from sahih al-Bukhari.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. Hadith number 6 from chapter 1, section 1 from sahih al-Bukhari.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. General architecture of the segmentation tool of hadith corpus.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 2 .</head><label>2</label><figDesc>Sammery table for the hadith extraction and segmenation tool results.</figDesc><table><row><cell>Evaluated corpus</cell><cell>Extracted hadiths</cell><cell>Correct extraction</cell><cell>Segmented hadiths</cell><cell>Correct segmentation</cell><cell>Incorrect segmentation</cell></row><row><cell>Sahih al-Bukhari</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>7563 hadith</cell><cell>7563</cell><cell>7563</cell><cell>7563</cell><cell>7259</cell><cell>304</cell></row><row><cell>97 Chapter</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2</head><label>2</label><figDesc>shows that sometimes for particular Hadith texts, we can obtain erroneous segmentation. The total number of hadith text in Sahih al-Bukhari is 7563 hadith from 97 different Chapters. The hadith segmentation tool succeeded to extract 7563 Hadith correctly and save them as text files.</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 3 .</head><label>3</label><figDesc>Summary table of the precision, recall F-score.</figDesc><table /></figure>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>‫َال‬ ‫ق‬ ِ ‫َّللاَّ‬ ُ ‫ْد‬ ‫ب‬ َ ‫"ع‬ (Abdu Allah said). The third-class TWT is for the trigger word that appears between two expressions of narrator names such as ‫َال"‬ ‫ق‬ ‫ه‬ ‫ن‬ َ ‫"أ‬ (That he said). The TWT class include all the terms that relate two sections of trigger word and narrator name. This dictionary allows the prototype, including the integrated programs, to detect the right parts and segment the hadith text. The tool connects to this dictionary and spot the hadith text.</p><p>The termination of each hadith is identified by the hadith references numbers and the word " ‫أطر‬ ‫افه‬ " or " ‫تحف‬ ‫ه‬ " (which have as meaning, references and links) or a flexion form of them. This method allows the treatment of Sahih al-Bukhari Arabic corpus with no need to modify the input file or to delete any other data exists in the corpus else then hadith texts. After this step, the program extracts each spotted hadith text and save it in the workspace as text file. As well, the segmentation tool completes the reading and the separation of the Isnad and the Matn from each hadith text. To achieve the hadith segmentation, we start by analyzing Sahih al-Bukhari corpus and identifying the terms that separate the two parts. These terms are included in the trigger word dictionary. Also, the segmentation process of Isnad and Matn is based on trigger word.</p><p>Hadith corpus segmentation tool is an integrated program in the hadith encoding prototype which allows the encoding of all the hadiths of Sahih al-Bukhari in one running action. This automatic preparation of hadith text supported the optimization of hadith corpus encoding using prototype. We have evaluated this tool based on Sahih al-Bukhari corpus. The results are presented in the following section.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">TEI P5: Guidelines for Electronic Text Encoding and Interchange, Text Encoding Initiative Consortium</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Burnard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Sperberg-Mcqeen</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+	<note>Version 3.0.0. revision 89ba24e</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Modeling of Al-Hadith Al-Shareef with TEI, ICEMIS Conference</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Maraoui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Haddar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<idno>978-1-5090-6778-7/17/$31.00 IEEE</idno>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<pubPlace>Monastir, Tunisia</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Encoding prototype of Al-Hadith Al-Shareef in TEI</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Maraoui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Haddar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-73500-9_16,%20(2017</idno>
+	</analytic>
+	<monogr>
+		<title level="m">ICALP Conference</title>
+		<meeting><address><addrLine>Fez, Morocco</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="volume">782</biblScope>
+			<biblScope unit="page" from="1" to="13" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Abu</forename><surname>Zaho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>‫الحديث‬ ‫والمحدثون‬</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">‫العربي‬</forename><surname>‫الفكر‬ ‫</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Riyadh</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ksa</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1984">1984</date>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Hadith: Muhammad&apos;s Legacy the Medieval and Modern World</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Brown</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jonathan</forename></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+			<publisher>Oneworld Publications</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">‫الحديث‬ ‫علوم‬ ‫في‬ ‫,المقنع‬ Fawaz publishing house</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Al-Ansari</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1992">1992</date>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Boella</surname></persName>
+		</author>
+		<title level="m">The SALAH Project: Segmentation and Linguistic Analysis of hadῑṯ Arabic Texts, Proceeding of the seventh Asia Information Retrieval Societies Conference</title>
+		<meeting><address><addrLine>Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">An Ontology-Based Approach to Support the Process of Judging Hadith Isnad, Thesis Submitted in Partial Fulfillment of the Requirements for the Degree of Master in Information Technology</title>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">M</forename><surname>Dalloul</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2013-03">March. 2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Building Hadith Ontology to Support the Authenticity of Isnad</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Baraka</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Jornal on Islamic Applications in Computer Science and Technology</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="25" to="39" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">iTree -Automating the Construction of the Narration Tree of Hadith</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Azmi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Badia</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE</title>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">ALIF editor for generating Arabic normalized lexicons</title>
+		<author>
+			<persName><forename type="first">Ben</forename><surname>Ismail</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename></persName>
+		</author>
+		<idno>978-1-5090-4243-2/17/$31.00 IEEE</idno>
+	</analytic>
+	<monogr>
+		<title level="m">ICICS Conference</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Automatisation de l&apos;encodage des lexiques arabes en TEI</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Maraoui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Haddar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2nd conference on CEC-TAL</title>
+		<meeting><address><addrLine>Sousse, Tunisia</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Consistent modeling of heterogeneous lexical structures</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Wegstein</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">In Journal of Text Encoding Initiative</title>
+		<imprint>
+			<biblScope unit="issue">3</biblScope>
+			<date type="published" when="2012">2012</date>
+			<publisher>TEI and linguistics</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title level="m" type="main">‫المهملين‬ ‫الرواة‬ ‫تمييز‬ ‫ووسائل‬ ‫لضوابط‬ ‫التبين‬ ‫و‬ ‫</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">B</forename><surname>Alturki</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+		<respStmt>
+			<orgName>البيان‬ King Saoud Univercity</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">‫التهذيب‬ ‫</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Alaskalani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">تقريب‬ Society AlRisala, Bayrout, Labunan</title>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Normalisation des échanges de données en terminologie : le cas des relations dites conceptuelles</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Laurent</forename><surname>Romary</surname></persName>
+							<email>laurent.romary@loria.frwww.loria.fr</email>
+							<affiliation key="aff0">
+								<orgName type="department">Équipe Langue et Dialogue Loria</orgName>
+								<orgName type="laboratory">UMR 7503</orgName>
+								<address>
+									<postBox>B.P. 239</postBox>
+									<postCode>F-54506</postCode>
+									<settlement>Vandoeuvre-lès-Nancy</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Marc</forename><surname>Van Campenhoudt</surname></persName>
+							<email>marc.van.campenhoudt@euronet.be</email>
+							<affiliation key="aff1">
+								<orgName type="department">Centre de recherche Termisti Institut supérieur de traducteurs et interprètes 34</orgName>
+								<address>
+									<addrLine>rue J. Hazard</addrLine>
+									<postCode>B-1180</postCode>
+									<settlement>Bruxelles</settlement>
+									<country key="BE">Belgique</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Normalisation des échanges de données en terminologie : le cas des relations dites conceptuelles</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">1A59EF5E215BA7563750629D0607BC77</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T15:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Bases de connaissances terminologiques</term>
+					<term>relations conceptuelles</term>
+					<term>échange de données</term>
+					<term>normalisation</term>
+					<term>Iso</term>
+					<term>XML</term>
+					<term>TMF</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>L'échange et la fusion de données constituent un aspect important de la production terminographique. L'Organisation internationale de normalisation (Iso) s'est de longue date souciée de faciliter de tels échanges. Après avoir longtemps défendu l'idée d'un inventaire clos des catégories de données (norme Iso 12 620), sur lequel elle a fondé sa norme SGML d'échanges négociés Martif (Iso 12 200), elle se dirige aujourd'hui vers une famille de normes d'échange plus génériques, utilisant XML et ouvertes à un enrichissement permanent des types de données. Cet aspect est particulièrement important dès lors qu'il s'agit de permettre un échange des relations dites conceptuelles engrangées dans les bases de connaissances terminologiques. Les auteurs présentent la nette évolution que constitue la nouvelle proposition de norme Iso CD 16 642 TMF (Terminological Markup Framework) qu'élabore actuellement l'Équipe Langue et dialogue du Loria, en concertation avec le comité technique 37 de l'Iso. Celle-ci est expérimentée, entre autres, par le Centre de recherche Termisti, dont les microglossaires contiennent de nombreuses relations conceptuelles.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>L'échange et la fusion de données ont servi à la constitution de la majorité des grandes bases de données terminologiques (BDT) connues. Quand bien même elles n'ont pas été élaborées de manière « orthodoxe », ces bases sont des monuments incontournables dont la taille et le coût de constitution interdisent toute velléité de mise au rebut. Un fossé évident sépare les pratiques réelles des théories : un espace de collaboration doit se dessiner entre les chercheurs en linguistique appliquée qui aspirent à une plus grande modernité et ceux qui travaillent à la maintenance et à la difficile modernisation de ces BDT. La présente communication s'inscrit dans cette modeste perspective et examinera les aménagements qui peuvent être apportés aux normes d'échanges traditionnelles en terminologie pour mieux prendre en compte la description des relations de sens. Les auteurs n'ont aucune prétention d'oeuvrer dans le domaine strict de l'intelligence artificielle. Ils partagent toutefois les aspirations d'un grand nombre de linguistes qui ont investi le champ de l'étude des vocabulaires spécialisés : abandonner une démarche normalisatrice et onomasiologique pour mieux tenir compte des réalités du corpus.</p><p>Les spécialistes des réseaux et des ontologies connaissent la puissance de systèmes de représentation et d'échange comme Kif (Knowledge Interchange Format), CGS (Conceptual Graph Standard), Oil, (Ontology Inference Layer) ou encore XTM (XML Topic Maps, Iso 13250 2000) <ref type="foot" target="#foot_0">1</ref> . Ces systèmes ne sont guère répandus, sinon connus, dans les milieux de la terminographie traditionnelle. Pour rester dans le cadre des modestes besoins de ce milieu -qui néglige trop souvent les relations conceptuelles -, le souci des auteurs sera plutôt de veiller à ce que les normes d'échange du comité technique 37 de l'Iso, traditionnellement utilisées en terminologie, donnent un plus large écho aux nombreux travaux sur les relations de sens au sein des BDT. Leur communication est nourrie par leur collaboration au projet européen Salt (Standards-based Access to Multilingual Lexicons and Terminologies 2 ), qui s'intéresse précisément aux formats d'échanges de l'Iso, en concertation avec le consortium Olif (Open Lexicon Interchange Format 3 ), plus orienté vers l'échange de ressources lexicales utilisées en traduction automatique 4 .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Le point sur les formats d'échange de l'Iso TC37</head><p>La première norme d'échange parue, Martif (Iso 12 200 199), est une évolution du chapitre 13 de la TEI (Text Encoding Initiative) et de l'ancien format Micromater. Conçue pour des échanges négociés, Martif s'appuie sur la norme Iso 12 620 (1999), qui établit un inventaire des champs utilisés dans les bases de données terminologiques. Ce format est aujourd'hui complété par deux projets de normes permettant d'opérer des échanges aveugles : Geneter et DXLT. L'idée actuelle est de permettre des échanges entre ces formats de référence -ou d'autres à venir -au travers du projet de norme Iso Cd 16 642 (2001) Terminological Markup Framework (TMF) précisant les exigences structurelles minimales auxquelles doit répondre tout langage de représentation de données terminographiques ou TML (Terminological Markup Language) (figure <ref type="figure">1</ref>). TMF devrait permettre le passage entre deux TML au travers d'une représentation abstraite intermédiaire nommée GMT (Generic Mapping Tool). Les principes structurels de TMF seront détaillés au point 3.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Figure 1 : vue des différents niveaux d'échange</head><p>Publiée en 1999, la norme Iso 12 620, consacrée aux catégories de données, est déjà en révision. L'idée de dresser un inventaire normalisé des champs envisageables dans la conception d'une BDT suscite toutefois diverses réserves. Les obstacles à une mise à jour régulière sont tels que les normes d'échanges fondées sur un inventaire clos risquent de ne pas satisfaire les concepteurs de BDT novatrices. Cette critique est particulièrement fondée pour ce qui concerne les relations de différents types que l'on peut identifier dans une BDT.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">La structure typique d'une entrée terminologique</head><p>La gestion terminographique est souvent dite « conceptuelle », un adjectif dont la signification doit être nettement relativisée. Dès lors qu'elles servent à traduire un nombre élevé de langues, les bases de données terminologiques doivent miser sur la monosémie, laquelle est d'ailleurs systématiquement privilégiée en ingénierie de la langue. Le projet de norme TMF consacre un mode d'organisation systématique qui a fait ses preuves et sur l'exposé duquel nous ne reviendrons plus ici en détail. Il s'agit de distinguer des niveaux de description successifs : données dites « conceptuelles », communes à toutes les langues, données propres à une langue, données propres à un terme. Par exemple, le modèle de données retenu dans notre récent projet Dhydro 5 (figure <ref type="figure">2</ref>  <ref type="figure">2</ref>: le modèle de donnée de l'interface Dhydro <ref type="bibr">(Descotte et al., à paraître)</ref> 4 TMF : une plate-forme de description de langages de représentation de données terminologiques La proposition de standard Iso CD 16 642 intègre la description d'un modèle permettant de spécifier les contraintes propres à un langage de description de données terminologiques informatisées (TML) exprimé en XML. Il repose sur l'hypothèse qu'un tel format peut être décrit par la combinaison de deux composantes :</p><p>-Un méta-modèle spécifiant un squelette structurel commun à tout langage de représentation de données terminologiques, et qui repose sur le modèle conceptuel classique. Ce squelette est décrit dans la figure 3, où apparaissent 7 sites structurels, dont certains peuvent être itérés (une entrée terminologique (TE, Terminological Entry) peut ainsi contenir une ou plusieurs sections associées aux langues décrites dans la base (LS, Language Section)) ;</p><p>-La description de contraintes de rattachement de certaines informations, ou traits, aux différents noeuds du modèle structurel. Chaque trait fait référence à une catégorie de données spécifiée au sein de la norme Iso 12 620 ou définie de façon spécifique par le concepteur de la base. Ce modèle permet de définir un principe d'interopérabilité entre deux langages de description terminologique (deux TML) qui garantit leur équivalence dès lors qu'ils reposent sur le même ensemble de catégories de données. Ce principe permet, en particulier, de définir des filtres entre formats et spécifie dans ce cadre un outil de conversion reposant sur une représentation abstraite intermédiaire nommée GMT (Generic Mapping Tool). À titre d'exemple, la figure 4 représente une entrée terminologique extrêmement simple au format Martif et la représentation équivalente en GMT. On y distingue les deux éléments de base définis dans la structure XML de l'outil GMT :</p><p>-Un élément &lt;struct&gt; qui, combiné à un attribut 'type', permet de représenter un site du squelette structurel ;</p><p>-Un élément &lt;feat&gt; (feature) qui, lui aussi combiné à un attribut 'type', permet de spécifier un trait associé au noeud &lt;struct&gt; qui le contient.</p><p>En dehors de ces deux éléments, GMT comprend, d'une part, un mécanisme de regroupement de traits (élément &lt;brack&gt; (bracket)) et, d'autre part, une représentation des annotations que la valeur d'un trait pourrait contenir (élément &lt;annot&gt;).</p><p>&lt;termEntry id="eid-EUTERP-94545"&gt; &lt;descrip type="subjectField"&gt; health &lt;/descrip&gt; &lt;langSet lang="en"&gt; &lt;ntig&gt; &lt;termGrp&gt; &lt;term&gt;abdominal dropsy&lt;/term&gt; &lt;/termGrp&gt; &lt;/ntig&gt; &lt;ntig&gt; &lt;termGrp&gt; &lt;term&gt; peritoneal dropsy &lt;/term&gt; &lt;/termGrp&gt; &lt;descripGrp&gt; &lt;descrip type="definition"&gt; Effusion and accumulation of serous fluid in the abdominal cavity.</p><p>&lt;/descrip&gt; &lt;/descripGrp&gt; &lt;struct type="TE"&gt; &lt;feat type="identifier"&gt;eid-EUTERP-94545&lt;/feat&gt; &lt;feat type="subjectField-12620A.4"&gt; health &lt;/feat&gt; &lt;struct type="LS"&gt; &lt;feat type="language-12620A.10.7"&gt;en&lt;/feat&gt; &lt;struct type="TS"&gt; &lt;feat type="term-12620A.1"&gt; abdominal dropsy &lt;/feat&gt; &lt;/struct&gt; &lt;struct type="TS"&gt; &lt;feat type="term-12620A.1"&gt;peritoneal dropsy &lt;/feat&gt; &lt;feat type="definition-12620A.5.1"&gt; Effusion and accumulation of serous fluid in the abdominal cavity.&lt;/feat&gt; &lt;/struct&gt; &lt;/struct&gt; &lt;struct type="LS"&gt; &lt;/ntig&gt; &lt;/langSet&gt; &lt;langSet lang="fr"&gt; &lt;ntig&gt; &lt;termGrp&gt; &lt;term&gt; ascite &lt;/term&gt; &lt;/termGrp&gt; &lt;descripGrp&gt; &lt;descrip type="definition"&gt; Accumulation de liquide dans la cavite peritoneale.</p><p>&lt;/descrip&gt; &lt;/descripGrp&gt; &lt;/ntig&gt; &lt;ntig&gt; &lt;termGrp&gt; &lt;term&gt;hydroperitoine&lt;/term&gt; &lt;/termGrp&gt; &lt;/ntig&gt; &lt;/langSet&gt; &lt;/termEntry&gt; &lt;feat type="language-12620A.10.7"&gt;fr&lt;/feat&gt; &lt;struct type="TS"&gt; &lt;feat type="term-12620A.1"&gt; ascite &lt;/feat&gt; &lt;feat type="definition-12620A.5.1"&gt; Accumulation de liquide dans la cavite peritoneale.&lt;/feat&gt; &lt;/struct&gt; &lt;struct type="TS"&gt; &lt;feat type="term-12620A.1"&gt; hydroperitoine &lt;/feat&gt; &lt;/struct&gt; &lt;/struct&gt; &lt;/struct&gt; </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Représentation des relations dans la plate-forme TMF</head><p>La notion de relation fait partie intégrante de la plate-forme TMF puisque chaque trait représentant une information attachée à un site du squelette structurel peut, si la catégorie de données correspondante l'autorise, contenir un attribut 'target' qui va alors pointer sur un autre site du squelette structurel avec lequel le site courant est en relation. Ce mécanisme permet ainsi de relier des termes entres eux (relation 'AbbreviationOf' entre deux sites TL, illustrée de façon simple dans la figure 5 ci-dessous), des concepts (relation 'BroaderConceptGeneric') ou plus généralement toute paire de sites de niveau quelconque.</p><p>&lt;struct type="TE"&gt; &lt;feat type="subjectField-12620A.4"&gt;terminology&lt;/feat&gt; &lt;struct type="LS"&gt; &lt;feat type="language-12620A.10.7"&gt;en&lt;/feat&gt; &lt;struct type="TS" id="TS1"&gt; &lt;feat type="term-12620A.1"&gt;Terminological Markup Framework&lt;/feat&gt; &lt;/struct&gt; &lt;struct type="TS"&gt; &lt;feat type="term-12620A.1"&gt;TMF&lt;/feat&gt; &lt;feat type="abbreviation-12620A.2.1.8.1" target="id(TS1)"/&gt; &lt;/struct&gt; &lt;/struct&gt; &lt;/struct&gt; Bien plus, chaque trait peut aussi contenir un attribut 'source' qui contient alors une référence au site décrit par ce trait, dans le cas où l'on souhaiterait décrire certaines relations de façon externe au contenu terminologique proprement dit. Un tel mécanisme permet de rapprocher la notion de base terminologique de celle de thesaurus, en isolant la composante strictement relationnelle.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Vers une hiérarchie de catégories de données</head><p>La représentation des traits dans le modèle TMF est associée à une formalisation des catégories de données auxquelles celui-ci fait référence, et ce dans le cadre du travail de révision de la norme Iso 12 620 (Data Categories). Dans les dernières propositions définies au sein du comité éditorial de l'Iso 12 620, chaque catégorie de données est modélisée par un ensemble de propriétés décrites à l'aide du modèle RDF (Resource Description Framework) proposé par le consortium W3C. Pour simplifier, RDF permet de décrire des objets (ou « ressources ») à l'aide de structures propriétésvaleurs, éventuellement hiérarchiques. La figure 6 schématise ainsi, à un premier niveau, le modèle de description proposé pour une catégorie de données, qui repose sur un ensemble de propriétés élémentaires permettant de lui affecter un identificateur unique (DCIdentifier), un nom (DCName), une définition (DCDefinition) etc., ainsi que des propriétés plus complexes déterminant les conditions d'utilisation de la relation ou encore, comme nous le verrons, son lien éventuel avec d'autres catégories de données.</p><p>Plus précisément, la propriété 'Locus' décrit les niveaux possibles (dans le méta-modèle) auxquels peut être rattachée la catégorie de données, et 'Content' donne le type du contenu de cette catégorie. Dans le cas d'une catégorie relationnelle, on peut en particulier décrire le domaine du deuxième argument de la relation ; en d'autres termes, le niveau vers lequel cette relation peut pointer. Enfin, il est possible d'associer à une catégorie de données une propriété 'DCParent' qui va relier celle-ci avec une autre catégorie de données plus générique, dans le cadre de contraintes de cohérence entre les catégories concernées (du point de vue des sites d'ancrages possibles ou du type de leurs contenus). Cette relation permet d'aller vers une véritable ontologie des catégories de données en terminologie, en s'appuyant sur un certain nombre de catégories générales (par exemple 'relation spatiale') qui seront ensuite spécialisées, soit au sein d'un répertoire de référence tel que l'Iso 12 620, soit par spécialisation d'une catégorie de données issue d'un répertoire de référence pour un usage spécifique au sein d'une base propriétaire.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>DCDefiniti on</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>DCName</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Les relations dans les bases de données terminologiques</head><p>Si nous partons du principe que toute BDT correctement pensée doit répondre à la structure proposée par TMF, sous peine de rencontrer de sérieux problèmes d'échanges, nous pouvons identifier au moins deux grands types de relations qui ne sont pas implicites dans une telle structure :</p><p>-des liens entre termes , comme 'abréviation de', 'troncation de', 'acronyme de', etc.</p><p>-des liens entre concepts, comme 'type de', 'cause de', 'prédécesseur de', etc.</p><p>En effet, le modèle conceptuel garanti par TMF ne suppose pas de considérer la synonymie et l'équivalence comme des liens explicites entre termes, dans la mesure où il implique que pour une entité conceptuelle donnée :</p><p>-tout terme est synonyme des autres termes relevant de la même langue ; -tout terme est équivalent des autres termes relevant des autres langues.</p><p>Toutefois, on observera que dans le cadre de TMF, les relations dites conceptuelles peuvent être indifféremment situées au niveau du concept, de la langue ou du terme, ce qui autorise quiconque à adopter une stratégie de représentation différente.</p><p>Il convient cependant d'attirer l'attention sur le danger qu'il y a à parler de « relations conceptuelles » lorsque les liens ne sont pas établis au niveau du concept et sont clairement dépendants d'une langue donnée. Personne n'oserait prétendre détenir un inventaire de concepts universels pour un domaine donné : ce que nous nommons concept est en réalité une conceptualisation de la connaissance conditionnée par la langue, le domaine donné, le corpus… Rien ne prouve que les relations entre conceptualisations seront les mêmes d'une langue à l'autre, d'un domaine à l'autre, d'un corpus à l'autre. Dans une BDT multilingue, les concepts sont, en fait, des « noyaux de sens » qui sont restreints de manière à autoriser l'équivalence quelle que soit la langue source et la langue cible <ref type="bibr" target="#b6">(Van Campenhoudt 2000)</ref>. Si les relations que l'on nomme conceptuelles sont vérifiables pour chacune des langues envisagées, il est logique de les situer au niveau interlangue, c.-à-d. au niveau dit conceptuel (terminological entry). Mais rien n'empêche d'imaginer une BDT proposant des variations du réseau dit conceptuel en fonction des langues. La logique voudrait alors que l'on situe les relations au niveau intermédiaire du modèle : celui des langues<ref type="foot" target="#foot_1">6</ref> (language section).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">Vers une typologie élargie et ouverte sur l'innovation</head><p>Alors qu'elle propose une très intéressante liste des relations entre termes sous son point A.2.1, la norme Iso 12 620 (1999) présente sous ses points A.6 et A.7 un inventaire de liens dont on ne peut que regretter l'indigence :</p><p>-la typologie est très élémentaire : relations espèce-genre, partie-tout, séquentielles (spatiales, temporelles, causales) et associatives ;</p><p>-la place de chaque concept dans la relation ne peut pas toujours être précisée ; tel est notamment le cas pour les relations spatiales, temporelles et causales : on ne peut préciser que tel concept est situé au-dessus de tel autre, qu'il est plus ancien que tel autre, qu'il est la cause de tel autre … À titre de comparaison, le projet de norme Olif2 (2000) -qui n'est pas spécifique à la terminologie -propose un inventaire déjà plus étoffé, même s'il a le tort de mêler les relations formelles (comme 'abréviation de'), sémantiques (comme 'synonyme de') et conceptuelles (comme 'fils de'). La liste intègre, par exemple, une typologie des relations méronymiques héritée des travaux <ref type="bibr">de Winston, Chaffin et Herrmann (1987)</ref>. Elle a, par ailleurs, le grand mérite d'envisager des types de relations conceptuelles qui déterminent la valence sémantique ou syntaxique des termes : agent, patient, action typique, instrument, etc. Soucieux d'enrichir la typologie de la prochaine version de la norme Iso 12 620, le centre de recherche Termisti a proposé un essai d'inventaire plus large encore, prévoyant des relations hiérarchiques de parenté entre liens et des liens indirects (par transitivité) dans les cas où les concepts qui servent de points de passage dans le réseau ne seraient pas décrits dans la BDT (par exemple la relation entre piston et automobile). Dans la mesure où un tel inventaire ne sera jamais exhaustif, TMF prévoit que la référence à la norme 12 620 n'est pas obligatoire et que de nouvelles catégories peuvent être déclarées grâce au modèle RDF.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">De l'information à échanger</head><p>On l'a dit : toute typologie des relations conceptuelles varie en fonction de paramètres comme le domaine, le corpus, la culture... À ce titre, tout essai d'inventaire systématique ou « définitif » est voué à l'échec. Il n'en reste pas moins vrai que si l'on souhaite exporter les informations contenues dans le réseau conceptuel d'une BDT, il convient de se mettre d'accord sur un minimum d'étiquettes. Il paraît donc important qu'un format d'échange permette d'exprimer un minimum d'informations relatives aux relations conceptuelles utilisées :</p><p>-Classification du lien, au sein d'une typologie existante ou sous la forme d'une nouvelle catégorie : p.ex. : lien de nature temporelle.</p><p>-Niveau de validité du lien : terme, langue, concept.</p><p>Au-delà de ces indications minimales, on peut souhaiter exporter ou importer une variété d'autres éléments informatifs :</p><p>-Formulation du lien dans chacune des langues envisagées : 'est au-dessus de' = 'is above' = 'ist über' = 'è sopra' = 'está arriba de'.</p><p>-Propriétés relationnelles : transitif, réflexif, bijectif...</p><p>-Restriction : fréquence, condition...</p><p>-Autre relation qui fonde la typologie : 'succède à', 'plus grand que', 'supérieur hiérarchique de'...</p><p>-Trait distinctif des opposés : taille, direction, âge...</p><p>-etc.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">Conclusion</head><p>Il est essentiel que le système relationnel présenté ci-dessus puisse être intégré dans tout format d'échange de données terminologiques présentant un caractère un tant soit peu générique. Pour ce faire, il faut, d'une part, disposer d'une plate-forme technique qui soit à même d'exprimer de telles relations et, d'autre part, prévoir des mécanismes par lesquels on puisse à tout moment étendre un système de relations existant lorsque le besoin s'en fait sentir pour une application particulière. En effet, il n'est pas évident qu'il soit nécessaire de répertorier l'ensemble des relations utilisées dans les différentes bases terminologiques existantes, certaines étant, par exemple, trop liées à l'usage spécifique qui est fait de cette base. Par ailleurs, si l'on fait l'hypothèse que l'on dispose d'un répertoire normalisé de relations, le temps de mise à jour d'un tel répertoire dépasserait de loin, par exemple dans un cadre industriel, les contraintes d'efficacité de mise en oeuvre d'une BDT particulière. Un concepteur doit alors pouvoir décrire ses propres relations en liaison étroite avec le répertoire existant, par exemple en identifiant une relation plus générique dont la relation qu'il souhaite décrire serait l'instance. Il semble que la plate-forme TMF, couplée avec les mécanismes de déclaration dynamique de catégories de données organisées en réseau, réponde exactement à ces exigences.</p><p>L'influence historique des normalisateurs en terminologie a souvent suscité de légitimes réticences chez les linguistes attentifs à la description d'un usage réel au sein d'un corpus particulier, dans des circonstances déterminées. Ils apprécieront sans aucun doute une heureuse évolution dans la manière dont semble aujourd'hui se concevoir la normalisation des échanges de données. Alors que, par le passé, on entendait définir et délimiter les seules catégories de données susceptibles d'être exportées ou importées, on se dirige à présent vers une norme ouverte à la</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4 : une entrée terminologique au format Martif et sa représentation à l'aide de l'outil de conversion GMT.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 5 :</head><label>5</label><figDesc>Figure 5 : représentation d'une relation d'abréviation entre deux termes.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 6 :</head><label>6</label><figDesc>Figure 6 : premier niveau de description d'une catégorie de données.</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>Kif : www.cs.umbc.edu/kse/kif/, CGS : www.cs.uah.edu/~delugach/CG/, Oil : www.ontoknowledge.org/oil/, XTM : www.topicmaps.org/. 2 Salt : www.loria.fr/projets/SALT/. 3. Olif : www.olif.net/. 4. Le consortium Salt étudie cependant de près l'intérêt que pourrait représenter un pointage du balisage vers un fichier de ressources externes conforme à XTM ou Oil.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_1"><p>On peut alors imaginer des relations conceptuelles comme 'plus proche concept générique équivalent dans l'autre langue'.</p></note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">créativité du chercheur et qui se borne à expliciter les meilleures conditions structurelles pour garantir un bon échange</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">An Empirical Taxonomy of Part-whole Relations : Effects of Part-Whole Relation Type on Relation Identification</title>
+		<author>
+			<persName><forename type="first">Chaffin</forename><forename type="middle">R</forename><surname>Références</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">J</forename><surname>Herrmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Winston</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Language and Cognitive Processes</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page" from="17" to="48" />
+			<date type="published" when="1988">1988</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Applications informatiques en terminologie -Format de transfert de données terminologiques exploitables par la machine (Martif) -Transfert négocié</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Descotte</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Husson J.-L</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Romary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Van Campenhoudt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Viscogliosi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ISO</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page">200</biblScope>
+			<date type="published" when="1999">May 2000. 1999</date>
+			<pubPlace>Genève</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>University of Turku, Finland</orgName>
+		</respStmt>
+	</monogr>
+	<note>Specialized lexicography by means of a conceptual data base: establishing the format for a multilingual marine dictionary. Organisation internationale de normalisation</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Information technology -SGML Applications-Topic Maps, Genève, Organisation internationale de normalisation</title>
+		<idno>ISO/IEC 13250</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ISO</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page">620</biblScope>
+			<date type="published" when="1999">2000. 1999</date>
+			<pubPlace>Genève</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Aides informatiques en terminologie -Catégories de données. Organisation internationale de normalisation</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<idno>ISO CD 16 642</idno>
+		<ptr target="www.loria.fr/projets/TMF/" />
+		<title level="m">Computer applications in terminology -Terminological markup framework (TMF)</title>
+		<imprint>
+			<date type="published" when="2000-11-10">2000. 10th November 2000</date>
+		</imprint>
+	</monogr>
+	<note>2nd working draft</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<ptr target="www.olif.net" />
+	</analytic>
+	<monogr>
+		<title level="m">Open Lexicon Interchange Format, V.2 : Proposal for Linguistic Features/Values for OLIF2, OLIF2 Consortium</title>
+		<imprint>
+			<date type="published" when="2000-06">2000. June 2000</date>
+			<biblScope unit="volume">2</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Van Campenhoudt</surname></persName>
+		</author>
+		<title level="m">De la lexicographie spécialisée à la terminographie : vers un &quot;métadictionnaire&quot; ? », in THOIRON PH. et BEJOINT H</title>
+		<meeting><address><addrLine>Lyon</addrLine></address></meeting>
+		<imprint>
+			<publisher>Presses universitaires de Lyon (Travaux du C.R.T.T</publisher>
+			<date type="published" when="2000">2000</date>
+			<biblScope unit="page" from="127" to="152" />
+		</imprint>
+	</monogr>
+	<note>Le sens en terminologie</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">E</forename><surname>Winston</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Chaffin</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Herrmann D</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">A Taxonomy of Part-Whole Relations</title>
+		<imprint>
+			<date type="published" when="1987">1987</date>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="417" to="444" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

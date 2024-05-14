@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="fr">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main"></title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">1C31CBC1A27BDBBCB8135FE0CEE75637</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.3" ident="GROBID" when="2023-08-24T14:59+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="fr">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Et à condition de respecter les conditions suivantes :</p><p>• ne pas dénaturer le sens des informations contenues dans les documents ;</p><p>• mentionner de manière visible la source des informations et leur lieu de conservation (de préférence sous la forme Archives départementales des Yvelines, précision de la cote) ; • préciser la date de la production ou de la dernière mise à jour des informations ; • mentionner le nom de (ou des) auteur(s), s'il y a lieu.</p><p>Et le chercheur/la chercheuse dans tout ça ?  </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>••</head><label></label><figDesc>Développement à l'UMS CCSD (cf. HAL, Episciences, SciencesConf) • Construit suivant un modèle classique de dépôt et évaluation Pistes pour une utilisation de SciencesCall pour le traçage des données • Fiche de gestion de données au moment du dépôt • Intégration d'un point de validation par les acteurs du processus -Etablissement patrimonial, équipement, futur hébergeur des données • Agrégation de métadonnées de la part de ces acteurs Intégrer tous les acteurs du dispositif • Le chercheur, la chercheuse -Qualifie la recherche et définit le cycle de vie de ses données • L'établissement patrimonial -Détermine les contraintes liées à l'utilisation de ses fonds et les attentes en retour • L'équipement -Détermine une politique d'utilisation de la part des projets de recherche • L'hébergeur de données -Exprime des contraintes sur la taille, les formats, la documentation, les conditions d'accès • Et bien sûr les politiques européennes, nationales et institutionnelles Un outil méthodologique • La charte de réutilisation des données un contrat entre les différents acteurs du processus de recherche fluidifier les échanges et faciliter la réutilisation des données patrimoniales • Implication d'institutions européennes -DARIAH, Europeana, CLARIN, APE, E-RIHS Les principes fondateurs Tentative d'implémentation • Partir des rôles et des exigences variés entre acteurs pour faire des recommandations centrées sur les besoins de chacun, mais profitables à tous (approche bottom-up) • Par exemple, pour la « citability » : -Pour le chercheur ou la chercheuse  citer l'institution d'où viennent les données et l'équipement / l'infrastructure qui est intervenue au cours du projet -Pour l'institution patrimoniale  fournir un modèle de citation et communiquer autour des recherches faites à partir de leurs collections • Tester ces principes à travers SciencesCall, plateforme de gestion des appels à projet Et pratiquement? • Priorité au travail avec les chercheurs -Doctorants et post-doctorants financés dans le cadre du DIM MAP • Séminaire de travail commun le 7 février • Echanges personnalisés en mai-juin • Travailler à une déclaration préalable à intégrer aux demandes de projet sur SciencesCall -Intégration des grandes catégories de la charte • Définir un concept pour intégrer des contraintes multiacteurs dans ScienceCall • Vers un guide de gestion des données de recherche à destination des jeunes chercheurs -Centré sur les processus de recherche et les types de donnée Perspectives Gestion raisonnée des données -Un point de départ pour la transparence scientifique • Dans l'espace et le temps -Nécessite des compétences et des infrastructures -Du temps, de l'argent, des personnels • Aborder la gestion des données de façon humaine et pragmatique -Accompagner le changement en impliquant les chercheurs -Permettre une amélioration progressive des conditions de gestion des données de la recherche -Mettre en oeuvre des solutions pérennes</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="9,0.00,132.94,720.00,357.80" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="20,206.52,145.17,322.46,339.47" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>il s'agit de documents dont vous avez obtenu communication par dérogation, de documents contenant des informations publiques comportant des données à caractère personnel, de documents sur lesquels s'exerce un droit de propriété intellectuelle, ou encore de documents entrés par don ou par dépôt.</head><label></label><figDesc></figDesc><table><row><cell>Un contexte national et européen « pressant » Expérience acquise dans le cadre d'Iperion CH Enquête Iperion CH -principaux résultats Archives Départementales des Yvelines Archives départementales des Yvelines (Suite)</cell></row><row><cell>• Contribution aux infrastructures européennes -Initiateur (depuis 2006) et directeur (2014-2018) de l'infrastructure DARIAH ERIC • Une implication (obstinée) dans la science ouverte -CNRS, Société Max Planck, Inria; membre du CoSO Tech -Déploiement de HAL, développement des centre de ressources numériques (bases des consortiums Huma-Num), obligation de dépôt dans HAL à Inria • Données Patrimoniales : Méthodes, Infrastructures, Exploitations • Partenariat des matériaux anciens -DYPAC -Dynamiques patrimoniales et culturelles -Dynamique transversale au DIM « Matériaux anciens et patrimoniaux » -Infrastructures européennes de la feuille de route ESFRI: DARIAH, E-RIHS, CLARIN, OPERAS, DiSSCo -licences associées aux jeux de données -Collaboration avec IPANEMA -hébergement informatique pérenne traçabilité des données d'expérience -formats standards et réutilisables -Mettre en oeuvre des méthodes pour améliorer la -documentation des données • Objectifs • Difficultés exprimées par les répondants -EPHE -École pratique des hautes études -« La France recommandera l'adoption de licences ouvertes pour les publications et les données » matériaux et de méthodes d'analyse mentionnées couvrant une très grande variété de -3 plates-formes et 29 instruments, 78 jeux de données -IPANEMA -Institut photonique d'analyse non destructive • Le Plan national pour la science ouverte -juillet 2018 -« Rendre obligatoire la diffusion ouverte des données de sur fonds publics » -excellente couverture du consortium recherche issues de programmes financés par appels à projets • Iperion CH données • Double enquête sur les pratiques et les jeux de Sauf s'</cell></row></table><note><p>• De nombreuses initiatives européenne -Publications ouvertes : OpenAire, Plan S -Données • Obligation de la production d'un plan de gestion de données, pression pour disposer de données « FAIR » • RDA, GO FAIR, mise en place d'EOSC -Integrated Platform for the European Research Infrastructure ON Cultural Heritage -INFRAIA-1-2014-2015 -Integrating and opening existing national and regional research infrastructures of European interest -19 équipements, dans 11 pays regroupés au sein de 3 plates-formes: ARCHLAB, FIXLAB and MOLAB • Enquêtes effectuées au sein de la tâche 2.2 Management plan of generated digital data Source: https://archives.yvelines.fr/article.php?larub=12&amp;titre=reutilisation-des-archives … CAS DES DOCUMENTS COMPRENANT DES DONNÉES À CARACTÈRE PERSONNEL … CAS DES DOCUMENTS SUR LESQUELS S'EXERCE UN DROIT DE PROPRIÉTÉ INTELLECTUELLE …</p></note></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl/>
+			</div>
+		</back>
+	</text>
+</TEI>
