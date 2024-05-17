@@ -26,7 +26,7 @@ class Metadata(ABC):
     def __init__(self, template: str, json_dir_path: str, xml_dir_path: str):
         self.template = template
         self.xml_dir_path = xml_dir_path
-        self.xml_files = os.path.join(xml_dir_path)
+        self.xml_files = os.listdir(xml_dir_path)
         self.xml_file_paths = [
             os.path.join(xml_dir_path, xml_file) for xml_file in self.xml_files
         ]
@@ -39,7 +39,7 @@ class Metadata(ABC):
         self.headers = self._filter_headers(headers)
 
     def _filter_headers(self, headers: Dict[str, Dict[str, Any]]):
-        keys = list(self.headers.keys())
+        keys = list(headers.keys())
         for key in tqdm(keys):
             if f"{key}.grobid.tei.xml" in self.xml_files:
                 continue
@@ -48,12 +48,16 @@ class Metadata(ABC):
 
     @abstractmethod
     def _worker(
-        self, q: multiprocessing.Manager.Queue, header: Dict[str, Dict[str, Any]]
+        self,
+        q: multiprocessing.Queue,
+        header: Dict[str, Dict[str, Any]],
+        path,
+        str,
     ):
         raise NotImplementedError
 
     @abstractmethod
-    def _listener(self, q: multiprocessing.Manager.Queue, output_dir_path: str):
+    def _listener(self, q: multiprocessing.Queue, output_dir_path: str):
         raise NotImplementedError
 
     @abstractmethod

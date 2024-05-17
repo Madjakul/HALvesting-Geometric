@@ -9,7 +9,9 @@ from typing import Any, Dict, List
 from datasets import DatasetDict
 from lxml import etree
 from lxml.etree import ElementTree
+from tqdm import tqdm
 
+from halph.utils import helpers
 from halph.utils.data.metadata import Metadata
 
 
@@ -47,11 +49,11 @@ class NodeClassificationMetadata(Metadata):
             set([field for fields in field_of_study for field in fields])
         )
         self.authors = OrderedDict()
-        self.papers: List[str]
-        self.institutions: List[str]
+        self.papers = []
+        self.institutions = []
 
     def __call__(self, output_dir_path: str):
-        pass
+        self.build(output_dir_path)
 
     def _get_citations(self, root: ElementTree):
         bibl_structs = root.xpath("//text/back/div/listBibl/biblStruct")
@@ -64,9 +66,12 @@ class NodeClassificationMetadata(Metadata):
         if title not in self.papers:
             self.papers.append(title)
 
-    def _add_institution_node(self, institution: str):
-        if institution not in self.institutions:
-            self.institutions.append(institution)
+    def _add_institution_node(self, authors: List[Dict[str, Any]]):
+        for author in authors:
+            institutions = author["affiliations"]
+            for institution in institutions:
+                if institution not in self.institutions:
+                    self.institutions.append(institution)
 
     def _add_author_nodes(self, authors: List[Dict[str, Any]]):
         for author in authors:
@@ -109,21 +114,16 @@ class NodeClassificationMetadata(Metadata):
             edges["author__writes__paper"].append((author_index, paper_index))
         return edges
 
-    def _worker(
-        self,
-        q: multiprocessing.Manager.Queue,
-        document: Dict[str, Any],
-    ):
+    def _worker(self, q: multiprocessing.Queue, document: Dict[str, Any], path: str):
         # Get correct header
         halid = document["halid"]
         domains = document["domain"]
         header = self.headers[halid]
 
         # Process XML file with the header.
-        path = os.path.join(self.xml_dir_path, f"{halid}.grobidd.tei.xml")
         with open(path, "r", encoding="utf-8") as xmlf:
             xml = xmlf.read()
-        root = etree.fromstring(xml)
+        root = etree.fromstring(xml.encode("utf-8"))
         for elem in root.getiterator():
             # Skip comments and processing instructions,
             # because they do not have names
@@ -144,6 +144,7 @@ class NodeClassificationMetadata(Metadata):
             self._add_paper_node(c_title)
         local_authors = header["authors"]
         self._add_author_nodes(local_authors)
+        self._add_institution_node(local_authors)
 
         # Get edges
         edges = self._get_edges(
@@ -152,10 +153,18 @@ class NodeClassificationMetadata(Metadata):
 
         q.put(edges)
 
-    def _listener(self, q: multiprocessing.Manager.Queue, ouput_dir_path: str):
+    def _listener(self, q: multiprocessing.Queue, output_dir_path: str):
+        edges_dir_path = helpers.check_dir(os.path.join(output_dir_path, "edges"))
         while True:
+            edges = q.get()
             if q is None:
                 break
+            for k, v in edges.items():
+                edges_file_path = os.path.join(edges_dir_path, f"{k}.csv")
+                with open(edges_file_path, "a", encoding="utf-8") as csvf:
+                    for edge in v:
+                        csvf.write(f"{edge[0]},{edge[1]}\n")
+                        csvf.flush()
 
     def build(self, output_dir_path: str):
         manager = multiprocessing.Manager()
@@ -163,10 +172,14 @@ class NodeClassificationMetadata(Metadata):
         file_pool = multiprocessing.Pool(1)
         file_pool.apply_async(self._listener, (q, output_dir_path))
 
-        pool = multiprocessing.Pool(self.num_proc)
+        pool = multiprocessing.Pool(self.num_proc - 1)
         jobs = []
-        for document in self.dataset:
-            job = pool.apply_async(self._worker, (q, document))
+        for document in tqdm(self.dataset):
+            halid = document["halid"]
+            path = os.path.join(self.xml_dir_path, f"{halid}.grobid.tei.xml")
+            if path not in self.xml_file_paths:
+                continue
+            job = pool.apply_async(self._worker, (q, document, path))
             jobs.append(job)
 
         for job in jobs:
