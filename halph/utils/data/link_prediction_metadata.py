@@ -18,17 +18,12 @@ class LinkPredictionMetadata(Metadata):
     ----------
     """
 
-    def __init__(
-        self, dataset: DatasetDict, json_dir_path: str, xml_dir_path: str, num_proc: int
-    ):
+    def __init__(self, dataset: DatasetDict, json_dir_path: str, xml_dir_path: str):
         super().__init__(
             template="link_prediction",
             json_dir_path=json_dir_path,
             xml_dir_path=xml_dir_path,
         )
-
-    def __call__(self, output_dir_path: str):
-        pass
 
     def _worker(self, q: multiprocessing.Queue, document: Dict[str, Any], path: str):
         pass
@@ -37,4 +32,7 @@ class LinkPredictionMetadata(Metadata):
         pass
 
     def build(self, output_dir_path: str):
+        pass
+
+    def __call__(self, output_dir_path: str):
         pass

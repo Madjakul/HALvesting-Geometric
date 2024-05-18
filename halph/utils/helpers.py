@@ -1,10 +1,13 @@
 # halph/utils/helpers.py
 
 import argparse
+import gzip
 import json
 import logging
 import os
 from typing import List, Union
+
+from lxml import etree
 
 WIDTH = 139
 PROJECT_ROOT = os.getcwd()
@@ -116,3 +119,35 @@ def jsons_to_dict(paths: List[str], on: str):
             }
             data.update(tmp_data)
     return data
+
+
+def str_to_xml(xml: str):
+    """Function.
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+    root: etree.ElementTree
+        Clean XML tree.
+    """
+    root = etree.fromstring(xml.encode("utf-8"))
+    for elem in root.getiterator():
+        # Skip comments and processing instructions,
+        # because they do not have names
+        if not (
+            isinstance(elem, etree._Comment)
+            or isinstance(elem, etree._ProcessingInstruction)
+        ):
+            # Remove a namespace URI in the element's name
+            elem.tag = etree.QName(elem).localname
+    # Remove unused namespace declarations
+    etree.cleanup_namespaces(root)
+    return root
+
+
+def gzip_compress(path: str):
+    with open(path, "rb") as f:
+        with gzip.open(f"{path}.gz", "wb") as gzf:
+            gzf.writelines(f)

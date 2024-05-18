@@ -1,11 +1,13 @@
 # halph/utils/data/metadata.py
 
+import asyncio
 import logging
-import multiprocessing
 import os
 from abc import ABC, abstractmethod
 from typing import Any, Dict
 
+from lxml import etree
+from lxml.etree import ElementTree
 from tqdm import tqdm
 
 from halph.utils import helpers
@@ -27,16 +29,30 @@ class Metadata(ABC):
         self.template = template
         self.xml_dir_path = xml_dir_path
         self.xml_files = os.listdir(xml_dir_path)
+        logging.info(f"Found {len(self.xml_files)} XML files at {xml_dir_path}.")
         self.xml_file_paths = [
             os.path.join(xml_dir_path, xml_file) for xml_file in self.xml_files
         ]
         json_files = os.listdir(json_dir_path)
+        logging.info(f"Found {len(json_files)} JSON files at {json_dir_path}.")
         json_file_paths = [
             os.path.join(json_dir_path, json_file_path) for json_file_path in json_files
         ]
         headers = helpers.jsons_to_dict(json_file_paths, on="halid")
         logging.info("Filtering the headers...")
         self.headers = self._filter_headers(headers)
+
+    @abstractmethod
+    async def _build(self, q: asyncio.Queue):
+        raise NotImplementedError
+
+    @abstractmethod
+    async def _process(self, document: Dict[str, Any], path: str):
+        raise NotImplementedError
+
+    @abstractmethod
+    async def _save_edges(self, q: asyncio.Queue, output_dir_path: str):
+        raise NotImplementedError
 
     def _filter_headers(self, headers: Dict[str, Dict[str, Any]]):
         keys = list(headers.keys())
@@ -46,20 +62,23 @@ class Metadata(ABC):
             del headers[key]
         return headers
 
-    @abstractmethod
-    def _worker(
-        self,
-        q: multiprocessing.Queue,
-        header: Dict[str, Dict[str, Any]],
-        path,
-        str,
-    ):
-        raise NotImplementedError
+    def _get_citations(self, root: ElementTree):
+        bibl_structs = root.xpath("//text/back/div/listBibl/biblStruct")
+        c_titles = []
+        for bibl_struct in bibl_structs:
+            c_titles.append(self._get_citations_title(bibl_struct))
+        return c_titles
 
     @abstractmethod
-    def _listener(self, q: multiprocessing.Queue, output_dir_path: str):
+    def save_nodes(self, output_dir_path: str):
         raise NotImplementedError
 
     @abstractmethod
     def build(self, output_dir_path: str):
         raise NotImplementedError
+
+    @staticmethod
+    def _get_citations_title(bibl_struct: etree._Element):
+        title_element = bibl_struct.find(".//title[@type='main']")
+        title = title_element.text if title_element is not None else ""
+        return title
