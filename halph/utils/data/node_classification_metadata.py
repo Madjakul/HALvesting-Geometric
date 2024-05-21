@@ -119,6 +119,7 @@ class NodeClassificationMetadata(Metadata):
         # Get correct header
         halid = document["halid"]
         domains = document["domain"]
+        year = document["year"]
         header = self.headers[halid]
 
         # Process XML file with the header.
@@ -129,10 +130,10 @@ class NodeClassificationMetadata(Metadata):
 
         # Get nodes
         title = header["title"]
-        self._add_paper_node(title, halid)
-        c_titles = self._get_citations(root)
-        for c_title in c_titles:
-            self._add_paper_node(c_title)
+        self._add_paper_node(title, halid, year)
+        c_titles, c_years = self._get_citations(root)
+        for c_title, c_year in zip(c_titles, c_years):
+            self._add_paper_node(c_title, year=c_year)
         local_authors = header["authors"]
         self._add_author_nodes(local_authors)
         self._add_institution_node(local_authors)
@@ -147,9 +148,9 @@ class NodeClassificationMetadata(Metadata):
 
         return edges
 
-    def _add_paper_node(self, title: str, halid=""):
-        if title not in self.papers:
-            self.papers[title] = halid
+    def _add_paper_node(self, title: str, halid: str = "0", year: str = "0"):
+        if title not in self.papers or (halid != "0" and title in self.papers[title]):
+            self.papers[title] = (halid, year)
 
     def _add_institution_node(self, authors: List[Dict[str, Any]]):
         for author in authors:
@@ -183,8 +184,8 @@ class NodeClassificationMetadata(Metadata):
         # Save paper nodes
         papers_file_path = os.path.join(base_dir_path, "id_paper.csv.gz")
         with gzip.open(papers_file_path, "wt", encoding="utf-8") as csvf:
-            for idx, (title, halid) in enumerate(self.papers.items()):
-                csvf.write(f"{idx}\t{halid}\t{title}\n")
+            for idx, (title, (halid, year)) in enumerate(self.papers.items()):
+                csvf.write(f"{idx}\t{halid}\t{year}\t{title}\n")
         # Save institutions nodes
         institutions_file_path = os.path.join(base_dir_path, "id_institution.csv.gz")
         with gzip.open(institutions_file_path, "wt", encoding="utf-8") as csvf:

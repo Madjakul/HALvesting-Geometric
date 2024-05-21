@@ -65,9 +65,15 @@ class Metadata(ABC):
     def _get_citations(self, root: ElementTree):
         bibl_structs = root.xpath("//text/back/div/listBibl/biblStruct")
         c_titles = []
+        c_years = []
         for bibl_struct in bibl_structs:
-            c_titles.append(self._get_citations_title(bibl_struct))
-        return c_titles
+            c_title = self._get_citations_title(bibl_struct)
+            c_year = self._get_citation_year(bibl_struct)
+            if c_title == "":
+                continue
+            c_titles.append(c_title)
+            c_years.append(c_year)
+        return c_titles, c_years
 
     @abstractmethod
     def save_nodes(self, output_dir_path: str):
@@ -82,3 +88,13 @@ class Metadata(ABC):
         title_element = bibl_struct.find(".//title[@type='main']")
         title = title_element.text if title_element is not None else ""
         return title
+
+    @staticmethod
+    def _get_citation_year(bibl_struct: etree._Element):
+        date_element = bibl_struct.find(".//imprint/date[@type='published']")
+        year = (
+            date_element.attrib["when"].split("-")[0]
+            if date_element is not None
+            else "0"
+        )
+        return year

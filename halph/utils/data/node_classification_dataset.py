@@ -44,11 +44,11 @@ class NodeClassificationDataset(InMemoryDataset):
 
     @property
     def raw_dir(self) -> str:
-        return osp.join(self.root, "mock", "raw")
+        return osp.join(self.root, "raw")
 
     @property
     def processed_dir(self) -> str:
-        return osp.join(self.root, "mock", "processed")
+        return osp.join(self.root, "processed")
 
     @property
     def raw_file_names(self) -> List[str]:
@@ -74,7 +74,7 @@ class NodeClassificationDataset(InMemoryDataset):
             path,
             sep="\t",
             compression="gzip",
-            names=["paper_id", "halid", "name"],
+            names=["paper_id", "halid", "year", "name"],
             index_col=0,
         )
 
@@ -82,6 +82,8 @@ class NodeClassificationDataset(InMemoryDataset):
         df = pd.read_csv(path, sep="\t", names=["idx", "paper_id", "y"], index_col=0)
         df = df.join(paper, on="paper_id")
 
+        data["paper"].year = torch.from_numpy(df["year"].values)
+        data["paper"].halid = torch.from_numpy(df["halid"].values)
         data["paper"].y = torch.from_numpy(df["y"].values)
         data["paper"].y_index = torch.from_numpy(df.index.values)
 
@@ -99,16 +101,6 @@ class NodeClassificationDataset(InMemoryDataset):
             edge_index = edge_index.drop_duplicates(keep=False).values
             edge_index = torch.from_numpy(edge_index).t().contiguous()
             data[edge_type].edge_index = edge_index
-
-        # for f, v in [("train", "train"), ("valid", "val"), ("test", "test")]:
-        #     path = osp.join(self.raw_dir, "split", "time", "paper", f"{f}.csv.gz")
-        #     idx = pd.read_csv(
-        #         path, compression="gzip", header=None, dtype=np.int64
-        #     ).values.flatten()
-        #     idx = torch.from_numpy(idx)
-        #     mask = torch.zeros(data["paper"].num_nodes, dtype=torch.bool)
-        #     mask[idx] = True
-        #     data["paper"][f"{v}_mask"] = mask
 
         if self.pre_transform is not None:
             data = self.pre_transform(data)
