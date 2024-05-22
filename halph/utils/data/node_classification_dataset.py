@@ -87,6 +87,13 @@ class NodeClassificationDataset(InMemoryDataset):
         data["paper"].y = torch.from_numpy(df["y"].values)
         data["paper"].y_index = torch.from_numpy(df.index.values)
 
+        # Get author features
+        path = osp.join(self.raw_dir, "nodes", "halauthorid_author.csv.gz")
+        df = pd.read_csv(
+            path, sep="\t", names=["idx", "halauthorid", "name"], index_col=0
+        )
+        data["auhtor"].halauthorid = torch.from_numpy(df["halauthorid"].values)
+
         # Get edges
         for edge_type in [
             ("author", "affiliated_with", "institution"),

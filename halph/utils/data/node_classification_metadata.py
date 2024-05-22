@@ -4,7 +4,7 @@ import asyncio
 import gzip
 import logging
 import os
-from collections import OrderedDict, defaultdict
+from collections import Counter, defaultdict
 from typing import Any, Dict, List
 
 import aiofiles
@@ -13,21 +13,6 @@ from tqdm import tqdm
 
 from halph.utils import helpers
 from halph.utils.data.metadata import Metadata
-
-_DOMAINS = (
-    "shs",
-    "info",
-    "sdv",
-    "spi",
-    "phys",
-    "math",
-    "chim",
-    "sde",
-    "sdu",
-    "stat",
-    "scco",
-    "qfin",
-)
 
 
 class NodeClassificationMetadata(Metadata):
@@ -49,14 +34,8 @@ class NodeClassificationMetadata(Metadata):
             template="node_classification",
             json_dir_path=json_dir_path,
             xml_dir_path=xml_dir_path,
+            dataset=dataset,
         )
-        self.dataset = dataset.remove_columns("text")
-        # Nodes
-        self.authors = OrderedDict()
-        self.papers = OrderedDict()
-        self.institutions = []
-        # Labels
-        self.paper_domain = OrderedDict()
 
     def __call__(self, output_dir_path: str):
         loop = asyncio.get_event_loop()
@@ -96,11 +75,15 @@ class NodeClassificationMetadata(Metadata):
         paper_list = list(self.papers)
         paper_index = paper_list.index(title)
         authors = list(self.authors)
-        domain = domains[0].split(".")[0]
-        self.paper_domain[paper_index] = _DOMAINS.index(domain)
+        domains_ = [self.domains.index(domain.split(".")[0]) for domain in domains]
+        self.paper_domain[paper_index].extend(
+            domains_
+        )  # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         for c_title in c_titles:
             citation_index = paper_list.index(c_title)
-            self.paper_domain[citation_index] = _DOMAINS.index(domain)
+            self.paper_domain[citation_index].extend(
+                domains_
+            )  # !!!!!!!!!!!!!!!!!!!!!!!
             edges["paper__cites__paper"].append((paper_index, citation_index))
         for author in local_authors:
             halauthorid = author["halauthorid"]
@@ -196,15 +179,17 @@ class NodeClassificationMetadata(Metadata):
         # Save label types
         domains_file_path = os.path.join(labels_dir_path, "domains.csv.gz")
         with gzip.open(domains_file_path, "wt", encoding="utf-8") as csvf:
-            for idx, domain in enumerate(_DOMAINS):
+            for idx, domain in enumerate(self.domains):
                 csvf.write(f"{idx}\t{domain}\n")
         # Save papers' labels
         author_domain_file_path = os.path.join(labels_dir_path, "paper__domain.csv.gz")
         with gzip.open(author_domain_file_path, "wt", encoding="utf-8") as csvf:
             for idx, (paper_idx, domain_idx) in enumerate(self.paper_domain.items()):
-                csvf.write(f"{idx}\t{paper_idx}\t{domain_idx}\n")
+                domain_idx_ = Counter(domain_idx)
+                max_domain_idx = max(domain_idx_, key=domain_idx_.get)
+                csvf.write(f"{idx}\t{paper_idx}\t{max_domain_idx}\n")
         # Save author nodes
-        authors_file_path = os.path.join(base_dir_path, "halid_authors.csv.gz")
+        authors_file_path = os.path.join(base_dir_path, "halauthorid_author.csv.gz")
         with gzip.open(authors_file_path, "wt", encoding="utf-8") as csvf:
             for idx, (halid, authornames) in enumerate(self.authors.items()):
                 for authorname in authornames:

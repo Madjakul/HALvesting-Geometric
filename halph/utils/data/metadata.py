@@ -4,13 +4,30 @@ import asyncio
 import logging
 import os
 from abc import ABC, abstractmethod
+from collections import OrderedDict, defaultdict
 from typing import Any, Dict
 
+from datasets import DatasetDict
 from lxml import etree
 from lxml.etree import ElementTree
 from tqdm import tqdm
 
 from halph.utils import helpers
+
+_DOMAINS = (
+    "shs",
+    "info",
+    "sdv",
+    "spi",
+    "phys",
+    "math",
+    "chim",
+    "sde",
+    "sdu",
+    "stat",
+    "scco",
+    "qfin",
+)
 
 
 class Metadata(ABC):
@@ -25,8 +42,18 @@ class Metadata(ABC):
 
     headers: Dict[str, Dict[str, Any]]
 
-    def __init__(self, template: str, json_dir_path: str, xml_dir_path: str):
+    def __init__(
+        self, template: str, json_dir_path: str, xml_dir_path: str, dataset: DatasetDict
+    ):
+        self.domains = _DOMAINS
         self.template = template
+        self.dataset = dataset.remove_columns("text")
+        # Nodes
+        self.authors = OrderedDict()
+        self.papers = OrderedDict()
+        self.paper_domain = defaultdict(list)
+        self.institutions = []
+
         self.xml_dir_path = xml_dir_path
         self.xml_files = os.listdir(xml_dir_path)
         logging.info(f"Found {len(self.xml_files)} XML files at {xml_dir_path}.")
