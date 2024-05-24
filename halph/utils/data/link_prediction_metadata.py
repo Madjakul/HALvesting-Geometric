@@ -156,6 +156,7 @@ class LinkPredictionMetadata(Metadata):
         for file in os.listdir(edges_dir_path):
             file_path = os.path.join(edges_dir_path, file)
             helpers.gzip_compress(file_path)
+            os.remove(file_path)
 
     def save_nodes(self, output_dir_path: str):
         base_dir_path = helpers.check_dir(os.path.join(output_dir_path, "nodes"))
@@ -169,22 +170,22 @@ class LinkPredictionMetadata(Metadata):
         with gzip.open(institutions_file_path, "wt", encoding="utf-8") as csvf:
             for idx, institution in enumerate(self.institutions):
                 csvf.write(f"{idx}\t{institution}\n")
-        # Save fields of study nodes
-        labels_dir_path = helpers.check_dir(os.path.join(base_dir_path, "labels"))
-        # Save domain types
-        domains_file_path = os.path.join(labels_dir_path, "domains.csv.gz")
+        # Save author nodes
+        authors_file_path = os.path.join(base_dir_path, "halauthorid_author.csv.gz")
+        with gzip.open(authors_file_path, "wt", encoding="utf-8") as csvf:
+            for idx, (halauthorid, authornames) in enumerate(self.authors.items()):
+                for authorname in authornames:
+                    csvf.write(f"{idx}\t{halauthorid}\t{authorname}\n")
+        # Save domain nodes
+        domains_file_path = os.path.join(base_dir_path, "domains.csv.gz")
         with gzip.open(domains_file_path, "wt", encoding="utf-8") as csvf:
             for idx, domain in enumerate(self.domains):
                 csvf.write(f"{idx}\t{domain}\n")
         # Save domain edges
-        author_domain_file_path = os.path.join(labels_dir_path, "paper__domain.csv.gz")
-        with gzip.open(author_domain_file_path, "wt", encoding="utf-8") as csvf:
+        author_domain_file_path = os.path.join(
+            output_dir_path, "edges", "paper__has_topic__domain.csv"
+        )
+        with open(author_domain_file_path, "w", encoding="utf-8") as csvf:
             for idx, (paper_idx, domain_idxs) in enumerate(self.paper_domain.items()):
                 for domain_idx in domain_idxs:
-                    csvf.write(f"{idx}\t{paper_idx}\t{domain_idx}\n")
-        # Save author nodes
-        authors_file_path = os.path.join(base_dir_path, "halid_authors.csv.gz")
-        with gzip.open(authors_file_path, "wt", encoding="utf-8") as csvf:
-            for idx, (halid, authornames) in enumerate(self.authors.items()):
-                for authorname in authornames:
-                    csvf.write(f"{idx}\t{halid}\t{authorname}\n")
+                    csvf.write(f"{paper_idx}\t{domain_idx}\n")

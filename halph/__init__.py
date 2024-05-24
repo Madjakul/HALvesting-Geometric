@@ -1,3 +1,3 @@
 # halph/__init__.py
 
-from halph import benchmarks, modules, trainers, utils
+from halph import benchmarks, models, trainers, utils

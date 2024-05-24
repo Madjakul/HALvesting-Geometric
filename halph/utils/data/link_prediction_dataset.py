@@ -1,15 +1,11 @@
 # halph/utils/data/link_prediction_dataset.py
 
-import os
 import os.path as osp
-import shutil
-from typing import Callable, List, Literal, Optional
+from typing import Callable, List, Optional
 
-import numpy as np
 import torch
-from torch_geometric.data import (HeteroData, InMemoryDataset, download_url,
-                                  extract_zip)
-from torch_geometric.io import fs
+from torch_geometric.data import HeteroData, InMemoryDataset
+from torch_geometric.utils import coalesce
 
 
 class LinkPredictionDataset(InMemoryDataset):
@@ -42,17 +38,12 @@ class LinkPredictionDataset(InMemoryDataset):
         return "halph()"
 
     @property
-    def num_classes(self) -> int:
-        assert isinstance(self._data, HeteroData)
-        return int(self._data["paper"].y.max()) + 1
-
-    @property
     def raw_dir(self) -> str:
-        return osp.join(self.root, "data", "mock", "raw")
+        return osp.join(self.root, "raw")
 
     @property
     def processed_dir(self) -> str:
-        return osp.join(self.root, "data", "mock", "processed")
+        return osp.join(self.root, "processed")
 
     @property
     def raw_file_names(self) -> List[str]:
@@ -72,47 +63,102 @@ class LinkPredictionDataset(InMemoryDataset):
 
         data = HeteroData()
 
-        # Get paper labels
-        path = osp.join(self.raw_dir, "nodes", "id_paper.csv")
-        paper = pd.read_csv(
+        # Get paper nodes, fatures and labels
+        path = osp.join(self.raw_dir, "nodes", "id_paper.csv.gz")
+        df = pd.read_csv(
             path,
             sep="\t",
             compression="gzip",
-            names=["paper_id", "halid", "name"],
+            names=["paper_id", "halid", "year", "name"],
             index_col=0,
         )
+        data["paper"].x = torch.from_numpy(df[["year", "halid"]].values)
+        data["paper"].num_features = 2
+        data["paper"].index = torch.from_numpy(df.index.values)
+        data["paper"].num_nodes = df.shape[0]
 
-        path = osp.join(self.raw_dir, "nodes", "labels", "paper__domain.csv")
-        df = pd.read_csv(path, sep="\t", names=["idx", "paper_id", "y"], index_col=0)
-        df = df.join(paper, on="paper_id")
+        # Get author nodes
+        path = osp.join(self.raw_dir, "nodes", "halauthorid_author.csv.gz")
+        df = pd.read_csv(
+            path,
+            sep="\t",
+            names=["idx", "halauthorid", "name"],
+            index_col=0,
+            compression="gzip",
+        )
+        data["author"].index = torch.from_numpy(df.index.values)
+        data["author"].num_nodes = df.shape[0]
+        data["author"].num_features = 0
 
-        data["paper"].y = torch.from_numpy(df["y"].values)
-        data["paper"].y_index = torch.from_numpy(df["idx"].values)
+        # Get institution nodes
+        path = osp.join(self.raw_dir, "nodes", "id_institution.csv.gz")
+        df = pd.read_csv(
+            path,
+            sep="\t",
+            names=["idx", "institution"],
+            index_col=0,
+            compression="gzip",
+        )
+        data["institution"].index = torch.from_numpy(df.index.values)
+        data["institution"].num_nodes = df.shape[0]
+        data["institution"].num_features = 0
 
-        # Get edges
-        for edge_type in [
-            ("author", "affiliated_with", "institution"),
-            ("author", "writes", "paper"),
-            ("paper", "cites", "paper"),
-        ]:
-            f = "__".join(edge_type)
-            path = osp.join(self.raw_dir, "edges", f"{f}.csv.gz")
-            edge_index = pd.read_csv(
-                path, compression="gzip", header=None, dtype=np.int64
-            )
-            edge_index = edge_index.drop_duplicates(keep=False).values
-            edge_index = torch.from_numpy(edge_index).t().contiguous()
-            data[edge_type].edge_index = edge_index
+        # Get domain nodes
+        path = osp.join(self.raw_dir, "nodes", "domains.csv.gz")
+        df = pd.read_csv(
+            path,
+            sep="\t",
+            names=["idx", "domain"],
+            index_col=0,
+            compression="gzip",
+        )
+        data["domain"].index = torch.from_numpy(df.index.values)
+        data["domain"].num_nodes = df.shape[0]
+        data["domain"].num_features = 0
 
-        # for f, v in [("train", "train"), ("valid", "val"), ("test", "test")]:
-        #     path = osp.join(self.raw_dir, "split", "time", "paper", f"{f}.csv.gz")
-        #     idx = pd.read_csv(
-        #         path, compression="gzip", header=None, dtype=np.int64
-        #     ).values.flatten()
-        #     idx = torch.from_numpy(idx)
-        #     mask = torch.zeros(data["paper"].num_nodes, dtype=torch.bool)
-        #     mask[idx] = True
-        #     data["paper"][f"{v}_mask"] = mask
+        edge_dir_path = osp.join(self.raw_dir, "edges")
+
+        # Get author <-> paper edges
+        path = osp.join(edge_dir_path, "author__writes__paper.csv.gz")
+        df = pd.read_csv(path, sep="\t", names=["author", "paper"], compression="gzip")
+        df = df.drop_duplicates(keep=False)
+        df = torch.from_numpy(df.values)
+        df = df.t().contiguous()
+        M, N = int(df[0].max() + 1), int(df[1].max() + 1)
+        df = coalesce(df, num_nodes=max(M, N))
+        data["paper", "writes", "paper"].edge_index = df
+
+        # Get author <-> institution edges
+        path = osp.join(edge_dir_path, "author__affiliated_with__institution.csv.gz")
+        df = pd.read_csv(
+            path, sep="\t", names=["author", "institution"], compression="gzip"
+        )
+        df = df.drop_duplicates(keep=False)
+        df = torch.from_numpy(df.values)
+        df = df.t().contiguous()
+        M, N = int(df[0].max() + 1), int(df[1].max() + 1)
+        df = coalesce(df, num_nodes=max(M, N))
+        data["author", "affiliated_with", "institution"].edge_index = df
+
+        # Get paper <-> paper edges
+        path = osp.join(edge_dir_path, "paper__cites__paper.csv.gz")
+        df = pd.read_csv(path, sep="\t", names=["paper", "c_paper"], compression="gzip")
+        df = df.drop_duplicates(keep=False)
+        df = torch.from_numpy(df.values)
+        df = df.t().contiguous()
+        M, N = int(df[0].max() + 1), int(df[1].max() + 1)
+        df = coalesce(df, num_nodes=max(M, N))
+        data["paper", "cites", "paper"].edge_index = df
+
+        # Get paper <-> domain edges
+        path = osp.join(edge_dir_path, "paper__has_topic__domain.csv.gz")
+        df = pd.read_csv(path, sep="\t", names=["paper", "domain"], compression="gzip")
+        df = df.drop_duplicates(keep=False)
+        df = torch.from_numpy(df.values)
+        df = df.t().contiguous()
+        M, N = int(df[0].max() + 1), int(df[1].max() + 1)
+        df = coalesce(df, num_nodes=max(M, N))
+        data["paper", "has_topic", "domain"].edge_index = df
 
         if self.pre_transform is not None:
             data = self.pre_transform(data)

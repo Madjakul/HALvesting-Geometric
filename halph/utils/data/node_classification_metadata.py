@@ -161,6 +161,7 @@ class NodeClassificationMetadata(Metadata):
         for file in os.listdir(edges_dir_path):
             file_path = os.path.join(edges_dir_path, file)
             helpers.gzip_compress(file_path)
+            os.remove(file_path)
 
     def save_nodes(self, output_dir_path: str):
         base_dir_path = helpers.check_dir(os.path.join(output_dir_path, "nodes"))

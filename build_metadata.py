@@ -3,7 +3,7 @@
 import datasets
 
 from halph.utils import logging_config
-from halph.utils.data import NodeClassificationMetadata
+from halph.utils.data import LinkPredictionMetadata, NodeClassificationMetadata
 
 logging_config()
 
