@@ -142,7 +142,7 @@ class NodeClassificationDataset(InMemoryDataset):
         df = df.t().contiguous()
         M, N = int(df[0].max() + 1), int(df[1].max() + 1)
         df = coalesce(df, num_nodes=max(M, N))
-        data["paper", "writes", "paper"].edge_index = df
+        data["author", "writes", "paper"].edge_index = df
 
         # Get author <-> institution edges
         path = osp.join(edge_dir_path, "author__affiliated_with__institution.csv.gz")
