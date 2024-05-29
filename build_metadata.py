@@ -9,7 +9,7 @@ logging_config()
 
 if __name__ == "__main__":
     dataset = datasets.load_dataset("Madjakul/HALvest", "fr", split="train")
-    metadata = NodeClassificationMetadata(
+    metadata = LinkPredictionMetadata(
         dataset=dataset,
         json_dir_path="./data/mock/responses",
         xml_dir_path="./data/mock/grobid_out",

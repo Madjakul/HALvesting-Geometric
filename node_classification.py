@@ -4,7 +4,6 @@ import logging
 
 import torch_geometric.transforms as T
 from torch_geometric.loader import NeighborLoader
-from torch_geometric.nn import to_hetero
 
 from halph.models import NodeClassification
 from halph.trainers import NodeClassificationTrainer
@@ -37,6 +36,12 @@ if __name__ == "__main__":
         num_neighbors=[512] * 2,
         shuffle=True,
     )
+    test_dataloader = NeighborLoader(
+        split_data,
+        batch_size=4,
+        input_nodes=("paper", split_data["paper"].test_mask),
+        num_neighbors=[512] * 2,
+    )
 
     model = NodeClassification(
         gnn="graph_sage",
@@ -54,4 +59,4 @@ if __name__ == "__main__":
     trainer = NodeClassificationTrainer(
         model=model, lr=0.01, device="cpu", weight_decay=5e-4
     )
-    trainer.train(train_dataloader, val_dataloader, epochs=10)
+    trainer.train(train_dataloader, val_dataloader, epochs=50)

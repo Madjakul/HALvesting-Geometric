@@ -128,7 +128,8 @@ class LinkPredictionMetadata(Metadata):
 
     def _add_paper_node(self, title: str, halid: str = "0", year: str = "0"):
         if title not in self.papers or (halid != "0" and title in self.papers[title]):
-            self.papers[title] = (halid, year)
+            halid_ = "".join(filter(str.isdigit, halid))
+            self.papers[title] = (halid_, year)
 
     def _add_institution_node(self, authors: List[Dict[str, Any]]):
         for author in authors:

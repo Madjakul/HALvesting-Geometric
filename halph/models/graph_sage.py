@@ -22,6 +22,6 @@ class GraphSage(nn.Module):
     def forward(self, x, edge_index, edge_weight=None):
         x = self.conv1(x, edge_index, edge_weight)
         x = F.relu(x)
-        x = F.dropout(x, p=self.dropout, training=self.training)
+        x = F.dropout(x, p=self.dropout)
         x = self.conv2(x, edge_index)
         return x
