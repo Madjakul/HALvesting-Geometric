@@ -1,1 +1,0 @@
-{"loss": 5414.89887376378, "_timestamp": 1717080660.289284, "_runtime": 4.915371894836426, "_step": 50, "val-auc": 1.0, "test-auc": 0.98, "_wandb": {"runtime": 4}}
