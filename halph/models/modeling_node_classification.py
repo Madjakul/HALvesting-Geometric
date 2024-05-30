@@ -8,10 +8,9 @@ from torch_geometric.data import HeteroData
 from torch_geometric.nn import PMLP, to_hetero
 
 from halph.models.gat import GAT
-from halph.models.gcn import GCN
-from halph.models.graph_sage import GraphSage
+from halph.models.sage import GraphSage
 
-_GNN_MAP = {"gcn": GCN, "graph_sage": GraphSage, "gat": GAT, "pmlp": PMLP}
+_GNN_MAP = {"graph_sage": GraphSage, "gat": GAT, "pmlp": PMLP}
 
 
 class NodeClassification(nn.Module):

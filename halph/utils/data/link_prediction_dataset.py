@@ -72,8 +72,7 @@ class LinkPredictionDataset(InMemoryDataset):
             names=["paper_id", "halid", "year", "name"],
             index_col=0,
         )
-        data["paper"].x = torch.from_numpy(df[["year", "halid"]].values)
-        data["paper"].num_features = 2
+        data["paper"].num_features = 0
         data["paper"].index = torch.from_numpy(df.index.values)
         data["paper"].num_nodes = df.shape[0]
 

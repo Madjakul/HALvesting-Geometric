@@ -5,24 +5,23 @@ from typing import Literal
 import torch.nn as nn
 from torch import Tensor
 from torch_geometric.data import HeteroData
-from torch_geometric.nn import PMLP, to_hetero
+from torch_geometric.nn import to_hetero
 from torch_geometric.typing import Metadata
 
 from halph.models.gat import GAT
-from halph.models.gcn import GCN
-from halph.models.graph_sage import GraphSage
 from halph.models.link_classifier import LinkClassifier
+from halph.models.rggc import RGGC
+from halph.models.sage import GraphSage
 
-_GNN_MAP = {"gcn": GCN, "graph_sage": GraphSage, "gat": GAT, "pmlp": PMLP}
+_GNN_MAP = {"sage": GraphSage, "gat": GAT, "rggc": RGGC}
 
 
 class LinkPrediction(nn.Module):
     def __init__(
         self,
-        gnn: Literal["gcn", "rgcn", "graph_sage", "gat", "pmlp"],
+        gnn: Literal["sage", "gat", "rggc"],
         metadata: Metadata,
         paper_num_nodes: int,
-        paper_num_features: int,
         author_num_nodes: int,
         institution_num_nodes: int,
         domain_num_nodes: int,
@@ -32,7 +31,6 @@ class LinkPrediction(nn.Module):
         super().__init__()
         # Since the dataset does not come with rich features, we also learn two
         # embedding matrices for users and movies:
-        self.paper_linear = nn.Linear(paper_num_features, hidden_channels)
         self.paper_embedding = nn.Embedding(paper_num_nodes, hidden_channels)
         self.author_embedding = nn.Embedding(author_num_nodes, hidden_channels)
         self.domain_embedding = nn.Embedding(domain_num_nodes, hidden_channels)
@@ -55,8 +53,7 @@ class LinkPrediction(nn.Module):
             "author": self.author_embedding(batch["author"].n_id),
             "institution": self.institution_embedding(batch["institution"].n_id),
             "domain": self.domain_embedding(batch["domain"].n_id),
-            "paper": self.paper_linear(batch["paper"].x.float())
-            + self.paper_embedding(batch["paper"].n_id),
+            "paper": self.paper_embedding(batch["paper"].n_id),
         }
         # `x_dict` holds feature matrices of all node types
         # `edge_index_dict` holds all edge indices of all edge types

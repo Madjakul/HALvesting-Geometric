@@ -17,14 +17,20 @@ class GAT(torch.nn.Module):
     ):
         super().__init__()
         self.dropout = dropout
-        self.conv1 = GATConv(in_channels, hidden_channels, heads, dropout=dropout)
-        # On the Pubmed dataset, use `heads` output heads in `conv2`.
+        self.conv1 = GATConv(
+            in_channels,
+            hidden_channels,
+            heads=heads,
+            dropout=dropout,
+            add_self_loops=False,
+        )
         self.conv2 = GATConv(
             hidden_channels * heads,
             out_channels,
             heads=heads,
             concat=False,
             dropout=dropout,
+            add_self_loops=False,
         )
 
     def forward(self, x, edge_index, edge_weight=None):

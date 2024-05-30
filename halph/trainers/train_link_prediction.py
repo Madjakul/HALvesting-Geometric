@@ -8,6 +8,7 @@ from sklearn.metrics import roc_auc_score
 from torch_geometric.loader import NeighborLoader
 from tqdm import tqdm
 
+import wandb
 from halph.models import LinkPrediction
 
 
@@ -74,6 +75,8 @@ class LinkPredictionTrainer:
         for epoch in tqdm(range(epochs)):
             logging.info(f"Epoch {epoch + 1:02d}")
             loss = self.fit(train_dataloader)
+            wandb.log({"loss": loss})
             logging.info(f"Loss {loss:.4f}")
             auc = self.validate(val_dataloader)
+            wandb.log({"val-auc": auc}, commit=False)
             logging.info(f"Val AUC: {auc:.4f}")
