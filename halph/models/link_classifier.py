@@ -1,4 +1,4 @@
-# halph/models/classifier.py
+# halph/models/link_classifier.py
 
 import torch.nn as nn
 from torch import Tensor

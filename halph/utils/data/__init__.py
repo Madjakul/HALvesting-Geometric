@@ -1,5 +1,6 @@
 # halph/utils/data/__init__.py
 
+from halph.utils.data.bbp_dataset import BigBirdPegasusDataset
 from halph.utils.data.link_prediction_dataset import LinkPredictionDataset
 from halph.utils.data.link_prediction_metadata import LinkPredictionMetadata
 from halph.utils.data.metadata import Metadata
@@ -14,4 +15,5 @@ __all__ = [
     "Metadata",
     "LinkPredictionMetadata",
     "NodeClassificationMetadata",
+    "BigBirdPegasusDataset",
 ]

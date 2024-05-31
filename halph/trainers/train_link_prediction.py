@@ -1,15 +1,16 @@
 # halph/trainers/train_link_prediction.py
 
 import logging
+from typing import Union
 
 import torch
 import torch.nn as nn
+import wandb
 from sklearn.metrics import roc_auc_score
 from torch_geometric.loader import NeighborLoader
 from tqdm import tqdm
 
-import wandb
-from halph.models import LinkPrediction
+from halph.models import BigBirdPegasusLinkPrediction, LinkPrediction
 
 
 class LinkPredictionTrainer:
@@ -26,7 +27,11 @@ class LinkPredictionTrainer:
     """
 
     def __init__(
-        self, model: LinkPrediction, lr: float, device: str, weight_decay: float = 0
+        self,
+        model: Union[LinkPrediction, BigBirdPegasusLinkPrediction],
+        lr: float,
+        device: str,
+        weight_decay: float = 0,
     ):
         self.model = model
         self.device = device

@@ -1,10 +1,13 @@
 # halph/utils/data/bbp_dataset.py
 
+import logging
 import os.path as osp
 from typing import List
 
 import pandas as pd
+import torch
 from datasets import DatasetDict
+from tqdm import tqdm
 from transformers import AutoTokenizer
 
 
@@ -30,12 +33,15 @@ class BigBirdPegasusDataset:
             compression="gzip",
             names=["id", "halid", "year", "name"],
             index_col=0,
+            dtype={"id": int, "halid": str, "year": int, "name": str},
         )
+        logging.info("Processing paper nodes...")
         self.n_id_to_halid = {}
         for idx, row in df.iterrows():
             self.n_id_to_halid[idx] = row["halid"]
         self.halid_to_idx = {}
-        for idx, data in enumerate(dataset):
+        logging.info("processing text data...")
+        for idx, data in enumerate(tqdm(dataset)):
             self.halid_to_idx[data["halid"]] = idx
 
     def _tokenize(self, batch_text: List[str]):
@@ -48,11 +54,11 @@ class BigBirdPegasusDataset:
         )
         return inputs
 
-    def get(self, batch: List[int]):
+    def get(self, batch: torch.Tensor):
         batch_text = []
-        for n_id in batch:
-            halid = self.n_id_to_halid[n_id]
-            if halid == "":
+        for n_id in batch.squeeze(0):
+            halid = self.n_id_to_halid[n_id.item()]
+            if halid == "0":
                 batch_text.append("")
                 continue
             dataset_idx = self.halid_to_idx[halid]

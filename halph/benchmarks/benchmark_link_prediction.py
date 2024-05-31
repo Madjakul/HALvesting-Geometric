@@ -1,18 +1,25 @@
 # halph/benchmarks/benchmark_link_prediction.py
 
+from typing import Union
+
 import torch
 from sklearn.metrics import roc_auc_score
 from torch_geometric.loader import NeighborLoader
 from tqdm import tqdm
 
-from halph.models import LinkPrediction
+from halph.models import BigBirdPegasusLinkPrediction, LinkPrediction
 
 
 class BenchMarkLinkPrediction:
 
     @classmethod
     @torch.no_grad()
-    def run(cls, model: LinkPrediction, test_dataloader: NeighborLoader, device: str):
+    def run(
+        cls,
+        model: Union[LinkPrediction, BigBirdPegasusLinkPrediction],
+        test_dataloader: NeighborLoader,
+        device: str,
+    ):
         model.eval()
         y_true = []
         y_pred = []
