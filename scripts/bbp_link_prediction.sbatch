@@ -13,7 +13,7 @@ module purge
 module load cmake cuda/11.4
 
 source /home/$USER/.bashrc
-conda activate halvesting
+conda activate halph
 
 mkdir logs
 
