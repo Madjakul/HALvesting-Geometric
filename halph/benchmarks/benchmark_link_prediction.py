@@ -7,7 +7,7 @@ from sklearn.metrics import roc_auc_score
 from torch_geometric.loader import NeighborLoader
 from tqdm import tqdm
 
-from halph.models import BigBirdPegasusLinkPrediction, LinkPrediction
+from halph.models import LanguageModelLinkPrediction, LinkPrediction
 
 
 class BenchMarkLinkPrediction:
@@ -16,7 +16,7 @@ class BenchMarkLinkPrediction:
     @torch.no_grad()
     def run(
         cls,
-        model: Union[LinkPrediction, BigBirdPegasusLinkPrediction],
+        model: Union[LinkPrediction, LanguageModelLinkPrediction],
         test_dataloader: NeighborLoader,
         device: str,
     ):

@@ -7,7 +7,7 @@ from transformers import BigBirdPegasusModel, RobertaModel
 from transformers.tokenization_utils_base import BatchEncoding
 
 
-class BigBirdPegasusLinkClassifier(nn.Module):
+class LanguageModelLinkClassifier(nn.Module):
     """Pass.
 
     Parameters
@@ -17,12 +17,10 @@ class BigBirdPegasusLinkClassifier(nn.Module):
     ---------
     """
 
-    def __init__(self, hidden_channels: int, dropout: float):
+    def __init__(self, hidden_channels: int, dropout: float, device: str):
         super().__init__()
-        self.bbp = BigBirdPegasusModel.from_pretrained(
-            "google/bigbird-pegasus-large-arxiv"
-        )
-        hidden_size = self.bbp.config.hidden_size
+        self.lm = RobertaModel.from_pretrained("FacebookAI/roberta-base").to(device)
+        hidden_size = self.lm.config.hidden_size
         self.dropout = dropout
         self.linear1 = nn.Linear(
             hidden_size + hidden_channels, hidden_size + hidden_channels
@@ -36,7 +34,7 @@ class BigBirdPegasusLinkClassifier(nn.Module):
         edge_label_index: torch.Tensor,
         inputs: BatchEncoding,
     ):
-        outputs = self.bbp(
+        outputs = self.lm(
             # input_ids=inputs["input_ids"][0].unsqueeze(0),
             # attention_mask=inputs["attention_mask"][0].unsqueeze(0),
             **inputs

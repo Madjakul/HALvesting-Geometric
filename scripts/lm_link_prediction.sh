@@ -10,12 +10,12 @@ NUM_PROC=4
 BATCH_SIZE=4
 EPOCHS=10
 ROOT="$DATA_ROOT/mock"
-MAX_LENGTH=128
+MAX_LENGTH=512
 
 # **************************************************************************************
 
 # --run "$run" \
-python3 "$PROJECT_ROOT/bbp_link_prediction.py" \
+python3 "$PROJECT_ROOT/lm_link_prediction.py" \
       --gnn "$GNN" \
       --num_proc "$NUM_PROC" \
       --batch_size "$BATCH_SIZE" \

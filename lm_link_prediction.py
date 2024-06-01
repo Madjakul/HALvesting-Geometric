@@ -8,11 +8,11 @@ from torch_geometric.loader import LinkNeighborLoader
 
 import wandb
 from halph.benchmarks import BenchMarkLinkPrediction
-from halph.models import BigBirdPegasusLinkPrediction
+from halph.models import LanguageModelLinkPrediction
 from halph.trainers import LinkPredictionTrainer
 from halph.utils import logging_config
 from halph.utils.argparsers import BigBirdPegasusLinkPredictionArgparse
-from halph.utils.data import BigBirdPegasusDataset, LinkPredictionDataset
+from halph.utils.data import LanguageModelDataset, LinkPredictionDataset
 
 logging_config()
 
@@ -30,6 +30,7 @@ NUM_NEIGHBORS = {
     ("institution", "rev_affiliated_with", "author"): [128, 16],
     ("domain", "rev_has_topic", "paper"): [128, 16],
 }
+DEVICE = "cuda"
 
 
 def main(gnn: str, run: int, root: str, max_length: int, epochs: int):
@@ -55,8 +56,8 @@ def main(gnn: str, run: int, root: str, max_length: int, epochs: int):
     edge_label = train_data["author", "writes", "paper"].edge_label
     train_dataloader = LinkNeighborLoader(
         data=train_data,
-        # num_neighbors=[128, 16],
-        num_neighbors=NUM_NEIGHBORS,
+        num_neighbors=[128, 16],
+        # num_neighbors=NUM_NEIGHBORS,
         neg_sampling_ratio=2.0,
         edge_label_index=(("author", "writes", "paper"), edge_label_index),
         edge_label=edge_label,
@@ -69,8 +70,8 @@ def main(gnn: str, run: int, root: str, max_length: int, epochs: int):
     edge_label = val_data["author", "writes", "paper"].edge_label
     val_dataloader = LinkNeighborLoader(
         data=val_data,
-        # num_neighbors=[128, 16],
-        num_neighbors=NUM_NEIGHBORS,
+        num_neighbors=[128, 16],
+        # num_neighbors=NUM_NEIGHBORS,
         edge_label_index=(("author", "writes", "paper"), edge_label_index),
         edge_label=edge_label,
         batch_size=1 * 4,
@@ -80,11 +81,11 @@ def main(gnn: str, run: int, root: str, max_length: int, epochs: int):
     )
 
     dataset = datasets.load_dataset("Madjakul/HALvest", "fr", split="train")
-    bbp_dataset = BigBirdPegasusDataset(
-        root=root, dataset=dataset, max_length=max_length
+    bbp_dataset = LanguageModelDataset(
+        root=root, dataset=dataset, max_length=max_length, device=DEVICE
     )
 
-    model = BigBirdPegasusLinkPrediction(
+    model = LanguageModelLinkPrediction(
         gnn=gnn,
         metadata=data.metadata(),
         paper_num_nodes=data["paper"].num_nodes,
@@ -94,10 +95,12 @@ def main(gnn: str, run: int, root: str, max_length: int, epochs: int):
         hidden_channels=HIDDEN_CHANNELS,
         dropout=DROPOUT,
         bbp_dataset=bbp_dataset,
+        device=DEVICE,
     )
+    model.to(DEVICE)
 
     trainer = LinkPredictionTrainer(
-        model=model, lr=LR, device="cpu", weight_decay=WEIGHT_DECAY
+        model=model, lr=LR, device="cuda", weight_decay=WEIGHT_DECAY
     )
     trainer.train(train_dataloader, val_dataloader, epochs=epochs)
 
@@ -105,8 +108,8 @@ def main(gnn: str, run: int, root: str, max_length: int, epochs: int):
     edge_label = test_data["author", "writes", "paper"].edge_label
     test_dataloader = LinkNeighborLoader(
         data=test_data,
-        # num_neighbors=[128, 16],
-        num_neighbors=NUM_NEIGHBORS,
+        num_neighbors=[128, 16],
+        # num_neighbors=NUM_NEIGHBORS,
         edge_label_index=(("author", "writes", "paper"), edge_label_index),
         edge_label=edge_label,
         batch_size=1 * 4,
@@ -115,7 +118,7 @@ def main(gnn: str, run: int, root: str, max_length: int, epochs: int):
         persistent_workers=True,
     )
 
-    auc = BenchMarkLinkPrediction.run(model, test_dataloader, "cpu")
+    auc = BenchMarkLinkPrediction.run(model, test_dataloader, "cuda")
     wandb.log({"test-auc": auc})
     logging.info(f"test-auc: {auc}")
     # wandb.teardown()

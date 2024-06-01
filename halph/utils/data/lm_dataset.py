@@ -11,7 +11,7 @@ from tqdm import tqdm
 from transformers import AutoTokenizer
 
 
-class BigBirdPegasusDataset:
+class LanguageModelDataset:
     """Pass.
 
     Parameters
@@ -21,10 +21,11 @@ class BigBirdPegasusDataset:
     ----------
     """
 
-    tokenizer = AutoTokenizer.from_pretrained("google/bigbird-pegasus-large-arxiv")
+    tokenizer = AutoTokenizer.from_pretrained("FacebookAI/roberta-base")
 
-    def __init__(self, root: str, dataset: DatasetDict, max_length: int):
+    def __init__(self, root: str, dataset: DatasetDict, max_length: int, device: str):
         self.dataset = dataset
+        self.device = device
         self.max_length = max_length
         path = osp.join(root, "raw", "nodes", "id_paper.csv.gz")
         df = pd.read_csv(
@@ -52,6 +53,7 @@ class BigBirdPegasusDataset:
             truncation=True,
             return_tensors="pt",
         )
+        inputs = inputs.to(self.device)
         return inputs
 
     def get(self, batch: torch.Tensor):

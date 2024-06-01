@@ -5,12 +5,12 @@ from typing import Union
 
 import torch
 import torch.nn as nn
-import wandb
 from sklearn.metrics import roc_auc_score
 from torch_geometric.loader import NeighborLoader
 from tqdm import tqdm
 
-from halph.models import BigBirdPegasusLinkPrediction, LinkPrediction
+import wandb
+from halph.models import LanguageModelLinkPrediction, LinkPrediction
 
 
 class LinkPredictionTrainer:
@@ -28,7 +28,7 @@ class LinkPredictionTrainer:
 
     def __init__(
         self,
-        model: Union[LinkPrediction, BigBirdPegasusLinkPrediction],
+        model: Union[LinkPrediction, LanguageModelLinkPrediction],
         lr: float,
         device: str,
         weight_decay: float = 0,

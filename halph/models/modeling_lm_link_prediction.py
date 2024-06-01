@@ -8,16 +8,16 @@ from torch_geometric.data import HeteroData
 from torch_geometric.nn import to_hetero
 from torch_geometric.typing import Metadata
 
-from halph.models.bbp_link_classifier import BigBirdPegasusLinkClassifier
 from halph.models.gat import GAT
+from halph.models.lm_link_classifier import LanguageModelLinkClassifier
 from halph.models.rggc import RGGC
 from halph.models.sage import GraphSage
-from halph.utils.data import BigBirdPegasusDataset
+from halph.utils.data import LanguageModelDataset
 
 _GNN_MAP = {"sage": GraphSage, "gat": GAT, "rggc": RGGC}
 
 
-class BigBirdPegasusLinkPrediction(nn.Module):
+class LanguageModelLinkPrediction(nn.Module):
     def __init__(
         self,
         gnn: Literal["sage", "gat", "rggc"],
@@ -28,7 +28,8 @@ class BigBirdPegasusLinkPrediction(nn.Module):
         domain_num_nodes: int,
         hidden_channels: int,
         dropout: float,
-        bbp_dataset: BigBirdPegasusDataset,
+        bbp_dataset: LanguageModelDataset,
+        device: str,
     ):
         super().__init__()
         self.bbp_dataset = bbp_dataset
@@ -49,7 +50,7 @@ class BigBirdPegasusLinkPrediction(nn.Module):
         )
         # Convert GNN model into a heterogeneous variant:
         self.gnn = to_hetero(self.gnn, metadata=metadata)
-        self.classifier = BigBirdPegasusLinkClassifier(hidden_channels, dropout)
+        self.classifier = LanguageModelLinkClassifier(hidden_channels, dropout, device)
 
     def forward(self, batch: HeteroData) -> Tensor:
         inputs = self.bbp_dataset.get(
