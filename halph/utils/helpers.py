@@ -7,6 +7,7 @@ import logging
 import os
 from typing import List, Union
 
+from tqdm import tqdm
 from lxml import etree
 
 WIDTH = 139
@@ -108,8 +109,9 @@ def json_to_dict(path: str, on: str):
 
 
 def jsons_to_dict(paths: List[str], on: str):
+    logging.info("Converting JSONs to Dict...")
     data = {}
-    for path in paths:
+    for path in tqdm(paths):
         with open(path, "r", encoding="utf-8") as jsf:
             json_headers = json.load(jsf)
         for json_header in json_headers:

@@ -47,6 +47,8 @@ class LinkPredictionMetadata(Metadata):
             xml_file_path = os.path.join(self.xml_dir_path, f"{halid}.grobid.tei.xml")
             if xml_file_path not in self.xml_file_paths:
                 continue
+            if halid not in self.headers:
+                continue
             edges = await self._process(document, xml_file_path)
             await q.put(edges)
         await q.put(None)
@@ -107,8 +109,12 @@ class LinkPredictionMetadata(Metadata):
         paper_list = list(self.papers)
         paper_index = paper_list.index(title)
         authors = list(self.authors)
-        domains_ = [self.domains.index(domain.split(".")[0]) for domain in domains]
-        self.paper_domain[paper_index].extend(domains_)
+        try:
+            domains_ = [self.domains.index(domain.split(".")[0]) for domain in domains]
+            self.paper_domain[paper_index].extend(domains_)
+        except ValueError:
+            # No general domain provided for the paper
+            domains_ = []
         for c_title in c_titles:
             citation_index = paper_list.index(c_title)
             self.paper_domain[citation_index].extend(domains_)
