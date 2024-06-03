@@ -7,8 +7,9 @@ import logging
 import os
 from typing import List, Union
 
-from tqdm import tqdm
+import pandas as pd
 from lxml import etree
+from tqdm import tqdm
 
 WIDTH = 139
 PROJECT_ROOT = os.getcwd()
@@ -153,3 +154,8 @@ def gzip_compress(path: str):
     with open(path, "rb") as f:
         with gzip.open(f"{path}.gz", "wb") as gzf:
             gzf.writelines(f)
+
+
+def compress_csv(df: pd.DataFrame, path: str):
+    df.to_csv(f"{path}.gz", compression="gzip", sep="\t", index=False, header=False)
+    os.remove(path)

@@ -58,12 +58,16 @@ class Metadata(ABC):
         self.xml_files = os.listdir(xml_dir_path)
         logging.info(f"Found {len(self.xml_files)} XML files at {xml_dir_path}.")
         self.xml_file_paths = [
-            os.path.join(xml_dir_path, xml_file) for xml_file in self.xml_files if xml_file.endswith(".tei.xml")
+            os.path.join(xml_dir_path, xml_file)
+            for xml_file in self.xml_files
+            if xml_file.endswith(".tei.xml")
         ]
         json_files = os.listdir(json_dir_path)
         logging.info(f"Found {len(json_files)} JSON files at {json_dir_path}.")
         json_file_paths = [
-            os.path.join(json_dir_path, json_file_path) for json_file_path in json_files if json_file_path.endswith(".json")
+            os.path.join(json_dir_path, json_file_path)
+            for json_file_path in json_files
+            if json_file_path.endswith(".json")
         ]
         self.headers = helpers.jsons_to_dict(json_file_paths, on="halid")
         logging.info("Filtering the headers...")
