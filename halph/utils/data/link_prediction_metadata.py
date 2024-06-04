@@ -16,21 +16,6 @@ from tqdm import tqdm
 
 from halph.utils import helpers
 
-_DOMAINS = (
-    "shs",
-    "info",
-    "sdv",
-    "spi",
-    "phys",
-    "math",
-    "chim",
-    "sde",
-    "sdu",
-    "stat",
-    "scco",
-    "qfin",
-)
-
 
 class LinkPredictionMetadata:
     """Class.
@@ -47,13 +32,11 @@ class LinkPredictionMetadata:
 
     def __init__(
         self,
-        dataset: DatasetDict,
         root_dir: str,
         json_dir: str,
         xml_dir: str,
         num_proc: int,
     ):
-        self.dataset = dataset
         self.root_dir = helpers.check_dir(root_dir)
         self.raw_dir = helpers.check_dir(osp.join(root_dir, "raw"))
         helpers.check_dir(osp.join(self.raw_dir, "nodes"))
@@ -108,105 +91,153 @@ class LinkPredictionMetadata:
             c_years.append(c_year)
         return c_titles, c_years
 
-    @fasteners.interprocess_locked("tmp/nodes.lock")
-    def _node_worker(self, batch: Dict[str, List[str]]):
-        for halid in tqdm(batch["halid"]):
-            if halid not in self.headers:
-                continue
-            if f"{halid}.grobid.tei.xml" not in self.xml_file_names:
-                continue
+    def compute_nodes(self, df: pd.DataFrame):
+        logging.info("Computing nodes...")
 
-            header = self.headers[halid]
-            title = header["title"]
-            year = header["date"]
+        logging.info("Computing paper nodes...")
+        path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
+        df_ = df[["halid", "lang", "year", "title", "domain"]].reset_index(drop=True)
+        df_["paper_idx"] = df_.index
+        logging.info(df_.info())
+        df_.to_csv(path, compression="gzip", index=False, sep="\t")
 
-            # Process XML file with the header.
-            path = osp.join(self.xml_dir, f"{halid}.grobid.tei.xml")
-            with open(path, "r") as xmlf:
-                xml = xmlf.read()
-            root = helpers.str_to_xml(xml)
-
-            # Save nodes
-            path = osp.join(self.raw_dir, "nodes", "papers.csv")
-            with open(path, "a", encoding="utf-8") as csvf:
-                csvf.write(f"{halid}\t{year}\t{title.lower()}\n")
-                c_titles, c_years = self._get_citations(root)
-                halid_ = ""
-                for c_title, c_year in zip(c_titles, c_years):
-                    if not c_title.split():
-                        continue
-                    csvf.write(f"{halid_}\t{c_year}\t{c_title.lower()}\n")
-
-            authors = header["authors"]
-            author_path = osp.join(self.raw_dir, "nodes", "authors.csv")
-            institution_path = osp.join(self.raw_dir, "nodes", "institutions.csv")
-            f_author = open(author_path, "a", encoding="utf-8")
-            f_institution = open(institution_path, "a", encoding="utf-8")
-
-            for author in authors:
-                halauthorid = author["halauthorid"]
-                if halauthorid == "0":
-                    continue
-                f_author.write(f"{halauthorid}\t{author['name']}\n")
-                for institution in author["affiliations"]:
-                    f_institution.write(f"{institution}\n")
-
-            f_author.close()
-            f_institution.close()
-
-    def compute_nodes(self):
-        self.headers = helpers.jsons_to_dict(self.json_file_paths, on="halid")
-        processes = []
-        batch_size = int(len(self.dataset) / self.num_proc) + 1
-        logging.info("Initializing processes...")
-        for process_nb in tqdm(range(self.num_proc)):
-            begin_idx = process_nb * batch_size
-            end_idx = begin_idx + batch_size
-            batch = self.dataset[begin_idx:end_idx]
-            p = multiprocessing.Process(target=self._node_worker, args=(batch,))
-            p.start()
-            processes.append(p)
-
-        for p in processes:
-            p.join()
-
-    def compute_edges(self):
-        self.headers = helpers.jsons_to_dict(self.json_file_paths, on="halid")
-        processes = []
-        batch_size = int(len(self.dataset) / self.num_proc) + 1
-        logging.info("Initializing processes...")
-        for process_nb in tqdm(range(self.num_proc)):
-            begin_idx = process_nb * batch_size
-            end_idx = begin_idx + batch_size
-            batch = self.dataset[begin_idx:end_idx]
-            p = multiprocessing.Process(target=self._node_worker, args=(batch,))
-            p.start()
-            processes.append(p)
-
-        for p in processes:
-            p.join()
-
-    def deduplicate_nodes(self, compress: bool):
-        path = osp.join(self.raw_dir, "nodes", "papers.csv")
-        df = pd.read_csv(path, sep="\t", names=["halid", "year", "title"])
-        df = df.groupby(df["title"], as_index=False).aggregate(
-            {"halid": "max", "year": "max"}
+        logging.info("Computing author nodes...")
+        path = osp.join(self.raw_dir, "nodes", "authors.csv.gz")
+        df_ = df[["authors"]].explode("authors")
+        logging.info("Normalizing authors...")
+        df_ = pd.json_normalize(df_["authors"])
+        df_ = df_[df_.halauthorid != "0"]
+        df_ = (
+            df_[["name", "halauthorid", "affiliations"]]
+            .drop_duplicates(subset=["halauthorid"])
+            .reset_index(drop=True)
         )
-        df = df.dropna(subset=["title"], how="all").reset_index(drop=True)
-        if compress:
-            helpers.compress_csv(df, path)
+        df_["author_idx"] = df_.index
+        logging.info(df_.info())
+        df_.to_csv(path, compression="gzip", index=False, sep="\t")
 
-        path = osp.join(self.raw_dir, "nodes", "authors.csv")
-        df = pd.read_csv(path, sep="\t", names=["halauthorid", "year"])
-        df = df.drop_duplicates().reset_index(drop=True)
-        if compress:
-            helpers.compress_csv(df, path)
+        logging.info("Computing affiliation nodes...")
+        path = osp.join(self.raw_dir, "nodes", "affiliations.csv.gz")
+        df_ = df_[["affiliations"]].explode("affiliations")
+        df_ = df_.drop_duplicates().reset_index(drop=True)
+        df_["affiliation_idx"] = df_.index
+        logging.info(df_.info())
+        df_.to_csv(path, compression="gzip", index=False, sep="\t")
 
-        path = osp.join(self.raw_dir, "nodes", "institutions.csv")
-        df = pd.read_csv(path, sep="\t", names=["institution"])
-        df = df.drop_duplicates().reset_index(drop=True)
-        if compress:
-            helpers.compress_csv(df, path)
+        logging.info("Computing domain nodes...")
+        path = osp.join(self.raw_dir, "nodes", "domains.csv.gz")
+        df_ = df[["domain"]].explode("domain")
+        df_["domain"] = df_["domain"].apply(
+            lambda x: x.split(".")[0] if x and isinstance(x, str) else ""
+        )
+        df_ = df_.drop_duplicates().reset_index(drop=True)
+        df_ = df_[df_.domain != ""]
+        df_["domain_idx"] = df_.index
+        logging.info(df_.info())
+        df_.to_csv(path, compression="gzip", index=False, sep="\t")
+
+    def compute_edges(self, df: pd.DataFrame):
+        pass
+
+    # @fasteners.interprocess_locked("tmp/nodes.lock")
+    # def _node_worker(self, batch: Dict[str, List[str]]):
+    #     for halid in tqdm(batch["halid"]):
+    #         if halid not in self.headers:
+    #             continue
+    #         if f"{halid}.grobid.tei.xml" not in self.xml_file_names:
+    #             continue
+
+    #         header = self.headers[halid]
+    #         title = header["title"]
+    #         year = header["date"]
+
+    #         # Process XML file with the header.
+    #         path = osp.join(self.xml_dir, f"{halid}.grobid.tei.xml")
+    #         with open(path, "r") as xmlf:
+    #             xml = xmlf.read()
+    #         root = helpers.str_to_xml(xml)
+
+    #         # Save nodes
+    #         path = osp.join(self.raw_dir, "nodes", "papers.csv")
+    #         with open(path, "a", encoding="utf-8") as csvf:
+    #             csvf.write(f"{halid}\t{year}\t{title.lower()}\n")
+    #             c_titles, c_years = self._get_citations(root)
+    #             halid_ = ""
+    #             for c_title, c_year in zip(c_titles, c_years):
+    #                 if not c_title.split():
+    #                     continue
+    #                 csvf.write(f"{halid_}\t{c_year}\t{c_title.lower()}\n")
+
+    #         authors = header["authors"]
+    #         author_path = osp.join(self.raw_dir, "nodes", "authors.csv")
+    #         institution_path = osp.join(self.raw_dir, "nodes", "institutions.csv")
+    #         f_author = open(author_path, "a", encoding="utf-8")
+    #         f_institution = open(institution_path, "a", encoding="utf-8")
+
+    #         for author in authors:
+    #             halauthorid = author["halauthorid"]
+    #             if halauthorid == "0":
+    #                 continue
+    #             f_author.write(f"{halauthorid}\t{author['name']}\n")
+    #             for institution in author["affiliations"]:
+    #                 f_institution.write(f"{institution}\n")
+
+    #         f_author.close()
+    #         f_institution.close()
+
+    # def compute_nodes(self):
+    #     self.headers = helpers.jsons_to_dict(self.json_file_paths, on="halid")
+    #     processes = []
+    #     batch_size = int(len(self.dataset) / self.num_proc) + 1
+    #     logging.info("Initializing processes...")
+    #     for process_nb in tqdm(range(self.num_proc)):
+    #         begin_idx = process_nb * batch_size
+    #         end_idx = begin_idx + batch_size
+    #         batch = self.dataset[begin_idx:end_idx]
+    #         p = multiprocessing.Process(target=self._node_worker, args=(batch,))
+    #         p.start()
+    #         processes.append(p)
+
+    #     for p in processes:
+    #         p.join()
+
+    # def compute_edges(self):
+    #     self.headers = helpers.jsons_to_dict(self.json_file_paths, on="halid")
+    #     processes = []
+    #     batch_size = int(len(self.dataset) / self.num_proc) + 1
+    #     logging.info("Initializing processes...")
+    #     for process_nb in tqdm(range(self.num_proc)):
+    #         begin_idx = process_nb * batch_size
+    #         end_idx = begin_idx + batch_size
+    #         batch = self.dataset[begin_idx:end_idx]
+    #         p = multiprocessing.Process(target=self._node_worker, args=(batch,))
+    #         p.start()
+    #         processes.append(p)
+
+    #     for p in processes:
+    #         p.join()
+
+    # def deduplicate_nodes(self, compress: bool):
+    #     path = osp.join(self.raw_dir, "nodes", "papers.csv")
+    #     df = pd.read_csv(path, sep="\t", names=["halid", "year", "title"])
+    #     df = df.groupby(df["title"], as_index=False).aggregate(
+    #         {"halid": "max", "year": "max"}
+    #     )
+    #     df = df.dropna(subset=["title"], how="all").reset_index(drop=True)
+    #     if compress:
+    #         helpers.compress_csv(df, path)
+
+    #     path = osp.join(self.raw_dir, "nodes", "authors.csv")
+    #     df = pd.read_csv(path, sep="\t", names=["halauthorid", "year"])
+    #     df = df.drop_duplicates().reset_index(drop=True)
+    #     if compress:
+    #         helpers.compress_csv(df, path)
+
+    #     path = osp.join(self.raw_dir, "nodes", "institutions.csv")
+    #     df = pd.read_csv(path, sep="\t", names=["institution"])
+    #     df = df.drop_duplicates().reset_index(drop=True)
+    #     if compress:
+    #         helpers.compress_csv(df, path)
 
     @staticmethod
     def get_citations_title(bibl_struct: etree._Element):

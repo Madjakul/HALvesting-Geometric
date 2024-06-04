@@ -159,3 +159,21 @@ def gzip_compress(path: str):
 def compress_csv(df: pd.DataFrame, path: str):
     df.to_csv(f"{path}.gz", compression="gzip", sep="\t", index=False, header=False)
     os.remove(path)
+
+
+def jsons_to_jsonls(input_paths: List[str], output_paths: List[str]):
+    logging.info("Converting JSONs to JSONLs...")
+    for input_path, output_path in tqdm(list(zip(input_paths, output_paths))):
+        df = pd.read_json(input_path, orient="records")
+        df.to_json(output_path, orient="records", lines=True, force_ascii=False)
+
+
+def pd_read_jsons(paths: List[str]):
+    logging.info("Reading JSONs to DataFrame...")
+    df = pd.DataFrame()
+    for path in tqdm(paths):
+        df_ = pd.read_json(path, orient="records")
+        df = pd.concat([df, df_])
+    df = df.reset_index(drop=True)
+    logging.info(df.info())
+    return df
