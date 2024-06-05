@@ -1,10 +1,12 @@
 # halph/utils/data/link_prediction_metadata.py
 
+import copy
+import gc
 import logging
 import multiprocessing
 import os
 import os.path as osp
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 import fasteners
 import numpy as np
@@ -12,6 +14,7 @@ import pandas as pd
 from datasets import DatasetDict
 from lxml import etree
 from lxml.etree import ElementTree
+from pandarallel import pandarallel
 from tqdm import tqdm
 
 from halph.utils import helpers
@@ -29,6 +32,8 @@ class LinkPredictionMetadata:
     Examples
     --------
     """
+
+    df: pd.DataFrame
 
     def __init__(
         self,
@@ -85,43 +90,153 @@ class LinkPredictionMetadata:
         for bibl_struct in bibl_structs:
             c_title = self.get_citations_title(bibl_struct)
             c_year = self.get_citation_year(bibl_struct)
-            if c_title == "":
+            if not c_title.split():
                 continue
             c_titles.append(c_title)
             c_years.append(c_year)
         return c_titles, c_years
 
-    def compute_nodes(self, df: pd.DataFrame):
+    def _compute_citations(self, df: pd.DataFrame):
+        pandarallel.initialize(progress_bar=True)
+        test = df["halid"].iloc[:1400].parallel_apply(self._worker)
+        print(test)
+        test.to_csv("tes.csv.gz", sep="\t", compression="gzip", index=False)
+
+        # split = np.array_split(df, self.num_proc)
+
+        # logging.info("Initializing processes...")
+        # with multiprocessing.Pool(self.num_proc) as pool:
+        #     df["cites"] = pool.map(self._worker, split)
+
+        # print(df)
+        # return citations
+
+    def _worker(self, halid: str):
+        xml_file_name = f"{halid}.grobid.tei.xml"
+        if xml_file_name not in self.xml_file_names:
+            return
+        path = osp.join(self.xml_dir, xml_file_name)
+        with open(path, "r") as xmlf:
+            xml = xmlf.read()
+        root = helpers.str_to_xml(xml)
+        c_titles, c_years = self._get_citations(root)
+        return list(zip(c_titles, c_years))
+
+        # for c_title, c_year in zip(c_titles, c_years):
+        #     if not c_title.split():
+        #         continue
+        #     item.append([c_title, c_year])
+
+    def compute_edges(self, df: pd.DataFrame):
+        path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
+        papers = pd.read_csv(path, sep="\t", compression="gzip")
+        # path = osp.join(self.raw_dir, "nodes", "domains.csv.gz")
+        # domains = pd.read_csv(path, sep="\t", compression="gzip")
+        # path = osp.join(self.raw_dir, "nodes", "authors.csv.gz")
+        # authors = pd.read_csv(
+        #     path, sep="\t", compression="gzip", dtype={"halauthorid": "object"}
+        # )
+        # path = osp.join(self.raw_dir, "nodes", "affiliations.csv.gz")
+        # affiliations = pd.read_csv(
+        #     path, sep="\t", compression="gzip", dtype={"affiliations": "object"}
+        # )
+
+        # paper_domain = papers[["domain", "paper_idx"]]
+        # paper_domain["domain"] = paper_domain["domain"].apply(
+        #     lambda x: x.strip("[]").replace("'", "").split(", ")
+        # )
+        # paper_domain = paper_domain.explode("domain")
+        # paper_domain["domain"] = paper_domain["domain"].apply(
+        #     lambda x: x.split(".")[0] if x and isinstance(x, str) else ""
+        # )
+        # paper_domain = paper_domain[paper_domain.domain != ""]
+        # paper_domain = paper_domain.merge(domains, left_on="domain", right_on="domain")
+        # logging.info(paper_domain)
+        # paper_domain = paper_domain[["paper_idx", "domain_idx"]].drop_duplicates()
+        # path = osp.join(self.raw_dir, "edges", "paper__has_topic__domain.csv.gz")
+        # paper_domain.to_csv(path, compression="gzip", sep="\t", index=False)
+        # del paper_domain
+        # gc.collect()
+
+        # author_affiliation = df[df.halauthorid != "0"]
+        # author_affiliation = author_affiliation[["name", "halauthorid", "affiliations"]]
+        # author_affiliation = author_affiliation.explode("affiliations")
+        # author_affiliation = author_affiliation.merge(
+        #     authors[["halauthorid", "author_idx"]],
+        #     left_on="halauthorid",
+        #     right_on="halauthorid",
+        # )
+        # author_affiliation = author_affiliation.merge(
+        #     affiliations, left_on="affiliations", right_on="affiliations"
+        # )
+        # logging.info(author_affiliation)
+        # author_affiliation = author_affiliation[
+        #     ["author_idx", "affiliation_idx"]
+        # ].drop_duplicates()
+        # path = osp.join(
+        #     self.raw_dir, "edges", "author__affiliated_with__affiliation.csv.gz"
+        # )
+        # author_affiliation.to_csv(path, sep="\t", compression="gzip", index=False)
+        # del author_affiliation
+        # gc.collect()
+
+        # author_paper = df[["halid", "halauthorid"]]
+        # author_paper = author_paper[author_paper.halauthorid != "0"]
+        # logging.info(author_paper)
+        # author_paper = author_paper.merge(
+        #     papers[["halid", "paper_idx"]], left_on="halid", right_on="halid"
+        # )
+        # author_paper = author_paper.merge(
+        #     authors[["halauthorid", "author_idx"]],
+        #     left_on="halauthorid",
+        #     right_on="halauthorid",
+        # )
+        # logging.info(author_paper)
+        # author_paper = author_paper[["author_idx", "paper_idx"]].drop_duplicates()
+        # path = osp.join(self.raw_dir, "edges", "author__writes__paper.csv.gz")
+        # author_paper.to_csv(path, sep="\t", compression="gzip", index=False)
+        # del author_paper
+        # gc.collect()
+
+        self._compute_citations(papers)
+
+    def compute_nodes(self, df: pd.DataFrame, lang: Optional[str] = None):
         logging.info("Computing nodes...")
+        if lang is not None:
+            logging.info(f"Computing nodes for {lang} language.")
+            df.drop(df.loc[df["lang"] != lang].index, inplace=True)
+            logging.info(df.info())
+            logging.info(df.head())
 
         logging.info("Computing paper nodes...")
         path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
-        df_ = df[["halid", "lang", "year", "title", "domain"]].reset_index(drop=True)
+        df_ = df[["halid", "year", "title", "lang", "domain"]]
+        df_ = df_.drop_duplicates(subset=["halid"]).reset_index(drop=True)
         df_["paper_idx"] = df_.index
         logging.info(df_.info())
+        logging.info(df_.head())
         df_.to_csv(path, compression="gzip", index=False, sep="\t")
 
         logging.info("Computing author nodes...")
         path = osp.join(self.raw_dir, "nodes", "authors.csv.gz")
-        df_ = df[["authors"]].explode("authors")
-        logging.info("Normalizing authors...")
-        df_ = pd.json_normalize(df_["authors"])
-        df_ = df_[df_.halauthorid != "0"]
+        df_ = df[df.halauthorid != "0"]
         df_ = (
-            df_[["name", "halauthorid", "affiliations"]]
+            df_[["name", "halauthorid"]]
             .drop_duplicates(subset=["halauthorid"])
             .reset_index(drop=True)
         )
         df_["author_idx"] = df_.index
         logging.info(df_.info())
+        logging.info(df_.head())
         df_.to_csv(path, compression="gzip", index=False, sep="\t")
 
         logging.info("Computing affiliation nodes...")
         path = osp.join(self.raw_dir, "nodes", "affiliations.csv.gz")
-        df_ = df_[["affiliations"]].explode("affiliations")
+        df_ = df[["affiliations"]].explode("affiliations")
         df_ = df_.drop_duplicates().reset_index(drop=True)
         df_["affiliation_idx"] = df_.index
         logging.info(df_.info())
+        logging.info(df_.head())
         df_.to_csv(path, compression="gzip", index=False, sep="\t")
 
         logging.info("Computing domain nodes...")
@@ -134,10 +249,8 @@ class LinkPredictionMetadata:
         df_ = df_[df_.domain != ""]
         df_["domain_idx"] = df_.index
         logging.info(df_.info())
+        logging.info(df_.head())
         df_.to_csv(path, compression="gzip", index=False, sep="\t")
-
-    def compute_edges(self, df: pd.DataFrame):
-        pass
 
     # @fasteners.interprocess_locked("tmp/nodes.lock")
     # def _node_worker(self, batch: Dict[str, List[str]]):
