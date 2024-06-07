@@ -117,73 +117,73 @@ class LinkPredictionMetadata:
         logging.info("Computing edges...")
         path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
         papers = pd.read_csv(path, sep="\t", compression="gzip")
-        # path = osp.join(self.raw_dir, "nodes", "domains.csv.gz")
-        # domains = pd.read_csv(path, sep="\t", compression="gzip")
-        # path = osp.join(self.raw_dir, "nodes", "authors.csv.gz")
-        # authors = pd.read_csv(
-        #     path, sep="\t", compression="gzip", dtype={"halauthorid": "object"}
-        # )
-        # path = osp.join(self.raw_dir, "nodes", "affiliations.csv.gz")
-        # affiliations = pd.read_csv(
-        #     path, sep="\t", compression="gzip", dtype={"affiliations": "object"}
-        # )
+        path = osp.join(self.raw_dir, "nodes", "domains.csv.gz")
+        domains = pd.read_csv(path, sep="\t", compression="gzip")
+        path = osp.join(self.raw_dir, "nodes", "authors.csv.gz")
+        authors = pd.read_csv(
+            path, sep="\t", compression="gzip", dtype={"halauthorid": "object"}
+        )
+        path = osp.join(self.raw_dir, "nodes", "affiliations.csv.gz")
+        affiliations = pd.read_csv(
+            path, sep="\t", compression="gzip", dtype={"affiliations": "object"}
+        )
 
-        # paper_domain = papers[["domain", "paper_idx"]]
-        # paper_domain["domain"] = paper_domain["domain"].apply(
-        #     lambda x: x.strip("[]").replace("'", "").split(", ")
-        # )
-        # paper_domain = paper_domain.explode("domain")
-        # paper_domain["domain"] = paper_domain["domain"].apply(
-        #     lambda x: x.split(".")[0] if x and isinstance(x, str) else ""
-        # )
-        # paper_domain = paper_domain[paper_domain.domain != ""]
-        # paper_domain = paper_domain.merge(domains, left_on="domain", right_on="domain")
-        # logging.info(paper_domain)
-        # paper_domain = paper_domain[["paper_idx", "domain_idx"]].drop_duplicates()
-        # path = osp.join(self.raw_dir, "edges", "paper__has_topic__domain.csv.gz")
-        # paper_domain.to_csv(path, compression="gzip", sep="\t", index=False)
-        # del paper_domain
-        # gc.collect()
+        paper_domain = papers[["domain", "paper_idx"]]
+        paper_domain["domain"] = paper_domain["domain"].apply(
+            lambda x: x.strip("[]").replace("'", "").split(", ")
+        )
+        paper_domain = paper_domain.explode("domain")
+        paper_domain["domain"] = paper_domain["domain"].apply(
+            lambda x: x.split(".")[0] if x and isinstance(x, str) else ""
+        )
+        paper_domain = paper_domain[paper_domain.domain != ""]
+        paper_domain = paper_domain.merge(domains, left_on="domain", right_on="domain")
+        logging.info(paper_domain)
+        paper_domain = paper_domain[["paper_idx", "domain_idx"]].drop_duplicates()
+        path = osp.join(self.raw_dir, "edges", "paper__has_topic__domain.csv.gz")
+        paper_domain.to_csv(path, compression="gzip", sep="\t", index=False)
+        del paper_domain
+        gc.collect()
 
-        # author_affiliation = df[df.halauthorid != "0"]
-        # author_affiliation = author_affiliation[["name", "halauthorid", "affiliations"]]
-        # author_affiliation = author_affiliation.explode("affiliations")
-        # author_affiliation = author_affiliation.merge(
-        #     authors[["halauthorid", "author_idx"]],
-        #     left_on="halauthorid",
-        #     right_on="halauthorid",
-        # )
-        # author_affiliation = author_affiliation.merge(
-        #     affiliations, left_on="affiliations", right_on="affiliations"
-        # )
-        # logging.info(author_affiliation)
-        # author_affiliation = author_affiliation[
-        #     ["author_idx", "affiliation_idx"]
-        # ].drop_duplicates()
-        # path = osp.join(
-        #     self.raw_dir, "edges", "author__affiliated_with__affiliation.csv.gz"
-        # )
-        # author_affiliation.to_csv(path, sep="\t", compression="gzip", index=False)
-        # del author_affiliation
-        # gc.collect()
+        author_affiliation = df[df.halauthorid != "0"]
+        author_affiliation = author_affiliation[["name", "halauthorid", "affiliations"]]
+        author_affiliation = author_affiliation.explode("affiliations")
+        author_affiliation = author_affiliation.merge(
+            authors[["halauthorid", "author_idx"]],
+            left_on="halauthorid",
+            right_on="halauthorid",
+        )
+        author_affiliation = author_affiliation.merge(
+            affiliations, left_on="affiliations", right_on="affiliations"
+        )
+        logging.info(author_affiliation)
+        author_affiliation = author_affiliation[
+            ["author_idx", "affiliation_idx"]
+        ].drop_duplicates()
+        path = osp.join(
+            self.raw_dir, "edges", "author__affiliated_with__affiliation.csv.gz"
+        )
+        author_affiliation.to_csv(path, sep="\t", compression="gzip", index=False)
+        del author_affiliation
+        gc.collect()
 
-        # author_paper = df[["halid", "halauthorid"]]
-        # author_paper = author_paper[author_paper.halauthorid != "0"]
-        # logging.info(author_paper)
-        # author_paper = author_paper.merge(
-        #     papers[["halid", "paper_idx"]], left_on="halid", right_on="halid"
-        # )
-        # author_paper = author_paper.merge(
-        #     authors[["halauthorid", "author_idx"]],
-        #     left_on="halauthorid",
-        #     right_on="halauthorid",
-        # )
-        # logging.info(author_paper)
-        # author_paper = author_paper[["author_idx", "paper_idx"]].drop_duplicates()
-        # path = osp.join(self.raw_dir, "edges", "author__writes__paper.csv.gz")
-        # author_paper.to_csv(path, sep="\t", compression="gzip", index=False)
-        # del author_paper
-        # gc.collect()
+        author_paper = df[["halid", "halauthorid"]]
+        author_paper = author_paper[author_paper.halauthorid != "0"]
+        logging.info(author_paper)
+        author_paper = author_paper.merge(
+            papers[["halid", "paper_idx"]], left_on="halid", right_on="halid"
+        )
+        author_paper = author_paper.merge(
+            authors[["halauthorid", "author_idx"]],
+            left_on="halauthorid",
+            right_on="halauthorid",
+        )
+        logging.info(author_paper)
+        author_paper = author_paper[["author_idx", "paper_idx"]].drop_duplicates()
+        path = osp.join(self.raw_dir, "edges", "author__writes__paper.csv.gz")
+        author_paper.to_csv(path, sep="\t", compression="gzip", index=False)
+        del author_paper
+        gc.collect()
 
         c_papers = self._compute_citations(papers)
         papers = (
