@@ -10,7 +10,7 @@ from tqdm import tqdm
 from halph.models import LanguageModelLinkPrediction, LinkPrediction
 
 
-class BenchMarkLinkPrediction:
+class BenchmarkLinkPrediction:
 
     @classmethod
     @torch.no_grad()

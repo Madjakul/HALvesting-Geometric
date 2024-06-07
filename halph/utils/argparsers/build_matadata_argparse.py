@@ -21,48 +21,40 @@ class BuildMetadataArgparse:
             description="Argument parser used to build the graphs' metadata."
         )
         parser.add_argument(
-            "--dataset_checkpoint",
+            "--root_dir",
             type=str,
+            default="./data",
             help="Name of the HuggingFace dataset containing the filtered documents.",
         )
         parser.add_argument(
-            "--cache_dir_path",
+            "--json_dir",
             type=str,
-            nargs="?",
-            const=None,
+            default="./data/responses",
             help="Path to the HuggingFace cache directory.",
         )
         parser.add_argument(
-            "--dataset_config_path",
+            "--xml_dir",
             type=str,
-            default=None,
+            default="./data/output_tei_xml",
             help="Path to the txt file containing the dataset configs to process.",
         )
         parser.add_argument(
-            "--output_dir_path",
-            type=str,
+            "--compute_nodes",
+            type=boolean,
+            required=True,
             help="Path to the directory where the processed dataset will be saved.",
         )
         parser.add_argument(
-            "--tokenizer_checkpoint",
+            "--lang",
             type=str,
-            nargs="?",
-            const=None,
-            help="Name of the HuggingFace tokenizer model to be used.",
+            default=None,
+            help="Path to the directory where the processed dataset will be saved.",
         )
         parser.add_argument(
-            "--use_fast",
+            "--compute_edges",
             type=boolean,
-            nargs="?",
-            const=False,
-            help="Set to `true` if you want to use the Ruste-based tokenizer from HF.",
-        )
-        parser.add_argument(
-            "--template",
-            type=str,
             required=True,
-            default="default",
-            help="Graph template. One of {'default', 'mag', 'halph-enriched', 'halph'}.",
+            help="Path to the directory where the processed dataset will be saved.",
         )
         args, _ = parser.parse_known_args()
         return args

@@ -1,21 +1,14 @@
 # halph/utils/data/link_prediction_metadata.py
 
-import copy
-import gc
 import logging
-import multiprocessing
 import os
 import os.path as osp
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Optional
 
-import fasteners
-import numpy as np
 import pandas as pd
-from datasets import DatasetDict
 from lxml import etree
 from lxml.etree import ElementTree
 from pandarallel import pandarallel
-from tqdm import tqdm
 
 from halph.utils import helpers
 
@@ -40,7 +33,6 @@ class LinkPredictionMetadata:
         root_dir: str,
         json_dir: str,
         xml_dir: str,
-        num_proc: int,
     ):
         self.root_dir = helpers.check_dir(root_dir)
         self.raw_dir = helpers.check_dir(osp.join(root_dir, "raw"))
@@ -48,7 +40,6 @@ class LinkPredictionMetadata:
         helpers.check_dir(osp.join(self.raw_dir, "edges"))
         self.json_dir = json_dir
         self.xml_dir = xml_dir
-        self.num_proc = num_proc
         self.headers: Dict[str, Any] = {}
         os.makedirs("tmp", exist_ok=True)
 
@@ -98,18 +89,18 @@ class LinkPredictionMetadata:
 
     def _compute_citations(self, df: pd.DataFrame):
         pandarallel.initialize(progress_bar=True)
-        test = df["halid"].iloc[:1400].parallel_apply(self._worker)
-        print(test)
-        test.to_csv("tes.csv.gz", sep="\t", compression="gzip", index=False)
-
-        # split = np.array_split(df, self.num_proc)
-
-        # logging.info("Initializing processes...")
-        # with multiprocessing.Pool(self.num_proc) as pool:
-        #     df["cites"] = pool.map(self._worker, split)
-
-        # print(df)
-        # return citations
+        c_papers = pd.DataFrame()
+        c_papers["cite"] = df["halid"].parallel_apply(self._worker)
+        c_papers["halid"] = df["halid"]
+        halid = c_papers["halid"]
+        logging.info("Normalizing citations...")
+        c_papers = pd.json_normalize(c_papers["cite"])
+        logging.info("Flattening citations...")
+        c_papers = c_papers.explode(["title", "year"])
+        c_papers["c_halid"] = halid
+        c_papers = c_papers.reset_index(drop=True)
+        logging.info(c_papers)
+        return c_papers
 
     def _worker(self, halid: str):
         xml_file_name = f"{halid}.grobid.tei.xml"
@@ -120,14 +111,10 @@ class LinkPredictionMetadata:
             xml = xmlf.read()
         root = helpers.str_to_xml(xml)
         c_titles, c_years = self._get_citations(root)
-        return list(zip(c_titles, c_years))
-
-        # for c_title, c_year in zip(c_titles, c_years):
-        #     if not c_title.split():
-        #         continue
-        #     item.append([c_title, c_year])
+        return {"title": c_titles, "year": c_years}
 
     def compute_edges(self, df: pd.DataFrame):
+        logging.info("Computing edges...")
         path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
         papers = pd.read_csv(path, sep="\t", compression="gzip")
         # path = osp.join(self.raw_dir, "nodes", "domains.csv.gz")
@@ -198,7 +185,35 @@ class LinkPredictionMetadata:
         # del author_paper
         # gc.collect()
 
-        self._compute_citations(papers)
+        c_papers = self._compute_citations(papers)
+        papers = (
+            pd.concat([papers, c_papers], ignore_index=True)
+            .drop_duplicates(subset=["title", "year"])
+            .reset_index(drop=True)
+        )
+        papers["paper_idx"] = papers.index
+        paper_paper = c_papers.merge(
+            papers[["halid", "paper_idx"]],
+            left_on="c_halid",
+            right_on="halid",
+            how="left",
+        )
+        to_ = c_papers.merge(
+            papers[["title", "year", "paper_idx"]],
+            left_on=["title", "year"],
+            right_on=["title", "year"],
+            how="left",
+        )
+        to_ = to_[["paper_idx"]].rename(columns={"paper_idx": "c_paper_idx"})
+        paper_paper["c_paper_idx"] = to_
+        paper_paper = paper_paper[["paper_idx", "c_paper_idx"]].dropna()
+        paper_paper = paper_paper.astype({"paper_idx": int, "c_paper_idx": int})
+        logging.info(paper_paper)
+        path = osp.join(self.raw_dir, "edges", "paper_icites__paper.csv.gz")
+        paper_paper.to_csv(path, sep="\t", compression="gzip", index=False)
+        papers = papers.drop(["c_halid"], axis=1)
+        path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
+        papers.to_csv(path, sep="\t", compression="gzip", index=False)
 
     def compute_nodes(self, df: pd.DataFrame, lang: Optional[str] = None):
         logging.info("Computing nodes...")

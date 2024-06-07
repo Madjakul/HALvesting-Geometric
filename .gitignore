@@ -163,3 +163,8 @@ cython_debug/
 
 tmp/
 logs/
+wandb
+
+data/output_tei_xml
+data/responses
+data/raw

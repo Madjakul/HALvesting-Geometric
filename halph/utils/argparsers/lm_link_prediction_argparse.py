@@ -3,7 +3,7 @@
 import argparse
 
 
-class BigBirdPegasusLinkPredictionArgparse:
+class LanguageModelLinkPredictionArgparse:
     """Argument parser used to enrish the HuggingFace dataset."""
 
     @classmethod
