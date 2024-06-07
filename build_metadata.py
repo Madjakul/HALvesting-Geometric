@@ -38,11 +38,6 @@ if __name__ == "__main__":
     del df_
     gc.collect()
 
-    df = df.explode("authors").reset_index(drop=True)
-    logging.info("Normalizing authors...")
-    df_ = pd.json_normalize(df["authors"]).reset_index(drop=True)
-    df = pd.concat([df, df_], axis=1)
-
     metadata = LinkPredictionMetadata(
         root_dir=args.root_dir,
         json_dir=args.json_dir,
