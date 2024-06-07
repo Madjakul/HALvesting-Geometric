@@ -1,5 +1,6 @@
 # halph/utils/data/link_prediction_metadata.py
 
+import gc
 import logging
 import os
 import os.path as osp
