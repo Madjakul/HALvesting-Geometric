@@ -80,12 +80,16 @@ class LinkPredictionMetadata:
         c_titles = []
         c_years = []
         for bibl_struct in bibl_structs:
-            c_title = self.get_citations_title(bibl_struct)
-            c_year = self.get_citation_year(bibl_struct)
-            if not c_title.split():
+            try:
+                c_title = self.get_citations_title(bibl_struct)
+                c_year = self.get_citation_year(bibl_struct)
+                if not c_title.split():
+                    continue
+                c_titles.append(str(c_title))
+                c_years.append(str(c_year))
+            except Exception as e:
+                logging.error(e)
                 continue
-            c_titles.append(c_title)
-            c_years.append(c_year)
         return c_titles, c_years
 
     def _compute_citations(self, df: pd.DataFrame):
