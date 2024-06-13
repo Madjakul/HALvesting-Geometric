@@ -8,12 +8,12 @@ DATA_ROOT=$PROJECT_ROOT/data                        # Do not modify
 ROOT_DIR=$DATA_ROOT
 JSON_DIR=$DATA_ROOT/responses
 XML_DIR=$DATA_ROOT/output_tei_xml
-COMPUTE_NODES=false
+COMPUTE_NODES=true
 COMPUTE_EDGES=true
 
 # --------------------------------------------------------------------------------------
 
-# LANG_="en"
+LANG_="en"
 
 # **************************************************************************************
 

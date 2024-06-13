@@ -93,7 +93,7 @@ class LinkPredictionMetadata:
         return c_titles, c_years
 
     def _compute_citations(self, df: pd.DataFrame):
-        pandarallel.initialize(progress_bar=True)
+        pandarallel.initialize(progress_bar=True, use_memory_fs=False)
         c_papers = pd.DataFrame()
         c_papers["cite"] = df["halid"].parallel_apply(self._worker)
         c_papers["halid"] = df["halid"]
