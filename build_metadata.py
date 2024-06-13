@@ -11,6 +11,25 @@ from halph.utils import helpers, logging_config
 from halph.utils.argparsers import BuildMetadataArgparse
 from halph.utils.data import LinkPredictionMetadata
 
+LANGS = [
+    "en",
+    "fr",
+    "es",
+    "it",
+    "pt",
+    "de",
+    "ru",
+    "eu",
+    "pl",
+    "el",
+    "ro",
+    "ca",
+    "da",
+    "br",
+    "hu",
+    "cs",
+]
+
 logging_config()
 
 if __name__ == "__main__":
@@ -44,6 +63,6 @@ if __name__ == "__main__":
         xml_dir=args.xml_dir,
     )
     if args.compute_nodes:
-        metadata.compute_nodes(df, lang=args.lang)
+        metadata.compute_nodes(df, lang=LANGS)
     if args.compute_edges:
         metadata.compute_edges(df)

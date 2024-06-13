@@ -8,7 +8,7 @@ from typing import Any, Dict, Optional
 
 import pandas as pd
 from lxml import etree
-from lxml.etree import ElementTree
+from lxml.etree import ElementTree, _ListErrorLog
 from pandarallel import pandarallel
 
 from halph.utils import helpers
@@ -76,9 +76,13 @@ class LinkPredictionMetadata:
         return xml_file_names
 
     def _get_citations(self, root: ElementTree):
-        bibl_structs = root.xpath("//text/back/div/listBibl/biblStruct")
         c_titles = []
         c_years = []
+        bibl_structs = root.xpath("//text/back/div/listBibl/biblStruct")
+
+        if isinstance(bibl_structs, _ListErrorLog):
+            return c_titles, c_years
+
         for bibl_struct in bibl_structs:
             try:
                 c_title = self.get_citations_title(bibl_struct)
@@ -115,6 +119,10 @@ class LinkPredictionMetadata:
         with open(path, "r") as xmlf:
             xml = xmlf.read()
         root = helpers.str_to_xml(xml)
+
+        if isinstance(root, _ListErrorLog):
+            return
+
         c_titles, c_years = self._get_citations(root)
         return {"title": c_titles, "year": c_years}
 
@@ -220,11 +228,12 @@ class LinkPredictionMetadata:
         path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
         papers.to_csv(path, sep="\t", compression="gzip", index=False)
 
-    def compute_nodes(self, df: pd.DataFrame, lang: Optional[str] = None):
+    def compute_nodes(self, df: pd.DataFrame, lang: Optional[List[str]] = None):
         logging.info("Computing nodes...")
         if lang is not None:
-            logging.info(f"Computing nodes for {lang} language.")
-            df.drop(df.loc[df["lang"] != lang].index, inplace=True)
+            logging.info(f"Computing nodes for {lang} languages.")
+            # df.drop(df.loc[df["lang"] != lang].index, inplace=True)
+            df = df[~df["lang"].isin(lang)].reset_index(drop=True)
             logging.info(df.info())
             logging.info(df.head())
 
