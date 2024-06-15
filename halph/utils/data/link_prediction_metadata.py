@@ -4,7 +4,7 @@ import gc
 import logging
 import os
 import os.path as osp
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 import pandas as pd
 from lxml import etree
@@ -81,6 +81,7 @@ class LinkPredictionMetadata:
         bibl_structs = root.xpath("//text/back/div/listBibl/biblStruct")
 
         if isinstance(bibl_structs, _ListErrorLog):
+            logging.error(f"Error with bibl struct.")
             return c_titles, c_years
 
         for bibl_struct in bibl_structs:
@@ -104,6 +105,9 @@ class LinkPredictionMetadata:
         halid = c_papers["halid"]
         logging.info("Normalizing citations...")
         c_papers = pd.json_normalize(c_papers["cite"])
+        c_papers = c_papers.dropna().reset_index(drop=True)
+        logging.info(c_papers)
+        logging.info(c_papers.head())
         logging.info("Flattening citations...")
         c_papers = c_papers.explode(["title", "year"])
         c_papers["c_halid"] = halid
@@ -121,6 +125,7 @@ class LinkPredictionMetadata:
         root = helpers.str_to_xml(xml)
 
         if isinstance(root, _ListErrorLog):
+            logging.error(f"Error with {halid}")
             return
 
         c_titles, c_years = self._get_citations(root)
@@ -222,7 +227,7 @@ class LinkPredictionMetadata:
         paper_paper = paper_paper[["paper_idx", "c_paper_idx"]].dropna()
         paper_paper = paper_paper.astype({"paper_idx": int, "c_paper_idx": int})
         logging.info(paper_paper)
-        path = osp.join(self.raw_dir, "edges", "paper_icites__paper.csv.gz")
+        path = osp.join(self.raw_dir, "edges", "paper__cites__paper.csv.gz")
         paper_paper.to_csv(path, sep="\t", compression="gzip", index=False)
         papers = papers.drop(["c_halid"], axis=1)
         path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
@@ -233,7 +238,7 @@ class LinkPredictionMetadata:
         if lang is not None:
             logging.info(f"Computing nodes for {lang} languages.")
             # df.drop(df.loc[df["lang"] != lang].index, inplace=True)
-            df = df[~df["lang"].isin(lang)].reset_index(drop=True)
+            df = df[df["lang"].isin(lang)].reset_index(drop=True)
             logging.info(df.info())
             logging.info(df.head())
 
