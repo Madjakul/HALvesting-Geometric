@@ -56,5 +56,11 @@ class BuildMetadataArgparse:
             required=True,
             help="Path to the directory where the processed dataset will be saved.",
         )
+        parser.add_argument(
+            "--cache_dir",
+            type=str,
+            default=None,
+            help="Cache directory used to store downloaded HuggingFace datasets.",
+        )
         args, _ = parser.parse_known_args()
         return args

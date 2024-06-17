@@ -6,6 +6,7 @@ import os
 import os.path as osp
 from typing import Any, Dict, List, Optional
 
+import dask.dataframe as dd
 import pandas as pd
 from lxml import etree
 from lxml.etree import ElementTree, _ListErrorLog
@@ -31,10 +32,12 @@ class LinkPredictionMetadata:
 
     def __init__(
         self,
+        halids: List[str],
         root_dir: str,
         json_dir: str,
         xml_dir: str,
     ):
+        self.halids = halids
         self.root_dir = helpers.check_dir(root_dir)
         self.raw_dir = helpers.check_dir(osp.join(root_dir, "raw"))
         helpers.check_dir(osp.join(self.raw_dir, "nodes"))
@@ -72,6 +75,8 @@ class LinkPredictionMetadata:
             xml_file_name
             for xml_file_name in _xml_file_names
             if xml_file_name.endswith(".grobid.tei.xml")
+            and xml_file_name.split(".")[0]
+            in self.halids  # Take only xml files with clean data
         ]
         return xml_file_names
 
@@ -233,16 +238,20 @@ class LinkPredictionMetadata:
         path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
         papers.to_csv(path, sep="\t", compression="gzip", index=False)
 
-    def compute_nodes(self, df: pd.DataFrame, lang: Optional[List[str]] = None):
+    def compute_nodes(self, ddf: dd.DataFrame, lang: str, year: str):
         logging.info("Computing nodes...")
         if lang is not None:
             logging.info(f"Computing nodes for {lang} languages.")
             # df.drop(df.loc[df["lang"] != lang].index, inplace=True)
             df = df[df["lang"].isin(lang)].reset_index(drop=True)
-            logging.info(df.info())
             logging.info(df.head())
 
-        logging.info("Computing paper nodes...")
+        if year is not None:
+            logging.info(f"Computing nodes for the year {year}.")
+            df = df[df["lang"].isin(lang)].reset_index(drop=True)
+            logging.info(df.head())
+
+        logging.info("Computing paper nodes")
         path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
         df_ = df[["halid", "year", "title", "lang", "domain"]]
         df_ = df_.drop_duplicates(subset=["halid"]).reset_index(drop=True)

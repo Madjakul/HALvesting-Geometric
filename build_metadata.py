@@ -5,13 +5,17 @@ import logging
 import os
 import os.path as osp
 
+import dask.dataframe as dd
+import datasets
 import pandas as pd
+import psutil
+from tqdm import tqdm
 
 from halph.utils import helpers, logging_config
 from halph.utils.argparsers import BuildMetadataArgparse
 from halph.utils.data import LinkPredictionMetadata
 
-LANGS = [
+CONFIGS = [
     "en",
     "fr",
     "es",
@@ -26,14 +30,42 @@ LANGS = [
     "ca",
     "da",
     "br",
+    "ko",
+    "tr",
     "hu",
+    "eo",
+    "fa",
+    "hy",
     "cs",
+    "bg",
+    "id",
+    "he",
+    "hr",
+    "et",
+    "sv",
+    "no",
+    "fi",
+    "sw",
+    "gl",
+    "th",
+    "sl",
+    "sk",
 ]
+NUM_PROC = psutil.cpu_count(logical=False)  # Number of physical CPUs
 
 logging_config()
 
 if __name__ == "__main__":
     args = BuildMetadataArgparse.parse_known_args()
+
+    logging.info(f"num_proc: {NUM_PROC}")
+
+    """ halids = []
+    for config in tqdm(CONFIGS):
+        dataset = datasets.load_dataset(
+            "Madjakul/HALvest", config, split="train", cache_dir=args.cache_dir
+        )
+        halids.extend(dataset["halid"]) """
 
     json_file_names = os.listdir(args.json_dir)
     json_file_paths = [
@@ -42,7 +74,7 @@ if __name__ == "__main__":
         if json_file_name.endswith(".json")
     ]
 
-    df = helpers.pd_read_jsons(json_file_paths)
+    df = helpers.pd_read_jsons(json_file_paths, lines=False)
     df = df.explode("authors").reset_index(drop=True)
     logging.info("Normalizing authors...")
     df_ = pd.json_normalize(df["authors"]).reset_index(drop=True)
@@ -53,11 +85,14 @@ if __name__ == "__main__":
         ],
         axis=1,
     )
-    logging.info(df)
+
     del df_
     gc.collect()
 
-    metadata = LinkPredictionMetadata(
+    ddf = dd.from_pandas(df, npartitions=NUM_PROC)
+    logging.info(ddf)
+
+    """ metadata = LinkPredictionMetadata(
         root_dir=args.root_dir,
         json_dir=args.json_dir,
         xml_dir=args.xml_dir,
@@ -65,4 +100,4 @@ if __name__ == "__main__":
     if args.compute_nodes:
         metadata.compute_nodes(df, lang=LANGS)
     if args.compute_edges:
-        metadata.compute_edges(df)
+        metadata.compute_edges(df) """

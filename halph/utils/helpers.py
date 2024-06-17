@@ -7,6 +7,7 @@ import logging
 import os
 from typing import List, Union
 
+import dask.dataframe as dd
 import pandas as pd
 from lxml import etree
 from tqdm import tqdm
@@ -168,12 +169,43 @@ def jsons_to_jsonls(input_paths: List[str], output_paths: List[str]):
         df.to_json(output_path, orient="records", lines=True, force_ascii=False)
 
 
-def pd_read_jsons(paths: List[str]):
+def pd_read_jsons(paths: List[str], lines: bool):
     logging.info("Reading JSONs to DataFrame...")
-    df = pd.DataFrame()
+    first_df = True
     for path in tqdm(paths):
-        df_ = pd.read_json(path, orient="records")
+        if first_df:
+            df = pd.read_json(path, orient="records", lines=lines)
+            first_df = False
+            continue
+        df_ = pd.read_json(path, orient="records", lines=lines)
         df = pd.concat([df, df_])
     df = df.reset_index(drop=True)
     logging.info(df.info())
     return df
+
+
+def dd_read_jsons(paths: List[str], lines: bool):
+    """Read a list of JSONs a load them into a single dask dataframe.
+
+    Parameters
+    ----------
+    paths : List[str]
+        List of paths to JSON files.
+
+    Returns
+    -------
+    ddf: dask.dataframe.DataFrame
+        _description_
+    """
+    logging.info("Reading JSONs to Dask DataFrame...")
+    first_ddf = True
+    for path in tqdm(paths):
+        if first_ddf:
+            ddf = dd.read_json(path, orient="records", lines=lines)
+            first_ddf = False
+            continue
+        ddf_ = dd.read_json(path, orient="records", lines=lines)
+        ddf = dd.concat([ddf, ddf_])
+    ddf = ddf.reset_index(drop=True)
+    logging.info(ddf.head())
+    return ddf

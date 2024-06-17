@@ -13,7 +13,7 @@ COMPUTE_EDGES=true
 
 # --------------------------------------------------------------------------------------
 
-LANG_="en"
+# CACHE_DIR="/local"
 
 # **************************************************************************************
 
@@ -24,7 +24,7 @@ cmd=( python3 "$PROJECT_ROOT/build_metadata.py" \
   --compute_nodes "$COMPUTE_NODES" \
   --compute_edges "$COMPUTE_EDGES" )
 
-if [[ -v LANG_ ]]; then
-  cmd+=( --lang "$LANG_" )
+if [[ -v CACHE_DIR ]]; then
+  cmd+=( --cache_dir "$CACHE_DIR" )
 fi
 "${cmd[@]}"
