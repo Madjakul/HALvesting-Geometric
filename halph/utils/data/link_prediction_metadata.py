@@ -7,6 +7,7 @@ import os.path as osp
 from typing import Any, Dict, List, Optional
 
 import dask.dataframe as dd
+import dask.dataframe.core as ddc
 import pandas as pd
 from lxml import etree
 from lxml.etree import ElementTree, _ListErrorLog
@@ -27,8 +28,6 @@ class LinkPredictionMetadata:
     Examples
     --------
     """
-
-    df: pd.DataFrame
 
     def __init__(
         self,
@@ -238,62 +237,70 @@ class LinkPredictionMetadata:
         path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
         papers.to_csv(path, sep="\t", compression="gzip", index=False)
 
-    def compute_nodes(self, ddf: dd.DataFrame, lang: str, year: str):
+    def compute_nodes(
+        self,
+        ddf: ddc.DataFrame,
+        lang: Optional[List[str]] = None,
+        year: Optional[List[str]] = None,
+    ):
         logging.info("Computing nodes...")
+
+        ddf = ddf[ddf["halid"].isin(self.halids)].reset_index(drop=True)
+
         if lang is not None:
             logging.info(f"Computing nodes for {lang} languages.")
-            # df.drop(df.loc[df["lang"] != lang].index, inplace=True)
-            df = df[df["lang"].isin(lang)].reset_index(drop=True)
-            logging.info(df.head())
+            ddf = ddf[ddf["lang"].isin(lang)].reset_index(drop=True)
+            logging.info(ddf.head())
+            logging.info(ddf.shape[0].compute())
 
         if year is not None:
             logging.info(f"Computing nodes for the year {year}.")
-            df = df[df["lang"].isin(lang)].reset_index(drop=True)
-            logging.info(df.head())
+            ddf = ddf[ddf["year"].isin(lang)].reset_index(drop=True)
+            logging.info(ddf.head())
 
-        logging.info("Computing paper nodes")
-        path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
-        df_ = df[["halid", "year", "title", "lang", "domain"]]
-        df_ = df_.drop_duplicates(subset=["halid"]).reset_index(drop=True)
-        df_["paper_idx"] = df_.index
-        logging.info(df_.info())
-        logging.info(df_.head())
-        df_.to_csv(path, compression="gzip", index=False, sep="\t")
+        # logging.info("Computing paper nodes")
+        # path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
+        # df_ = df[["halid", "year", "title", "lang", "domain"]]
+        # df_ = df_.drop_duplicates(subset=["halid"]).reset_index(drop=True)
+        # df_["paper_idx"] = df_.index
+        # logging.info(df_.info())
+        # logging.info(df_.head())
+        # df_.to_csv(path, compression="gzip", index=False, sep="\t")
 
-        logging.info("Computing author nodes...")
-        path = osp.join(self.raw_dir, "nodes", "authors.csv.gz")
-        df_ = df[df.halauthorid != "0"]
-        df_ = (
-            df_[["name", "halauthorid"]]
-            .drop_duplicates(subset=["halauthorid"])
-            .reset_index(drop=True)
-        )
-        df_["author_idx"] = df_.index
-        logging.info(df_.info())
-        logging.info(df_.head())
-        df_.to_csv(path, compression="gzip", index=False, sep="\t")
+        # logging.info("Computing author nodes...")
+        # path = osp.join(self.raw_dir, "nodes", "authors.csv.gz")
+        # df_ = df[df.halauthorid != "0"]
+        # df_ = (
+        #     df_[["name", "halauthorid"]]
+        #     .drop_duplicates(subset=["halauthorid"])
+        #     .reset_index(drop=True)
+        # )
+        # df_["author_idx"] = df_.index
+        # logging.info(df_.info())
+        # logging.info(df_.head())
+        # df_.to_csv(path, compression="gzip", index=False, sep="\t")
 
-        logging.info("Computing affiliation nodes...")
-        path = osp.join(self.raw_dir, "nodes", "affiliations.csv.gz")
-        df_ = df[["affiliations"]].explode("affiliations")
-        df_ = df_.drop_duplicates().reset_index(drop=True)
-        df_["affiliation_idx"] = df_.index
-        logging.info(df_.info())
-        logging.info(df_.head())
-        df_.to_csv(path, compression="gzip", index=False, sep="\t")
+        # logging.info("Computing affiliation nodes...")
+        # path = osp.join(self.raw_dir, "nodes", "affiliations.csv.gz")
+        # df_ = df[["affiliations"]].explode("affiliations")
+        # df_ = df_.drop_duplicates().reset_index(drop=True)
+        # df_["affiliation_idx"] = df_.index
+        # logging.info(df_.info())
+        # logging.info(df_.head())
+        # df_.to_csv(path, compression="gzip", index=False, sep="\t")
 
-        logging.info("Computing domain nodes...")
-        path = osp.join(self.raw_dir, "nodes", "domains.csv.gz")
-        df_ = df[["domain"]].explode("domain")
-        df_["domain"] = df_["domain"].apply(
-            lambda x: x.split(".")[0] if x and isinstance(x, str) else ""
-        )
-        df_ = df_.drop_duplicates().reset_index(drop=True)
-        df_ = df_[df_.domain != ""]
-        df_["domain_idx"] = df_.index
-        logging.info(df_.info())
-        logging.info(df_.head())
-        df_.to_csv(path, compression="gzip", index=False, sep="\t")
+        # logging.info("Computing domain nodes...")
+        # path = osp.join(self.raw_dir, "nodes", "domains.csv.gz")
+        # df_ = df[["domain"]].explode("domain")
+        # df_["domain"] = df_["domain"].apply(
+        #     lambda x: x.split(".")[0] if x and isinstance(x, str) else ""
+        # )
+        # df_ = df_.drop_duplicates().reset_index(drop=True)
+        # df_ = df_[df_.domain != ""]
+        # df_["domain_idx"] = df_.index
+        # logging.info(df_.info())
+        # logging.info(df_.head())
+        # df_.to_csv(path, compression="gzip", index=False, sep="\t")
 
     # @fasteners.interprocess_locked("tmp/nodes.lock")
     # def _node_worker(self, batch: Dict[str, List[str]]):

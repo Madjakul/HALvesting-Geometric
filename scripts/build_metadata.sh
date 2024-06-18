@@ -9,7 +9,7 @@ ROOT_DIR=$DATA_ROOT
 JSON_DIR=$DATA_ROOT/responses
 XML_DIR=$DATA_ROOT/output_tei_xml
 COMPUTE_NODES=true
-COMPUTE_EDGES=true
+COMPUTE_EDGES=false
 
 # --------------------------------------------------------------------------------------
 
