@@ -39,6 +39,12 @@ class BuildMetadataArgparse:
             help="Path to the txt file containing the dataset configs to process.",
         )
         parser.add_argument(
+            "--raw_dir",
+            type=str,
+            required=True,
+            help="Path to the raw computed graph.",
+        )
+        parser.add_argument(
             "--compute_nodes",
             type=boolean,
             required=True,

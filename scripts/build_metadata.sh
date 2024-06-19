@@ -8,8 +8,9 @@ DATA_ROOT=$PROJECT_ROOT/data                        # Do not modify
 ROOT_DIR=$DATA_ROOT
 JSON_DIR=$DATA_ROOT/responses
 XML_DIR=$DATA_ROOT/output_tei_xml
-COMPUTE_NODES=true
-COMPUTE_EDGES=false
+RAW_DIR=$DATA_ROOT/raw_it
+COMPUTE_NODES=false
+COMPUTE_EDGES=true
 
 # --------------------------------------------------------------------------------------
 
@@ -21,6 +22,7 @@ cmd=( python3 "$PROJECT_ROOT/build_metadata.py" \
   --root_dir "$ROOT_DIR" \
   --json_dir "$JSON_DIR" \
   --xml_dir "$XML_DIR" \
+  --raw_dir "$RAW_DIR" \
   --compute_nodes "$COMPUTE_NODES" \
   --compute_edges "$COMPUTE_EDGES" )
 

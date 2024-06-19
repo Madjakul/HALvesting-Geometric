@@ -5,6 +5,7 @@ import logging
 import os
 import os.path as osp
 
+import dask
 import datasets
 import pandas as pd
 import psutil
@@ -14,6 +15,7 @@ from tqdm import tqdm
 from halph.utils import helpers, logging_config
 from halph.utils.argparsers import BuildMetadataArgparse
 from halph.utils.data import LinkPredictionMetadata
+from halph.utils.helpers import WIDTH
 
 CONFIGS = [
     # "en",
@@ -58,14 +60,18 @@ logging_config()
 if __name__ == "__main__":
     args = BuildMetadataArgparse.parse_known_args()
 
-    logging.info(f"num_proc: {NUM_PROC}")
+    logging.info(f"{('=' * WIDTH)}")
+    logging.info(f"Computing HAL's graph".center(WIDTH))
+    logging.info(f"{('=' * WIDTH)}")
+
+    dask.config.config["dataframe"]["convert-string"] = False
 
     halids = []
     for config in tqdm(CONFIGS):
         dataset = datasets.load_dataset(
             "Madjakul/HALvest", config, split="train", cache_dir=args.cache_dir
         )
-        halids.extend(dataset["halid"])
+        halids.extend(dataset["halid"])  # type: ignore
 
     json_file_names = os.listdir(args.json_dir)
     json_file_paths = [
@@ -77,7 +83,7 @@ if __name__ == "__main__":
     df = helpers.pd_read_jsons(json_file_paths, lines=False)
     df = df.explode("authors").reset_index(drop=True)
     logging.info("Normalizing authors...")
-    df_ = pd.json_normalize(df["authors"]).reset_index(drop=True)
+    df_ = pd.json_normalize(df["authors"].to_list()).reset_index(drop=True)
     df = pd.concat(
         [
             df[["halid", "title", "lang", "year", "domain"]],
@@ -92,16 +98,14 @@ if __name__ == "__main__":
     ddf = from_pandas(df, npartitions=NUM_PROC)
     logging.info(ddf)
 
-    print(len(halids))
-    print(halids[:30])
-
     metadata = LinkPredictionMetadata(
         root_dir=args.root_dir,
         json_dir=args.json_dir,
         xml_dir=args.xml_dir,
         halids=halids,
+        raw_dir=args.raw_dir,
     )
     if args.compute_nodes:
-        metadata.compute_nodes(ddf, lang=CONFIGS)
+        metadata.compute_nodes(ddf, langs=CONFIGS)
     if args.compute_edges:
-        metadata.compute_edges(df)
+        metadata.compute_edges(ddf)

@@ -12,7 +12,7 @@ import pandas as pd
 from lxml import etree
 from tqdm import tqdm
 
-WIDTH = 139
+WIDTH = 88
 PROJECT_ROOT = os.getcwd()
 DATA_ROOT = os.path.join(PROJECT_ROOT, "data")
 os.makedirs(DATA_ROOT, exist_ok=True)
@@ -180,7 +180,7 @@ def pd_read_jsons(paths: List[str], lines: bool):
         df_ = pd.read_json(path, orient="records", lines=lines)
         df = pd.concat([df, df_])
     df = df.reset_index(drop=True)
-    logging.info(df.info())
+    logging.info(df)
     return df
 
 
@@ -207,5 +207,5 @@ def dd_read_jsons(paths: List[str], lines: bool):
         ddf_ = dd.read_json(path, orient="records", lines=lines)
         ddf = dd.concat([ddf, ddf_])
     ddf = ddf.reset_index(drop=True)
-    logging.info(ddf.head())
+    logging.info(ddf)
     return ddf
