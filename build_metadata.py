@@ -108,4 +108,4 @@ if __name__ == "__main__":
     if args.compute_nodes:
         metadata.compute_nodes(ddf, langs=CONFIGS)
     if args.compute_edges:
-        metadata.compute_edges(ddf)
+        metadata.compute_edges(ddf, num_proc=NUM_PROC)

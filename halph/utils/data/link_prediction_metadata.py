@@ -9,6 +9,7 @@ from typing import Any, Dict, List, Optional
 import dask.dataframe as dd
 import dask.dataframe.core as ddc
 import pandas as pd
+from dask.dataframe import from_pandas
 from lxml import etree
 from lxml.etree import _ListErrorLog
 from pandarallel import pandarallel
@@ -123,88 +124,92 @@ class LinkPredictionMetadata:
         c_titles, c_years = self._get_citations(root)
         return {"title": c_titles, "year": c_years}
 
-    def compute_edges(self, ddf: ddc.DataFrame):
+    def compute_edges(self, ddf: ddc.DataFrame, num_proc: int):
         logging.info("Computing edges.")
 
         # Loading raw nodes
         path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
-        papers = pd.read_csv(path, sep="\t", compression="gzip")
+        papers = pd.read_csv(path, sep="\t", compression="gzip", dtype={"halid": str})
+        papers = from_pandas(papers, npartitions=num_proc)
         path = osp.join(self.raw_dir, "nodes", "domains.csv.gz")
         domains = pd.read_csv(path, sep="\t", compression="gzip")
+        domains = from_pandas(domains, npartitions=num_proc)
         path = osp.join(self.raw_dir, "nodes", "authors.csv.gz")
-        authors = pd.read_csv(
-            path, sep="\t", compression="gzip", dtype={"halauthorid": "object"}
-        )
+        authors = pd.read_csv(path, sep="\t", compression="gzip")
+        authors = from_pandas(authors, npartitions=num_proc)
         path = osp.join(self.raw_dir, "nodes", "affiliations.csv.gz")
-        affiliations = pd.read_csv(
-            path, sep="\t", compression="gzip", dtype={"affiliations": "object"}
-        )
+        affiliations = pd.read_csv(path, sep="\t", compression="gzip")
+        affiliations = from_pandas(affiliations, npartitions=num_proc)
 
-        # Computing paper <-> domain raw edges
-        paper_domain = papers[["domain", "paper_idx"]]
-        paper_domain["domain"] = paper_domain["domain"].apply(
-            lambda x: x.strip("[]").replace("'", "").split(", ")
-        )
-        paper_domain = paper_domain.explode("domain")
-        paper_domain["domain"] = paper_domain["domain"].apply(
-            lambda x: x.split(".")[0] if x and isinstance(x, str) else ""
-        )
-        paper_domain = paper_domain[paper_domain.domain != ""]
-        paper_domain = paper_domain.merge(domains, left_on="domain", right_on="domain")
-        logging.info(paper_domain)
-        paper_domain = paper_domain[["paper_idx", "domain_idx"]].drop_duplicates()
-        path = osp.join(self.raw_dir, "edges", "paper__has_topic__domain.csv.gz")
-        paper_domain.to_csv(
-            path, single_file=True, compression="gzip", sep="\t", index=False
-        )
-        del paper_domain
-        gc.collect()
+        # # Computing paper <-> domain raw edges
+        # logging.info("Computing paper <-> domain raw edges.")
+        # paper_domain = papers[["domain", "paper_idx"]]
+        # paper_domain = paper_domain.apply(self.str_to_list, axis=1, meta=paper_domain)
+        # paper_domain = paper_domain.explode("domain")
+        # paper_domain = paper_domain.apply(self.split_domain, axis=1, meta=paper_domain)
+        # paper_domain = paper_domain[paper_domain.domain != ""]
+        # paper_domain = paper_domain.merge(domains, left_on="domain", right_on="domain")
+        # paper_domain = paper_domain[["paper_idx", "domain_idx"]].drop_duplicates()
+        # logging.info(paper_domain)
+        # path = osp.join(self.raw_dir, "edges", "paper__has_topic__domain.csv.gz")
+        # paper_domain.to_csv(
+        #     path, single_file=True, compression="gzip", sep="\t", index=False
+        # )
+        # del paper_domain
+        # gc.collect()
 
-        # Computing author <-> affiliation raw edges
-        author_affiliation = df[df.halauthorid != "0"]
-        author_affiliation = author_affiliation[["name", "halauthorid", "affiliations"]]
-        author_affiliation = author_affiliation.explode("affiliations")
-        author_affiliation = author_affiliation.merge(
-            authors[["halauthorid", "author_idx"]],
-            left_on="halauthorid",
-            right_on="halauthorid",
-        )
-        author_affiliation = author_affiliation.merge(
-            affiliations, left_on="affiliations", right_on="affiliations"
-        )
-        logging.info(author_affiliation)
-        author_affiliation = author_affiliation[
-            ["author_idx", "affiliation_idx"]
-        ].drop_duplicates()
-        path = osp.join(
-            self.raw_dir, "edges", "author__affiliated_with__affiliation.csv.gz"
-        )
-        author_affiliation.to_csv(
-            path, single_file=True, sep="\t", compression="gzip", index=False
-        )
-        del author_affiliation
-        gc.collect()
+        # # Computing author <-> affiliation raw edges
+        # logging.info("Computing author <-> affiliation raw edges.")
+        # author_affiliation = ddf[ddf.halauthorid != "0"]
+        # author_affiliation = author_affiliation[["name", "halauthorid", "affiliations"]]
+        # author_affiliation = author_affiliation.explode("affiliations").astype(
+        #     {"halauthorid": float, "affiliations": float}
+        # )
+        # author_affiliation = author_affiliation.merge(
+        #     authors[["halauthorid", "author_idx"]],
+        #     left_on="halauthorid",
+        #     right_on="halauthorid",
+        # )
+        # author_affiliation = author_affiliation.merge(
+        #     affiliations, left_on="affiliations", right_on="affiliations"
+        # )
+        # author_affiliation = author_affiliation[
+        #     ["author_idx", "affiliation_idx"]
+        # ].drop_duplicates()
+        # logging.info(author_affiliation)
+        # path = osp.join(
+        #     self.raw_dir, "edges", "author__affiliated_with__affiliation.csv.gz"
+        # )
+        # author_affiliation.to_csv(
+        #     path, single_file=True, sep="\t", compression="gzip", index=False
+        # )
+        # del author_affiliation
+        # gc.collect()
 
-        # Computing author <-> paper raw edges
-        author_paper = df[["halid", "halauthorid"]]
-        author_paper = author_paper[author_paper.halauthorid != "0"]
-        logging.info(author_paper)
-        author_paper = author_paper.merge(
-            papers[["halid", "paper_idx"]], left_on="halid", right_on="halid"
-        )
-        author_paper = author_paper.merge(
-            authors[["halauthorid", "author_idx"]],
-            left_on="halauthorid",
-            right_on="halauthorid",
-        )
-        logging.info(author_paper)
-        author_paper = author_paper[["author_idx", "paper_idx"]].drop_duplicates()
-        path = osp.join(self.raw_dir, "edges", "author__writes__paper.csv.gz")
-        author_paper.to_csv(
-            path, single_file=True, sep="\t", compression="gzip", index=False
-        )
-        del author_paper
-        gc.collect()
+        # # Computing author <-> paper raw edges
+        # logging.info("Computing author <-> paper raw edges.")
+        # author_paper = ddf[["halid", "halauthorid"]].astype(
+        #     {"halauthorid": float, "halid": str}
+        # )
+        # author_paper = author_paper[author_paper.halauthorid != 0]
+        # author_paper = author_paper.merge(
+        #     papers[["halid", "paper_idx"]],
+        #     left_on="halid",
+        #     right_on="halid",
+        # )
+        # author_paper = author_paper.merge(
+        #     authors[["halauthorid", "author_idx"]],
+        #     left_on="halauthorid",
+        #     right_on="halauthorid",
+        # )
+        # author_paper = author_paper[["author_idx", "paper_idx"]].drop_duplicates()
+        # logging.info(author_paper)
+        # path = osp.join(self.raw_dir, "edges", "author__writes__paper.csv.gz")
+        # author_paper.to_csv(
+        #     path, single_file=True, sep="\t", compression="gzip", index=False
+        # )
+        # del author_paper
+        # gc.collect()
 
         # Computing paper <-> paper raw edges
         c_papers = self._compute_citations(papers)
@@ -311,6 +316,14 @@ class LinkPredictionMetadata:
             row["domain"] = row["domain"].split(".")[0]
         except:
             row["domain"] = "other"
+        return row
+
+    @staticmethod
+    def str_to_list(row):
+        try:
+            row["domain"] = row["domain"].strip("[]").replace("'", "").split(", ")
+        except:
+            row["domain"] = []
         return row
 
     @staticmethod
