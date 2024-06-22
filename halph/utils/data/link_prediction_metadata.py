@@ -10,9 +10,9 @@ import dask.dataframe as dd
 import dask.dataframe.core as ddc
 import pandas as pd
 from dask.dataframe import from_pandas
+from dask.diagnostics import ProgressBar
 from lxml import etree
 from lxml.etree import _ListErrorLog
-from pandarallel import pandarallel
 
 from halph.utils import helpers
 
@@ -90,39 +90,31 @@ class LinkPredictionMetadata:
                 continue
         return c_titles, c_years
 
-    def _compute_citations(self, df: pd.DataFrame):
-        pandarallel.initialize(progress_bar=True, use_memory_fs=False)
-        c_papers = pd.DataFrame()
-        c_papers["cite"] = df["halid"].parallel_apply(self._worker)
-        c_papers["halid"] = df["halid"]
-        halid = c_papers["halid"]
-        logging.info("Normalizing citations...")
-        c_papers = pd.json_normalize(c_papers["cite"])
-        c_papers = c_papers.dropna().reset_index(drop=True)
-        logging.info(c_papers)
-        logging.info(c_papers.head())
-        logging.info("Flattening citations...")
-        c_papers = c_papers.explode(["title", "year"])
-        c_papers["c_halid"] = halid
-        c_papers = c_papers.reset_index(drop=True)
-        logging.info(c_papers)
-        return c_papers
+    def _compute_citations(self, row):
+        halid = row["halid"]
+        c_title, c_year = self._worker(halid)
+        return {"title": c_title, "year": c_year}
 
     def _worker(self, halid: str):
         xml_file_name = f"{halid}.grobid.tei.xml"
-        if xml_file_name not in self.xml_file_names:
-            return
-        path = osp.join(self.xml_dir, xml_file_name)
-        with open(path, "r") as xmlf:
-            xml = xmlf.read()
-        root = helpers.str_to_xml(xml)
+        c_titles = []
+        c_years = []
 
-        if isinstance(root, _ListErrorLog):
-            logging.error(f"Error with {halid}")
-            return
+        try:
+            path = osp.join(self.xml_dir, xml_file_name)
+            with open(path, "r") as xmlf:
+                xml = xmlf.read()
+        except FileNotFoundError:
+            logging.error(f"File {xml_file_name} not found.")
+            return c_titles, c_years
 
-        c_titles, c_years = self._get_citations(root)
-        return {"title": c_titles, "year": c_years}
+        try:
+            root = helpers.str_to_xml(xml)
+            c_titles, c_years = self._get_citations(root)
+            return c_titles, c_years
+        except Exception as e:
+            logging.error(e)
+            return c_titles, c_years
 
     def compute_edges(self, ddf: ddc.DataFrame, num_proc: int):
         logging.info("Computing edges.")
@@ -130,6 +122,7 @@ class LinkPredictionMetadata:
         # Loading raw nodes
         path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
         papers = pd.read_csv(path, sep="\t", compression="gzip", dtype={"halid": str})
+        papers = papers.dropna(subset=["halid"])
         papers = from_pandas(papers, npartitions=num_proc)
         path = osp.join(self.raw_dir, "nodes", "domains.csv.gz")
         domains = pd.read_csv(path, sep="\t", compression="gzip")
@@ -141,87 +134,111 @@ class LinkPredictionMetadata:
         affiliations = pd.read_csv(path, sep="\t", compression="gzip")
         affiliations = from_pandas(affiliations, npartitions=num_proc)
 
-        # # Computing paper <-> domain raw edges
-        # logging.info("Computing paper <-> domain raw edges.")
-        # paper_domain = papers[["domain", "paper_idx"]]
-        # paper_domain = paper_domain.apply(self.str_to_list, axis=1, meta=paper_domain)
-        # paper_domain = paper_domain.explode("domain")
-        # paper_domain = paper_domain.apply(self.split_domain, axis=1, meta=paper_domain)
-        # paper_domain = paper_domain[paper_domain.domain != ""]
-        # paper_domain = paper_domain.merge(domains, left_on="domain", right_on="domain")
-        # paper_domain = paper_domain[["paper_idx", "domain_idx"]].drop_duplicates()
-        # logging.info(paper_domain)
-        # path = osp.join(self.raw_dir, "edges", "paper__has_topic__domain.csv.gz")
-        # paper_domain.to_csv(
-        #     path, single_file=True, compression="gzip", sep="\t", index=False
-        # )
-        # del paper_domain
-        # gc.collect()
+        # Computing paper <-> domain raw edges
+        logging.info("Computing paper <-> domain raw edges.")
+        paper_domain = papers[["domain", "paper_idx"]]
+        paper_domain = paper_domain.apply(self.str_to_list, axis=1, meta=paper_domain)
+        paper_domain = paper_domain.explode("domain")
+        paper_domain = paper_domain.apply(self.split_domain, axis=1, meta=paper_domain)
+        paper_domain = paper_domain[paper_domain.domain != ""]
+        paper_domain = paper_domain.merge(domains, left_on="domain", right_on="domain")
+        paper_domain = paper_domain[["paper_idx", "domain_idx"]].drop_duplicates()
+        logging.info(paper_domain)
+        path = osp.join(self.raw_dir, "edges", "paper__has_topic__domain.csv.gz")
+        paper_domain.to_csv(
+            path, single_file=True, compression="gzip", sep="\t", index=False
+        )
+        del paper_domain
+        gc.collect()
 
-        # # Computing author <-> affiliation raw edges
-        # logging.info("Computing author <-> affiliation raw edges.")
-        # author_affiliation = ddf[ddf.halauthorid != "0"]
-        # author_affiliation = author_affiliation[["name", "halauthorid", "affiliations"]]
-        # author_affiliation = author_affiliation.explode("affiliations").astype(
-        #     {"halauthorid": float, "affiliations": float}
-        # )
-        # author_affiliation = author_affiliation.merge(
-        #     authors[["halauthorid", "author_idx"]],
-        #     left_on="halauthorid",
-        #     right_on="halauthorid",
-        # )
-        # author_affiliation = author_affiliation.merge(
-        #     affiliations, left_on="affiliations", right_on="affiliations"
-        # )
-        # author_affiliation = author_affiliation[
-        #     ["author_idx", "affiliation_idx"]
-        # ].drop_duplicates()
-        # logging.info(author_affiliation)
-        # path = osp.join(
-        #     self.raw_dir, "edges", "author__affiliated_with__affiliation.csv.gz"
-        # )
-        # author_affiliation.to_csv(
-        #     path, single_file=True, sep="\t", compression="gzip", index=False
-        # )
-        # del author_affiliation
-        # gc.collect()
+        # Computing author <-> affiliation raw edges
+        logging.info("Computing author <-> affiliation raw edges.")
+        author_affiliation = ddf[ddf.halauthorid != "0"]
+        author_affiliation = author_affiliation[["name", "halauthorid", "affiliations"]]
+        author_affiliation = author_affiliation.explode("affiliations").astype(
+            {"halauthorid": float, "affiliations": float}
+        )
+        author_affiliation = author_affiliation.merge(
+            authors[["halauthorid", "author_idx"]],
+            left_on="halauthorid",
+            right_on="halauthorid",
+        )
+        author_affiliation = author_affiliation.merge(
+            affiliations, left_on="affiliations", right_on="affiliations"
+        )
+        author_affiliation = author_affiliation[
+            ["author_idx", "affiliation_idx"]
+        ].drop_duplicates()
+        logging.info(author_affiliation)
+        path = osp.join(
+            self.raw_dir, "edges", "author__affiliated_with__affiliation.csv.gz"
+        )
+        author_affiliation.to_csv(
+            path, single_file=True, sep="\t", compression="gzip", index=False
+        )
+        del author_affiliation
+        gc.collect()
 
-        # # Computing author <-> paper raw edges
-        # logging.info("Computing author <-> paper raw edges.")
-        # author_paper = ddf[["halid", "halauthorid"]].astype(
-        #     {"halauthorid": float, "halid": str}
-        # )
-        # author_paper = author_paper[author_paper.halauthorid != 0]
-        # author_paper = author_paper.merge(
-        #     papers[["halid", "paper_idx"]],
-        #     left_on="halid",
-        #     right_on="halid",
-        # )
-        # author_paper = author_paper.merge(
-        #     authors[["halauthorid", "author_idx"]],
-        #     left_on="halauthorid",
-        #     right_on="halauthorid",
-        # )
-        # author_paper = author_paper[["author_idx", "paper_idx"]].drop_duplicates()
-        # logging.info(author_paper)
-        # path = osp.join(self.raw_dir, "edges", "author__writes__paper.csv.gz")
-        # author_paper.to_csv(
-        #     path, single_file=True, sep="\t", compression="gzip", index=False
-        # )
-        # del author_paper
-        # gc.collect()
+        # Computing author <-> paper raw edges
+        logging.info("Computing author <-> paper raw edges.")
+        author_paper = ddf[["halid", "halauthorid"]].astype(
+            {"halauthorid": float, "halid": str}
+        )
+        author_paper = author_paper[author_paper.halauthorid != 0]
+        author_paper = author_paper.merge(
+            papers[["halid", "paper_idx"]],
+            left_on="halid",
+            right_on="halid",
+        )
+        author_paper = author_paper.merge(
+            authors[["halauthorid", "author_idx"]],
+            left_on="halauthorid",
+            right_on="halauthorid",
+        )
+        author_paper = author_paper[["author_idx", "paper_idx"]].drop_duplicates()
+        logging.info(author_paper)
+        path = osp.join(self.raw_dir, "edges", "author__writes__paper.csv.gz")
+        author_paper.to_csv(
+            path, single_file=True, sep="\t", compression="gzip", index=False
+        )
+        del author_paper
+        gc.collect()
 
         # Computing paper <-> paper raw edges
-        c_papers = self._compute_citations(papers)
+        c_papers = papers[["halid"]]
+        c_papers_ = papers[["halid"]]
+        with ProgressBar():
+            c_papers_["cite"] = (
+                c_papers_.apply(
+                    self._compute_citations, axis=1, meta=("cite", "object")
+                )
+                .compute()
+                .reset_index(drop=True)
+            )
+        with ProgressBar():
+            c_papers_ = (
+                c_papers_.map_partitions(
+                    lambda x: pd.json_normalize(x["cite"].tolist()),
+                    enforce_metadata=False,
+                )
+                .compute()
+                .reset_index(drop=True)
+            )
+        c_papers = dd.concat([c_papers_, c_papers], axis=1, ignore_index=True)
+        c_papers = c_papers.explode(["title", "year"]).reset_index(drop=True)
+
         papers = (
-            pd.concat([papers, c_papers], ignore_index=True)
+            dd.concat(
+                [papers, c_papers[["title", "year"]]], sort=False, ignore_index=True
+            )
             .drop_duplicates(subset=["title", "year"])
             .reset_index(drop=True)
         )
         papers["paper_idx"] = papers.index
+
         paper_paper = c_papers.merge(
             papers[["halid", "paper_idx"]],
-            left_on="c_halid",
+            left_on="halid",
             right_on="halid",
             how="left",
         )
@@ -231,14 +248,19 @@ class LinkPredictionMetadata:
             right_on=["title", "year"],
             how="left",
         )
+
         to_ = to_[["paper_idx"]].rename(columns={"paper_idx": "c_paper_idx"})
-        paper_paper["c_paper_idx"] = to_
+        paper_paper = dd.concat(
+            [paper_paper, to_], axis=1, sort=False, ignore_index=True
+        )
         paper_paper = paper_paper[["paper_idx", "c_paper_idx"]].dropna()
         paper_paper = paper_paper.astype({"paper_idx": int, "c_paper_idx": int})
+
         logging.info(paper_paper)
         path = osp.join(self.raw_dir, "edges", "paper__cites__paper.csv.gz")
-        paper_paper.to_csv(path, sep="\t", compression="gzip", index=False)
-        papers = papers.drop(["c_halid"], axis=1)
+        paper_paper.to_csv(
+            path, single_file=True, sep="\t", compression="gzip", index=False
+        )
         path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
         papers.to_csv(path, single_file=True, sep="\t", compression="gzip", index=False)
 
@@ -248,8 +270,6 @@ class LinkPredictionMetadata:
         langs: Optional[List[str]] = None,
         years: Optional[List[str]] = None,
     ):
-        logging.info("Computing nodes.")
-
         # Removing nodes from documents with no clean GROBID output
         ddf = ddf[ddf["halid"].isin(self.halids)].reset_index(drop=True)
 
