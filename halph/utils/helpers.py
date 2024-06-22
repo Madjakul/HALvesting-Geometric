@@ -10,6 +10,7 @@ from typing import List, Union
 import dask.dataframe as dd
 import pandas as pd
 from lxml import etree
+from lxml.etree import XMLParser
 from tqdm import tqdm
 
 WIDTH = 88
@@ -136,7 +137,8 @@ def str_to_xml(xml: str):
     root: etree.ElementTree
         Clean XML tree.
     """
-    root = etree.fromstring(xml.encode("utf-8"))
+    p = XMLParser(huge_tree=True)
+    root = etree.fromstring(xml.encode("utf-8"), parser=p)
     for elem in root.getiterator():
         # Skip comments and processing instructions,
         # because they do not have names
