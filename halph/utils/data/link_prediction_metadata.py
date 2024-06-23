@@ -248,13 +248,17 @@ class LinkPredictionMetadata:
             right_on=["title", "year"],
             how="left",
         )
-
+        print(f"shape 1: {paper_paper.shape[0].compute()}")
+        print(paper_paper.tail())
+        print(f"shape 2: {to_.shape[0].compute()}")
+        print(to_.tail())
         to_ = to_[["paper_idx"]].rename(columns={"paper_idx": "c_paper_idx"})
         paper_paper = dd.concat(
             [paper_paper, to_], axis=1, sort=False, ignore_index=True
         )
         paper_paper = paper_paper[["paper_idx", "c_paper_idx"]].dropna()
         paper_paper = paper_paper.astype({"paper_idx": int, "c_paper_idx": int})
+        print(paper_paper.tail())
 
         logging.info(paper_paper)
         path = osp.join(self.raw_dir, "edges", "paper__cites__paper.csv.gz")
