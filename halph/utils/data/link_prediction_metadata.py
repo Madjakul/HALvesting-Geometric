@@ -253,10 +253,13 @@ class LinkPredictionMetadata:
         print(f"shape 2: {to_.shape[0].compute()}")
         print(to_.tail())
         to_ = to_[["paper_idx"]].rename(columns={"paper_idx": "c_paper_idx"})
-        paper_paper = dd.concat(
-            [paper_paper, to_], axis=1, sort=False, ignore_index=True
+        # paper_paper = dd.concat(
+        #     [paper_paper, to_], axis=1, sort=False, ignore_index=True
+        # )
+        paper_paper = paper_paper.assign(c_paper_idx=to_["c_paper_idx"])
+        paper_paper = (
+            paper_paper[["paper_idx", "c_paper_idx"]].dropna().reset_index(drop=True)
         )
-        paper_paper = paper_paper[["paper_idx", "c_paper_idx"]].dropna()
         paper_paper = paper_paper.astype({"paper_idx": int, "c_paper_idx": int})
         print(paper_paper.tail())
 
