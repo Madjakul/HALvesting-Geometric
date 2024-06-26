@@ -205,6 +205,7 @@ class LinkPredictionMetadata:
         gc.collect()
 
         # Computing paper <-> paper raw edges
+        logging.info("Computing paper <-> paper raw edges.")
         c_papers = papers[["halid"]]
         c_papers_ = papers[["halid"]]
         with ProgressBar():
@@ -236,31 +237,49 @@ class LinkPredictionMetadata:
         )
         papers["paper_idx"] = papers.index
 
+        # Merge to get cited index
         paper_paper = c_papers.merge(
-            papers[["halid", "paper_idx"]],
-            left_on="halid",
-            right_on="halid",
-            how="left",
-        )
-        to_ = c_papers.merge(
             papers[["title", "year", "paper_idx"]],
             left_on=["title", "year"],
             right_on=["title", "year"],
             how="left",
-        )
-        print(f"shape 1: {paper_paper.shape[0].compute()}")
-        print(paper_paper.tail())
-        print(f"shape 2: {to_.shape[0].compute()}")
-        print(to_.tail())
-        to_ = to_[["paper_idx"]].rename(columns={"paper_idx": "c_paper_idx"})
+        ).reset_index(drop=True)
+        paper_paper = paper_paper.rename(columns={"paper_idx": "c_paper_idx"})
+
+        # Merge to get citing index
+        paper_paper = paper_paper.merge(
+            papers[["halid", "paper_idx"]], on="halid"
+        ).reset_index(drop=True)
+
+        # paper_paper = c_papers.merge(
+        #     papers[["halid", "paper_idx"]],
+        #     left_on="halid",
+        #     right_on="halid",
+        #     how="left",
+        # ).reset_index(drop=True)
+        # to_ = c_papers.merge(
+        #     papers[["title", "year", "paper_idx"]],
+        #     left_on=["title", "year"],
+        #     right_on=["title", "year"],
+        #     how="left",
+        # ).reset_index(drop=True)
+        # to_ = to_[["paper_idx"]].rename(columns={"paper_idx": "c_paper_idx"})
+        # print(f"shape 1: {paper_paper.shape[0].compute()}")
+        # print(paper_paper.tail())
+        # print(f"shape 2: {to_.shape[0].compute()}")
+        # print(to_.tail())
         # paper_paper = dd.concat(
         #     [paper_paper, to_], axis=1, sort=False, ignore_index=True
         # )
-        paper_paper = paper_paper.assign(c_paper_idx=to_["c_paper_idx"])
-        paper_paper = (
-            paper_paper[["paper_idx", "c_paper_idx"]].dropna().reset_index(drop=True)
+        # paper_paper = paper_paper.assign(c_paper_idx=to_["c_paper_idx"])
+        # paper_paper = (
+        #     paper_paper[["paper_idx", "c_paper_idx"]].dropna().reset_index(drop=True)
+        # )
+        paper_paper = paper_paper[["paper_idx", "c_paper_idx"]].astype(
+            {"paper_idx": int, "c_paper_idx": int}
         )
-        paper_paper = paper_paper.astype({"paper_idx": int, "c_paper_idx": int})
+        print(paper_paper.columns)
+        print(paper_paper)
         print(paper_paper.tail())
 
         logging.info(paper_paper)
