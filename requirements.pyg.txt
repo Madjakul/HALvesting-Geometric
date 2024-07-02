@@ -1,6 +1,0 @@
-torch_geometric==2.5.3
-# pyg_lib -f https://data.pyg.org/whl/torch-2.3.0+cu121.html
-torch_cluster -f https://data.pyg.org/whl/torch-2.3.0+cu121.html
-torch_scatter -f https://data.pyg.org/whl/torch-2.3.0+cu121.html
-torch_sparse -f https://data.pyg.org/whl/torch-2.3.0+cu121.html
-torch_spline_conv -f https://data.pyg.org/whl/torch-2.3.0+cu121.html
