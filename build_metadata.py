@@ -9,51 +9,20 @@ import dask
 import datasets
 import pandas as pd
 import psutil
-from dask.dataframe import from_pandas
+from dask.dataframe import from_pandas  # type: ignore
 from tqdm import tqdm
 
-from halph.utils import helpers, logging_config
-from halph.utils.argparsers import BuildMetadataArgparse
-from halph.utils.data import LinkPredictionMetadata
-from halph.utils.helpers import WIDTH
+from halvesting_geometric.utils import helpers, logging_config
+from halvesting_geometric.utils.argparsers import BuildMetadataArgparse
+from halvesting_geometric.utils.data import LinkPredictionMetadata
+from halvesting_geometric.utils.helpers import WIDTH
 
 CONFIGS = [
-    # "en",
+    "en",
     "fr",
-    # "es",
-    # "it",
-    # "pt",
-    # "de",
-    # "ru",
-    # "eu",
-    # "pl",
-    # "el",
-    # "ro",
-    # "ca",
-    # "da",
-    # "br",
-    # "ko",
-    # "tr",
-    # "hu",
-    # "eo",
-    # "fa",
-    # "hy",
-    # "cs",
-    # "bg",
-    # "id",
-    # "he",
-    # "hr",
-    # "et",
-    # "sv",
-    # "no",
-    # "fi",
-    # "sw",
-    # "gl",
-    # "th",
-    # "sl",
-    # "sk",
 ]
-NUM_PROC = psutil.cpu_count(logical=False)  # Number of physical CPUs
+# Number of physical CPUs
+NUM_PROC = psutil.cpu_count(logical=False)
 
 logging_config()
 
@@ -64,15 +33,20 @@ if __name__ == "__main__":
     logging.info(f"Computing HAL's graph".center(WIDTH))
     logging.info(f"{('=' * WIDTH)}")
 
-    dask.config.config["dataframe"]["convert-string"] = False
+    dask.config.config["dataframe"]["convert-string"] = False  # type: ignore
 
     halids = []
+    # Get `halid` from clean dataset
     for config in tqdm(CONFIGS):
         dataset = datasets.load_dataset(
-            "Madjakul/HALvest", config, split="train", cache_dir=args.cache_dir
+            "Madjakul/HALvest-Geometric",
+            config,
+            split="train",
+            cache_dir=args.cache_dir,
         )
         halids.extend(dataset["halid"])  # type: ignore
 
+    # Get stored responses from HAL API
     json_file_names = os.listdir(args.json_dir)
     json_file_paths = [
         osp.join(args.json_dir, json_file_name)
@@ -80,6 +54,7 @@ if __name__ == "__main__":
         if json_file_name.endswith(".json")
     ]
 
+    # Transform responses into dataframe
     df = helpers.pd_read_jsons(json_file_paths, lines=False)
     df = df.explode("authors").reset_index(drop=True)
     logging.info("Normalizing authors...")
@@ -95,6 +70,7 @@ if __name__ == "__main__":
     del df_
     gc.collect()
 
+    # Transform dataframe into dask dataframe
     ddf = from_pandas(df, npartitions=NUM_PROC)
     logging.info(ddf)
 

@@ -2,28 +2,37 @@
 
 import logging
 
+import torch
 import torch_geometric.transforms as T
+import wandb
 from torch_geometric.loader import LinkNeighborLoader
 
-import wandb
-from halph.benchmarks import BenchMarkLinkPrediction
-from halph.models import LinkPrediction
-from halph.trainers import LinkPredictionTrainer
-from halph.utils import logging_config
-from halph.utils.argparsers import LinkPredictionArgparse
-from halph.utils.data import LinkPredictionDataset
-
-logging_config()
+from halvesting_geometric.benchmarks import BenchmarkLinkPrediction
+from halvesting_geometric.models import LinkPrediction
+from halvesting_geometric.trainers import LinkPredictionTrainer
+from halvesting_geometric.utils import logging_config
+from halvesting_geometric.utils.argparsers import LinkPredictionArgparse
+from halvesting_geometric.utils.data import LinkPredictionDataset
 
 GNNS = ("sage", "gat", "rggc")
 WEIGHT_DECAY = 0
 LR = 5e-3
 HIDDEN_CHANNELS = 64
 DROPOUT = 0.1
+if torch.cuda.is_available():
+    DEVICE = "cuda"
+else:
+    DEVICE = "cpu"
+
+logging_config()
 
 
 def main(gnn: str, run: int):
-    wandb.init(project="HALph", entity="madjakul", name=f"link-prediction-{gnn}-{run}")
+    wandb.init(
+        project="HALvesting-Geometric",
+        entity="madjakul",
+        name=f"link-prediction-{gnn}-{run}",
+    )
 
     dataset = LinkPredictionDataset("./data/mock")
     data = dataset[0]
@@ -68,7 +77,7 @@ def main(gnn: str, run: int):
     )
 
     model = LinkPrediction(
-        gnn=gnn,
+        gnn=gnn,  # type: ignore
         metadata=data.metadata(),
         paper_num_nodes=data["paper"].num_nodes,
         author_num_nodes=data["author"].num_nodes,
@@ -79,7 +88,7 @@ def main(gnn: str, run: int):
     )
 
     trainer = LinkPredictionTrainer(
-        model=model, lr=LR, device="cpu", weight_decay=WEIGHT_DECAY
+        model=model, lr=LR, device=DEVICE, weight_decay=WEIGHT_DECAY
     )
     trainer.train(train_dataloader, val_dataloader, epochs=50)
 
@@ -96,10 +105,9 @@ def main(gnn: str, run: int):
         persistent_workers=True,
     )
 
-    auc = BenchMarkLinkPrediction.run(model, test_dataloader, "cpu")
+    auc = BenchmarkLinkPrediction.run(model, test_dataloader, DEVICE)
     wandb.log({"test-auc": auc})
     logging.info(f"test-auc: {auc}")
-    # wandb.teardown()
     wandb.finish()
 
 
