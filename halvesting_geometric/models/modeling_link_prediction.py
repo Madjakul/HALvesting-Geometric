@@ -16,7 +16,8 @@ _GNN_MAP = {"sage": GraphSage, "gat": GAT, "rggc": RGGC}
 
 
 class LinkPrediction(nn.Module):
-    """Link prediction model. This model predicts whether an author has written a paper.
+    """Link prediction model. This model predicts whether an author has written
+    a paper.
 
     Parameters
     ----------

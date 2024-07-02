@@ -11,7 +11,11 @@ from halvesting_geometric.models import LinkPrediction
 
 
 class BenchmarkLinkPrediction:
-    """Link prediction benchmark. This benchmark evaluates the area under the ROC curve (AUC) of a link prediction model."""
+    """Link prediction benchmark.
+
+    This benchmark evaluates the area under the ROC curve (AUC) of a
+    link prediction model.
+    """
 
     @classmethod
     @torch.no_grad()

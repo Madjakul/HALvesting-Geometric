@@ -25,7 +25,7 @@ jobs:
               run: |
                 black .
                 isort .
-                docformatter .
+                docformatter --in-place -r .
 
             - name: "Check for changes"
               id: git-check
