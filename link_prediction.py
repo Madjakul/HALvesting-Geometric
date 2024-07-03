@@ -37,7 +37,6 @@ def main(gnn: str, run: int):
     dataset = LinkPredictionDataset("./data/mock")
     data = dataset[0]
     data = T.ToUndirected()(data)
-    # data = T.AddSelfLoops()(data)
 
     transform = T.RandomLinkSplit(
         num_val=0.1,

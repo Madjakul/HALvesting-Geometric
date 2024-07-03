@@ -1,4 +1,3 @@
 # HALvesting Geometric
----
 
-A Half Text and Half Graph Dataset from a Digital Library.
+HALvesting Geometric is an innovative project that

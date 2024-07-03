@@ -24,19 +24,19 @@ class BuildMetadataArgparse:
             "--root_dir",
             type=str,
             default="./data",
-            help="Name of the HuggingFace dataset containing the filtered documents.",
+            help="Path to the directory where the processed dataset will be saved.",
         )
         parser.add_argument(
             "--json_dir",
             type=str,
             default="./data/responses",
-            help="Path to the HuggingFace cache directory.",
+            help="Path to the directyory where the JSON responses are stored.",
         )
         parser.add_argument(
             "--xml_dir",
             type=str,
             default="./data/output_tei_xml",
-            help="Path to the txt file containing the dataset configs to process.",
+            help="Path to the directory where the TEI XML files are stored.",
         )
         parser.add_argument(
             "--raw_dir",
@@ -48,25 +48,32 @@ class BuildMetadataArgparse:
             "--compute_nodes",
             type=boolean,
             required=True,
-            help="Path to the directory where the processed dataset will be saved.",
+            help="Weather to compute the nodes or not.",
         )
         parser.add_argument(
             "--lang",
             type=str,
             default=None,
-            help="Path to the directory where the processed dataset will be saved.",
+            help="Language of the documents to consider.",
         )
         parser.add_argument(
             "--compute_edges",
             type=boolean,
             required=True,
-            help="Path to the directory where the processed dataset will be saved.",
+            help="Weather to compute the edges or not.",
         )
         parser.add_argument(
             "--cache_dir",
             type=str,
             default=None,
-            help="Cache directory used to store downloaded HuggingFace datasets.",
+            help="Path to the directory where the dataset will be cached.",
+        )
+        parser.add_argument(
+            "--datasset_checkpoint",
+            type=str,
+            default="Madjakul/HALvest-Geometric",
+            required=True,
+            help="Name of the HuggingFace dataset containing the filtered documents.",
         )
         args, _ = parser.parse_known_args()
         return args

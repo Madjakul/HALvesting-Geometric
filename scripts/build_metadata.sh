@@ -5,6 +5,7 @@ DATA_ROOT=$PROJECT_ROOT/data                        # Do not modify
 
 # ************************** Customizable Arguments ************************************
 
+DATASET_CHECKPOINT="Madjakul/HALvest-Geometric"
 ROOT_DIR=$DATA_ROOT
 JSON_DIR=$DATA_ROOT/responses
 XML_DIR=$DATA_ROOT/output_tei_xml
@@ -19,6 +20,7 @@ COMPUTE_EDGES=true
 # **************************************************************************************
 
 cmd=( python3 "$PROJECT_ROOT/build_metadata.py" \
+  --dataset_checkpoint "$DATASET_CHECKPOINT" \
   --root_dir "$ROOT_DIR" \
   --json_dir "$JSON_DIR" \
   --xml_dir "$XML_DIR" \

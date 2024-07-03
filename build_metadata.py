@@ -39,7 +39,7 @@ if __name__ == "__main__":
     # Get `halid` from clean dataset
     for config in tqdm(CONFIGS):
         dataset = datasets.load_dataset(
-            "Madjakul/HALvest-Geometric",
+            args.dataset_checkpoint,
             config,
             split="train",
             cache_dir=args.cache_dir,
