@@ -1,12 +1,16 @@
 # link_prediction.py
+# TODO: Use PyTorch Lightning
+# TODO: Use Ray Tune and WandB to perform hyperparameter tuning
+# TODO: Document the remaining code
+# TODO: Run sweeps and run the models again with and without citations
 
 import logging
 
 import torch
 import torch_geometric.transforms as T
-import wandb
 from torch_geometric.loader import LinkNeighborLoader
 
+import wandb
 from halvesting_geometric.benchmarks import BenchmarkLinkPrediction
 from halvesting_geometric.models import LinkPrediction
 from halvesting_geometric.trainers import LinkPredictionTrainer
@@ -23,6 +27,7 @@ if torch.cuda.is_available():
     DEVICE = "cuda"
 else:
     DEVICE = "cpu"
+
 
 logging_config()
 

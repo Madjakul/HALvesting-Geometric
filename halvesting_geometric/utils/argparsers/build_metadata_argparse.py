@@ -72,8 +72,13 @@ class BuildMetadataArgparse:
             "--dataset_checkpoint",
             type=str,
             default="Madjakul/HALvest-Geometric",
-            required=True,
             help="Name of the HuggingFace dataset containing the filtered documents.",
+        )
+        parser.add_argument(
+            "--dataset_config_path",
+            type=str,
+            default="./configs/dataset_config.txt",
+            help="Path to the file containing the dataset configurations to download.",
         )
         args, _ = parser.parse_known_args()
         return args

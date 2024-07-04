@@ -17,15 +17,12 @@ from halvesting_geometric.utils.argparsers import BuildMetadataArgparse
 from halvesting_geometric.utils.data import LinkPredictionMetadata
 from halvesting_geometric.utils.helpers import WIDTH
 
-CONFIGS = [
-    # "en",
-    # "fr",
-    "it",
-]
 # Number of physical CPUs
 NUM_PROC = psutil.cpu_count(logical=False)
 
+
 logging_config()
+
 
 if __name__ == "__main__":
     args = BuildMetadataArgparse.parse_known_args()
@@ -38,7 +35,9 @@ if __name__ == "__main__":
 
     halids = []
     # Get `halid` from clean dataset
-    for config in tqdm(CONFIGS):
+    with open(args.dataset_config_path, "r") as f:
+        configs = f.read().splitlines()
+    for config in tqdm(configs):
         dataset = datasets.load_dataset(
             args.dataset_checkpoint,
             config,
@@ -83,6 +82,6 @@ if __name__ == "__main__":
         raw_dir=args.raw_dir,
     )
     if args.compute_nodes:
-        metadata.compute_nodes(ddf, langs=CONFIGS)
+        metadata.compute_nodes(ddf, langs=configs)
     if args.compute_edges:
         metadata.compute_edges(ddf, num_proc=NUM_PROC)

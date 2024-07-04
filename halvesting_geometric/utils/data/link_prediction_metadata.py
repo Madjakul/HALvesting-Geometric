@@ -420,15 +420,7 @@ class LinkPredictionMetadata:
         ddf_ = ddf_.apply(self.split_domain, axis=1, meta=ddf_)
         ddf_ = ddf_.drop_duplicates().reset_index(drop=True)
         ddf_ = ddf_[ddf_.domain != ""].reset_index(drop=True)
-        # ddf_["domain_idx"] = ddf_.index
-        # Compute the number of rows
-        num_rows = ddf_.shape[0].compute()
-
-        # Create a Dask array with a range of indices
-        indices = dd.from_array(np.arange(num_rows), columns="domain_idx")
-
-        # Add the index column to the original Dask DataFrame
-        ddf_ = ddf_.merge(indices.to_frame())
+        ddf_["domain_idx"] = ddf_.index
         logging.info(ddf_)
         ddf_.to_csv(path, single_file=True, compression="gzip", index=False, sep="\t")
 
