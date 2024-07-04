@@ -9,7 +9,7 @@ DATASET_CHECKPOINT="Madjakul/HALvest-Geometric"
 ROOT_DIR=$DATA_ROOT
 JSON_DIR=$DATA_ROOT/responses
 XML_DIR=$DATA_ROOT/output_tei_xml
-RAW_DIR="$DATA_ROOT/raw"
+RAW_DIR="$DATA_ROOT/raw-it"
 COMPUTE_NODES=true
 COMPUTE_EDGES=false
 

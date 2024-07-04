@@ -18,8 +18,9 @@ from halvesting_geometric.utils.data import LinkPredictionMetadata
 from halvesting_geometric.utils.helpers import WIDTH
 
 CONFIGS = [
-    "en",
-    "fr",
+    # "en",
+    # "fr",
+    "it",
 ]
 # Number of physical CPUs
 NUM_PROC = psutil.cpu_count(logical=False)
