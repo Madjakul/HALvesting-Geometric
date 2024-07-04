@@ -472,7 +472,7 @@ class LinkPredictionMetadata:
         return row
 
     @staticmethod
-    def str_to_list(row: dd.series):  # type: ignore
+    def str_to_list(row: dd.Series):  # type: ignore
         """Apply function to convert string to list.
 
         Parameters
@@ -486,7 +486,7 @@ class LinkPredictionMetadata:
             Row of the dataframe.
         """
         try:
-            row["domain"] = row["domain"].strip("[]").replace("'", "").split(", ")
+            row["domain"] = row["domain"].strip("[]").replace("'", "").split(", ")  # type: ignore
         except:
-            row["domain"] = []
+            row["domain"] = []  # type: ignore
         return row
