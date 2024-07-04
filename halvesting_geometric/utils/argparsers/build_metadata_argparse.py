@@ -69,7 +69,7 @@ class BuildMetadataArgparse:
             help="Path to the directory where the dataset will be cached.",
         )
         parser.add_argument(
-            "--datasset_checkpoint",
+            "--dataset_checkpoint",
             type=str,
             default="Madjakul/HALvest-Geometric",
             required=True,
