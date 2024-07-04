@@ -8,9 +8,9 @@ import logging
 
 import torch
 import torch_geometric.transforms as T
+import wandb
 from torch_geometric.loader import LinkNeighborLoader
 
-import wandb
 from halvesting_geometric.benchmarks import BenchmarkLinkPrediction
 from halvesting_geometric.models import LinkPrediction
 from halvesting_geometric.trainers import LinkPredictionTrainer
