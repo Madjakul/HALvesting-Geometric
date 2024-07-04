@@ -419,6 +419,7 @@ class LinkPredictionMetadata:
         ddf_ = ddf_.apply(self.split_domain, axis=1, meta=ddf_)
         ddf_ = ddf_.drop_duplicates().reset_index(drop=True)
         ddf_ = ddf_[ddf_.domain != ""].reset_index(drop=True)
+        # ddf_["domain_idx"] = dd.Series(range(ddf_.shape[0].compute()))
         ddf_["domain_idx"] = ddf_.index
         logging.info(ddf_)
         ddf_.to_csv(path, single_file=True, compression="gzip", index=False, sep="\t")

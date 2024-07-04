@@ -1,4 +1,4 @@
-# halph/utils/data/link_prediction_dataset.py
+# halvesting_geometric/utils/data/link_prediction_dataset.py
 
 import os.path as osp
 from typing import Callable, List, Optional
@@ -9,8 +9,36 @@ from torch_geometric.utils import coalesce
 
 
 class LinkPredictionDataset(InMemoryDataset):
+    """Base class for link prediction datasets.
 
-    urls = {"en": "", "fr": "", "all": ""}
+    Parameters
+    ----------
+    root : str
+        Directory where the dataset should be stored.
+    preprocess : str, optional
+        Preprocessing method to apply to the dataset.
+    transform : Callable, optional
+        A function/transform that takes in an HeteroData object and returns a transformed version.
+    pre_transform : Callable, optional
+        A function/transform that takes in an HeteroData object and returns a transformed version.
+    force_reload : bool, optional
+        If set to :obj:`True`, the dataset will be re-downloaded and preprocessed, even if it already exists on disk.
+    lang : str, optional
+        Language of the dataset. Can be :obj:`"en"`, :obj:`"fr"` or :obj:`"all"`.
+
+    Attributes
+    ----------
+    url : str
+        URL to download the dataset.
+    preprocess : str
+        Preprocessing method to apply to the dataset.
+
+    Examples
+    --------
+    >>> TODO
+    """
+
+    urls = {"en": "", "fr": "", "default": ""}
 
     def __init__(
         self,
@@ -21,10 +49,10 @@ class LinkPredictionDataset(InMemoryDataset):
         force_reload: bool = False,
         lang: Optional[str] = None,
     ):
-        assert lang in ["en", "fr", "all"]
         if lang is None:
-            self.url = self.urls["all"]
+            self.url = self.urls["default"]
         else:
+            assert lang in ["en", "fr", "all"]
             self.url = self.urls[lang]
         preprocess = None if preprocess is None else preprocess.lower()
         self.preprocess = preprocess
@@ -67,53 +95,55 @@ class LinkPredictionDataset(InMemoryDataset):
 
         data = HeteroData()
 
-        # Get paper nodes, fatures and labels
-        path = osp.join(self.raw_dir, "nodes", "id_paper.csv.gz")
+        # Get paper nodes
+        path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
         df = pd.read_csv(
             path,
             sep="\t",
             compression="gzip",
-            names=["paper_id", "halid", "year", "name"],
-            index_col=0,
+            dtype={
+                "halid": str,
+                "year": int,
+                "title": str,
+                "lang": str,
+                "paper_idx": int,
+            },
         )
         data["paper"].num_features = 0
         data["paper"].index = torch.from_numpy(df.index.values)
         data["paper"].num_nodes = df.shape[0]
 
         # Get author nodes
-        path = osp.join(self.raw_dir, "nodes", "halauthorid_author.csv.gz")
+        path = osp.join(self.raw_dir, "nodes", "authors.csv.gz")
         df = pd.read_csv(
             path,
             sep="\t",
-            names=["idx", "halauthorid", "name"],
-            index_col=0,
             compression="gzip",
+            dtype={"name": str, "halauthorid": int, "author_idx": int},
         )
         data["author"].index = torch.from_numpy(df.index.values)
         data["author"].num_nodes = df.shape[0]
         data["author"].num_features = 0
 
-        # Get institution nodes
-        path = osp.join(self.raw_dir, "nodes", "id_institution.csv.gz")
+        # Get affiliation nodes
+        path = osp.join(self.raw_dir, "nodes", "affiliations.csv.gz")
         df = pd.read_csv(
             path,
             sep="\t",
-            names=["idx", "institution"],
-            index_col=0,
             compression="gzip",
+            dtype={"affiliations": str, "affiliation_idx": int},
         )
-        data["institution"].index = torch.from_numpy(df.index.values)
-        data["institution"].num_nodes = df.shape[0]
-        data["institution"].num_features = 0
+        data["affiliation"].index = torch.from_numpy(df.index.values)
+        data["affiliation"].num_nodes = df.shape[0]
+        data["affiliation"].num_features = 0
 
         # Get domain nodes
         path = osp.join(self.raw_dir, "nodes", "domains.csv.gz")
         df = pd.read_csv(
             path,
             sep="\t",
-            names=["idx", "domain"],
-            index_col=0,
             compression="gzip",
+            dtype={"domain": int, "domain_idx": int},
         )
         data["domain"].index = torch.from_numpy(df.index.values)
         data["domain"].num_nodes = df.shape[0]
@@ -123,30 +153,40 @@ class LinkPredictionDataset(InMemoryDataset):
 
         # Get author <-> paper edges
         path = osp.join(edge_dir_path, "author__writes__paper.csv.gz")
-        df = pd.read_csv(path, sep="\t", names=["author", "paper"], compression="gzip")
-        df = df.drop_duplicates(keep=False)
+        df = pd.read_csv(
+            path,
+            sep="\t",
+            compression="gzip",
+            dtype={"author_idx": int, "paper_idx": int},
+        )
         df = torch.from_numpy(df.values)
         df = df.t().contiguous()
         M, N = int(df[0].max() + 1), int(df[1].max() + 1)
         df = coalesce(df, num_nodes=max(M, N))
         data["author", "writes", "paper"].edge_index = df
 
-        # Get author <-> institution edges
-        path = osp.join(edge_dir_path, "author__affiliated_with__institution.csv.gz")
+        # Get author <-> affiliation edges
+        path = osp.join(edge_dir_path, "author__affiliated_with__affiliation.csv.gz")
         df = pd.read_csv(
-            path, sep="\t", names=["author", "institution"], compression="gzip"
+            path,
+            sep="\t",
+            compression="gzip",
+            dtype={"author_idx": int, "affiliation_idx": int},
         )
-        df = df.drop_duplicates(keep=False)
         df = torch.from_numpy(df.values)
         df = df.t().contiguous()
         M, N = int(df[0].max() + 1), int(df[1].max() + 1)
         df = coalesce(df, num_nodes=max(M, N))
-        data["author", "affiliated_with", "institution"].edge_index = df
+        data["author", "affiliated_with", "affiliation"].edge_index = df
 
         # Get paper <-> paper edges
         path = osp.join(edge_dir_path, "paper__cites__paper.csv.gz")
-        df = pd.read_csv(path, sep="\t", names=["paper", "c_paper"], compression="gzip")
-        df = df.drop_duplicates(keep=False)
+        df = pd.read_csv(
+            path,
+            sep="\t",
+            compression="gzip",
+            dtype={"paper_idx": int, "c_paper_idx": int},
+        )
         df = torch.from_numpy(df.values)
         df = df.t().contiguous()
         M, N = int(df[0].max() + 1), int(df[1].max() + 1)
@@ -155,8 +195,12 @@ class LinkPredictionDataset(InMemoryDataset):
 
         # Get paper <-> domain edges
         path = osp.join(edge_dir_path, "paper__has_topic__domain.csv.gz")
-        df = pd.read_csv(path, sep="\t", names=["paper", "domain"], compression="gzip")
-        df = df.drop_duplicates(keep=False)
+        df = pd.read_csv(
+            path,
+            sep="\t",
+            compression="gzip",
+            dtype={"paper_idx": int, "domain_idx": int},
+        )
         df = torch.from_numpy(df.values)
         df = df.t().contiguous()
         M, N = int(df[0].max() + 1), int(df[1].max() + 1)
