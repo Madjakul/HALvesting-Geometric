@@ -122,7 +122,7 @@ class LinkPredictionMetadata:
             Dictionary containing the title and year of the citation.
         """
         halid = row["halid"]
-        c_title, c_year = self._worker(halid)
+        c_title, c_year = self._worker(halid)  # type: ignore
         return {"title": c_title, "year": c_year}
 
     def _get_citations(self, root: etree._ElementTree):
@@ -220,7 +220,7 @@ class LinkPredictionMetadata:
         # Computing paper <-> domain raw edges
         logging.info("Computing paper <-> domain raw edges.")
         paper_domain = papers[["domain", "paper_idx"]]
-        paper_domain = paper_domain.apply(self.str_to_list, axis=1, meta=paper_domain)
+        paper_domain = paper_domain.apply(self.str_to_list, axis=1, meta=paper_domain)  # type: ignore
         paper_domain = paper_domain.explode("domain")
         paper_domain = paper_domain.apply(self.split_domain, axis=1, meta=paper_domain)
         paper_domain = paper_domain[paper_domain.domain != ""]
@@ -293,8 +293,8 @@ class LinkPredictionMetadata:
         c_papers_ = papers[["halid"]]
         # Get citations from grobid xml files
         with ProgressBar():
-            c_papers_["cite"] = (
-                c_papers_.apply(
+            c_papers_["cite"] = (  # type: ignore
+                c_papers_.apply(  # type: ignore
                     self._compute_citations, axis=1, meta=("cite", "object")
                 )
                 .compute()
@@ -303,7 +303,7 @@ class LinkPredictionMetadata:
         # Normlaize citations
         with ProgressBar():
             c_papers_ = (
-                c_papers_.map_partitions(
+                c_papers_.map_partitions(  # type: ignore
                     lambda x: pd.json_normalize(x["cite"].tolist()),
                     enforce_metadata=False,
                 )
@@ -313,13 +313,13 @@ class LinkPredictionMetadata:
         # Merge to get cited paper
         c_papers = dd.concat([c_papers_, c_papers], axis=1, ignore_index=True)  # type: ignore
         # Explode to get one row per citation
-        c_papers = c_papers.explode(["title", "year"]).reset_index(drop=True)
+        c_papers = c_papers.explode(["title", "year"]).reset_index(drop=True)  # type: ignore
         # Add new papers to the papers dataframe
         papers = (
             dd.concat(  # type: ignore
                 [papers, c_papers[["title", "year"]]], sort=False, ignore_index=True
             )
-            .drop_duplicates(subset=["title", "year"])
+            .drop_duplicates(subset=["title", "year"])  # type: ignore
             .reset_index(drop=True)
         )
         papers["paper_idx"] = papers.index
@@ -418,7 +418,7 @@ class LinkPredictionMetadata:
         )
         ddf_ = ddf_.apply(self.split_domain, axis=1, meta=ddf_)
         ddf_ = ddf_.drop_duplicates().reset_index(drop=True)
-        ddf_ = ddf_[ddf_.domain != ""]
+        ddf_ = ddf_[ddf_.domain != ""].reset_index(drop=True)
         ddf_["domain_idx"] = ddf_.index
         logging.info(ddf_)
         ddf_.to_csv(path, single_file=True, compression="gzip", index=False, sep="\t")
