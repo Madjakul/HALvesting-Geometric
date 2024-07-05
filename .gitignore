@@ -167,4 +167,4 @@ wandb
 
 data/output_tei_xml
 data/responses
-data/raw
+data/raw*

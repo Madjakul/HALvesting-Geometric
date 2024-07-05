@@ -1,4 +1,5 @@
 # halvesting_geometric/utils/data/link_prediction_dataset.py
+# TODO: Take into account the chunksize parameter in the process method
 
 import os.path as osp
 from typing import Callable, List, Optional
@@ -18,11 +19,14 @@ class LinkPredictionDataset(InMemoryDataset):
     preprocess : str, optional
         Preprocessing method to apply to the dataset.
     transform : Callable, optional
-        A function/transform that takes in an HeteroData object and returns a transformed version.
+        A function/transform that takes in an HeteroData object and returns a
+        transformed version.
     pre_transform : Callable, optional
-        A function/transform that takes in an HeteroData object and returns a transformed version.
+        A function/transform that takes in an HeteroData object and returns a
+        transformed version.
     force_reload : bool, optional
-        If set to :obj:`True`, the dataset will be re-downloaded and preprocessed, even if it already exists on disk.
+        If set to :obj:`True`, the dataset will be re-downloaded and preprocessed, even
+        if it already exists on disk.
     lang : str, optional
         Language of the dataset. Can be :obj:`"en"`, :obj:`"fr"` or :obj:`"all"`.
 
@@ -103,11 +107,13 @@ class LinkPredictionDataset(InMemoryDataset):
             compression="gzip",
             dtype={
                 "halid": str,
-                "year": int,
+                "year": "Int64",
                 "title": str,
                 "lang": str,
-                "paper_idx": int,
+                "domain": str,
+                "paper_idx": "Int64",
             },
+            chunksize=100,
         )
         data["paper"].num_features = 0
         data["paper"].index = torch.from_numpy(df.index.values)
@@ -119,7 +125,7 @@ class LinkPredictionDataset(InMemoryDataset):
             path,
             sep="\t",
             compression="gzip",
-            dtype={"name": str, "halauthorid": int, "author_idx": int},
+            dtype={"name": str, "halauthorid": "Int64", "author_idx": "Int64"},
         )
         data["author"].index = torch.from_numpy(df.index.values)
         data["author"].num_nodes = df.shape[0]
@@ -131,7 +137,7 @@ class LinkPredictionDataset(InMemoryDataset):
             path,
             sep="\t",
             compression="gzip",
-            dtype={"affiliations": str, "affiliation_idx": int},
+            dtype={"affiliations": str, "affiliation_idx": "Int64"},
         )
         data["affiliation"].index = torch.from_numpy(df.index.values)
         data["affiliation"].num_nodes = df.shape[0]
@@ -143,7 +149,7 @@ class LinkPredictionDataset(InMemoryDataset):
             path,
             sep="\t",
             compression="gzip",
-            dtype={"domain": int, "domain_idx": int},
+            dtype={"domain": "Int64", "domain_idx": "Int64"},
         )
         data["domain"].index = torch.from_numpy(df.index.values)
         data["domain"].num_nodes = df.shape[0]
@@ -157,7 +163,7 @@ class LinkPredictionDataset(InMemoryDataset):
             path,
             sep="\t",
             compression="gzip",
-            dtype={"author_idx": int, "paper_idx": int},
+            dtype={"author_idx": "Int64", "paper_idx": "Int64"},
         )
         df = torch.from_numpy(df.values)
         df = df.t().contiguous()
@@ -171,7 +177,7 @@ class LinkPredictionDataset(InMemoryDataset):
             path,
             sep="\t",
             compression="gzip",
-            dtype={"author_idx": int, "affiliation_idx": int},
+            dtype={"author_idx": "Int64", "affiliation_idx": "Int64"},
         )
         df = torch.from_numpy(df.values)
         df = df.t().contiguous()
@@ -185,7 +191,8 @@ class LinkPredictionDataset(InMemoryDataset):
             path,
             sep="\t",
             compression="gzip",
-            dtype={"paper_idx": int, "c_paper_idx": int},
+            dtype={"paper_idx": "Int64", "c_paper_idx": "Int64"},
+            chunksize=100,
         )
         df = torch.from_numpy(df.values)
         df = df.t().contiguous()
@@ -199,7 +206,7 @@ class LinkPredictionDataset(InMemoryDataset):
             path,
             sep="\t",
             compression="gzip",
-            dtype={"paper_idx": int, "domain_idx": int},
+            dtype={"paper_idx": "Int64", "domain_idx": "Int64"},
         )
         df = torch.from_numpy(df.values)
         df = df.t().contiguous()
