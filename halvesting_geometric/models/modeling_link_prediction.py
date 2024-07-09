@@ -2,6 +2,7 @@
 
 from typing import Literal
 
+import lightning as L
 import torch.nn as nn
 from torch_geometric.data import HeteroData
 from torch_geometric.nn import to_hetero
@@ -15,7 +16,7 @@ from halvesting_geometric.models.sage import GraphSage
 _GNN_MAP = {"sage": GraphSage, "gat": GAT, "rggc": RGGC}
 
 
-class LinkPrediction(nn.Module):
+class LinkPrediction(L.LightningModule):
     """Link prediction model. This model predicts whether an author has written
     a paper.
 

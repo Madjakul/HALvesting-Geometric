@@ -80,5 +80,11 @@ class BuildMetadataArgparse:
             default="./configs/dataset_config.txt",
             help="Path to the file containing the dataset configurations to download.",
         )
+        parser.add_argument(
+            "--zip_compress",
+            type=boolean,
+            default=False,
+            help="Weather to compress the metadata or not.",
+        )
         args, _ = parser.parse_known_args()
         return args

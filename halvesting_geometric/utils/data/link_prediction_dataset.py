@@ -4,8 +4,9 @@
 import os.path as osp
 from typing import Callable, List, Optional
 
+import numpy as np
 import torch
-from torch_geometric.data import HeteroData, InMemoryDataset
+from torch_geometric.data import HeteroData, InMemoryDataset, download_url, extract_zip
 from torch_geometric.utils import coalesce
 
 
@@ -42,7 +43,12 @@ class LinkPredictionDataset(InMemoryDataset):
     >>> TODO
     """
 
-    urls = {"en": "", "fr": "", "default": ""}
+    url: str
+    urls = {
+        "en": "https://huggingface.co/datasets/Madjakul/HALvestGeometric/resolve/main/raw-en.zip",
+        "fr": "https://huggingface.co/datasets/Madjakul/HALvestGeometric/resolve/main/raw-fr",  # "https://huggingface.co/datasets/Madjakul/HALvestGeometric/resolve/main/raw-fr.zip",
+        "all": "https://huggingface.co/datasets/Madjakul/HALvestGeometric/resolve/main/raw.zip",
+    }
 
     def __init__(
         self,
@@ -53,6 +59,7 @@ class LinkPredictionDataset(InMemoryDataset):
         force_reload: bool = False,
         lang: Optional[str] = None,
     ):
+        self.lang = lang
         if lang is None:
             self.url = self.urls["default"]
         else:
@@ -68,7 +75,9 @@ class LinkPredictionDataset(InMemoryDataset):
 
     @property
     def raw_dir(self) -> str:
-        return osp.join(self.root, "raw")
+        if self.lang is None:
+            return osp.join(self.root, "raw")
+        return osp.join(self.root, f"raw-{self.lang}")
 
     @property
     def processed_dir(self) -> str:
@@ -87,13 +96,10 @@ class LinkPredictionDataset(InMemoryDataset):
     def processed_file_names(self) -> str:
         return "data.pt"
 
-    # TODO: Modify this method to download the data from HuggingFace Datasets
     def download(self) -> None:
-        raise NotImplementedError(
-            "Download from HuggingFace Datasets is not implemented yet."
-        )
+        path = download_url(self.url, self.root)
+        # extract_zip(path, self.root)
 
-    # TODO: Modify this method to download the data from HuggingFace Datasets
     def process(self) -> None:
         import pandas as pd
 
@@ -113,11 +119,12 @@ class LinkPredictionDataset(InMemoryDataset):
                 "domain": str,
                 "paper_idx": "Int64",
             },
-            chunksize=100,
+            chunksize=1000000,
         )
         data["paper"].num_features = 0
-        data["paper"].index = torch.from_numpy(df.index.values)
-        data["paper"].num_nodes = df.shape[0]
+        for chunk in df:
+            data["paper"].index += torch.from_numpy(chunk.index.values)
+            data["paper"].num_nodes += chunk.shape[0]
 
         # Get author nodes
         path = osp.join(self.raw_dir, "nodes", "authors.csv.gz")
@@ -192,9 +199,12 @@ class LinkPredictionDataset(InMemoryDataset):
             sep="\t",
             compression="gzip",
             dtype={"paper_idx": "Int64", "c_paper_idx": "Int64"},
-            chunksize=100,
+            chunksize=1000000,
         )
-        df = torch.from_numpy(df.values)
+        values = np.empty((0, 2), dtype=np.int64)
+        for chunk in df:
+            values = np.vstack([values, chunk.values])
+        df = torch.from_numpy(values)
         df = df.t().contiguous()
         M, N = int(df[0].max() + 1), int(df[1].max() + 1)
         df = coalesce(df, num_nodes=max(M, N))

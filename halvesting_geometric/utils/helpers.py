@@ -5,6 +5,7 @@ import gzip
 import json
 import logging
 import os
+import shutil
 from typing import List, Union
 
 import dask.dataframe as dd
@@ -194,6 +195,17 @@ def gzip_compress(path: str):
     with open(path, "rb") as f:
         with gzip.open(f"{path}.gz", "wb") as gzf:
             gzf.writelines(f)
+
+
+def zip_compress(path: str):
+    """Compress a file to a zip file.
+
+    Parameters
+    ----------
+    path : str
+        Path to the file to compress.
+    """
+    shutil.make_archive(path, "zip", path)
 
 
 def compress_csv(df: pd.DataFrame, path: str):

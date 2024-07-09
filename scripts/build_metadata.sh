@@ -15,6 +15,7 @@ COMPUTE_EDGES=false
 # --------------------------------------------------------------------------------------
 
 DATASET_CHECKPOINT="Madjakul/HALvest-Geometric"
+ZIP_COMPRESS=true
 # CACHE_DIR="/local"
 # DATASET_CONFIG_PATH="$PROJECT_ROOT/configs/dataset_config.txt"
 
@@ -38,6 +39,10 @@ fi
 
 if [[ -v DATASET_CONFIG_PATH ]]; then
   cmd+=( --dataset_config_path "$DATASET_CONFIG_PATH" )
+fi
+
+if [[ -v ZIP_COMPRESS ]]; then
+  cmd+=( --zip_compress "$ZIP_COMPRESS" )
 fi
 
 "${cmd[@]}"

@@ -85,3 +85,6 @@ if __name__ == "__main__":
         metadata.compute_nodes(ddf, langs=configs)
     if args.compute_edges:
         metadata.compute_edges(ddf, num_proc=NUM_PROC)
+
+    if args.zip_compress:
+        helpers.zip_compress(args.raw_dir)
