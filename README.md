@@ -1,11 +1,14 @@
 # HALvesting Geometric
 
-Harvests citation networks from HAL [Paper][[Data]](https://huggingface.co/datasets/Madjakul/HALvest-Geometric).
+# TODO: Changer le badge ArXiv/HAL
+[![arXiv](https://img.shields.io/badge/arXiv-2309.08351-b31b1b.svg)](https://arxiv.org/abs/2309.08351)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Data-yellow)](https://huggingface.co/datasets/Madjakul/HALvest-Geometric)
+
+Harvests citation networks from HAL.
+
 ---
 
 HALvesting Geometric is a Python project designed to crawl data from the [HAL (Hyper Articles en Ligne) repository](https://hal.science/). It provides functionalities to build citation networks in several languages and from several years.
-
-* Latest dump: 
 
 
 ## Features

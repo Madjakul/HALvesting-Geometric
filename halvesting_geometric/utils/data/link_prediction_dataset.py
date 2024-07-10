@@ -1,5 +1,4 @@
 # halvesting_geometric/utils/data/link_prediction_dataset.py
-# TODO: Take into account the chunksize parameter in the process method
 
 import os.path as osp
 from typing import Callable, List, Optional
@@ -40,14 +39,47 @@ class LinkPredictionDataset(InMemoryDataset):
 
     Examples
     --------
-    >>> TODO
+    >>> from halvesting_geometric.utils.data import LinkPredictionDataset
+    >>> dataset = LinkPredictionDataset("./data")
+    Downloading https://huggingface.co/datasets/Madjakul/HALvest-Geometric/resolve/main/raw.zip
+    Extracting data/raw.zip
+    Processing...
+    Done!
+    >>> data = dataset[0]
+    >>> data
+    HeteroData(
+    paper={
+        num_features=0,
+        num_nodes=18662037,
+        index=[18662037],
+    },
+    author={
+        index=[238397],
+        num_nodes=238397,
+        num_features=0,
+    },
+    affiliation={
+        index=[96105],
+        num_nodes=96105,
+        num_features=0,
+    },
+    domain={
+        index=[20],
+        num_nodes=20,
+        num_features=0,
+    },
+    (author, writes, paper)={ edge_index=[2, 834644] },
+    (author, affiliated_with, affiliation)={ edge_index=[2, 426030] },
+    (paper, cites, paper)={ edge_index=[2, 22363817] },
+    (paper, has_topic, domain)={ edge_index=[2, 136700] }
+    )
     """
 
     url: str
     urls = {
-        "en": "https://huggingface.co/datasets/Madjakul/HALvestGeometric/resolve/main/raw-en.zip",
-        "fr": "https://huggingface.co/datasets/Madjakul/HALvestGeometric/resolve/main/raw-fr",  # "https://huggingface.co/datasets/Madjakul/HALvestGeometric/resolve/main/raw-fr.zip",
-        "all": "https://huggingface.co/datasets/Madjakul/HALvestGeometric/resolve/main/raw.zip",
+        "en": "https://huggingface.co/datasets/Madjakul/HALvest-Geometric/resolve/main/raw-en.zip",
+        "fr": "https://huggingface.co/datasets/Madjakul/HALvest-Geometric/resolve/main/raw-fr.zip",
+        "all": "https://huggingface.co/datasets/Madjakul/HALvest-Geometric/resolve/main/raw.zip",
     }
 
     def __init__(
@@ -61,7 +93,7 @@ class LinkPredictionDataset(InMemoryDataset):
     ):
         self.lang = lang
         if lang is None:
-            self.url = self.urls["default"]
+            self.url = self.urls["all"]
         else:
             assert lang in ["en", "fr", "all"]
             self.url = self.urls[lang]
@@ -71,7 +103,7 @@ class LinkPredictionDataset(InMemoryDataset):
         self.load(self.processed_paths[0], data_cls=HeteroData)
 
     def __repr__(self) -> str:
-        return "halvest_geometric()"
+        return f"HALvest-Geometric-{self.lang}()"
 
     @property
     def raw_dir(self) -> str:
@@ -98,7 +130,7 @@ class LinkPredictionDataset(InMemoryDataset):
 
     def download(self) -> None:
         path = download_url(self.url, self.root)
-        # extract_zip(path, self.root)
+        extract_zip(path, self.root)
 
     def process(self) -> None:
         import pandas as pd
@@ -106,11 +138,10 @@ class LinkPredictionDataset(InMemoryDataset):
         data = HeteroData()
 
         # Get paper nodes
-        path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
+        path = osp.join(self.raw_dir, "nodes", "papers.csv")
         df = pd.read_csv(
             path,
             sep="\t",
-            compression="gzip",
             dtype={
                 "halid": str,
                 "year": "Int64",
@@ -122,16 +153,18 @@ class LinkPredictionDataset(InMemoryDataset):
             chunksize=1000000,
         )
         data["paper"].num_features = 0
+        data["paper"].num_nodes = 0
+        index = np.empty((0,), dtype=np.int64)
         for chunk in df:
-            data["paper"].index += torch.from_numpy(chunk.index.values)
+            index = np.append(index, chunk.index.values)
             data["paper"].num_nodes += chunk.shape[0]
+        data["paper"].index = torch.from_numpy(index)
 
         # Get author nodes
-        path = osp.join(self.raw_dir, "nodes", "authors.csv.gz")
+        path = osp.join(self.raw_dir, "nodes", "authors.csv")
         df = pd.read_csv(
             path,
             sep="\t",
-            compression="gzip",
             dtype={"name": str, "halauthorid": "Int64", "author_idx": "Int64"},
         )
         data["author"].index = torch.from_numpy(df.index.values)
@@ -139,11 +172,10 @@ class LinkPredictionDataset(InMemoryDataset):
         data["author"].num_features = 0
 
         # Get affiliation nodes
-        path = osp.join(self.raw_dir, "nodes", "affiliations.csv.gz")
+        path = osp.join(self.raw_dir, "nodes", "affiliations.csv")
         df = pd.read_csv(
             path,
             sep="\t",
-            compression="gzip",
             dtype={"affiliations": str, "affiliation_idx": "Int64"},
         )
         data["affiliation"].index = torch.from_numpy(df.index.values)
@@ -151,12 +183,11 @@ class LinkPredictionDataset(InMemoryDataset):
         data["affiliation"].num_features = 0
 
         # Get domain nodes
-        path = osp.join(self.raw_dir, "nodes", "domains.csv.gz")
+        path = osp.join(self.raw_dir, "nodes", "domains.csv")
         df = pd.read_csv(
             path,
             sep="\t",
-            compression="gzip",
-            dtype={"domain": "Int64", "domain_idx": "Int64"},
+            dtype={"domain": str, "domain_idx": "Int64"},
         )
         data["domain"].index = torch.from_numpy(df.index.values)
         data["domain"].num_nodes = df.shape[0]
@@ -165,60 +196,56 @@ class LinkPredictionDataset(InMemoryDataset):
         edge_dir_path = osp.join(self.raw_dir, "edges")
 
         # Get author <-> paper edges
-        path = osp.join(edge_dir_path, "author__writes__paper.csv.gz")
+        path = osp.join(edge_dir_path, "author__writes__paper.csv")
         df = pd.read_csv(
             path,
             sep="\t",
-            compression="gzip",
             dtype={"author_idx": "Int64", "paper_idx": "Int64"},
         )
-        df = torch.from_numpy(df.values)
+        df = torch.from_numpy(df.values.astype(np.int64))
         df = df.t().contiguous()
         M, N = int(df[0].max() + 1), int(df[1].max() + 1)
         df = coalesce(df, num_nodes=max(M, N))
         data["author", "writes", "paper"].edge_index = df
 
         # Get author <-> affiliation edges
-        path = osp.join(edge_dir_path, "author__affiliated_with__affiliation.csv.gz")
+        path = osp.join(edge_dir_path, "author__affiliated_with__affiliation.csv")
         df = pd.read_csv(
             path,
             sep="\t",
-            compression="gzip",
             dtype={"author_idx": "Int64", "affiliation_idx": "Int64"},
         )
-        df = torch.from_numpy(df.values)
+        df = torch.from_numpy(df.values.astype(np.int64))
         df = df.t().contiguous()
         M, N = int(df[0].max() + 1), int(df[1].max() + 1)
         df = coalesce(df, num_nodes=max(M, N))
         data["author", "affiliated_with", "affiliation"].edge_index = df
 
         # Get paper <-> paper edges
-        path = osp.join(edge_dir_path, "paper__cites__paper.csv.gz")
+        path = osp.join(edge_dir_path, "paper__cites__paper.csv")
         df = pd.read_csv(
             path,
             sep="\t",
-            compression="gzip",
             dtype={"paper_idx": "Int64", "c_paper_idx": "Int64"},
             chunksize=1000000,
         )
         values = np.empty((0, 2), dtype=np.int64)
         for chunk in df:
             values = np.vstack([values, chunk.values])
-        df = torch.from_numpy(values)
+        df = torch.from_numpy(values.astype(np.int64))
         df = df.t().contiguous()
         M, N = int(df[0].max() + 1), int(df[1].max() + 1)
         df = coalesce(df, num_nodes=max(M, N))
         data["paper", "cites", "paper"].edge_index = df
 
         # Get paper <-> domain edges
-        path = osp.join(edge_dir_path, "paper__has_topic__domain.csv.gz")
+        path = osp.join(edge_dir_path, "paper__has_topic__domain.csv")
         df = pd.read_csv(
             path,
             sep="\t",
-            compression="gzip",
             dtype={"paper_idx": "Int64", "domain_idx": "Int64"},
         )
-        df = torch.from_numpy(df.values)
+        df = torch.from_numpy(df.values.astype(np.int64))
         df = df.t().contiguous()
         M, N = int(df[0].max() + 1), int(df[1].max() + 1)
         df = coalesce(df, num_nodes=max(M, N))

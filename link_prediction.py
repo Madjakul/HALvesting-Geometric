@@ -1,8 +1,7 @@
 # link_prediction.py
 # TODO: Use PyTorch Lightning
 # TODO: Use Ray Tune and WandB to perform hyperparameter tuning
-# TODO: Document the remaining code
-# TODO: Run sweeps and run the models again with and without citations
+# TODO: args. sweeps and run the models again with and without citations
 
 import logging
 
@@ -32,11 +31,20 @@ else:
 logging_config()
 
 
-def main(gnn: str, run: int):
+if __name__ == "__main__":
+    args = LinkPredictionArgparse.parse_known_args()
+    if args.gnn == "gat":
+        WEIGHT_DECAY = 5e-4
+        DROPOUT = 0.5
+    if args.gnn == "rggc":
+        WEIGHT_DECAY = 5e-4
+        HIDDEN_CHANNELS = 16
+        LR = 1e-2
+
     wandb.init(
         project="HALvesting-Geometric",
         entity="madjakul",
-        name=f"link-prediction-{gnn}-{run}",
+        name=f"link-prediction-{args.gnn}-{args.run}",
     )
 
     dataset = LinkPredictionDataset("./data/mock")
@@ -81,7 +89,7 @@ def main(gnn: str, run: int):
     )
 
     model = LinkPrediction(
-        gnn=gnn,  # type: ignore
+        gnn=args.gnn,  # type: ignore
         metadata=data.metadata(),
         paper_num_nodes=data["paper"].num_nodes,
         author_num_nodes=data["author"].num_nodes,
@@ -113,15 +121,3 @@ def main(gnn: str, run: int):
     wandb.log({"test-auc": auc})
     logging.info(f"test-auc: {auc}")
     wandb.finish()
-
-
-if __name__ == "__main__":
-    args = LinkPredictionArgparse.parse_known_args()
-    if args.gnn == "gat":
-        WEIGHT_DECAY = 5e-4
-        DROPOUT = 0.5
-    if args.gnn == "rggc":
-        WEIGHT_DECAY = 5e-4
-        HIDDEN_CHANNELS = 16
-        LR = 1e-2
-    main(args.gnn, args.run)

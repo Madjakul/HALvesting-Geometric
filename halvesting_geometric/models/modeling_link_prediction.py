@@ -1,4 +1,5 @@
 # halvesting_geometric/models/modeling_link_prediction.py
+# TODO: Finish merging to torch lightning
 
 from typing import Literal
 
@@ -94,6 +95,10 @@ class LinkPrediction(L.LightningModule):
         self.gnn = to_hetero(self.gnn, metadata=metadata)
         self.classifier = LinkClassifier()
 
+    def configure_optimizers(self):
+        optimizer = optim.Adam(self.parameters(), lr=1e-3)
+        return optimizer
+
     def forward(self, batch: HeteroData):
         """Forward pass.
 
@@ -122,3 +127,18 @@ class LinkPrediction(L.LightningModule):
             edge_label_index=batch["author", "writes", "paper"].edge_label_index,
         )
         return pred
+
+    def training_step(self, batch, batch_idx):
+        # training_step defines the train loop.
+        # it is independent of forward
+        x, _ = batch
+        x = x.view(x.size(0), -1)
+        z = self.encoder(x)
+        x_hat = self.decoder(z)
+        loss = nn.functional.mse_loss(x_hat, x)
+        # Logging to TensorBoard (if installed) by default
+        self.log("train_loss", loss)
+        return loss
+
+    def validation_step(self, batch, batch_idx):
+        pass

@@ -4,7 +4,7 @@ import argparse
 
 
 class LinkPredictionArgparse:
-    """Argument parser used to enrish the HuggingFace dataset."""
+    """Argument parser used to perfomr link prediction."""
 
     @classmethod
     def parse_known_args(cls):

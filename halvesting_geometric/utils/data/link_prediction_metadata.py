@@ -1,4 +1,4 @@
-# halph/utils/data/link_prediction_metadata.py
+# halvesting_geometric/utils/data/link_prediction_metadata.py
 
 import gc
 import logging
@@ -8,7 +8,6 @@ from typing import List, Optional
 
 import dask.dataframe as dd
 import dask.dataframe.core as ddc
-import numpy as np
 import pandas as pd
 from dask.dataframe import from_pandas  # type: ignore
 from dask.diagnostics import ProgressBar  # type: ignore
@@ -204,18 +203,18 @@ class LinkPredictionMetadata:
         logging.info("Computing edges.")
 
         # Loading raw nodes
-        path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
-        papers = pd.read_csv(path, sep="\t", compression="gzip", dtype={"halid": str})
+        path = osp.join(self.raw_dir, "nodes", "papers.csv")
+        papers = pd.read_csv(path, sep="\t", dtype={"halid": str})
         papers = papers.dropna(subset=["halid"])
         papers = from_pandas(papers, npartitions=num_proc)
-        path = osp.join(self.raw_dir, "nodes", "domains.csv.gz")
-        domains = pd.read_csv(path, sep="\t", compression="gzip")
+        path = osp.join(self.raw_dir, "nodes", "domains.csv")
+        domains = pd.read_csv(path, sep="\t")
         domains = from_pandas(domains, npartitions=num_proc)
-        path = osp.join(self.raw_dir, "nodes", "authors.csv.gz")
-        authors = pd.read_csv(path, sep="\t", compression="gzip")
+        path = osp.join(self.raw_dir, "nodes", "authors.csv")
+        authors = pd.read_csv(path, sep="\t")
         authors = from_pandas(authors, npartitions=num_proc)
-        path = osp.join(self.raw_dir, "nodes", "affiliations.csv.gz")
-        affiliations = pd.read_csv(path, sep="\t", compression="gzip")
+        path = osp.join(self.raw_dir, "nodes", "affiliations.csv")
+        affiliations = pd.read_csv(path, sep="\t")
         affiliations = from_pandas(affiliations, npartitions=num_proc)
 
         # Computing paper <-> domain raw edges
@@ -228,10 +227,8 @@ class LinkPredictionMetadata:
         paper_domain = paper_domain.merge(domains, left_on="domain", right_on="domain")
         paper_domain = paper_domain[["paper_idx", "domain_idx"]].drop_duplicates()
         logging.info(paper_domain)
-        path = osp.join(self.raw_dir, "edges", "paper__has_topic__domain.csv.gz")
-        paper_domain.to_csv(
-            path, single_file=True, compression="gzip", sep="\t", index=False
-        )
+        path = osp.join(self.raw_dir, "edges", "paper__has_topic__domain.csv")
+        paper_domain.to_csv(path, single_file=True, sep="\t", index=False)
         del paper_domain
         gc.collect()
 
@@ -255,11 +252,9 @@ class LinkPredictionMetadata:
         ].drop_duplicates()
         logging.info(author_affiliation)
         path = osp.join(
-            self.raw_dir, "edges", "author__affiliated_with__affiliation.csv.gz"
+            self.raw_dir, "edges", "author__affiliated_with__affiliation.csv"
         )
-        author_affiliation.to_csv(
-            path, single_file=True, sep="\t", compression="gzip", index=False
-        )
+        author_affiliation.to_csv(path, single_file=True, sep="\t", index=False)
         del author_affiliation
         gc.collect()
 
@@ -281,10 +276,8 @@ class LinkPredictionMetadata:
         )
         author_paper = author_paper[["author_idx", "paper_idx"]].drop_duplicates()
         logging.info(author_paper)
-        path = osp.join(self.raw_dir, "edges", "author__writes__paper.csv.gz")
-        author_paper.to_csv(
-            path, single_file=True, sep="\t", compression="gzip", index=False
-        )
+        path = osp.join(self.raw_dir, "edges", "author__writes__paper.csv")
+        author_paper.to_csv(path, single_file=True, sep="\t", index=False)
         del author_paper
         gc.collect()
 
@@ -340,12 +333,10 @@ class LinkPredictionMetadata:
             {"paper_idx": int, "c_paper_idx": int}
         )
         logging.info(paper_paper)
-        path = osp.join(self.raw_dir, "edges", "paper__cites__paper.csv.gz")
-        paper_paper.to_csv(
-            path, single_file=True, sep="\t", compression="gzip", index=False
-        )
-        path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
-        papers.to_csv(path, single_file=True, sep="\t", compression="gzip", index=False)
+        path = osp.join(self.raw_dir, "edges", "paper__cites__paper.csv")
+        paper_paper.to_csv(path, single_file=True, sep="\t", index=False)
+        path = osp.join(self.raw_dir, "nodes", "papers.csv")
+        papers.to_csv(path, single_file=True, sep="\t", index=False)
 
     def compute_nodes(
         self,
@@ -354,6 +345,12 @@ class LinkPredictionMetadata:
         years: Optional[List[str]] = None,
     ):
         """Compute nodes for the link prediction task.
+
+        Notes
+        -----
+        Getting the index from the domain nodes results in a wrong computation, yielding
+        only 0 and 1. This occurs when the number of paper nodes is high. Make sure to
+        check the domain nodes after the computation.
 
         Parameters
         ----------
@@ -381,36 +378,36 @@ class LinkPredictionMetadata:
 
         # Computing paper nodes
         logging.info("Computing paper nodes")
-        path = osp.join(self.raw_dir, "nodes", "papers.csv.gz")
+        path = osp.join(self.raw_dir, "nodes", "papers.csv")
         ddf_ = ddf[["halid", "year", "title", "lang", "domain"]]
         ddf_ = ddf_.drop_duplicates(subset=["halid"])  # type: ignore
         ddf_ = ddf_[ddf_.title != ""].reset_index(drop=True)
         ddf_["paper_idx"] = ddf_.index
         logging.info(ddf_)
-        ddf_.to_csv(path, single_file=True, compression="gzip", index=False, sep="\t")
+        ddf_.to_csv(path, single_file=True, index=False, sep="\t")
 
         # Computing author nodes
         logging.info("Computing author nodes...")
-        path = osp.join(self.raw_dir, "nodes", "authors.csv.gz")
+        path = osp.join(self.raw_dir, "nodes", "authors.csv")
         ddf_ = ddf[ddf.halauthorid != "0"]
         ddf_ = ddf_[["name", "halauthorid"]].drop_duplicates(subset=["halauthorid"])  # type: ignore
         ddf_ = ddf_[ddf_.name != ""].reset_index(drop=True)
         ddf_["author_idx"] = ddf_.index
         logging.info(ddf_)
-        ddf_.to_csv(path, single_file=True, compression="gzip", index=False, sep="\t")
+        ddf_.to_csv(path, single_file=True, index=False, sep="\t")
 
         # Computing affiliation nodes
         logging.info("Computing affiliation nodes...")
-        path = osp.join(self.raw_dir, "nodes", "affiliations.csv.gz")
+        path = osp.join(self.raw_dir, "nodes", "affiliations.csv")
         ddf_ = ddf[["affiliations"]].explode("affiliations")  # type: ignore
         ddf_ = ddf_.drop_duplicates().reset_index(drop=True)
         ddf_["affiliation_idx"] = ddf_.index
         logging.info(ddf_)
-        ddf_.to_csv(path, single_file=True, compression="gzip", index=False, sep="\t")
+        ddf_.to_csv(path, single_file=True, index=False, sep="\t")
 
         # Computing domain nodes
         logging.info("Computing domain nodes...")
-        path = osp.join(self.raw_dir, "nodes", "domains.csv.gz")
+        path = osp.join(self.raw_dir, "nodes", "domains.csv")
         ddf_ = (
             ddf[["domain"]]
             .explode("domain")  # type: ignore
@@ -422,7 +419,7 @@ class LinkPredictionMetadata:
         ddf_ = ddf_[ddf_.domain != ""].reset_index(drop=True)
         ddf_["domain_idx"] = ddf_.index
         logging.info(ddf_)
-        ddf_.to_csv(path, single_file=True, compression="gzip", index=False, sep="\t")
+        ddf_.to_csv(path, single_file=True, index=False, sep="\t")
 
     @staticmethod
     def get_citation_title(bibl_struct: etree._Element):
