@@ -96,8 +96,9 @@ class LinkPrediction(L.LightningModule):
         self.classifier = LinkClassifier()
 
     def configure_optimizers(self):
-        optimizer = optim.Adam(self.parameters(), lr=1e-3)
-        return optimizer
+        pass
+        # optimizer = optim.Adam(self.parameters(), lr=1e-3)
+        # return optimizer
 
     def forward(self, batch: HeteroData):
         """Forward pass.
