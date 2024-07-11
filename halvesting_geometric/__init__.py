@@ -1,3 +1,3 @@
-# halph/__init__.py
+# halvesting_geometric/__init__.py
 
-from halvesting_geometric import benchmarks, models, trainers, utils
+from halvesting_geometric import benchmarks, modules, trainers, utils

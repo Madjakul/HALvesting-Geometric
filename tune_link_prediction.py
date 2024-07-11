@@ -1,6 +1,10 @@
-# link_prediction.py
+# tune_link_prediction.py
+# TODO: Use Ray Tune to perform hyperparameter tuning
+# TODO: https://medium.com/distributed-computing-with-ray/scaling-up-pytorch-lightning-hyperparameter-tuning-with-ray-tune-4bd9e1ff9929
+# TODO: https://docs.ray.io/en/latest/tune/index.html
 
 import logging
+from typing import Any, Dict
 
 import lightning as L
 import psutil
@@ -17,48 +21,7 @@ from halvesting_geometric.utils.data import LinkPredictionDataset
 logging_config()
 
 
-if __name__ == "__main__":
-    args = LinkPredictionArgparse.parse_known_args()
-
-    config = helpers.load_config_from_file(args.config_file)
-    logging.info(f"Configuration file loaded from {args.config_file}.")
-
-    num_proc = (
-        psutil.cpu_count(logical=False) if args.num_proc is None else args.num_proc
-    )
-    logging.info(f"Number of processes: {num_proc}.")
-
-    if args.accelerator is None:
-        if torch.cuda.is_available():
-            accelerator = "gpu"
-        else:
-            accelerator = "cpu"
-    else:
-        accelerator = args.accelerator
-    logging.info(f"Accelerator: {accelerator}.")
-
-    if args.wandb:
-        wandb_logger = WandbLogger(
-            project="HALvest-Geometric",
-            name=f"link-prediction-{config['gnn']}-{args.run}",
-        )
-        logging.info("WandB logger enabled.")
-
-    dataset = LinkPredictionDataset(args.root_dir, lang=args.lang_)
-    data = dataset[0]
-    data = T.ToUndirected()(data)
-
-    logging.info("Creating train, validation, and test datasets...")
-    transform = T.RandomLinkSplit(
-        num_val=config["num_val"],
-        num_test=config["num_test"],
-        neg_sampling_ratio=config["neg_sampling_ratio"],
-        add_negative_train_samples=False,
-        edge_types=("author", "writes", "paper"),
-        rev_edge_types=("paper", "rev_writes", "author"),
-    )
-    train_data, val_data, test_data = transform(data)
-
+def train_tune(config: Dict[str, Any]):
     edge_label_index = train_data["author", "writes", "paper"].edge_label_index
     edge_label = train_data["author", "writes", "paper"].edge_label
     train_dataloader = LinkNeighborLoader(
@@ -120,3 +83,7 @@ if __name__ == "__main__":
         model=model, train_dataloaders=train_dataloader, val_dataloaders=val_dataloader
     )
     trainer.test(model=model, dataloaders=test_dataloader)
+
+
+if __name__ == "__main__":
+    train_tune()

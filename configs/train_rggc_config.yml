@@ -1,0 +1,17 @@
+# Data split
+num_val: 0.1
+num_test: 0.1
+neg_sampling_ratio: 2.0
+# Data loader
+num_neighbors:
+  - 128
+  - 16
+batch_size: 4
+# Model
+gnn: "rggc"
+hiden_channels: 16
+dropout: 0.1
+weight_decay: 0.0005
+lr: 0.01
+# Training
+max_epochs: 10

@@ -6,7 +6,7 @@ import torch_geometric.transforms as T
 from torch_geometric.data import HeteroData
 from torch_geometric.loader import LinkNeighborLoader
 
-from halvesting_geometric.models import LinkPrediction
+from halvesting_geometric.modules import LinkPrediction
 
 # Constants for testing
 HIDDEN_CHANNELS = 64

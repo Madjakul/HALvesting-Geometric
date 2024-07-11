@@ -2,6 +2,8 @@
 
 import argparse
 
+from halvesting_geometric.utils.helpers import boolean
+
 
 class LinkPredictionArgparse:
     """Argument parser used to perfomr link prediction."""
@@ -20,34 +22,46 @@ class LinkPredictionArgparse:
                 and per domain."""
         )
         parser.add_argument(
-            "--gnn",
+            "--config_file",
             type=str,
             required=True,
-            help="Name of message passing model used {'sage', 'gat', 'rggc'}.",
+            help="Path to the configuration file.",
+        )
+        parser.add_argument(
+            "--root_dir",
+            type=str,
+            required=True,
+            help="Path to the data root directory.",
+        )
+        parser.add_argument(
+            "--lang_",
+            type=str,
+            default="all",
+            help="Language to use for the dataset.",
+        )
+        parser.add_argument(
+            "--accelerator",
+            type=str,
+            default=None,
+            help="Accelerator to use for training.",
+        )
+        parser.add_argument(
+            "--wandb",
+            type=boolean,
+            default=False,
+            help="Enable Weights and Biases logging.",
         )
         parser.add_argument(
             "--num_proc",
             type=int,
-            default=4,
-            help="Number of processes to use for processing the dataset.",
+            default=None,
+            help="Number of processes to use.",
         )
         parser.add_argument(
             "--run",
             type=int,
             required=True,
-            help="Number of processes to use for processing the dataset.",
-        )
-        parser.add_argument(
-            "--batch_size",
-            type=int,
-            default=4,
-            help="Number of documents loaded per proc.",
-        )
-        parser.add_argument(
-            "--epochs",
-            type=int,
-            required=True,
-            help="Set to `true` if the dataset has a `token_count` attribute.",
+            help="Index of the run. Only used during experiments to log the run.",
         )
         args, _ = parser.parse_known_args()
         return args

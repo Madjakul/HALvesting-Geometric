@@ -1,15 +1,16 @@
 # halvesting_geometric/utils/helpers.py
 
-import argparse
 import gzip
 import json
 import logging
 import os
+import os.path as osp
 import shutil
 from typing import List, Union
 
 import dask.dataframe as dd
 import pandas as pd
+import yaml
 from lxml import etree
 from lxml.etree import XMLParser
 from tqdm import tqdm
@@ -45,8 +46,68 @@ def boolean(argument: Union[str, int, bool]):
             return True
         else:
             return False
-    else:
-        raise argparse.ArgumentTypeError("Boolean argumentalue expected.")
+
+
+def load_config_from_file(path: str):
+    """Load a configuration file from a path.
+
+    Parameters
+    ----------
+    path: str
+        Path to the configuration file.
+
+    Returns
+    -------
+    config: Dict[str, Any]
+        Configuration dictionary.
+
+    Raises
+    ------
+    ValueError
+        If the file extension is not supported.
+    """
+    load_config_map = {"json": load_config_from_json, "yaml": load_config_from_yaml}
+    assert os.path.isfile(path)
+    _, file_extension = osp.splitext(path)
+    file_extension = file_extension[1:]
+    if not file_extension in load_config_map:
+        raise ValueError(f"File extension {file_extension} not supported.")
+    config = load_config_map[file_extension](path)
+    return config
+
+
+def load_config_from_json(path: str):
+    """Load a JSON configuration file from a path.
+
+    Parameters
+    ----------
+    path: str
+        Path to the JSON configuration file.
+
+    Returns
+    -------
+    config: Dict[str, Any]
+        Configuration dictionary.
+    """
+    config = json.load(open(path))
+    return config
+
+
+def load_config_from_yaml(path: str):
+    """Load a YAML configuration file from a path.
+
+    Parameters
+    ----------
+    path: str
+        Path to the YAML configuration file.
+
+    Returns
+    -------
+    config: Dict[str, Any]
+        Configuration dictionary.
+    """
+    config = yaml.load(open(path), Loader=yaml.FullLoader)
+    return config
 
 
 def check_dir(path: str):
@@ -289,6 +350,6 @@ def dd_read_jsons(paths: List[str], lines: bool):
             continue
         ddf_ = dd.read_json(path, orient="records", lines=lines)  # type: ignore
         ddf = dd.concat([ddf, ddf_])  # type: ignore
-    ddf = ddf.reset_index(drop=True)
+    ddf = ddf.reset_index(drop=True)  # type: ignore
     logging.info(ddf)
     return ddf
