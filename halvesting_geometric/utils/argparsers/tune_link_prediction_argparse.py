@@ -5,7 +5,7 @@ import argparse
 from halvesting_geometric.utils.helpers import boolean
 
 
-class LinkPredictionArgparse:
+class TuneLinkPredictionArgparse:
     """Argument parser used to perfom link prediction."""
 
     @classmethod
@@ -17,12 +17,8 @@ class LinkPredictionArgparse:
         args: Any
             Parsed arguments.
         """
-        parser = argparse.ArgumentParser(description="Arguments for link prediction.")
-        parser.add_argument(
-            "--config_file",
-            type=str,
-            required=True,
-            help="Path to the configuration file.",
+        parser = argparse.ArgumentParser(
+            description="Arguments for link prediction tuning."
         )
         parser.add_argument(
             "--root_dir",
@@ -43,22 +39,10 @@ class LinkPredictionArgparse:
             help="Accelerator to use for training.",
         )
         parser.add_argument(
-            "--wandb",
-            type=boolean,
-            default=False,
-            help="Enable Weights and Biases logging.",
-        )
-        parser.add_argument(
             "--num_proc",
             type=int,
             default=None,
             help="Number of processes to use.",
-        )
-        parser.add_argument(
-            "--run",
-            type=int,
-            required=True,
-            help="Index of the run. Only used during experiments to log the run.",
         )
         args, _ = parser.parse_known_args()
         return args

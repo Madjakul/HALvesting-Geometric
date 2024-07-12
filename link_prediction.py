@@ -107,6 +107,8 @@ if __name__ == "__main__":
         domain_num_nodes=data["domain"].num_nodes,
         hidden_channels=config["hidden_channels"],
         dropout=config["dropout"],
+        lr=config["lr"],
+        weight_decay=config["weight_decay"],
     )
 
     logging.info("Training and testing model...")
