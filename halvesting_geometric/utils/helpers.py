@@ -66,7 +66,11 @@ def load_config_from_file(path: str):
     ValueError
         If the file extension is not supported.
     """
-    load_config_map = {"json": load_config_from_json, "yaml": load_config_from_yaml}
+    load_config_map = {
+        "json": load_config_from_json,
+        "yaml": load_config_from_yaml,
+        "yml": load_config_from_yaml,
+    }
     assert os.path.isfile(path)
     _, file_extension = osp.splitext(path)
     file_extension = file_extension[1:]

@@ -5,20 +5,20 @@ DATA_ROOT=$PROJECT_ROOT/data                        # Do not modify
 
 # ************************** Customizable Arguments ************************************
 
-MAX_RUNS=5
+MAX_RUNS=1
 ROOT_DIR=$DATA_ROOT
-CONFIG_FILE="$DATA_ROOT/train_sage_config.yaml"
-WANDB=true
+CONFIG_FILE=$PROJECT_ROOT/configs/train_sage_config.yml
+WANDB=false
 
 # --------------------------------------------------------------------------------------
 
-LANG_="en"
+LANG_="fr"
 # NUM_PROC=4
 # ACCELERATOR="cpu"
 
 # **************************************************************************************
 
-for run in {1..$MAX_RUNS}
+for run in $(seq 1 $MAX_RUNS);
 do
     cmd=( python3 "$PROJECT_ROOT/link_prediction.py" \
       --root_dir "$ROOT_DIR" \

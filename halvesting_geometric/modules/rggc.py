@@ -1,4 +1,4 @@
-# halvesting_geometric/models/rggc.py
+# halvesting_geometric/modules/rggc.py
 
 from typing import Optional
 

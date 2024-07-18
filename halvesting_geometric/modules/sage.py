@@ -1,4 +1,4 @@
-# halvesting_geometric/models/modeling_graph_sage.py
+# halvesting_geometric/modules/modeling_graph_sage.py
 from typing import Optional
 
 import torch

@@ -1,4 +1,4 @@
-# halvesting_geometric/models/modeling_link_prediction.py
+# halvesting_geometric/modules/modeling_link_prediction.py
 
 from typing import Literal
 
@@ -93,7 +93,7 @@ class LinkPrediction(L.LightningModule):
         loss = F.binary_cross_entropy_with_logits(out, y)
         roc_auc = self.metric.compute()
         self.log_dict(
-            {"val_loss": float(loss), "val_roc_auc": float(roc_auc)},
+            {"test_loss": float(loss), "test_roc_auc": float(roc_auc)},
             # on_epoch=True,
             prog_bar=True,
         )

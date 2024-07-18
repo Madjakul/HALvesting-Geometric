@@ -42,6 +42,7 @@ if __name__ == "__main__":
             config,
             split="train",
             cache_dir=args.cache_dir,
+            num_proc=NUM_PROC,
         )
         halids.extend(dataset["halid"])  # type: ignore
 

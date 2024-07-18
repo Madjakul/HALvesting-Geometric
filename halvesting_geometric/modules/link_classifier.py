@@ -1,4 +1,4 @@
-# halvesting_geometric/models/link_classifier.py
+# halvesting_geometric/modules/link_classifier.py
 
 import torch
 import torch.nn as nn

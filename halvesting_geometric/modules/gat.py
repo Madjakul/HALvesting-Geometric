@@ -1,4 +1,4 @@
-# halvesting_geometric/models/modeling_gat.py
+# halvesting_geometric/modules/modeling_gat.py
 
 from typing import Optional
 
