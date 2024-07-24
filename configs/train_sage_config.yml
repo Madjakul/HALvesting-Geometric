@@ -1,15 +1,15 @@
 # Data split
 num_val: 0.1
-num_test: 0.1
+num_test: 0.2
 neg_sampling_ratio: 2.0
 # Data loader
 num_neighbors:
-  - 128
+  - 16
   - 16
 batch_size: 4
 # Model
 gnn: "sage"
-hiden_channels: 64
+hidden_channels: 64
 dropout: 0.1
 weight_decay: 0.0
 lr: 0.001

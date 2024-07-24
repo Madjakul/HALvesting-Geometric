@@ -48,7 +48,7 @@ class LinkPrediction(L.LightningModule):
         self.metric = BinaryAUROC()
         # Model parameters
         # Embedding layers for all node types
-        self.paper_embedding = nn.Embedding(paper_num_nodes, hidden_channels)
+        self.paper_embedding = nn.Embedding(100000, hidden_channels)
         self.author_embedding = nn.Embedding(author_num_nodes, hidden_channels)
         self.domain_embedding = nn.Embedding(domain_num_nodes, hidden_channels)
         self.institution_embedding = nn.Embedding(
@@ -74,9 +74,9 @@ class LinkPrediction(L.LightningModule):
     def forward(self, batch: HeteroData):
         x_dict = {
             "author": self.author_embedding(batch["author"].n_id),
-            "institution": self.institution_embedding(batch["affiliation"].n_id),
+            "affiliation": self.institution_embedding(batch["affiliation"].n_id),
             "domain": self.domain_embedding(batch["domain"].n_id),
-            "paper": self.paper_embedding(batch["paper"].n_id),
+            "paper": self.paper_embedding(batch["paper"].n_id % 100000),
         }
         x_dict = self.gnn(x_dict, batch.edge_index_dict)
         pred = self.classifier(
@@ -102,7 +102,14 @@ class LinkPrediction(L.LightningModule):
         y = batch["author", "writes", "paper"].edge_label
         out = self(batch)
         loss = F.binary_cross_entropy_with_logits(out, y)
-        self.log("train_loss", float(loss), on_epoch=True, on_step=True, prog_bar=True)
+        self.log(
+            "train_loss",
+            float(loss),
+            on_epoch=True,
+            on_step=True,
+            prog_bar=True,
+            batch_size=4,  # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        )
         return loss
 
     def validation_step(self, batch: HeteroData, batch_idx: int):
@@ -115,4 +122,5 @@ class LinkPrediction(L.LightningModule):
             {"val_loss": float(loss), "val_roc_auc": float(roc_auc)},
             on_epoch=True,
             prog_bar=True,
+            batch_size=4,  # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         )

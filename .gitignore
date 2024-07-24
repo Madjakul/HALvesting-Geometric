@@ -169,3 +169,5 @@ data/output_tei_xml
 data/responses
 data/raw*
 data/processed/
+
+lightning_logs/

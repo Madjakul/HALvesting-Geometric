@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
     num_proc = (
         psutil.cpu_count(logical=False) if args.num_proc is None else args.num_proc
-    )
+    ) - 2
     logging.info(f"Number of processes: {num_proc}.")
 
     if args.accelerator is None:
@@ -99,11 +99,11 @@ if __name__ == "__main__":
 
     logging.info("Creating model...")
     model = LinkPrediction(
-        gnn=args.gnn,  # type: ignore
+        gnn=config["gnn"],  # type: ignore
         metadata=data.metadata(),
         paper_num_nodes=data["paper"].num_nodes,
         author_num_nodes=data["author"].num_nodes,
-        institution_num_nodes=data["institution"].num_nodes,
+        institution_num_nodes=data["affiliation"].num_nodes,
         domain_num_nodes=data["domain"].num_nodes,
         hidden_channels=config["hidden_channels"],
         dropout=config["dropout"],

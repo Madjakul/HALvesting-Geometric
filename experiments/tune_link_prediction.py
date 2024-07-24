@@ -67,7 +67,7 @@ def train_tune(
         metadata=data.metadata(),
         paper_num_nodes=data["paper"].num_nodes,
         author_num_nodes=data["author"].num_nodes,
-        institution_num_nodes=data["institution"].num_nodes,
+        institution_num_nodes=data["affiliation"].num_nodes,
         domain_num_nodes=data["domain"].num_nodes,
         hidden_channels=config["hidden_channels"],
         dropout=config["dropout"],

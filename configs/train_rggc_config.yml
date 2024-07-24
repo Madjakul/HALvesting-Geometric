@@ -9,7 +9,7 @@ num_neighbors:
 batch_size: 4
 # Model
 gnn: "rggc"
-hiden_channels: 16
+hidden_channels: 16
 dropout: 0.1
 weight_decay: 0.0005
 lr: 0.01
