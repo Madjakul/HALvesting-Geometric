@@ -78,7 +78,7 @@ def train_tune(
 
     logging.info("Training and testing model...")
     trainer = L.Trainer(
-        accelerator=accelerator, devices=-1, max_epochs=10, callbacks=[callback]
+        accelerator=accelerator, devices=-1, max_epochs=2, callbacks=[callback]
     )
     trainer.fit(model=model, datamodule=dataset)
 
@@ -148,7 +148,7 @@ if __name__ == "__main__":
         mode="max",
         name=f"Tune Link Prediction {GNN}",
         resources_per_trial={"cpu": num_proc, "gpu": 1},
-        num_samples=10,
+        num_samples=33,
         search_alg=HyperOptSearch(),
         scheduler=AsyncHyperBandScheduler(),
         storage_path=args.storage_path,

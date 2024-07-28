@@ -6,7 +6,7 @@ neg_sampling_ratio: 2.0
 num_neighbors:
   - 128
   - 16
-batch_size: 4
+batch_size: 128
 # Model
 gnn: "rggc"
 author_num_nodes: 65124
