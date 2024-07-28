@@ -86,6 +86,11 @@ def train_tune(
 if __name__ == "__main__":
     args = TuneLinkPredictionArgparse.parse_known_args()
 
+    try:
+        torch.set_float32_matmul_precision("medium")
+    except Exception as e:
+        logging.error(f"Unable to activate TensorCore:\n{e}")
+
     num_proc = (
         psutil.cpu_count(logical=False) if args.num_proc is None else args.num_proc
     ) - 2
