@@ -27,6 +27,12 @@ class TuneLinkPredictionArgparse:
             help="Path to the data root directory.",
         )
         parser.add_argument(
+            "--storage_path",
+            type=str,
+            required=True,
+            help="Path to the directory where the tuning logs are stored.",
+        )
+        parser.add_argument(
             "--lang_",
             type=str,
             default="all",

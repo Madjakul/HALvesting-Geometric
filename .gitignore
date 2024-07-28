@@ -161,13 +161,15 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
+# Logging and tuning directories
 tmp/
 logs/
 wandb
+lightning_logs/
+*.lock
 
 data/output_tei_xml
 data/responses
 data/raw*
 data/processed/
 
-lightning_logs/

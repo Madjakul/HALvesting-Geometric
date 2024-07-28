@@ -8,7 +8,7 @@ DATA_ROOT=$PROJECT_ROOT/data                        # Do not modify
 MAX_RUNS=1
 ROOT_DIR=$DATA_ROOT
 CONFIG_FILE=$PROJECT_ROOT/configs/train_sage_config.yml
-WANDB=false
+WANDB=true
 
 # --------------------------------------------------------------------------------------
 
@@ -21,6 +21,7 @@ LANG_="fr"
 for run in $(seq 1 $MAX_RUNS);
 do
     cmd=( python3 "$PROJECT_ROOT/link_prediction.py" \
+      --project_root "$PROJECT_ROOT" \
       --root_dir "$ROOT_DIR" \
       --config_file "$CONFIG_FILE" \
       --wandb "$WANDB" \

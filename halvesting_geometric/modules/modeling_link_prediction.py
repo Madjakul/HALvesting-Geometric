@@ -31,7 +31,7 @@ class LinkPrediction(L.LightningModule):
         self,
         gnn: Literal["sage", "gat", "rggc"],
         metadata: Metadata,
-        paper_num_nodes: int,
+        batch_size: int,
         author_num_nodes: int,
         institution_num_nodes: int,
         domain_num_nodes: int,
@@ -44,6 +44,7 @@ class LinkPrediction(L.LightningModule):
         # Training parameters
         self.lr = lr
         self.weight_decay = weight_decay
+        self.batch_size = batch_size
         # Validation parameters
         self.metric = BinaryAUROC()
         # Model parameters
@@ -96,6 +97,7 @@ class LinkPrediction(L.LightningModule):
             {"test_loss": float(loss), "test_roc_auc": float(roc_auc)},
             # on_epoch=True,
             prog_bar=True,
+            batch_size=self.batch_size,
         )
 
     def training_step(self, batch: HeteroData, batch_idx: int):
@@ -106,9 +108,9 @@ class LinkPrediction(L.LightningModule):
             "train_loss",
             float(loss),
             on_epoch=True,
-            on_step=True,
+            on_step=False,
             prog_bar=True,
-            batch_size=4,  # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            batch_size=self.batch_size,
         )
         return loss
 
@@ -122,5 +124,5 @@ class LinkPrediction(L.LightningModule):
             {"val_loss": float(loss), "val_roc_auc": float(roc_auc)},
             on_epoch=True,
             prog_bar=True,
-            batch_size=4,  # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            batch_size=self.batch_size,
         )

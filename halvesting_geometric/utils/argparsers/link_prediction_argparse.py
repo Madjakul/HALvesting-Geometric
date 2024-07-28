@@ -25,6 +25,12 @@ class LinkPredictionArgparse:
             help="Path to the configuration file.",
         )
         parser.add_argument(
+            "--project_root",
+            type=str,
+            required=True,
+            help="Path to the project root directory.",
+        )
+        parser.add_argument(
             "--root_dir",
             type=str,
             required=True,

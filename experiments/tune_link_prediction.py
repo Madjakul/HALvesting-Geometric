@@ -1,26 +1,50 @@
 # experiments/tune_link_prediction.py
 
 import logging
+import os
+import sys
 from functools import partial
 from typing import Any, Dict
 
 import lightning as L
 import psutil
+import ray
 import torch
 import torch_geometric.transforms as T
 from ray import tune
-from ray.tune.integration.pytorch_lightning import TuneReportCallback
+from ray.tune.integration.pytorch_lightning import TuneReportCheckpointCallback
 from ray.tune.schedulers import AsyncHyperBandScheduler
-from ray.tune.search.bayesopt import BayesOptSearch
-from torch_geometric.data import HeteroData
-from torch_geometric.loader import LinkNeighborLoader
+from ray.tune.search.hyperopt import HyperOptSearch
+from torch_geometric.typing import Metadata
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from halvesting_geometric.modules import LinkPrediction
 from halvesting_geometric.utils import logging_config
 from halvesting_geometric.utils.argparsers import TuneLinkPredictionArgparse
-from halvesting_geometric.utils.data import LinkPredictionDataset
+from halvesting_geometric.utils.data import LinkPredictionDataModule
 
 GNN = "sage"
+BATCH_SIZE = 128
+NUM_NEIGHBORS = [32, 16]
+METADATA = (
+    ["paper", "author", "affiliation", "domain"],
+    [
+        ("author", "writes", "paper"),
+        ("author", "affiliated_with", "affiliation"),
+        ("paper", "cites", "paper"),
+        ("paper", "has_topic", "domain"),
+        ("paper", "rev_writes", "author"),
+        ("affiliation", "rev_affiliated_with", "author"),
+        ("domain", "rev_has_topic", "paper"),
+    ],
+)
+NUM_NODES_MAP = {
+    "all": {"paper": 18662037, "author": 238397, "affiliation": 96105, "domain": 20},
+    "en": {"paper": 9395826, "author": 204804, "affiliation": 88867, "domain": 18},
+    "fr": {"paper": 10686070, "author": 65124, "affiliation": 21636, "domain": 16},
+}
 
 
 logging_config()
@@ -28,47 +52,24 @@ logging_config()
 
 def train_tune(
     config: Dict[str, Any],
+    dataset: LinkPredictionDataModule,
     gnn: str,
-    callback: TuneReportCallback,
-    data: HeteroData,
-    train_data: HeteroData,
-    val_data: HeteroData,
-    num_proc: int,
+    callback: TuneReportCheckpointCallback,
+    metadata: Metadata,
+    batch_size: int,
+    author_num_nodes: int,
+    institution_num_nodes: int,
+    domain_num_nodes: int,
     accelerator: str,
 ):
-    edge_label_index = train_data["author", "writes", "paper"].edge_label_index
-    edge_label = train_data["author", "writes", "paper"].edge_label
-    train_dataloader = LinkNeighborLoader(
-        data=train_data,
-        num_neighbors=config["num_neighbors"] * 2,
-        edge_label_index=(("author", "writes", "paper"), edge_label_index),
-        edge_label=edge_label,
-        batch_size=config["batch_size"],
-        shuffle=False,
-        num_workers=num_proc,
-        persistent_workers=True,
-    )
-    edge_label_index = val_data["author", "writes", "paper"].edge_label_index
-    edge_label = val_data["author", "writes", "paper"].edge_label
-    val_dataloader = LinkNeighborLoader(
-        data=val_data,
-        num_neighbors=config["num_neighbors"] * 2,
-        edge_label_index=(("author", "writes", "paper"), edge_label_index),
-        edge_label=edge_label,
-        batch_size=config["batch_size"],
-        shuffle=False,
-        num_workers=num_proc,
-        persistent_workers=True,
-    )
-
     logging.info("Creating model...")
     model = LinkPrediction(
         gnn=gnn,  # type: ignore
-        metadata=data.metadata(),
-        paper_num_nodes=data["paper"].num_nodes,
-        author_num_nodes=data["author"].num_nodes,
-        institution_num_nodes=data["affiliation"].num_nodes,
-        domain_num_nodes=data["domain"].num_nodes,
+        metadata=metadata,
+        batch_size=batch_size,
+        author_num_nodes=author_num_nodes,
+        institution_num_nodes=institution_num_nodes,
+        domain_num_nodes=domain_num_nodes,
         hidden_channels=config["hidden_channels"],
         dropout=config["dropout"],
         lr=config["lr"],
@@ -79,9 +80,7 @@ def train_tune(
     trainer = L.Trainer(
         accelerator=accelerator, devices=-1, max_epochs=10, callbacks=[callback]
     )
-    trainer.fit(
-        model=model, train_dataloaders=train_dataloader, val_dataloaders=val_dataloader
-    )
+    trainer.fit(model=model, datamodule=dataset)
 
 
 if __name__ == "__main__":
@@ -89,7 +88,7 @@ if __name__ == "__main__":
 
     num_proc = (
         psutil.cpu_count(logical=False) if args.num_proc is None else args.num_proc
-    )
+    ) - 2
     logging.info(f"Number of processes: {num_proc}.")
 
     if args.accelerator is None:
@@ -101,49 +100,53 @@ if __name__ == "__main__":
         accelerator = args.accelerator
     logging.info(f"Accelerator: {accelerator}.")
 
-    dataset = LinkPredictionDataset(args.root_dir, lang=args.lang_)
-    data = dataset[0]
-    data = T.ToUndirected()(data)
-
-    logging.info("Creating train, validation, and test datasets...")
-    transform = T.RandomLinkSplit(
-        num_val=0.3,
-        num_test=0,
+    dataset = LinkPredictionDataModule(
+        data_dir=args.root_dir,
+        batch_size=BATCH_SIZE,
+        num_neighbors=NUM_NEIGHBORS,
+        lang=args.lang_,
         neg_sampling_ratio=2.0,
+        num_proc=num_proc,
+        num_val=0.3,
+        num_test=0.0,
         add_negative_train_samples=True,
-        edge_types=("author", "writes", "paper"),
-        rev_edge_types=("paper", "rev_writes", "author"),
+        shuffle_train=False,
+        shuffle_val=False,
+        persistent_workers=False,
     )
-    train_data, val_data, test_data = transform(data)
-    callback = TuneReportCallback(
+
+    callback = TuneReportCheckpointCallback(
         {"loss": "val_loss", "roc_auc": "val_roc_auc"}, on="validation_end"
     )
 
     config = {
-        "num_neighbors": tune.choice([16, 32, 64, 128]),
-        "batch_size": tune.choice([32, 64, 128, 256]),
         "hidden_channels": tune.choice([16, 32, 64, 128]),
         "dropout": tune.uniform(0.1, 0.5),
-        "lr": tune.loguniform(1e-4, 1e-2),
-        "weight_decay": tune.loguniform(1e-4, 0.0),
+        "lr": tune.choice([1e-4, 5e-4, 1e-3, 5e-3, 1e-2]),
+        "weight_decay": tune.loguniform(1e-7, 1e-4),
     }
+    ray.init(_temp_dir=f"{args.storage_path}/tmp")
     tune.run(
         partial(
             train_tune,
             gnn=GNN,
             callback=callback,
-            data=data,
-            train_data=train_data,
-            val_data=val_data,
-            num_proc=num_proc,
+            dataset=dataset,
             accelerator=accelerator,
+            metadata=METADATA,
+            batch_size=BATCH_SIZE,
+            author_num_nodes=NUM_NODES_MAP[args.lang_]["author"],
+            institution_num_nodes=NUM_NODES_MAP[args.lang_]["affiliation"],
+            domain_num_nodes=NUM_NODES_MAP[args.lang_]["domain"],
         ),
         metric="roc_auc",
         mode="max",
         name=f"Tune Link Prediction {GNN}",
         resources_per_trial={"cpu": num_proc, "gpu": 1},
         num_samples=10,
-        search_alg=BayesOptSearch(),
+        search_alg=HyperOptSearch(),
         scheduler=AsyncHyperBandScheduler(),
+        storage_path=args.storage_path,
         config=config,
+        max_concurrent_trials=1,
     )

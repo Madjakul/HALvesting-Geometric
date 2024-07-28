@@ -5,11 +5,12 @@ DATA_ROOT=$PROJECT_ROOT/data                        # Do not modify
 
 # ************************** Customizable Arguments ************************************
 
+STORAGE_PATH=$PROJECT_ROOT
 ROOT_DIR=$DATA_ROOT
 
 # --------------------------------------------------------------------------------------
 
-LANG_="en"
+LANG_="fr"
 # NUM_PROC=4
 # ACCELERATOR="cpu"
 
@@ -17,6 +18,7 @@ LANG_="en"
 
 
 cmd=( python3 "$PROJECT_ROOT/experiments/tune_link_prediction.py" \
+    --storage_path "$STORAGE_PATH" \
     --root_dir "$ROOT_DIR" )
 
 if [[ -v LANG_ ]]; then

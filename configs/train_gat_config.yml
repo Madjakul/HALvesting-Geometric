@@ -9,6 +9,9 @@ num_neighbors:
 batch_size: 4
 # Model
 gnn: "gat"
+author_num_nodes: 65124
+affiliation_num_nodes: 21636
+domain_num_nodes: 16
 hidden_channels: 64
 dropout: 0.5
 weight_decay: 0.0005
