@@ -8,9 +8,8 @@ import torch_geometric.transforms as T
 from filelock import FileLock
 from torch_geometric.loader import LinkNeighborLoader
 
-from halvesting_geometric.utils.data.link_prediction_dataset import (
-    LinkPredictionDataset,
-)
+from halvesting_geometric.utils.data.link_prediction_dataset import \
+    LinkPredictionDataset
 
 
 class LinkPredictionDataModule(L.LightningDataModule):
