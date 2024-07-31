@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Link Prediction Model &#8212; HALvesting Geometric: Harvesting Citation Networks from HAL.  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=59943e95" />
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/petite-vue.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Link Classifier" href="link_classifier.html" />
+    <link rel="prev" title="HALvesting-Geometric: Harvests citation networks from HAL (Hyper Articles en Ligne)." href="../../index.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../index.html" title="Go to homepage">HALvesting Geometric</a></h1>
+            <a id="source_link" href="https://github.com/Madjakul/HALph">
+    
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+            <path fill="white" d="M 244.8,8 C 106.1,8 0,113.3 0,252 c 0,110.9 69.8,205.8 169.5,239.2 12.8,2.3 17.3,-5.6 17.3,-12.1 0,-6.2 -0.3,-40.4 -0.3,-61.4 0,0 -70,15 -84.7,-29.8 0,0 -11.4,-29.1 -27.8,-36.6 0,0 -22.9,-15.7 1.6,-15.4 0,0 24.9,2 38.6,25.8 21.9,38.6 58.6,27.5 72.9,20.9 2.3,-16 8.8,-27.1 16,-33.7 -55.9,-6.2 -112.3,-14.3 -112.3,-110.5 0,-27.5 7.6,-41.3 23.6,-58.9 -2.6,-6.5 -11.1,-33.3 2.6,-67.9 20.9,-6.5 69,27 69,27 20,-5.6 41.5,-8.5 62.8,-8.5 21.3,0 42.8,2.9 62.8,8.5 0,0 48.1,-33.6 69,-27 13.7,34.7 5.2,61.4 2.6,67.9 16,17.7 25.8,31.5 25.8,58.9 0,96.5 -58.9,104.2 -114.8,110.5 9.2,7.9 17,22.9 17,46.4 0,33.7 -0.3,75.4 -0.3,83.6 0,6.5 4.6,14.4 17.3,12.1 C 428.2,457.8 496,362.9 496,252 496,113.3 383.5,8 244.8,8 Z"/>
+        </svg>
+    
+</a>
+        
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Link Prediction Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_classifier.html">Link Classifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sage.html">GraphSage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rggc.html">Residual Gated Graph Convolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gat.html">Graph Attention Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/data/link_prediction_datamodule.html">LinkPredictionDataModule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/data/link_prediction_metadata.html">LinkPredictionMetadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/helpers.html">Helpers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-halvesting_geometric.modules.modeling_link_prediction">
+<span id="link-prediction-model"></span><h1>Link Prediction Model<a class="headerlink" href="#module-halvesting_geometric.modules.modeling_link_prediction" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">halvesting_geometric.modules.modeling_link_prediction.</span></span><span class="sig-name descname"><span class="pre">LinkPrediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gnn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'sage'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'gat'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'rggc'</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">author_num_nodes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">institution_num_nodes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain_num_nodes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_channels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_decay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/halvesting_geometric/modules/modeling_link_prediction.html#LinkPrediction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction" title="Link to this definition">¶</a></dt>
+<dd><p>Link prediction model for heterogeneous graphs. The model consists of a GNN that
+embeds the nodes of the graph and a link classifier that predicts the existence of
+edges between nodes. The model is trained using binary cross-entropy loss.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gnn</strong> (<em>Literal</em><em>[</em><em>&quot;sage&quot;</em><em>, </em><em>&quot;gat&quot;</em><em>, </em><em>&quot;rggc&quot;</em><em>]</em>) – Type of GNN to use.</p></li>
+<li><p><strong>metadata</strong> (<em>Metadata</em>) – Metadata of the graph.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em>) – Number of samples in a batch.</p></li>
+<li><p><strong>author_num_nodes</strong> (<em>int</em>) – Number of author nodes.</p></li>
+<li><p><strong>institution_num_nodes</strong> (<em>int</em>) – Number of institution nodes.</p></li>
+<li><p><strong>domain_num_nodes</strong> (<em>int</em>) – Number of domain nodes.</p></li>
+<li><p><strong>hidden_channels</strong> (<em>int</em>) – Number of hidden channels in the GNN.</p></li>
+<li><p><strong>dropout</strong> (<em>float</em>) – Dropout probability.</p></li>
+<li><p><strong>lr</strong> (<em>float</em>) – Learning rate.</p></li>
+<li><p><strong>weight_decay</strong> (<em>float</em>) – Weight decay.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.lr">
+<span class="sig-name descname"><span class="pre">lr</span></span><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.lr" title="Link to this definition">¶</a></dt>
+<dd><p>Learning rate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.weight_decay">
+<span class="sig-name descname"><span class="pre">weight_decay</span></span><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.weight_decay" title="Link to this definition">¶</a></dt>
+<dd><p>Weight decay.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.batch_size">
+<span class="sig-name descname"><span class="pre">batch_size</span></span><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.batch_size" title="Link to this definition">¶</a></dt>
+<dd><p>Number of samples in a batch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.metric">
+<span class="sig-name descname"><span class="pre">metric</span></span><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.metric" title="Link to this definition">¶</a></dt>
+<dd><p>Metric for validation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>BinaryAUROC</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.paper_embedding">
+<span class="sig-name descname"><span class="pre">paper_embedding</span></span><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.paper_embedding" title="Link to this definition">¶</a></dt>
+<dd><p>Embedding layer for paper nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nn.Embedding</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.author_embedding">
+<span class="sig-name descname"><span class="pre">author_embedding</span></span><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.author_embedding" title="Link to this definition">¶</a></dt>
+<dd><p>Embedding layer for author nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nn.Embedding</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.domain_embedding">
+<span class="sig-name descname"><span class="pre">domain_embedding</span></span><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.domain_embedding" title="Link to this definition">¶</a></dt>
+<dd><p>Embedding layer for domain nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nn.Embedding</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.institution_embedding">
+<span class="sig-name descname"><span class="pre">institution_embedding</span></span><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.institution_embedding" title="Link to this definition">¶</a></dt>
+<dd><p>Embedding layer for institution nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nn.Embedding</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.gnn">
+<span class="sig-name descname"><span class="pre">gnn</span></span><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.gnn" title="Link to this definition">¶</a></dt>
+<dd><p>GNN model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="sage.html#halvesting_geometric.modules.sage.GraphSage" title="halvesting_geometric.modules.sage.GraphSage">GraphSage</a>, <a class="reference internal" href="gat.html#halvesting_geometric.modules.gat.GAT" title="halvesting_geometric.modules.gat.GAT">GAT</a>, <a class="reference internal" href="rggc.html#halvesting_geometric.modules.rggc.RGGC" title="halvesting_geometric.modules.rggc.RGGC">RGGC</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.classifier">
+<span class="sig-name descname"><span class="pre">classifier</span></span><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.classifier" title="Link to this definition">¶</a></dt>
+<dd><p>Link classifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="link_classifier.html#halvesting_geometric.modules.link_classifier.LinkClassifier" title="halvesting_geometric.modules.link_classifier.LinkClassifier">LinkClassifier</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.gnn_map">
+<span class="sig-name descname"><span class="pre">gnn_map</span></span><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.gnn_map" title="Link to this definition">¶</a></dt>
+<dd><p>Mapping from GNN types to classes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">torch_geometric.typing</span> <span class="kn">import</span> <span class="n">Metadata</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="n">Metadata</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">LinkPrediction</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">gnn</span><span class="o">=</span><span class="s2">&quot;sage&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">author_num_nodes</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">institution_num_nodes</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">domain_num_nodes</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">hidden_channels</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">dropout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.configure_optimizers">
+<span class="sig-name descname"><span class="pre">configure_optimizers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/halvesting_geometric/modules/modeling_link_prediction.html#LinkPrediction.configure_optimizers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.configure_optimizers" title="Link to this definition">¶</a></dt>
+<dd><p>Choose what optimizers and learning-rate schedulers to use in your optimization. Normally you’d need one.
+But in the case of GANs or similar you might have multiple. Optimization with multiple optimizers only works in
+the manual optimization mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>Any of these 6 options.</p>
+<ul class="simple">
+<li><p><strong>Single optimizer</strong>.</p></li>
+<li><p><strong>List or Tuple</strong> of optimizers.</p></li>
+<li><p><strong>Two lists</strong> - The first list has multiple optimizers, and the second has multiple LR schedulers
+(or multiple <code class="docutils literal notranslate"><span class="pre">lr_scheduler_config</span></code>).</p></li>
+<li><p><strong>Dictionary</strong>, with an <code class="docutils literal notranslate"><span class="pre">&quot;optimizer&quot;</span></code> key, and (optionally) a <code class="docutils literal notranslate"><span class="pre">&quot;lr_scheduler&quot;</span></code>
+key whose value is a single LR scheduler or <code class="docutils literal notranslate"><span class="pre">lr_scheduler_config</span></code>.</p></li>
+<li><p><strong>None</strong> - Fit will run without any optimizer.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p>The <code class="docutils literal notranslate"><span class="pre">lr_scheduler_config</span></code> is a dictionary which contains the scheduler and its associated configuration.
+The default configuration is shown below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lr_scheduler_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># REQUIRED: The scheduler instance</span>
+    <span class="s2">&quot;scheduler&quot;</span><span class="p">:</span> <span class="n">lr_scheduler</span><span class="p">,</span>
+    <span class="c1"># The unit of the scheduler&#39;s step size, could also be &#39;step&#39;.</span>
+    <span class="c1"># &#39;epoch&#39; updates the scheduler on epoch end whereas &#39;step&#39;</span>
+    <span class="c1"># updates it after a optimizer update.</span>
+    <span class="s2">&quot;interval&quot;</span><span class="p">:</span> <span class="s2">&quot;epoch&quot;</span><span class="p">,</span>
+    <span class="c1"># How many epochs/steps should pass between calls to</span>
+    <span class="c1"># `scheduler.step()`. 1 corresponds to updating the learning</span>
+    <span class="c1"># rate after every epoch/step.</span>
+    <span class="s2">&quot;frequency&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="c1"># Metric to to monitor for schedulers like `ReduceLROnPlateau`</span>
+    <span class="s2">&quot;monitor&quot;</span><span class="p">:</span> <span class="s2">&quot;val_loss&quot;</span><span class="p">,</span>
+    <span class="c1"># If set to `True`, will enforce that the value specified &#39;monitor&#39;</span>
+    <span class="c1"># is available when the scheduler is updated, thus stopping</span>
+    <span class="c1"># training if not found. If set to `False`, it will only produce a warning</span>
+    <span class="s2">&quot;strict&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="c1"># If using the `LearningRateMonitor` callback to monitor the</span>
+    <span class="c1"># learning rate progress, this keyword can be used to specify</span>
+    <span class="c1"># a custom logged name</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When there are schedulers in which the <code class="docutils literal notranslate"><span class="pre">.step()</span></code> method is conditioned on a value, such as the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">torch.optim.lr_scheduler.ReduceLROnPlateau</span></code> scheduler, Lightning requires that the
+<code class="docutils literal notranslate"><span class="pre">lr_scheduler_config</span></code> contains the keyword <code class="docutils literal notranslate"><span class="pre">&quot;monitor&quot;</span></code> set to the metric name that the scheduler
+should be conditioned on.</p>
+<p>Metrics can be made available to monitor by simply logging it using
+<code class="docutils literal notranslate"><span class="pre">self.log('metric_to_track',</span> <span class="pre">metric_val)</span></code> in your <code class="xref py py-class docutils literal notranslate"><span class="pre">LightningModule</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some things to know:</p>
+<ul class="simple">
+<li><p>Lightning calls <code class="docutils literal notranslate"><span class="pre">.backward()</span></code> and <code class="docutils literal notranslate"><span class="pre">.step()</span></code> automatically in case of automatic optimization.</p></li>
+<li><p>If a learning rate scheduler is specified in <code class="docutils literal notranslate"><span class="pre">configure_optimizers()</span></code> with key
+<code class="docutils literal notranslate"><span class="pre">&quot;interval&quot;</span></code> (default “epoch”) in the scheduler configuration, Lightning will call
+the scheduler’s <code class="docutils literal notranslate"><span class="pre">.step()</span></code> method automatically in case of automatic optimization.</p></li>
+<li><p>If you use 16-bit precision (<code class="docutils literal notranslate"><span class="pre">precision=16</span></code>), Lightning will automatically handle the optimizer.</p></li>
+<li><p>If you use <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.optim.LBFGS</span></code>, Lightning handles the closure function automatically for you.</p></li>
+<li><p>If you use multiple optimizers, you will have to switch to ‘manual optimization’ mode and step them
+yourself.</p></li>
+<li><p>If you need to control how often the optimizer steps, override the <code class="xref py py-meth docutils literal notranslate"><span class="pre">optimizer_step()</span></code> hook.</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HeteroData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/halvesting_geometric/modules/modeling_link_prediction.html#LinkPrediction.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.forward" title="Link to this definition">¶</a></dt>
+<dd><p>Same as <code class="xref py py-meth docutils literal notranslate"><span class="pre">torch.nn.Module.forward()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> – Whatever you decide to pass into the forward method.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments are also possible.</p></li>
+<li><p><strong>batch</strong> (<em>HeteroData</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Your model’s output</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.test_step">
+<span class="sig-name descname"><span class="pre">test_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HeteroData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/halvesting_geometric/modules/modeling_link_prediction.html#LinkPrediction.test_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.test_step" title="Link to this definition">¶</a></dt>
+<dd><p>Operates on a single batch of data from the test set. In this step you’d normally generate examples or
+calculate anything of interest such as accuracy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>batch</strong> (<em>HeteroData</em>) – The output of your data iterable, normally a <code class="xref py py-class docutils literal notranslate"><span class="pre">DataLoader</span></code>.</p></li>
+<li><p><strong>batch_idx</strong> (<em>int</em>) – The index of this batch.</p></li>
+<li><p><strong>dataloader_idx</strong> – The index of the dataloader that produced this batch.
+(only if multiple dataloaders used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code> - The loss tensor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code> - A dictionary. Can include any keys, but must include the key <code class="docutils literal notranslate"><span class="pre">'loss'</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> - Skip to the next batch.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># if you have one test dataloader:</span>
+<span class="k">def</span> <span class="nf">test_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">):</span> <span class="o">...</span>
+
+
+<span class="c1"># if you have multiple test dataloaders:</span>
+<span class="k">def</span> <span class="nf">test_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># CASE 1: A single test dataset</span>
+<span class="k">def</span> <span class="nf">test_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">batch</span>
+
+    <span class="c1"># implement your own</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="c1"># log 6 example images</span>
+    <span class="c1"># or generated text... or whatever</span>
+    <span class="n">sample_imgs</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">make_grid</span><span class="p">(</span><span class="n">sample_imgs</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="s1">&#39;example_images&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># calculate acc</span>
+    <span class="n">labels_hat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">test_acc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="n">labels_hat</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="c1"># log the outputs!</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">log_dict</span><span class="p">({</span><span class="s1">&#39;test_loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;test_acc&#39;</span><span class="p">:</span> <span class="n">test_acc</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>If you pass in multiple test dataloaders, <a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.test_step" title="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.test_step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">test_step()</span></code></a> will have an additional argument. We recommend
+setting the default value of 0 so that you can quickly switch between single and multiple dataloaders.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># CASE 2: multiple test dataloaders</span>
+<span class="k">def</span> <span class="nf">test_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="c1"># dataloader_idx tells you which dataset this is.</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you don’t need to test you don’t need to implement this method.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When the <a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.test_step" title="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.test_step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">test_step()</span></code></a> is called, the model has been put in eval mode and
+PyTorch gradients have been disabled. At the end of the test epoch, the model goes back
+to training mode and gradients are enabled.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.training_step">
+<span class="sig-name descname"><span class="pre">training_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HeteroData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/halvesting_geometric/modules/modeling_link_prediction.html#LinkPrediction.training_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.training_step" title="Link to this definition">¶</a></dt>
+<dd><p>Here you compute and return the training loss and some additional metrics for e.g. the progress bar or
+logger.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>batch</strong> (<em>HeteroData</em>) – The output of your data iterable, normally a <code class="xref py py-class docutils literal notranslate"><span class="pre">DataLoader</span></code>.</p></li>
+<li><p><strong>batch_idx</strong> (<em>int</em>) – The index of this batch.</p></li>
+<li><p><strong>dataloader_idx</strong> – The index of the dataloader that produced this batch.
+(only if multiple dataloaders used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code> - The loss tensor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code> - A dictionary which can include any keys, but must include the key <code class="docutils literal notranslate"><span class="pre">'loss'</span></code> in the case of
+automatic optimization.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> - In automatic optimization, this will skip to the next batch (but is not supported for
+multi-GPU, TPU, or DeepSpeed). For manual optimization, this has no special meaning, as returning
+the loss is not required.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p>In this step you’d normally do the forward pass and calculate the loss for a batch.
+You can also do fancier things like multiple forward passes or something model specific.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">training_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">batch</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">loss</span>
+</pre></div>
+</div>
+<p>To use multiple optimizers, you can switch to ‘manual optimization’ and control their stepping:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">automatic_optimization</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="c1"># Multiple optimizers (e.g.: GANs)</span>
+<span class="k">def</span> <span class="nf">training_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">):</span>
+    <span class="n">opt1</span><span class="p">,</span> <span class="n">opt2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">optimizers</span><span class="p">()</span>
+
+    <span class="c1"># do training_step with encoder</span>
+    <span class="o">...</span>
+    <span class="n">opt1</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="c1"># do training_step with decoder</span>
+    <span class="o">...</span>
+    <span class="n">opt2</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">accumulate_grad_batches</span></code> &gt; 1, the loss returned here will be automatically
+normalized by <code class="docutils literal notranslate"><span class="pre">accumulate_grad_batches</span></code> internally.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.validation_step">
+<span class="sig-name descname"><span class="pre">validation_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HeteroData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/halvesting_geometric/modules/modeling_link_prediction.html#LinkPrediction.validation_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.validation_step" title="Link to this definition">¶</a></dt>
+<dd><p>Operates on a single batch of data from the validation set. In this step you’d might generate examples or
+calculate anything of interest like accuracy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>batch</strong> (<em>HeteroData</em>) – The output of your data iterable, normally a <code class="xref py py-class docutils literal notranslate"><span class="pre">DataLoader</span></code>.</p></li>
+<li><p><strong>batch_idx</strong> (<em>int</em>) – The index of this batch.</p></li>
+<li><p><strong>dataloader_idx</strong> – The index of the dataloader that produced this batch.
+(only if multiple dataloaders used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code> - The loss tensor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code> - A dictionary. Can include any keys, but must include the key <code class="docutils literal notranslate"><span class="pre">'loss'</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> - Skip to the next batch.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># if you have one val dataloader:</span>
+<span class="k">def</span> <span class="nf">validation_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">):</span> <span class="o">...</span>
+
+
+<span class="c1"># if you have multiple val dataloaders:</span>
+<span class="k">def</span> <span class="nf">validation_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># CASE 1: A single validation dataset</span>
+<span class="k">def</span> <span class="nf">validation_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">batch</span>
+
+    <span class="c1"># implement your own</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="c1"># log 6 example images</span>
+    <span class="c1"># or generated text... or whatever</span>
+    <span class="n">sample_imgs</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">make_grid</span><span class="p">(</span><span class="n">sample_imgs</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="s1">&#39;example_images&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># calculate acc</span>
+    <span class="n">labels_hat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">val_acc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="n">labels_hat</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="c1"># log the outputs!</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">log_dict</span><span class="p">({</span><span class="s1">&#39;val_loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;val_acc&#39;</span><span class="p">:</span> <span class="n">val_acc</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>If you pass in multiple val dataloaders, <a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.validation_step" title="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.validation_step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">validation_step()</span></code></a> will have an additional argument. We recommend
+setting the default value of 0 so that you can quickly switch between single and multiple dataloaders.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># CASE 2: multiple validation dataloaders</span>
+<span class="k">def</span> <span class="nf">validation_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="c1"># dataloader_idx tells you which dataset this is.</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you don’t need to validate you don’t need to implement this method.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When the <a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.validation_step" title="halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.validation_step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">validation_step()</span></code></a> is called, the model has been put in eval mode
+and PyTorch gradients have been disabled. At the end of validation,
+the model goes back to training mode and gradients are enabled.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Link Prediction Model</a><ul>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction"><code class="docutils literal notranslate"><span class="pre">LinkPrediction</span></code></a><ul>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.lr"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.lr</span></code></a></li>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.weight_decay"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.weight_decay</span></code></a></li>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.batch_size"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.batch_size</span></code></a></li>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.metric"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.metric</span></code></a></li>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.paper_embedding"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.paper_embedding</span></code></a></li>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.author_embedding"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.author_embedding</span></code></a></li>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.domain_embedding"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.domain_embedding</span></code></a></li>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.institution_embedding"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.institution_embedding</span></code></a></li>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.gnn"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.gnn</span></code></a></li>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.classifier"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.classifier</span></code></a></li>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.gnn_map"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.gnn_map</span></code></a></li>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.configure_optimizers"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.configure_optimizers()</span></code></a></li>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.forward"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.forward()</span></code></a></li>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.test_step"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.test_step()</span></code></a></li>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.training_step"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.training_step()</span></code></a></li>
+<li><a class="reference internal" href="#halvesting_geometric.modules.modeling_link_prediction.LinkPrediction.validation_step"><code class="docutils literal notranslate"><span class="pre">LinkPrediction.validation_step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="../../index.html">
+                    <span class="icon">&lt;</span><span>HALvesting-Geometric: Harvests citation networks from HAL (Hyper Articles en Ligne).</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="link_classifier.html"><span>Link Classifier</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Madjakul.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>
