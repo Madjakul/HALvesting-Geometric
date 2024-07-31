@@ -1,0 +1,20 @@
+# Data split
+num_val: 0.1
+num_test: 0.1
+neg_sampling_ratio: 2.0
+# Data loader
+num_neighbors:
+  - 128
+  - 16
+batch_size: 128
+# Model
+gnn: "gat"
+author_num_nodes: 65124
+affiliation_num_nodes: 21636
+domain_num_nodes: 16
+hidden_channels: 64
+dropout: 0.5
+weight_decay: 0.0005
+lr: 0.005
+# Training
+max_epochs: 10

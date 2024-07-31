@@ -1,0 +1,4 @@
+black==24.4.2
+docformatter==1.7.5
+isort==5.13.2
+pytest==8.2.2

@@ -1,0 +1,23 @@
+bayesian-optimization==1.5.1
+dask[complete]
+datasets==2.20.0
+huggingface-hub==0.23.4
+huggingface_hub[cli]
+hyperopt==0.2.7
+lightning==2.3.3
+lxml==5.2.2
+numpy==1.26.4
+pandas==2.2.2
+psutil==6.0.0
+ray[tune]
+torch==2.3.1
+torcheval==0.0.7
+torch_geometric==2.5.3
+tqdm==4.66.4
+transformers==4.42.3
+wandb==0.17.3
+-f https://data.pyg.org/whl/torch-2.3.0+cu121.html
+torch_cluster
+torch_scatter
+torch_sparse
+torch_spline_conv
