@@ -18,11 +18,74 @@ from halvesting_geometric.modules.sage import GraphSage
 
 
 class LinkPrediction(L.LightningModule):
-    """Link prediction model. This model predicts whether an author has written
-    a paper.
+    """Link prediction model for heterogeneous graphs. The model consists of a GNN that
+    embeds the nodes of the graph and a link classifier that predicts the existence of
+    edges between nodes. The model is trained using binary cross-entropy loss.
 
     Parameters
     ----------
+    gnn : Literal["sage", "gat", "rggc"]
+        Type of GNN to use.
+    metadata : Metadata
+        Metadata of the graph.
+    batch_size : int
+        Number of samples in a batch.
+    author_num_nodes : int
+        Number of author nodes.
+    institution_num_nodes : int
+        Number of institution nodes.
+    domain_num_nodes : int
+        Number of domain nodes.
+    hidden_channels : int
+        Number of hidden channels in the GNN.
+    dropout : float
+        Dropout probability.
+    lr : float
+        Learning rate.
+    weight_decay : float
+        Weight decay.
+
+    Attributes
+    ----------
+    lr : float
+        Learning rate.
+    weight_decay : float
+        Weight decay.
+    batch_size : int
+        Number of samples in a batch.
+    metric : BinaryAUROC
+        Metric for validation.
+    paper_embedding : nn.Embedding
+        Embedding layer for paper nodes.
+    author_embedding : nn.Embedding
+        Embedding layer for author nodes.
+    domain_embedding : nn.Embedding
+        Embedding layer for domain nodes.
+    institution_embedding : nn.Embedding
+        Embedding layer for institution nodes.
+    gnn : Union[GraphSage, GAT, RGGC]
+        GNN model.
+    classifier : LinkClassifier
+        Link classifier.
+    gnn_map : dict
+        Mapping from GNN types to classes.
+
+    Examples
+    --------
+    >>> from torch_geometric.typing import Metadata
+    >>> metadata = Metadata()
+    >>> model = LinkPrediction(
+    ...     gnn="sage",
+    ...     metadata=metadata,
+    ...     batch_size=64,
+    ...     author_num_nodes=1000,
+    ...     institution_num_nodes=100,
+    ...     domain_num_nodes=10,
+    ...     hidden_channels=64,
+    ...     dropout=0.5,
+    ...     lr=0.01,
+    ...     weight_decay=0.001,
+    ... )
     """
 
     gnn_map = {"sage": GraphSage, "gat": GAT, "rggc": RGGC}

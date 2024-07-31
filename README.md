@@ -1,6 +1,6 @@
 # HALvesting Geometric
 
-[![arXiv](https://img.shields.io/badge/arXiv-2309.08351-b31b1b.svg)](https://arxiv.org/abs/2309.08351)
+[![arXiv](https://img.shields.io/badge/arXiv-2309.08351-b31b1b.svg)](https://arxiv.org/abs/2407.20595)
 [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Data-yellow)](https://huggingface.co/datasets/Madjakul/HALvest-Geometric)
 
 Harvests citation networks from HAL.
@@ -14,7 +14,7 @@ HALvesting Geometric is a Python project designed to crawl data from the [HAL (H
 ## Features
 
 * [**build_metadata.py**](build_metadata.py): given languages and years, build a raw citation network.
-* [**link_prediction**](link_prediction.py): train a link prediction model on a random split fo the data and evaluate the said model on another split.
+* [**link_prediction**](link_prediction.py): train a link prediction model on a random split of the data and evaluate the said model on another split.
 
 
 ## Requirements
@@ -85,7 +85,8 @@ options:
 Train a link prediction model on author <-> paper pairs and evaluate it.
 
 ```
-usage: link_prediction.py [-h] --config_file CONFIG_FILE --root_dir ROOT_DIR [--lang_ LANG_] [--accelerator ACCELERATOR] [--wandb WANDB] [--num_proc NUM_PROC] --run RUN
+usage: link_prediction.py [-h] --config_file CONFIG_FILE --project_root PROJECT_ROOT --root_dir ROOT_DIR [--lang_ LANG_] [--accelerator ACCELERATOR] [--wandb WANDB]
+                          [--num_proc NUM_PROC] --run RUN
 
 Arguments for link prediction.
 
@@ -93,6 +94,8 @@ options:
   -h, --help            show this help message and exit
   --config_file CONFIG_FILE
                         Path to the configuration file.
+  --project_root PROJECT_ROOT
+                        Path to the project root directory.
   --root_dir ROOT_DIR   Path to the data root directory.
   --lang_ LANG_         Language to use for the dataset.
   --accelerator ACCELERATOR
@@ -100,6 +103,7 @@ options:
   --wandb WANDB         Enable Weights and Biases logging.
   --num_proc NUM_PROC   Number of processes to use.
   --run RUN             Index of the run. Only used during experiments to log the run.
+
 ```
 
 
@@ -108,13 +112,14 @@ options:
 To cite HALvesting/HALvest:
 
 ```bib
-@software{almanach_halvest_2024,
-  author = {Kulumba, Francis and Antoun, Wissam and Vimont, Guillaume and Romary, Laurent},
-  title = {HALvest: Open Scientific Papers Harvested from HAL.},
-  month = April,
-  year = 2024,
-  company = Almanach,
-  url = {https://github.com/Madjakul/HALvesting}
+@misc{kulumba2024harvestingtextualstructureddata,
+      title={Harvesting Textual and Structured Data from the HAL Publication Repository}, 
+      author={Francis Kulumba and Wissam Antoun and Guillaume Vimont and Laurent Romary},
+      year={2024},
+      eprint={2407.20595},
+      archivePrefix={arXiv},
+      primaryClass={cs.DL},
+      url={https://arxiv.org/abs/2407.20595}, 
 }
 ```
 

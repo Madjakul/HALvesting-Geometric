@@ -5,8 +5,7 @@ from typing import Callable, List, Optional
 
 import numpy as np
 import torch
-from torch_geometric.data import (HeteroData, InMemoryDataset, download_url,
-                                  extract_zip)
+from torch_geometric.data import HeteroData, InMemoryDataset, download_url, extract_zip
 from torch_geometric.utils import coalesce
 
 
@@ -80,6 +79,7 @@ class LinkPredictionDataset(InMemoryDataset):
     urls = {
         "en": "https://huggingface.co/datasets/Madjakul/HALvest-Geometric/resolve/main/raw-en.zip",
         "fr": "https://huggingface.co/datasets/Madjakul/HALvest-Geometric/resolve/main/raw-fr.zip",
+        "abl": "https://huggingface.co/datasets/Madjakul/HALvest-Geometric/resolve/main/raw-abl.zip",
         "all": "https://huggingface.co/datasets/Madjakul/HALvest-Geometric/resolve/main/raw.zip",
     }
 
@@ -97,7 +97,7 @@ class LinkPredictionDataset(InMemoryDataset):
         if lang is None:
             self.url = self.urls["all"]
         else:
-            assert lang in ["en", "fr", "all"]
+            assert lang in ["en", "fr", "all", "abl"]
             self.url = self.urls[lang]
         preprocess = None if preprocess is None else preprocess.lower()
         self.preprocess = preprocess
@@ -225,21 +225,22 @@ class LinkPredictionDataset(InMemoryDataset):
         data["author", "affiliated_with", "affiliation"].edge_index = df
 
         # Get paper <-> paper edges
-        path = osp.join(edge_dir_path, "paper__cites__paper.csv")
-        df = pd.read_csv(
-            path,
-            sep="\t",
-            dtype={"paper_idx": "Int64", "c_paper_idx": "Int64"},
-            chunksize=1000000,
-        )
-        values = np.empty((0, 2), dtype=np.int64)
-        for chunk in df:
-            values = np.vstack([values, chunk.values])
-        df = torch.from_numpy(values.astype(np.int64))
-        df = df.t().contiguous()
-        M, N = int(df[0].max() + 1), int(df[1].max() + 1)
-        df = coalesce(df, num_nodes=max(M, N))
-        data["paper", "cites", "paper"].edge_index = df
+        if self.lang != "abl":
+            path = osp.join(edge_dir_path, "paper__cites__paper.csv")
+            df = pd.read_csv(
+                path,
+                sep="\t",
+                dtype={"paper_idx": "Int64", "c_paper_idx": "Int64"},
+                chunksize=1000000,
+            )
+            values = np.empty((0, 2), dtype=np.int64)
+            for chunk in df:
+                values = np.vstack([values, chunk.values])
+            df = torch.from_numpy(values.astype(np.int64))
+            df = df.t().contiguous()
+            M, N = int(df[0].max() + 1), int(df[1].max() + 1)
+            df = coalesce(df, num_nodes=max(M, N))
+            data["paper", "cites", "paper"].edge_index = df
 
         # Get paper <-> domain edges
         path = osp.join(edge_dir_path, "paper__has_topic__domain.csv")

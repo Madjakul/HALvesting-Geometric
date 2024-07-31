@@ -8,9 +8,9 @@ DATA_ROOT=$PROJECT_ROOT/data                        # Do not modify
 ROOT_DIR=$DATA_ROOT
 JSON_DIR=$DATA_ROOT/responses
 XML_DIR=$DATA_ROOT/output_tei_xml
-RAW_DIR="$DATA_ROOT/raw"
-COMPUTE_NODES=true
-COMPUTE_EDGES=false
+RAW_DIR="$DATA_ROOT/raw-abl"
+COMPUTE_NODES=false
+COMPUTE_EDGES=true
 
 # --------------------------------------------------------------------------------------
 

@@ -52,7 +52,7 @@ html_theme_options = {
     "source_url": "https://github.com/Madjakul/HALph",
     "source_icon": "github",
 }
-html_short_title = "HALph"
+html_short_title = "HALvesting Geometric"
 # html_theme_options = {"collapse_navigation": False}
 # html_static_path = ["_static"]
 

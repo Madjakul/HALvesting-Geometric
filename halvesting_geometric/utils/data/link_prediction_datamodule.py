@@ -1,6 +1,5 @@
 # halves_geometric/utils/data/link_prediction_datamodule.py
 
-import logging
 from typing import List
 
 import lightning as L
@@ -8,11 +7,95 @@ import torch_geometric.transforms as T
 from filelock import FileLock
 from torch_geometric.loader import LinkNeighborLoader
 
-from halvesting_geometric.utils.data.link_prediction_dataset import \
-    LinkPredictionDataset
+from halvesting_geometric.utils.data.link_prediction_dataset import (
+    LinkPredictionDataset,
+)
 
 
 class LinkPredictionDataModule(L.LightningDataModule):
+    """DataModule for link prediction tasks. The dataset is split into train,
+    validation, and test sets.
+
+    Parameters
+    ----------
+    data_dir : str
+        Path to the directory where the dataset is stored.
+    batch_size : int
+        Number of samples in a batch.
+    num_neighbors : List[int]
+        Number of neighbors to sample for each layer.
+    lang : str
+        Language of the dataset.
+    neg_sampling_ratio : float
+        Ratio of negative samples to positive samples.
+    num_proc : int
+        Number of processes to use for data loading.
+    num_val : float
+        Ratio of validation samples.
+    num_test : float
+        Ratio of test samples.
+    add_negative_train_samples : bool
+        Whether to add negative samples to the training set.
+    shuffle_train : bool
+        Whether to shuffle the training set.
+    shuffle_val : bool
+        Whether to shuffle the validation set.
+    persistent_workers : bool
+        Whether to keep the workers alive between epochs.
+    
+    Attributes
+    ----------
+    data_dir : str
+        Path to the directory where the dataset is stored.
+    batch_size : int
+        Number of samples in a batch.
+    num_neighbors : List[int]
+        Number of neighbors to sample for each layer.
+    lang : str
+        Language of the dataset.
+    num_proc : int
+        Number of processes to use for data loading.
+    neg_sampling_ratio : float
+        Ratio of negative samples to positive samples.
+    shuffle_train : bool
+        Whether to shuffle the training set.
+    shuffle_val : bool
+        Whether to shuffle the validation set.
+    persistent_workers : bool
+        Whether to keep the workers alive between epochs.
+    transform : torch_geometric.transforms.Compose
+        Data transformation pipeline.
+    data : torch_geometric.data.Data
+        The dataset.
+    train_data : torch_geometric.data.Data
+        The training set.
+    val_data : torch_geometric.data.Data
+        The validation set.
+    test_data : torch_geometric.data.Data
+        The test set.
+    
+    Examples
+    --------
+    >>> from halvesting_geometric.utils.data.link_prediction_datamodule import \
+    ...     LinkPredictionDataModule
+    >>> datamodule = LinkPredictionDataModule(
+    ...     data_dir="data",
+    ...     batch_size=64,
+    ...     num_neighbors=[10, 10],
+    ...     lang="en",
+    ...     neg_sampling_ratio=1,
+    ...     num_proc=4,
+    ...     num_val=0.1,
+    ...     num_test=0.1,
+    ...     add_negative_train_samples=True,
+    ...     shuffle_train=True,
+    ...     shuffle_val=True,
+    ...     persistent_workers=True,
+    ... )
+    >>> datamodule.prepare_data()
+    >>> datamodule.setup()
+    """
+
     def __init__(
         self,
         data_dir: str,
